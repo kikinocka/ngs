@@ -1,0 +1,18 @@
+MultiLoc2 Prediction Result
+
+predictor = MultiLoc2-LowRes
+origin = plant
+
+GDJR01048521.1|m.114630	cytoplasmic: 0.56	nuclear: 0.31	chloroplast: 0.09	mitochondrial: 0.03	secretory pathway: 0.0
+c38899_g1_i1_-_ORF_3_(frame_2)_translation	chloroplast: 0.87	mitochondrial: 0.12	cytoplasmic: 0.0	nuclear: 0.0	secretory pathway: 0.0
+Contig20871_1-2	chloroplast: 0.87	mitochondrial: 0.09	cytoplasmic: 0.03	nuclear: 0.01	secretory pathway: 0.01
+Contig54352_1-3	cytoplasmic: 0.76	secretory pathway: 0.09	chloroplast: 0.06	nuclear: 0.05	mitochondrial: 0.04
+Contig1764_1-2	chloroplast: 0.87	mitochondrial: 0.09	cytoplasmic: 0.04	secretory pathway: 0.0	nuclear: 0.0
+Contig42419-reversed_1-1	cytoplasmic: 0.65	secretory pathway: 0.21	nuclear: 0.07	chloroplast: 0.05	mitochondrial: 0.01
+GDJR01039534.1|m.86978	chloroplast: 0.87	mitochondrial: 0.12	cytoplasmic: 0.0	nuclear: 0.0	secretory pathway: 0.0
+GDJR01039535.1|m.86983	chloroplast: 0.87	mitochondrial: 0.12	cytoplasmic: 0.0	nuclear: 0.0	secretory pathway: 0.0
+c41521_g2_i1_-_ORF_1_(frame_1)_translation	cytoplasmic: 0.51	nuclear: 0.38	chloroplast: 0.07	mitochondrial: 0.02	secretory pathway: 0.01
+Contig14164-reversed_1-3	cytoplasmic: 0.51	chloroplast: 0.37	mitochondrial: 0.08	nuclear: 0.03	secretory pathway: 0.01
+GEFR01010566.1|m.57702	chloroplast: 0.87	mitochondrial: 0.12	cytoplasmic: 0.0	nuclear: 0.0	secretory pathway: 0.0
+Contig1765_1-2	chloroplast: 0.87	mitochondrial: 0.08	cytoplasmic: 0.04	secretory pathway: 0.0	nuclear: 0.0
+Contig53880_1-3	secretory pathway: 0.52	cytoplasmic: 0.33	chloroplast: 0.07	nuclear: 0.06	mitochondrial: 0.01

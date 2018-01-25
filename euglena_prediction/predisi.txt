@@ -1,0 +1,38 @@
+FASTA-ID	Score	Cleavage Position	Signal Peptide ?	Chart
+c38899_g1_i1_-_ORF_3_(frame_2)_translation 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.8103	45	Y	Details
+c40556_g1_i1_-_ORF_1_(frame_3)_translation partial 2.5.1.10_FDPS; farnesyl diphosphate synthase	0.0000	35	N	Details
+c41521_g2_i1_-_ORF_1_(frame_1)_translation full 2.5.1.29_GPPS; geranylgeranyl diphosphate synthase	0.5535	24	Y	Details
+Contig3404_1-3 full 2.5.1.29_GPPS; geranylgeranyl diphosphate synthase	0.3659	25	N	Details
+Contig42419-reversed_1-1 full 2.5.1.29_GPPS; geranylgeranyl diphosphate synthase	0.4862	31	N	Details
+Contig58385_(reversed)_-__translation full 2.5.1.10_FDPS; farnesyl diphosphate synthase	0.0000	39	N	Details
+Contig63580_1-3 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.1303	16	N	Details
+GDJR01037452.1|m.80904 full 2.5.1.10_FDPS; farnesyl diphosphate synthase	0.0000	39	N	Details
+GDJR01039534.1|m.86978 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.8103	45	Y	Details
+GDJR01039535.1|m.86983 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.8103	45	Y	Details
+GDJR01039537.1|m.86989 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.4792	33	N	Details
+GDJR01039540.1|m.87006 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.4792	33	N	Details
+GDJR01048521.1|m.114630 full 2.5.1.29_GPPS; geranylgeranyl diphosphate synthase	0.5535	24	Y	Details
+GDJR01065421.1|m.170755 no SL GPPS	0.1255	60	N	Details
+GDJR01065422.1|m.170759 partial GPPS	0.1207	17	N	Details
+GDJR01065423.1|m.170762 partial GPPS	0.1255	51	N	Details
+GDJR01065426.1|m.170769 partial GPPS	0.3677	16	N	Details
+GEFR01002347.1|m.18534 partial 2.5.1.29_GPPS; geranylgeranyl diphosphate synthase	0.0000	42	N	Details
+GEFR01010566.1|m.57702 2.5.1.29_GPPS; plant geranylgeranyl diphosphate synthase	0.8103	45	Y	Details
+GEFR01011276.1|m.60436 full 2.5.1.10_FDPS; farnesyl diphosphate synthase	0.0000	39	N	Details
+GEFR01013208.1_(reversed)_-_partial_translation 4 aa missing 2.5.1.29; GDJR01039537.1 closest hit with SL	0.4700	29	N	Details
+GEFR01013293.1|m.67635 no SL 2.5.1.29_GPPS; geranylgeranyl diphosphate synthase	0.1255	60	N	Details
+Contig44885_2-1 1.6.5.2_NQO1; NAD(P)H dehydrogenase (quinone)	0.1590	34	N	Details
+Contig54352_1-3 1.6.5.2_NQO1; NAD(P)H dehydrogenase (quinone)	0.3479	31	N	Details
+Contig22366-reversed_1-3 4.1.1.90_GGCX; vitamin K-dependent gamma-carboxylase	0.3630	50	N	Details
+Contig53880_1-3 1.17.4.4_VKORC1; vitamin-K-epoxide reductase (warfarin-sensitive)	0.4865	20	N	Details
+Contig40668_1-3 1.13.11.27_HPD, hppD; 4-hydroxyphenylpyruvate dioxygenase	0.4493	21	N	Details
+Contig20871_1-2 2.5.1.116_HPT, HGGT, ubiA; homogentisate phytyltransferase / homogentisate geranylgeranyltransferase	0.7993	45	Y	Details
+Contig1764_1-2 2.1.1.295_VTE3, APG1; MPBQ/MSBQ methyltransferase	0.7654	54	Y	Details
+Contig1765_1-2 2.1.1.295_VTE3, APG1; MPBQ/MSBQ methyltransferase	0.7654	54	Y	Details
+Contig14164-reversed_1-3 2.1.1.95_E2.1.1.95; tocopherol O-methyltransferase	0.7782	55	Y	Details
+Contig3474-reversed_1-1 front desat	0.0000	30	N	Details
+Contig9942_1-2 front desat	0.2912	27	N	Details
+Contig41579-reversed_1-1 front desat	0.1901	47	N	Details
+Contig4673_1-3 omega desat	0.0000	47	N	Details
+Contig26677_1-1 delta-9 desat	0.4596	64	N	Details
+elMenDHC - ORF 2 (frame 3) translation	0.3193	22	N	Details

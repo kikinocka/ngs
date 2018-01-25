@@ -1,0 +1,7 @@
+MultiLoc2 Prediction Result
+
+predictor = MultiLoc2-LowRes
+origin = animal
+
+Contig42419-reversed_1-1	cytoplasmic: 0.55	secretory pathway: 0.2	nuclear: 0.16	mitochondrial: 0.09
+Contig53880_1-3	secretory pathway: 0.99	nuclear: 0.0	cytoplasmic: 0.0	mitochondrial: 0.0

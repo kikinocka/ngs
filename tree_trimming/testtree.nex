@@ -1,0 +1,263 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=161;
+	taxlabels
+	'actiCORYd_WP_003850833.1'
+	'actiSTREc_WP_003975715.1'
+	'alfaAZOSs_WP_042701527.1'
+	'alfaMAGNm_WP_011384228.1'
+	'alfaNITRh_WP_011510240.1'
+	'alfaRHODs_WP_011907973.1'
+	'amoACANc_XP_004337411.1'
+	amoENTAh_EHI_130700
+	'amoPAULc_YP_002049013.1'
+	'apiCHROv_Cvel_9376.t1'
+	'apiTHEIe_XP_004831211.1'
+	'bcidBACTf_YP_098472.1'
+	'bcidPREVr_WP_013063709.1'
+	chlaBIGna_CAMPEP_0169544930
+	chlaBIGna_CAMPEP_0169550970
+	chlaBIGna_CAMPEP_0169558138
+	chlaLOTam_CAMPEP_0118604984
+	chlaLOTgl_CAMPEP_0114076508
+	chlaLOToc_CAMPEP_0170174814
+	chlaLOToc_CAMPEP_0170179998
+	chryCHATs_CAMPEP_0187150940
+	chryCHATs_CAMPEP_0187155422
+	chryCHATs_CAMPEP_0187159164
+	chryCHATs_CAMPEP_0187163044
+	chryCHATs_CAMPEP_0187176066
+	chryDINOB_CAMPEP_0187277788
+	chryDINOB_CAMPEP_0187297002
+	chryHETak_CAMPEP_0188611372
+	chryHETak_CAMPEP_0188622490
+	chryHETak_CAMPEP_0188622550
+	chryHETak_CAMPEP_0188632890
+	chryOCHRO_CAMPEP_0190274542
+	chryOCHRO_CAMPEP_0190296504
+	chryPTERd_CAMPEP_0193832220
+	chryVAUCH_CAMPEP_0199151686
+	chryVAUCH_CAMPEP_0199153496
+	cilEUPfo_CAMPEP_0187815448
+	cilPLATm_CAMPEP_0176448922
+	'cilTETRt_XP_001014643.1'
+	cilTIARf_CAMPEP_0117036660
+	crypGUIth_CAMPEP_0113788928
+	crypGUIth_CAMPEP_0113788954
+	'cyanPROCm_NP_874629.1'
+	'cyanSYNEs_WP_006454144.1'
+	dinCRYPc_CAMPEP_0193868776
+	dinCRYPc_CAMPEP_0193936928[&!color=#ff8000]
+	dinDURIb_CAMPEP_0199946390
+	dinDURIb_CAMPEP_0200062762
+	dinDURIb_CAMPEP_0200075262
+	dinDURIb_CAMPEP_0200080304
+	dinDYNac_CAMPEP_0179233454
+	dinGLENf_CAMPEP_0188318618
+	dinKARb_CAMPEP_0189010126
+	dinKARb_CAMPEP_0189014958
+	dinKARb_CAMPEP_0189022972
+	dinKARb_CAMPEP_0189059094
+	dinKARb_CAMPEP_0189061648
+	dinKARb_CAMPEP_0189084834[&!color=#ff00ff]
+	dinKARb_CAMPEP_0189169258_C
+	dinKARb_CAMPEP_0189169258_N
+	dinKARb_CAMPEP_0189169352
+	dinLINGp_CAMPEP_0190133870[&!color=#800080]
+	eno_aful_NP_069961
+	eno_afum_Afu6g06770
+	eno_atha_NP_180516
+	eno_bant_YP_022023
+	eno_bmal_YP_103309
+	'eno_calb_calb_sc5314__orf19.39'
+	eno_cele_WBGene00011884
+	eno_cper_YP_695948
+	eno_ddis_enoA
+	eno_ddis_enoB
+	eno_dhan_XP_458559
+	eno_dhan_XP_462151
+	eno_dmel_FBpp0077573
+	eno_ecol_AP_003345
+	eno_egos_ENO
+	eno_ftul_YP_169724
+	eno_gsul_NP_953335
+	eno_halo_NP_280046
+	eno_hwal_YP_658639
+	eno_klac_XP_451402
+	eno_mjan_NP_247203
+	eno_mlep_YP_002502941
+	eno_mmar_NP_987516
+	eno_msed_YP_001191747
+	eno_mtub_NP_215539
+	eno_ncra_NCU10042T0
+	eno_rsol_NP_519250
+	eno_sman_Smp_024110
+	eno_spom_NP_001018769
+	eno_spom_NP_595903
+	eno_ssol_NP_342405
+	eno_syne_NP_898437
+	eno_tgon_TGME49_068850
+	eno_tgon_TGME49_068860
+	eno_tvol_NP_111500
+	eno_ylip_XP_505509
+	eno_ypes_YP_002348268
+	'firmLISTm_WP_003726579.1'
+	'firmSTAPa_WP_001121760.1'
+	'gamaVIBRc_WP_000036736.1'
+	glauCYPTg_CAMPEP_0196652438
+	glauGLOwi_CAMPEP_0184337684
+	glauGLOwi_CAMPEP_0184350574
+	glauGLOwi_CAMPEP_0184353012
+	grnBATHp_Bathy01g01440
+	'grnCHLAr_XP_001702971.1'
+	'grnMICRp_XP_003056091.1'
+	grnPOLYp_CAMPEP_0175039022
+	'grnVOLVc_XP_002948092.1'
+	'haptEMILh_XP_005758565.1'[&!color=#0000ff]
+	haptPLEUc_CAMPEP_0190792716
+	haptPLEUc_CAMPEP_0190795980[&!color=#00ff00]
+	haptPRYMp_CAMPEP_0191201824
+	haptPRYMp_CAMPEP_0191207920
+	haptPRYMp_CAMPEP_0191215446[&!color=#996633]
+	'kytARABt_NP_177543.1'
+	'kytARABt_NP_181192.1'
+	'kytORYZs_NP_001049556.1'
+	'kytORYZs_NP_001056727.1'
+	'kytORYZs_NP_001064223.1'
+	'kytPHYSp_XP_001751336.1'
+	'kytPHYSp_XP_001751337.1'
+	'kytPHYSp_XP_001759508.1'
+	'kytPHYSp_XP_001765483.1'
+	'kytPHYSp_XP_001766220.1'
+	'kytSELAm_XP_002965441.1'
+	'kytSELAm_XP_002971882.1'
+	'kytSELAm_XP_002984551.1'
+	oomPHYra_Phyra1_1_72151_fgenes
+	oomPHYra_Phyra1_1_72298_fgenes
+	'perkPmari_XP_002771110.1'
+	'redCHONc_XP_005714699.1'
+	'redCHONc_XP_005716244.1'
+	redERYTm_CAMPEP_0185845232
+	redMADAe_CAMPEP_0198320728
+	redRHSOm_CAMPEP_0184752340
+	redTIMSo_CAMPEP_0182441248
+	'rhiPLASb_emb_CEP03905.1'
+	strAPLAs_CAMPEP_0200745862
+	strAPLAs_CAMPEP_0200751934
+	strAURAl_CAMPEP_0186636272
+	'strAUREa_XP_009032621.1'[&!color=#00ffff]
+	'strAUREa_XP_009035814.1'
+	'strAUREa_XP_009040827.1'
+	strCAFca_CAMPEP_0196780170
+	strCAFro_CAMPEP_0117718138
+	strECTsi_ES0100G00460
+	strECTsi_ES0349G00170
+	'strNANNO_Nagga_100009g67.1'
+	'strNANNO_Nagga_100022g39.1'
+	strPHAtr_Phatr2a_56468_C
+	strPHAtr_Phatr2a_56468_N
+	strPHAtr_Phatr2u_1192
+	strPHAtr_Phatr2u_1572
+	strSKEma_CAMPEP_0115914938[&!color=#ffff00]
+	strSKEma_CAMPEP_0115917532
+	strTHAps_Thaps3a_40391
+	strTHAps_Thaps3a_40771[&!color=#ff0000]
+	strTHRAs_CAMPEP_0193122230
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] ((((((((((((((((('haptEMILh_XP_005758565.1'[&!color=#000000]:0.08195,haptPRYMp_CAMPEP_0191215446[&!color=#000000]:0.04572)[&ufboot=95,!color=#000000]:0.02429,haptPLEUc_CAMPEP_0190795980[&!color=#000000]:0.08821)[&ufboot=100,!color=#000000]:0.15671,'strAUREa_XP_009032621.1'[&!color=#000000]:0.24589)[&ufboot=70,!color=#000000]:0.0306,(((((dinKARb_CAMPEP_0189084834[&!color=#000000]:0.03418,dinKARb_CAMPEP_0189014958[&!color=#000000]:0.04589)[&ufboot=100,!color=#000000]:0.07701,(dinKARb_CAMPEP_0189169352[&!color=#000000]:0.01518,dinKARb_CAMPEP_0189022972[&!color=#000000]:0.01632)[&ufboot=100,!color=#000000]:0.05871)[&ufboot=88,!color=#000000]:0.02156,((((dinKARb_CAMPEP_0189169258_N[&!color=#000000]:0.013,dinKARb_CAMPEP_0189061648[&!color=#000000]:0.00905)[&ufboot=100,!color=#000000]:0.08535,(dinKARb_CAMPEP_0189010126[&!color=#000000]:0.01798,dinKARb_CAMPEP_0189169258_C[&!color=#000000]:0.01365)[&ufboot=100,!color=#000000]:0.10245)[&ufboot=100,!color=#000000]:0.07178,dinKARb_CAMPEP_0189059094[&!color=#000000]:0.14619)[&ufboot=97,!color=#000000]:0.05686,(dinCRYPc_CAMPEP_0193868776[&!color=#000000]:0.0515,dinCRYPc_CAMPEP_0193936928[&!color=#000000]:0.03419)[&ufboot=100,!color=#000000]:0.05237)[&ufboot=67,!color=#000000]:0.01717)[&ufboot=98,!color=#000000]:0.04079,dinLINGp_CAMPEP_0190133870[&!color=#000000]:0.07105)[&ufboot=100,!color=#000000]:0.10602,'strAUREa_XP_009035814.1'[&!color=#000000]:0.15565)[&ufboot=97,!color=#000000]:0.04697)[&ufboot=98,!color=#000000]:0.04315,(((strTHAps_Thaps3a_40771[&!color=#000000]:0.02795,strSKEma_CAMPEP_0115914938[&!color=#000000]:0.03342)[&ufboot=100,!color=#000000]:0.07095,((dinDURIb_CAMPEP_0200080304[&!color=#000000]:0.0212,dinGLENf_CAMPEP_0188318618[&!color=#000000]:0.02016)[&ufboot=100,!color=#000000]:0.02787,(strPHAtr_Phatr2a_56468_N[&!color=#000000]:0.0,strPHAtr_Phatr2a_56468_C[&!color=#000000]:0.0)[&ufboot=100,!color=#000000]:0.09394)[&ufboot=99,!color=#000000]:0.02202)[&ufboot=100,!color=#000000]:0.08912,(((strTHRAs_CAMPEP_0193122230[&!color=#000000]:0.15585,strAURAl_CAMPEP_0186636272[&!color=#000000]:0.2171)[&ufboot=100,!color=#000000]:0.0373,strAPLAs_CAMPEP_0200751934[&!color=#000000]:0.20501)[&ufboot=96,!color=#000000]:0.05889,((((dinDURIb_CAMPEP_0200075262[&!color=#000000]:0.04489,(strTHAps_Thaps3a_40391[&!color=#000000]:0.00557,strSKEma_CAMPEP_0115917532[&!color=#000000]:0.03369)[&ufboot=100,!color=#000000]:0.08888)[&ufboot=81,!color=#000000]:0.02131,(strPHAtr_Phatr2u_1192[&!color=#000000]:0.04559,strPHAtr_Phatr2u_1572[&!color=#000000]:0.00106)[&ufboot=100,!color=#000000]:0.05504)[&ufboot=100,!color=#000000]:0.09158,chryPTERd_CAMPEP_0193832220[&!color=#000000]:0.14842)[&ufboot=80,!color=#000000]:0.03189,'strAUREa_XP_009040827.1'[&!color=#000000]:0.1881)[&ufboot=100,!color=#000000]:0.069)[&ufboot=80,!color=#000000]:0.03131)[&ufboot=65,!color=#000000]:0.04583)[&ufboot=100,!color=#000000]:0.10499,(((((((((chryCHATs_CAMPEP_0187159164:0.03933,chryHETak_CAMPEP_0188622550:0.06551)[&ufboot=100]:0.10784,(strECTsi_ES0100G00460:0.19274,chryVAUCH_CAMPEP_0199151686:0.09391)[&ufboot=82]:0.02903)[&ufboot=79]:0.01785,(chryDINOB_CAMPEP_0187297002:0.08345,(dinDURIb_CAMPEP_0199946390:0.14133,chryOCHRO_CAMPEP_0190296504:0.08123)[&ufboot=65]:0.01597)[&ufboot=100]:0.11539)[&ufboot=89]:0.0409,chryVAUCH_CAMPEP_0199153496:0.21691)[&ufboot=84]:0.01081,'strNANNO_Nagga_100022g39.1':0.13428)[&ufboot=94]:0.03088,(((chryCHATs_CAMPEP_0187176066:0.0404,chryHETak_CAMPEP_0188632890:0.05257)[&ufboot=100]:0.04807,chryCHATs_CAMPEP_0187150940:0.08341)[&ufboot=100]:0.05883,(chryCHATs_CAMPEP_0187155422:0.01987,chryHETak_CAMPEP_0188622490:0.03099)[&ufboot=100]:0.06838)[&ufboot=100]:0.03999)[&ufboot=86]:0.02596,(chryHETak_CAMPEP_0188611372:0.03585,chryCHATs_CAMPEP_0187163044:0.03402)[&ufboot=100]:0.08931)[&ufboot=77]:0.01302,((((dinDURIb_CAMPEP_0200062762:0.0996,chryDINOB_CAMPEP_0187277788:0.11098)[&ufboot=98]:0.04553,chryOCHRO_CAMPEP_0190274542:0.03773)[&ufboot=100]:0.08749,strECTsi_ES0349G00170:0.16616)[&ufboot=91]:0.04705,'strNANNO_Nagga_100009g67.1':0.12372)[&ufboot=91]:0.04018)[&ufboot=80]:0.02735,(oomPHYra_Phyra1_1_72151_fgenes:0.15732,strCAFro_CAMPEP_0117718138:0.35403)[&ufboot=82]:0.03884)[&ufboot=75]:0.02078)[&ufboot=100]:0.05716,(crypGUIth_CAMPEP_0113788928:0.15917,crypGUIth_CAMPEP_0113788954:0.10915)[&ufboot=100]:0.07998)[&ufboot=97]:0.01855,((cilPLATm_CAMPEP_0176448922:0.19212,'cilTETRt_XP_001014643.1':0.17938)[&ufboot=99]:0.06742,cilEUPfo_CAMPEP_0187815448:0.31501)[&ufboot=96]:0.04988)[&ufboot=76]:0.0199,(((((glauGLOwi_CAMPEP_0184337684:0.12371,cilTIARf_CAMPEP_0117036660:0.17746)[&ufboot=100]:0.08678,(glauGLOwi_CAMPEP_0184353012:0.23767,((('kytSELAm_XP_002971882.1':0.05167,('kytPHYSp_XP_001765483.1':0.04205,'kytPHYSp_XP_001766220.1':0.06536)[&ufboot=100]:0.04338)[&ufboot=99]:0.03132,'kytARABt_NP_177543.1':0.07473)[&ufboot=100]:0.16891,eno_ddis_enoA:0.15685)[&ufboot=77]:0.01858)[&ufboot=71]:0.01728)[&ufboot=47]:0.01214,((glauGLOwi_CAMPEP_0184350574:0.11913,glauCYPTg_CAMPEP_0196652438:0.09347)[&ufboot=100]:0.0874,'amoACANc_XP_004337411.1':0.14054)[&ufboot=42]:0.02116)[&ufboot=69]:0.02024,((((eno_ylip_XP_505509:0.17864,((((eno_dhan_XP_462151:0.07571,'eno_calb_calb_sc5314__orf19.39':0.08855)[&ufboot=96]:0.0376,eno_dhan_XP_458559:0.20382)[&ufboot=87]:0.02511,(eno_egos_ENO:0.04585,eno_klac_XP_451402:0.05587)[&ufboot=100]:0.07957)[&ufboot=89]:0.04078,(eno_afum_Afu6g06770:0.06048,eno_ncra_NCU10042T0:0.04072)[&ufboot=100]:0.09528)[&ufboot=67]:0.02259)[&ufboot=100]:0.09426,(eno_spom_NP_001018769:0.37603,eno_spom_NP_595903:0.12637)[&ufboot=100]:0.1018)[&ufboot=100]:0.12702,(eno_sman_Smp_024110:0.20581,(eno_cele_WBGene00011884:0.17245,eno_dmel_FBpp0077573:0.1746)[&ufboot=100]:0.02803)[&ufboot=93]:0.02861)[&ufboot=91]:0.01681,'redCHONc_XP_005714699.1':0.30179)[&ufboot=91]:0.01949)[&ufboot=86]:0.0378,(((((((((chlaLOTgl_CAMPEP_0114076508:0.00761,chlaLOToc_CAMPEP_0170179998:0.00328)[&ufboot=100]:0.07839,chlaLOTam_CAMPEP_0118604984:0.10117)[&ufboot=96]:0.03756,chlaBIGna_CAMPEP_0169544930:0.07045)[&ufboot=100]:0.15454,'rhiPLASb_emb_CEP03905.1':0.19497)[&ufboot=97]:0.04313,(((chlaLOToc_CAMPEP_0170174814:0.09251,chlaBIGna_CAMPEP_0169558138:0.1261)[&ufboot=100]:0.05783,(strAPLAs_CAMPEP_0200745862:0.15537,oomPHYra_Phyra1_1_72298_fgenes:0.11203)[&ufboot=100]:0.11092)[&ufboot=99]:0.02597,chlaBIGna_CAMPEP_0169550970:0.20081)[&ufboot=96]:0.0299)[&ufboot=96]:0.02765,(((('kytORYZs_NP_001056727.1':0.07001,'kytORYZs_NP_001049556.1':0.01761)[&ufboot=78]:0.01044,'kytORYZs_NP_001064223.1':0.02943)[&ufboot=100]:0.03781,'kytARABt_NP_181192.1':0.04595)[&ufboot=86]:0.02599,(('kytSELAm_XP_002965441.1':0.0026,'kytSELAm_XP_002984551.1':0.0)[&ufboot=100]:0.05284,('kytPHYSp_XP_001751336.1':0.01317,'kytPHYSp_XP_001751337.1':0.00817)[&ufboot=100]:0.09584)[&ufboot=100]:0.02975)[&ufboot=100]:0.06367)[&ufboot=70]:0.01929,strCAFca_CAMPEP_0196780170:0.13673)[&ufboot=95]:0.02538,((((('grnVOLVc_XP_002948092.1':0.02599,'grnCHLAr_XP_001702971.1':0.03748)[&ufboot=99]:0.04167,grnPOLYp_CAMPEP_0175039022:0.11105)[&ufboot=100]:0.09505,('grnMICRp_XP_003056091.1':0.0796,grnBATHp_Bathy01g01440:0.13789)[&ufboot=100]:0.0437)[&ufboot=98]:0.02115,('kytPHYSp_XP_001759508.1':0.14901,eno_atha_NP_180516:0.47718)[&ufboot=98]:0.04345)[&ufboot=100]:0.06247,((haptPRYMp_CAMPEP_0191207920:0.11267,haptPLEUc_CAMPEP_0190792716:0.05405)[&ufboot=98]:0.06051,(haptPRYMp_CAMPEP_0191201824:0.07942,dinDYNac_CAMPEP_0179233454:0.08191)[&ufboot=100]:0.06389)[&ufboot=100]:0.04738)[&ufboot=97]:0.0226)[&ufboot=98]:0.05099,((redMADAe_CAMPEP_0198320728:0.05933,(redRHSOm_CAMPEP_0184752340:0.17781,(redTIMSo_CAMPEP_0182441248:0.06977,redERYTm_CAMPEP_0185845232:0.07033)[&ufboot=100]:0.06054)[&ufboot=91]:0.02843)[&ufboot=92]:0.04136,'redCHONc_XP_005716244.1':0.1155)[&ufboot=100]:0.13334)[&ufboot=62]:0.02368)[&ufboot=90]:0.02188)[&ufboot=93]:0.01175,((eno_tgon_TGME49_068850:0.08269,eno_tgon_TGME49_068860:0.25973)[&ufboot=100]:0.14716,'apiCHROv_Cvel_9376.t1':0.1205)[&ufboot=95]:0.05119)[&ufboot=89]:0.02588,'perkPmari_XP_002771110.1':0.19736)[&ufboot=95]:0.02171,'apiTHEIe_XP_004831211.1':0.22908)[&ufboot=100]:0.07284,eno_ddis_enoB:0.49325)[&ufboot=75]:0.01302,amoENTAh_EHI_130700:0.33844)[&ufboot=100]:0.22788,(eno_mjan_NP_247203:0.15825,eno_mmar_NP_987516:0.22295)[&ufboot=100]:0.1996)[&ufboot=67]:0.07989,(('actiSTREc_WP_003975715.1':0.20897,((eno_mlep_YP_002502941:0.05436,eno_mtub_NP_215539:0.03999)[&ufboot=100]:0.21477,'actiCORYd_WP_003850833.1':0.12558)[&ufboot=53]:0.085)[&ufboot=99]:0.08096,((((eno_syne_NP_898437:0.09127,'amoPAULc_YP_002049013.1':0.1739)[&ufboot=77]:0.05119,'cyanPROCm_NP_874629.1':0.11777)[&ufboot=100]:0.16912,'cyanSYNEs_WP_006454144.1':0.28768)[&ufboot=97]:0.06966,((('alfaAZOSs_WP_042701527.1':0.12507,('alfaMAGNm_WP_011384228.1':0.1154,'alfaNITRh_WP_011510240.1':0.26089)[&ufboot=94]:0.04737)[&ufboot=94]:0.05238,'alfaRHODs_WP_011907973.1':0.20285)[&ufboot=100]:0.12222,((eno_cper_YP_695948:0.2183,eno_ftul_YP_169724:0.36262)[&ufboot=96]:0.09346,(((eno_bmal_YP_103309:0.06214,eno_rsol_NP_519250:0.03619)[&ufboot=100]:0.18217,((eno_ecol_AP_003345:0.0237,eno_ypes_YP_002348268:0.03158)[&ufboot=81]:0.03381,'gamaVIBRc_WP_000036736.1':0.04535)[&ufboot=100]:0.28801)[&ufboot=100]:0.07644,(eno_gsul_NP_953335:0.15977,('firmLISTm_WP_003726579.1':0.14674,(eno_bant_YP_022023:0.10305,('firmSTAPa_WP_001121760.1':0.09463,('bcidPREVr_WP_013063709.1':0.20227,'bcidBACTf_YP_098472.1':0.09197)[&ufboot=100]:0.19984)[&ufboot=90]:0.09856)[&ufboot=90]:0.04825)[&ufboot=91]:0.07968)[&ufboot=65]:0.03)[&ufboot=61]:0.02662)[&ufboot=74]:0.0364)[&ufboot=97]:0.08639)[&ufboot=100]:0.07627)[&ufboot=92]:0.08666):0.14815,((eno_ssol_NP_342405:0.39178,eno_msed_YP_001191747:0.22921)[&ufboot=100]:0.65781,((eno_tvol_NP_111500:0.84284,eno_aful_NP_069961:0.35739)[&ufboot=99]:0.18314,(eno_halo_NP_280046:0.27293,eno_hwal_YP_658639:0.18653)[&ufboot=100]:0.31173)[&ufboot=100]:0.54946):0.0078)[&ufboot=87];
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#ffffff;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchColorGradient=false;
+	set appearance.branchLineWidth=1.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#000000;
+	set appearance.hilightingGradient=false;
+	set appearance.selectionColour=#2d3680;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=366;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute="ufboot";
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="Node ages";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=8;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=false;
+	set nodeLabels.significantDigits=4;
+	set nodeShapeExternal.colourAttribute="User selection";
+	set nodeShapeExternal.isShown=false;
+	set nodeShapeExternal.minSize=10.0;
+	set nodeShapeExternal.scaleType=Width;
+	set nodeShapeExternal.shapeType=Circle;
+	set nodeShapeExternal.size=4.0;
+	set nodeShapeExternal.sizeAttribute="Fixed";
+	set nodeShapeInternal.colourAttribute="User selection";
+	set nodeShapeInternal.isShown=false;
+	set nodeShapeInternal.minSize=10.0;
+	set nodeShapeInternal.scaleType=Width;
+	set nodeShapeInternal.shapeType=Circle;
+	set nodeShapeInternal.size=4.0;
+	set nodeShapeInternal.sizeAttribute="Fixed";
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.minorTicks=0.5;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="sansserif";
+	set tipLabels.fontSize=8;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=false;
+	set trees.orderType="increasing";
+	set trees.rooting=false;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

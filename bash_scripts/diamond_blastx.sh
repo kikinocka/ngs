@@ -1,0 +1,2 @@
+diamond blastx --query lhes1_PRJNA238835_trinity.fasta --db ../refseq/refseq_84.dmnd --taxonmap \
+../prot.accession2taxid.gz --outfmt 6 qseqid staxids bitscore --sensitive --max-target-seqs 1 -o lhes1.diamond_out

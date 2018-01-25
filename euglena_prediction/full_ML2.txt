@@ -1,0 +1,29 @@
+MultiLoc2 Prediction Result
+
+predictor = MultiLoc2-LowRes
+origin = animal
+
+GDJR01065426.1|m.170769	secretory pathway: 0.98	mitochondrial: 0.01	cytoplasmic: 0.0	nuclear: 0.0
+GEFR01002347.1|m.18534	cytoplasmic: 0.53	secretory pathway: 0.21	nuclear: 0.21	mitochondrial: 0.05
+Contig58385_(reversed)_-__translation	cytoplasmic: 0.73	nuclear: 0.26	mitochondrial: 0.01	secretory pathway: 0.01
+GDJR01065422.1|m.170759	cytoplasmic: 0.45	mitochondrial: 0.3	nuclear: 0.14	secretory pathway: 0.1
+GEFR01013208.1_(reversed)_-_partial_translation	secretory pathway: 0.35	cytoplasmic: 0.32	nuclear: 0.25	mitochondrial: 0.07
+Contig26677_1-1	mitochondrial: 0.69	cytoplasmic: 0.19	nuclear: 0.07	secretory pathway: 0.05
+GEFR01011276.1|m.60436	cytoplasmic: 0.74	nuclear: 0.25	mitochondrial: 0.01	secretory pathway: 0.01
+Contig3474-reversed_1-1	cytoplasmic: 0.64	nuclear: 0.19	secretory pathway: 0.12	mitochondrial: 0.05
+GDJR01039537.1|m.86989	cytoplasmic: 0.35	nuclear: 0.3	secretory pathway: 0.25	mitochondrial: 0.1
+GDJR01065423.1|m.170762	cytoplasmic: 0.55	nuclear: 0.18	secretory pathway: 0.16	mitochondrial: 0.11
+Contig4673_1-3	cytoplasmic: 0.51	secretory pathway: 0.33	nuclear: 0.11	mitochondrial: 0.05
+Contig63580_1-3	cytoplasmic: 0.36	nuclear: 0.28	secretory pathway: 0.25	mitochondrial: 0.11
+GDJR01065421.1|m.170755	cytoplasmic: 0.54	secretory pathway: 0.18	nuclear: 0.18	mitochondrial: 0.1
+GEFR01013293.1|m.67635	cytoplasmic: 0.48	nuclear: 0.21	secretory pathway: 0.15	mitochondrial: 0.15
+c40556_g1_i1_-_ORF_1_(frame_3)_translation	cytoplasmic: 0.74	nuclear: 0.25	mitochondrial: 0.01	secretory pathway: 0.01
+Contig3404_1-3	mitochondrial: 0.55	secretory pathway: 0.21	cytoplasmic: 0.16	nuclear: 0.08
+Contig22366-reversed_1-3	secretory pathway: 0.67	cytoplasmic: 0.21	nuclear: 0.07	mitochondrial: 0.05
+Contig41579-reversed_1-1	secretory pathway: 0.5	cytoplasmic: 0.31	nuclear: 0.12	mitochondrial: 0.07
+Contig40668_1-3	mitochondrial: 0.82	cytoplasmic: 0.12	secretory pathway: 0.05	nuclear: 0.02
+Contig9942_1-2	secretory pathway: 0.95	cytoplasmic: 0.03	mitochondrial: 0.01	nuclear: 0.01
+GDJR01039540.1|m.87006	cytoplasmic: 0.44	nuclear: 0.29	secretory pathway: 0.13	mitochondrial: 0.13
+Contig44885_2-1	secretory pathway: 0.43	cytoplasmic: 0.31	nuclear: 0.17	mitochondrial: 0.09
+elMenDHC	secretory pathway: 0.91	mitochondrial: 0.04	cytoplasmic: 0.03	nuclear: 0.02
+GDJR01037452.1|m.80904	cytoplasmic: 0.74	nuclear: 0.25	mitochondrial: 0.01	secretory pathway: 0.01
