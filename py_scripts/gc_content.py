@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/lhes2_PRJNA284294_trinity.fasta', 'fasta')
-outfile = open('//home/kika/MEGAsync/blasto_project/gc_content/lhes2.tsv', 'w')
+infile = SeqIO.parse('/home/kika/MEGAsync/diplonema_mt/1604/1604_DNA_scaffolds.fasta', 'fasta')
+outfile = open('/home/kika/MEGAsync/diplonema_mt/1604/1604_DNA_scaffolds_gc.tsv', 'w')
 
 outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('contig', 'contig length [# nt]', 'A [# nt]', 
 	'T [# nt]', 'C [# nt]', 'G [# nt]', 'ambiguous [# nt]', 'GC content [%]', 'AT content [%]'))
