@@ -6,30 +6,30 @@ Created on 31 august 2015
 
 @author: sam
 2017 02 07
-    - When modules are on '-' strand, report reverse-complement for SNPs
+	- When modules are on '-' strand, report reverse-complement for SNPs
 2016 11 09
-    - Switch "name" and "id" function. ID is the unique identifier of a feature whereas features with same name group together features belonging to the same gene
+	- Switch "name" and "id" function. ID is the unique identifier of a feature whereas features with same name group together features belonging to the same gene
  
 2016 11 02
-    - if a file with the same name already exists, create a backup with current date
+	- if a file with the same name already exists, create a backup with current date
 
 2015 11 20
-    - Start codons are translated in M even if it is not ATG
+	- Start codons are translated in M even if it is not ATG
 
 2015 10 30
-    - Handling rna sequences not ending with a stop codon
-    - Annotation of poly-A in gff
+	- Handling rna sequences not ending with a stop codon
+	- Annotation of poly-A in gff
 2015 09 17
-    - Exon are always on the + strand with regard to RNA
-    - rRNA were not exported in module files
+	- Exon are always on the + strand with regard to RNA
+	- rRNA were not exported in module files
 2015 09 15
-    - Adding parameter -T for max SNP frequency
-    - List of SNP retained in sequence are written in the gff file
-    - Add '-snp' to the name of output files when a VCF file is submitted
+	- Adding parameter -T for max SNP frequency
+	- List of SNP retained in sequence are written in the gff file
+	- Add '-snp' to the name of output files when a VCF file is submitted
 
 2015 10 15
-    - Bug in cassette export with SNP
-    - Add 'snp' to file casssette name when VCF file is used
+	- Bug in cassette export with SNP
+	- Add 'snp' to file casssette name when VCF file is used
  
 WARNING :
 	- Never tested with insertion and deletion in VCF
@@ -47,7 +47,7 @@ import numpy
 from collections import Counter
 
 # ARGUMENTS
-ARGS        = {}       # Command line arguments dictionary
+ARGS		= {}	   # Command line arguments dictionary
 
 ''' USAGE 
  EXPORT NON-EDITED MODULES, RNA and PROTEINS
@@ -57,7 +57,7 @@ ARGS        = {}       # Command line arguments dictionary
 >> extractMitoSeq.py -f Dp_mito_Cass.fasta -g Dp_mito_Cass.gff -v Dp_mito_SNP-RNA.vcf --module --rna --pep -o Dp_mito
 
 With custom frequency and quality threshold
->> extractMitoSeq.py -f Dp_mito_Cass.fasta -g Dp_mito_Cass.gff -v Dp_mito_SNP-RNA.vcf -snpfreq X.X -snpqual Q --module --rna --pep  -o Dp_mito    
+>> extractMitoSeq.py -f Dp_mito_Cass.fasta -g Dp_mito_Cass.gff -v Dp_mito_SNP-RNA.vcf -snpfreq X.X -snpqual Q --module --rna --pep  -o Dp_mito	
 
  EXPORT ONLY EDITED PROTEINS 
 >> extractMitoSeq.py -f Dp_mito_Cass.fasta -g Dp_mito_Cass.gff -v Dp_mito_SNP-RNA.vcf --pep -o Dp_mito
@@ -72,48 +72,48 @@ Modules should be listed in the correct RNA order (e.g. Da_atp6-m1, Da_atp6-m2, 
 Poly-u should always be listed AFTER the module which is polyuridilated even if it is on minus strand
 
 Example:
-Re_y5-m1        Geneious        chromosome      1       883     .       +       .       ID=Re_y5-m1_k;class=A1
-Re_y5-m1        Geneious        misc_feature    398     631     .       -       .       ID=Re_y5-m1_cass
-Re_y5-m2        Geneious        chromosome      1       778     .       +       .       ID=Re_y5-m2_k;class=A3
-Re_y5-m2        Geneious        misc_feature    315     484     .       +       .       ID=Re_y5-m2_cass
-Re_cob-m5_y5-m3      Geneious        misc_feature    235     540     .       -       .       ID=Re_cob-m5_Re_y5-m3_cass
-Re_cob-m5_y5-m3      Geneious        chromosome      1       783     .       +       .       ID=Re_cob-m5_Re_y5-m3_k;class=A3
+Re_y5-m1		Geneious		chromosome	  1	   883	 .	   +	   .	   ID=Re_y5-m1_k;class=A1
+Re_y5-m1		Geneious		misc_feature	398	 631	 .	   -	   .	   ID=Re_y5-m1_cass
+Re_y5-m2		Geneious		chromosome	  1	   778	 .	   +	   .	   ID=Re_y5-m2_k;class=A3
+Re_y5-m2		Geneious		misc_feature	315	 484	 .	   +	   .	   ID=Re_y5-m2_cass
+Re_cob-m5_y5-m3	  Geneious		misc_feature	235	 540	 .	   -	   .	   ID=Re_cob-m5_Re_y5-m3_cass
+Re_cob-m5_y5-m3	  Geneious		chromosome	  1	   783	 .	   +	   .	   ID=Re_cob-m5_Re_y5-m3_k;class=A3
 
-Re_y5-m1        Geneious        mRNA    436     629     .       -       .       Name=Re_y5;ID=Re_y5-m1
-Re_y5-m1        Geneious        poly-u  418     435     .       -       .       Name=Re_y5;ID=Re_y5-m1-pU18
-Re_y5-m2        Geneious        mRNA    351     459     .       +       .       Name=Re_y5;ID=Re_y5-m2
-Re_cob-m5_Re_y5-m3      Geneious        mRNA    471     526     .       +       .       Name=Re_y5;ID=Re_y5-m3
-Re_cob-m5_Re_y5-m3      Geneious        poly-u  527     528     .       +       .       Name=Re_y5;ID=Re_y5-m3-pU2
+Re_y5-m1		Geneious		mRNA	436	 629	 .	   -	   .	   Name=Re_y5;ID=Re_y5-m1
+Re_y5-m1		Geneious		poly-u  418	 435	 .	   -	   .	   Name=Re_y5;ID=Re_y5-m1-pU18
+Re_y5-m2		Geneious		mRNA	351	 459	 .	   +	   .	   Name=Re_y5;ID=Re_y5-m2
+Re_cob-m5_Re_y5-m3	  Geneious		mRNA	471	 526	 .	   +	   .	   Name=Re_y5;ID=Re_y5-m3
+Re_cob-m5_Re_y5-m3	  Geneious		poly-u  527	 528	 .	   +	   .	   Name=Re_y5;ID=Re_y5-m3-pU2
 '''
 
 def parseoptions( ):
-        """ Docstring 
-            .... """
+		""" Docstring 
+			.... """
 
-	print " ".join( sys.argv )
+	print " ".join(sys.argv)
 
-        parser = argparse.ArgumentParser( formatter_class=argparse.RawDescriptionHelpFormatter, description="Read a fasta and a gff file and export module, transripts and protein sequences. \nWhen a VCF file is provided, sequences are updated with SNPs above --snpfreq and --snpqual threshold. SNPs can be on RNA (editing) or on DNA.\nNOTE on GFF\nAll modules belonging to the SAME gene have THE SAME NAME, ex: Name=Da_atp6\nAll modules belonging to the SAME gene have UNIQUE ID, ex: ID=Da_atp6_m2 \nModules should be listed in the correct RNA order (e.g. Da_atp6_m1, Da_atp6_m2, .... )\nPoly-u should always be noted on the + strand even if module is on the '-' and AFTER the module" )
-        parser.add_argument( '-f',  '--fasta',   help="Chromosomes/Cassettes reference fasta",   required=True )
-        parser.add_argument( '-g',  '--gff',   help="gff file for reference including gene and rna",   required=True )
-        parser.add_argument( '-v',  '--vcf',   help="vcf file for SNP/RNA editing on reference.",   required=False )        
-        parser.add_argument( '-o',  '--output',  help="Prefix for output. Output name will be in format: PREFIX + _ + module|rna|pep + _ + DATE + .fasta",   required=False  )
-        
-        parser.add_argument( '--cassette', help="Export cassettes", action='store_true', default=False)
-        parser.add_argument( '--module', help="Export modules", action='store_true', default=False)
-        parser.add_argument( '--rna', help="Export RNA", action='store_true', default=False)
-        parser.add_argument( '--pep', help="Export proteins", action='store_true', default=False)
-        
-        #parser.add_argument( '-s',  '--snp',  default='RNA', help="Are SNPs on RNA (RNA editing, default) or DNA. For SNP on DNA, a new version of the chromosomes is provided. Values ['RNA' (default),'DNA']",   required=False )
-        parser.add_argument( '-t',  '--snpfreqmin',    default=0.5, type=float, help="SNP strictly above this frequency threshold will be incorporated.")
-        parser.add_argument( '-T',  '--snpfreqmax',    default=1.0, type=float, help="SNP strictly below this frequency threshold will be incorporated.")
-        parser.add_argument( '-q',  '--snpqual',    default=1000, type=int, help="SNP strictly above this quality will be incorporated.")
+		parser = argparse.ArgumentParser( formatter_class=argparse.RawDescriptionHelpFormatter, description="Read a fasta and a gff file and export module, transripts and protein sequences. \nWhen a VCF file is provided, sequences are updated with SNPs above --snpfreq and --snpqual threshold. SNPs can be on RNA (editing) or on DNA.\nNOTE on GFF\nAll modules belonging to the SAME gene have THE SAME NAME, ex: Name=Da_atp6\nAll modules belonging to the SAME gene have UNIQUE ID, ex: ID=Da_atp6_m2 \nModules should be listed in the correct RNA order (e.g. Da_atp6_m1, Da_atp6_m2, .... )\nPoly-u should always be noted on the + strand even if module is on the '-' and AFTER the module" )
+		parser.add_argument( '-f',  '--fasta',   help="Chromosomes/Cassettes reference fasta",   required=True )
+		parser.add_argument( '-g',  '--gff',   help="gff file for reference including gene and rna",   required=True )
+		parser.add_argument( '-v',  '--vcf',   help="vcf file for SNP/RNA editing on reference.",   required=False )		
+		parser.add_argument( '-o',  '--output',  help="Prefix for output. Output name will be in format: PREFIX + _ + module|rna|pep + _ + DATE + .fasta",   required=False  )
+		
+		parser.add_argument( '--cassette', help="Export cassettes", action='store_true', default=False)
+		parser.add_argument( '--module', help="Export modules", action='store_true', default=False)
+		parser.add_argument( '--rna', help="Export RNA", action='store_true', default=False)
+		parser.add_argument( '--pep', help="Export proteins", action='store_true', default=False)
+		
+		#parser.add_argument( '-s',  '--snp',  default='RNA', help="Are SNPs on RNA (RNA editing, default) or DNA. For SNP on DNA, a new version of the chromosomes is provided. Values ['RNA' (default),'DNA']",   required=False )
+		parser.add_argument( '-t',  '--snpfreqmin',	default=0.5, type=float, help="SNP strictly above this frequency threshold will be incorporated.")
+		parser.add_argument( '-T',  '--snpfreqmax',	default=1.0, type=float, help="SNP strictly below this frequency threshold will be incorporated.")
+		parser.add_argument( '-q',  '--snpqual',	default=1000, type=int, help="SNP strictly above this quality will be incorporated.")
 
 
-        #parser.add_argument( '-b',  '--blast',  default=0, type=int,   help="bla bla",   required=True|False )
-        # Noter que les tirets dans les noms d'arguments sont transformes en souligne
-        global ARGS             # Modify global variable ARGS
-        ARGS = parser.parse_args()
-        #globals().update(vars(args))        # Makes variables be seen globally
+		#parser.add_argument( '-b',  '--blast',  default=0, type=int,   help="bla bla",   required=True|False )
+		# Noter que les tirets dans les noms d'arguments sont transformes en souligne
+		global ARGS			 # Modify global variable ARGS
+		ARGS = parser.parse_args()
+		#globals().update(vars(args))		# Makes variables be seen globally
 
 PREFIX 		= ""
 LGFFNAME 		= [] # List of gff id in the same order as in the file
@@ -147,31 +147,31 @@ STOPCODON4	= ['TAA', 'TAG']
 
 # MAIN
 def main() :
-	t1    = time()
+	t1	= time()
 	print "BEGIN " + str( datetime.now() )
-        
-    	# ARGS                                                                           
-	parseoptions( )     # Parse sys.argv if you want quick and dirty script
-                        # sys.argv[ 0 ] : name of the pgm
-                        # ARGS.output to access "output" argument value
-        # Nothing to do
-        if not ARGS.module and not ARGS.cassette and not ARGS.rna and not ARGS.pep :
-            print "\nEasy peasy, I have nothing to do ! Please give me some work (--cassette, --module, --rna, --pep)\n"
-            sys.exit(0)
-    
+		
+		# ARGS																		   
+	parseoptions( )	 # Parse sys.argv if you want quick and dirty script
+						# sys.argv[ 0 ] : name of the pgm
+						# ARGS.output to access "output" argument value
+		# Nothing to do
+		if not ARGS.module and not ARGS.cassette and not ARGS.rna and not ARGS.pep :
+			print "\nEasy peasy, I have nothing to do ! Please give me some work (--cassette, --module, --rna, --pep)\n"
+			sys.exit(0)
+	
 	# PREFIX for output file
 	global PREFIX
 	if not ARGS.output :
 		# splittext removes the last extension (even if more than one '.' in the file name
-    		PREFIX = os.path.splitext(ARGS.fasta)[0]
-        else :
-                PREFIX =  ARGS.output
+			PREFIX = os.path.splitext(ARGS.fasta)[0]
+		else :
+				PREFIX =  ARGS.output
 		
-    	# Read GFF ; key = feature id, value = gff
-    	dgff    = readgff( ARGS.gff )
+		# Read GFF ; key = feature id, value = gff
+		dgff	= readgff( ARGS.gff )
 
-    	# Read fasta ; key = fasta id, value = fasta
-    	dfasta  = readFasta( ARGS.fasta )
+		# Read fasta ; key = fasta id, value = fasta
+		dfasta  = readFasta( ARGS.fasta )
 	
 	# Read VCF
 	lvcf 	= None
@@ -201,14 +201,14 @@ def extractRNAandPep(dfasta,dgff,lvcf=None) :
 			fnamerna	= filename( "RNA-snp" ) 
 		else :
 			fnamerna	= filename( "RNA" ) 
-		foutrnafasta            = open( fnamerna + ".fasta", "w") 
+		foutrnafasta			= open( fnamerna + ".fasta", "w") 
 		foutrnagff 		= open( fnamerna + ".gff", "w")
 		print "\n#[OUT] RNA files\n\t%s\n\t%s "%( fnamerna + ".fasta", fnamerna + ".gff" )
-                
-                # foutrnafasta.write( version() )
-                loginfo( fnamerna + ".fasta" )
-                foutrnagff.write( version() )
-                loginfo( fnamerna + ".gff" )
+				
+				# foutrnafasta.write( version() )
+				loginfo( fnamerna + ".fasta" )
+				foutrnagff.write( version() )
+				loginfo( fnamerna + ".gff" )
 
 	# If output protein
 	if ARGS.pep :
@@ -219,8 +219,8 @@ def extractRNAandPep(dfasta,dgff,lvcf=None) :
 		foutpepfasta 	= open( fnamepep + ".fasta", "w") 
 		print "\n#[OUT] Protein file\n\t%s "%( fnamepep + ".fasta", )	
 
-                #foutpepfasta.write( version() )
-                loginfo( foutpepfasta )
+				#foutpepfasta.write( version() )
+				loginfo( foutpepfasta )
 
 		if not lvcf is None :
 			print "\t!!! Exported sequence updated with SNP"
@@ -231,11 +231,11 @@ def extractRNAandPep(dfasta,dgff,lvcf=None) :
 			continue
 
 		lgff 	= dgff[ gffname ]
-                # Comment line with gene  name
-                for g in lgff :
-                    if g.feature.lower() == GFFRRNA or g.feature.lower() == GFFMRNA :
-                        foutrnagff.write("# " + gffname + "\n" )
-                        break;
+				# Comment line with gene  name
+				for g in lgff :
+					if g.feature.lower() == GFFRRNA or g.feature.lower() == GFFMRNA :
+						foutrnagff.write("# " + gffname + "\n" )
+						break;
 
 		seqRNA 	= ""
 		posRNA	= 0 		# Last position of RNA
@@ -260,10 +260,10 @@ def extractRNAandPep(dfasta,dgff,lvcf=None) :
 				lvcf_filt	= listOfSNPsForSeq( seqcontig, g, lvcf )
 				seqcontig	= updateSeqWithSNPs( seqcontig, lvcf_filt )
 				# seqcontig	= updateSeqWithSNPs( seqcontig, g, lvcf )
-                                #print g.name + " " + g.id + " SNP  nb %i "%(len(lvcf_filt),)
+								#print g.name + " " + g.id + " SNP  nb %i "%(len(lvcf_filt),)
 
 				# Sequence of feature
-				seqfeature      = seqcontig[g.start-1:g.end]
+				seqfeature	  = seqcontig[g.start-1:g.end]
 				if g.strand == '-' :
 					seqfeature 	= revcomp( seqfeature )
 				seqRNA 			+= seqfeature
@@ -287,65 +287,65 @@ def extractRNAandPep(dfasta,dgff,lvcf=None) :
 				
 				foutrnagff.write("%s\textractMitoSeq\t%s\t%i\t%i\t.\t%s\t0\tID=%s\n"%(gffname,feature,posRNA+1,len(seqRNA),'+',gffid))
 				# SNP
-                                shift = posRNA + 1 - g.start
-                                if g.strand == '-' :
-                                    shift = posRNA + 1 + g.end
+								shift = posRNA + 1 - g.start
+								if g.strand == '-' :
+									shift = posRNA + 1 + g.end
 				foutrnagff.write( gffWithSNPs( lvcf_filt, gffname, gffname, shift, g.strand ) )
 
 				# Update last position of RNA
 				posRNA 		= len(seqRNA) 
 		
 
-                # If mRNA is not a multiple of 3, complete with A of poly-A
+				# If mRNA is not a multiple of 3, complete with A of poly-A
 		#if ismRNA :
 		#	remainder	= len(seqRNA)%3
-	        #	pA		= 0
+			#	pA		= 0
 		#	if not remainder == 0 :
 		#		pA = 3 - remainder
 		#		print "\t%s - Added %i 'A' at the end of RNA sequence"%( gffname, pA )
 		#		if ARGS.rna :
 		#			foutrnagff.write("%s\textractMitoSeq\tpoly-A\t%i\t%i\t.\t+\t0\tNote=%i_A_added_for_translation\n"%(gffname,len(seqRNA)+1,len(seqRNA)+1,pA))
 		#		seqRNA 	+= pA * 'A'
-                # If no STOP on mRNA, complete with up to 3 A of poly-A (sqc multiple of 3)
-                if ismRNA :
-                        # Poly-A gff line
-                        polyAgff        = "%s\textractMitoSeq\tpoly-A\t%i\t%i\t.\t+\t0\t"%(gffname,len(seqRNA)+1,len(seqRNA)+1)
-                        notepolyAgff    = ""
+				# If no STOP on mRNA, complete with up to 3 A of poly-A (sqc multiple of 3)
+				if ismRNA :
+						# Poly-A gff line
+						polyAgff		= "%s\textractMitoSeq\tpoly-A\t%i\t%i\t.\t+\t0\t"%(gffname,len(seqRNA)+1,len(seqRNA)+1)
+						notepolyAgff	= ""
 
-                        # List of  codon
-                        lcodon  = []
-                        for i in range( 0, len(seqRNA), 3 ):
-                            lcodon.append( seqRNA[ i:i+3 ] ) 
-                        # Does list of codon contains a stop
-                        isStop          = False
-                        for stop in STOPCODON4 :
-                            if stop in lcodon :
-                                isStop = True
-                        # No STOP codon found, add A from poly-A until multiple of 3
-                        if not isStop :
-                            lastcodon   = lcodon[-1]
-                            #remainder  = len(seqRNA)%3
-                            pA      = 3 - len(lastcodon)
-                            if pA >  0 :
-                                lastcodon   += pA * 'A'
-                                seqRNA      += pA * 'A'
-                                # Adding 'A' has created a STOP codon
-                                print "\t%s - Added %i 'A' at the end of RNA sequence for translation"%( gffname, pA )
-                                if ARGS.rna :
-                                    notepolyAgff    += "%i_A_added_for_translation "%(pA,)
-                                if lastcodon in STOPCODON4 :
-                                    isStop  = True
-                        # Still no stop codon for this RNA
-                        if not isStop :
-                            print "\t%s - No STOP codon"%( gffname, )
-                            if ARGS.rna : 
-                                notepolyAgff    += "No STOP codon"
-                            
-                        # Add poly-A line in GFF
-                        if ARGS.rna and len( notepolyAgff ) > 0  :
-                            foutrnagff.write( polyAgff + "Note=" + notepolyAgff + "\n" )
-                        if ARGS.rna and len( notepolyAgff ) == 0 :
-                            foutrnagff.write( polyAgff  + "\n" ) 
+						# List of  codon
+						lcodon  = []
+						for i in range( 0, len(seqRNA), 3 ):
+							lcodon.append( seqRNA[ i:i+3 ] ) 
+						# Does list of codon contains a stop
+						isStop		  = False
+						for stop in STOPCODON4 :
+							if stop in lcodon :
+								isStop = True
+						# No STOP codon found, add A from poly-A until multiple of 3
+						if not isStop :
+							lastcodon   = lcodon[-1]
+							#remainder  = len(seqRNA)%3
+							pA	  = 3 - len(lastcodon)
+							if pA >  0 :
+								lastcodon   += pA * 'A'
+								seqRNA	  += pA * 'A'
+								# Adding 'A' has created a STOP codon
+								print "\t%s - Added %i 'A' at the end of RNA sequence for translation"%( gffname, pA )
+								if ARGS.rna :
+									notepolyAgff	+= "%i_A_added_for_translation "%(pA,)
+								if lastcodon in STOPCODON4 :
+									isStop  = True
+						# Still no stop codon for this RNA
+						if not isStop :
+							print "\t%s - No STOP codon"%( gffname, )
+							if ARGS.rna : 
+								notepolyAgff	+= "No STOP codon"
+							
+						# Add poly-A line in GFF
+						if ARGS.rna and len( notepolyAgff ) > 0  :
+							foutrnagff.write( polyAgff + "Note=" + notepolyAgff + "\n" )
+						if ARGS.rna and len( notepolyAgff ) == 0 :
+							foutrnagff.write( polyAgff  + "\n" ) 
 
 
 
@@ -382,10 +382,10 @@ def extractModules(dfasta,dgff,lvcf=None) :
 	foutfasta 	= open( fname + ".fasta", "w") 
 	foutgff 	= open( fname + ".gff", "w")
 
-        #foutfasta.write( version() )
-        loginfo( fname + ".fasta" ) 
-        foutgff.write( version() )
-        loginfo( fname + ".gff" ) 
+		#foutfasta.write( version() )
+		loginfo( fname + ".fasta" ) 
+		foutgff.write( version() )
+		loginfo( fname + ".gff" ) 
 	
 	print "\n#[OUT] Module files\n\t%s\n\t%s "%( fname + ".fasta", fname + ".gff" )
 	if not lvcf is None :
@@ -416,7 +416,7 @@ def extractModules(dfasta,dgff,lvcf=None) :
 				foutfasta.write(">%s \n%s\n"%(name,seq))
 				foutgff.write("%s\textractMitoSeq\texon\t1\t%i\t.\t%s\t0\tID=%s\n"%(gffid,len(seq),'+',gffid))
 				shift = 1 - g.start
-                                foutgff.write( gffWithSNPs( lvcf_filt, gffid, gffid, shift, g.strand ) )
+								foutgff.write( gffWithSNPs( lvcf_filt, gffid, gffid, shift, g.strand ) )
 			
 	foutfasta.close()
 	foutgff.close()
@@ -425,19 +425,19 @@ def extractModules(dfasta,dgff,lvcf=None) :
 # Update K (with SNP) => change only fasta
 def updateCassettes(dfasta, dgff, lvcf) :
 
-        if not lvcf is None :
-            fname   = filename( "cass-snp" ) 
-        else :
-            fname   = filename( "cass" )    
+		if not lvcf is None :
+			fname   = filename( "cass-snp" ) 
+		else :
+			fname   = filename( "cass" )	
 
 	foutfasta	= open( fname  + ".fasta", "w" )
 	print "\n#[OUT] New cassette file \n\t%s"%( fname + ".fasta", )
-        #foutfasta.write( version() )
-        loginfo(  fname  + ".fasta" ) 
+		#foutfasta.write( version() )
+		loginfo(  fname  + ".fasta" ) 
 
-        if not lvcf is None :
-                print "\t!!! Exported sequence updated with SNP"    
-        	
+		if not lvcf is None :
+				print "\t!!! Exported sequence updated with SNP"	
+			
 
 	for gffname in LGFFNAME :
 		if not gffname in dgff :
@@ -449,25 +449,25 @@ def updateCassettes(dfasta, dgff, lvcf) :
 					print "\t!!!No fasta sequence for chromosome %s"%(g.contig,)
 					continue
 				seqcontig 	= dfasta[ g.contig ].seq
-				lvcf_filt       = listOfSNPsForSeq( seqcontig, g, lvcf )
-                                seqcontig	= updateSeqWithSNPs( seqcontig, lvcf_filt )
+				lvcf_filt	   = listOfSNPsForSeq( seqcontig, g, lvcf )
+								seqcontig	= updateSeqWithSNPs( seqcontig, lvcf_filt )
 				foutfasta.write(">%s \n%s\n"%(g.contig,seqcontig))
 	
 	foutfasta.close()
 	
 def filename( feature=None ) :
 	#global PREFIX
-        today = datetime.now()
+		today = datetime.now()
 	name = "%s"%( PREFIX,)
 	if not feature is None and len( feature) > 0 :
 		name += "_%s"%(feature,)
-        # File already exists => backup
-        bckup = name + "_%i%02i%02i"%(today.year, today.month, today.day) 
-        for extension in [ ".gff", ".fasta"] :
-            if os.path.exists( name + extension ) :
-                cmd = "cp " +  name + extension + " " + bckup  + extension
-                runcmd( cmd )
-                print "#[OUT] Back-up file: %s"%( bckup  + extension ,) 
+		# File already exists => backup
+		bckup = name + "_%i%02i%02i"%(today.year, today.month, today.day) 
+		for extension in [ ".gff", ".fasta"] :
+			if os.path.exists( name + extension ) :
+				cmd = "cp " +  name + extension + " " + bckup  + extension
+				runcmd( cmd )
+				print "#[OUT] Back-up file: %s"%( bckup  + extension ,) 
 	return name
 		
 
@@ -482,7 +482,7 @@ def listOfSNPsForSeq( seq, gff, lvcf ) :
 					print "WARNING: %s %i REF in VCF:%s ; REF in fasta: %s"%(v.contig,v.pos,v.ref,seq[v.pos-1] )
 					print "WARNING: Reference base in VCF is different from base in fasta. Change it anyway"
 				lvcffilt.append(v)
-        return lvcffilt
+		return lvcffilt
 
 def updateSeqWithSNPs( seq, lvcf ) :
 	lseq 	= list(seq)
@@ -494,22 +494,22 @@ def updateSeqWithSNPs( seq, lvcf ) :
 # Strand is the strand of the feature bit SNP are reported on '+'
 def gffWithSNPs( lvcf, contig, featureName, shift , featureStrand ) :
 	gfflines = ""
-        if featureStrand == '-' : 
-            ltmp = reversed( lvcf )
-            lvcf = ltmp
+		if featureStrand == '-' : 
+			ltmp = reversed( lvcf )
+			lvcf = ltmp
 	for v in lvcf :
-		snpposstart     = v.pos + shift
-                snpposend       = snpposstart + len(v.altmax) - 1      
-                if featureStrand == '-' :
-                    snpposstart = shift - v.pos - len(v.altmax) + 1
-		    snpposend	= shift - v.pos 
+		snpposstart	 = v.pos + shift
+				snpposend	   = snpposstart + len(v.altmax) - 1	  
+				if featureStrand == '-' :
+					snpposstart = shift - v.pos - len(v.altmax) + 1
+			snpposend	= shift - v.pos 
 		snpref  = v.ref
-                snpalt  = v.altmax
-                if featureStrand == '-' :
-                    snpref  = revcomp(v.ref)
-                    snpalt  = revcomp(v.altmax)
-                snpname = "%s_%i_%s>%s"%(featureName,snpposstart,snpref,snpalt)
-                snpdesc	= "ref=%s;alt=%s;freq=%.2f;qual=%.2f"%(snpref,snpalt,v.altmaxfreq,v.qual)
+				snpalt  = v.altmax
+				if featureStrand == '-' :
+					snpref  = revcomp(v.ref)
+					snpalt  = revcomp(v.altmax)
+				snpname = "%s_%i_%s>%s"%(featureName,snpposstart,snpref,snpalt)
+				snpdesc	= "ref=%s;alt=%s;freq=%.2f;qual=%.2f"%(snpref,snpalt,v.altmaxfreq,v.qual)
 		gfflines += "%s\textractMitoSeq\tSNP\t%i\t%i\t.\t+\t0\tID=%s;%s\n"%(contig,snpposstart,snpposend,snpname,snpdesc)
 	return gfflines
 
@@ -536,12 +536,12 @@ def translate( seq ) :
 	while pos < len(lseq) :
 		codon 	= "".join(lseq[pos:pos+3])
 		if codon in GENETIC_CODE4 :
-                        if pos == 1 and codon in INITCODON4 :
-                            pep += 'M'
-                        else :
-			    pep += GENETIC_CODE4[ codon ]
-                        if codon in STOPCODON4 :
-                            return pep
+						if pos == 1 and codon in INITCODON4 :
+							pep += 'M'
+						else :
+				pep += GENETIC_CODE4[ codon ]
+						if codon in STOPCODON4 :
+							return pep
 		else :
 			pep 	+= '?'
 		pos	+= 3
@@ -552,21 +552,21 @@ def translate( seq ) :
 def readgff( fgff ) :
 	print "\n#[IN] Read GFF file %s"%( fgff )
 
-	f       	= open( fgff, "r" )     
-	dgff    	= {}
+	f	   	= open( fgff, "r" )	 
+	dgff		= {}
 	global LGFFNAME
 	
-	for line in f :         
-		if line[0] == '#' :     # comment             
-			continue         
-		if not line.strip() :   # Empty lines             
-			continue         
-		l   = line.split("\t")         
-		if len(l) < 9 :         # Not a gff line  
-			print "\tNot a gff line: %s"%( line.strip(), )           
-			continue         
+	for line in f :		 
+		if line[0] == '#' :	 # comment			 
+			continue		 
+		if not line.strip() :   # Empty lines			 
+			continue		 
+		l   = line.split("\t")		 
+		if len(l) < 9 :		 # Not a gff line  
+			print "\tNot a gff line: %s"%( line.strip(), )		   
+			continue		 
 		g   = GFF(l)
-                # Do not store features that do not have name
+				# Do not store features that do not have name
 		if not g is None and len(g.name) > 0 :
 			if not g.name in dgff :
 				LGFFNAME.append( g.name )
@@ -582,28 +582,28 @@ class GFF :
 	def __init__(self, lvalues):
 		if len(lvalues) < 9 :
 			return None 
-		self.contig      = lvalues[0].strip() 
-		self.source     = lvalues[1].strip() 
-		self.feature    = lvalues[2].strip().lower()
-		self.start      = int(lvalues[3])
-		self.end        = int(lvalues[4])
-		self.score      = lvalues[5].strip()
-		self.strand     = lvalues[6].strip()
+		self.contig	  = lvalues[0].strip() 
+		self.source	 = lvalues[1].strip() 
+		self.feature	= lvalues[2].strip().lower()
+		self.start	  = int(lvalues[3])
+		self.end		= int(lvalues[4])
+		self.score	  = lvalues[5].strip()
+		self.strand	 = lvalues[6].strip()
 		# if self.strand not in [ '.', '-', '+' ] :
-		#     self.strand = '.'
-		self.frame      = lvalues[7].strip()
+		#	 self.strand = '.'
+		self.frame	  = lvalues[7].strip()
 		# if self.frame not in [ '.', '0', '1', '2' ] :
-		#     self.frame = '.'
+		#	 self.frame = '.'
 		self.attribute  = lvalues[8]
 		self.dattributes = {}
-		self.id         = ""
-                self.name       = ""
+		self.id		 = ""
+				self.name	   = ""
 		self.parent	= []
 
 		# Parse attributes
 		# To find attribute ID : dattributes["id"]
 		# !!! attribute keys in LOWER CASE
-		latt    = self.attribute.split(';')
+		latt	= self.attribute.split(';')
 		for a in latt :
 			k,v = a.split("=")
 			if not k is None and not v is None :
@@ -611,30 +611,30 @@ class GFF :
 	
 		# ID is unique
 		if "id" in self.dattributes :
-			self.id     = self.dattributes["id"]
+			self.id	 = self.dattributes["id"]
 		else :
-			self.id     = "%s_%s_%i-%i"%( self.contig, self.feature, self.start, self.end )
-                # Name is the gene name
-                if "name" in self.dattributes : 
-                        self.name   = self.dattributes["name"]
-                
+			self.id	 = "%s_%s_%i-%i"%( self.contig, self.feature, self.start, self.end )
+				# Name is the gene name
+				if "name" in self.dattributes : 
+						self.name   = self.dattributes["name"]
+				
 		# Parent
 		if "parent" in self.dattributes :
 			lparent = self.dattributes["parent"].split(',')
 			for p in lparent :
 				self.parent.append( p )
-	    
+		
 	def filtergff(self, feature ) :
 		return self.feature == feature.lower() 
 
 	def gff2text(self) :
 		line = "%s\t%s\t%s\t%i\t%i\t%s\t%s\t%s\t%s"%(self.contig, self.source, self.feature, self.start, self.end, 
-                                                self.score, self.strand, self.frame, self.attribute)  
+												self.score, self.strand, self.frame, self.attribute)  
 		return line
 
 
 		
-# http://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary        
+# http://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary		
 def keyformaxdicoval( d ) :
 	if len(d) == 0 :
 		return 0
@@ -669,15 +669,15 @@ def readVCF( vcffile, snpqual, snpfreqmin, snpfreqmax ) :
 	fvcf 	= open( vcffile, "r" )
 	lvcf 	= []
 	nline	= 0
-	for line in fvcf :         
-		if line[0] == '#' :     # comment             
-			continue         
-		if not line.strip() :   # Empty lines             
-			continue         
-		l   = line.split("\t")         
-		if len(l) < 8 :         # Not a gff line  
-			print "\tNot a vcf line: %s"%( line.strip(), )           
-			continue      
+	for line in fvcf :		 
+		if line[0] == '#' :	 # comment			 
+			continue		 
+		if not line.strip() :   # Empty lines			 
+			continue		 
+		l   = line.split("\t")		 
+		if len(l) < 8 :		 # Not a gff line  
+			print "\tNot a vcf line: %s"%( line.strip(), )		   
+			continue	  
 		nline 	+= 1   
 		v	= vcf(l, snpqual, snpfreqmin, snpfreqmax)
 		if not v.fail :
@@ -694,8 +694,8 @@ class vcf :
 		if len(lvalues) < 8 :
 			self.fail = True
 		else :
-			self.contig     = lvalues[0].strip() 
-			self.pos      	= int(lvalues[1])
+			self.contig	 = lvalues[0].strip() 
+			self.pos	  	= int(lvalues[1])
 			self.dbid 		= lvalues[2].strip()
 			self.ref		= lvalues[3].strip()
 			
@@ -740,92 +740,92 @@ class vcf :
 				
 			if self.fail :
 				print "\t- SNP DISCARDED : %s\t%i\t%s->%s\tqual=%.2f, freq=%.2f"%(self.contig, self.pos,self.ref, self.altmax, self.qual, self.altmaxfreq)
-                        else :
-                                print "\t+ SNP RETAINED : %s\t%i\t%s->%s\tqual=%.2f, freq=%.2f"%(self.contig, self.pos,self.ref, self.altmax, self.qual, self.altmaxfreq)
+						else :
+								print "\t+ SNP RETAINED : %s\t%i\t%s->%s\tqual=%.2f, freq=%.2f"%(self.contig, self.pos,self.ref, self.altmax, self.qual, self.altmaxfreq)
 		
 	
 def revcomp(sequence ) :
-    if not sequence :
-        return ''
+	if not sequence :
+		return ''
 
-    basecomplement = {'a':'t', 'c':'g', 't':'a', 'g':'c' , 'A':'T' , 'C':'G' , 'T':'A' , 'G':'C' }
-    letters = list(sequence)
-    letters.reverse()
-    rc = ''
-    for base in letters:
-        if base in basecomplement :
-            rc += basecomplement[base]
-        else :
-            rc += base
-    return rc
+	basecomplement = {'a':'t', 'c':'g', 't':'a', 'g':'c' , 'A':'T' , 'C':'G' , 'T':'A' , 'G':'C' }
+	letters = list(sequence)
+	letters.reverse()
+	rc = ''
+	for base in letters:
+		if base in basecomplement :
+			rc += basecomplement[base]
+		else :
+			rc += base
+	return rc
 
 
 def printandflush( mess ) :
-    sys.stdout.write('\r')
-    sys.stdout.write( mess )
-    sys.stdout.flush()
+	sys.stdout.write('\r')
+	sys.stdout.write( mess )
+	sys.stdout.flush()
 
 # o,e = runcmd( mycmd )
 # OR runcmd( mycmd )
 def runcmd( cmd, verbose=False ) : 
-    if verbose == True :
-        print cmd 
-    p = Popen( cmd , shell=True, stdout=PIPE, stderr=PIPE)
-    outmess,errmess  = p.communicate()
-    return "".join(outmess), "".join(errmess) 
+	if verbose == True :
+		print cmd 
+	p = Popen( cmd , shell=True, stdout=PIPE, stderr=PIPE)
+	outmess,errmess  = p.communicate()
+	return "".join(outmess), "".join(errmess) 
 
 def readfile( filename ) :
-    f = open( filename , "r" )
-    # Line by line ; If all lines at once lines = f.readlines()
-    for line in f :
-        # do some stuff
-        print line
-    f.close()
+	f = open( filename , "r" )
+	# Line by line ; If all lines at once lines = f.readlines()
+	for line in f :
+		# do some stuff
+		print line
+	f.close()
 
-    # All lines at once
-    #with open( filename , 'r' ) as f :
-    #    alist = [ line.strip() for line in f ]
+	# All lines at once
+	#with open( filename , 'r' ) as f :
+	#	alist = [ line.strip() for line in f ]
 
 def writeinfile( filename , content ) :
-    f  = open( filename , "a" )    # a : append ; w : overwrite
-    if isinstance( content , str ) :
-        f.write( content + "\n" )
-    else :
-        f.write( "\n".join(content) )
-    f.close()
+	f  = open( filename , "a" )	# a : append ; w : overwrite
+	if isinstance( content , str ) :
+		f.write( content + "\n" )
+	else :
+		f.write( "\n".join(content) )
+	f.close()
 
 def removefile( filename ) :
-    if os.path.exists( filename ) :
-                os.remove( filename )
+	if os.path.exists( filename ) :
+				os.remove( filename )
 
 def outfilename( infile , suffix ) :
-    fpat    = re.compile( r"(.*)\.(.*)" )
-    match   = fpat.match( infile )
-    fout    = match.group(1) + suffix
-    return fout
+	fpat	= re.compile( r"(.*)\.(.*)" )
+	match   = fpat.match( infile )
+	fout	= match.group(1) + suffix
+	return fout
 
 def version():
-    mess =  "# Built on " + str( datetime.now() ) + "\n"
-    mess +=  "# Built from " + os.path.abspath( ARGS.fasta ) + " modified on " + str(datetime.fromtimestamp(os.path.getmtime( ARGS.fasta ))) + "\n"
-    mess +=  "# Built from " + os.path.abspath( ARGS.gff ) + " modified on " + str(datetime.fromtimestamp(os.path.getmtime( ARGS.gff ))) + "\n"
-    if ARGS.vcf :
-        mess +=  "# Built from " + os.path.abspath( ARGS.vcf ) + " modified on " + str(datetime.fromtimestamp(os.path.getmtime( ARGS.vcf ))) + "\n"
-    return mess 
+	mess =  "# Built on " + str( datetime.now() ) + "\n"
+	mess +=  "# Built from " + os.path.abspath( ARGS.fasta ) + " modified on " + str(datetime.fromtimestamp(os.path.getmtime( ARGS.fasta ))) + "\n"
+	mess +=  "# Built from " + os.path.abspath( ARGS.gff ) + " modified on " + str(datetime.fromtimestamp(os.path.getmtime( ARGS.gff ))) + "\n"
+	if ARGS.vcf :
+		mess +=  "# Built from " + os.path.abspath( ARGS.vcf ) + " modified on " + str(datetime.fromtimestamp(os.path.getmtime( ARGS.vcf ))) + "\n"
+	return mess 
 
 def loginfo( afile ) : 
-    flog    = open( "log.txt", "a")
-    flog.write( "# Create log.txt \n")
-    flog.write( version() )
-    flog.close() 
+	flog	= open( "log.txt", "a")
+	flog.write( "# Create log.txt \n")
+	flog.write( version() )
+	flog.close() 
 
 
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    
-    except KeyboardInterrupt:
-        print >>sys.stderr, "Program canceled by user..."
+	try:
+		main()
+	
+	except KeyboardInterrupt:
+		print >>sys.stderr, "Program canceled by user..."
 
 

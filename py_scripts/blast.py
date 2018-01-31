@@ -3,24 +3,31 @@ import subprocess
 from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
-query = '/home/kika/MEGAsync/blasto_project/predited_proteins/jac_proteins_companion.fasta'
-db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds.fasta'
-out = '/home/kika/MEGAsync/blasto_project/predited_proteins/jac_prot_blast.xml'
+query = '/media/4TB1/blastocrithidia/predicted_proteins/p57_annotation_peptides.fasta'
+db = '/media/4TB1/blastocrithidia/blast_searches/triat_scaffolds_transc/db/triat_scaffolds_transc.fa'
+# subject = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/nad5/nad5_nt.txt'
+out = '/media/4TB1/blastocrithidia/blast_searches/triat_scaffolds_transc/results/p57_prot_blast.xml'
+
 evalue = 10
 outfmt = 5
 word_size = 3
 threads = 4
 
 print('running BLAST')
+#query - database
 subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
 		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+
+#query - subject
+# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/blasto_project/predited_proteins/jac_prot_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/blasto_project/predited_proteins/jac_prot_best_blast.tsv', 'w')
+output = open('/media/4TB1/blastocrithidia/blast_searches/triat_scaffolds_transc/results/p57_prot_blast.tsv', 'w')
+out_best = open('/media/4TB1/blastocrithidia/blast_searches/triat_scaffolds_transc/results/p57_prot_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 
