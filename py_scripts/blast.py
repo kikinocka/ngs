@@ -11,7 +11,7 @@ out = '/media/4TB1/blastocrithidia/blast_searches/triat_scaffolds_transc/results
 evalue = 10
 outfmt = 5
 word_size = 3
-threads = 4
+threads = 32
 
 print('running BLAST')
 #query - database
