@@ -4,10 +4,10 @@ from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/triat_scaffolds_transc.fasta', 'fasta')
-nt_out = open('/home/kika/MEGAsync/blasto_project/genes/repair/missing/triat_nt.txt', 'w')
-aa_out = open('/home/kika/MEGAsync/blasto_project/genes/repair/missing/triat_aa.txt', 'w')
-err_out = open('/home/kika/MEGAsync/blasto_project/genes/repair/missing/triat_errors.txt', 'w')
-result_handle = open('/home/kika/MEGAsync/blasto_project/genes/repair/missing/triat_blast.xml')
+nt_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/triat_nt.fa', 'w')
+aa_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/triat_aa.fa', 'w')
+err_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/triat_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/p57_prot_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -44,6 +44,7 @@ def blast_parser(blast_records):
 	result = {}
 	errors = []
 	for record in blast_records:
+		print(record.query)
 		try:
 			best = record.alignments[0]
 			min_sstart = False
@@ -52,7 +53,7 @@ def blast_parser(blast_records):
 			max_qend = False
 			frame = best.hsps[0].frame[1]
 			if best.hsps[0].expect > 0.01:
-				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split('__')[1]))
+				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split('|')[0].split('_')[1]))
 			else:
 				for hsp in best.hsps:
 					if frame == hsp.frame[1]:
@@ -81,7 +82,7 @@ def blast_parser(blast_records):
 							else:
 								max_send = hsp.sbjct_start
 					else:
-						errors.append(record.query.split('__')[1])
+						errors.append(record.query.split('|')[0].split('_')[1])
 						if frame in [1, 2, 3]:
 							min_sstart = best.hsps[0].sbjct_start
 							max_send = best.hsps[0].sbjct_end
@@ -89,13 +90,13 @@ def blast_parser(blast_records):
 							min_sstart = best.hsps[0].sbjct_end
 							max_send = best.hsps[0].sbjct_start
 				if frame in [1, 2, 3]:
-					result[record.query.split('__')[1]] = [min_sstart, max_send, frame, best.hit_id,
+					result[record.query.split('|')[0].split('_')[1]] = [min_sstart, max_send, frame, best.hit_id,
 					record.query_length, min_qstart, max_qend]
 				else:
-					result[record.query.split('__')[1]] = [max_send, min_sstart, frame, best.hit_id, 
+					result[record.query.split('|')[0].split('_')[1]] = [max_send, min_sstart, frame, best.hit_id, 
 					record.query_length, min_qstart, max_qend]
 		except:
-			err_out.write('{}:\tno hit found\n'.format(record.query.split('__')[1]))
+			err_out.write('{}:\tno hit found\n'.format(record.query.split('|')[0].split('_')[1]))
 	errors = set(errors)
 	for i in errors:
 		err_out.write('{}:\thsps frames do not correspond\n'.format(i))
@@ -173,7 +174,7 @@ for contig in fasta:
 					else:
 						seq_end = len(contig.seq)
 				nucleotides = contig.seq[seq_start:seq_end]
-				protein = translation(nucleotides[:-3]).replace('B', 'X').replace('Z', 'X').replace('J', 'X')
+				protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
 				nt_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, nucleotides))
 				aa_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, protein))
 			else:
@@ -237,7 +238,7 @@ for contig in fasta:
 					else:
 						seq_end = len(reverse)
 				nucleotides = reverse[seq_start:seq_end]
-				protein = translation(nucleotides[:-3]).replace('B', 'X').replace('Z', 'X').replace('J', 'X')
+				protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
 				nt_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, nucleotides))
 				aa_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, protein))
 		else:
@@ -245,3 +246,4 @@ for contig in fasta:
 
 nt_out.close()
 aa_out.close()
+err_out.close()
