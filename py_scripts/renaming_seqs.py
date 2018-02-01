@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/blast_searches/bexlh1/bexlh1_aa_SLremoved.fa', 'fasta')
+infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_aa_SLremoved.fa', 'fasta')
 
 i = 1
-with open('/home/kika/MEGAsync/blasto_project/blast_searches/bexlh1/bexlh1_aa_renamed.fa', 'w') as output:
+with open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_aa_renamed.fa', 'w') as output:
 	for sequence in infile:
 		print(sequence.description)
 		contig = sequence.description.split('__')[0]

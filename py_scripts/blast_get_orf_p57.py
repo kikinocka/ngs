@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/triat_scaffolds_transc.fasta', 'fasta')
-nt_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/triat_nt.fa', 'w')
-aa_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/triat_aa.fa', 'w')
-err_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/triat_errors.txt', 'w')
-result_handle = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_scaffolds_transc/p57_prot_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/triat_RNA.fasta', 'fasta')
+nt_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_nt.fa', 'w')
+aa_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_aa.fa', 'w')
+err_out = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/p57_prot_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
