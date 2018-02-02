@@ -2,15 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-query = '/media/4TB1/blastocrithidia/predicted_proteins/p57_annotation_peptides.fasta'
-db = '/media/4TB1/blastocrithidia/blast_searches/triat_transcriptome/db/triat_trinity.fasta'
+cmd = 'blastn'
+query = '/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/full_chromosomes.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/1604_DNA_scaffolds_filtered.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/nad5/nad5_nt.txt'
-out = '/media/4TB1/blastocrithidia/blast_searches/triat_transcriptome/results/p57_prot_blast.xml'
+out = '/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/1604_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 3
-threads = 32
+word_size = 10
+threads = 4
 
 print('running BLAST')
 #query - database
@@ -25,8 +25,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/media/4TB1/blastocrithidia/blast_searches/triat_transcriptome/results/p57_prot_blast.tsv', 'w')
-out_best = open('/media/4TB1/blastocrithidia/blast_searches/triat_transcriptome/results/p57_prot_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/1604_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/1604_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 
