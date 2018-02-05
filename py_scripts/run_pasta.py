@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/')
+os.chdir('/home/kika/MEGAsync/blasto_project/genes/repair/NHEJ/ku80_hmmer/')
 files = os.listdir()
 
 for file in files:
@@ -9,5 +9,5 @@ for file in files:
 	# if '.aln' not in file:
 		print(file)
 		job_desc = file.split('.fa')[0]
-		d = 'DNA'
+		d = 'protein'
 		os.system('run_pasta.py -i {} -d {} -j {}'.format(file, d, job_desc))

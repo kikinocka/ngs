@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+import os
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/lygus_lineolaris_tsa.fsa', 'fasta')
-output = open('/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/lygus_lineolaris_tsa_translated.fsa', 'w')
-error = open('/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/lygus_lineolaris_errors.txt', 'w')
+os.chdir('/home/kika/MEGAsync/blasto_project/genome_assembly/')
+infile = SeqIO.parse('jaculum_scaffolds_transc.fasta', 'fasta')
+output = open('jaculum_scaffolds_transc_translated.fasta', 'w')
+error = open('jaculum_scaffolds_transc_errors.txt', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -41,11 +43,12 @@ for sequence in infile:
     name = sequence.name
     seq = sequence.seq.upper()
     ambiguous = False
+    print(name)
     for nucleotide in seq:
         if nucleotide not in 'ATCGN':
             ambiguous = True
     if ambiguous == True:
-        error.write('{}\n{}\n'.format(name, seq))
+        error.write('>{}\n{}\n'.format(name, seq))
     else:    
         output.write('>{}_1\n{}\n'.format(name, translation(seq)))
         output.write('>{}_2\n{}\n'.format(name, translation(seq[1:])))

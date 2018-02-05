@@ -1,7 +1,7 @@
 #!/bin/sh
 
-f="/home/kika/MEGAsync/Chlamydomonas/od_toma/putative_pt_genes_aa_complete5.fa"
-r="/home/kika/MEGAsync/Chlamydomonas/od_toma/putative_pt_genes_aa_complete5_multiloc.txt"
+f="/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/fMet/fMet_synthesis_withoutSP.txt"
+r="/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/fMet/fMet_synthesis_withoutSP_multiloc.txt"
 a=animal
 p=plant
 
