@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/blasto_project/genome_assembly/')
-infile = SeqIO.parse('jaculum_scaffolds_transc.fasta', 'fasta')
-output = open('jaculum_scaffolds_transc_translated.fasta', 'w')
-error = open('jaculum_scaffolds_transc_errors.txt', 'w')
+os.chdir('/home/kika/MEGAsync/blasto_project/genes/repair/NHEJ/')
+infile = SeqIO.parse('p57_Kuplaces.txt', 'fasta')
+output = open('p57_Kuplaces_translated.txt', 'w')
+error = open('p57_Kuplaces_errors.txt', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -22,8 +22,8 @@ gencode = {
     'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
     'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
     'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
-    'TAC':'Y', 'TAT':'Y', 'TAA':'X', 'TAG':'X',
-    'TGC':'C', 'TGT':'C', 'TGA':'X', 'TGG':'W'}
+    'TAC':'Y', 'TAT':'Y', 'TAA':'E', 'TAG':'E',
+    'TGC':'C', 'TGT':'C', 'TGA':'E', 'TGG':'W'}
 
 def translation(sequence):
     cut_seq = []
