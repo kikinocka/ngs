@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/home/kika/MEGAsync/blasto_project/new_jac/eIF3f/eIF3f.fa'
+i='/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/PASTA/LmjF.34.3940.fa'
 d=protein
-j=eIF3f
+j=LmjF.34.3940
 
 run_pasta.py -i $i -d $d -j $j

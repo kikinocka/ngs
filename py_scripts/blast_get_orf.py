@@ -4,11 +4,11 @@ from Bio import SeqIO
 import re
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/cam_trinity.fasta', 'fasta')
-nt_out = open('/home/kika/MEGAsync/Chlamydomonas/greencut/amaz_rna_greencut_nt.txt', 'w')
-aa_out = open('/home/kika/MEGAsync/Chlamydomonas/greencut/amaz_rna_greencut_aa.txt', 'w')
-err_out = open('/home/kika/MEGAsync/Chlamydomonas/greencut/amaz_rna_greencut_errors.txt', 'w')
-result_handle = open('/home/kika/MEGAsync/Chlamydomonas/greencut/amaz_rna_greencut_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
+nt_out = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_nt.txt', 'w')
+aa_out = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_aa.txt', 'w')
+err_out = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -53,7 +53,7 @@ def blast_parser(blast_records):
 			max_qend = False
 			frame = best.hsps[0].frame[1]
 			if best.hsps[0].expect > 0.01:
-				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split(' ')[0].split('|')[2]))
+				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split(':')[0]))
 			else:
 				for hsp in best.hsps:
 					if frame == hsp.frame[1]:
@@ -82,7 +82,7 @@ def blast_parser(blast_records):
 							else:
 								max_send = hsp.sbjct_start
 					else:
-						errors.append(record.query.split(' ')[0].split('|')[2])
+						errors.append(record.query.split(':')[0])
 						if frame in [1, 2, 3]:
 							min_sstart = best.hsps[0].sbjct_start
 							max_send = best.hsps[0].sbjct_end
@@ -90,13 +90,13 @@ def blast_parser(blast_records):
 							min_sstart = best.hsps[0].sbjct_end
 							max_send = best.hsps[0].sbjct_start
 				if frame in [1, 2, 3]:
-					result[record.query.split(' ')[0].split('|')[2]] = [min_sstart, max_send, frame, best.hit_id, 
+					result[record.query.split(':')[0]] = [min_sstart, max_send, frame, best.hit_id, 
 						record.query_length, min_qstart, max_qend]
 				else:
-					result[record.query.split(' ')[0].split('|')[2]] = [max_send, min_sstart, frame, best.hit_id, 
+					result[record.query.split(':')[0]] = [max_send, min_sstart, frame, best.hit_id, 
 						record.query_length, min_qstart, max_qend]
 		except:
-			err_out.write('{}:\tno hit found\n'.format(record.query.split(' ')[0].split('|')[2]))
+			err_out.write('{}:\tno hit found\n'.format(record.query.split(':')[0]))
 	errors = set(errors)
 	for i in errors:
 		err_out.write('{}:\thsps frames do not correspond\n'.format(i))

@@ -2,14 +2,14 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/full_chromosomes.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/1604_DNA_scaffolds_filtered.fasta'
+cmd = 'tblastn'
+query = '/home/kika/MEGAsync/blasto_project/genes/meiosis/LmjF_seqs.txt'
+db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/nad5/nad5_nt.txt'
-out = '/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/1604_blast.xml'
+out = '/home/kika/MEGAsync/blasto_project/genes/meiosis/p57/p57_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 10
+word_size = 3
 threads = 4
 
 print('running BLAST')
@@ -25,8 +25,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/1604_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/Dp_mt_genome/1604_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/p57/p57_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/p57/p57_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 
