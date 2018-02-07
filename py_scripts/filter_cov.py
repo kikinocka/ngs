@@ -2,26 +2,22 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1604/genome_assembly/')
-genome = SeqIO.parse('1604_DNA_scaffolds.fasta', 'fasta')
-table = open('1604_DNA_scaffolds_gc.tsv')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1608/genome_assembly/')
+genome = SeqIO.parse('1608_DNA_scaffolds.fasta', 'fasta')
 
-def get_cov(table):
+def get_cov(genome):
 	low = []
-	for line in table:
-		if 'contig' in line.split('\t')[0]:
-			pass
-		else:
-			cov = float(line.split('\t')[0].split('_')[5])
-			gc = float(line.split('\t')[7])
-			if cov < 100:
-				low.append(line.split('\t')[0])
+	for contig in genome:
+		cov = float(contig.name.split('_')[-1])
+		if cov < 100:
+			low.append(contig.name)
 	return low
 
-low = get_gc_cov(table)
+low = get_cov(genome)
 print(low)
 
-with open('1604_DNA_scaffolds_filtered.fasta', 'w') as out:
+genome = SeqIO.parse('1608_DNA_scaffolds.fasta', 'fasta')
+with open('1608_DNA_scaffolds_filtered.fasta', 'w') as out:
 	for contig in genome:
 		if contig.name in low:
 			pass
