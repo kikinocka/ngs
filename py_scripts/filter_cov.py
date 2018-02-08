@@ -2,8 +2,8 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1608/genome_assembly/')
-genome = SeqIO.parse('1608_DNA_scaffolds.fasta', 'fasta')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1601/genome_assembly/')
+genome = SeqIO.parse('1601_DNA_scaffolds.fasta', 'fasta')
 
 def get_cov(genome):
 	low = []
@@ -16,8 +16,8 @@ def get_cov(genome):
 low = get_cov(genome)
 print(low)
 
-genome = SeqIO.parse('1608_DNA_scaffolds.fasta', 'fasta')
-with open('1608_DNA_scaffolds_filtered.fasta', 'w') as out:
+genome = SeqIO.parse('1601_DNA_scaffolds.fasta', 'fasta')
+with open('1601_DNA_scaffolds_filtered.fasta', 'w') as out:
 	for contig in genome:
 		if contig.name in low:
 			pass
