@@ -2,14 +2,14 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-query = '/home/kika/p57_primers/in'
-db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
+cmd = 'tblastn'
+query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrrole/in'
+db = '/home/kika/programs/blast-2.5.0+/bin/eg_RNA_Hampl.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/nad5/nad5_nt.txt'
-out = '/home/kika/p57_primers/primers_blast.xml'
+out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrrole/out2_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 4
+word_size = 3
 threads = 4
 
 print('running BLAST')
@@ -25,8 +25,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/p57_primers/primers_blast.tsv', 'w')
-out_best = open('/home/kika/p57_primers/primers_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrrole/out2_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrrole/out2_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 

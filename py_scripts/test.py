@@ -1,10 +1,33 @@
-x = 'AHJKIDUATSGDUIJVOFS'
+class Sequence:
+	def __init__(self, name, seq):
+		self.name = name
+		self.seq = seq
+		self.codons = []
+	
+	def count_codons(self):
+		for i in range(0, len(self.seq)-2, 3):
+			self.codons.append(self.seq[i:i+3])
+		return self.codons
 
-if 'M' not in x:
-# x.find('M') < 0:
-	print('no')
-else:
-	print('yes')
+seq_dict = {'bla1':'ATCGATGCTAGCTAGCATGCTA', 'bla2':'GGGATCGATCATAGTCAGTCGATCGA'}
+
+new = {}
+for key, value in seq_dict.items():
+	new[key] = Sequence(key, value)
+
+for name, item in new.items():
+	print(name)
+	print(item.seq)
+	print(item.count_codons())
+
+
+# x = 'AHJKIDUATSGDUIJVOFS'
+
+# if 'M' not in x:
+# # x.find('M') < 0:
+# 	print('no')
+# else:
+# 	print('yes')
 
 
 # x = 'abcdefgh'
