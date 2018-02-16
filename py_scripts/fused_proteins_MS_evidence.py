@@ -13,6 +13,10 @@ class Fused_protein:
 		self.contig = contig
 		self.start = start
 		self.end = end
+		self.hit_coordinates = []
+
+	def set_hit(self, hit_start, hit_end):
+		self.hit_coordinates.append((hit_start, hit_end))
 
 fused = {}
 for line in fused_gff:
@@ -25,37 +29,21 @@ for line in fused_gff:
 	except:
 		pass
 
+
+for line in hits_gff:
+	for key, value in fused.items():
+		contig = line.split('\t')[0]
+		hit_start = int(line.split('\t')[3])
+		hit_end = int(line.split('\t')[4])
+		if contig == value.contig:
+			fused[key].set_hit(hit_start, hit_end)
+
 for key, value in fused.items():
-	print(value)
 	print(key)
 	print(value.contig)
 	print(value.start)
 	print(value.end)
-
-
-
-# def ms_positions(ms_bed):
-# 	ms_pos = OrderedDict()
-# 	for line in ms_bed:
-# 		contig = line.split('\t')[0]
-# 		start = int(line.split('\t')[1])
-# 		end = int(line.split('\t')[2])
-# 		trinity = line.split('\t')[3]
-# 		ms_pos[trinity] = [start, end, contig]
-# 	return ms_pos
-
-# def fused_positions(fused_gff):
-# 	fused_pos = OrderedDict()
-# 	for line in fused_gff:
-# 		try:
-# 			contig = line.split('\t')[0]
-# 			start = int(line.split('\t')[3])
-# 			end = int(line.split('\t')[4])
-# 			protid = line.split('\t')[8].split(';')[0].split('ID=')[1]
-# 			fused_pos[protid] = [start, end, contig]
-# 		except:
-# 			pass
-# 	return fused_pos
+	print(value.hit_coordinates)
 
 # def hits_positions(hits_gff):
 # 	hits_pos = OrderedDict()
@@ -66,6 +54,16 @@ for key, value in fused.items():
 # 		hitid = line.split('\t')[8].split(';')[0].split('ID=')[1]
 # 		hits_pos[hitid] = [start, end, contig]
 # 	return hits_pos
+
+# def ms_positions(ms_bed):
+# 	ms_pos = OrderedDict()
+# 	for line in ms_bed:
+# 		contig = line.split('\t')[0]
+# 		start = int(line.split('\t')[1])
+# 		end = int(line.split('\t')[2])
+# 		trinity = line.split('\t')[3]
+# 		ms_pos[trinity] = [start, end, contig]
+# 	return ms_pos
 
 # ms_pos = ms_positions(ms_bed)
 # fused_pos = fused_positions(fused_gff)
