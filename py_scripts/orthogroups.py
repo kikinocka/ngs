@@ -28,7 +28,7 @@ for key, value in single_copy.items():
 		for i in value.split(', '):
 			if sequence.name == i:
 				print('{}_____single_____{}'.format(i, key))
-				out_single.write('>{}\n{}\n'.format(sequence.name, sequence.seq))
+				out_single.write('>{}\n{}\n'.format(sequence.description, sequence.seq))
 
 for key, value in others.items():
 	out_others = open('/media/4TB1/blastocrithidia/orthofinder/other_ogs/{}.fa'.format(key), 'w')
@@ -36,4 +36,4 @@ for key, value in others.items():
 		for i in value.split(', '):
 			if sequence.name == i:
 				print('{}_____other_____{}'.format(i, key))
-				out_others.write('>{}\n{}\n'.format(sequence.name, sequence.seq))
+				out_others.write('>{}\n{}\n'.format(sequence.description, sequence.seq))

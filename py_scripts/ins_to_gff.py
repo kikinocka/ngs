@@ -5,7 +5,7 @@ import re
 from Bio import SeqIO, AlignIO
 from collections import defaultdict
 
-os.chdir('/home/kika/alignments/')
+os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/sc_ogs/')
 files = os.listdir()
 p57_aa = open('p57_aa.txt', 'w')
 p57_nt = open('p57_nt.txt', 'w')
@@ -41,19 +41,19 @@ def get_seq_number(aln_file):
 	number = 0
 	p57_triat_BexLH_jac = [None, None, None, None]
 	for sequence in sequences:
-		if ('p57' not in sequence.name and 'triat' not in sequence.name and 
-			'BexLH' not in sequence.name and 'jac' not in sequence.name):  
+		if ('Bp57' not in sequence.name and 'Btri' not in sequence.name and 
+			'Bexl' not in sequence.name and 'Jac' not in sequence.name):  
 			number += 1
-		elif 'p57' in sequence.name:
+		elif 'Bp57' in sequence.name:
 			p57_triat_BexLH_jac[0] = number
 			number += 1
-		elif 'triat' in sequence.name:
+		elif 'Btri' in sequence.name:
 			p57_triat_BexLH_jac[1] = number
 			number += 1
-		elif 'BexLH' in sequence.name:
+		elif 'Bexl' in sequence.name:
 			p57_triat_BexLH_jac[2] = number
 			number += 1
-		elif 'jac' in sequence.name:
+		elif 'Jac' in sequence.name:
 			p57_triat_BexLH_jac[3] = number
 			number += 1
 	return p57_triat_BexLH_jac
@@ -97,7 +97,7 @@ def get_peptides(ins_aln_positions, aln_file):
 	alignment = AlignIO.read(aln_file, 'fasta')
 	seq_numbers = get_seq_number(aln_file)
 	p57_triat_BexLH_jac = 0
-	names = ['p57', 'triat', 'BexLH', 'jac']
+	names = ['Bp57', 'Btri', 'Bexl', 'Jac']
 	result_dict = defaultdict(list)
 	for number in seq_numbers:
 		if number != None:
@@ -150,7 +150,7 @@ def p57_orf(result_dict):
 	not_genome = {}
 	no_orf = {}
 	for key in proteins_from_aln.keys():
-		if 'p57' in key:
+		if 'Bp57' in key:
 			key_root = re.sub(r'.*(NODE_\d+_length_\d+_cov_\d+.\d+).*', r'\g<1>', key)
 			if key_root in p57_contigs.keys():
 				nucl = p57_contigs[key_root]
@@ -211,7 +211,7 @@ def jac_orf(result_dict):
 	not_genome = {}
 	no_orf = {}
 	for key in proteins_from_aln.keys():
-		if 'jac' in key:
+		if 'Jac' in key:
 			key_root = re.sub(r'.*(NODE_\d+_length_\d+_cov_\d+.\d+).*', r'\g<1>', key)
 			if key_root in jac_contigs.keys():
 				nucl = jac_contigs[key_root]
