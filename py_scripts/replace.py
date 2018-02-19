@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/sc_ogs/')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sc_ogs/')
 files = os.listdir()
 
 for file in files:
