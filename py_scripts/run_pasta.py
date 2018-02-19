@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/blasto_project/genes/meiosis/PASTA/')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sc_ogs/')
 files = os.listdir()
 
 for file in files:
