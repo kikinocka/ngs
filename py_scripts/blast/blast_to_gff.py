@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-infile = open('/home/kika/MEGAsync/diplonema_mt/1604/transcripts/gff/all_modules.tsv')
-output = open('/home/kika/MEGAsync/diplonema_mt/1604/transcripts/gff/all.gff', 'w')
+infile = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/all_modules_best_blast.tsv')
+output = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/all.gff', 'w')
 
 output.write('{}\t{}\n'.format('##gff-version', '3'))
 
@@ -35,10 +35,10 @@ for row in infile:
 			new_send = send
 			strand = '+'
 
-		note = 'Name=' + sseqid + ';ID=' + sseqid + '-' + qseqid
+		note = 'Name=' + sseqid + ';ID=' + qseqid.replace('_', '-')
 
-		output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(sseqid, 'blast', 'exon', int(sstart), int(new_send), 
-			'.', strand, '.', note))
+		output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(sseqid, 'blast', 'exon', int(sstart), 
+			int(new_send), '.', strand, '.', note))
 	except:
 		pass
 output.close()

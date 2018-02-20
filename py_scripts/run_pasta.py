@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/sc_ogs/stops_replaced/')
+os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/sc_ogs/problems/')
 files = os.listdir()
 
 for file in files:
