@@ -8,7 +8,7 @@ from collections import defaultdict
 p57_genome = '/media/4TB1/blastocrithidia/genome_assembly/p57_scaffolds.fa'
 jac_genome = '/media/4TB1/blastocrithidia/genome_assembly/jaculum_spades_transcriptome/scaffolds.fasta'
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/test/')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/')
 files = os.listdir()
 p57_aa = open('p57_aa.txt', 'w')
 p57_nt = open('p57_nt.txt', 'w')
