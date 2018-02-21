@@ -5,8 +5,8 @@ import re
 from Bio import SeqIO, AlignIO
 from collections import defaultdict
 
-p57_genome = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
-jac_genome = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
+p57_genome = '/media/4TB1/blastocrithidia/genome_assembly/p57_scaffolds.fa'
+jac_genome = '/media/4TB1/blastocrithidia/genome_assembly/jaculum_spades_transcriptome/scaffolds.fasta'
 
 os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/test/')
 files = os.listdir()
