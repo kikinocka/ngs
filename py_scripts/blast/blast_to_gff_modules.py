@@ -3,10 +3,10 @@ import re
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/y6/y6_nt.txt', 'fasta')
-tsv = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/y6/y6_modules_best_blast.tsv')
-xml = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/y6/y6_modules_blast.xml')
-gff = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/y6/y6_modules.gff', 'w')
+seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/rnl/rnl_nt.txt', 'fasta')
+tsv = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/rnl/rnl_modules_best_blast.tsv')
+xml = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/rnl/rnl_modules_blast.xml')
+gff = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/rnl/rnl_modules.gff', 'w')
 
 class MitoGene:
 	def __init__(self, name, start, end):
