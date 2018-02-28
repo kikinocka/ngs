@@ -4,11 +4,11 @@ from Bio import SeqIO
 import re
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
-nt_out = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_nt.txt', 'w')
-aa_out = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_aa.txt', 'w')
-err_out = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_errors.txt', 'w')
-result_handle = open('/home/kika/MEGAsync/blasto_project/genes/meiosis/jac/jac_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/el_merged.fasta', 'fasta')
+nt_out = open('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_nt.txt', 'w')
+aa_out = open('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_aa.txt', 'w')
+err_out = open('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_EGseqs_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

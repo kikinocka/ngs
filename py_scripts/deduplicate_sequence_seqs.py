@@ -3,9 +3,9 @@ from collections import OrderedDict
 from collections import defaultdict
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/reference_tryps_proteoms/imp_mit.fa', 'fasta')
-out_fasta = open('/home/kika/MEGAsync/blasto_project/reference_tryps_proteoms/imp_mit_dedupl.fa', 'w')
-out_names = open('/home/kika/MEGAsync/blasto_project/reference_tryps_proteoms/imp_mit_dupl-names.txt', 'w')
+infile = SeqIO.parse('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_aa.txt', 'fasta')
+out_fasta = open('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_aa_dedupl.fa', 'w')
+out_names = open('/home/kika/MEGAsync/Publikacie/EL_plastid/ver6/el_aa_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

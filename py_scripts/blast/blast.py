@@ -2,31 +2,31 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-query = '/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/test/p57/in'
-db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
-# subject = '/home/kika/MEGAsync/diplonema_mt/1608/transcripts/rnl/rnl_nt.fasta'
-out = '/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/test/p57/out_blast.xml'
+cmd = 'blastn'
+query = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/atp6/atp6_modules.txt'
+# db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
+subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/atp6/atp6_nt.fasta'
+out = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/atp6/atp6_modules_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 3
-threads = 4
+word_size = 4
+threads = 3
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
-		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
+# 		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
 
 #query - subject
-# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/test/p57/out_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/test/p57/out_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/atp6/atp6_modules_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/atp6/atp6_modules_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 
@@ -56,7 +56,7 @@ for record in blast_records:
 					hsp.identities, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, hsp.sbjct_start, 
 					hsp.sbjct_end, alen_qlen, alen_slen))
 	except:
-		output.write('{}\t{}\t{}\n'.format(record.query, record.query_length, '***no hit found***'))
-		out_best.write('{}\t{}\t{}\n'.format(record.query, record.query_length, '***no hit found***'))
+		output.write('{}\t{}\t***no hit found***\n'.format(record.query, record.query_length))
+		out_best.write('{}\t{}\t***no hit found***\n'.format(record.query, record.query_length))
 out_best.close()
 output.close()
