@@ -2,31 +2,31 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules.txt'
-# db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
-subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_nt.fasta'
-out = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules_blast.xml'
+cmd = 'tblastn'
+query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/in'
+db = '/home/kika/programs/blast-2.5.0+/bin/pyramimonas_obovata_CCMP722.nt.fa'
+subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_nt.fasta'
+out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/pob_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 4
-threads = 3
+word_size = 3
+threads = 4
 
 print('running BLAST')
 #query - database
-# subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
-# 		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
+		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
 
 #query - subject
-subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/pob_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/pob_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 
@@ -41,21 +41,35 @@ for record in blast_records:
 		mismatches = best_hit.align_length - (best_hit.gaps + best_hit.positives)
 		alen_qlen = best_hit.align_length/record.query_length
 		alen_slen = best_hit.align_length/record.alignments[0].length
-		out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-			record.query, record.query_length, record.alignments[0].hit_id, record.alignments[0].length, 
-			best_hit.align_length, best_hit.expect, best_hit.identities, best_hit.bits, mismatches, 
-			best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_start, best_hit.sbjct_end, 
-			alen_qlen, alen_slen))
+		if best_hit.frame[1] > 0:
+			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+				record.query, record.query_length, record.alignments[0].hit_id, record.alignments[0].length, 
+				best_hit.align_length, best_hit.expect, best_hit.identities, best_hit.bits, mismatches, 
+				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_start, best_hit.sbjct_end, 
+				alen_qlen, alen_slen))
+		else:
+			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+				record.query, record.query_length, record.alignments[0].hit_id, record.alignments[0].length, 
+				best_hit.align_length, best_hit.expect, best_hit.identities, best_hit.bits, mismatches, 
+				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_end, best_hit.sbjct_start, 
+				alen_qlen, alen_slen))
 		for aln in record.alignments:
 			for hsp in aln.hsps:
 				mismatches = hsp.align_length - (hsp.gaps + hsp.positives)
 				alen_qlen = hsp.align_length/record.query_length
 				alen_slen = hsp.align_length/aln.length
-				output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-					record.query, record.query_length, aln.hit_id, aln.length, hsp.align_length, hsp.expect, 
-					hsp.identities, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, hsp.sbjct_start, 
-					hsp.sbjct_end, alen_qlen, alen_slen))
+				if hsp.frame[1] > 0:
+					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+						record.query, record.query_length, aln.hit_id, aln.length, hsp.align_length, hsp.expect, 
+						hsp.identities, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
+						hsp.sbjct_start, hsp.sbjct_end, alen_qlen, alen_slen))
+				else:
+					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+						record.query, record.query_length, aln.hit_id, aln.length, hsp.align_length, hsp.expect, 
+						hsp.identities, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
+						hsp.sbjct_end, hsp.sbjct_start, alen_qlen, alen_slen))
 	except:
+		pass
 		output.write('{}\t{}\t***no hit found***\n'.format(record.query, record.query_length))
 		out_best.write('{}\t{}\t***no hit found***\n'.format(record.query, record.query_length))
 out_best.close()

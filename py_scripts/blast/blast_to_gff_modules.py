@@ -3,10 +3,10 @@ import re
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_nt.fasta', 'fasta')
-tsv = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules_best_blast.tsv')
-xml = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules_blast.xml')
-gff = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/cob_modules.gff', 'w')
+seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_nt.fasta', 'fasta')
+tsv = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_modules_best_blast.tsv')
+xml = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_modules_blast.xml')
+gff = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_modules.gff', 'w')
 
 class MitoGene:
 	def __init__(self, name, start, end):
@@ -28,8 +28,8 @@ class MitoGene:
 				for i in re.finditer(' ', best_hit.match):
 					position = sstart + i.start()
 					self.editing.append((position, best_hit.query[i.start()], best_hit.sbjct[i.start()]))
-
-mito = MitoGene(str(seq.name).split('_')[1], 1, len(seq.seq))
+#.split('_')[1]
+mito = MitoGene(str(seq.name), 1, len(seq.seq))
 mito.add_editing(xml)
 
 for line in tsv:

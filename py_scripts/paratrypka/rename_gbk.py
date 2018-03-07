@@ -7,8 +7,8 @@ from Bio.Alphabet import IUPAC
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 from collections import OrderedDict
 
-os.chdir('/home/kika/paratrypanosoma/20180208_new/')
-in_gbk = SeqIO.parse('Paratrypanosoma_prot_annottions_Blast2GO_final_repaired.gbk', 'gb')
+os.chdir('/home/kika/paratrypanosoma/20180301/')
+in_gbk = SeqIO.parse('Paratrypanosoma_prot_annottions_Blast2GO_repaired2.gbk', 'gb')
 gff = open('Pconfusum_genes_repaired.gff')
 gbk = open('paratryp_renamed.gbk', 'w')
 err = open('errors.txt', 'w')

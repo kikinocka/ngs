@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+import os
+
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/')
 
 #file in format Acc. number \t name of organism \n
-names = open('/home/kika/MEGAsync/Publikacie/Rheb/figures/species.txt', 'r')
-tree = open('/home/kika/MEGAsync/Publikacie/Rheb/figures/Euglenozoa_rheb_tree.txt', 'r')
+names = open('names.txt')
+tree = open('secY_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -22,5 +25,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('/home/kika/MEGAsync/Publikacie/Rheb/figures/Euglenozoa_rheb_tree_renamed.txt', 'w') as result:
+with open('secY_tree_renamed.txt', 'w') as result:
     result.write(tree_line)

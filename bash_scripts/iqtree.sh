@@ -1,8 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-aln='/home/kika/MEGAsync/blasto_project/genes/tRNAs/iqtree/untrimmed_anticodon_5000bb/trnas_deduplicated_anticodon.aln'
-bb=5000
+work_dir='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/'
+aln=$work_dir'secY_trimal_automated1.aln'
+bb=1000
 alrt=5000
 nm=5000
 
-iqtree-omp -s $aln -bb $bb -alrt $alrt -nm $nm -nt 4
+iqtree-omp -s $aln -bb $bb -nt 4 -m TEST
+
+# -alrt $alrt -nm $nm

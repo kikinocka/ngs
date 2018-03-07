@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cob/')
-xml = open('cob_blast.xml')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/')
+xml = open('cox3_blast.xml')
 blast_records = NCBIXML.parse(xml)
 
 coordinates = {}
@@ -20,15 +20,20 @@ for record in blast_records:
 		else:
 			sstart = best_hit.sbjct_end
 			send = best_hit.sbjct_start
-		coordinates[sstart] = [record.query[4:], qstart, qend, frame]
+		if sstart in coordinates:
+			pass
+		else:
+			coordinates[sstart] = [record.query[4:], qstart, qend, frame]
 	except:
 		print(record.query + '\tno hit found')
 
-with open('cob_modules.txt', 'w') as modules:
+c = 0
+with open('cox3_modules.txt', 'w') as modules:
 	for item in sorted(coordinates.items()):
-		for seq in SeqIO.parse('cob_contigs.txt', 'fasta'):
+		c += 1
+		for seq in SeqIO.parse('cox3_contigs.txt', 'fasta'):
 			if item[1][0] in seq.name:
 				if item[1][3] > 0:
-					modules.write('>m\n{}\n'.format(seq.seq[item[1][1]:item[1][2]]))
+					modules.write('>m{}\n{}\n'.format(c, seq.seq[item[1][1]:item[1][2]]))
 				else:
-					modules.write('>m\n{}\n'.format(seq.seq[item[1][1]:item[1][2]].reverse_complement()))
+					modules.write('>m{}\n{}\n'.format(c, seq.seq[item[1][1]:item[1][2]].reverse_complement()))
