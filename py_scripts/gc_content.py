@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/p57_nt_renamed.fa', 'fasta')
-outfile = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/p57_nt_renamed_gc.tsv', 'w')
+infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/genes/catalase/nt/ins_nt.fasta', 'fasta')
+outfile = open('/home/kika/MEGAsync/blasto_project/genes/catalase/nt/ins_gc.tsv', 'w')
 
 outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('ins', 'ins length [# nt]', 'A [# nt]', 
 	'T [# nt]', 'C [# nt]', 'G [# nt]', 'ambiguous [# nt]', 'GC content [%]', 'AT content [%]'))

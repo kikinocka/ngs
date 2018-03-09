@@ -2,31 +2,31 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/in'
-db = '/home/kika/programs/blast-2.5.0+/bin/pyramimonas_obovata_CCMP722.nt.fa'
-subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_nt.fasta'
-out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/pob_blast.xml'
+cmd = 'blastn'
+query = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules.txt'
+# db = '/home/kika/programs/blast-2.5.0+/bin/1618_DNA_scaffolds_filtered.fasta'
+subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_nt.fasta'
+out = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 3
+word_size = 4
 threads = 4
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
-		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
+# 		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
 
 #query - subject
-# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/pob_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secY/pob_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 

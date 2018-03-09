@@ -3,10 +3,10 @@ import re
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_nt.fasta', 'fasta')
-tsv = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_modules_best_blast.tsv')
-xml = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_modules_blast.xml')
-gff = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3_modules.gff', 'w')
+seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_nt.fasta', 'fasta')
+tsv = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules_best_blast.tsv')
+xml = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules_blast.xml')
+gff = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_modules.gff', 'w')
 
 class MitoGene:
 	def __init__(self, name, start, end):
@@ -46,7 +46,7 @@ for i in range(len(mito.mod_coordinates)):
 			mito.name, mito.mod_coordinates[i][0], mito.mod_coordinates[i][1], mito.name, mito.name, i+1))
 		for pos in mito.editing:
 			if pos[0] in range(mito.mod_coordinates[i][0],mito.mod_coordinates[i][1]):
-				gff.write('{}\tblast\tmisc_difference\t{}\t{}\t.\t+\t.\tName={};ID={}-m{}_{}_{}>{};ref={};alt={}\n'.
+				gff.write('{}\tblast\tmisc_difference\t{}\t{}\t.\t.\t.\tName={};ID={}-m{}_{}_{}>{};ref={};alt={}\n'.
 					format(mito.name, pos[0], pos[0], mito.name, mito.name, i+1, pos[0], pos[1], pos[2], pos[1], 
 						pos[2]))
 		if i+1 == len(mito.mod_coordinates):
