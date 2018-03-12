@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secA/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Glycerolipids/Phospholipids/PGP_tree/')
 files = os.listdir()
 
 for file in files:

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secA/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secA/HMM/tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('names.txt')
+names = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/secA/names.txt')
 tree = open('secA_trimal_automated1.aln.treefile')
 
 name_dict = {}
@@ -25,5 +25,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('secA_tree_renamed_2.txt', 'w') as result:
+with open('secA_tree_renamed.txt', 'w') as result:
     result.write(tree_line)
