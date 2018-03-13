@@ -1,10 +1,16 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-hits = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/srp/HMM/in')
+infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EG_RNAseq/EGALL_6frames.fasta', 'fasta')
+infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/in')
+out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/out', 'w')
 
-with open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/srp/HMM/out', 'w') as res:
-	for line in hits:
-		for contig in SeqIO.parse('/home/kika/MEGAsync/Data/EG_RNAseq/EGALL_6frames.fasta', 'fasta'):
-			if contig.name == line[:-1]:
-				res.write('>{}\n{}\n'.format(contig.description, contig.seq))
+retrieve = set()
+for line in infile:
+	retrieve.add(line[:-1])
+
+for seq in infasta:
+	if seq.name in retrieve:
+		print(seq.name)
+		out.write('>{}\n{}\n'.format(seq.name, seq.seq))
+out.close()
