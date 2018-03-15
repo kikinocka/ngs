@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad5/')
-xml = open('nad5_contigs_blast.xml')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad7/')
+xml = open('nad7_contigs_blast.xml')
 blast_records = NCBIXML.parse(xml)
 
 coordinates = {}
@@ -28,10 +28,10 @@ for record in blast_records:
 		print(record.query + '\tno hit found')
 
 c = 0
-with open('nad5_modules.txt', 'w') as modules:
+with open('nad7_modules.txt', 'w') as modules:
 	for item in sorted(coordinates.items()):
 		c += 1
-		for seq in SeqIO.parse('nad5_contigs.txt', 'fasta'):
+		for seq in SeqIO.parse('nad7_contigs.txt', 'fasta'):
 			if item[1][0] in seq.name:
 				if item[1][3] > 0:
 					modules.write('>m{}\n{}\n'.format(c, seq.seq[item[1][1]:item[1][2]]))
