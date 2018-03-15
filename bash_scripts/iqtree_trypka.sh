@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aln='/media/4TB1/blastocrithidia/kika_workdir/nr90_trimal_automated1.aln'
+aln='/media/4TB1/blastocrithidia/kika_workdir/nr70_trimal_automated1.aln'
 bb=1000
 # alrt=5000
 # nm=5000

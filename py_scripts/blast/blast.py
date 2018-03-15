@@ -3,10 +3,10 @@ import subprocess
 from Bio.Blast import NCBIXML
 
 cmd = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/nad4/m5.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/1604_DNA_scaffolds_filtered.fasta'
-# subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad7/nad7.fa'
-out = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad7/m5_blast.xml'
+query = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/all_modules.txt'
+# db = '/home/kika/programs/blast-2.5.0+/bin/1604_DNA_scaffolds_filtered.fasta'
+subject = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/all_contigs.txt'
+out = '/home/kika/MEGAsync/diplonema_mt/1604/transcripts/modules_blast.xml'
 evalue = 10
 outfmt = 5
 word_size = 4
@@ -14,19 +14,19 @@ threads = 4
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
-		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
+# 		cmd, query, db, out, evalue, outfmt, word_size, threads), shell=True)
 
 #query - subject
-# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad7/m5_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad7/m5_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1604/transcripts/modules_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1604/transcripts/modules_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 
