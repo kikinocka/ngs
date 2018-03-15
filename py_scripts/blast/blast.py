@@ -3,10 +3,10 @@ import subprocess
 from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
-query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/eg_tic55_aa.txt'
+query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/rho_seqs.txt'
 db = '/home/kika/programs/blast-2.5.0+/bin/eut_NIES-381_transcriptome.nt.fa'
-# subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/y6/y6_nt.fasta'
-out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/nies_tic55_blast.xml'
+# subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/nad5/nad5.fa'
+out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nies_blast.xml'
 evalue = 10
 outfmt = 5
 word_size = 3
@@ -19,14 +19,14 @@ subprocess.call('{} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {}
 
 #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-		# cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/nies_tic55_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/nies_tic55_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nies_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nies_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'slen', 
 	'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 'alen_qlen', 

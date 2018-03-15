@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Glycerolipids/Phospholipids/PGP_tree/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/')
 files = os.listdir()
 
 for file in files:
 	if '.aln' in file:
+		print(file)
 		file_name = file.split('_mafft')[0]
 		option = 'automated1'
 		output = '{}_trimal_{}.aln'.format(file_name, option)

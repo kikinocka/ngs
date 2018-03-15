@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EG_RNAseq/EGALL_6frames.fasta', 'fasta')
-infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/in')
-out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/out', 'w')
+infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/EL_merged.fasta', 'fasta')
+infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/pt_division/HMM/in')
+out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/pt_division/HMM/el_arc3_hit.txt', 'w')
 
 retrieve = set()
 for line in infile:

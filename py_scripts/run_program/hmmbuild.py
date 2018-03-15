@@ -2,12 +2,12 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/pt_division/HMM/')
 files = os.listdir()
 threads = 4
 
 for file in files:
-	if file.endswith('.fas'):
+	if file.endswith('.fa'):
 		print(file)
 		name = file.split('_')[0]
 		hmm = name + '_profile.hmm'
