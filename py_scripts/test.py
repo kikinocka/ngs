@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+# import sys
+# sys.platform
+
+
+
 # from Bio import SeqIO
 # from Bio.Seq import Seq
 # from Bio.SeqRecord import SeqRecord
@@ -25,27 +31,27 @@
 
 
 
-class Sequence:
-	def __init__(self, name, seq):
-		self.name = name
-		self.seq = seq
-		self.codons = []
+# class Sequence:
+# 	def __init__(self, name, seq):
+# 		self.name = name
+# 		self.seq = seq
+# 		self.codons = []
 	
-	def count_codons(self):
-		for i in range(0, len(self.seq)-2, 3):
-			self.codons.append(self.seq[i:i+3])
-		return self.codons
+# 	def count_codons(self):
+# 		for i in range(0, len(self.seq)-2, 3):
+# 			self.codons.append(self.seq[i:i+3])
+# 		return self.codons
 
-seq_dict = {'bla1':'ATCGATGCTAGCTAGCATGCTA', 'bla2':'GGGATCGATCATAGTCAGTCGATCGA'}
+# seq_dict = {'bla1':'ATCGATGCTAGCTAGCATGCTA', 'bla2':'GGGATCGATCATAGTCAGTCGATCGA'}
 
-new = {}
-for key, value in seq_dict.items():
-	new[key] = Sequence(key, value)
+# new = {}
+# for key, value in seq_dict.items():
+# 	new[key] = Sequence(key, value)
 
-for name, item in new.items():
-	print(name)
-	print(item.seq)
-	print(item.count_codons())
+# for name, item in new.items():
+# 	print(name)
+# 	print(item.seq)
+# 	print(item.count_codons())
 
 
 

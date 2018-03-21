@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nr70/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/FTSH_proteases/')
 files = os.listdir()
 
 for file in files:

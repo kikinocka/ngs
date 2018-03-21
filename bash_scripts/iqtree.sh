@@ -1,6 +1,6 @@
 #!/bin/bash
 
-aln='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nr70_trimal_automated1.aln'
+aln='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/FTSH_proteases/FTSH_trimal_automated1.aln'
 bb=1000
 alrt=5000
 nm=5000

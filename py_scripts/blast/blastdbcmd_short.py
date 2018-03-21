@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 import subprocess
 
-file = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y6/in'
-one = 'NODE_379_length_14747_cov_61.7013'
+file = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SL_search/in'
+one = 'CAMNT_0000668555'
 positions = '6786-8294'
 strand = 'minus'
-db = '/home/kika/programs/blast-2.5.0+/bin/1601_DNA_scaffolds.fasta'
-out = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y6/y6_hits.txt'
+db = '/home/kika/programs/blast-2.5.0+/bin/el_reads_new.fa'
+out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SL_search/RPOD_corrected_reads.txt'
 
 subprocess.call('blastdbcmd -entry_batch {} -db {} -out {}'.format(file, db, out), shell=True)
 # subprocess.call('blastdbcmd -entry {} -db {} -out {} -range={} -strand={}'.format(one, db, out, positions, strand), 

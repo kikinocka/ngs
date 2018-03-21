@@ -1,7 +1,7 @@
 #!/bin/sh
 
-f="/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/el_secY_marek_without_sp.txt"
-r="/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/sec/el_secY_marek_without_sp_multiloc.txt"
+f='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/FTSH_proteases/predictions/corrected_seqs_SP_cleaved_predisi.txt'
+r='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/FTSH_proteases/predictions/corrected_seqs_SP_cleaved_predisi_multiloc.txt'
 a=animal
 p=plant
 
