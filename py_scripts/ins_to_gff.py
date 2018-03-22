@@ -4,20 +4,16 @@ import re
 from Bio import SeqIO, AlignIO
 from collections import defaultdict
 
-p57_genome = '/home/kika/MEGAsync/blasto_project/genome_assembly/p57_scaffolds.fa'
-jac_genome = '/home/kika/MEGAsync/blasto_project/genome_assembly/jaculum_scaffolds.fasta'
-triat_transc = '/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/triat_trinity.fasta'
-bexlh_transc = '/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/blobtools/lhes1/bexlh1.fa'
+p57_genome = '/media/4TB1/blastocrithidia/genome_assembly/p57_scaffolds.fa'
+jac_genome = '/media/4TB1/blastocrithidia/genome_assembly/jaculum_scaffolds.fa'
+triat_transc = '/media/4TB1/blastocrithidia/transcriptome_assembly/trinity_denovo/triat_trinity.fasta'
+bexlh_transc = '/media/4TB1/blastocrithidia/transcriptome_assembly/trinity_denovo/blobtools/lhes1/bexlh1_strict.fa'
 
-os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/ins/')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
 files = os.listdir()
 no_orf = open('no_orf.txt', 'w')
 not_genome = open('not_genome.txt', 'w')
-# p57_aa = open('p57_aa.txt', 'w')
-# p57_nt = open('p57_nt.txt', 'w')
 p57_gff = open('p57_insertions.gff', 'w')
-# jac_aa = open('jac_aa.txt', 'w')
-# jac_nt = open('jac_nt.txt', 'w')
 jac_gff = open('jac_insertions.gff', 'w')
 triat_gff = open('triat_insertions.gff', 'w')
 bexlh_gff = open('bexlh_insertions.gff', 'w')
@@ -112,25 +108,31 @@ def get_peptides(ins_aln_positions, aln_file):
 			result_dict[seq_name].append(aln_file)
 			sample = ins_aln_positions[p57_triat_BexLH_jac]
 			position_list = [-2]
+			aln_pos_list = [-2]
 			for position, value in sample.items():
 				if value == 1:
+					aln_pos_list.append(position)
 					position_list.append(position - seq_seq[:position].count('-'))
 			start = -1
+			aln_start = -1
 			for position in range(1,len(position_list)):
 				if position_list[position] - 1 != position_list[position - 1]:
 					start = int(position_list[position])
+					aln_start = int(aln_pos_list[position])
 				if position == len(position_list) - 1:
 					stop = int(position_list[position])
-					coordinates = (start, stop)
+					aln_stop = int(aln_pos_list[position])
+					coordinates = (start, stop, aln_start, aln_stop)
 					result_dict[seq_name].append(coordinates)
 				elif position_list[position] + 1 != position_list[position + 1]:
 					stop = int(position_list[position])
-					coordinates = (start, stop)
+					aln_stop = int(aln_pos_list[position])
+					coordinates = (start, stop, aln_start, aln_stop)
 					result_dict[seq_name].append(coordinates)
 		p57_triat_BexLH_jac += 1
 	return result_dict
-	#prot_name : [prot_seq, file_name, (start,stop), (start,stop)]
-	#									     ins1		   ins2
+	#prot_name : [prot_seq, file_name, (start,stop, aln_start,aln_stop), (start,stop, aln_start,aln_stop)]
+	#									     	ins1		   					ins2
 
 def translation(nucl_seq):
 	cut_seq = []
@@ -281,7 +283,7 @@ def orf_transcriptome(species, result_dict, transcriptome):
 print('Gathering insertions from alignments')
 final_dict = {}
 for file in files:
-	if '.aln' in file:
+	if file.endswith('.aln'):
 		print(file)
 		ins_aln_positions = find_insertion(file)
 		result_dict = get_peptides(ins_aln_positions, file)
@@ -301,10 +303,18 @@ for file in files:
 		no_orf_dict.update(orf_transcriptome('Bexl', final_dict, bexlh_transc)[1])
 		not_genome_dict.update(orf_transcriptome('Bexl', final_dict, bexlh_transc)[2])
 
+print('Writting errors to files')
 for key, value in no_orf_dict.items():
 	no_orf.write('{}\t{}\n'.format(value, key))
 for key, value in not_genome_dict.items():
 	not_genome.write('{}\t{}\n'.format(value, key))
+
+#final_dict
+#prot_name : [prot_seq, file_name, (start,stop, aln_start,aln_stop), (start,stop, aln_start,aln_stop)]
+#									     	ins1		   					ins2
+#sp_dict
+#file name : [prot_name		orf sequence 	orf start 	orf end 	frame]
+#			   [0]				[1]			[2]			[3]			[4]	
 
 print('Writting insertions found in Bp57 proteins to files')
 for key, value in p57_dict.items():
@@ -323,9 +333,10 @@ for key, value in p57_dict.items():
 					p57_gff.write('{}\tblast\texon\t{}\t{}\t.\t+\t.\tParent={}\n'.format(contig, orf_start, 
 						orf_start + 3*prot_value[2][0] - 4, og))
 					for i in range(len(prot_value[2:])):
-						p57_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}\n'.format(
+						p57_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_start + 3*prot_value[2:][i][0] - 3, 
-								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1))
+								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -344,9 +355,10 @@ for key, value in p57_dict.items():
 					p57_gff.write('{}\tblast\texon\t{}\t{}\t.\t-\t.\tParent={}\n'.format(contig,  
 						orf_end - 3*prot_value[2][0] + 1 + 3, orf_end, og))
 					for i in range(len(prot_value[2:])):
-						p57_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}\n'.format(
+						p57_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_end - 3*prot_value[2:][i][1] + 1, 
-								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1))
+								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -373,9 +385,10 @@ for key, value in jac_dict.items():
 					jac_gff.write('{}\tblast\texon\t{}\t{}\t.\t+\t.\tParent={}\n'.format(contig, orf_start, 
 						orf_start + 3*prot_value[2][0] - 4, og))
 					for i in range(len(prot_value[2:])):
-						jac_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}\n'.format(
+						jac_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_start + 3*prot_value[2:][i][0] - 3, 
-								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1))
+								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -394,9 +407,10 @@ for key, value in jac_dict.items():
 					jac_gff.write('{}\tblast\texon\t{}\t{}\t.\t-\t.\tParent={}\n'.format(contig,  
 						orf_end - 3*prot_value[2][0] + 1 + 3, orf_end, og))
 					for i in range(len(prot_value[2:])):
-						jac_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}\n'.format(
+						jac_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_end - 3*prot_value[2:][i][1] + 1, 
-								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1))
+								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -423,9 +437,10 @@ for key, value in triat_dict.items():
 					triat_gff.write('{}\tblast\texon\t{}\t{}\t.\t+\t.\tParent={}\n'.format(contig, orf_start, 
 						orf_start + 3*prot_value[2][0] - 4, og))
 					for i in range(len(prot_value[2:])):
-						triat_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}\n'.format(
+						triat_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_start + 3*prot_value[2:][i][0] - 3, 
-								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1))
+								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -444,9 +459,10 @@ for key, value in triat_dict.items():
 					triat_gff.write('{}\tblast\texon\t{}\t{}\t.\t-\t.\tParent={}\n'.format(contig,  
 						orf_end - 3*prot_value[2][0] + 1 + 3, orf_end, og))
 					for i in range(len(prot_value[2:])):
-						triat_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}\n'.format(
+						triat_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_end - 3*prot_value[2:][i][1] + 1, 
-								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1))
+								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -473,9 +489,10 @@ for key, value in bexlh_dict.items():
 					bexlh_gff.write('{}\tblast\texon\t{}\t{}\t.\t+\t.\tParent={}\n'.format(contig, orf_start, 
 						orf_start + 3*prot_value[2][0] - 4, og))
 					for i in range(len(prot_value[2:])):
-						bexlh_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}\n'.format(
+						bexlh_gff.write('{}\tblast\tintron\t{}\t{}\t.\t+\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_start + 3*prot_value[2:][i][0] - 3, 
-								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1))
+								orf_start + 3*prot_value[2:][i][1] - 1, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -494,9 +511,10 @@ for key, value in bexlh_dict.items():
 					bexlh_gff.write('{}\tblast\texon\t{}\t{}\t.\t-\t.\tParent={}\n'.format(contig,  
 						orf_end - 3*prot_value[2][0] + 1 + 3, orf_end, og))
 					for i in range(len(prot_value[2:])):
-						bexlh_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}\n'.format(
+						bexlh_gff.write('{}\tblast\tintron\t{}\t{}\t.\t-\t.\tParent={};ID=ins{}_{}-{}\n'.format(
 								contig, orf_end - 3*prot_value[2:][i][1] + 1, 
-								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1))
+								orf_end - 3*prot_value[2:][i][0] + 1 + 2, og, i+1, prot_value[2:][i][2],
+								prot_value[2:][i][3]))
 						if i+1 == len(prot_value[2:]):
 							pass
 						else:
@@ -505,3 +523,10 @@ for key, value in bexlh_dict.items():
 						i += 1
 					bexlh_gff.write('{}\tblast\texon\t{}\t{}\t.\t-\t.\tParent={}\n'.format(contig, orf_start, 
 						 orf_end - 3*prot_value[-1][1], og))
+
+no_orf.close()
+not_genome.close()
+p57_gff.close()
+jac_gff.close()
+triat_gff.close()
+bexlh_gff.close()
