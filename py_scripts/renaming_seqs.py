@@ -1,21 +1,10 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_aa_SLremoved.fa', 'fasta')
+infile = SeqIO.parse('/home/kika/MEGAsync/diplonema_mt/1601/genome_assembly/1601_tadpole.fa', 'fasta')
 
-i = 1
-with open('/home/kika/MEGAsync/blasto_project/blast_searches/triat_transcriptome/triat_aa_renamed.fa', 'w') as output:
-	for sequence in infile:
-		print(sequence.description)
-		contig = sequence.description.split('__')[0]
-		unique = sequence.description.split('__')[1]
-		if i < 10:
-			name = 'Btri_0000{} {} {}'.format(i, unique, contig)
-		elif i < 100:
-			name = 'Btri_000{} {} {}'.format(i, unique, contig)
-		elif i < 1000:
-			name = 'Btri_00{} {} {}'.format(i, unique, contig)
-		else:
-			name = 'Btri_0{} {} {}'.format(i, unique, contig)
-		i += 1
-		output.write('>{}\n{}\n'.format(name, sequence.seq))
+with open('/home/kika/MEGAsync/diplonema_mt/1601/genome_assembly/1601_tadpole_renamed.fa', 'w') as output:
+	for seq in infile:
+		desc = seq.description.replace(',', '_').replace('=', '_')
+		print(desc)
+		output.write('>{}\n{}\n'.format(desc, seq.seq))
