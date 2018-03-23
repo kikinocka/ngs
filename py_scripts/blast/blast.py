@@ -2,14 +2,14 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SL_search/RPOD_corrected.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/el_reads_new.fa'
+cmd = 'tblastn'
+query = '/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/query'
+db = '/home/kika/programs/blast-2.5.0+/bin/p57_raw_reads.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y3/y3.fa'
-out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SL_search/RPOD_corrected_blast.xml'
+out = '/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_reads_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 4
+word_size = 3
 threads = 4
 
 print('running BLAST')
@@ -25,8 +25,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SL_search/RPOD_corrected_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SL_search/RPOD_corrected_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_reads_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_reads_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
