@@ -1,10 +1,10 @@
 #!/bin/bash
 
-pe1_1='/media/4TB1/blastocrithidia/reads/genome/trimmed/triat_trimmed_1.fq'
-pe1_2='/media/4TB1/blastocrithidia/reads/genome/trimmed/triat_trimmed_2.fq'
-transcriptome='/media/4TB1/blastocrithidia/transcriptome_assembly/trinity_denovo/triat_default/triat_trinity.fasta'
+pe1_1='/home/kika/diplonema/reads/trimmed/YPF1601_trimmed_1.fq.gz'
+pe1_2='/home/kika/diplonema/reads/trimmed/YPF1601_trimmed_2.fq.gz'
+transcriptome='/home/kika/diplonema/genome_assembly/1601/tadpole/1601_tadpole.fa'
 
-outdir='/media/4TB1/blastocrithidia/genome_assembly/triat_spades_transcriptome/'
+outdir='/home/kika/diplonema/genome_assembly/1601/spades_guided_tadpole/'
 
 report=$outdir"spades_report.txt"
 
