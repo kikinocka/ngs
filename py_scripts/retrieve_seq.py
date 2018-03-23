@@ -1,16 +1,15 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/EL_merged.fasta', 'fasta')
-infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/pt_division/HMM/in')
-out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/pt_division/HMM/el_arc3_hit.txt', 'w')
+infasta = SeqIO.parse('/home/kika/MEGAsync/Chlamydomonas/putative_pt_targeted/targeting_prediction/putative_pt_genes_aa_complete5.fa', 'fasta')
+infile = open('/home/kika/MEGAsync/Chlamydomonas/putative_pt_targeted/targeting_prediction/in')
+out = open('/home/kika/MEGAsync/Chlamydomonas/putative_pt_targeted/targeting_prediction/pt_predicted.fa', 'w')
 
 retrieve = set()
 for line in infile:
 	retrieve.add(line[:-1])
 
 for seq in infasta:
-	if seq.name in retrieve:
-		print(seq.name)
-		out.write('>{}\n{}\n'.format(seq.name, seq.seq))
+	if seq.name.split('_m.')[0] in retrieve:
+		out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 out.close()

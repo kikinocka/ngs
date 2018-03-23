@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import subprocess
 
-db = '/home/kika/programs/blast-2.5.0+/bin/1601_tadpole_renamed.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/1618_tadpole_renamed.fa'
 dbtype = 'nucl'
 
 subprocess.call('makeblastdb -in {} -dbtype {} -parse_seqids'.format(db, dbtype), shell=True)
