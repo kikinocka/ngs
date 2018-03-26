@@ -371,7 +371,7 @@ for key, value in p57_dict.items():
 print('Writting insertions found in Jac proteins to files')
 for key, value in jac_dict.items():
 	og = key.split('_')[0]
-	contig = value[0].split(' ')[2]
+	contig = value[0].split(' ')[1]
 	orf_start = value[2]
 	orf_end = value[3]
 	frame = value[4]

@@ -2,9 +2,9 @@
 import os
 
 os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/')
-gff = open('triat_insertions.gff')
+gff = open('jac_insertions_renamed.gff')
 
-with open('triat_only_ins_renamed.gff', 'w') as out:
+with open('jac_only_ins_renamed.gff', 'w') as out:
 	for line in gff:
 		if line.split('\t')[2] == 'intron':
 			og = line.split('\t')[8].split('=')[1].split(';')[0]
