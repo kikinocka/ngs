@@ -2,8 +2,8 @@
 from Bio import SeqIO
 from collections import OrderedDict
 
-sequences = SeqIO.parse('/home/kika/MEGAsync/blasto_project/genes/catalase/nt/ins_nt.fasta', 'fasta')
-table = open('/home/kika/MEGAsync/blasto_project/genes/catalase/nt/ins_cu.tsv', 'w')
+sequences = SeqIO.parse('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/p57_ins_nt.txt', 'fasta')
+table = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/p57_ins_cu.tsv', 'w')
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -34,7 +34,7 @@ for sequence in sequences:
 	codons = count_codons(sequence.seq)
 	for value in codons.values():
 		numbers.append(value)
-	table.write(sequence.description)
+	table.write('{}_ins length {}'.format(sequence.description, len(sequence.seq)))
 	for num in numbers:
 		table.write('\t' + str(num))
 	table.write('\n')
