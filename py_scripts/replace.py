@@ -11,8 +11,8 @@ for file in files:
 		name = file.split('.fa')[0]
 		proteins = SeqIO.parse(file, 'fasta')
 		print(name)
-		replaced = open('replaced/{}_replaced.fa'.format(name), 'w')
-		notes = open('replaced/{}_notes.txt'.format(name), 'w')
+		replaced = open('stops_replaced/{}_replaced.fa'.format(name), 'w')
+		notes = open('stops_replaced/{}_notes.txt'.format(name), 'w')
 		for protein in proteins:
 			position = protein.seq.find('*')
 			if position == -1:

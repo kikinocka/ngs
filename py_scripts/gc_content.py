@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/p57_ins_nt.txt', 'fasta')
-outfile = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/p57_ins_gc.tsv', 'w')
+infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/jac_ins_nt.txt', 'fasta')
+outfile = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/jac_ins_gc.tsv', 'w')
 
 outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('ins', 'ins length [# nt]', 'A [# nt]', 
 	'T [# nt]', 'C [# nt]', 'G [# nt]', 'ambiguous [# nt]', 'GC content [%]', 'AT content [%]'))
@@ -27,6 +27,7 @@ def calculator(sequence):
 for sequence in infile:
 	seq = sequence.seq.upper()
 	name = sequence.description
+	print(name)
 	outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(name, len(seq), calculator(seq)[0], 
 		calculator(seq)[1], calculator(seq)[2], calculator(seq)[3], calculator(seq)[4], calculator(seq)[5], 
 		calculator(seq)[6]))
