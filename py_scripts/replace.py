@@ -35,11 +35,14 @@ for file in files:
 			if re.search(r'CDS_\d+', str(protein.seq)):
 				replaced.write('>{}\n{}\n'.format(protein.description, re.sub(r'CDS_\d+', '', str(protein.seq))))
 				notes.write('{}\t{}\t{}\n'.format(name, protein.name, re.search(r'CDS_\d+', str(protein.seq))))
-			elif '+' in protein.seq:
-				replaced.write('>{}\n{}\n'.format(protein.description, str(protein.seq).replace('+', 'X')))
-				notes.write('{}\t{}\t{}\t{}\n'.format(name, protein.name, protein.seq.find('+')+1, '+'))
-			elif '#' in protein.seq:
-				replaced.write('>{}\n{}\n'.format(protein.description, str(protein.seq).replace('#', 'X')))
-				notes.write('{}\t{}\t{}\t{}\n'.format(name, protein.name, protein.seq.find('#')+1, '#'))
+			elif '+' in protein.seq or '#' in protein.seq:
+				replaced.write('>{}\n{}\n'.format(protein.description, 
+					str(protein.seq).replace('+', 'X').replace('#', 'X')))
+				plus = protein.seq.find('+')
+				hashtag = protein.seq.find('#')
+				if plus != -1:
+					notes.write('{}\t{}\t{}\t{}\n'.format(name, protein.name, protein.seq.find('+')+1, '+'))
+				if hashtag != -1:
+					notes.write('{}\t{}\t{}\t{}\n'.format(name, protein.name, protein.seq.find('#')+1, '#'))
 			else:
 				replaced.write('>{}\n{}\n'.format(protein.description, protein.seq))
