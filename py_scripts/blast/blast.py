@@ -3,10 +3,10 @@ import subprocess
 from Bio.Blast import NCBIXML
 
 cmd = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/tadpole/cox3_modules.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/1618_tadpole_renamed.fa'
+query = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades_guided/nad5_modules_corrected.txt'
+db = '/home/kika/programs/blast-2.5.0+/bin/1601_spades_guided.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/cox3/cox3.fa'
-out = '/home/kika/MEGAsync/diplonema_mt/1618/transcripts/tadpole/cox3_modules_blast.xml'
+out = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades_guided/nad5_modules_corrected_blast.xml'
 evalue = 10
 outfmt = 5
 word_size = 4
@@ -25,8 +25,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/tadpole/cox3_modules_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/tadpole/cox3_modules_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades_guided/nad5_modules_corrected_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades_guided/nad5_modules_corrected_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

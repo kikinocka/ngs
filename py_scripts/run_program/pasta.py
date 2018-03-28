@@ -5,7 +5,7 @@ os.chdir('/media/4TB1/blastocrithidia/orthofinder/other_ogs/stops_replaced/')
 files = os.listdir()
 
 for file in files:
-	if file.endswith('2.fa'):
+	if file.endswith('_replaced2.fa'):
 	# if '.aln' not in file:
 		print(file)
 		job_desc = file.split('_')[0]
