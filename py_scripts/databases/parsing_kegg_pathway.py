@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 from bioservices.kegg import KEGG
 
-output = open('/home/kika/MEGAsync/blasto_project/genes/HR/lmaj_acc.txt', 'w')
+output = open('/home/kika/MEGAsync/Chlamydomonas/pathways/FASII/cre_acc.txt', 'w')
 
 kegg = KEGG()
 # pathway = kegg.get('tbr03430')
-pathway = kegg.get('lma03440')
+pathway = kegg.get('cre00061')
 dict_data = kegg.parse(pathway)
-# print(dict_data)
+print(dict_data)
 
 genes = {}
 for key in dict_data.keys():
 	if key == 'GENE':
 		genes = dict_data[key]
+# print(genes)
 
 for key in genes.keys():
 	output.write(key.replace('_', '.').replace('LMJF', 'LmjF') + '\n')
