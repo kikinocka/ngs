@@ -1,13 +1,13 @@
 #!/bin/bash
 
 bw2_dir='/home/nenarokova/tools/bowtie2-2.2.9/'
-read_dir='/home/kika/diplonema/reads/transcriptome/raw/'
-base_name='/home/kika/diplonema/transcripts/1601/1601_bw2'
-ref='/home/kika/diplonema/transcripts/1601/1601_candidates_nt.fasta'
+read_dir='/home/kika/diplonema/reads/transcriptome/trimmed/'
+base_name='/home/kika/diplonema/mapping/1601_RNA_to_transcripts/1601_bw2'
+ref='/home/kika/diplonema/mapping/1601_RNA_to_transcripts/1601_candidates_nt.fasta'
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
-p1_1=$read_dir'HI.4413.001.Index_21.1601b_R1.fastq.gz'
-p1_2=$read_dir'HI.4413.001.Index_21.1601b_R2.fastq.gz'
+p1_1=$read_dir'1601_trimmed_1.fq.gz'
+p1_2=$read_dir'1601_trimmed_2.fq.gz'
 
 alignment=$base_name".sam"
 report=$base_name".txt"
