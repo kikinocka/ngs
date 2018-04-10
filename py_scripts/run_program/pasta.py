@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/other_ogs/stops_replaced/')
-files = os.listdir()
+os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/other_ogs/')
+files = sorted(os.listdir())
 
 for file in files:
 	if file.endswith('_replaced2.fa'):
