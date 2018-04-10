@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/FTSH_proteases/predictions/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/SUF_system/')
 #input file in table: contig_name, TMD_number, SP_cleavage, prot_seq
-inFile = open('corrected_seqs_predisi.tsv')
+inFile = open('SUF2_predsl.tsv')
 
 for protein in inFile:
 #   splitting rows based on particular cells in the table
@@ -16,9 +16,9 @@ for protein in inFile:
     try:
         SP = int(SP)
         SP_cleaved = '>{}\n{}'.format(contig,seq[SP:])
-        with open('corrected_seqs_SP_cleaved.txt', 'a') as result:
+        with open('SUF2_SP_cleaved.txt', 'a') as result:
             result.write(SP_cleaved)
 # contig with protein, which doesn't contain SP, written in error file
     except ValueError as VE:
-        with open('corrected_seqs_errors.txt', 'a') as ValueErrors:
+        with open('SUF2_errors.txt', 'a') as ValueErrors:
             ValueErrors.write('{}\t{}\n'.format(contig,str(VE)))
