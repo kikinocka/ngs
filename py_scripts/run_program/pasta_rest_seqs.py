@@ -9,14 +9,14 @@ for file in files:
 	if file.endswith('.aln'):
 		name = file.split('.')[0]
 		done.append(name)
-
 print(done)
 
+files = reversed(files)
 for file in files:
 	if file.endswith('_replaced2.fa'):
 		name = file.split('_')[0]
 		if name in done:
-			print('Alignment for {} already done'.format(name))
+			print('Alignment for {} already done.'.format(name))
 		else:
 			print('\n------------------------------------')
 			print(name)
