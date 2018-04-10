@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/home/kika/MEGAsync/blasto_project/orthofinder/other_ogs/OG0011043_replaced2.fa'
+i='/media/4TB1/blastocrithidia/orthofinder/other_ogs/stops_replaced/OG0011122_replaced2.fa'
 d=protein
-j=OG0011043
+j=OG0011122
 
 run_pasta.py -i $i -d $d -j $j
