@@ -1,4 +1,11 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
+
+seq = 'MAGDALSKNVIUDCPAVO'
+SP = 3
+
+print(seq[3:])
+
+
 # import sys
 # sys.platform
 

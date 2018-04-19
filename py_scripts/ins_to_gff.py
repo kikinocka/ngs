@@ -4,12 +4,12 @@ import re
 from Bio import SeqIO, AlignIO
 from collections import defaultdict
 
-p57_genome = '/media/4TB1/blastocrithidia/genome_assembly/p57_scaffolds.fa'
-jac_genome = '/media/4TB1/blastocrithidia/genome_assembly/jaculum_scaffolds.fa'
-triat_transc = '/media/4TB1/blastocrithidia/transcriptome_assembly/trinity_denovo/triat_trinity.fasta'
-bexlh_transc = '/media/4TB1/blastocrithidia/transcriptome_assembly/trinity_denovo/blobtools/lhes1/bexlh1_strict.fa'
+p57_genome = '/home/kika/MEGAsync/blasto_project/genome_assembly/p57_scaffolds.fa'
+jac_genome = '/home/kika/MEGAsync/blasto_project/genome_assembly/jaculum_scaffolds.fasta'
+triat_transc = '/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/triat_trinity.fasta'
+bexlh_transc = '/home/kika/MEGAsync/blasto_project/transcriptome_assembly/trinity/blobtools/lhes1/bexlh1_strict.fa'
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
+os.chdir('/home/kika/MEGAsync/blasto_project/orthofinder/other_ogs/')
 files = os.listdir()
 no_orf = open('no_orf.txt', 'w')
 not_genome = open('not_genome.txt', 'w')

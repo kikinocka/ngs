@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/media/4TB1/blastocrithidia/orthofinder/other_ogs/stops_replaced/OG0000002_replaced2.fa'
+i='/home/kika/blasto_project/apiNOG.ENOG4101I8I.meta_raw.fa'
 d=protein
-j=OG0000002
+j=apiNOG.ENOG4101I8I
 
 run_pasta.py -i $i -d $d -j $j
