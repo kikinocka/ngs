@@ -3,6 +3,7 @@ import os
 
 os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/')
 files = sorted(os.listdir())
+print(files)
 
 for file in files:
 	if file.endswith('.fa'):

@@ -3,10 +3,10 @@ import re
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y3/y3.fa', 'fasta')
-tsv = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y3/y3_modules_best_blast.tsv')
-xml = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y3/y3_modules_blast.xml')
-gff = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/y3/y3_modules.gff', 'w')
+seq = SeqIO.read('/home/kika/MEGAsync/diplonema_mt/1621/transcripts/cox3/cox3.txt', 'fasta')
+tsv = open('/home/kika/MEGAsync/diplonema_mt/1621/transcripts/cox3/cox3_modules_best_blast.tsv')
+xml = open('/home/kika/MEGAsync/diplonema_mt/1621/transcripts/cox3/cox3_modules_blast.xml')
+gff = open('/home/kika/MEGAsync/diplonema_mt/1621/transcripts/cox3/cox3_modules.gff', 'w')
 
 class MitoGene:
 	def __init__(self, name, start, end):
@@ -28,8 +28,8 @@ class MitoGene:
 				for i in re.finditer(' ', best_hit.match):
 					position = sstart + i.start()
 					self.editing.append((position, best_hit.query[i.start()], best_hit.sbjct[i.start()]))
-#.split('_')[1]
-mito = MitoGene(str(seq.name), 1, len(seq.seq))
+#
+mito = MitoGene(str(seq.name).split('_')[1], 1, len(seq.seq))
 mito.add_editing(xml)
 
 for line in tsv:
@@ -46,8 +46,15 @@ for i in range(len(mito.mod_coordinates)):
 			mito.name, mito.mod_coordinates[i][0], mito.mod_coordinates[i][1], mito.name, mito.name, i+1))
 		for pos in mito.editing:
 			if pos[0] in range(mito.mod_coordinates[i][0],mito.mod_coordinates[i][1]):
-				gff.write('{}\tblast\tmisc_difference\t{}\t{}\t.\t.\t.\tName={};ID={}-m{}_{}_{}>{};ref={};alt={}\n'.
-					format(mito.name, pos[0], pos[0], mito.name, mito.name, i+1, pos[0], pos[1], pos[2], pos[1], 
+				if (pos[1] == 'C' and pos[2] == 'T') or (pos[1] == 'A' and pos[2] == 'G'):
+					gff.write(
+						'{}\tblast\tmisc_difference\t{}\t{}\t.\t.\t.\tName={};ID={}-m{}_{}_{}>{};ref={};alt={}\n'.
+						format(mito.name, pos[0], pos[0], mito.name, mito.name, i+1, pos[0], pos[1], pos[2], pos[1], 
+						pos[2]))
+				else:
+					gff.write(
+						'{}\tblast\tpolymorphism\t{}\t{}\t.\t.\t.\tName={};ID={}-m{}_{}_{}>{};ref={};alt={}\n'.
+						format(mito.name, pos[0], pos[0], mito.name, mito.name, i+1, pos[0], pos[1], pos[2], pos[1], 
 						pos[2]))
 		if i+1 == len(mito.mod_coordinates):
 			pass
