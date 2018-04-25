@@ -12,7 +12,7 @@ for file in files:
 		for seq in SeqIO.parse(file, 'fasta'):
 			count += 1
 		print('{}\t{}'.format(file, count))
-		if count == 2:
+		if count == 1:
 			moved.write(file + '\n')
 			os.rename('{}'.format(file), 'one_prot/{}'.format(file))
 		else:
