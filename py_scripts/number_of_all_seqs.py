@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/other_ogs/stops_replaced/')
+os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/')
 files = os.listdir()
-moved = open('two_prot.txt', 'w')
+moved = open('one_prot.txt', 'w')
 
 count = 0
 for file in files:
@@ -14,7 +14,7 @@ for file in files:
 		print('{}\t{}'.format(file, count))
 		if count == 2:
 			moved.write(file + '\n')
-			os.rename('{}'.format(file), 'two_prot/{}'.format(file))
+			os.rename('{}'.format(file), 'one_prot/{}'.format(file))
 		else:
 			pass
 		count = 0
