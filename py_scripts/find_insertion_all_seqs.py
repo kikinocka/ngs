@@ -3,7 +3,7 @@ import os
 from Bio import AlignIO
 from collections import OrderedDict, defaultdict
 
-os.chdir('/home/kika/blasto_project/apicomplexans/test/')
+os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/alignments/')
 files = os.listdir()
 # ins_results = open('api_ins.txt', 'w')
 # del_results = open('api_del.txt', 'w')
