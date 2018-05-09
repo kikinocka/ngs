@@ -1,35 +1,32 @@
 #!/usr/bin/env python3
 import os
 from Bio import AlignIO
-from collections import OrderedDict, defaultdict
+from collections import defaultdict
 
 os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/alignments/')
 files = os.listdir()
-# ins_results = open('api_ins.txt', 'w')
-# del_results = open('api_del.txt', 'w')
-# len_results = open('api_prot_len.txt', 'w')
+ins_results = open('api_ins.txt', 'w')
+del_results = open('api_del.txt', 'w')
+len_results = open('api_prot_len.txt', 'w')
 
 def find_insertion(aln_file):
 	aln = AlignIO.read(aln_file, 'fasta')
 	result_list = []
 	ins_aln_positions = defaultdict(dict)
 	for i in range(aln.get_alignment_length()):
-		print(dir(aln))
-		# column = aln.get_column(i)
-
-		# print(column)
-	# 	if '-' in column:
-	# 		column_list = [i, column]
-	# 		result_list.append(column_list)
-	# for number in range(len(aln)):
-	# 	for column in result_list:
-	# 		if column[1][number] != '-':
-	# 			ins_aln_positions[number][column[0]] = 1
-	# 		else:
-	# 			ins_aln_positions[number][column[0]] = 0
-	# print(ins_aln_positions)
-	#[0 : [position in aln : 0/1], 1 : [position in aln : 0/1], ..., n : [position in aln : 0/1]]
-	#0/1 = absence/presence of insertion in that position of the alignment
+		column = aln[:, i]
+		if '-' in column:
+			column_list = [i, column]
+			result_list.append(column_list)
+	for number in range(len(aln)):
+		for column in result_list:
+			if column[1][number] != '-':
+				ins_aln_positions[number][column[0]] = 1
+			else:
+				ins_aln_positions[number][column[0]] = 0
+	return ins_aln_positions
+	# [0 : [position in aln : 0/1], 1 : [position in aln : 0/1], ..., n : [position in aln : 0/1]]
+	# 0/1 = absence/presence of insertion in that position of the alignment
 
 def get_peptides(ins_aln_positions, aln_file):
 	aln = AlignIO.read(aln_file, 'fasta')
@@ -94,34 +91,35 @@ all_len = {}
 for file in files:
 	if file.endswith('.aln'):
 		file_name = file.split('.')[0]
+		print(file_name)
 		ins_aln_positions = find_insertion(file)
-# 		result_dict = get_peptides(ins_aln_positions, file)[0]
-# 		del_dict = get_peptides(ins_aln_positions, file)[1]
-# 		len_dict = get_peptides(ins_aln_positions, file)[2]
-# 		all_len.update(len_dict)
+		result_dict = get_peptides(ins_aln_positions, file)[0]
+		del_dict = get_peptides(ins_aln_positions, file)[1]
+		len_dict = get_peptides(ins_aln_positions, file)[2]
+		all_len.update(len_dict)
 		
-# 		for key, value in result_dict.items():
-# 			sp_name = key.split('__')[1]
-# 			for i in value[1:]:
-# 				ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
-# 					i[1], i[2], i[0]))
+		for key, value in result_dict.items():
+			sp_name = key.split('__')[1]
+			for i in value[1:]:
+				ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
+					i[1], i[2], i[0]))
 		
-# 		for key, value in del_dict.items():
-# 			sp_name = key.split('__')[1]
-# 			for i in value[1:]:
-# 				del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
+		for key, value in del_dict.items():
+			sp_name = key.split('__')[1]
+			for i in value[1:]:
+				del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
 
-# result_len = {}
-# for key, value in all_len.items():
-# 	for sp in value:
-# 		if sp[0] in result_len.keys():
-# 			result_len[sp[0]] += sp[1]
-# 		else:
-# 			result_len[sp[0]] = sp[1]
+result_len = {}
+for key, value in all_len.items():
+	for sp in value:
+		if sp[0] in result_len.keys():
+			result_len[sp[0]] += sp[1]
+		else:
+			result_len[sp[0]] = sp[1]
 
-# for key, value in result_len.items():
-# 	len_results.write('{}\t{}\n'.format(key, value))
+for key, value in result_len.items():
+	len_results.write('{}\t{}\n'.format(key, value))
 
-# ins_results.close()
-# del_results.close()
-# len_results.close()
+ins_results.close()
+del_results.close()
+len_results.close()
