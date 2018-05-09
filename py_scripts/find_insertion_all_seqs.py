@@ -8,6 +8,7 @@ files = os.listdir()
 ins_results = open('api_ins.txt', 'w')
 del_results = open('api_del.txt', 'w')
 len_results = open('api_prot_len.txt', 'w')
+errors = open('api_errors.txt', 'w')
 
 def find_insertion(aln_file):
 	aln = AlignIO.read(aln_file, 'fasta')
@@ -90,24 +91,27 @@ def get_peptides(ins_aln_positions, aln_file):
 all_len = {}
 for file in files:
 	if file.endswith('.aln'):
-		print(file)
-		file_name = file.split('.')[0]
-		ins_aln_positions = find_insertion(file)
-		result_dict = get_peptides(ins_aln_positions, file)[0]
-		del_dict = get_peptides(ins_aln_positions, file)[1]
-		len_dict = get_peptides(ins_aln_positions, file)[2]
-		all_len.update(len_dict)
+		try:
+			print(file)
+			file_name = file.split('.')[0]
+			ins_aln_positions = find_insertion(file)
+			result_dict = get_peptides(ins_aln_positions, file)[0]
+			del_dict = get_peptides(ins_aln_positions, file)[1]
+			len_dict = get_peptides(ins_aln_positions, file)[2]
+			all_len.update(len_dict)
 		
-		for key, value in result_dict.items():
-			sp_name = key.split('__')[1]
-			for i in value[1:]:
-				ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
-					i[1], i[2], i[0]))
+			for key, value in result_dict.items():
+				sp_name = key.split('__')[1]
+				for i in value[1:]:
+					ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
+						i[1], i[2], i[0]))
 		
-		for key, value in del_dict.items():
-			sp_name = key.split('__')[1]
-			for i in value[1:]:
-				del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
+			for key, value in del_dict.items():
+				sp_name = key.split('__')[1]
+				for i in value[1:]:
+					del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
+		except ValueError:
+			errors.write(file)
 
 result_len = {}
 for key, value in all_len.items():
@@ -123,3 +127,4 @@ for key, value in result_len.items():
 ins_results.close()
 del_results.close()
 len_results.close()
+errors.close()
