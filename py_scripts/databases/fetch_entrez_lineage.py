@@ -1,13 +1,18 @@
+#!/usr/bin/python3
+
 from ete3 import NCBITaxa
 #http://etetoolkit.org/docs/2.3/tutorial/tutorial_ncbitaxonomy.html
 ncbi = NCBITaxa()
 
-missing = open("fetch_entrez_missing.txt").read().split("\n")
-name2taxid = ncbi.get_name_translator(missing)
+# missing = open("fetch_entrez_missing.txt").read().split("\n")
+# name2taxid = ncbi.get_name_translator(missing)
 #TESTING PURPOSES ONLY:
 #missing = ['Homo', 'Aspergillus', 'Haloquadratum']
 #taxid2name = ncbi.get_taxid_translator([9606, 9443])
 #rankofnode = ncbi.get_rank([9606, 9443])
+
+missing = ['Cytophagales']
+name2taxid = ncbi.get_name_translator(missing)
 
 for genus in name2taxid:
 	#retriev at least one species:

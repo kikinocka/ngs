@@ -2,7 +2,7 @@
 from Bio import AlignIO
 from Bio import SeqIO
 
-alignment = AlignIO.read('/home/kika/alignments/Nup48.marker001.Nup48.fa.aln', 'fasta')
+alignment = AlignIO.read('/home/kika/blasto_project/apicomplexans/ENOG4101NYF.marker001.apiNOG.ENOG4101NYF.meta_raw.fa.aln', 'fasta')
 
 #number of sequences
 print(len(alignment))
