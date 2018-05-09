@@ -4,7 +4,7 @@ from Bio import SeqIO
 from collections import defaultdict
 
 
-os.chdir('/home/kika/blasto_project/apicomplexans/')
+os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/alignments/')
 insertions = SeqIO.parse('api_ins.txt', 'fasta')
 len_results = open('api_ins_len.txt', 'w')
 
