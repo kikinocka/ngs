@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import os
 from Bio import AlignIO
 from collections import OrderedDict, defaultdict
