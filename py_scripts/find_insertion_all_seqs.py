@@ -90,8 +90,8 @@ def get_peptides(ins_aln_positions, aln_file):
 all_len = {}
 for file in files:
 	if file.endswith('.aln'):
+		print(file)
 		file_name = file.split('.')[0]
-		print(file_name)
 		ins_aln_positions = find_insertion(file)
 		result_dict = get_peptides(ins_aln_positions, file)[0]
 		del_dict = get_peptides(ins_aln_positions, file)[1]
