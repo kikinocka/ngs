@@ -4,12 +4,12 @@ import os
 from Bio import AlignIO
 from collections import OrderedDict, defaultdict
 
-os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/alignments/')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
 files = os.listdir()
-ins_results = open('api_ins.txt', 'w')
-del_results = open('api_del.txt', 'w')
-len_results = open('api_prot_len.txt', 'w')
-errors = open('api_errors.txt', 'w')
+ins_results = open('tryp_ins.txt', 'w')
+del_results = open('tryp_del.txt', 'w')
+len_results = open('tryp_prot_len.txt', 'w')
+errors = open('tryp_errors.txt', 'w')
 
 def find_insertion(aln_file):
 	aln = AlignIO.read(aln_file, 'fasta')
