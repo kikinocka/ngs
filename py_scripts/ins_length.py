@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import defaultdict
 
 
-os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/alignments/')
-insertions = SeqIO.parse('api_ins.txt', 'fasta')
-len_results = open('api_ins_len.txt', 'w')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
+insertions = SeqIO.parse('tryp_ins.txt', 'fasta')
+len_results = open('tryp_ins_len.txt', 'w')
 
 len_dict = {}
 for ins in insertions:
