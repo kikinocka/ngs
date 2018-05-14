@@ -1,13 +1,13 @@
 #!/bin/bash
 
 bw2_dir='/home/nenarokova/tools/bowtie2-2.2.9/'
-base_name='/media/4TB1/diplonema/mapping/1621_RNA_to_transcripts/1621_bw2'
-ref='/media/4TB1/diplonema/mapping/1621_RNA_to_transcripts/1621_transcripts_nt.fasta'
+base_name='/media/4TB1/diplonema/mapping/1610_RNA_to_transcripts/1610_bw2'
+ref='/media/4TB1/diplonema/mapping/1610_RNA_to_transcripts/1610_transcripts_nt.fasta'
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
 read_dir='/media/4TB1/diplonema/reads/transcriptome/trimmed/'
-p1_1=$read_dir'1621_trimmed_1.fq.gz'
-p1_2=$read_dir'1621_trimmed_2.fq.gz'
+p1_1=$read_dir'1610_trimmed_1.fq.gz'
+p1_2=$read_dir'1610_trimmed_2.fq.gz'
 
 alignment=$base_name".sam"
 report=$base_name".txt"
