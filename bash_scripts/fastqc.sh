@@ -1,11 +1,7 @@
 #!/bin/sh
 
-read_dir='/home/kika/diplonema/reads/transcriptome/trimmed/'
-out_dir='/home/kika/diplonema/reads/transcriptome/trimmed/fastqc/'
+read_dir='/media/4TB1/blastocrithidia/reads/transcriptome/'
+out_dir='/media/4TB1/blastocrithidia/reads/transcriptome/raw/fastqc/'
 
-/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'1608_trimmed_1.fq.gz'
-/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'1608_trimmed_2.fq.gz'
-/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'1618_trimmed_1.fq.gz'
-/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'1618_trimmed_2.fq.gz'
-/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'1621_trimmed_1.fq.gz'
-/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'1621_trimmed_2.fq.gz'
+/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'raw/p57_3-end_enriched_1.fastq.gz'
+/home/kika/tools/FastQC/fastqc -o $out_dir $read_dir'raw/p57_3-end_enriched_2.fastq.gz'
