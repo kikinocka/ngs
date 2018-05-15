@@ -2,7 +2,7 @@
 
 read_dir='/media/4TB1/blastocrithidia/reads/transcriptome/raw/'
 fw=$read_dir'p57_3-end_enriched_1.fastq.gz'
-rv=$read_dir'p57_3-end_enriched_1.fastq.gz'
+rv=$read_dir'p57_3-end_enriched_2.fastq.gz'
 trimdir='/media/4TB1/blastocrithidia/reads/transcriptome/trimmed/'
 name='p57_3-end_enriched'
 trimmed_fw=$trimdir$name'_trimmed_1.fq.gz'
