@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 slap_mapper='/home/nenarokova/tools/SLaPMapper/SLaPMapper.pl'
 genome='/media/4TB1/blastocrithidia/genome_assembly/p57_scaffolds.fa'
 reads1='/media/4TB1/blastocrithidia/reads/transcriptome/raw/p57_all_1.fastq.gz'
