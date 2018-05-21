@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
-contamination = open('NCBI_submission/report_upd.txt')
-transcriptome = SeqIO.parse('EL_merged_withoutNs_longer200.fsa', 'fasta')
-result = open('EL_merged_withoutNs_longer200_without_primers.fsa', 'w')
+contamination = open('NCBI_submission/to_trim.txt')
+transcriptome = SeqIO.parse('EL_merged_withoutNs_longer200_without_primers.fsa', 'fasta')
+result = open('EL_merged_withoutNs_longer200_without_adaptors.fsa', 'w')
 
 primers = {}
 for line in contamination:

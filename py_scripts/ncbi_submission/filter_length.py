@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
-transcriptome = SeqIO.parse('EL_merged_withoutNs.fsa', 'fasta')
-result = open('EL_merged_withoutNs_longer200.fsa', 'w')
+transcriptome = SeqIO.parse('EL_merged_without_Ns_and_adapters.fsa', 'fasta')
+result = open('EL_merged_without_Ns_and_adapters_longer200.fsa', 'w')
 
 all_cont = 0
 long_cont = 0
