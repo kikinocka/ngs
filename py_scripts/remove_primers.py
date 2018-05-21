@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 from Bio import SeqIO
+from collections import OrderedDict
 
 os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
 contamination = open('NCBI_submission/report_upd.txt')
@@ -14,12 +15,17 @@ for line in contamination:
 	stop = int(line.split('\t')[2][:-1])
 	primers[contig] = (start, stop)
 
-for key, value in primers.items():
-	for contig in transcriptome:
-		print(contig.description)
-		if key == contig.description:
-			result.write('>{}\n{}\n'.format(key, contig.seq[:value[0]]))
+contigs = OrderedDict()
+for contig in transcriptome:
+	contigs[contig.description] = contig.seq
+
+for key, value in contigs.items():
+	if key in primers.keys():
+		if primers[key][0] == 1:
+			result.write('>{}\n{}\n'.format(key, value[primers[key][1]:]))
 		else:
-			result.write('>{}\n{}\n'.format(contig.description, contig.seq))
+			result.write('>{}\n{}\n'.format(key, value[:primers[key][0]]))
+	else:
+		result.write('>{}\n{}\n'.format(key, value))
 
 result.close()
