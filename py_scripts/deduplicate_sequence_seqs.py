@@ -3,9 +3,9 @@ from collections import OrderedDict
 from collections import defaultdict
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/Chlamydomonas/putative_pt_targeted/kegg_dataset/all.fa', 'fasta')
-out_fasta = open('/home/kika/MEGAsync/Chlamydomonas/putative_pt_targeted/kegg_dataset/kegg_dataset.fa', 'w')
-out_names = open('/home/kika/MEGAsync/Chlamydomonas/putative_pt_targeted/kegg_dataset/dupl-names.txt', 'w')
+infile = SeqIO.parse('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/tic62_tree/eg_seqs.txt', 'fasta')
+out_fasta = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/tic62_tree/eg_seqs_dedupl.txt', 'w')
+out_names = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/tic62_tree/eg_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

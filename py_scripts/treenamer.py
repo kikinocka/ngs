@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Rho_factor/nr70/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/tic62_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('nr70_names.txt')
-tree = open('nr70_trimal_automated1.aln.treefile')
+names = open('names.txt')
+tree = open('tic62_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -25,5 +25,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('rho_nr70_tree_renamed.txt', 'w') as result:
+with open('tic62_tree_renamed.txt', 'w') as result:
     result.write(tree_line)

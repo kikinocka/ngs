@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import re
 from Bio import SeqIO
 
 os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
