@@ -5,8 +5,8 @@ from collections import defaultdict
 
 
 os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
-insertions = SeqIO.parse('tryp_ins.txt', 'fasta')
-len_results = open('tryp_ins_len.txt', 'w')
+insertions = SeqIO.parse('tryp_ins_ver2.txt', 'fasta')
+len_results = open('tryp_ins_len_ver2.txt', 'w')
 
 len_dict = {}
 for ins in insertions:
