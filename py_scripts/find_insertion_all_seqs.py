@@ -4,12 +4,12 @@ import os
 from Bio import AlignIO
 from collections import OrderedDict, defaultdict
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
+os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/alignments/')
 files = os.listdir()
-ins_results = open('tryp_ins_ver2.txt', 'w')
-del_results = open('tryp_del_ver2.txt', 'w')
-len_results = open('tryp_prot_len_ver2.txt', 'w')
-errors = open('tryp_errors_ver2.txt', 'w')
+ins_results = open('api_ins_ver2.txt', 'w')
+del_results = open('api_del_ver2.txt', 'w')
+len_results = open('api_prot_len_ver2.txt', 'w')
+errors = open('api_errors_ver2.txt', 'w')
 
 def find_insertion(aln_file):
 	aln = AlignIO.read(aln_file, 'fasta')
@@ -52,8 +52,8 @@ def get_peptides(ins_aln_positions, aln_file):
 		ungapped_seq = str(seq_seq).replace('-', '')
 		result_dict[seq_name].append(aln_file)
 		del_dict[seq_name].append(aln_file)
-		# seq_len = (seq_name.split('__')[1], len(ungapped_seq))
-		seq_len = (seq_name.split('_')[0], len(ungapped_seq))
+		seq_len = (seq_name.split('__')[1], len(ungapped_seq))
+		# seq_len = (seq_name.split('_')[0], len(ungapped_seq))
 		# len_dict[aln_file].append(seq_len)
 		sample = ins_aln_positions[c]
 		pos_list = [-2]
@@ -112,15 +112,15 @@ for file in files:
 		# 	pass
 
 			for key, value in result_dict.items():
-				# sp_name = key.split('__')[1]
-				sp_name = key.split('_')[0]
+				sp_name = key.split('__')[1]
+				# sp_name = key.split('_')[0]
 				for i in value[1:]:
 					ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
 						i[1], i[2], i[0]))
 		
 			for key, value in del_dict.items():
-				# sp_name = key.split('__')[1]
-				sp_name = key.split('_')[0]
+				sp_name = key.split('__')[1]
+				# sp_name = key.split('_')[0]
 				for i in value[1:]:
 					del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
 		except ValueError:
