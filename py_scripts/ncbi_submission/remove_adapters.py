@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
-contamination = open('NCBI_submission/to_trim.txt')
-contigs = SeqIO.parse('EL_merged_withoutNs_longer200_without_primers.fsa', 'fasta')
-contigs_upd = open('EL_merged_withoutNs_longer200_without_adapters.fsa', 'w')
+contamination = open('NCBI_submission/to_trim2.txt').read().split('\n')
+contigs = SeqIO.parse('EL_merged_without_Ns_and_adapters_longer200.fsa', 'fasta')
+contigs_upd = open('EL_merged_without_Ns_and_adapters_longer200_upd.fsa', 'w')
 
 def get_coordinates(contamination):
 	adapters = {}
@@ -38,27 +38,29 @@ for contig in contigs:
 	if contig.description in remove:
 		pass
 	else:
-		for key, value in adapters.items():
-			if contig.description == key:
-				if len(value) == 1:
-					for i in value:
-						if i[0] == 1:
-							genome[key] = contig.seq[i[1]:]
-						elif i[1] == len(contig.seq):
-							genome[key] = contig.seq[:i[0]-1]
-						else:
-							print(key)
-				else:
-					if value[0][0] == 1 and value[1][1] == len(contig.seq):
-						genome[key] = contig.seq[value[0][1]:value[1][0]-1]
+		if contig.description in adapters.keys():
+			key = contig.description
+			value = adapters[key]
+			if len(value) == 1:
+				for i in value:
+					if i[0] == 1:
+						genome[key] = contig.seq[i[1]:]
+					elif i[1] == len(contig.seq):
+						genome[key] = contig.seq[:i[0]-1]
+						#print(i[0], len(contig.seq), len(genome[key]))
 					else:
-						print(key)
+						print('Warning, internal adapter ' + key)
 			else:
-				genome[contig.description] = contig.seq
+				if value[0][0] == 1 and value[1][1] == len(contig.seq):
+					genome[key] = contig.seq[value[0][1]:value[1][0]-1]
+				else:
+					print(key)
+		else:
+			genome[contig.description] = contig.seq
 
 print('writing contigs to file')
 for key, value in genome.items():
-	print(key)
-	contigs_upd.write('>{}\n{}\n'.format(key, value))
+	if len(value) > 199:
+		contigs_upd.write('>{}\n{}\n'.format(key, value))
 
 contigs_upd.close()
