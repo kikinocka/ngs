@@ -4,7 +4,7 @@ import os
 from Bio import AlignIO
 from collections import OrderedDict, defaultdict
 
-os.chdir('/home/kika/blasto_test/')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
 files = os.listdir()
 ins_results = open('tryp_ins_ver2.txt', 'w')
 del_results = open('tryp_del_ver2.txt', 'w')
@@ -110,21 +110,21 @@ for file in files:
 			all_len.update(len_dict)
 		except:
 			pass
-print(all_len)
-# 			for key, value in result_dict.items():
-# 				# sp_name = key.split('__')[1]
-# 				sp_name = key.split('_')[0]
-# 				for i in value[1:]:
-# 					ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
-# 						i[1], i[2], i[0]))
+
+			for key, value in result_dict.items():
+				# sp_name = key.split('__')[1]
+				sp_name = key.split('_')[0]
+				for i in value[1:]:
+					ins_results.write('>{}__{} length_{} pos_{}-{}\n{}\n'.format(file_name, sp_name, len(i[0]),
+						i[1], i[2], i[0]))
 		
-# 			for key, value in del_dict.items():
-# 				# sp_name = key.split('__')[1]
-# 				sp_name = key.split('_')[0]
-# 				for i in value[1:]:
-# 					del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
-# 		except ValueError:
-# 			errors.write(file + '\n')
+			for key, value in del_dict.items():
+				# sp_name = key.split('__')[1]
+				sp_name = key.split('_')[0]
+				for i in value[1:]:
+					del_results.write('>{}__{} {}\n{}\n'.format(file_name, sp_name, i[1], i[0]))
+		except ValueError:
+			errors.write(file + '\n')
 
 # result_len = {}
 # for key, value in all_len.items():
