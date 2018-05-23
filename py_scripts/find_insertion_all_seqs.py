@@ -108,8 +108,8 @@ for file in files:
 			del_dict = get_peptides(ins_aln_positions, file)[1]
 			len_dict = get_peptides(ins_aln_positions, file)[2]
 			all_len.update(len_dict)
-		except:
-			pass
+		# except:
+		# 	pass
 
 			for key, value in result_dict.items():
 				# sp_name = key.split('__')[1]
