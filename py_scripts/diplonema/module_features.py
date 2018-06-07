@@ -21,10 +21,10 @@ for line in table:
 for key, value in contigs.items():
 	if len(value) > 1:
 		for i in range(len(value)):
-			print(key, value, i, len(value))
-			while i < len(value):
-				print(i, value[i])
+			# print(key, value, i, len(value))
+			while i < len(value) and i+1 != len(value):
+				# print(key, value[i], i)
 				if value[i][2] > value[i+1][1]:
-					print(key, value)
+					print(key, value, i)
 
 				i += 1
