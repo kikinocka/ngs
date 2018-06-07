@@ -20,8 +20,8 @@ for line in table:
 
 for key, value in contigs.items():
 	for i in range(len(value)):
-		# print(key, value, i)
+		print(key, value, i, len(value))
 		while i < len(value):
-			print(key, value)
+			print(key, value, i)
 
 			i += 1
