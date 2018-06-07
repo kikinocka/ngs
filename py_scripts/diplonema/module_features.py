@@ -19,9 +19,12 @@ for line in table:
 		contigs[name].append((module, mmin, mmax, strand))
 
 for key, value in contigs.items():
-	for i in range(len(value)):
-		print(key, value, i, len(value))
-		while i < len(value):
-			print(key, value, i)
+	if len(value) > 1:
+		for i in range(len(value)):
+			# print(key, value, i, len(value))
+			while i < len(value):
+				print(key, value[i])
+				# if value[i][2] > value[i+1][1]:
+				# 	print(key, value)
 
-			i += 1
+				i += 1
