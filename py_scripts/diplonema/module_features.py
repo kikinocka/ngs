@@ -4,7 +4,7 @@ from collections import OrderedDict
 
 os.chdir('/home/kika/MEGAsync/diplonema_mt/comparison/')
 table = open('1604_multi_modules.tsv')
-# out = open('1601st.txt', 'w')
+# out = open('1601st.tsv', 'w')
 
 contigs = OrderedDict(list())
 for line in table:
@@ -21,10 +21,23 @@ for line in table:
 for key, value in contigs.items():
 	if len(value) > 1:
 		for i in range(len(value)):
-			# print(key, value, i, len(value))
 			while i < len(value) and i+1 != len(value):
-				# print(key, value[i], i)
 				if value[i][2] > value[i+1][1]:
-					print(key, value, i)
+					if value[i][2] > value[i+1][2]:
+						# print(key, value[i], value[i+1])
+						# print('embedded')
+						if value[i][3] == value[i+1][3]:
+							print('{}\t{} [{}]\tsame\n'.format(key, value[i][0], value[i+1][0]))
+						else:
+							print('{}\t{} [{}]\topposite\n'.format(key, value[i][0], value[i+1][0]))
+					else:
+						# print(key, value[i], value[i+1])
+						# print('overlapping')
+						length = int(value[i][2]) - int(value[i+1][1]) + 1
+						if value[i][3] == value[i+1][3]:
+							print('{}\t{} + {} ({})\tsame\n'.format(key, value[i][0], value[i+1][0], length))
+						else:
+							print('{}\t{} + {} ({})\topposite\n'.format(key, value[i][0], value[i+1][0], length))
 
 				i += 1
+# out.close()
