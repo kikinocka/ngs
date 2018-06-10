@@ -1,13 +1,13 @@
 #!/bin/bash
 
 bw2_dir='/home/nenarokova/tools/bowtie2-2.2.9/'
-base_name='/media/4TB1/blastocrithidia/mapping/p57_polyA_RNA_to_DNA/p57_polyA_bw2'
-ref='/media/4TB1/blastocrithidia/genome_assembly/p57_scaffolds.fa'
+base_name='/media/4TB1/diplonema/mapping/DNA_to_contigs/1601/1601_DNA_bw2'
+ref='/media/4TB1/diplonema/mapping/DNA_to_contigs/1601/1601_DNA_contigs.fasta'
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
-read_dir='/media/4TB1/blastocrithidia/reads/transcriptome/trimmed/'
-p1_1=$read_dir'p57_3-end_enriched_trimmed_1.fq.gz'
-p1_2=$read_dir'p57_3-end_enriched_trimmed_1.fq.gz'
+read_dir='/media/4TB1/diplonema/reads/genome/trimmed/'
+p1_1=$read_dir'YPF1601_trimmed_1.fq.gz'
+p1_2=$read_dir'YPF1601_trimmed_2.fq.gz'
 
 alignment=$base_name".sam"
 report=$base_name".txt"
