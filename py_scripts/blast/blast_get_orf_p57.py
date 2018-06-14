@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa', 'fasta')
-nt_out = open('/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_nt.fa', 'w')
-aa_out = open('/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_aa.fa', 'w')
-err_out = open('/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_errors.txt', 'w')
-result_handle = open('/home/kika/MEGAsync/blasto_project/genes/oxidative_stress/p57_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds.fasta', 'fasta')
+nt_out = open('/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/jac_nt.fa', 'w')
+aa_out = open('/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/jac_aa.fa', 'w')
+err_out = open('/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/jac_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/jac_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -44,7 +44,6 @@ def blast_parser(blast_records):
 	result = {}
 	errors = []
 	for record in blast_records:
-		print(record.query)
 		try:
 			best = record.alignments[0]
 			min_sstart = False

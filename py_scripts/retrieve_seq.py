@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/AA_biosynthetic_pathways/all_aa_Zoli.fasta', 'fasta')
-infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/AA_biosynthetic_pathways/acc.txt')
-out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/AA_biosynthetic_pathways/contigs.fa', 'w')
+infasta = SeqIO.parse('/home/kika/MEGAsync/diplonema_mt/1601/genome_assembly/1601_DNA_scaffolds.fasta', 'fasta')
+infile = open('/home/kika/MEGAsync/diplonema_mt/HMM/in')
+out = open('/home/kika/MEGAsync/diplonema_mt/HMM/1601_y5-m1_contigs.fa', 'w')
 
 retrieve = set()
 for line in infile:

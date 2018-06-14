@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/blasto_project/genes/repair/NHEJ/')
-infile = SeqIO.parse('p57_Kuplaces.txt', 'fasta')
-output = open('p57_Kuplaces_translated.txt', 'w')
-error = open('p57_Kuplaces_errors.txt', 'w')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1604/genome_assembly/')
+infile = SeqIO.parse('1604_DNA_scaffolds.fasta', 'fasta')
+output = open('/home/kika/diplo_mt/translated_genomes/1604_DNA_scaffolds_translated.fasta', 'w')
+error = open('/home/kika/diplo_mt/translated_genomes/1604_DNA_scaffolds_errors.txt', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -22,8 +22,8 @@ gencode = {
     'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
     'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
     'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
-    'TAC':'Y', 'TAT':'Y', 'TAA':'E', 'TAG':'E',
-    'TGC':'C', 'TGT':'C', 'TGA':'E', 'TGG':'W'}
+    'TAC':'Y', 'TAT':'Y', 'TAA':'X', 'TAG':'X',
+    'TGC':'C', 'TGT':'C', 'TGA':'X', 'TGG':'W'}
 
 def translation(sequence):
     cut_seq = []
