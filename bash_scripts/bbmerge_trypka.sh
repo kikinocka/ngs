@@ -1,11 +1,11 @@
 #!/bin/bash
 
 reads='/media/4TB1/diplonema/reads/genome/trimmed/'
-fw=$reads'YPF1601_trimmed_1.fq.gz'
-rv=$reads'YPF1601_trimmed_2.fq.gz'
+fw=$reads'YPF1604_trimmed_1.fq.gz'
+rv=$reads'YPF1604_trimmed_2.fq.gz'
 
 dir_merged='/media/4TB1/diplonema/reads/genome/merged/'
-name='YPF1601_'
+name='YPF1604_'
 merged=$dir_merged$name'merged.fq'
 unmerged_fw=$dir_merged$name'unmerged_1.fq'
 unmerged_rv=$dir_merged$name'unmerged_2.fq'
