@@ -9,18 +9,18 @@ read_dir='/media/4TB1/diplonema/reads/genome/merged/'
 p1_1=$read_dir'YPF1601_merged_deduplicated.fq'
 # p1_2=$read_dir'YPF1601_trimmed_2.fq.gz'
 
-alignment=$base_name".sam"
-report=$base_name".txt"
-unmapped_unpaired=$base_name"_unmapped_unpaired.fq"
-unmapped_paired=$base_name"_unmapped_paired.fq"
+alignment=$base_name'.sam'
+report=$base_name'_report.txt'
+unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
+unmapped_paired=$base_name'_unmapped_paired.fq'
 
 $bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name -1 $p1_1 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $alignment 2> $report
 #-2 $p1_2 
 
 samfile=$alignment
-bamfile=$base_name"_unsorted.bam"
-sorted=$base_name"_sorted"
-sorted_file=$sorted".bam"
+bamfile=$base_name'_unsorted.bam'
+sorted=$base_name'_sorted'
+sorted_file=$sorted'.bam'
 
 samtools view -bS $samfile > $bamfile -@ 32
 samtools sort -o $sorted_file -@ 32 $bamfile
