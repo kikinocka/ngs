@@ -12,4 +12,4 @@ unmerged_rv=$dir_merged$name'unmerged_2.fq'
 report=$dir_merged$name'report.txt'
 ihist=$dir_merged$name'hist.txt'
 
-/home/kika/tools/bbmap/bbmerge.sh in1=$fw in2=$rv out=$merged outu1=$unmerged_fw outu2=$unmerged_rv ihist=$ihist rem k=62 extend2=50 ecct 2> $report
+/home/kika/tools/bbmap/bbmerge-auto.sh in1=$fw in2=$rv out=$merged outu1=$unmerged_fw outu2=$unmerged_rv ihist=$ihist rem k=62 extend2=50 ecct 2> $report
