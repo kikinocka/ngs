@@ -14,8 +14,8 @@ report=$base_name'_report.txt'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
 
-$bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name -1 $p1_1 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $alignment 2> $report
-#-2 $p1_2 
+$bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name -U $p1_1 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $alignment 2> $report
+#-1 $p1_1 -2 $p1_2 
 
 samfile=$alignment
 bamfile=$base_name'_unsorted.bam'
