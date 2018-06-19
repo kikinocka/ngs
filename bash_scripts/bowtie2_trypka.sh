@@ -5,16 +5,17 @@ base_name='/media/4TB1/diplonema/mapping/DNA_to_contigs/1601/1601_DNA_bw2'
 ref='/media/4TB1/diplonema/mapping/DNA_to_contigs/1601/1601_DNA_contigs.fasta'
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
-read_dir='/media/4TB1/diplonema/reads/genome/trimmed/'
-p1_1=$read_dir'YPF1601_trimmed_1.fq.gz'
-p1_2=$read_dir'YPF1601_trimmed_2.fq.gz'
+read_dir='/media/4TB1/diplonema/reads/genome/merged/'
+p1_1=$read_dir'YPF1601_merged_deduplicated.fq'
+# p1_2=$read_dir'YPF1601_trimmed_2.fq.gz'
 
 alignment=$base_name".sam"
 report=$base_name".txt"
 unmapped_unpaired=$base_name"_unmapped_unpaired.fq"
 unmapped_paired=$base_name"_unmapped_paired.fq"
 
-$bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name -1 $p1_1 -2 $p1_2 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $alignment 2> $report
+$bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name -1 $p1_1 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $alignment 2> $report
+#-2 $p1_2 
 
 samfile=$alignment
 bamfile=$base_name"_unsorted.bam"
