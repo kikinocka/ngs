@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read_dir='/media/4TB1/diplonema/reads/genome/merged'
+read_dir='/media/4TB1/diplonema/reads/genome/merged/'
 merged=$read_dir'YPF1601_merged.fq'
 deduplicated=$read_dir'YPF1601_merged_deduplicated.fq'
 
