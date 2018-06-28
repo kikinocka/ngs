@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/missing/LmjF.36.3600_homologs.fa'
+i='/home/kika/MEGAsync/blasto_project/ku_story/alignments/ku70_reduced.fa'
 d=protein
-j=LmjF.36.36006
+j=ku70_reduced
 
 run_pasta.py -i $i -d $d -j $j

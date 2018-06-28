@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/media/4TB1/blastocrithidia/api_NOG/apiNOG_raw_algs_single/')
+os.chdir('/home/kika/MEGAsync/blasto_project/ku_story/alignments/')
 files = sorted(os.listdir())
-print(files)
 
 for file in files:
-	if file.endswith('.fa'):
+	if file.endswith('_reduced.fa'):
 	# if '.aln' not in file:
 		print(file)
-		job_desc = file.split('.')[1]
+		job_desc = file.split('.')[0]
 		d = 'protein'
 		os.system('run_pasta.py -i {} -d {} -j {}'.format(file, d, job_desc))

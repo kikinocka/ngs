@@ -1,60 +1,33 @@
 #!/usr/bin/env python3
 import os
-from collections import OrderedDict
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/comparison/')
-table = open('1621_multi_modules.tsv')
-out = open('1621_multi_modules_stat.tsv', 'w')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/gff/')
+files = sorted(os.listdir())
+out = open('1601_module_stats.tsv', 'w')
 
-def in_range(start, number, end):
-	return start <= number <= end
+out.write('Gene\tNo. of modules\tA-to-I\tC-to-U\tNo. of SNPs\tU-appendage (length)\n')
 
-contigs = OrderedDict(list())
-for line in table:
-	try:
-		name = line.split('\t')[0]
-		module = line.split('\t')[1]
-		mmin = int(line.split('\t')[2])
-		mmax = int(line.split('\t')[3])
-		strand = line.split('\t')[5][:-1]
-		if name not in contigs:
-			contigs[name] = [(module, mmin, mmax, strand)]
-		else:
-			contigs[name].append((module, mmin, mmax, strand))
-	except:
-		pass
-
-for key, value in contigs.items():
-	if len(value) > 1:
-		for i in range(len(value)):
-			for j in range(i + 1, len(value)):
-				if in_range(value[i][1], value[j][1], value[i][2]):
-				#start J inside I
-					if in_range(value[i][1], value[j][2], value[i][2]):
-					#end J inside I => embedded J in I
-						if value[i][3] == value[j][3]:
-							out.write('{}\t{} [{}]\tsame\tembedded\n'.format(key, value[i][0], value[j][0]))
-						else:
-							out.write('{}\t{} [{}]\topposite\tembedded\n'.format(key, value[i][0], value[j][0]))
-					else:
-					#end J outside I => overlapping
-						length = int(value[i][2]) - int(value[j][1]) + 1
-						if value[i][3] == value[j][3]:
-							out.write('{}\t{} + {} ({})\tsame\toverlapping\n'.format(key, value[i][0], value[j][0], length))
-						else:
-							out.write('{}\t{} + {} ({})\topposite\toverlapping\n'.format(key, value[i][0], value[j][0], length))
-				elif in_range(value[i][1], value[j][2], value[i][2]):
-				#end J inside I => overlapping
-					length = int(value[j][2]) - int(value[i][1]) + 1
-					if value[i][3] == value[j][3]:
-						out.write('{}\t{} + {} ({})\tsame\toverlapping\n'.format(key, value[j][0], value[i][0], length))
-					else:
-						out.write('{}\t{} + {} ({})\topposite\toverlapping\n'.format(key, value[j][0], value[i][0], length))
-				elif in_range(value[j][1], value[i][1], value[j][2]) and in_range(value[j][1], value[i][2], value[j][2]):
-				#embedded I in J
-					if value[j][3] == value[i][3]:
-						out.write('{}\t{} [{}]\tsame\tembedded\n'.format(key, value[j][0], value[i][0]))
-					else:
-						out.write('{}\t{} [{}]\topposite\tembedded\n'.format(key, value[j][0], value[i][0]))
+for file in files:
+	if file.endswith('.gff'):
+		print(file)
+		gene = file.split('_')[0]
+		A_to_I = 0
+		C_to_T = 0
+		SNP = 0
+		U_length = []
+		for line in open(file):
+			if line.split('\t')[2] == 'exon':
+				modules = line.split('\t')[8].split('-m')[1][:-1]
+			elif line.split('\t')[2] == 'misc_difference':
+				if 'A>G' in line.split('\t')[8]:
+					A_to_I += 1
+				if 'C>T' in line.split('\t')[8]:
+					C_to_T += 1
+			elif line.split('\t')[2] == 'polymorphism':
+				SNP += 1
+			elif line.split('\t')[2] == 'poly-u':
+				U_length.append(line.split('\t')[8].split('-pU')[1][:-1])
+		out.write('{}\t{}\t{}\t{}\t{}\t{} ({})\n'.format(gene, modules, A_to_I, C_to_T, SNP, len(U_length),
+			str(U_length).replace('\'', '').replace('[', '').replace(']', '')))
 
 out.close()

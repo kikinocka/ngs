@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/import/TOC-TIC/tic62_tree/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Fd+FNR/Sulfite_reductase/')
 
 #file in format Acc. number \t name of organism \n
-names = open('names.txt')
-tree = open('tic62_trimal_automated1.aln.treefile')
+names = open('CysJ_names.txt')
+tree = open('CysJ_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -25,5 +25,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('tic62_tree_renamed.txt', 'w') as result:
+with open('CysJ_tree_renamed.txt', 'w') as result:
     result.write(tree_line)
