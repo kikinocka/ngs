@@ -2,15 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/missing/LmjF.36.3600_synteny.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_translated.fa'
+cmd = 'blastn'
+task = 'blastn'
+query = '/home/kika/MEGAsync/diplonema_mt/1604/additional_contigs/chromosome_classes_ends.fasta'
+db = '/home/kika/programs/blast-2.5.0+/bin/1604_DNA_scaffolds.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1610/transcripts/y6/y6.fasta'
-out = '/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/missing/p57_LmjF.36.3600_blastp.xml'
+out = '/home/kika/MEGAsync/diplonema_mt/1604/additional_contigs/ends_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 3
+word_size = 11
 threads = 4
 
 print('running BLAST')
@@ -26,8 +26,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/missing/p57_LmjF.36.3600_blastp.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/blasto_project/ku_story/telomere_maintenance/missing/p57_LmjF.36.3600_best_blastp.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1604/additional_contigs/ends_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1604/additional_contigs/ends_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
