@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1604/transcripts/gff/separate/')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/separate/')
 files = sorted(os.listdir())
-out = open('1604_module_stats.tsv', 'w')
+out = open('1608_module_stats.tsv', 'w')
 
 out.write('Gene\tNo. of modules\tA-to-I\tC-to-U\tNo. of SNPs\tU-appendage (length)\n')
 
