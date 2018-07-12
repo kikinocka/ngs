@@ -4,7 +4,7 @@
 input='/home/kika/work_dir/cre_proteins.fasta'
 out='/home/kika/work_dir/BUSCO_cre_protists/'
 mode=prot
-spieces='chlamydomonas_reinhardtii'
+species=chlamydomonas_reinhardtii
 lineage='/home/tomas/GIT/busco/protists_ensembl/'
 threads=16
 
