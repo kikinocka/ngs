@@ -25,9 +25,9 @@ split_file=$base_name'_split.bed'
 
 #split-read mapping in mode -F 6
 $tools'segemehl_diplonema.x' -d $database -i $index -q $fwd -p $rv -o $samfile -t 32 -s -S -F 6 -u $unmapped 2> $report
-samtools view -bS $samfile | samtools sort -o $bamfile 
+samtools view -bS $samfile | samtools sort -o $bamfile -t 32
 samtools index $bamfile
-rm -f $samfile
+# rm -f $samfile
 gzip -f $unmapped
 samtools view -h $bamfile | gzip -c > $gzip_sam
 ./testrealign.x -d $database -q $gzip_sam -n -T $trans_file -U $split_file
