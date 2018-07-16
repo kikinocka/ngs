@@ -25,8 +25,11 @@ split_file=$base_name'_split.bed'
 
 #split-read mapping in mode -F 6
 $tools'segemehl_diplonema.x' -d $database -i $index -q $fwd -p $rv -o $samfile -t 32 -s -S -F 6 -u $unmapped 2> $report
+echo 'sam done'
 samtools view -bS $samfile | samtools sort -o $bamfile -t 32
+echo 'sorting to bam done'
 samtools index $bamfile
+echo 'indexing bam done'
 rm -f $samfile
 gzip -f $unmapped
 samtools view -h $bamfile | gzip -c > $gzip_sam
