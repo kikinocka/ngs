@@ -16,7 +16,7 @@ $tools'segemehl_diplonema.x' -d $database -x $index -t 32
 
 base_name=$data_dir'1604_segemehl-S-F6'
 samfile=$base_name'.sam'
-gzip_sam=$samfile'.gz'
+gzip_sam=$base_name'.sam.gz'
 unmapped=$base_name'_unmapped.fq'
 report=$base_name'_report.txt'
 bamfile=$base_name'_sorted.bam'
@@ -27,7 +27,7 @@ split_file=$base_name'_split.bed'
 $tools'segemehl_diplonema.x' -d $database -i $index -q $fwd -p $rv -o $samfile -t 32 -s -S -F 6 -u $unmapped 2> $report
 samtools view -bS $samfile | samtools sort -o $bamfile -t 32
 samtools index $bamfile
-# rm -f $samfile
+rm -f $samfile
 gzip -f $unmapped
 samtools view -h $bamfile | gzip -c > $gzip_sam
 ./testrealign.x -d $database -q $gzip_sam -n -T $trans_file -U $split_file
