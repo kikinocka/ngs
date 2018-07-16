@@ -3,8 +3,8 @@
 tools='/home/kika/tools/'
 
 data_dir='/media/4TB1/diplonema/mapping/segemehl/1604/'
-database=$data_dir'additional_contigs.fa'
-index=$data_dir'additional_contigs.idx'
+database=$data_dir'additional_contigs_se_polyT.fa'
+index=$data_dir'additional_contigs_se_polyT.idx'
 # ctga_index=$data_dir'additional_contigs.ctgaidx'
 
 read_dir='/media/4TB1/diplonema/reads/transcriptome/trimmed/'
