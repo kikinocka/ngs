@@ -11,7 +11,7 @@ read_dir='/media/4TB1/diplonema/reads/transcriptome/trimmed/'
 fwd=$read_dir'1604_trimmed_1_se.fq.gz'
 rv=$read_dir'1604_trimmed_2_se.fq.gz'
 
-# $tools'segemehl_diplonema.x' -d $database -x $index -t 32
+$tools'segemehl_diplonema.x' -d $database -x $index -t 32
 # $tools'segemehl_diplonema.x' -d $database -x $ctga_index -F 5 -t 32
 
 base_name=$data_dir'1604_segemehl-S-F6'
@@ -24,13 +24,13 @@ trans_file=$base_name'_trans.bed'
 split_file=$base_name'_split.bed'
 
 #split-read mapping in mode -F 6
-# $tools'segemehl_diplonema.x' -d $database -i $index -q $fwd -p $rv -o $samfile -t 32 -s -S -F 6 -u $unmapped 2> $report
-# echo 'sam done'
-# samtools view -bS $samfile | samtools sort -o $bamfile -@ 32
-# echo 'sorting to bam done'
-# samtools index $bamfile
-# echo 'indexing bam done'
-# rm -f $samfile
-# gzip -f $unmapped
-# samtools view -h $bamfile | gzip -c > $gzip_sam
+$tools'segemehl_diplonema.x' -d $database -i $index -q $fwd -p $rv -o $samfile -t 32 -s -S -F 6 -u $unmapped 2> $report
+echo 'sam done'
+samtools view -bS $samfile | samtools sort -o $bamfile -@ 32
+echo 'sorting to bam done'
+samtools index $bamfile
+echo 'indexing bam done'
+rm -f $samfile
+gzip -f $unmapped
+samtools view -h $bamfile | gzip -c > $gzip_sam
 $tools'testrealign.x' -d $database -q $gzip_sam -n -T $trans_file -U $split_file
