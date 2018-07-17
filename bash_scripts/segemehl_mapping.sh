@@ -11,7 +11,7 @@ read_dir='/media/4TB1/diplonema/reads/transcriptome/trimmed/'
 fwd=$read_dir'1604_trimmed_1_se.fq.gz'
 rv=$read_dir'1604_trimmed_2_se.fq.gz'
 
-$tools'segemehl_diplonema.x' -d $database -x $index -t 32
+# $tools'segemehl_diplonema.x' -d $database -x $index -t 32
 # $tools'segemehl_diplonema.x' -d $database -x $ctga_index -F 5 -t 32
 
 base_name=$data_dir'1604_segemehl-S-F6'
