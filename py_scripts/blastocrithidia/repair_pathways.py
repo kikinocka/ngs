@@ -2,7 +2,7 @@
 import os
 from collections import OrderedDict
 
-os.chdir('/home/kika/MEGAsync/blasto_project/ku_story/repair/')
+os.chdir('/home/kika/MEGAsync/blasto_project/ku_story/repair/new/')
 files = os.listdir()
 species = open('species.txt')
 
