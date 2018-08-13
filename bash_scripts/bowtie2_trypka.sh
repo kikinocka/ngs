@@ -1,13 +1,13 @@
 #!/bin/bash
 
 bw2_dir='/home/kika/miniconda3/pkgs/bowtie2-2.3.4.2-py36h2d50403_0/bin/'
-base_name='/media/4TB1/diplonema/mapping/RNA_to_transcriptomes/1604/1604_RNA_full_bw2'
-ref='/media/4TB1/diplonema/transcriptomes/1604_Trinity.fasta'
+base_name='/media/4TB1/diplonema/mapping/RNA_to_transcriptomes/1608/1608_RNA_full_bw2'
+ref='/media/4TB1/diplonema/transcriptomes/1608_Trinity.fasta'
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
 read_dir='/media/4TB1/diplonema/reads/transcriptome/trimmed/'
-p1_1=$read_dir'1604_trimmed_1.fq.gz'
-p1_2=$read_dir'1604_trimmed_2.fq.gz'
+p1_1=$read_dir'1608_trimmed_1.fq.gz'
+p1_2=$read_dir'1608_trimmed_2.fq.gz'
 
 alignment=$base_name'.sam'
 report=$base_name'_report.txt'
