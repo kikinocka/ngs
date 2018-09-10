@@ -2,15 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/in'
-db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
-# subject = '/home/kika/MEGAsync/diplonema_mt/1610/transcripts/y6/y6.fasta'
-out = '/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_blast.xml'
+cmd = 'blastn'
+task = 'blastn'
+query = '/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs.fasta'
+db = '/home/kika/programs/blast-2.5.0+/bin/1621_contigs.fasta'
+subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/rnl/rnl.fasta'
+out = '/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 3
+word_size = 4
 threads = 4
 
 print('running BLAST')
@@ -18,7 +18,7 @@ print('running BLAST')
 subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
 		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
 
-#query - subject
+# query - subjec
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
 # 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
@@ -26,8 +26,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
