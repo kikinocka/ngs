@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/blasto_project/ku_story/alignments/')
+os.chdir('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/PASTA/')
 files = sorted(os.listdir())
 
 for file in files:
-	if file.endswith('_reduced.fa'):
+	if file.endswith('.fa'):
 	# if '.aln' not in file:
 		print(file)
 		job_desc = file.split('.')[0]

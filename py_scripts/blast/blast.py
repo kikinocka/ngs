@@ -2,21 +2,23 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-task = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs.fasta'
-db = '/home/kika/programs/blast-2.5.0+/bin/1621_contigs.fasta'
-subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/rnl/rnl.fasta'
-out = '/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs_blast.xml'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/tbruc_candidates_2.txt'
+db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
+# subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/rnl/rnl.fasta'
+out = '/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_blast.xml'
 evalue = 10
 outfmt = 5
-word_size = 4
+hits = 10
+word_size = 3
 threads = 4
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -max_target_seqs {} \
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, hits, threads), shell=True)
 
 # query - subjec
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -26,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/1621/1621_contigs_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
@@ -43,6 +45,7 @@ for record in blast_records:
 		alen_qlen = best_hit.align_length/record.query_length
 		alen_slen = best_hit.align_length/record.alignments[0].length
 		if best_hit.frame[1] > 0:
+			# print(record.alignments[0].title)
 			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 				record.query, record.query_length, record.alignments[0].hit_id, record.alignments[0].length, 
 				best_hit.align_length, best_hit.expect, best_hit.identities, best_hit.bits, mismatches, 

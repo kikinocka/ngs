@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/other_ogs/stops_replaced/')
+os.chdir('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/PASTA/')
 files = sorted(os.listdir())
 
 done = []
@@ -13,7 +13,7 @@ print(done)
 
 files = reversed(files)
 for file in files:
-	if file.endswith('_replaced2.fa'):
+	if file.endswith('.fa'):
 		name = file.split('_')[0]
 		if name in done:
 			print('Alignment for {} already done.'.format(name))

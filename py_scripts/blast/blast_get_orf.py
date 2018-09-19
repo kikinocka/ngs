@@ -4,10 +4,10 @@ from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
-nt_out = open('/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_nt.fa', 'w')
-aa_out = open('/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_aa.fa', 'w')
-err_out = open('/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_errors.txt', 'w')
-result_handle = open('/home/kika/MEGAsync/blasto_project/genes/repair/more_from_paper/jac_LmjF.25.1330_blast.xml')
+nt_out = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_nt.fa', 'w')
+aa_out = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_aa.fa', 'w')
+err_out = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
