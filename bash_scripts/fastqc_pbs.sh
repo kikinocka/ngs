@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N FastQC
-#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=20gb
-#PBS -l walltime=0:20:00
+#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=100gb
+#PBS -l walltime=2:30:00
 #PBS -m ae
 #PBS -j oe
 # hashes explained: 
@@ -29,5 +29,11 @@ cp p1_r1.fastq.gz p1_r2.fastq.gz $SCRATCHDIR
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-# fastqc -t 4 -o $out_dir 'p1_r1.fastq.gz'
-fastqc -t 4 -o $out_dir 'p1_r2.fastq.gz'
+fastqc -o $out_dir 'p2_r1.fastq.gz'
+fastqc -o $out_dir 'p2_r2.fastq.gz'
+fastqc -o $out_dir 'p3_r1.fastq.gz'
+fastqc -o $out_dir 'p3_r2.fastq.gz'
+fastqc -o $out_dir 'p4_r1.fastq.gz'
+fastqc -o $out_dir 'p4_r2.fastq.gz'
+fastqc -o $out_dir 'p5_r1.fastq.gz'
+fastqc -o $out_dir 'p5_r2.fastq.gz'
