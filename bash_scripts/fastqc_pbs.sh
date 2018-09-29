@@ -4,10 +4,10 @@
 #PBS -l walltime=2:30:00
 #PBS -m ae
 #PBS -j oe
-# hashes explained: 
+#hashes explained: 
 #-N job name, -q queue, -l select resources, -l walltime, -m ae, -j oe mail will be send at the end of the job
 
-# get name of the machine where the job is run
+#get name of the machine where the job is run
 cat $PBS_NODEFILE
 
 fastqc='/auto/brno2/home/kika/tools/miniconda3/pkgs/fastqc-0.11.7-5/bin/fastqc'
