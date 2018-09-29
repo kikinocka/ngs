@@ -25,7 +25,7 @@ module add fastQC-0.11.5
 
 #copy data to scratch
 cd $read_dir
-cp p1_r1.fastq.gz p1_r2.fastq.gz $SCRATCHDIR
+cp p2_r1.fastq.gz p2_r2.fastq.gz p3_r1.fastq.gz p3_r2.fastq.gz p4_r1.fastq.gz p4_r2.fastq.gz p5_r1.fastq.gz p5_r2.fastq.gz $SCRATCHDIR
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
@@ -37,3 +37,5 @@ fastqc -o $out_dir 'p4_r1.fastq.gz'
 fastqc -o $out_dir 'p4_r2.fastq.gz'
 fastqc -o $out_dir 'p5_r1.fastq.gz'
 fastqc -o $out_dir 'p5_r2.fastq.gz'
+
+
