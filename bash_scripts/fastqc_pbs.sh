@@ -1,13 +1,13 @@
 #!/bin/sh
 #PBS -N FastQC
-#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=100gb
+#PBS -l select=1:ncpus=1:mem=50gb:scratch_local=100gb
 #PBS -l walltime=2:30:00
 #PBS -m ae
 #PBS -j oe
-# hashes explained: 
+#hashes explained: 
 #-N job name, -q queue, -l select resources, -l walltime, -m ae, -j oe mail will be send at the end of the job
 
-# get name of the machine where the job is run
+#get name of the machine where the job is run
 cat $PBS_NODEFILE
 
 fastqc='/auto/brno2/home/kika/tools/miniconda3/pkgs/fastqc-0.11.7-5/bin/fastqc'
@@ -25,17 +25,11 @@ module add fastQC-0.11.5
 
 #copy data to scratch
 cd $read_dir
-cp p2_r1.fastq.gz p2_r2.fastq.gz p3_r1.fastq.gz p3_r2.fastq.gz p4_r1.fastq.gz p4_r2.fastq.gz p5_r1.fastq.gz p5_r2.fastq.gz $SCRATCHDIR
+cp p4_r1.fastq.gz p4_r2.fastq.gz p5_r1.fastq.gz p5_r2.fastq.gz $SCRATCHDIR
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir 'p2_r1.fastq.gz'
-fastqc -o $out_dir 'p2_r2.fastq.gz'
-fastqc -o $out_dir 'p3_r1.fastq.gz'
-fastqc -o $out_dir 'p3_r2.fastq.gz'
 fastqc -o $out_dir 'p4_r1.fastq.gz'
 fastqc -o $out_dir 'p4_r2.fastq.gz'
 fastqc -o $out_dir 'p5_r1.fastq.gz'
 fastqc -o $out_dir 'p5_r2.fastq.gz'
-
-
