@@ -25,6 +25,6 @@ cp $adapt $SCRATCHDIR
 cp $fw $rv $SCRATCHDIR
 
 cd $SCRATCHDIR
-bbduk overwrite=true in1=$fw in2=$rv out1=$trimmed_fw out2=$trimmed_rv ref=$adapt usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=30 2> $report
+$bbduk overwrite=true in1=$fw in2=$rv out1=$trimmed_fw out2=$trimmed_rv ref=$adapt usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=30 2> $report
 
 cp $trimmed_fw $trimmed_rv $report $trimdir
