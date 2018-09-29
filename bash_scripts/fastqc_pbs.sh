@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N FastQC
-#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=100gb
+#PBS -l select=1:ncpus=1:mem=50gb:scratch_local=100gb
 #PBS -l walltime=2:30:00
 #PBS -m ae
 #PBS -j oe
@@ -25,17 +25,11 @@ module add fastQC-0.11.5
 
 #copy data to scratch
 cd $read_dir
-cp p2_r1.fastq.gz p2_r2.fastq.gz p3_r1.fastq.gz p3_r2.fastq.gz p4_r1.fastq.gz p4_r2.fastq.gz p5_r1.fastq.gz p5_r2.fastq.gz $SCRATCHDIR
+cp p4_r1.fastq.gz p4_r2.fastq.gz p5_r1.fastq.gz p5_r2.fastq.gz $SCRATCHDIR
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir 'p2_r1.fastq.gz'
-fastqc -o $out_dir 'p2_r2.fastq.gz'
-fastqc -o $out_dir 'p3_r1.fastq.gz'
-fastqc -o $out_dir 'p3_r2.fastq.gz'
 fastqc -o $out_dir 'p4_r1.fastq.gz'
 fastqc -o $out_dir 'p4_r2.fastq.gz'
 fastqc -o $out_dir 'p5_r1.fastq.gz'
 fastqc -o $out_dir 'p5_r2.fastq.gz'
-
-
