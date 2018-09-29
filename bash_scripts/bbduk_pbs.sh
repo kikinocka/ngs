@@ -6,6 +6,9 @@
 #PBS -j oe
 cat $PBS_NODEFILE
 
+# inicializace konkretni verze JAVA
+module add jdk-7
+
 bbduk='/auto/brno2/home/kika/tools/bbmap/bbduk.sh'
 adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
