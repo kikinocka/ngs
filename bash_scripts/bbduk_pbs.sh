@@ -9,11 +9,11 @@ cat $PBS_NODEFILE
 adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_miseq/'
-fw='pelo5_s1_l001_r1_002.fastq.gz'
-rv='pelo5_s1_l001_r2_002.fastq.gz'
+fw='pelo2_s1_l001_r1_002.fastq.gz'
+rv='pelo2_s1_l001_r2_002.fastq.gz'
 
 trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_miseq/'
-name='pelo5_002'
+name='pelo2_002'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
