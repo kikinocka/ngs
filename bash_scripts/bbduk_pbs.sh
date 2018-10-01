@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-fw='p4_r1.fastq.gz'
-rv='p4_r2.fastq.gz'
+fw='p5_r1.fastq.gz'
+rv='p5_r2.fastq.gz'
 
 trimdir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-name='p4'
+name='p5'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
