@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N BBduk
-#PBS -l select=1:ncpus=32:mem=50gb:scratch_local=50gb
-#PBS -l walltime=0:20:00
+#PBS -l select=1:ncpus=32:mem=20gb:scratch_local=50gb
+#PBS -l walltime=0:10:00
 #PBS -m ae
 #PBS -j oe
 cat $PBS_NODEFILE
@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-fw='p1_r1.fastq.gz'
-rv='p1_r2.fastq.gz'
+fw='p2_r1.fastq.gz'
+rv='p2_r2.fastq.gz'
 
 trimdir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-name='p1'
+name='p2'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
