@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N SPAdes
-#PBS -l select=1:ncpus=16:ompthreads=16:mem=250gb:scratch_local=50gb:os=debian8 
+#PBS -l select=1:ncpus=20:ompthreads=20:mem=250gb:scratch_local=50gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -22,7 +22,7 @@ report='p1_spades_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
-spades.py --pe1-1 $fw --pe1-2 $rv --careful -t 16 -m 250 -o out 2> $report
+spades.py --pe1-1 $fw --pe1-2 $rv --careful -t 20 -m 250 -o out 2> $report
 
 #copy results to your folder
 cd out
