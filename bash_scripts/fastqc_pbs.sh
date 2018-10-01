@@ -25,12 +25,12 @@ module add fastQC-0.11.5
 
 #copy data to scratch
 cd $read_dir
-cp pelo2_s1_l001_r1_002.fastq.gz pelo2_s1_l001_r2_002.fastq.gz pelo5_s1_l001_r1_002.fastq.gz pelo5_s1_l001_r2_002.fastq.gz $SCRATCHDIR
+cp pelo2_002_trimmed_1.fq.gz pelo2_002_trimmed_2.fq.gz pelo5_002_trimmed_1.fq.gz pelo5_002_trimmed_2.fq.gz $SCRATCHDIR
 
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir 'pelo2_s1_l001_r1_002.fastq.gz'
-fastqc -o $out_dir 'pelo2_s1_l001_r2_002.fastq.gz'
-fastqc -o $out_dir 'pelo5_s1_l001_r1_002.fastq.gz'
-fastqc -o $out_dir 'pelo5_s1_l001_r2_002.fastq.gz'
+fastqc -o $out_dir 'pelo2_002_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo2_002_trimmed_2.fq.gz'
+fastqc -o $out_dir 'pelo5_002_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo5_002_trimmed_2.fq.gz'
