@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N BBduk
 #PBS -l select=1:ncpus=32:mem=20gb:scratch_local=50gb
-#PBS -l walltime=0:10:00
+#PBS -l walltime=0:15:00
 #PBS -m ae
 #PBS -j oe
 cat $PBS_NODEFILE
