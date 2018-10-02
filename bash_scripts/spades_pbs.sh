@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 module add spades-3.11.1
 
 read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p1/'
+outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p2/'
 
 #copy reads to scratch
 cd $read_dir
-cp p1_trimmed_1.fq.gz p1_trimmed_2.fq.gz $SCRATCHDIR
+cp p2_trimmed_1.fq.gz p2_trimmed_2.fq.gz $SCRATCHDIR
 
-fw='p1_trimmed_1.fq.gz'
-rv='p1_trimmed_2.fq.gz'
-report='p1_spades_report.txt'
+fw='p2_trimmed_1.fq.gz'
+rv='p2_trimmed_2.fq.gz'
+report='p2_spades_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
