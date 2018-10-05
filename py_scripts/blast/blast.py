@@ -2,16 +2,16 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/tbruc_candidates_2.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
+cmd = 'blastn'
+task = 'blastn'
+query = '/home/kika/MEGAsync/pelomyxa/ssu_search/pelo_ssu.fas'
+db = '/home/kika/programs/blast-2.5.0+/bin/pelomyxa_p1.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/rnl/rnl.fasta'
-out = '/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_blast.xml'
+out = '/home/kika/MEGAsync/pelomyxa/ssu_search/p1_ssu_blast.xml'
 evalue = 10
 outfmt = 5
 hits = 10
-word_size = 3
+word_size = 11
 threads = 4
 
 print('running BLAST')
@@ -28,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/jac_candidates2_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/pelomyxa/ssu_search/p1_ssu_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/pelomyxa/ssu_search/p1_ssu_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
