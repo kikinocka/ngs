@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N SPAdes
 #PBS -l select=1:ncpus=20:ompthreads=20:mem=250gb:scratch_local=50gb
-#PBS -l walltime=7:00:00
+#PBS -l walltime=8:00:00
 #PBS -m ae
 #PBS -j oe
 cat $PBS_NODEFILE
@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 module add spades-3.11.1
 
 read_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p4/'
+outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p5/'
 
 #copy reads to scratch
 cd $read_dir
-cp p4_trimmed_1.fq.gz p4_trimmed_2.fq.gz $SCRATCHDIR
+cp p5_trimmed_1.fq.gz p5_trimmed_2.fq.gz $SCRATCHDIR
 
-fw='p4_trimmed_1.fq.gz'
-rv='p4_trimmed_2.fq.gz'
-report='p4_spades_report.txt'
+fw='p5_trimmed_1.fq.gz'
+rv='p5_trimmed_2.fq.gz'
+report='p5_spades_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
