@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastn'
 task = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y5/y5_modules.fasta'
+query = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules.fasta'
 db = '/home/kika/programs/blast-2.5.0+/bin/pelomyxa_p1.fa'
-subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y5/y5.fasta'
-out = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y5/y5_modules_blast.xml'
+subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
+out = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules_blast.xml'
 evalue = 10
 outfmt = 5
 hits = 10
@@ -28,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y5/y5_modules_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y5/y5_modules_best_blast.tsv', 'w')
+output = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules_blast.tsv', 'w')
+out_best = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
