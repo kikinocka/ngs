@@ -23,18 +23,18 @@ module add fastQC-0.11.5
 
 #copy data to scratch
 cd $read_dir
-cp pelo1_trimmed_r1.fq.gz pelo1_trimmed_r2.fq.gz pelo2_trimmed_r1.fq.gz pelo2_trimmed_r2.fq.gz pelo3_trimmed_r1.fq.gz pelo3_trimmed_r2.fq.gz pelo5_trimmed_r1.fq.gz pelo5_trimmed_r2.fq.gz pelo6_trimmed_r1.fq.gz pelo6_trimmed_r2.fq.gz $SCRATCHDIR
+cp pelo1_trimmed_1.fq.gz pelo1_trimmed_2.fq.gz pelo2_trimmed_1.fq.gz pelo2_trimmed_2.fq.gz pelo3_trimmed_1.fq.gz pelo3_trimmed_2.fq.gz pelo5_trimmed_1.fq.gz pelo5_trimmed_2.fq.gz pelo6_trimmed_1.fq.gz pelo6_trimmed_2.fq.gz $SCRATCHDIR
 
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir 'pelo1_trimmed_r1.fq.gz'
-fastqc -o $out_dir 'pelo1_trimmed_r2.fq.gz'
-fastqc -o $out_dir 'pelo2_trimmed_r1.fq.gz'
-fastqc -o $out_dir 'pelo2_trimmed_r2.fq.gz'
-fastqc -o $out_dir 'pelo3_trimmed_r1.fq.gz'
-fastqc -o $out_dir 'pelo3_trimmed_r2.fq.gz'
-fastqc -o $out_dir 'pelo5_trimmed_r1.fq.gz'
-fastqc -o $out_dir 'pelo5_trimmed_r2.fq.gz'
-fastqc -o $out_dir 'pelo6_trimmed_r1.fq.gz'
-fastqc -o $out_dir 'pelo6_trimmed_r2.fq.gz'
+fastqc -o $out_dir 'pelo1_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo1_trimmed_2.fq.gz'
+fastqc -o $out_dir 'pelo2_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo2_trimmed_2.fq.gz'
+fastqc -o $out_dir 'pelo3_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo3_trimmed_2.fq.gz'
+fastqc -o $out_dir 'pelo5_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo5_trimmed_2.fq.gz'
+fastqc -o $out_dir 'pelo6_trimmed_1.fq.gz'
+fastqc -o $out_dir 'pelo6_trimmed_2.fq.gz'
