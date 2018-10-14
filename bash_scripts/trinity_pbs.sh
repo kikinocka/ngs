@@ -22,6 +22,7 @@ rv='pelo1_trimmed_2.fq.gz'
 report='pelo1_report.txt'
 
 #compute on scratch
+cd $SCRATCHDIR
 Trinity --seqType fq --left $fw --right $rv --output trinity_out --max_memory 100G --CPU 20 2> $report
 
 cd trinity_out
