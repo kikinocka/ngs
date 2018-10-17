@@ -3,8 +3,8 @@ import os
 from collections import OrderedDict
 
 os.chdir('/home/kika/MEGAsync/diplonema_mt/comparison/')
-table = open('1604_multi_modules.tsv')
-out = open('1604_embedded_overlapping_stat.tsv', 'w')
+table = open('1618_multi_modules.tsv')
+out = open('1618_embedded_overlapping_stat.tsv', 'w')
 
 def in_range(start, number, end):
 	return start <= number <= end

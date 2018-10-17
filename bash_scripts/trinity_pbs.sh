@@ -11,20 +11,20 @@ cat $PBS_NODEFILE
 module add trinity-2.6.5
 
 read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-out_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/pelo1/'
+out_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
 
 #copy reads to scratch
 cd $read_dir
-cp pelo1_trimmed_1.fq.gz pelo1_trimmed_2.fq.gz $SCRATCHDIR
+cp pelo2_trimmed_1.fq.gz pelo2_trimmed_2.fq.gz $SCRATCHDIR
 
-fw='pelo1_trimmed_1.fq.gz'
-rv='pelo1_trimmed_2.fq.gz'
-report='pelo1_report.txt'
+fw='pelo2_trimmed_1.fq.gz'
+rv='pelo2_trimmed_2.fq.gz'
+report='pelo2_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
-Trinity --seqType fq --left $fw --right $rv --output trinity_out --max_memory 100G --CPU 20 2> $report
+Trinity --seqType fq --left $fw --right $rv --output pelo2_trinity --max_memory 100G --CPU 20 2> $report
 
 cd trinity_out
-cp -R * $outdir
+cp -r * $outdir
 cp ../$report $outdir

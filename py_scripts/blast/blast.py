@@ -2,34 +2,34 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-task = 'blastn'
-query = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules.fasta'
-db = '/home/kika/programs/blast-2.5.0+/bin/pelomyxa_p1.fa'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/jbp2.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
 subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
-out = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules_blast.xml'
+out = '/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/jac_jbp2_blast.xml'
 evalue = 10
 outfmt = 5
 hits = 10
-word_size = 11
+word_size = 3
 threads = 4
 
 print('running BLAST')
 #query - database
-# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -max_target_seqs {} \
-# 	-num_threads {}'.format(
-# 		cmd, task, query, db, out, evalue, outfmt, word_size, hits, threads), shell=True)
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -max_target_seqs {} \
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, hits, threads), shell=True)
 
 # query - subjec
-subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 print('BLAST done')
 print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7_modules_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/jac_jbp2_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/jac_jbp2_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

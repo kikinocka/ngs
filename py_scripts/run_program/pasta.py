@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/blasto_project/genes/known_secondary_structures/PASTA/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/PASTA/')
 files = sorted(os.listdir())
 
 for file in files:
