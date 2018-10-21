@@ -19,7 +19,7 @@ cp pelo3_trimmed_1.fq.gz pelo3_trimmed_2.fq.gz $SCRATCHDIR
 
 fw='pelo3_trimmed_1.fq.gz'
 rv='pelo3_trimmed_2.fq.gz'
-report='pelo3_trinity/pelo3_report.txt'
+report='pelo3_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
