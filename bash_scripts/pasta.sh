@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/home/kika/MEGAsync/blasto_project/ku_story/ku_alignments/ku80_reduced.fa'
+i='/home/kika/ownCloud/blastocrithidia/genes/glycolysis/PASTA/Tb927.11.2380.fa'
 d=protein
-j=ku80_reduced
+j=Tb927.11.2380
 
 run_pasta.py -i $i -d $d -j $j
