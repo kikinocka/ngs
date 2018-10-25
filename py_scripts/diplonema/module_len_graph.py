@@ -12,7 +12,7 @@ ypf1608 = csv.reader(open('1608/1608_module_sizes_mod.tsv'), delimiter='\t', ski
 ypf1618 = csv.reader(open('1618/1618_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 ypf1610 = csv.reader(open('1610/1610_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 
-def get_cmap(n, name='PiYG'): #hsv for very divergent data?
+def get_cmap(n, name='viridis'): #hsv for very divergent data?
 	'''Returns a function that maps each index in 0, 1, ..., n-1 to a distinct 
 	RGB color; the keyword argument name must be a standard mpl colormap name.'''
 	colormap = plt.cm.get_cmap(name, n)
@@ -43,14 +43,17 @@ data = []
 for i in y:
     data.append(np.array(i))
 fig = plt.figure()
-bplot = plt.boxplot(data, notch=True, patch_artist=True)
+boxprops = dict(linestyle='-', linewidth=1, color='black')
+medianprops = dict(linestyle='-', linewidth=3, color='black')
+bplot = plt.boxplot(data, notch=True, patch_artist=True, boxprops=boxprops, medianprops=medianprops)
 
-colors = get_cmap(len(x)) #alebo definuj: ['pink', 'lightblue', 'lightgreen']
+#or define: ['pink', 'lightblue', 'lightgreen']
+colors = get_cmap(len(x))
 for patch, color in zip(bplot['boxes'], colors):
     patch.set_facecolor(color)
 
 for xe, ye in zip(x, y):
-    plt.plot([xe] * len(ye), ye, 'o', mfc='none', c='black', zorder=10) #zorder aby boli hore
+    plt.plot([xe] * len(ye), ye, 'o', mfc='none', c='black', zorder=10)
     
 plt.xticks([1, 2, 3, 4, 5])
 plt.axes().set_xticklabels(['D. japonicum', 'R. humris', 'L. lanifica', 'S. specki', 'YPF1610'])
