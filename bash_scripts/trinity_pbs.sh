@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Trinity
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=100gb
-#PBS -l walltime=30:00:00
+#PBS -l select=1:ncpus=15:mem=50gb:scratch_local=100gb
+#PBS -l walltime=10:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -23,7 +23,7 @@ report='pelo3_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
-Trinity --seqType fq --left $fw --right $rv --output pelo3_trinity --max_memory 50G --CPU 20 2> $report
+Trinity --seqType fq --left $fw --right $rv --output pelo3_trinity --max_memory 50G --CPU 15 2> $report
 
 cp -r pelo3_trinity $outdir
 cp $report $outdir

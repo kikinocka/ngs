@@ -4,10 +4,10 @@ from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa', 'fasta')
-nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/p57_jbp2_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/p57_jbp2_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/p57_jbp2_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/J-base_biosynthesis/p57_jbp2_blast.xml')
+nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

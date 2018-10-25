@@ -4,13 +4,13 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Durnford_Gray-pt-targeted_proteins_EG/EG_Plastid_Proteins-Dunrford_Gray.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/eg_tsa_Field.fasta'
+query = '/home/kika/ownCloud/blastocrithidia/genes/glycolysis/jac_glycolysis_aa.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
 subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
-out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Durnford_Gray-pt-targeted_proteins_EG/eg_field_blast.xml'
-evalue = 10
+out = '/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_blast.xml'
+evalue = 1
 outfmt = 5
-hits = 10
+hits = 100
 word_size = 3
 threads = 4
 
@@ -28,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Durnford_Gray-pt-targeted_proteins_EG/eg_field_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Durnford_Gray-pt-targeted_proteins_EG/eg_field_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/p57_glycolysis_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
