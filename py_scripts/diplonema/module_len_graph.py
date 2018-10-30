@@ -48,7 +48,7 @@ reul = csv_parser(rhyneul)
 hpha = csv_parser(hemistasia)
 
 # module sizes in each species
-y = [damb, djap, dpap, rhum, reul, llan, fner, sspe, [], ypf10, hpha]
+y = [damb, djap, dpap, rhum, reul, llan, fner, sspe, [], hpha, ypf10]
 #list of species
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -58,13 +58,15 @@ for i in y:
 
 boxprops = dict(linestyle='-', linewidth=1, color='black')
 medianprops = dict(linestyle='-', linewidth=2.5, color='black')
+whiskerprops = dict(color='black')
 bplot = beeswarm(data, method='swarm', positions=x, s=5, col='grey', alpha=0.5, zorder=10)
-bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxprops=boxprops, medianprops=medianprops)
+bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxprops=boxprops, medianprops=medianprops, \
+	)
 
 #or define: ['pink', 'lightblue', 'lightgreen']
 # colors = get_cmap(len(x))
 colors = ['#ffb6db', '#ff6db6', '#ffb6db', '#ff6db6', '#ffb6db', '#ff6db6', '#ffb6db', '#ff6db6', \
-	'#ffa500', '#ffa500', '#ffc04c'] 
+	'#ffa500', '#ffc04c', '#ffa500'] 
 for patch, color in zip(bplot['boxes'], colors):
 	patch.set_facecolor(color)
 
@@ -72,10 +74,10 @@ for patch, color in zip(bplot['boxes'], colors):
 # for xe, ye in zip(x, y):
 # 	 plt.plot([xe] * len(ye), ye, 'o', mfc='none', c='black', zorder=10)
 
-plt.setp(bplot['whiskers'], color='black')
+# plt.setp(bplot['whiskers'], color='black')
 plt.xticks(x)
 plt.axes().set_xticklabels(['D. ambulator', 'D. japonicum',	'D. papillatum', 'R. humris', 'R. euleeides', \
-	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1621', 'YPF1610', 'H. phaeocysticola'], fontstyle='italic')
+	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1621', 'H. phaeocysticola', 'YPF1610'], fontstyle='italic')
 plt.yticks(range(0, 650, 50))
 
 plt.show()
