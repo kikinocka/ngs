@@ -61,7 +61,7 @@ medianprops = dict(linestyle='-', linewidth=2.5, color='black')
 whiskerprops = dict(color='black')
 bplot = beeswarm(data, method='swarm', positions=x, s=5, col='grey', alpha=0.5, zorder=10)
 bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxprops=boxprops, medianprops=medianprops, \
-	)
+	whiskerprops=whiskerprops)
 
 #or define: ['pink', 'lightblue', 'lightgreen']
 # colors = get_cmap(len(x))
@@ -74,7 +74,6 @@ for patch, color in zip(bplot['boxes'], colors):
 # for xe, ye in zip(x, y):
 # 	 plt.plot([xe] * len(ye), ye, 'o', mfc='none', c='black', zorder=10)
 
-# plt.setp(bplot['whiskers'], color='black')
 plt.xticks(x)
 plt.axes().set_xticklabels(['D. ambulator', 'D. japonicum',	'D. papillatum', 'R. humris', 'R. euleeides', \
 	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1621', 'H. phaeocysticola', 'YPF1610'], fontstyle='italic')
