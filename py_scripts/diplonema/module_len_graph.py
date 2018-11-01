@@ -65,7 +65,7 @@ bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxpr
 
 #or define: ['pink', 'lightblue', 'lightgreen']
 # colors = get_cmap(len(x))
-colors = ['#ffb6db', '#ff6db6', '#ffb6db', '#ff6db6', '#ffb6db', '#ff6db6', '#ffb6db', '#ff6db6', \
+colors = ['#87a8ee', '#5e75a6', '#87a8ee', '#5e75a6', '#87a8ee', '#5e75a6', '#87a8ee', '#5e75a6', \
 	'#ffa500', '#ffc04c', '#ffa500'] 
 for patch, color in zip(bplot['boxes'], colors):
 	patch.set_facecolor(color)
@@ -75,8 +75,12 @@ for patch, color in zip(bplot['boxes'], colors):
 # 	 plt.plot([xe] * len(ye), ye, 'o', mfc='none', c='black', zorder=10)
 
 plt.xticks(x)
+plt.xlim(0, 12)
 plt.axes().set_xticklabels(['D. ambulator', 'D. japonicum',	'D. papillatum', 'R. humris', 'R. euleeides', \
-	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1621', 'H. phaeocysticola', 'YPF1610'], fontstyle='italic')
-plt.yticks(range(0, 650, 50))
+	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1621', 'H. phaeocysticola', 'YPF1610'], fontstyle='italic', \
+	fontsize=13, rotation=20, horizontalalignment='center')
+plt.ylim(0, 650)
+plt.axes().set_yticklabels([0, 100, 200, 300, 400, 500, 600], fontsize=14)
+plt.grid(which='major', axis='y', linestyle='-', color='grey')
 
 plt.show()
