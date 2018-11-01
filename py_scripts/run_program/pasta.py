@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/genes/glycolysis/PASTA/')
+os.chdir('/media/4TB1/blastocrithidia/seqfire/dataset_sgOGs/')
 files = sorted(os.listdir())
 
 for file in files:
