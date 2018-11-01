@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import os
 
+pasta = '/home/nenarokova/tools/pasta_tools/pasta/run_pasta.py'
+
 os.chdir('/media/4TB1/blastocrithidia/seqfire/dataset_sgOGs/')
 files = sorted(os.listdir())
 
@@ -10,4 +12,4 @@ for file in files:
 		print(file)
 		job_desc = file.split('.fa')[0]
 		d = 'protein'
-		os.system('run_pasta.py -i {} -d {} -j {}'.format(file, d, job_desc))
+		os.system('{} -i {} -d {} -j {}'.format(pasta, file, d, job_desc))

@@ -2,16 +2,16 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/Asn_synthetase/jac_Asn-synth_aa.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
+cmd = 'blastn'
+task = 'blastn'
+query = '/home/kika/ownCloud/blastocrithidia/ssu_tree/18S_dataset.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/lhes1_PRJNA238835_trinity.fasta'
 subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
-out = '/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/Asn_synthetase/p57_Asn-synth_blast.xml'
+out = '/home/kika/ownCloud/blastocrithidia/ssu_tree/lhes1_ssu_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 100
-word_size = 3
+word_size = 4
 threads = 4
 
 print('running BLAST')
@@ -28,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/Asn_synthetase/p57_Asn-synth_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/Asn_synthetase/p57_Asn-synth_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/blastocrithidia/ssu_tree/lhes1_ssu_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/blastocrithidia/ssu_tree/lhes1_ssu_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
