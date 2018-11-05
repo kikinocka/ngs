@@ -23,7 +23,7 @@ report='all_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
-Trinity --seqType fq --left $fw --right $rv --output all_trinity --max_memory 100G --CPU 15 2> $report
+Trinity --seqType fq --left $fw --right $rv --output all_trinity --max_memory 100G --CPU $PBS_NUM_PPN 2> $report
 
 cp $report all_trinity/.
 cp -r all_trinity/ $outdir

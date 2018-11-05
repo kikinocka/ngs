@@ -22,7 +22,7 @@ report='p5_spades_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
-spades.py --pe1-1 $fw --pe1-2 $rv --careful -k 127 -t 20 -m 250 -o out 2> $report
+spades.py --pe1-1 $fw --pe1-2 $rv --careful -k 127 -t $PBS_NUM_PPN -m 250 -o out 2> $report
 
 #copy results to your folder
 cd out

@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 module add cegma-2.5
 module add blast+-2.2.29
 
-folder='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/transcriptome_assembly/pelo_all_trinity/'
+transc_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/transcriptome_assembly/pelo_all_trinity/'
 
 #copy file to scratch
-cd $folder
+cd $transc_dir
 cp Trinity.fasta $SCRATCHDIR
 
 transcriptome='Trinity.fasta'
-
+out=
 cd $SCRATCHDIR
-cegma -o pelo_cegma -T $PBS_NUM_PPN <-g $transcriptome
+cegma -o pelo_cegma -T $PBS_NUM_PPN -g $transcriptome
 
-cp pelo_cegma $folder
+cp pelo_cegma $transc_dir
