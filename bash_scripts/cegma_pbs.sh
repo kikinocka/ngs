@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N CEGMA
-#PBS -l select=1:ncpus=10:mem=100gb:scratch_local=100gb
-#PBS -l walltime=00:20:00
+#PBS -l select=1:ncpus=10:mem=50gb:scratch_local=100gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -18,7 +18,7 @@ cd $transc_dir
 cp Trinity.fasta $SCRATCHDIR
 
 transcriptome='Trinity.fasta'
-out=
+
 cd $SCRATCHDIR
 cegma -o pelo_cegma -T $PBS_NUM_PPN -g $transcriptome
 
