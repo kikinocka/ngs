@@ -3,7 +3,7 @@
 cd /home/tomas/GIT/busco/
 
 input='/home/kika/work_dir/pelo_schiedti_trinity.fasta'
-out='BUSCO_pelo_euk'
+out='BUSCO_pelo_trinity_euk'
 mode=prot
 species=chlamydomonas_reinhardtii
 lineage='/home/tomas/GIT/busco/eukaryota_odb9/'
