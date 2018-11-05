@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N CEGMA
-#PBS -l select=1:ncpus=15:mem=100gb:scratch_local=100gb
-#PBS -l walltime=00:10:00
+#PBS -l select=1:ncpus=10:mem=100gb:scratch_local=100gb
+#PBS -l walltime=00:20:00
 #PBS -m ae
 #PBS -j oe
 
