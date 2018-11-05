@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-from collections import defaultdict, OrderedDict
+from collections import defaultdict
 
 os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/')
 files = sorted(os.listdir())
