@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N CEGMA
-#PBS -l select=1:ncpus=10:mem=50gb:scratch_local=100gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=100gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 module add cegma-2.5
 module add blast+-2.2.29
 
-transc_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/transcriptome_assembly/pelo_all_trinity/'
+genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p1/k127/'
 
 #copy file to scratch
-cd $transc_dir
-cp Trinity.fasta $SCRATCHDIR
+cd $genome_dir
+cp scaffolds.fasta $SCRATCHDIR
 
-transcriptome='Trinity.fasta'
+genome='scaffolds.fasta'
 
 cd $SCRATCHDIR
-cegma -o pelo_cegma -T $PBS_NUM_PPN -g $transcriptome
+cegma -o pelo_cegma -T $PBS_NUM_PPN -g $genome
 
-cp pelo_cegma* $transc_dir
+cp pelo_cegma* $genome_dir

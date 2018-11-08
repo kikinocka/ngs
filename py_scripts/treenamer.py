@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Fd+FNR/Sulfite_reductase/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/ssu_tree/iqtree_files/')
 
 #file in format Acc. number \t name of organism \n
-names = open('CysJ_names.txt')
-tree = open('CysJ_trimal_automated1.aln.treefile')
+names = open('tryps_ssu_names.txt')
+tree = open('tryps_ssu_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -25,5 +25,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('CysJ_tree_renamed.txt', 'w') as result:
+with open('tryps_ssu_renamed.txt', 'w') as result:
     result.write(tree_line)
