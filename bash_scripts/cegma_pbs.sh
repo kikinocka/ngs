@@ -22,4 +22,4 @@ transcriptome='Trinity.fasta'
 cd $SCRATCHDIR
 cegma -o pelo_cegma -T $PBS_NUM_PPN -g $transcriptome
 
-cp pelo_cegma $transc_dir
+cp pelo_cegma* $transc_dir

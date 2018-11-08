@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/Asn_synthetase/Asn-synth.fa'
-d=protein
-j=Tb927.11.2380
+i='/home/kika/ownCloud/blastocrithidia/ssu_tree/tryps_ssu.fasta'
+d=dna
+j=tryps_ssu
 
 run_pasta.py -i $i -d $d -j $j

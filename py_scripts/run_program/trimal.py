@@ -1,7 +1,7 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/terminal_oxidase/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/ssu_tree/')
 files = os.listdir()
 
 for file in files:
