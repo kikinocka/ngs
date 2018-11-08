@@ -26,5 +26,5 @@ spades.py --pe1-1 $fw --pe1-2 $rv --careful -k 127 -t $PBS_NUM_PPN -m 250 -o out
 
 #copy results to your folder
 cd out
-cp -R * $outdir
+cp -r * $outdir
 cp ../$report $outdir
