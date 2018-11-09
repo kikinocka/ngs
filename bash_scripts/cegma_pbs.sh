@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module add cegma-2.5
 module add blast+-2.2.29
 
-genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p3/'
+genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/deep_hiseq/p4/'
 
 #copy file to scratch
 cd $genome_dir
@@ -20,6 +20,6 @@ cp scaffolds.fasta $SCRATCHDIR
 genome='scaffolds.fasta'
 
 cd $SCRATCHDIR
-cegma -o p3_cegma -T $PBS_NUM_PPN -g $genome
+cegma -o p4_cegma -T $PBS_NUM_PPN -g $genome
 
-cp p3_cegma* $genome_dir
+cp p4_cegma* $genome_dir
