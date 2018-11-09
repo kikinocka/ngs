@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 infile = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/all_modules_best_blast.tsv')
 output = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/all.gff', 'w')
 
