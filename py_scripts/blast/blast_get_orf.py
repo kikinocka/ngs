@@ -88,7 +88,6 @@ def blast_parser(blast_records):
 						else:
 							min_sstart = best.hsps[0].sbjct_end
 							max_send = best.hsps[0].sbjct_start
-					print(min_qstart, max_qend)
 				if frame in [1, 2, 3]:
 					result[record.query.split(':')[0]] = [min_sstart, max_send, frame, best.hit_id, 
 						record.query_length, min_qstart, max_qend]
