@@ -9,11 +9,11 @@ cat $PBS_NODEFILE
 #add modules
 module add spades-3.11.1
 
-prel='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/preliminary_seq/'
-deep_hi='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_hiseq/'
-deep_mi='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_miseq/'
-nano='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/nanopore/'
-outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
+prel="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/preliminary_seq/"
+deep_hi="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_hiseq/"
+deep_mi="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_miseq/"
+nano="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/nanopore/"
+outdir="/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/"
 
 #copy reads to scratch
 cd $prel
@@ -28,30 +28,30 @@ cp pelo2_002_trimmed_1.fq.gz pelo2_002_trimmed_2.fq.gz pelo5_002_trimmed_1.fq.gz
 cd $nano
 cp pelomyxa_nanopore.fastq.gz $SCRATCHDIR
 
-pe1-1='p1_trimmed_1.fq.gz'
-pe1-2='p1_trimmed_2.fq.gz'
-pe2-1='p2_trimmed_1.fq.gz'
-pe2-2='p2_trimmed_2.fq.gz'
-pe3-1='p3_trimmed_1.fq.gz'
-pe3-2='p3_trimmed_2.fq.gz'
-pe4-1='p4_trimmed_1.fq.gz'
-pe4-2='p4_trimmed_2.fq.gz'
-pe5-1='p5_trimmed_1.fq.gz'
-pe5-2='p5_trimmed_2.fq.gz'
+pe1-1="p1_trimmed_1.fq.gz"
+pe1-2="p1_trimmed_2.fq.gz"
+pe2-1="p2_trimmed_1.fq.gz"
+pe2-2="p2_trimmed_2.fq.gz"
+pe3-1="p3_trimmed_1.fq.gz"
+pe3-2="p3_trimmed_2.fq.gz"
+pe4-1="p4_trimmed_1.fq.gz"
+pe4-2="p4_trimmed_2.fq.gz"
+pe5-1="p5_trimmed_1.fq.gz"
+pe5-2="p5_trimmed_2.fq.gz"
 
-pe6-1='pelo2_001_trimmed_1.fq.gz'
-pe6-2='pelo2_001_trimmed_2.fq.gz'
-pe7-1='pelo5_001_trimmed_1.fq.gz'
-pe7-2='pelo5_001_trimmed_2.fq.gz'
+pe6-1="pelo2_001_trimmed_1.fq.gz"
+pe6-2="pelo2_001_trimmed_2.fq.gz"
+pe7-1="pelo5_001_trimmed_1.fq.gz"
+pe7-2="pelo5_001_trimmed_2.fq.gz"
 
-pe8-1='pelo2_002_trimmed_1.fq.gz'
-pe8-2='pelo2_002_trimmed_2.fq.gz'
-pe9-1='pelo5_002_trimmed_1.fq.gz'
-pe9-2='pelo5_002_trimmed_2.fq.gz'
+pe8-1="pelo2_002_trimmed_1.fq.gz"
+pe8-2="pelo2_002_trimmed_2.fq.gz"
+pe9-1="pelo5_002_trimmed_1.fq.gz"
+pe9-2="pelo5_002_trimmed_2.fq.gz"
 
-nanopore='pelomyxa_nanopore.fastq.gz'
+nanopore="pelomyxa_nanopore.fastq.gz"
 
-report='spades_report.txt'
+report="spades_report.txt"
 
 #compute on scratch
 cd $SCRATCHDIR

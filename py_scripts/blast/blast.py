@@ -4,13 +4,13 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/pelomyxa/augustus_training_set/test/mbal.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa'
+query = '/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_trinity_mbal_aa_final.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin//p1_scaffolds_k127.fasta'
 subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
-out = '/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_blast.xml'
+out = '/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_blast.xml'
 evalue = 1
 outfmt = 5
-hits = 100
+hits = 10
 word_size = 4
 threads = 4
 
@@ -28,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
