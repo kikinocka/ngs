@@ -1,9 +1,9 @@
 #!/bin/bash
 
 read_dir='/media/4TB1/diplonema/reads/genome/used/'
-reads=$read_dir'1608_used_reads.fastq'
+reads=$read_dir'1618_used_reads.fastq'
 
-name='1608_'
+name='1618_'
 merged=$read_dir$name'merged.fq'
 unmerged=$read_dir$name'unmerged.fq'
 report=$read_dir$name'report_bbmerge.txt'
