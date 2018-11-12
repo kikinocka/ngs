@@ -1,14 +1,14 @@
 #!/bin/bash
 
 bw2_dir='/home/kika/miniconda3/pkgs/bowtie2-2.3.4.2-py36h2d50403_0/bin/'
-base_name='/media/4TB1/diplonema/mapping/DNA_to_contigs/1608/1608_artifical_contig_bw2'
-ref='/media/4TB1/diplonema/mapping/DNA_to_contigs/1608/1608_artifical_contig.fasta'
+base_name='/media/4TB1/diplonema/mapping/DNA_to_contigs/1618/1618_arrays_bw2'
+ref='/media/4TB1/diplonema/mapping/DNA_to_contigs/1618/1618_arrays.fasta'
 
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
-read_dir='/media/4TB1/diplonema/reads/genome/used/'
-p1_1=$read_dir'1608_merged_deduplicated.fq'
-p1_2=$read_dir'1608_unmerged_deduplicated.fq'
+read_dir='/media/4TB1/diplonema/reads/genome/used/1618/'
+p1_1=$read_dir'1618_merged_deduplicated.fq'
+p1_2=$read_dir'1618_unmerged_deduplicated.fq'
 
 alignment=$base_name'.sam'
 report=$base_name'_report.txt'
