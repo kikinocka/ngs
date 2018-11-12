@@ -65,7 +65,7 @@ spades.py --pe1-1 $pe11 --pe1-2 $pe12 \
 --pe8-1 $pe81 --pe8-2 $pe82 \
 --pe9-1 $pe91 --pe9-2 $pe92 \
 --nanopore $nanopore \
---careful -k 127 -t $PBS_NUM_PPN -m 1000 -o out 2> $report
+--careful --sc -k 127 -t $PBS_NUM_PPN -m 1000 -o out 2> $report
 
 #copy results to your folder
 cd out

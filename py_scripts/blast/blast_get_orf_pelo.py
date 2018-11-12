@@ -1,50 +1,62 @@
-#!/usr/bin/python3
-#!!! Check parsing record.query in the blast_parser function (5x) !!!
+#!/usr/bin/env python3
+from re import finditer
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/p1_scaffolds_k127.fasta', 'fasta')
-nt_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_aa.fa', 'w')
-gff_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal.gff', 'w')
-result_handle = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_blast.xml')
+# nt_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/p1_mbal_nt.fa', 'w')
+# aa_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/p1_mbal_aa.fa', 'w')
+# gff_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/p1_mbal.gff', 'w')
+result_handle = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/p1_mbal_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
-    'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
-    'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
-    'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
-    'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
-    'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
-    'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
-    'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
-    'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
-    'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
-    'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
-    'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
-    'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
-    'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
-    'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
-    'TAC':'Y', 'TAT':'Y', 'TAA':'B', 'TAG':'B',
-    'TGC':'C', 'TGT':'C', 'TGA':'B', 'TGG':'W'}
+	'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+	'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+	'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+	'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
+	'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+	'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+	'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+	'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+	'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+	'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+	'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+	'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+	'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+	'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+	'TAC':'Y', 'TAT':'Y', 'TAA':'B', 'TAG':'B',
+	'TGC':'C', 'TGT':'C', 'TGA':'B', 'TGG':'W'}
 
 def translation(sequence):
-    cut_seq = []
-    for i in range(0,len(sequence)-2,3):
-        cut_seq.append(sequence[i:i+3])
-    aa = []
-    for codon in cut_seq:
-        if 'N' in codon:
-            aa.append('X')
-        else:
-            aa.append(gencode[codon])
-    return ''.join(aa)
+	cut_seq = []
+	for i in range(0,len(sequence)-2,3):
+		cut_seq.append(sequence[i:i+3])
+	aa = []
+	for codon in cut_seq:
+		if 'N' in codon:
+			aa.append('X')
+		else:
+			aa.append(gencode[codon])
+	return ''.join(aa)
 
 def blast_parser(blast_records):
-	# result = {}
-	# errors = []
 	for record in blast_records:
-		print(record)
+		dashes = [-2]
+		try:
+			best = record.alignments[0].hsps[0]
+			if best.query_start == 1 and best.query_end == record.query_length:
+				print(best.query)
+				for match in finditer('-', best.query):
+					dashes.append(match.span()[0])
+				print(dashes)
+				# for i in dashes:
+				# 	if dashes[i+1] != dashes[i] + 1:
+				# 		intron_end = dashes[i]
+				# 		intron_start = dashes[i+1]
+				# 		print(intron_end, intron_start)
+		except:
+			pass
 # 		try:
 # 			best = record.alignments[0]
 # 			min_sstart = False
@@ -102,8 +114,8 @@ def blast_parser(blast_records):
 # 		err_out.write('{}:\thsps frames do not correspond\n'.format(i))
 # 	return result
 
-# blast_dict = blast_parser(blast_records)
-# # print(blast_dict)
+blast_dict = blast_parser(blast_records)
+# print(blast_dict)
 
 # for contig in fasta:
 # 	for key, value in blast_dict.items():
