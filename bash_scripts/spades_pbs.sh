@@ -28,26 +28,26 @@ cp pelo2_002_trimmed_1.fq.gz pelo2_002_trimmed_2.fq.gz pelo5_002_trimmed_1.fq.gz
 cd $nano
 cp pelomyxa_nanopore.fastq.gz $SCRATCHDIR
 
-pe1-1="p1_trimmed_1.fq.gz"
-pe1-2="p1_trimmed_2.fq.gz"
-pe2-1="p2_trimmed_1.fq.gz"
-pe2-2="p2_trimmed_2.fq.gz"
-pe3-1="p3_trimmed_1.fq.gz"
-pe3-2="p3_trimmed_2.fq.gz"
-pe4-1="p4_trimmed_1.fq.gz"
-pe4-2="p4_trimmed_2.fq.gz"
-pe5-1="p5_trimmed_1.fq.gz"
-pe5-2="p5_trimmed_2.fq.gz"
+pe11="p1_trimmed_1.fq.gz"
+pe12="p1_trimmed_2.fq.gz"
+pe21="p2_trimmed_1.fq.gz"
+pe22="p2_trimmed_2.fq.gz"
+pe31="p3_trimmed_1.fq.gz"
+pe32="p3_trimmed_2.fq.gz"
+pe41="p4_trimmed_1.fq.gz"
+pe42="p4_trimmed_2.fq.gz"
+pe51="p5_trimmed_1.fq.gz"
+pe52="p5_trimmed_2.fq.gz"
 
-pe6-1="pelo2_001_trimmed_1.fq.gz"
-pe6-2="pelo2_001_trimmed_2.fq.gz"
-pe7-1="pelo5_001_trimmed_1.fq.gz"
-pe7-2="pelo5_001_trimmed_2.fq.gz"
+pe61="pelo2_001_trimmed_1.fq.gz"
+pe62="pelo2_001_trimmed_2.fq.gz"
+pe71="pelo5_001_trimmed_1.fq.gz"
+pe72="pelo5_001_trimmed_2.fq.gz"
 
-pe8-1="pelo2_002_trimmed_1.fq.gz"
-pe8-2="pelo2_002_trimmed_2.fq.gz"
-pe9-1="pelo5_002_trimmed_1.fq.gz"
-pe9-2="pelo5_002_trimmed_2.fq.gz"
+pe81="pelo2_002_trimmed_1.fq.gz"
+pe82="pelo2_002_trimmed_2.fq.gz"
+pe91="pelo5_002_trimmed_1.fq.gz"
+pe92="pelo5_002_trimmed_2.fq.gz"
 
 nanopore="pelomyxa_nanopore.fastq.gz"
 
@@ -55,15 +55,15 @@ report="spades_report.txt"
 
 #compute on scratch
 cd $SCRATCHDIR
-spades.py --pe1-1 $pe1-1 --pe1-2 $pe1-2 \
---pe2-1 $pe2-1 --pe2-2 $pe2-2 \
---pe3-1 $pe3-1 --pe3-2 $pe3-2 \
---pe4-1 $pe4-1 --pe4-2 $pe4-2 \
---pe5-1 $pe5-1 --pe5-2 $pe5-2 \
---pe6-1 $pe6-1 --pe6-2 $pe6-2 \
---pe7-1 $pe7-1 --pe7-2 $pe7-2 \
---pe8-1 $pe8-1 --pe8-2 $pe8-2 \
---pe9-1 $pe9-1 --pe9-2 $pe9-2 \
+spades.py --pe1-1 $pe11 --pe1-2 $pe12 \
+--pe2-1 $pe21 --pe2-2 $pe22 \
+--pe3-1 $pe31 --pe3-2 $pe32 \
+--pe4-1 $pe41 --pe4-2 $pe42 \
+--pe5-1 $pe51 --pe5-2 $pe52 \
+--pe6-1 $pe61 --pe6-2 $pe62 \
+--pe7-1 $pe71 --pe7-2 $pe72 \
+--pe8-1 $pe81 --pe8-2 $pe82 \
+--pe9-1 $pe91 --pe9-2 $pe92 \
 --nanopore $nanopore \
 --careful -k 127 -t $PBS_NUM_PPN -m 1000 -o out 2> $report
 

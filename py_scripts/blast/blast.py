@@ -5,7 +5,7 @@ from Bio.Blast import NCBIXML
 cmd = 'tblastn'
 task = 'tblastn'
 query = '/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_trinity_mbal_aa_final.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin//p1_scaffolds_k127.fasta'
+db = '/home/kika/programs/blast-2.5.0+/bin/p1_scaffolds_k127.fasta'
 subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
 out = '/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_blast.xml'
 evalue = 1
