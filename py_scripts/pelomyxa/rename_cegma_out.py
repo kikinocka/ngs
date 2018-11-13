@@ -2,11 +2,11 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/pelomyxa/transcriptome_assembly/stat/')
-transcripts = SeqIO.parse('pelo_cegma.cegma.dna', 'fasta')
-gff = open('pelo_cegma.cegma.gff')
-plus = open('pelo_cegma_plus.dna', 'w')
-minus = open('pelo_cegma_minus_RC.dna', 'w')
+os.chdir('/home/kika/ownCloud/pelomyxa/genome_assembly/cegma/')
+dna_seqs = SeqIO.parse('p1_cegma.cegma.dna', 'fasta')
+gff = open('p1_cegma.cegma.gff')
+plus = open('p1_cegma_plus.dna', 'w')
+minus = open('p1_cegma_minus_RC.dna', 'w')
 
 pairs = {}
 for line in gff:
@@ -15,11 +15,11 @@ for line in gff:
 	strand = line.split('\t')[6]
 	pairs[kog] = (trin, strand)
 
-for transcript in transcripts:
-	if transcript.name in pairs:
-		if pairs[transcript.name][1] == '+':
-			plus.write('>{} {}\n{}\n'.format(pairs[transcript.name][0], transcript.name, transcript.seq))
+for dna_seq in dna_seqs:
+	if dna_seq.name in pairs:
+		if pairs[dna_seq.name][1] == '+':
+			plus.write('>{} {}\n{}\n'.format(pairs[dna_seq.name][0], dna_seq.name, dna_seq.seq))
 		else:
-			minus.write('>{} {}\n{}\n'.format(pairs[transcript.name][0], transcript.name, transcript.seq.reverse_complement()))
+			minus.write('>{} {}\n{}\n'.format(pairs[dna_seq.name][0], dna_seq.name, dna_seq.seq.reverse_complement()))
 	else:
-		print(transcript.name)
+		print(dna_seq.name)

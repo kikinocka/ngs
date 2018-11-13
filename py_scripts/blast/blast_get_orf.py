@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa', 'fasta')
-nt_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/test/pelo_trinity_mbal_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/p1_scaffolds_k127.fasta', 'fasta')
+nt_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
