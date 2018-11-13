@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed')
+os.chdir('/media/4TB1/blastocrithidia/orthofinder/sg_ogs/alignments/jac_renamed/')
 files = sorted(os.listdir())
 
 for file in files:
