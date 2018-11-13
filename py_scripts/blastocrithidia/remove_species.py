@@ -11,8 +11,8 @@ for file in files:
 		file_name = file.split('_')[0]
 		out = open('/media/4TB1/blastocrithidia/seqfire/dataset_sgOGs/{}.fa'.format(file_name), 'w')
 		for seq in SeqIO.parse(file, 'fasta'):
-			if 'Bsal' in seq.name or 'Tbor' in seq.name or 'Tgra' in seq.name or 
-				'Linf' in seq.name or 'Ltar' in seq.name or 
+			if 'Bsal' in seq.name or 'Tbor' in seq.name or 'Tgra' in seq.name or \
+				'Linf' in seq.name or 'Ltar' in seq.name or \
 				'Lbr03' in seq.name or 'Lbr04' in seq.name:
 				pass
 			else:
