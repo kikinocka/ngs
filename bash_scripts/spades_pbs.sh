@@ -7,7 +7,7 @@
 cat $PBS_NODEFILE
 
 #add modules
-module add spades-3.11.1
+module add spades-3.11.1bin
 
 prel="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/preliminary_seq/"
 deep_hi="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_hiseq/"
