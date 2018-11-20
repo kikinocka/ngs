@@ -15,7 +15,7 @@ report=$base_name'_report.txt'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
 
-# $bw2_dir'bowtie2' --very-fast-local -p 32 -I 0 -X 5 \
+$bw2_dir'bowtie2' --very-fast-local -p 32 -I 0 -X 5 \
 -x $base_name -U $p1_1 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $alignment 2> $report
 # ,$p1_2
 
