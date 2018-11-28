@@ -5,7 +5,7 @@
 #option -O: search for organellar tRNAs
 
 inf="/home/kika/ownCloud/zoli_mt_genome/mt_genome.txt"
-out_str="/home/kika/ownCloud/zoli_mt_genome/mt_genome_tRNAscanSE.txt"
+out_str="/home/kika/ownCloud/zoli_mt_genome/mt_genome_tRNAscanSE-2.txt"
 # out_cod="/home/kika/Dropbox/blasto_project/jaculum/genes/tRNAs/jac_org-tRNAs_anticodons_tRNAscan.txt"
 
 
