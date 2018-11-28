@@ -10,5 +10,5 @@ species=chlamydomonas_reinhardtii
 lineage='/home/kika/miniconda3/pkgs/busco-3.0.2-py27_8/bin/eukaryota_odb9/'
 threads=30
 
-run_BUSCO -i $input -m $mode -o $out -l $lineage -c $threads --long -f
+python2 run_BUSCO.py -i $input -m $mode -o $out -l $lineage -c $threads --long -f
 #-sp $species 
