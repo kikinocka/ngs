@@ -4,7 +4,7 @@ cd /home/tomas/GIT/busco/
 
 input='/home/kika/work_dir/pelo_spades.fasta'
 out='BUSCO_pelo_genome'
-mode=tran
+mode=geno
 species=chlamydomonas_reinhardtii
 lineage='/home/tomas/GIT/busco/eukaryota_odb9/'
 threads=16
