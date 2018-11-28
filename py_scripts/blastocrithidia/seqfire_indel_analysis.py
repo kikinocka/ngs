@@ -8,24 +8,6 @@ os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/')
 files = sorted(os.listdir())
 aln_out = open('aln_len.tsv', 'w')
 
-# def parse_file(file):
-# 	ins_dict = defaultdict(list)
-# 	for line in open(file):
-# 		if '_' in line:
-# 			sp = line.split(' ')[0].split('_')[0]
-# 			if line.startswith(sp):
-# 				ins = re.sub(r'.*: \w  (.*)  \w', r'\g<1>', line)
-# 				ins = ins.replace('-', '').replace('  **', '')[:-1]
-# 				ins_dict[sp].append(ins)
-# 	return ins_dict
-
-
-# for file in files:
-# 	if file.endswith('_replaced.indel'):
-# 		file_name = file.split('_')[0]
-# 		print(file_name)
-# 		print(parse_file(file))
-
 def find_species(file):
 	species = set()
 	for line in open(file):
@@ -63,3 +45,14 @@ for file in files:
 					for i, x in enumerate(value):
 						index = i + 1
 						out.write('{}\tins{}\t{}\t{}\n'.format(key, index, x, len(x)))
+			with open('all_indels_{}.tsv'.format(sp), 'a') as out2:
+				full_len = 0
+				non_zero = 0
+				spp = find_ins(file, sp)
+				for key, value in spp.items():
+					for i, x in enumerate(value):
+						index = i + 1
+						full_len += len(x)
+						if len(x) != 0:
+							non_zero += 1
+				out2.write('{}\t{}\t{}\t{}\n'.format(key, index, non_zero, full_len))
