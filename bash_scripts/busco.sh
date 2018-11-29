@@ -4,9 +4,9 @@ cd /home/tomas/GIT/busco/
 export AUGUSTUS_CONFIG_PATH=/home/kika/bin/augustus-3.2.3/config/
 
 input='/home/kika/work_dir/pelo_spades.fasta'
-out='BUSCO_pelo_genome_bmal'
+out='BUSCO_pelo_genome_tgon'
 mode=geno
-species=brugia
+species=toxoplasma
 lineage='/home/tomas/GIT/busco/eukaryota_odb9/'
 threads=16
 
