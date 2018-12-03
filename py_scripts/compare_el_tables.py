@@ -3,7 +3,7 @@ import os
 
 os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/')
 yoshidaf = open('found_in_yosihda.txt')
-tablef = open('table.txt')
+tablef = open('our_table.txt')
 
 yoshida = []
 for line in yoshidaf:
@@ -11,6 +11,6 @@ for line in yoshidaf:
 
 # table = []
 for line in tablef:
-	if line[:-1] not in yoshida:
+	if line[:-1] in yoshida:
 		print(line[:-1])
 

@@ -2,8 +2,8 @@
 from Bio import SeqIO
 
 infasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/eg_tsa_Field.fasta', 'fasta')
-infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gefr_acc.txt')
-out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gefr_seqs.fa', 'w')
+infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/next.txt')
+out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gefr_seqs_next.fa', 'w')
 
 retrieve = set()
 for line in infile:

@@ -10,7 +10,7 @@ subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
 out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gdjr_blast.xml'
 evalue = 1
 outfmt = 5
-hits = 10
+hits = 5
 word_size = 4
 threads = 4
 

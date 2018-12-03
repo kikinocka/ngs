@@ -13,7 +13,7 @@ prel="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/preliminary_seq/"
 deep_hi="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_hiseq/"
 deep_mi="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/deep_miseq/"
 nano="/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/nanopore/"
-outdir="/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/"
+outdir="/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/all_reads_k-mers/"
 
 #copy reads to scratch
 cd $prel
@@ -65,7 +65,7 @@ spades.py --pe1-1 $pe11 --pe1-2 $pe12 \
 --pe8-1 $pe81 --pe8-2 $pe82 \
 --pe9-1 $pe91 --pe9-2 $pe92 \
 --nanopore $nanopore \
---careful --sc -k 127 -t $PBS_NUM_PPN -m 1000 -o out 2> $report
+--careful --sc -k 21,33,55,77,99,121 -t $PBS_NUM_PPN -m 1000 -o out 2> $report
 
 #copy results to your folder
 cd out
