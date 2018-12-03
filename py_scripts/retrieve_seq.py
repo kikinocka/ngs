@@ -1,9 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/MEGAsync/diplonema_mt/1601/genome_assembly/1601_DNA_scaffolds.fasta', 'fasta')
-infile = open('/home/kika/MEGAsync/diplonema_mt/HMM/in')
-out = open('/home/kika/MEGAsync/diplonema_mt/HMM/1601_y5-m1_contigs.fa', 'w')
+infasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/eg_tsa_Field.fasta', 'fasta')
+infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gefr_acc.txt')
+out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gefr_seqs.fa', 'w')
 
 retrieve = set()
 for line in infile:
