@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastn'
-task = 'blastn'
-query = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gefr_seqs.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/eg_tsa_Yoshida.fsa'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/p57_Nup96.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
 subject = '/home/kika/MEGAsync/diplonema_mt/1601/transcripts/spades/y7/y7.fasta'
-out = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gdjr_blast.xml'
+out = '/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 5
@@ -28,8 +28,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gdjr_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_prot/yoshida_dataset/gdjr_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

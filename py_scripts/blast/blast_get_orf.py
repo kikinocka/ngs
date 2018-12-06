@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/p1_scaffolds_k127.fasta', 'fasta')
-nt_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/p1_mbal_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
+nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96-2_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96-2_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96-2_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

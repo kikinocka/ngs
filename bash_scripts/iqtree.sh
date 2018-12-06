@@ -1,6 +1,6 @@
 #!/bin/bash
 
-aln='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/terminal_oxidase/safe-filtered-mtox_trimal_automated1.aln'
+aln='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Fd+FNR/chlamydial/fd_trimal_0.3.aln'
 bb=1000
 alrt=5000
 nm=5000
