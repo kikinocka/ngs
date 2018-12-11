@@ -1,22 +1,21 @@
 #!/usr/bin/python3
 import os
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/ssu_tree/iqtree_files/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Fd+FNR/chlamydial/')
 
 #file in format Acc. number \t name of organism \n
-names = open('tryps_ssu_names.txt')
-tree = open('tryps_ssu_trimal_automated1.aln.treefile')
+names = open('fd_names.txt')
+tree = open('fd_trimal_0.3.aln.treefile')
 
 name_dict = {}
 for name in names:
-    split_line = name.split('\t')
-    name_dict[split_line[0]] = split_line[1][:-1]
+	split_line = name.split('\t')
+	name_dict[split_line[0]] = split_line[1][:-1] + ' ' + split_line[0]
 
 tree_line = tree.readline()
 
 for key in name_dict:
-    tree_line = tree_line.replace(key, name_dict[key])
-
+	tree_line = tree_line.replace(key, name_dict[key])
 
 #2 ways of writting results to the file:
 ##1) can't forget to close the file in the end of the code
@@ -25,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('tryps_ssu_renamed.txt', 'w') as result:
-    result.write(tree_line)
+with open('fd_chlamydial_renamed_acc.txt', 'w') as result:
+	result.write(tree_line)
