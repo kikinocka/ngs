@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read_dir='/media/4TB1/diplonema/reads/genome/used/1601/'
-name='1601_'
+name='1601_rest_'
 
 merged=$read_dir$name'merged.fq'
 deduplicated=$read_dir$name'merged_deduplicated.fq'
