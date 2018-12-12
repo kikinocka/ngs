@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bw2_dir='/home/kika/miniconda3/pkgs/bowtie2-2.3.4.2-py36h2d50403_0/bin/'
-base_name='/media/4TB1/diplonema/mapping/DNA_to_contigs/1601/1604_arrays_bw2'
+base_name='/media/4TB1/diplonema/mapping/DNA_to_contigs/1604/1604_arrays_bw2'
 ref='/media/4TB1/diplonema/mapping/DNA_to_contigs/1604/1604_arrays.fasta'
 
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
