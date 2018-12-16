@@ -4,9 +4,9 @@ import re
 from Bio import AlignIO
 from collections import defaultdict
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/complex_ins/')
 files = sorted(os.listdir())
-aln_out = open('aln_len.tsv', 'w')
+# aln_out = open('aln_len.tsv', 'w')
 
 def find_species(file):
 	species = set()
@@ -27,15 +27,15 @@ def find_ins(file, species):
 	return ins_dict
 
 
-for file in files:
-	if file.endswith('.aln'):
-		f_name = file.split('.')[0]
-		aln = AlignIO.read(file, 'fasta')
-		length = aln.get_alignment_length()
-		aln_out.write('{}\t{}\n'.format(f_name, length))
+# for file in files:
+# 	if file.endswith('.aln'):
+# 		f_name = file.split('.')[0]
+# 		aln = AlignIO.read(file, 'fasta')
+# 		length = aln.get_alignment_length()
+# 		aln_out.write('{}\t{}\n'.format(f_name, length))
 
 for file in files:
-	if file.endswith('_replaced.indel'):
+	if file.endswith('.indel'):
 		print(file)
 		species = find_species(file)
 		for sp in species:
