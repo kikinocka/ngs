@@ -15,7 +15,7 @@ outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/all_reads_k-mers
 
 #copy assembly to scratch
 cd $assembly
-cp final_contigs.fasta $SCRATCHDIR
+cp scaffolds.fasta $SCRATCHDIR
 
 f='scaffolds.fasta'
 output='final/'
