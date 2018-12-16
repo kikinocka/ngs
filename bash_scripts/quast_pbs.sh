@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-assembly='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/all_reads_k-mers/K33/'
-outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/all_reads_k-mers/quast/k33/'
+assembly='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/all_reads_k-mers/K55/'
+outdir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/all_reads_k-mers/quast/k55/'
 
 #copy assembly to scratch
 cd $assembly
 cp final_contigs.fasta $SCRATCHDIR
 
 f='final_contigs.fasta'
-output='k33/'
+output='k55/'
 
 #compute on scratch
 quast.py $f -o $output -t $PBS_NUM_PPN
