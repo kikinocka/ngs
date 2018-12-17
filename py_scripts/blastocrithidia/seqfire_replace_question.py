@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/')
+os.chdir('/media/4TB1/blastocrithidia/seqfire/apicomplexans_aln/')
 files = sorted(os.listdir())
 
 for file in files:
