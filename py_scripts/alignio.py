@@ -4,13 +4,17 @@ from Bio import AlignIO
 
 os.chdir('/media/4TB1/blastocrithidia/seqfire/apicomplexans_aln/')
 files = sorted(os.listdir())
+out = open('aln_len.tsv', 'w')
 
 # #number of sequences
 # print(len(alignment))
 
 
-#number of positions
 for file in files:
 	if file.endswith('.aln'):
+		name = file.split('.')[0]
 		aln = AlignIO.read(file, 'fasta')
-		print(file, aln.get_alignment_length())
+		#number of positions
+		out.write(name, aln.get_alignment_length())
+
+out.close()
