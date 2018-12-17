@@ -15,6 +15,6 @@ for file in files:
 		name = file.split('.')[0]
 		aln = AlignIO.read(file, 'fasta')
 		#number of positions
-		out.write(name, aln.get_alignment_length())
+		out.write('{}\t{}\n'.format(name, aln.get_alignment_length()))
 
 out.close()
