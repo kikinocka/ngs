@@ -42,21 +42,20 @@ for file in files:
 		print(file)
 		species = find_species(file)
 		for sp in species:
-			print(sp)
-			# with open('indel_analysis_{}.tsv'.format(sp), 'a') as out:
-			# 	spp = find_ins(file, sp)
-			# 	for key, value in spp.items():
-			# 		for i, x in enumerate(value):
-			# 			index = i + 1
-			# 			out.write('{}\tins{}\t{}\t{}\n'.format(key, index, x, len(x)))
-			# with open('all_indels_{}.tsv'.format(sp), 'a') as out2:
-			# 	full_len = 0
-			# 	non_zero = 0
-			# 	spp = find_ins(file, sp)
-			# 	for key, value in spp.items():
-			# 		for i, x in enumerate(value):
-			# 			index = i + 1
-			# 			full_len += len(x)
-			# 			if len(x) != 0:
-			# 				non_zero += 1
-			# 		out2.write('{}\t{}\t{}\t{}\n'.format(key, index, non_zero, full_len))
+			with open('indel_analysis_{}.tsv'.format(sp), 'a') as out:
+				spp = find_ins(file, sp)
+				for key, value in spp.items():
+					for i, x in enumerate(value):
+						index = i + 1
+						out.write('{}\tins{}\t{}\t{}\n'.format(key, index, x, len(x)))
+			with open('all_indels_{}.tsv'.format(sp), 'a') as out2:
+				full_len = 0
+				non_zero = 0
+				spp = find_ins(file, sp)
+				for key, value in spp.items():
+					for i, x in enumerate(value):
+						index = i + 1
+						full_len += len(x)
+						if len(x) != 0:
+							non_zero += 1
+					out2.write('{}\t{}\t{}\t{}\n'.format(key, index, non_zero, full_len))
