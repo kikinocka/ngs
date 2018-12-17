@@ -13,4 +13,4 @@ files = sorted(os.listdir())
 for file in files:
 	if file.endswith('.aln'):
 		aln = AlignIO.read(file, 'fasta')
-		print(aln.get_alignment_length())
+		print(file, aln.get_alignment_length())
