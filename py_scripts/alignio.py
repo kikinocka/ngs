@@ -12,4 +12,5 @@ files = sorted(os.listdir())
 #number of positions
 for file in files:
 	if file.endswith('.aln'):
-		print(file.get_alignment_length())
+		aln = AlignIO.read(file, 'fasta')
+		print(aln.get_alignment_length())
