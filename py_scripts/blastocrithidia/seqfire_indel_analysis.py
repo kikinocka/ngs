@@ -15,7 +15,7 @@ def find_species(file):
 			# #tryps
 			# sp = line.split(' ')[0].split('_')[0]
 			#apicomplexans
-			sp = line.split('__')[1].split(' ')[0]#.replace('_', '')[:4]
+			sp = line.split('__')[1].split(':')[0].replace(' ', '')
 			species.add(sp)
 	return species
 
