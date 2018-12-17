@@ -1,11 +1,15 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+import os
 from Bio import AlignIO
-from Bio import SeqIO
 
-alignment = AlignIO.read('/home/kika/blasto_project/apicomplexans/ENOG4101NYF.marker001.apiNOG.ENOG4101NYF.meta_raw.fa.aln', 'fasta')
+os.chdir('/media/4TB1/blastocrithidia/seqfire/apicomplexans_aln/')
+files = sorted(os.listdir())
 
-#number of sequences
-print(len(alignment))
+# #number of sequences
+# print(len(alignment))
+
 
 #number of positions
-print(alignment.get_alignment_length())
+for file in files:
+	if file.endswith('.aln'):
+		print(file.get_alignment_length())
