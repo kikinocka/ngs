@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
 os.chdir('/home/kika/ownCloud/pelomyxa/augustus_training_set/')
-infile = SeqIO.parse('proteins_multi-exon.fasta', 'fasta')
-out_fasta = open('proteins_multi-exon_deduplicated.fa', 'w')
-out_names = open('proteins_multi-exon_dupl-names.txt', 'w')
+infile = SeqIO.parse('augustus_dataset.fasta', 'fasta')
+out_fasta = open('augustus_dataset_deduplicated.fa', 'w')
+out_names = open('augustus_dataset_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

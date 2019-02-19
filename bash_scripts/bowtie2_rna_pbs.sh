@@ -10,6 +10,7 @@ cat $PBS_NODEFILE
 
 #add module
 module add bowtie2-2.3.0
+module add samtools-1.3.1
 
 #copy files to scratch
 cd /auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/
