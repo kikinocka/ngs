@@ -13,14 +13,14 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 #copy files to scratch
-cd /auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/
-cp pelomyxa_clean.fa $SCRATCHDIR
+cd /auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/all_reads/
+cp contigs.fasta $SCRATCHDIR
 
 cd /auto/brno3-cerit/nfs4/home/kika/pelomyxa/reads/transcriptome/
 cp *.fq.gz $SCRATCHDIR
 
-base_name='pelo_clean_bw2'
-ref='pelomyxa_clean.fa'
+base_name='pelo_unclean_bw2'
+ref='contigs.fasta'
 bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
 
 p1_1='pelo1_trimmed_1.fq.gz','pelo2_trimmed_1.fq.gz','pelo3_trimmed_1.fq.gz','pelo5_trimmed_1.fq.gz','pelo6_trimmed_1.fq.gz'
