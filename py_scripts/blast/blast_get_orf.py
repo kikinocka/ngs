@@ -4,10 +4,10 @@ from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
-nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96-2_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96-2_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96-2_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/nucleoporins/jac_new_assembly/jac_Nup96_blast.xml')
+nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/jac_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/jac_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/jac_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/jac_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

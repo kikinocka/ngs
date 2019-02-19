@@ -2,7 +2,7 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/media/4TB1/blastocrithidia/seqfire/apicomplexans_aln/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/apicomplexans/')
 files = sorted(os.listdir())
 out = open('aln_len.tsv', 'w')
 

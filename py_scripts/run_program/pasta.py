@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import os
 
-pasta = '/home/nenarokova/tools/pasta_tools/pasta/run_pasta.py'
+# pasta = '/home/nenarokova/tools/pasta_tools/pasta/run_pasta.py'
 
-os.chdir('/media/4TB1/blastocrithidia/seqfire/dataset_sgOGs/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/PASTA/')
 files = sorted(os.listdir())
 
 for file in files:
@@ -12,4 +12,4 @@ for file in files:
 		print(file)
 		job_desc = file.split('.fa')[0]
 		d = 'protein'
-		os.system('{} -i {} -d {} -j {}'.format(pasta, file, d, job_desc))
+		os.system('run_pasta.py -i {} -d {} -j {}'.format(file, d, job_desc))
