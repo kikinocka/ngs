@@ -45,9 +45,8 @@ cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
 cp pelo_clean_bw2_unsorted.bam $SCRATCHDIR
 cd $SCRATCHDIR
 bamfile='pelo_clean_bw2_unsorted.bam'
-sorted='pelo_clean_bw2_sorted'
 sorted_file='pelo_clean_bw2_sorted.bam'
-samtools sort $bamfile $sorted -@ 20
+samtools sort -o $sorted_file -@ 20 $bamfile 
 samtools index $sorted_file
 
 #copy files back
