@@ -47,7 +47,7 @@ cd $SCRATCHDIR
 bamfile='pelo_clean_bw2_unsorted.bam'
 sorted='pelo_clean_bw2_sorted'
 sorted_file='pelo_clean_bw2_sorted.bam'
-samtools sort $bamfile $sorted -@ $PBS_NUM_PPN
+samtools sort $bamfile $sorted -@ 20
 samtools index $sorted_file
 
 #copy files back
