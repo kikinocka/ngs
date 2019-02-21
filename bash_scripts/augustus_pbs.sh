@@ -25,8 +25,13 @@ cp augustus_dataset_deduplicated.gb $SCRATCHDIR
 dataset='augustus_dataset_deduplicated.gb'
 
 #augustus runs on 1 core only
-#SPLIT GENES
 cd $SCRATCHDIR
-randomSplit.pl $dataset 100
 
-cp augustus_dataset_deduplicated.gb.* $augustus_configs
+# #SPLIT GENES
+# randomSplit.pl $dataset 100
+
+#CREATE A META PARAMETERS FILE
+new_species.pl --species=pelomyxa
+
+# cp augustus_dataset_deduplicated.gb.* $augustus_configs
+cp -r pelomyxa $augustus_configs
