@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N rascaf
-#PBS -l select=1:ncpus=1:mem=10gb:scratch_local=100gb
-#PBS -l walltime=0:20:00
+#PBS -l select=1:ncpus=1:mem=15gb:scratch_local=100gb
+#PBS -l walltime=2:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -21,11 +21,13 @@ cp -r rascaf/ $SCRATCHDIR
 cd $SCRATCHDIR
 
 rascaf='rascaf/rascaf'
+rascaf_join='rascaf/rascaf-join'
 assembly='pelomyxa_clean.fa'
 bam_file='pelo_clean_bw2_sorted.bam'
 base_name='pelo_clean_rascaf'
 
 $rascaf -b $bam_file -f $assembly -o $base_name
+$rascaf_join -r $base_name'.out' -o $base_name -ms 5
 
 #copy files back
 cp pelo_clean_rascaf* /storage/brno3-cerit/home/kika/pelomyxa/mapping/.
