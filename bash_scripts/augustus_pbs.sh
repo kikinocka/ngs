@@ -40,4 +40,4 @@ new_species.pl --species=pelomyxa
 
 rm -r augustus_configs
 rm $dataset
-cp -r $SCRATCHDIR/* $datadir
+cp -r * $datadir || export CLEAN_SCRATCH=false
