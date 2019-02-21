@@ -35,7 +35,7 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 
 #3) MAKE AN INITIAL TRAINING
-cp $datadir'augustus_dataset_deduplicated.gb.train'
+cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
 etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
 cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 rm augustus_dataset_deduplicated.gb.train
