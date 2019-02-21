@@ -12,7 +12,7 @@ ypf1604 = csv.reader(open('1604/1604_module_sizes_mod.tsv'), delimiter='\t', ski
 ypf1608 = csv.reader(open('1608/1608_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 ypf1618 = csv.reader(open('1618/1618_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 ypf1610 = csv.reader(open('1610/1610_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
-# ypf1621 = csv.reader(open('1621/1621_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
+ypf1621 = csv.reader(open('1621/1621_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 papillatum = csv.reader(open('reference_strains/modules/Dpap_modules.tsv'), delimiter='\t', skipinitialspace=True)
 ambulator = csv.reader(open('reference_strains/modules/Damb_modules.tsv'), delimiter='\t', skipinitialspace=True)
 flectonema = csv.reader(open('reference_strains/modules/Fner_modules.tsv'), delimiter='\t', skipinitialspace=True)
@@ -40,7 +40,7 @@ djap = csv_parser(ypf1604)
 rhum = csv_parser(ypf1608)
 sspe = csv_parser(ypf1618)
 ypf10 = csv_parser(ypf1610)
-# ypf21 = csv_parser(ypf1621)
+ypf21 = csv_parser(ypf1621)
 dpap = csv_parser(papillatum)
 damb = csv_parser(ambulator)
 fner = csv_parser(flectonema)
@@ -48,7 +48,7 @@ reul = csv_parser(rhyneul)
 hpha = csv_parser(hemistasia)
 
 # module sizes in each species
-y = [damb, djap, dpap, rhum, reul, llan, fner, sspe, [], hpha, ypf10]
+y = [damb, djap, dpap, rhum, reul, llan, fner, sspe, ypf10, hpha, ypf21]
 #list of species
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -59,7 +59,7 @@ for i in y:
 boxprops = dict(linestyle='-', linewidth=1, color='black')
 medianprops = dict(linestyle='-', linewidth=2.5, color='black')
 whiskerprops = dict(color='black')
-bplot = beeswarm(data, method='swarm', positions=x, s=5, col='grey', alpha=0.5, zorder=10)
+bplot = beeswarm(data, method='swarm', positions=x, s=3, col='grey', alpha=0.5, zorder=10)
 bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxprops=boxprops, medianprops=medianprops, \
 	whiskerprops=whiskerprops)
 
@@ -77,10 +77,10 @@ for patch, color in zip(bplot['boxes'], colors):
 plt.xticks(x)
 plt.xlim(0, 12)
 plt.axes().set_xticklabels(['D. ambulator', 'D. japonicum',	'D. papillatum', 'R. humris', 'R. euleeides', \
-	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1621', 'H. phaeocysticola', 'YPF1610'], fontstyle='italic', \
-	fontsize=13, rotation=20, horizontalalignment='center')
+	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1610', 'H. phaeocysticola', 'YPF1621'], fontstyle='italic', \
+	fontsize=12, rotation=20, horizontalalignment='center')
 plt.ylim(0, 650)
-plt.axes().set_yticklabels([0, 100, 200, 300, 400, 500, 600], fontsize=14)
+plt.axes().set_yticklabels([0, 100, 200, 300, 400, 500, 600], fontsize=12)
 plt.grid(which='major', axis='y', linestyle='-', color='grey')
 
 plt.show()

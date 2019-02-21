@@ -3,9 +3,9 @@ import os
 from collections import OrderedDict
 from statistics import mean, median
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1610/transcripts/gff/')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1621/transcripts/gff/')
 files = sorted(os.listdir())
-out = open('1610_module_sizes.tsv', 'w')
+out = open('1621_module_sizes.tsv', 'w')
 
 out.write('Modul\tLength\n')
 
