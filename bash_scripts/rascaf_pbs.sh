@@ -15,7 +15,7 @@ cd /auto/brno3-cerit/nfs4/home/kika/pelomyxa/mapping/
 cp pelo_clean_bw2_sorted.bam $SCRATCHDIR
 
 cd /auto/brno2/home/kika/tools/rascaf/
-cp rascaf
+cp rascaf $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
