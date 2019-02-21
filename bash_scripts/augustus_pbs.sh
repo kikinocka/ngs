@@ -12,17 +12,17 @@ cat $PBS_NODEFILE
 module add augustus-3.3.1
 
 #setting augustus config file environment variable
-augustus_configs=/storage/brno3-cerit/home/kika/pelomyxa/augustus
-mkdir $SCRATCHDIR/augustus_configs
+augustus_configs='/storage/brno3-cerit/home/kika/augustus_configs/'
 cp -r $augustus_configs/* $SCRATCHDIR || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-#copy file to scratch
-cd $augustus_configs
-cp augustus_dataset_deduplicated.gb $SCRATCHDIR
-
+#copy files to scratch
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 dataset='augustus_dataset_deduplicated.gb'
+
+cd $datadir
+cp $dataset $SCRATCHDIR
 
 #augustus runs on 1 core only
 cd $SCRATCHDIR
@@ -33,5 +33,5 @@ cd $SCRATCHDIR
 #CREATE A META PARAMETERS FILE
 new_species.pl --species=pelomyxa
 
-# cp augustus_dataset_deduplicated.gb.* $augustus_configs
-cp -r pelomyxa $augustus_configs
+# cp augustus_dataset_deduplicated.gb.* $datadir
+cp -r pelomyxa $datadir
