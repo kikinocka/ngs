@@ -14,13 +14,13 @@ cp pelomyxa_clean.fa $SCRATCHDIR
 cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
 cp pelo_clean_bw2_sorted.bam $SCRATCHDIR
 
-cd /storage/brno2/home/kika/tools/rascaf/
-cp rascaf $SCRATCHDIR
+cd /storage/brno2/home/kika/tools/
+cp -r rascaf/ $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-rascaf='rascaf'
+rascaf='rascaf/rascaf'
 assembly='pelomyxa_clean.fa'
 bam_file='pelo_clean_bw2_sorted.bam'
 base_name='pelo_clean_rascaf'
@@ -28,4 +28,4 @@ base_name='pelo_clean_rascaf'
 $rascaf -b $bam -f $assembly -o $base_name
 
 #copy files back
-cp *pelo_clean_rascaf* /auto/brno3-cerit/nfs4/home/kika/pelomyxa/mapping/.
+cp pelo_clean_rascaf* /storage/brno3-cerit/home/kika/pelomyxa/mapping/.
