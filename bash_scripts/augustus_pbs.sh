@@ -12,7 +12,7 @@ cat $PBS_NODEFILE
 module add augustus-3.3.1
 
 #setting augustus config file environment variable
-augustus_configs=/storage/brno3-cerit/home/kika/pelomyxa/augustus/
+augustus_configs=/storage/brno3-cerit/home/kika/pelomyxa/augustus
 mkdir $SCRATCHDIR/augustus_configs
 cp -r $augustus_configs/* $SCRATCHDIR || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
