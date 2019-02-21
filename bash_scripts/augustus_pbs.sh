@@ -20,26 +20,25 @@ export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/
 
 #copy files to scratch
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
-dataset='augustus_dataset_deduplicated.gb'
-
-cd $datadir
-cp $dataset $SCRATCHDIR
 
 #augustus runs on 1 core only
 cd $SCRATCHDIR
 
-# #SPLIT GENES
+# #1) SPLIT GENES
+# cp $datadir$'augustus_dataset_deduplicated.gb' $SCRATCHDIR
 # randomSplit.pl $dataset 100
+# rm augustus_dataset_deduplicated.gb
 
-#CREATE A META PARAMETERS FILE
-new_species.pl --species=pelomyxa
+# #2) CREATE A META PARAMETERS FILE
+# new_species.pl --species=pelomyxa
+# mkdir $augustus_configs/pelomyxa
+# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 
-# cp augustus_dataset_deduplicated.gb.* $datadir
-# cp -r pelomyxa $datadir
-
-
-# rm -r augustus_configs
-rm $dataset
-# cp -r * $datadir || export CLEAN_SCRATCH=false
-mkdir $augustus_configs/pelomyxa
+#3) MAKE AN INITIAL TRAINING
+cp $datadir'augustus_dataset_deduplicated.gb.train'
+etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
 cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
+rm augustus_dataset_deduplicated.gb.train
+
+rm -r augustus_configs
+cp -r * $datadir || export CLEAN_SCRATCH=false
