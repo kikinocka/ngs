@@ -40,7 +40,7 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm augustus_dataset_deduplicated.gb.train
 
-cp $datadir'augustus_dataset_deduplicated.gb.test' SCRATCHDIR
+cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
 augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_test.out
 
 rm -r augustus_configs
