@@ -21,6 +21,7 @@ cp -r rascaf/ $SCRATCHDIR
 cd $SCRATCHDIR
 
 rascaf='rascaf/rascaf'
+rascaf_join='rascaf/rascaf-join'
 assembly='pelomyxa_clean.fa'
 bam_file='pelo_clean_bw2_sorted.bam'
 base_name='pelo_clean_rascaf'
