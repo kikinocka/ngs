@@ -25,7 +25,7 @@ assembly='pelomyxa_clean.fa'
 bam_file='pelo_clean_bw2_sorted.bam'
 base_name='pelo_clean_rascaf'
 
-$rascaf -b $bam -f $assembly -o $base_name
+$rascaf -b $bam_file -f $assembly -o $base_name
 
 #copy files back
 cp pelo_clean_rascaf* /storage/brno3-cerit/home/kika/pelomyxa/mapping/.
