@@ -34,4 +34,9 @@ cd $SCRATCHDIR
 new_species.pl --species=pelomyxa
 
 # cp augustus_dataset_deduplicated.gb.* $datadir
-cp -r pelomyxa $datadir
+# cp -r pelomyxa $datadir
+
+
+rm -r augustus_configs
+rm $dataset
+cp -r $SCRATCHDIR/* $DATADIR || export CLEAN_SCRATCH=false
