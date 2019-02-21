@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 module add cegma-2.5
 module add blast+-2.2.29
 
-genome_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/'
+genome_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/clean_rascaf/'
 
 #copy file to scratch
 cd $genome_dir
-cp pelomyxa_clean.fa $SCRATCHDIR
+cp pelo_clean_rascaf.fa $SCRATCHDIR
 
-genome='pelomyxa_clean.fa'
+genome='pelo_clean_rascaf.fa'
 
 cd $SCRATCHDIR
-cegma -o pelo_spades_cegma -T $PBS_NUM_PPN -g $genome
+cegma -o pelo_rascaf_cegma -T $PBS_NUM_PPN -g $genome
 
-cp pelo_spades_cegma* $genome_dir
+cp pelo_rascaf_cegma* $genome_dir
