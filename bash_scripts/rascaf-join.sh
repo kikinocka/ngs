@@ -10,6 +10,10 @@ cat $PBS_NODEFILE
 #copy files to scratch
 cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
 cp pelo_clean_rascaf.out $SCRATCHDIR
+cp pelo_clean_bw2_sorted.bam $SCRATCHDIR
+
+cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
+cp pelomyxa_clean.fa $SCRATCHDIR
 
 cd /storage/brno2/home/kika/tools/
 cp -r rascaf/ $SCRATCHDIR
