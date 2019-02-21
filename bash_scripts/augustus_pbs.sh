@@ -38,6 +38,8 @@ new_species.pl --species=pelomyxa
 # cp -r pelomyxa $datadir
 
 
-rm -r augustus_configs
+# rm -r augustus_configs
 rm $dataset
-cp -r * $datadir || export CLEAN_SCRATCH=false
+# cp -r * $datadir || export CLEAN_SCRATCH=false
+mkdir $augustus_configs/pelomyxa
+cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
