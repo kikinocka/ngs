@@ -13,8 +13,8 @@ module add augustus-3.3.1
 
 #setting augustus config file environment variable
 augustus_configs='/storage/brno3-cerit/home/kika/augustus_configs/'
-mkdir $SCRATCHDIR/augustus_configs
-cp -r $augustus_configs/* $SCRATCHDIR || exit 1
+mkdir $SCRATCHDIR/augustus_configs/
+cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
