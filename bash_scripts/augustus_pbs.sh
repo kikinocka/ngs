@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 #1) SPLIT GENES
 cp $datadir'augustus_dataset_deduplicated.gb' $SCRATCHDIR
-randomSplit.pl $dataset 100
+randomSplit.pl augustus_dataset_deduplicated.gb 100
 rm augustus_dataset_deduplicated.gb
 
 # #2) CREATE A META PARAMETERS FILE
