@@ -8,13 +8,13 @@
 cat $PBS_NODEFILE
 
 #copy files to scratch
-cd /mnt/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
+cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
 cp pelomyxa_clean.fa $SCRATCHDIR
 
-cd /mnt/storage/brno3-cerit/home/kika/pelomyxa/mapping/
+cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
 cp pelo_clean_bw2_sorted.bam $SCRATCHDIR
 
-cd /mnt/storage/brno2/home/kika/tools/rascaf/
+cd /storage/brno2/home/kika/tools/rascaf/
 cp rascaf $SCRATCHDIR
 
 #compute on scratch
