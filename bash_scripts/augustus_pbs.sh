@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -N Augustus
 #PBS -q default
-#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=0:02:00
+#PBS -l select=1:ncpus=10:mem=1gb:scratch_local=10gb:os=debian9
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -28,7 +28,6 @@ cd $SCRATCHDIR
 # cp $datadir'augustus_dataset_deduplicated.gb' $SCRATCHDIR
 # randomSplit.pl augustus_dataset_deduplicated.gb 100
 # rm augustus_dataset_deduplicated.gb
-# rm -r /augustus_configs/
 
 # #2) CREATE A META PARAMETERS FILE
 # new_species.pl --species=pelomyxa
@@ -40,16 +39,15 @@ cd $SCRATCHDIR
 # etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm augustus_dataset_deduplicated.gb.train
-# rm -r /augustus_configs/
 
-cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
-augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_first_test.out
-cp pelo_first_test.out $datadir
+# cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
+# augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_first_test.out
+# cp pelo_first_test.out $datadir
 
-# #4) OPTIMIZE AUGUSTUS
-# cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
-# optimize_augustus.pl --species=pelomyxa augustus_dataset_deduplicated.gb.train --cpus=$PBS_NUM_PPN
-# rm augustus_dataset_deduplicated.gb.train
+#4) OPTIMIZE AUGUSTUS
+cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
+optimize_augustus.pl --species=pelomyxa augustus_dataset_deduplicated.gb.train --cpus=$PBS_NUM_PPN
+rm augustus_dataset_deduplicated.gb.train
 
-# rm -r augustus_configs
-cp -r * $datadir || export CLEAN_SCRATCH=false
+rm -r augustus_configs
+# cp -r * $datadir || export CLEAN_SCRATCH=false
