@@ -6,6 +6,8 @@
 #PBS -j oe
 cat $PBS_NODEFILE
 
+module add bbmap-36.92
+
 adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
@@ -17,8 +19,6 @@ name='pelo6'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
-
-module add bbmap-36.92 
 
 #copy data to scratch
 cd $read_dir
