@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -N Augustus
 #PBS -q default
-#PBS -l select=1:ncpus=1:mem=16gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=2:00:00
+#PBS -l select=1:ncpus=10:mem=16gb:scratch_local=10gb:os=debian9
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -40,8 +40,14 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm augustus_dataset_deduplicated.gb.train
 
-cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
-augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_test.out
+# cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
+# augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_test.out
+# cp pelo_test.out $datadir
 
-rm -r augustus_configs
+#4) OPTIMIZE AUGUSTUS
+cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
+optimize_augustus.pl --species=pelomyxa augustus_dataset_deduplicated.gb.train --cpus=$PBS_NUM_PPN
+rm augustus_dataset_deduplicated.gb.train
+
+# rm -r augustus_configs
 cp -r * $datadir || export CLEAN_SCRATCH=false
