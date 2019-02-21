@@ -28,7 +28,7 @@ cd $SCRATCHDIR
 # cp $datadir'augustus_dataset_deduplicated.gb' $SCRATCHDIR
 # randomSplit.pl augustus_dataset_deduplicated.gb 100
 # rm augustus_dataset_deduplicated.gb
-rm -r /augustus_configs/
+# rm -r /augustus_configs/
 
 # #2) CREATE A META PARAMETERS FILE
 # new_species.pl --species=pelomyxa
@@ -40,6 +40,7 @@ cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
 etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
 cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 rm augustus_dataset_deduplicated.gb.train
+rm -r /augustus_configs/
 
 # cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
 # augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_test.out
