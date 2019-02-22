@@ -46,11 +46,13 @@ damb = csv_parser(ambulator)
 fner = csv_parser(flectonema)
 reul = csv_parser(rhyneul)
 hpha = csv_parser(hemistasia)
+null = []
 
 # module sizes in each species
-y = [damb, djap, dpap, rhum, reul, llan, fner, sspe, ypf10, hpha, ypf21]
+y = [damb, djap, dpap, rhum, reul, llan, fner, sspe, null, ypf10, null, hpha, null, ypf21]
 #list of species
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+x = [1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14]
+swarmpos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
 data = []
 for i in y:
@@ -58,15 +60,15 @@ for i in y:
 
 boxprops = dict(linestyle='-', linewidth=1, color='black')
 medianprops = dict(linestyle='-', linewidth=2.5, color='black')
-whiskerprops = dict(color='black')
-bplot = beeswarm(data, method='swarm', positions=x, s=3, col='grey', alpha=0.5, zorder=10)
+whiskerprops = dict(linestyle='--', color='black')
+bplot = beeswarm(data, method='swarm', positions=swarmpos, s=5, col='grey', alpha=0.3, zorder=10)
 bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxprops=boxprops, medianprops=medianprops, \
 	whiskerprops=whiskerprops)
 
 #or define: ['pink', 'lightblue', 'lightgreen']
 # colors = get_cmap(len(x))
 colors = ['#87a8ee', '#5e75a6', '#87a8ee', '#5e75a6', '#87a8ee', '#5e75a6', '#87a8ee', '#5e75a6', \
-	'#ffa500', '#ffc04c', '#ffa500'] 
+	'#ffa500', '#ffa500', '#ffc04c', '#ffc04c', '#ffa500', '#ffa500'] 
 for patch, color in zip(bplot['boxes'], colors):
 	patch.set_facecolor(color)
 
@@ -75,12 +77,12 @@ for patch, color in zip(bplot['boxes'], colors):
 # 	 plt.plot([xe] * len(ye), ye, 'o', mfc='none', c='black', zorder=10)
 
 plt.xticks(x)
-plt.xlim(0, 12)
+plt.xlim(0, 16)
 plt.axes().set_xticklabels(['D. ambulator', 'D. japonicum',	'D. papillatum', 'R. humris', 'R. euleeides', \
 	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1610', 'H. phaeocysticola', 'YPF1621'], fontstyle='italic', \
-	fontsize=12, rotation=20, horizontalalignment='center')
+	fontsize=10, rotation=20, horizontalalignment='right')
 plt.ylim(0, 650)
-plt.axes().set_yticklabels([0, 100, 200, 300, 400, 500, 600], fontsize=12)
+plt.axes().set_yticklabels([0, 100, 200, 300, 400, 500, 600], fontsize=10)
 plt.grid(which='major', axis='y', linestyle='-', color='grey')
 
 plt.show()
