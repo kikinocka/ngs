@@ -7,6 +7,8 @@
 
 cat $PBS_NODEFILE
 
+module add bioperl-1.6.9.-gcc
+
 #copy files to scratch
 cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
 cp pelomyxa_clean.fa $SCRATCHDIR
@@ -32,7 +34,6 @@ rv='pelo1_trimmed_2.fq.gz','pelo2_trimmed_2.fq.gz','pelo3_trimmed_2.fq.gz','pelo
 out='clean_p-rna-scaffolder/'
 
 sh $scaffolder -d $scaf_dir -i $sam_file -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
-
 
 #copy files back
 cp -r $out /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/. || export CLEAN_SCRATCH=false
