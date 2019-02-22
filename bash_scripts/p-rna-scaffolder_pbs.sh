@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N P_RNA_scaffolder
 #PBS -l select=1:ncpus=10:mem=50gb:scratch_local=100gb
-#PBS -l walltime=0:20:00
+#PBS -l walltime=2:00:00
 #PBS -m ae
 #PBS -j oe
 
