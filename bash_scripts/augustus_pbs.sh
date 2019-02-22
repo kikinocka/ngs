@@ -34,15 +34,15 @@ cd $SCRATCHDIR
 # mkdir $augustus_configs/pelomyxa
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 
-#3) MAKE AN INITIAL TRAINING
-cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
-etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
-cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-rm augustus_dataset_deduplicated.gb.train
+# #3) MAKE AN INITIAL TRAINING
+# cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
+# etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
+# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+# rm augustus_dataset_deduplicated.gb.train
 
-# cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
-# augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_first_test.out
-# cp pelo_first_test.out $datadir
+cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
+augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_first_test.out
+cp pelo_first_test.out $datadir
 
 # #4) OPTIMIZE AUGUSTUS
 # cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
