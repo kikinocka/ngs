@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1604/transcripts/gff/separate/')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1618/transcripts/spades/gff/')
 files = sorted(os.listdir())
-out = open('1604_junctions.tsv', 'w')
+out = open('1618_junctions.tsv', 'w')
 
 for file in files:
 	if file.endswith('.gff'):

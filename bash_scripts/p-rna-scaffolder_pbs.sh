@@ -7,10 +7,17 @@
 
 cat $PBS_NODEFILE
 
-module add bioperl-1.6.9.-gcc
+module add bioperl-1.6.9-gcc
+
+#setting perl config file environment variable
+perl_configs='/storage/brno3-cerit/home/kika/perl_configs/'
+mkdir $SCRATCHDIR/perl_configs/
+cp -r $perl_configs/* $SCRATCHDIR/perl_configs/ || exit 1
+export PERL5LIB=$SCRATCHDIR/perl_configs
+export PATH=$PATH:$SCRATCHDIR/perl_configs
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
+cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
 cp pelomyxa_clean.fa $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
@@ -36,4 +43,4 @@ out='clean_p-rna-scaffolder/'
 sh $scaffolder -d $scaf_dir -i $sam_file -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
 
 #copy files back
-cp -r $out /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/. || export CLEAN_SCRATCH=false
+cp -r $out /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean_p-rna-scaffolder/. || export CLEAN_SCRATCH=false
