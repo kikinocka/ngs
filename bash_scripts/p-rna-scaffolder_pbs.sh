@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N P_RNA_scaffolder
 #PBS -l select=1:ncpus=5:mem=100gb:scratch_local=100gb
-#PBS -l walltime=2:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -17,17 +17,18 @@ export PERL5LIB=$SCRATCHDIR/perl_configs
 export PATH=$PATH:$SCRATCHDIR/perl_configs
 
 #copy files to scratch
+cd /storage/brno2/home/kika/tools/
+cp -r P_RNA_scaffolder/ $SCRATCHDIR
+
 cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
 cp pelomyxa_clean.fa $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
-cp pelo_clean_bw2.sam $SCRATCHDIR
+cp pelo_clean_merged_bw2.sam $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
-cp *.fq.gz $SCRATCHDIR
+cp merged_trimmed* $SCRATCHDIR
 
-cd /storage/brno2/home/kika/tools/
-cp -r P_RNA_scaffolder/ $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -35,10 +36,10 @@ cd $SCRATCHDIR
 scaf_dir='P_RNA_scaffolder/'
 scaffolder=$scaf_dir'P_RNA_scaffolder.sh'
 assembly='pelomyxa_clean.fa'
-sam_file='pelo_clean_bw2.sam'
-fwd='pelo1_trimmed_1.fq.gz','pelo2_trimmed_1.fq.gz','pelo3_trimmed_1.fq.gz','pelo5_trimmed_1.fq.gz','pelo6_trimmed_1.fq.gz'
-rv='pelo1_trimmed_2.fq.gz','pelo2_trimmed_2.fq.gz','pelo3_trimmed_2.fq.gz','pelo5_trimmed_2.fq.gz','pelo6_trimmed_2.fq.gz'
-out='clean_p-rna-scaffolder/'
+sam_file='pelo_clean_merged_bw2.sam'
+fwd='merged_trimmed_1.fq.gz'
+rv='merged_trimmed_2.fq.gz'
+out='clean_merged_p-rna-scaffolder/'
 
 sh $scaffolder -d $scaf_dir -i $sam_file -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
 
