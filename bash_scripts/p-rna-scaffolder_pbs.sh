@@ -18,7 +18,7 @@ export PATH=$PATH:$SCRATCHDIR/perl_configs
 
 #copy files to scratch
 cd /storage/brno2/home/kika/tools/
-cp -r P_RNA_scaffolder/ $SCRATCHDIR
+cp -r P_RNA_scaffolder $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
 cp pelomyxa_clean.fa $SCRATCHDIR
@@ -39,7 +39,7 @@ assembly='pelomyxa_clean.fa'
 sam_file='pelo_clean_merged_bw2.sam'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
-out='clean_merged_p-rna-scaffolder/'
+out='clean_merged_p-rna-scaffolder'
 
 sh $scaffolder -d $scaf_dir -i $sam_file -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
 
