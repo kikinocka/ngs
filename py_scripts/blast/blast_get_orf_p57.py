@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa', 'fasta')
-nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/p57_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/p57_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/p57_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/catalase/Tb927.8.6010_heme-response/p57_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/triat_scaffolds_transc.fasta', 'fasta')
+nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/triat_additional_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/triat_additional_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/triat_additional_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/triat_additional_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
