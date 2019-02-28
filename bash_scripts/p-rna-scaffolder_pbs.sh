@@ -23,8 +23,8 @@ cp -r P_RNA_scaffolder $SCRATCHDIR
 cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
 cp pelomyxa_clean.fa $SCRATCHDIR
 
-cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/
-cp pelo_clean_merged_bw2.sam $SCRATCHDIR
+cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/
+cp accepted_hits.sam $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
 cp merged_trimmed* $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 scaf_dir='P_RNA_scaffolder/'
 scaffolder=$scaf_dir'P_RNA_scaffolder.sh'
 assembly='pelomyxa_clean.fa'
-sam_file='pelo_clean_merged_bw2.sam'
+sam_file='accepted_hits.sam'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
-out='clean_merged_p-rna-scaffolder'
+out='clean_merged_tophat2_p-rna-scaffolder'
 
 sh $scaffolder -d $scaf_dir -i $sam_file -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
 
