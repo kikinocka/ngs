@@ -44,4 +44,4 @@ samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile
 samtools index $sorted
 
 #copy files back
-cp pelo_clean_merged_bw2_sorted.bam* /storage/brno3-cerit/home/kika/pelomyxa/mapping/.
+cp *bw2* /storage/brno3-cerit/home/kika/pelomyxa/mapping/.
