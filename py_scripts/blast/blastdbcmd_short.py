@@ -2,7 +2,7 @@
 import subprocess
 
 file = '/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Phylloquinone/assembly_MenDHC/input.fasta'
-one = 'NODE_5002_length_1763_cov_68.7658'
+one = 'NODE_38_length_30771_cov_87.5178'
 positions = '43693-47247'
 strand = 'plus'
 db = '/home/kika/programs/blast-2.5.0+/bin/triat_scaffolds_transc.fasta'

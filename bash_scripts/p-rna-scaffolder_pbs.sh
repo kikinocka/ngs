@@ -36,12 +36,12 @@ cd $SCRATCHDIR
 scaf_dir='P_RNA_scaffolder/'
 scaffolder=$scaf_dir'P_RNA_scaffolder.sh'
 assembly='pelomyxa_clean.fa'
-sam_file='accepted_hits.sam'
+sam='accepted_hits.sam'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
 out='clean_merged_tophat2_p-rna-scaffolder'
 
-sh $scaffolder -d $scaf_dir -i $sam_file -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
+sh $scaffolder -d $scaf_dir -i $sam -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
 
 #copy files back
 cp -r $out /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/. || export CLEAN_SCRATCH=false
