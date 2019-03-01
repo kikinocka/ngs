@@ -5,6 +5,9 @@
 #PBS -m ae
 #PBS -j oe
 
+#since tophat has the nasty thing that removes /1 and /2 from the read names,
+#you need to modify the reads which you input to mark them with -1 and -2 instead of /1 and /2
+
 cat $PBS_NODEFILE
 
 #add module
@@ -35,7 +38,7 @@ bowtie2-build --threads $PBS_NUM_PPN $genome $index
 
 tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv
 
-samtools view -h $out$bam > $out$sam
+samtools view -bS $out$bam > $out$sam -@ $PBS_NUM_PPN
 samtools index $out$bam
 
 #copy files back
