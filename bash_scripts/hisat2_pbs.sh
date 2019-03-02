@@ -24,8 +24,6 @@ cd $SCRATCHDIR
 
 genome='pelo_clean_merged_ht2.fa'
 index='pelo_clean_merged_ht2'
-splices='ht2_splice_sites.gtf'
-exons='ht2_exons.gtf'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
 unmapped_unpaired=$index'_unmapped_unpaired.fq'
@@ -35,7 +33,7 @@ report=$index'.txt'
 bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
-hisat2-build -p $PBS_NUM_PPN --ss $splices --exon $exons $genome $index
+hisat2-build -p $PBS_NUM_PPN $genome $index
 hisat2 -p $PBS_NUM_PPN -x $index -1 $fwd -2 $rv --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
 
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
