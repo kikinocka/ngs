@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N P_RNA_scaffolder
-#PBS -l select=1:ncpus=1:mem=100gb:scratch_local=100gb
+#PBS -l select=1:ncpus=15:mem=100gb:scratch_local=100gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -23,8 +23,8 @@ cp -r P_RNA_scaffolder $SCRATCHDIR
 cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
 cp pelomyxa_clean.fa $SCRATCHDIR
 
-cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/
-cp accepted_hits.sam $SCRATCHDIR
+cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2/
+cp pelo_clean_merged_ht2.sam $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
 cp merged_trimmed* $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 scaf_dir='P_RNA_scaffolder/'
 scaffolder=$scaf_dir'P_RNA_scaffolder.sh'
 assembly='pelomyxa_clean.fa'
-sam='accepted_hits.sam'
+sam='pelo_clean_merged_ht2.sam'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
-out='clean_merged_tophat2_p-rna-scaffolder'
+out='clean_merged_hisat2_p-rna-scaffolder'
 
 sh $scaffolder -d $scaf_dir -i $sam -j $assembly -F $fwd -R $rv -o $out -t $PBS_NUM_PPN -f 3
 
