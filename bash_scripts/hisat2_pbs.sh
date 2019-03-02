@@ -18,6 +18,10 @@ cp pelomyxa_clean.fa $SCRATCHDIR/pelo_clean_merged_ht2.fa
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
 cp merged_trimmed* $SCRATCHDIR
 
+
+#compute on scratch
+cd $SCRATCHDIR
+
 genome='pelo_clean_merged_ht2.fa'
 index='pelo_clean_merged_ht2'
 splices='ht2_splice_sites.gtf'
@@ -30,7 +34,6 @@ sam=$index'.sam'
 report=$index'.txt'
 bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
-
 
 hisat2-build -p $PBS_NUM_PPN --ss $splices --exon $exons $genome $index
 hisat2 -p $PBS_NUM_PPN -x $index -1 $fwd -2 $rv --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
