@@ -13,7 +13,7 @@ module add samtools-1.3.1
 
 #copy files to scratch
 cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
-cp pelomyxa_clean.fa $SCRATCHDIR/pelo_clean_merged_ht2.fa
+cp pelomyxa_final_genome.fa $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
 cp merged_trimmed* $SCRATCHDIR
@@ -22,14 +22,14 @@ cp merged_trimmed* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='pelo_clean_merged_ht2.fa'
-index='pelo_clean_merged_ht2'
+genome='pelomyxa_final_genome.fa'
+index='pelomyxa_final_ht2'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
 unmapped_unpaired=$index'_unmapped_unpaired.fq'
 unmapped_paired=$index'_unmapped_paired.fq'
 sam=$index'.sam'
-report=$index'.txt'
+report=$index'_report.txt'
 bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
@@ -42,4 +42,4 @@ samtools index $sorted
 
 #copy files back
 rm $genome $fwd $rv
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2/.
+cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2/pelomyxa_final/.
