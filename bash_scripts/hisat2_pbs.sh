@@ -12,7 +12,7 @@ module add hisat2-2.0.5
 module add samtools-1.3.1
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
+cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
 cp pelomyxa_final_genome.fa $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
