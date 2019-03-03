@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-infile = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/all_modules_best_blast.tsv')
-output = open('/home/kika/MEGAsync/diplonema_mt/1608/transcripts/gff/all.gff', 'w')
+infile = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_augustus_data_best_blast.tsv')
+output = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_augustus_data.gff', 'w')
 
 output.write('{}\t{}\n'.format('##gff-version', '3'))
 

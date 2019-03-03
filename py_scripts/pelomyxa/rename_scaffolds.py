@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/home/kika/ownCloud/pelomyxa/genome_assembly/')
 infa = SeqIO.parse('pelomyxa_clean_p-rna-scaffolder.fa', 'fasta')
-outfa = open('pelomyxa_final.fa', 'w')
+outfa = open('pelomyxa_final_genome.fa', 'w')
 
 #the scaffold number and size, separated by a dash
 

@@ -2,16 +2,16 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/home/kika/ownCloud/pelomyxa/mito_proteins/pelo_tom40_aa.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/pelomyxa_clean.fa'
+cmd = 'blastn'
+task = 'blastn'
+query = '/home/kika/ownCloud/pelomyxa/augustus_training_set/prep/augustus_cds.fasta'
+db = '/home/kika/programs/blast-2.5.0+/bin/pelomyxa_final_genome.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/pelomyxa/mito_proteins/pelo_tom40_old_blast.xml'
-evalue = 10
+out = '/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_augustus_cds_blast.xml'
+evalue = 1
 outfmt = 5
 hits = 1000
-word_size = 4
+word_size = 11
 threads = 4
 
 print('running BLAST')
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pelo_tom40_old_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pelo_tom40_old_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_augustus_cds_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/pelomyxa/augustus_training_set/pelo_augustus_cds_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
