@@ -5,8 +5,8 @@
 #PBS -m ae
 #PBS -j oe
 
-#since tophat has the nasty thing that removes /1 and /2 from the read names,
-#you need to modify the reads which you input to mark them with -1 and -2 instead of /1 and /2
+#since tophat removes /1 and /2 from the read names, you need to modify the reads which you input to mark them 
+#with -1 and -2 instead of /1 and /2
 
 cat $PBS_NODEFILE
 
@@ -16,8 +16,8 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/clean/
-cp pelomyxa_clean.fa $SCRATCHDIR/pelo_clean_merged_bw2.fa
+cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
+cp pelomyxa_final_genome.fa $SCRATCHDIR/pelo_final_bw2.fa
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
 cp merged_trimmed* $SCRATCHDIR
@@ -26,21 +26,21 @@ cp merged_trimmed* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='pelo_clean_merged_bw2.fa'
-index='pelo_clean_merged_bw2'
+genome='pelo_final_bw2.fa'
+index='pelo_final_bw2'
 fwd='merged_trimmed_1.fq.gz'
 rv='merged_trimmed_2.fq.gz'
 out='tophat_out/'
-bam='accepted_hits.bam'
-sam='accepted_hits.sam'
+bam=$out'accepted_hits.bam'
+sam=$out'accepted_hits.sam'
 
 bowtie2-build --threads $PBS_NUM_PPN $genome $index
 
 tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv
 
-samtools view -bS $out$bam > $out$sam -@ $PBS_NUM_PPN
-samtools index $out$bam
+samtools view -bS $bam > $sam -@ $PBS_NUM_PPN
+samtools index $bam
 
 #copy files back
 cd $out
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/.
+cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/pelomyxa_final/.

@@ -3,11 +3,11 @@ import os
 
 # pasta = '/home/nenarokova/tools/pasta_tools/pasta/run_pasta.py'
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/PASTA/')
+os.chdir('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/duplicated/PASTA/')
 files = sorted(os.listdir())
 
 for file in files:
-	if file.endswith('.fasta'):
+	if file.endswith('.fa'):
 	# if '.aln' not in file:
 		print(file)
 		job_desc = file.split('.fa')[0]
