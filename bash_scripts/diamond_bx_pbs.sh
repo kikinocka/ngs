@@ -26,7 +26,7 @@ out='pelo_trinity_dmnd_bx.out'
 #compute on scratch
 cd $SCRATCHDIR
 
-diamond blastx -q $query -d $db -o $out -p $PBS_NUM_PPN -f 6 qseqid staxids bitscore --sensitive --max-target-seqs 1 --evalue 1e-5
+diamond blastx -q $query -d $db -o $out -p $PBS_NUM_PPN -f 6 --sensitive --max-target-seqs 1 --evalue 1e-5
 
 #copy files back
 cp $out /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/. || export CLEAN_SCRATCH=false
