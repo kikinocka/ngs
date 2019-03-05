@@ -10,7 +10,6 @@ cat $PBS_NODEFILE
 #add module
 module add diamond-0.8.29
 
-
 #copy files to scratch
 cd /storage/brno3-cerit/home/fussyz01/DMND/
 cp refseq_ryby.dmnd $SCRATCHDIR/refseq.dmnd
