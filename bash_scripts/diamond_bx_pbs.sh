@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add diamond-0.8.28
+module add diamond-0.8.29
 
 
 #copy files to scratch
