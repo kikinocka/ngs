@@ -15,22 +15,28 @@ cd /storage/brno3-cerit/home/fussyz01/DMND/
 cp prot_ryby.accession2taxid $SCRATCHDIR/prot.accession2taxid
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/
-cp blobtools/pelo_trinity_dmnd_bx.out $SCRATCHDIR
+cp blobtools/pelo_trinity_dmnd_bx.out $SCRATCHDIR/pelo_trinity.out
 cp pelomyxa_trinity.fa $SCRATCHDIR
 
+cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/RNA_to_transcriptome/
+cp pelo_trinity_bw2.sam $SCRATCHDIR
 
-transcriptome='pelomyxa_trinity.fa'
-dmnd='pelo_trinity_dmnd_bx.out'
-taxmap='prot.accession2taxid'
-sam=''
 
 #compute on scratch
 cd $SCRATCHDIR
 
-blobtools taxify -f $dmnd -m $taxmap -s 1 -t 2
-blobtools create -i $transcriptome -s $sam -t ryba_sterling.taxified.out -o blobdb
-blobtools view -i blobdb.blobDB.json -o plots
-blobtools plot -i blobdb.blobDB.json -o order
+transcriptome='pelomyxa_trinity.fa'
+dmnd='pelo_trinity.out'
+taxmap='prot.accession2taxid'
+sam='pelo_trinity_bw2.sam'
+taxified='pelo_trinity.taxified.out'
+base='blobDB'
+
+blobtools taxify -f $dmnd -m $taxmap -s 0 -t 1
+blobtools create -i $transcriptome -s $sam -t $taxified -o $base
+blobtools view -i $base'.blobDB.json' --cov -o table
+blobtools plot -i $base'.blobDB.json' -o plot 
 
 #copy files back
-cp  || export CLEAN_SCRATCH=false
+rm $transcriptome $dmnd $taxmap $sam 
+cp -r * /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/. || export CLEAN_SCRATCH=false
