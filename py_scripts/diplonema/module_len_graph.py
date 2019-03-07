@@ -79,7 +79,7 @@ for patch, color in zip(bplot['boxes'], colors):
 plt.xticks(x)
 plt.xlim(0, 16)
 plt.axes().set_xticklabels(['D. ambulator', 'D. japonicum',	'D. papillatum', 'R. humris', 'R. euleeides', \
-	'L. lanifica', 'F. neradi', 'S. specki', 'YPF1610', 'H. phaeocysticola', 'YPF1621'], fontstyle='italic', \
+	'L. lanifica', 'F. neradi', 'S. specki', 'A. motanka', 'H. phaeocysticola', 'N. karyoxenos'], fontstyle='italic', \
 	fontsize=10, rotation=20, horizontalalignment='right')
 plt.ylim(0, 650)
 plt.axes().set_yticklabels([0, 100, 200, 300, 400, 500, 600], fontsize=10)
