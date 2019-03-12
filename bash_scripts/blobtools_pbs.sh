@@ -11,8 +11,8 @@ cat $PBS_NODEFILE
 module add blobtools-1.0
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/fussyz01/DMND/
-cp prot_ryby.accession2taxid $SCRATCHDIR/prot.accession2taxid
+cd /storage/brno3-cerit/home/kika/blobtools/
+cp prot.accession2taxid $SCRATCHDIR
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/
 cp blobtools/pelo_trinity_dmnd_bx.out $SCRATCHDIR/pelo_trinity.out
