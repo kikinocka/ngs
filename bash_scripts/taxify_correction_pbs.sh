@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N taxify_correction
 #PBS -l select=1:ncpus=1:mem=100gb:scratch_local=50gb
-#PBS -l walltime=4:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
