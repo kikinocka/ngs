@@ -1,9 +1,21 @@
-# !/usr/bin/python3
+# !/usr/bin/env python3
 
-seq = 'MAGDALSKNVIUDCPAVO'
-SP = 3
+import argparse
 
-print(seq[3:])
+parser = argparse.ArgumentParser(description='How to use argparse')
+parser.add_argument('-i', '--input', help='FASTA eclist')
+
+args = parser.parse_args()
+
+eclist = args.input
+print(eclist)
+
+
+
+# seq = 'MAGDALSKNVIUDCPAVO'
+# SP = 3
+
+# print(seq[3:])
 
 
 # import sys
@@ -18,7 +30,7 @@ print(seq[3:])
 # from Bio.SeqFeature import SeqFeature, FeatureLocation
  
 # # Create a sequence
-# sequence_string = "ggggaaaattttaaaaccccaaaa"
+# sequence_string = 'ggggaaaattttaaaaccccaaaa'
 # sequence_object = Seq(sequence_string, IUPAC.unambiguous_dna)
  
 # # Create a record
