@@ -17,7 +17,7 @@ cp prot.accession2taxid $SCRATCHDIR
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/'
 cd $datadir
 cp pelo_trinity.not_taxified.out $SCRATCHDIR
-cp pelo_trinity.taxified.out $SCRATCHDIR
+# cp pelo_trinity.taxified.out $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
