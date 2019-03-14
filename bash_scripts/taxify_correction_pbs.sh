@@ -8,13 +8,13 @@
 cat $PBS_NODEFILE
 
 #copy files to scratch
-cd /storage-brno2/home/kika/scripts/kika/py_scripts/
+cd /storage/brno2/home/kika/scripts/kika/py_scripts/
 cp fucking_taxify_correction.py $SCRATCHDIR
 
-cd /storage-brno3-cerit/home/kika/blobtools/
+cd /storage/brno3-cerit/home/kika/blobtools/
 cp prot.accession2taxid $SCRATCHDIR
 
-datadir='/storage-brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/'
 cd $datadir
 cp pelo_trinity.not_taxified.out $SCRATCHDIR
 cp pelo_trinity.taxified.out $SCRATCHDIR
