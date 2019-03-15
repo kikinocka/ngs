@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 
 accessions = 'prot.accession2taxid'
 not_tax = 'pelo_trinity.not_taxified.out'

@@ -17,7 +17,6 @@ cp prot.accession2taxid $SCRATCHDIR
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/'
 cd $datadir
 cp pelo_trinity.not_taxified.out $SCRATCHDIR
-# cp pelo_trinity.taxified.out $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -25,4 +24,4 @@ cd $SCRATCHDIR
 python3 fucking_taxify_correction.py
 
 #copy files back
-cd pelo_trinity.taxified.out $datadir || export CLEAN_SCRATCH=false
+cp pelo_trinity.taxified.out $datadir || export CLEAN_SCRATCH=false
