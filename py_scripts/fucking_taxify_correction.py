@@ -8,7 +8,7 @@ renamekey = {}
 with open(accessions) as f:
 	for l in f:
 		line = l.strip().split('\t')
-		renamekey[line[0]] = line[2]
+		renamekey[line[1]] = line[2]
 
 renameset = set(renamekey.keys())
 
