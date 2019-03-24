@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blobtools
 #PBS -l select=1:ncpus=1:mem=80gb:scratch_local=50gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=2:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -26,11 +26,12 @@ transcriptome='pelomyxa_trinity.fa'
 sam='pelo_trinity_bw2.sam'
 taxified='pelo_trinity.taxified.out'
 base='blobDB'
+rank='superkingdom'
 
 blobtools create -i $transcriptome -s $sam -t $taxified -o $base
 blobtools view -i $base'.blobDB.json' --cov -o table
-blobtools plot -i $base'.blobDB.json' -o plot 
+blobtools plot -i $base'.blobDB.json' -r $rank -o plot 
 
 #copy files back
 rm $transcriptome $sam $taxified
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/. || export CLEAN_SCRATCH=false
+cp -r * /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/superkingdom/. || export CLEAN_SCRATCH=false

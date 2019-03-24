@@ -1,13 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 #!!! Check parsing record.query in the blast_parser function (5x) !!!
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
-nt_out = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/jac_additional_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/jac_additional_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/jac_additional_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/jac_additional_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa', 'fasta')
+nt_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -52,7 +52,7 @@ def blast_parser(blast_records):
 			max_qend = False
 			frame = best.hsps[0].frame[1]
 			if best.hsps[0].expect > 0.01:
-				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split(':')[0]))
+				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split(' ')[0]))
 			else:
 				for hsp in best.hsps:
 					if frame == hsp.frame[1]:
@@ -81,7 +81,7 @@ def blast_parser(blast_records):
 							else:
 								max_send = hsp.sbjct_start
 					else:
-						errors.append(record.query.split(':')[0])
+						errors.append(record.query.split(' ')[0])
 						if frame in [1, 2, 3]:
 							min_sstart = best.hsps[0].sbjct_start
 							max_send = best.hsps[0].sbjct_end
@@ -89,13 +89,13 @@ def blast_parser(blast_records):
 							min_sstart = best.hsps[0].sbjct_end
 							max_send = best.hsps[0].sbjct_start
 				if frame in [1, 2, 3]:
-					result[record.query.split(':')[0]] = [min_sstart, max_send, frame, best.hit_id, 
+					result[record.query.split(' ')[0]] = [min_sstart, max_send, frame, best.hit_id, 
 						record.query_length, min_qstart, max_qend]
 				else:
-					result[record.query.split(':')[0]] = [max_send, min_sstart, frame, best.hit_id, 
+					result[record.query.split(' ')[0]] = [max_send, min_sstart, frame, best.hit_id, 
 						record.query_length, min_qstart, max_qend]
 		except:
-			err_out.write('{}:\tno hit found\n'.format(record.query.split(':')[0]))
+			err_out.write('{}:\tno hit found\n'.format(record.query.split(' ')[0]))
 	errors = set(errors)
 	for i in errors:
 		err_out.write('{}:\thsps frames do not correspond\n'.format(i))

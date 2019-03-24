@@ -1,8 +1,9 @@
 #!/bin/sh
 targetp='/home/kika/programs/targetp-1.1/targetp'
-infile='/home/kika/MEGAsync/Chlamydomonas/od_toma/putative_pt_genes_aa_complete5.fa'
-outfile='/home/kika/MEGAsync/Chlamydomonas/od_toma/putative_pt_genes_aa_complete5_targetp.txt'
+workdir='/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/'
+infile=$workdir'pelo_pyruvate_aa.fa'
+outfile=$workdir'pelo_pyruvate_targetp.txt'
 plant='P'
 non_plant='N'
 
-$targetp -$plant -c $infile > $outfile
+$targetp -$non_plant -c $infile > $outfile

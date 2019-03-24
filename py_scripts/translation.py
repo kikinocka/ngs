@@ -1,11 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/1604/genome_assembly/')
-infile = SeqIO.parse('1604_DNA_scaffolds.fasta', 'fasta')
-output = open('/home/kika/diplo_mt/translated_genomes/1604_DNA_scaffolds_translated.fasta', 'w')
-error = open('/home/kika/diplo_mt/translated_genomes/1604_DNA_scaffolds_errors.txt', 'w')
+os.chdir('/home/kika/ownCloud/pelomyxa/transcriptome_assembly/')
+infile = SeqIO.parse('pelomyxa_trinity.fasta', 'fasta')
+output = open('pelomyxa_trinity_translated.fasta', 'w')
+error = open('pelomyxa_trinity_errors.txt', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
