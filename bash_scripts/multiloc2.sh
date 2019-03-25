@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-work_dir='/home/kika/ownCloud/pelomyxa/mito_proteins/import/'
-fa=$work_dir'pelo_MPP_aa.fa'
-r=$work_dir'pelo_MPP_multiloc.txt'
+work_dir='/home/kika/ownCloud/pelomyxa/mito_proteins/chaperones/'
+fa=$work_dir'pelo_chaperones_aa.fa'
+r=$work_dir'pelo_chaperones_multiloc.txt'
 a=animal
 p=plant
 f=fungal
