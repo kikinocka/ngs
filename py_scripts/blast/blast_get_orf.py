@@ -4,10 +4,10 @@ from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa', 'fasta')
-nt_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/suf/pelo_suf_blast.xml')
+nt_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

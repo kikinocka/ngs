@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/mbal_pfl.fa'
+query = '/home/kika/ownCloud/pelomyxa/mito_proteins/import/mbal_mPP.fa'
 db = '/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/pelo_pfl_blast.xml'
+out = '/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1000
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/pelo_pfl_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/pelo_pfl_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/pelo_mPP_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
