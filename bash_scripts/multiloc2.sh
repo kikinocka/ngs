@@ -1,8 +1,8 @@
 #!/bin/sh
 
-work_dir='/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/'
-fa=$work_dir'pelo_pyruvate_aa.fa'
-r=$work_dir'pelo_pyruvate_multiloc.txt'
+work_dir='/home/kika/ownCloud/pelomyxa/mito_proteins/import/'
+fa=$work_dir'pelo_MPP_aa.fa'
+r=$work_dir'pelo_MPP_multiloc.txt'
 a=animal
 p=plant
 f=fungal
