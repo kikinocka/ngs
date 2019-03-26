@@ -1,16 +1,17 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/pt_division/HMM/')
-files = os.listdir()
+os.chdir('/home/kika/ownCloud/pelomyxa/mito_proteins/import/tom-tim/hmm/')
+files = [x for x in os.listdir() if x.endswith('.hmm')]
 threads = 4
-db = '/home/kika/MEGAsync/Data/Eutreptiella/Eutreptiella_gymnastica_NIES-381.fasta'
+db = '/home/kika/ownCloud/pelomyxa/transcriptome_assembly/pelomyxa_trinity_translated.fasta'
 
 for file in files:
-	if file.endswith('.hmm'):
-		print(file)
-		name = file.split('_')[0]
-		out = 'nies_' + name + '_search.out'
-		subprocess.call('hmmsearch -o {} --cpu {} {} {}'.format(out, threads, file, db), 
-			shell=True)
+	print(file)
+	name = file.split('.')[0]
+	orgn = 'pelo'
+	out = orgn + '_' + name + '.hmm_search.out'
+	subprocess.call('hmmsearch -o {} --cpu {} {} {}'.format(out, threads, file, db), 
+		shell=True)
+# --tblout {0}.table.txt 

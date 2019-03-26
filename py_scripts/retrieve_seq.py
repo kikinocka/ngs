@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/el_reads_new.fa', 'fasta')
-infile = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Phylloquinone/input.txt')
-out = open('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Phylloquinone/EL_MenDHC.txt', 'w')
+infasta = SeqIO.parse('/home/kika/ownCloud/pelomyxa/transcriptome_assembly/pelomyxa_trinity_translated.fasta', 'fasta')
+infile = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/tom-tim/hmm/in')
+out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/import/tom-tim/hmm/pelo_alphaMPP.hmm_hits.fa', 'w')
 
 retrieve = set()
 for line in infile:
