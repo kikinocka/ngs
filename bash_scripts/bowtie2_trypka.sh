@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bw2_dir='/home/kika/miniconda3/pkgs/bowtie2-2.3.4.2-py36h2d50403_0/bin/'
-base_name='/media/4TB1/blastocrithidia/mapping/p57_ra_bowtie2_DNA/p57_ra_RNA_bw2'
+base_name='/media/4TB1/blastocrithidia/mapping/p57_ra_bowtie2_RNA/p57_ra_RNA_bw2'
 ref='/media/4TB1/blastocrithidia/genome_assembly/p57_ra/p57_ra.fa'
 
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
