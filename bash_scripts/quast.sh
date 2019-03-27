@@ -1,6 +1,6 @@
 #!/bin/sh
 
-f='/home/kika/ownCloud/blastocrithidia/genome_assembly/p57_ra_untrimmed.fa'
-output='/home/kika/ownCloud/blastocrithidia/genome_assembly/quast/p57_ra_untrimmed/'
+f='/home/kika/ownCloud/blastocrithidia/genome_assembly/jaculum_scaffolds_transc.fasta'
+output='/home/kika/ownCloud/blastocrithidia/genome_assembly/quast/jaculum_scaffolds_transc/'
 
-/usr/bin/python3.5 /home/kika/programs/quast-4.4/quast.py $f -o $output -t 1
+/usr/bin/python3.5 /home/kika/programs/quast-4.4/quast.py $f -o $output -t 4
