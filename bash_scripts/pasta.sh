@@ -1,7 +1,7 @@
 #!/bin/sh
 
-i='/home/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/additional/PASTA/lys_mito.fa'
+i='/home/kika/ownCloud/blastocrithidia/genes/DHFR-TS/tryps_dhfr-ts.fa'
 d=protein
-j=lys_mito
+j=tryps_dhfr-ts
 
 run_pasta.py -i $i -d $d -j $j
