@@ -6,10 +6,10 @@ os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/')
 files = [x for x in os.listdir() if x.endswith('_replaced.indel')]
 alignments = [x for x in os.listdir() if x.endswith('aln')]
 
+locations = {}
 for file in files:
 	print(file)
 	name = file.split('_')[0]
-	locations = {}
 	for line in open(file):
 		if line.startswith('Indel location in alignment:'):
 			loc = line.strip().split(': ')[1].split('-')
@@ -42,26 +42,29 @@ for aln in alignments:
 						positions.append(pos)
 					else:
 						pass
-			
+			# print(positions)
 			with open('ins_non-ins/{}_not_insertions.fa'.format(sp), 'w') as not_ins:
-				for i in range(len(positions)):
-					while i < len(positions):
-						if i == 0:
-							start = 0
-							end = positions[i][0]
-							out = str(seq.seq[start:end]).replace('-', '')
-							not_ins.write('>{}_{}\n{}\n'.format(name, i+1, out))
-						elif i < len(positions):
-							start = int(positions[i-1][1])
-							end = int(positions[i][0])
-							out = str(seq.seq[start:end]).replace('-', '')
-							not_ins.write('>{}_{}\n{}\n'.format(name, i+1, out))
-						i += 1
-					else:
-						break
-				start = int(positions[-1][1])
-				end = AlignIO.read(aln, 'fasta').get_alignment_length()
-				out = str(seq.seq[start:end]).replace('-', '')
-				not_ins.write('>{}_{}\n{}\n'.format(name, len(positions)+1, out))
+				if len(positions) != 0:
+					for i in range(len(positions)):
+						while i < len(positions):
+							if i == 0:
+								start = 0
+								end = positions[i][0]
+								out = str(seq.seq[start:end]).replace('-', '')
+								not_ins.write('>{}_{}\n{}\n'.format(name, i+1, out))
+							elif i < len(positions):
+								start = int(positions[i-1][1])
+								end = int(positions[i][0])
+								out = str(seq.seq[start:end]).replace('-', '')
+								not_ins.write('>{}_{}\n{}\n'.format(name, i+1, out))
+							i += 1
+						else:
+							break
+					start = int(positions[-1][1])
+					end = AlignIO.read(aln, 'fasta').get_alignment_length()
+					out = str(seq.seq[start:end]).replace('-', '')
+					not_ins.write('>{}_{}\n{}\n'.format(name, len(positions)+1, out))
+				else:
+					pass
 	else:
 		print(name)
