@@ -30,7 +30,7 @@ for aln in alignments:
 			print(sp)
 			c = 0
 			positions = []
-			with open('ins_non-ins/{}_insertions.fa'.format(sp), 'w') as insertions:
+			with open('ins_non-ins/{}_insertions.fa'.format(sp), 'a') as insertions:
 				for item in location:
 					c += 1
 					start = int(item[0]) - 1
@@ -42,8 +42,8 @@ for aln in alignments:
 						positions.append(pos)
 					else:
 						pass
-			# print(positions)
-			with open('ins_non-ins/{}_not_insertions.fa'.format(sp), 'w') as not_ins:
+			
+			with open('ins_non-ins/{}_not_insertions.fa'.format(sp), 'a') as not_ins:
 				if len(positions) != 0:
 					for i in range(len(positions)):
 						while i < len(positions):

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aln='/media/4TB1/blastocrithidia/ssu_tree/tryps_ssu_trimal_automated1.aln'
+aln='/home/kika/work_dir/nifU_MAFFT_trimal_automated1.aln'
 bb=1000
 # alrt=5000
 # nm=5000
