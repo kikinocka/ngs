@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd /home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Glycerolipids/SQD_pathway/SQD2_tree/
-infile='sqd2.fasta'
-outfile='sqd2_MAFFT.aln'
+cd /home/kika/ownCloud/pelomyxa/mito_proteins/complexII/
+infile='amoebozoa_aox.fasta'
+outfile='amoebozoa_aox_MAFFT.aln'
 
 mafft --thread 4 --threadit 0 --inputorder --auto $infile > $outfile

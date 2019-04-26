@@ -18,7 +18,8 @@ unmapped_paired=$base_name'_unmapped_paired.fq'
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
-$bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name -1 $p1_1 -2 $p1_2 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $samfile 2> $report
+$bw2_dir'bowtie2' --very-sensitive -p 32 -x $base_name \
+-1 $p1_1 -2 $p1_2 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $samfile 2> $report
 
 samtools view -bS $samfile > $bamfile -@ 32
 samtools sort -o $sorted -@ 32 $bamfile

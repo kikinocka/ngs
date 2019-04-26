@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Glycerolipids/SQD_pathway/SQD2_tree/')
+os.chdir('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/nif/nifS_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('names.txt')
-tree = open('sqd2_trimal_automated1.aln.treefile')
+names = open('nifS_names.txt')
+tree = open('nifS_MAFFT_trimal_0.3.aln.treefile')
 
 name_dict = {}
 for name in names:
 	split_line = name.split('\t')
-	name_dict[split_line[0]] = split_line[1][:-1] #+ ' ' + split_line[0]
+	name_dict[split_line[0]] = split_line[1][:-1] + ' ' + split_line[0]
 
 tree_line = tree.readline()
 
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('sqd2_renamed_acc.txt', 'w') as result:
+with open('nifS_renamed.tree', 'w') as result:
 	result.write(tree_line)
