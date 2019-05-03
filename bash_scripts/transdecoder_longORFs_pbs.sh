@@ -1,6 +1,6 @@
 #!/bin/bash
-#PBS -N TransDecoder
-#PBS -l select=1:ncpus=1:mem=20gb:scratch_local=50gb
+#PBS -N TransDecoder_longORFs
+#PBS -l select=1:ncpus=1:mem=2gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
