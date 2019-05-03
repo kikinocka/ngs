@@ -20,7 +20,7 @@ cp Pfam-A.hmm $SCRATCHDIR
 
 cd $data_dir
 cp pelomyxa_trinity.fa $SCRATCHDIR
-cp transdecoder/longest_orfs.pep $SCRATCHDIR
+cp pelomyxa_trinity.fa.transdecoder_dir/longest_orfs.pep $SCRATCHDIR
 
 hmm='Pfam-A.hmm'
 transcriptome='pelomyxa_trinity.fa'
@@ -28,9 +28,10 @@ orfs='longest_orfs.pep'
 
 #compute on scratch
 cd $SCRATCHDIR
+hmmpress $hmm
 hmmscan --cpu $PBS_NUM_PPN --domtblout pfam.domtblout $hmm $orfs
 TransDecoder.Predict -t $transcriptome --retain_blastp_hits pfam.domtblout
 
 #copy files back
 rm $transcriptome $hmm $orfs
-cp -r * $data_dir'transdecoder/'
+cp -r * $data_dir'pelomyxa_trinity.fa.transdecoder_dir/'
