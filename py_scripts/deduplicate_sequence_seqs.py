@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/ownCloud/pelomyxa/mito_proteins/fes_cluster_assembly/nif/nifU_tree/')
-infile = SeqIO.parse('nifU_seqs.fa', 'fasta')
-out_fasta = open('nifU_seqs_deduplicated.fa', 'w')
-out_names = open('nifU_seqs_dupl-names.txt', 'w')
+os.chdir('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hydA_tree/')
+infile = SeqIO.parse('hydA_3.fasta', 'fasta')
+out_fasta = open('hydA_deduplicated.fa', 'w')
+out_names = open('hydA_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

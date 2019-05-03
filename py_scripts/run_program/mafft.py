@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hydA_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema_mt/1621/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:

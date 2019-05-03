@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/pelomyxa/transcriptome_assembly/')
-infile = SeqIO.parse('pelomyxa_trinity.fasta', 'fasta')
-output = open('pelomyxa_trinity_translated.fasta', 'w')
-error = open('pelomyxa_trinity_errors.txt', 'w')
+os.chdir('/home/kika/work_dir/')
+infile = SeqIO.parse('LmxM379_SNV.fa', 'fasta')
+output = open('LmxM379_SNV_translated.fa', 'w')
+error = open('LmxM379_SNV_errors.txt', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
