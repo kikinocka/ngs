@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add transdecoder-3.0.1
 
-data_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/transcriptome_assembly/'
+data_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
 
 #copy files to scratch
 cd $data_dir
@@ -20,7 +20,7 @@ transcriptome='pelomyxa_trinity.fa'
 
 #compute on scratch
 cd $SCRATCHDIR
-TransDecoder.Predict -t $transcriptome
+TransDecoder.LongOrfs -t $transcriptome
 
 #copy files back
 rm $transcriptome
