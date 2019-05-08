@@ -12,11 +12,11 @@ module add hmmer-3.2
 module add transdecoder-3.0.1
 
 data_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
-# pfam_dir='/storage/brno3-cerit/home/kika/pfam/'
+pfam_dir='/storage/brno3-cerit/home/kika/pfam/'
 
 #copy files to scratch
-# cd $pfam_dir
-# cp Pfam-A.hmm $SCRATCHDIR
+cd $pfam_dir
+cp Pfam-A.hmm $SCRATCHDIR
 
 cd $data_dir
 cp pelomyxa_trinity.fa $SCRATCHDIR
@@ -24,16 +24,16 @@ cp -r pelomyxa_trinity.fa.transdecoder_dir $SCRATCHDIR
 
 hmm='Pfam-A.hmm'
 transcriptome='pelomyxa_trinity.fa'
-orfs='longest_orfs.pep'
-pfamout='pelomyxa_trinity.fa.transdecoder_dir/pfam.domtblout'
+orfs='pelomyxa_trinity.fa.transdecoder_dir/longest_orfs.pep'
+
 
 #compute on scratch
 cd $SCRATCHDIR
-# hmmpress $hmm
-# hmmscan --cpu $PBS_NUM_PPN --domtblout pfam.domtblout $hmm $orfs
-TransDecoder.Predict -t $transcriptome --retain_blastp_hits $pfamout
+hmmpress $hmm
+hmmscan --cpu $PBS_NUM_PPN --domtblout pfam.domtblout $hmm $orfs
+TransDecoder.Predict -t $transcriptome --retain_blastp_hits pfam.domtblout
+
 
 #copy files back
-# rm $transcriptome $hmm $orfs
 cd pelomyxa_trinity.fa.transdecoder_dir
 cp -r * $data_dir'pelomyxa_trinity.fa.transdecoder_dir/'
