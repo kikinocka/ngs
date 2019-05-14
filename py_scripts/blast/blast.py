@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF3_aa.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/p57_DNA_scaffolds.fa'
+query = '/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_aa.txt'
+db = '/home/kika/programs/blast-2.5.0+/bin/p57_RNA_Trinity.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF3_check_blast.xml'
+out = '/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_trinity_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1000
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF3_check_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF3_check_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_trinity_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_trinity_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
