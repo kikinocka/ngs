@@ -1,14 +1,14 @@
 #!/bin/bash
 
 bw2_dir='/home/kika/miniconda3/pkgs/bowtie2-2.3.4.2-py36h2d50403_0/bin/'
-base_name='/media/4TB1/blastocrithidia/mapping/p57_ra_bowtie2_RNA/p57_ra_RNA_bw2'
-ref='/media/4TB1/blastocrithidia/genome_assembly/p57_ra/p57_ra.fa'
+base_name='/media/4TB1/blastocrithidia/mapping/lmex_ku80_bowtie2_DNA/lmex_ku80_bw2'
+ref='/media/4TB1/blastocrithidia/genome_assembly/ku_mutants/Lmex_Ku80/scaffolds.fasta'
 
 $bw2_dir'bowtie2-build' --threads 32 $ref $base_name
 
-read_dir='/media/4TB1/blastocrithidia/reads/transcriptome/trimmed/'
-p1_1=$read_dir'p57_trimmed_1.fq.gz'
-p1_2=$read_dir'p57_trimmed_2.fq.gz'
+read_dir='/media/4TB1/blastocrithidia/reads/ku_mutants/'
+p1_1=$read_dir'Lmex_Ku80_trimmed_1.fq.gz'
+p1_2=$read_dir'Lmex_Ku80_trimmed_2.fq.gz'
 
 samfile=$base_name'.sam'
 report=$base_name'_report.txt'

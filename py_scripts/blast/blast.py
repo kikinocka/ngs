@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_aa.txt'
-db = '/home/kika/programs/blast-2.5.0+/bin/p57_RNA_Trinity.fasta'
+query = '/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/fdh/ecoli_fdh.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_trinity_blast.xml'
+out = '/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/fdh/pelo_fdh_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1000
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_trinity_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/blastocrithidia/genes/termination_factors/p57_eRF1_trinity_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/fdh/pelo_fdh_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/fdh/pelo_fdh_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

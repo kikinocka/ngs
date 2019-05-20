@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
-transcriptome = SeqIO.parse('EL_merged_without_Ns_and_adapters.fsa', 'fasta')
-result = open('EL_merged_without_Ns_and_adapters_longer200.fsa', 'w')
+os.chdir('/home/kika/ownCloud/blastocrithidia/genome_assembly/')
+transcriptome = SeqIO.parse('jaculum_scaffolds.fasta', 'fasta')
+result = open('jac_scaffolds_longer200.fa', 'w')
 
 all_cont = 0
 long_cont = 0

@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa', 'fasta')
-nt_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hyd_maturase/pelo_hyd_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hyd_maturase/pelo_hyd_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hyd_maturase/pelo_hyd_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hyd_maturase/pelo_hyd_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/lmex_ku80.fa', 'fasta')
+nt_out = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_nt.fa', 'w')
+aa_out = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_aa.fa', 'w')
+err_out = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_errors.txt', 'w')
+result_handle = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
