@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
-transcriptome = SeqIO.parse('EL_merged.fasta', 'fasta')
-result = open('EL_merged_withoutNs.fsa', 'w')
+os.chdir('/home/kika/ownCloud/blastocrithidia/genome_assembly/NCBI_submission/')
+transcriptome = SeqIO.parse('jac_scaffolds_trimmed.fa', 'fasta')
+result = open('jac_scaffolds_trimmed_without_Ns.fa', 'w')
 
 for contig in transcriptome:
 	print(contig.description)

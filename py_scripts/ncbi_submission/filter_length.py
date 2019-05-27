@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/genome_assembly/')
-transcriptome = SeqIO.parse('jaculum_scaffolds.fasta', 'fasta')
-result = open('jac_scaffolds_longer200.fa', 'w')
+os.chdir('/home/kika/ownCloud/blastocrithidia/genome_assembly/NCBI_submission/')
+transcriptome = SeqIO.parse('jac_scaffolds_trimmed_without_Ns.fa', 'fasta')
+result = open('jac_scaffolds_trimmed_without_Ns_longer200.fa', 'w')
 
 all_cont = 0
 long_cont = 0
