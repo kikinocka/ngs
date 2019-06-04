@@ -24,25 +24,25 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 #augustus runs on 1 core only
 cd $SCRATCHDIR
 
-#1) SPLIT GENES
-cp $datadir'pelo_final.gb' $SCRATCHDIR
-randomSplit.pl pelo_final.gb 100
-rm pelo_final.gb
+# #1) SPLIT GENES
+# cp $datadir'pelo_final.gb' $SCRATCHDIR
+# randomSplit.pl pelo_final.gb 100
+# rm pelo_final.gb
 
 # #2) CREATE A META PARAMETERS FILE
 # new_species.pl --species=pelomyxa
 # mkdir $augustus_configs/pelomyxa
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 
-# #3) MAKE AN INITIAL TRAINING
-# cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
-# etraining --species=pelomyxa augustus_dataset_deduplicated.gb.train
-# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-# rm augustus_dataset_deduplicated.gb.train
+#3) MAKE AN INITIAL TRAINING
+cp $datadir'pelo_final.gb.train' $SCRATCHDIR
+etraining --species=pelomyxa pelo_final.gb.train
+cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+rm pelo_final.gb.train
 
-# cp $datadir'augustus_dataset_deduplicated.gb.test' $SCRATCHDIR
-# augustus --species=pelomyxa augustus_dataset_deduplicated.gb.test | tee pelo_first_test.out
-# cp pelo_first_test.out $datadir
+cp $datadir'pelo_final.gb.test' $SCRATCHDIR
+augustus --species=pelomyxa pelo_final.gb.test | tee pelo_first_test.out
+cp pelo_first_test.out $datadir
 
 # #4) OPTIMIZE AUGUSTUS
 # cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR

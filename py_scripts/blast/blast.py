@@ -4,22 +4,22 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/aa_metabolism/sinc_sucSADH.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/pelo_trinity.fa'
+query = '/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/el_merged.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/aa_metabolism/pelo_sucSADH_blast.xml'
+out = '/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL_blast.xml'
 evalue = 1
 outfmt = 5
-hits = 1000
+hits = 20
 word_size = 3
 threads = 4
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {}  \
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -max_target_seqs {} -word_size {}  \
 	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-# -max_target_seqs {} hits, 
+		cmd, task, query, db, out, evalue, outfmt, hits, word_size, threads), shell=True)
+#  
 
 # query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/aa_metabolism/pelo_sucSADH_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/aa_metabolism/pelo_sucSADH_best_blast.tsv', 'w')
+output = open('/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL_blast.tsv', 'w')
+out_best = open('/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
