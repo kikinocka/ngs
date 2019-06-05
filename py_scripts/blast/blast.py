@@ -4,15 +4,15 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/el_merged.fasta'
+query = '/home/kika/work_dir/EG_missing-in-EL.fa'
+db = '/home/kika/work_dir/el_merged.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL_blast.xml'
+out = '/home/kika/work_dir/EG_missing-in-EL_blast.xml'
 evalue = 1
 outfmt = 5
-hits = 20
+hits = 10
 word_size = 3
-threads = 4
+threads = 30
 
 print('running BLAST')
 #query - database
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL_blast.tsv', 'w')
-out_best = open('/home/kika/Dropbox/orthoMCL_kika\ \(view-only\ conflicts\)/EG_missing-in-EL_best_blast.tsv', 'w')
+output = open('/home/kika/work_dir/EG_missing-in-EL_blast.tsv', 'w')
+out_best = open('/home/kika/work_dir/EG_missing-in-EL_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
