@@ -25,7 +25,7 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 cd $SCRATCHDIR
 
 #0) CONVERT GFF FILE TO GENBANK
-cp pelo_final.corrected.gff $SCRATCHDIR
+cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
 cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
 gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 100 pelo_final.corrected.gb
 rm pelomyxa_final_genome.fa pelo_final.corrected.gff
