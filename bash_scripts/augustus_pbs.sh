@@ -25,8 +25,8 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 cd $SCRATCHDIR
 
 #1) SPLIT GENES
-cp $datadir'pelo_final.gb' $SCRATCHDIR
-randomSplit.pl pelo_final.gb 100
+cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
+randomSplit.pl pelo_final_strict.gb 100
 rm pelo_final.gb
 
 # #2) CREATE A META PARAMETERS FILE
