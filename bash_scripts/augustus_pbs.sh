@@ -27,7 +27,7 @@ cd $SCRATCHDIR
 #1) SPLIT GENES
 cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
 randomSplit.pl pelo_final_strict.gb 100
-rm pelo_final.gb
+rm pelo_final_strict.gb
 
 # #2) CREATE A META PARAMETERS FILE
 # new_species.pl --species=pelomyxa
