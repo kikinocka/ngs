@@ -24,10 +24,16 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 #augustus runs on 1 core only
 cd $SCRATCHDIR
 
-#1) SPLIT GENES
-cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
-randomSplit.pl pelo_final_strict.gb 100
-rm pelo_final_strict.gb
+#0) CONVERT GFF FILE TO GENBANK
+cp pelo_final.corrected.gff $SCRATCHDIR
+cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
+gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 100 pelo_final.corrected.gb
+rm pelomyxa_final_genome.fa pelo_final.corrected.gff
+
+# #1) SPLIT GENES
+# cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
+# randomSplit.pl pelo_final_strict.gb 100
+# rm pelo_final_strict.gb
 
 # #2) CREATE A META PARAMETERS FILE
 # new_species.pl --species=pelomyxa
