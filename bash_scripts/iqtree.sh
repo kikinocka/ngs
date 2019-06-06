@@ -1,6 +1,6 @@
 #!/bin/bash
 
-aln='/home/kika/ownCloud/pelomyxa/mito_proteins/pyruvate_metabolism/hydA_tree/hydA_trimal_automated1.aln'
+aln='/home/kika/ownCloud/euglenophytes/trees/q1010219/q1010219_trimal_automated1.aln'
 bb=1000
 alrt=5000
 nm=5000

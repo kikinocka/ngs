@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/')
-files = [x for x in os.listdir() if x.endswith('.fasta')]
+os.chdir('/home/kika/ownCloud/euglenophytes/trees/')
+files = [x for x in os.listdir() if x.endswith('.fas')]
 
 for file in files:
 	print(file)

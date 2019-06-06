@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pyruvate_metabolism/hydA_tree/')
+os.chdir('/home/kika/ownCloud/euglenophytes/trees/')
 files = [x for x in os.listdir() if '.aln' in x]
 
 for file in files:
