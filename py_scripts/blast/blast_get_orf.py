@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/lmex_ku80.fa', 'fasta')
-nt_out = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/blastocrithidia/lmex_ku_mutants/ku/lmex80_ku_blast.xml')
+fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta', 'fasta')
+nt_out = open('/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_nt.fa', 'w')
+aa_out = open('/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_aa.fa', 'w')
+err_out = open('/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_errors.txt', 'w')
+result_handle = open('/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -51,7 +51,7 @@ def blast_parser(blast_records):
 			min_qstart = False
 			max_qend = False
 			frame = best.hsps[0].frame[1]
-			if best.hsps[0].expect > 0.01:
+			if best.hsps[0].expect > 0.0001:
 				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split(' ')[0]))
 			else:
 				for hsp in best.hsps:
@@ -186,3 +186,4 @@ for contig in fasta:
 
 nt_out.close()
 aa_out.close()
+err_out.close()

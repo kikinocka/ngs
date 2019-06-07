@@ -24,33 +24,33 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 #augustus runs on 1 core only
 cd $SCRATCHDIR
 
-#0) CONVERT GFF FILE TO GENBANK
-cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
-cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
-gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 100 pelo_final.corrected.gb
-rm pelomyxa_final_genome.fa pelo_final.corrected.gff
+# #1) CONVERT GFF FILE TO GENBANK
+# cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
+# cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
+# gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 100 pelo_final.corrected.gb
+# rm pelomyxa_final_genome.fa pelo_final.corrected.gff
 
-# #1) SPLIT GENES
+# #2) SPLIT GENES - may be skipped if not enough gene models available
 # cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
 # randomSplit.pl pelo_final_strict.gb 100
 # rm pelo_final_strict.gb
 
-# #2) CREATE A META PARAMETERS FILE
+# #3) CREATE A META PARAMETERS FILE
 # new_species.pl --species=pelomyxa
 # mkdir $augustus_configs/pelomyxa
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 
-# #3) MAKE AN INITIAL TRAINING
-# cp $datadir'pelo_final.gb.train' $SCRATCHDIR
-# etraining --species=pelomyxa pelo_final.gb.train
-# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-# rm pelo_final.gb.train
+#4) MAKE AN INITIAL TRAINING
+cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
+etraining --species=pelomyxa pelo_final.corrected.gb
+cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+rm pelo_final.corrected.gb
 
 # cp $datadir'pelo_final.gb.test' $SCRATCHDIR
 # augustus --species=pelomyxa pelo_final.gb.test | tee pelo_first_test.out
 # cp pelo_first_test.out $datadir
 
-# #4) OPTIMIZE AUGUSTUS
+# #5) OPTIMIZE AUGUSTUS
 # cp $datadir'augustus_dataset_deduplicated.gb.train' $SCRATCHDIR
 # optimize_augustus.pl --species=pelomyxa augustus_dataset_deduplicated.gb.train --cpus=$PBS_NUM_PPN
 # rm augustus_dataset_deduplicated.gb.train
