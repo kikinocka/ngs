@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add transdecoder-3.0.1
 
-data_dir='/auto/brno3-cerit/nfs4/home/kika/longa/'
+data_dir='/storage/brno3-cerit/home/kika/elonga/'
 
 #copy files to scratch
 cp $data_dir'el_merged.fasta' $SCRATCHDIR
