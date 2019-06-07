@@ -56,5 +56,16 @@ cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
 optimize_augustus.pl --species=pelomyxa --cpus=$PBS_NUM_PPN pelo_final.corrected.gb
 rm pelo_final.corrected.gb
 
+#6) RETRAIN AUGUSTUS
+cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
+etraining --species=pelomyxa pelo_final.corrected.gb
+cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+rm pelo_final.corrected.gb
+
+# #7) PREDICT GENES
+# cp $datadir'pelomyxa_final_genome.fa' $SCRATCHDIR
+# augustus --protein=on --cds=on --outfile=augustus_log_pelo.txt --species=pelomyxa pelomyxa_final_genome.fa > pelomyxa_abinitio.gff
+# rm pelomyxa_final_genome.fa
+
 rm -r augustus_configs
 cp -r * $datadir || export CLEAN_SCRATCH=false

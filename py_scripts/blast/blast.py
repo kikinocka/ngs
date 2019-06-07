@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/in'
-db = '/home/kika/programs/blast-2.5.0+/bin/jaculum_scaffolds_transc.fasta'
+query = '/home/kika/ownCloud/euglenophytes/pt_proteome/EG_pt_proteins.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/el_merged.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_blast.xml'
+out = '/home/kika/ownCloud/euglenophytes/pt_proteome/EL_pt_proteins_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 10
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_blast.tsv', 'w')
-out_best = open('/home/kika/MEGAsync/Manuscripts/Blasto_Ku70-80/Figures/alignments/jac_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_pt_proteins_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_pt_proteins_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

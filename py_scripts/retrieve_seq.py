@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EG_RNAseq/EUGR_all.fasta', 'fasta')
-infile = open('/home/kika/ownCloud/euglenophytes/plastid_proteome/plastid_proteins_list.txt')
-out = open('/home/kika/ownCloud/euglenophytes/plastid_proteome/plastid_proteins.fa', 'w')
+infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EG_RNAseq/DEEG.fasta', 'fasta')
+infile = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EG_pt_proteins_list.txt')
+out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EG_pt_proteins.fa', 'w')
 
 retrieve = set()
 for line in infile:
