@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N TransDecoder_Predict
-#PBS -l select=1:ncpus=10:mem=20gb:scratch_local=50gb
-#PBS -l walltime=4:00:00
+#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -35,3 +35,5 @@ TransDecoder.Predict -t $transcriptome --retain_blastp_hits pfam.domtblout
 #copy files back
 cd el_merged.fasta.transdecoder_dir
 cp -r * $data_dir'el_merged.fasta.transdecoder_dir/'
+cp pfam.domtblout $data_dir
+cp el_merged.fasta.transdecoder.* $data_dir

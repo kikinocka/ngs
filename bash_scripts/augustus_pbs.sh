@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -N Augustus
 #PBS -q default
-#PBS -l select=1:ncpus=10:mem=1gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=2:00:00
+#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=10gb:os=debian9
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -27,7 +27,7 @@ cd $SCRATCHDIR
 # #1) CONVERT GFF FILE TO GENBANK
 # cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
 # cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
-# gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 100 pelo_final.corrected.gb
+# gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 60 pelo_final.corrected.gb
 # rm pelomyxa_final_genome.fa pelo_final.corrected.gff
 
 # #2) SPLIT GENES - may be skipped if not enough gene models available
@@ -63,9 +63,9 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm pelo_final.corrected.gb
 
-#7) PREDICT GENES
+#7) PREDICT GENES (less than 4h)
 cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
-augustus --protein=on --cds=on --outfile=augustus_log_pelo.txt --species=pelomyxa pelomyxa_final_genome.fa > pelomyxa_abinitio.gff
+augustus --protein=on --cds=on --outfile=pelo_augustus.gff --species=pelomyxa pelomyxa_final_genome.fa
 rm pelomyxa_final_genome.fa
 
 rm -r augustus_configs
