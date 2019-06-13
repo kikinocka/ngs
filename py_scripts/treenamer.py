@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pyruvate_metabolism/hydA_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema_paramylon/')
 
 #file in format Acc. number \t name of organism \n
-names = open('hydA_names.txt')
-tree = open('hydA_trimal_automated1.aln.treefile')
+names = open('acc_species.txt')
+tree = open('beta-1,3-glucan_synthase_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('hydA_renamed.tree', 'w') as result:
+with open('beta-1,3-glucan_synthase.tree', 'w') as result:
 	result.write(tree_line)

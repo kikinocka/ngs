@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aln='/home/kika/work_dir/q1000310_trimal_automated1.aln'
+aln='/home/kika/work_dir/beta-1,3-glucan_synthase_trimal_automated1.aln'
 bb=1000
 # alrt=5000
 # nm=5000

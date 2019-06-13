@@ -65,7 +65,7 @@ cd $SCRATCHDIR
 
 #7) PREDICT GENES (less than 4h)
 cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
-augustus --protein=on --cds=on --outfile=pelo_augustus.gff --species=pelomyxa pelomyxa_final_genome.fa
+augustus --protein=on --cds=on --outfile=pelo_augustus_fly.gff --species=fly pelomyxa_final_genome.fa
 rm pelomyxa_final_genome.fa
 
 rm -r augustus_configs
