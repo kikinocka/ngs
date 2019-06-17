@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('beta-1,3-glucan_synthase.tree', 'w') as result:
+with open('beta-1,3-glucan_synthase_automated1.tree', 'w') as result:
 	result.write(tree_line)

@@ -3,7 +3,7 @@ import os
 import subprocess
 
 os.chdir('/home/kika/MEGAsync/diplonema_paramylon/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+files = [x for x in os.listdir() if x.endswith('.fasta')]
 
 for file in files:
 	print(file)

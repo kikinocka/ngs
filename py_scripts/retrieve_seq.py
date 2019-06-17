@@ -2,8 +2,8 @@
 from Bio import SeqIO
 
 infasta = SeqIO.parse('/home/kika/MEGAsync/Data/EL_RNAseq/el_DEEZ.fasta', 'fasta')
-infile = open('/home/kika/ownCloud/euglenophytes/pt_proteome/in')
-out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_ribosomal.fa', 'w')
+infile = open('/home/kika/ownCloud/euglenophytes/OGs/in')
+out = open('/home/kika/ownCloud/euglenophytes/OGs/EL_missing_hits.fa', 'w')
 
 retrieve = set()
 for line in infile:

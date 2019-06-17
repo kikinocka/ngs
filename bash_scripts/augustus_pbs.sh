@@ -18,7 +18,6 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-#copy files to scratch
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 
 #augustus runs on 1 core only
