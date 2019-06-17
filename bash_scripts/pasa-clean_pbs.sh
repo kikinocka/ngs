@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N pasa-clean
-#PBS -l select=1:ncpus=1:mem=10gb:scratch_local=50gb
-#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=1:mem=20gb:scratch_local=50gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,8 +11,8 @@ cat $PBS_NODEFILE
 module add pasa-2.3.3
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/
-cp 'transcriptome_assembly/pelomyxa_trinity.fa' $SCRATCHDIR
+cd /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/
+cp pelomyxa_trinity.fa $SCRATCHDIR
 
 transcripts='pelomyxa_trinity.fa'
 
