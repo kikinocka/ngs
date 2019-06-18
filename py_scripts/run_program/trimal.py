@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_paramylon/')
+os.chdir('/home/kika/MEGAsync/diplonema_paramylon/with_eut/')
 files = [x for x in os.listdir() if 'MAFFT.aln' in x]
 
 for file in files:
