@@ -5,7 +5,7 @@ os.chdir('/home/kika/MEGAsync/diplonema_paramylon/')
 
 #file in format Acc. number \t name of organism \n
 names = open('acc_species.txt')
-tree = open('beta-1,3-glucan_synthase_trimal_automated1.aln.treefile')
+tree = open('with_eut/beta-1,3-glucan_synthase_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('beta-1,3-glucan_synthase_automated1.tree', 'w') as result:
+with open('with_eut/beta-1,3-glucan_synthase_automated1.tree', 'w') as result:
 	result.write(tree_line)
