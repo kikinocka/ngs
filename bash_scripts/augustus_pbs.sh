@@ -67,5 +67,6 @@ cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genom
 augustus --protein=on --cds=on --outfile=pelo_augustus_fly.gff --species=fly pelomyxa_final_genome.fa
 rm pelomyxa_final_genome.fa
 
+#copy files back
 rm -r augustus_configs
 cp -r * $datadir || export CLEAN_SCRATCH=false
