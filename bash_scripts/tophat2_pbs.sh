@@ -28,8 +28,8 @@ cd $SCRATCHDIR
 
 genome='pelo_final_bw2.fa'
 index='pelo_final_bw2'
-fwd='merged_trimmed_renamed_1.fq.gz'
-rv='merged_trimmed_renamed_2.fq.gz'
+fwd='merged_trimmed_renamed_1.fq'
+rv='merged_trimmed_renamed_2.fq'
 out='tophat_out/'
 bam=$out'accepted_hits.bam'
 sam=$out'accepted_hits.sam'
