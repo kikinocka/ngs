@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N create_hints
+#PBS -N filter_aln
 #PBS -l select=1:ncpus=15:mem=25gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
