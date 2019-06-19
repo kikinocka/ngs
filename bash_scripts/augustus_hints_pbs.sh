@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N filter_aln
+#PBS -N create_hints
 #PBS -l select=1:ncpus=15:mem=25gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -18,28 +18,28 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus2/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus/'
 cd $SCRATCHDIR
 
-#1) FILTER RAW ALIGNMENTS ~1.5h
-cp '/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus/accepted_hits.bam' $SCRATCHDIR
-bam='accepted_hits.bam'
-sorted='accepted_hits.s.bam'
-filtered='accepted_hits.sf.bam'
-header='accepted_hits.header.txt'
+# #1) FILTER RAW ALIGNMENTS ~1.5h
+# cp $datadir'accepted_hits.bam' $SCRATCHDIR
+# bam='accepted_hits.bam'
+# sorted='accepted_hits.s.bam'
+# filtered='accepted_hits.sf.bam'
+# header='accepted_hits.header.txt'
 
-samtools sort -n $bam -@ PBS_NUM_PPN accepted_hits.s
-filterBam --uniq --paired --in $sorted --out $filtered
-samtools view -H $filtered > $header
+# samtools sort -n $bam -@ PBS_NUM_PPN -o $sorted
+# filterBam --uniq --paired --in $sorted --out $filtered
+# samtools view -H $filtered > $header
 
-# #2) CREATE INTRON HINTS ~20 min
-# cp $datadir'accepted_hits.sf.bam' $SCRATCHDIR
-# bam='accepted_hits.sf.bam'
-# both='accepted_hits.both.ssf.bam'
-# hints='accepted_hits.hints.gff'
+#2) CREATE INTRON HINTS ~20 min
+cp $datadir'accepted_hits.sf.bam' $SCRATCHDIR
+bam='accepted_hits.sf.bam'
+both='accepted_hits.both.ssf.bam'
+hints='accepted_hits.hints.gff'
 
-# samtools sort $bam -@ PBS_NUM_PPN -o $both
-# bam2hints --intronsonly --in=$both --out=$hints
+samtools sort $bam -@ PBS_NUM_PPN -o $both
+bam2hints --intronsonly --in=$both --out=$hints
 
 #copy files back
 rm -r augustus_configs
