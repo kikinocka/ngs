@@ -18,7 +18,7 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/pelomyxa_final/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus/'
 cd $SCRATCHDIR
 
 #1) FILTER RAW ALIGNMENTS
