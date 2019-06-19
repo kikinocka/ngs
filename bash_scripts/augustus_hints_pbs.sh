@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N create_honts
-#PBS -l select=1:ncpus=25:mem=50gb:scratch_local=100gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=15:mem=25gb:scratch_local=50gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -21,7 +21,7 @@ export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus/'
 cd $SCRATCHDIR
 
-# #1) FILTER RAW ALIGNMENTS
+# #1) FILTER RAW ALIGNMENTS ~1.5h
 # cp $datadir'accepted_hits.bam' $SCRATCHDIR
 # bam='accepted_hits.bam'
 # sorted='accepted_hits.s.bam'
