@@ -21,26 +21,29 @@ export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus2/'
 cd $SCRATCHDIR
 
-#1) FILTER RAW ALIGNMENTS (~1.5h)
-cp $datadir'accepted_hits.bam' $SCRATCHDIR
-bam='accepted_hits.bam'
-sorted='accepted_hits.s.bam'
-filtered='accepted_hits.sf.bam'
-header='accepted_hits.header.txt'
+# #1) FILTER RAW ALIGNMENTS (~1.5h, 22 GB)
+# cp $datadir'accepted_hits.bam' $SCRATCHDIR
+# bam='accepted_hits.bam'
+# sorted='accepted_hits.s.bam'
+# filtered='accepted_hits.sf.bam'
+# header='accepted_hits.header.txt'
 
-samtools sort -n $bam -@ PBS_NUM_PPN -o $sorted
-filterBam --uniq --paired --in $sorted --out $filtered
-# samtools view -H $filtered > $header
-cp $SCRATCHDIR/augustus_configs/extrinsic/extrinsic.M.RM.E.W.cfg $datadir
+# samtools sort -n $bam -@ PBS_NUM_PPN -o $sorted
+# filterBam --uniq --paired --in $sorted --out $filtered
+# # samtools view -H $filtered > $header
+# cp $SCRATCHDIR/augustus_configs/extrinsic/extrinsic.M.RM.E.W.cfg $datadir/.
 
-# #2) CREATE INTRON HINTS (~5 min)
-# cp $datadir'accepted_hits.sf.bam' $SCRATCHDIR
-# bam='accepted_hits.sf.bam'
-# both='accepted_hits.both.ssf.bam'
-# hints='accepted_hits.introns.gff'
+#2) CREATE INTRON HINTS (~5 min)
+cp $datadir'accepted_hits.sf.bam' $SCRATCHDIR
+cp $datadir'extrinsic.M.RM.E.W.cfg' $SCRATCHDIR/augustus_configs/extrinsic/.
+bam='accepted_hits.sf.bam'
+both='accepted_hits.both.ssf.bam'
+hints='accepted_hits.introns.gff'
 
-# samtools sort $bam -@ PBS_NUM_PPN -o $both
-# bam2hints --intronsonly --minintronlen=30 --maxintronlen=2000 --in=$both --out=$hints
+samtools sort $bam -@ PBS_NUM_PPN -o $both
+bam2hints --intronsonly --minintronlen=30 --maxintronlen=2000 --in=$both --out=$hints
+cp $SCRATCHDIR/augustus_configs/extrinsic/extrinsic.M.RM.E.W.cfg $datadir/extrinsic.cfg
+cp -r $SCRATCHDIR/augustus_configs/* $augustus_configs/.
 
 #copy files back
 rm -r augustus_configs

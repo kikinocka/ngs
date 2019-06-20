@@ -56,24 +56,24 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm pelo_final.corrected.gb
 
-#6) RETRAIN AUGUSTUS
-cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
-etraining --species=pelomyxa pelo_final.corrected.gb
-cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-rm pelo_final.corrected.gb
+# #6) RETRAIN AUGUSTUS (2 min, 150 MB)
+# cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
+# etraining --species=pelomyxa pelo_final.corrected.gb
+# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+# rm pelo_final.corrected.gb
 
-# #7) PREDICT GENES
-# cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
-# cp $datadir'accepted_hits.introns.gff' $SCRATCHDIR
-# genome='pelomyxa_final_genome.fa'
-# introns='accepted_hits.introns.gff'
-# out='pelo_augustus.gff'
+#7) PREDICT GENES
+cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
+cp $datadir'accepted_hits.introns.gff' $SCRATCHDIR
+genome='pelomyxa_final_genome.fa'
+introns='accepted_hits.introns.gff'
+out='pelo_augustus.gff'
 
-# augustus --extrinsicCfgFile= --species=pelomyxa --hintsfile=$introns \
-# --allow_hinted_splicesites=atac --protein=on --gff3=on --genemodel=complete --progress=true \
-# --min_intron_len=30 --outfile=$out $genome
-# rm $genome
-# rm $introns
+augustus --extrinsicCfgFile= --species=pelomyxa --hintsfile=$introns \
+--allow_hinted_splicesites=atac --protein=on --gff3=on --genemodel=complete --progress=true \
+--min_intron_len=30 --outfile=$out $genome
+rm $genome
+rm $introns
 
 # augustus --extrinsicCfgFile=../hints/extrinsic.cfg --species=Streblomastix --hintsfile=../hints/hints.2.gff \
 # --allow_hinted_splicesites=atac --protein=on --gff3=on --genemodel=partial --progress=true \
