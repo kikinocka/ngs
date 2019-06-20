@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N create_hints
-#PBS -l select=1:ncpus=5:mem=25gb:scratch_local=50gb
+#PBS -l select=1:ncpus=15:mem=25gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -33,16 +33,15 @@ cd $SCRATCHDIR
 # samtools view -H $filtered > $header
 
 #2) CREATE INTRON HINTS ~20 min
-cp $datadir'accepted_hits.both.ssf.bam' $SCRATCHDIR
-# bam='accepted_hits.sf.bam'
+cp $datadir'accepted_hits.sf.bam' $SCRATCHDIR
+bam='accepted_hits.sf.bam'
 both='accepted_hits.both.ssf.bam'
-hints='accepted_hits.hints.gff'
+hints='accepted_hits.introns.gff'
 
-# samtools sort $bam -@ PBS_NUM_PPN -o $boths
+samtools sort $bam -@ PBS_NUM_PPN -o $both
 bam2hints --intronsonly --minintronlen=30 --maxintronlen=2000 --in=$both --out=$hints
 
 #copy files back
 rm -r augustus_configs
-# rm $bam
-rm $both
+rm $bam
 cp -r * $datadir || export CLEAN_SCRATCH=false

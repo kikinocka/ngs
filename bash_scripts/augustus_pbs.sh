@@ -2,7 +2,7 @@
 #PBS -N Augustus
 #PBS -q default
 #PBS -l select=1:ncpus=1:mem=5gb:scratch_local=30gb:os=debian9
-#PBS -l walltime=96:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -23,11 +23,11 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 #augustus runs on 1 core only
 cd $SCRATCHDIR
 
-# #1) CONVERT GFF FILE TO GENBANK
-# cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
-# cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
-# gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 60 pelo_final.corrected.gb
-# rm pelomyxa_final_genome.fa pelo_final.corrected.gff
+#1) CONVERT GFF FILE TO GENBANK
+cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
+cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
+gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 60 pelo_final.corrected.gb
+rm pelomyxa_final_genome.fa pelo_final.corrected.gff
 
 # #2) SPLIT GENES - may be skipped if not enough gene models available
 # cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
@@ -62,10 +62,16 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm pelo_final.corrected.gb
 
-#7) PREDICT GENES (less than 4h)
-cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
-augustus --protein=on --cds=on --outfile=pelo_augustus_fly.gff --species=fly pelomyxa_final_genome.fa
-rm pelomyxa_final_genome.fa
+# #7) PREDICT GENES (less than 4h)
+# cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
+# augustus --protein=on --cds=on --outfile=pelo_augustus_fly.gff --species=fly pelomyxa_final_genome.fa
+# rm pelomyxa_final_genome.fa
+
+# augustus --extrinsicCfgFile=../hints/extrinsic.cfg --species=Streblomastix --hintsfile=../hints/hints.2.gff \
+# --allow_hinted_splicesites=atac --protein=on --gff3=on --genemodel=partial --progress=true \
+# --outfile=Streblomastix_predicted_protein.gff --min_intron_len=25 \
+# /home/sebastian/Streblomastix/eukaryote/final_work/renaming/Streblomastix_genome_final.fasta
+# but for your genome maybe --genemodel=complete is better
 
 #copy files back
 rm -r augustus_configs
