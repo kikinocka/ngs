@@ -38,7 +38,7 @@ bowtie2-build --threads $PBS_NUM_PPN $genome $index
 
 tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv
 
-# samtools view -bS $bam > $sam -@ $PBS_NUM_PPN
+# samtools view $bam > $sam -@ $PBS_NUM_PPN
 # samtools index $bam
 
 #copy files back
