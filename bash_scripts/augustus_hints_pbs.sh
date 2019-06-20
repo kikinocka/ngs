@@ -43,5 +43,6 @@ bam2hints --intronsonly --minintronlen=30 --maxintronlen=2000 --in=$both --out=$
 
 #copy files back
 rm -r augustus_configs
-rm $bam
+# rm $bam
+rm $both
 cp -r * $datadir || export CLEAN_SCRATCH=false
