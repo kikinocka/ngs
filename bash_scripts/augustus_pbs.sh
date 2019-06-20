@@ -23,11 +23,11 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/augustus/'
 #augustus runs on 1 core only
 cd $SCRATCHDIR
 
-#1) CONVERT GFF FILE TO GENBANK
-cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
-cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
-gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 60 pelo_final.corrected.gb
-rm pelomyxa_final_genome.fa pelo_final.corrected.gff
+# #1) CONVERT GFF FILE TO GENBANK
+# cp $datadir'pelo_final.corrected.gff' $SCRATCHDIR
+# cp /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa $SCRATCHDIR
+# gff2gbSmallDNA.pl pelo_final.corrected.gff pelomyxa_final_genome.fa 60 pelo_final.corrected.gb
+# rm pelomyxa_final_genome.fa pelo_final.corrected.gff
 
 # #2) SPLIT GENES - may be skipped if not enough gene models available
 # cp $datadir'pelo_final_strict.gb' $SCRATCHDIR
@@ -39,11 +39,11 @@ rm pelomyxa_final_genome.fa pelo_final.corrected.gff
 # mkdir $augustus_configs/pelomyxa
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/pelomyxa/.
 
-# #4) MAKE AN INITIAL TRAINING
-# cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
-# etraining --species=pelomyxa pelo_final.corrected.gb
-# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-# rm pelo_final.corrected.gb
+#4) MAKE AN INITIAL TRAINING
+cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
+etraining --species=pelomyxa pelo_final.corrected.gb
+cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+rm pelo_final.corrected.gb
 
 # #not run if 2) is skipped
 # cp $datadir'pelo_final.gb.test' $SCRATCHDIR

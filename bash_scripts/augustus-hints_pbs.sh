@@ -21,7 +21,7 @@ export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus/'
 cd $SCRATCHDIR
 
-# #1) FILTER RAW ALIGNMENTS ~1.5h
+# #1) FILTER RAW ALIGNMENTS (~1.5h)
 # cp $datadir'accepted_hits.bam' $SCRATCHDIR
 # bam='accepted_hits.bam'
 # sorted='accepted_hits.s.bam'
@@ -32,7 +32,7 @@ cd $SCRATCHDIR
 # filterBam --uniq --paired --in $sorted --out $filtered
 # samtools view -H $filtered > $header
 
-#2) CREATE INTRON HINTS ~20 min
+#2) CREATE INTRON HINTS (~5 min)
 cp $datadir'accepted_hits.sf.bam' $SCRATCHDIR
 bam='accepted_hits.sf.bam'
 both='accepted_hits.both.ssf.bam'
