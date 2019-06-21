@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N Augustus
 #PBS -q default
-#PBS -l select=1:ncpus=1:mem=250mb:scratch_local=30gb:os=debian9
+#PBS -l select=1:ncpus=1:mem=500mb:scratch_local=30gb:os=debian9
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
