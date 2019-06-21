@@ -19,9 +19,9 @@ cp $datadir'mpp_seqs_trimal_automated1.aln' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='mpp_seqs_trimal_automated1.aln'
-bb=1000
+bb=100
 
-iqtree -s $aln -bb $bb -nt AUTO -m TEST
+iqtree -s $aln -b $bb -nt AUTO -m TEST
 
 #copy files back
 rm $aln

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_catalase/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/import/mpp_tree/')
 
 #file in format Acc. number \t name of organism \n
 names = open('acc_spp.txt')
-tree = open('catalase_trimal_automated1.aln.treefile')
+tree = open('mpp_seqs_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('catalase.tree', 'w') as result:
+with open('mpp.tree', 'w') as result:
 	result.write(tree_line)
