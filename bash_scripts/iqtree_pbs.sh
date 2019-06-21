@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/mpp/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/mpp/'
 
 #copy files to scratch
 cp $datadir'mpp_seqs_trimal_automated1.aln' $SCRATCHDIR
