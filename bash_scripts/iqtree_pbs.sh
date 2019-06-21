@@ -17,6 +17,7 @@ datadir='/storage/brno3-cerit/home/kika/catalase/'
 cp $datadir'catalase_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
+cd $SCRATCHDIR
 aln='catalase_trimal_automated1.aln'
 bb=1000
 
