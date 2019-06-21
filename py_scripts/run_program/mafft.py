@@ -3,7 +3,7 @@ import os
 import subprocess
 
 os.chdir('/home/kika/MEGAsync/diplonema_catalase/')
-files = [x for x in os.listdir() if x.endswith('.fasta')]
+files = [x for x in os.listdir() if x.endswith('.fas')]
 
 for file in files:
 	print(file)
