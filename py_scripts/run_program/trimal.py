@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_catalase/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/import/mpp_tree/')
 files = [x for x in os.listdir() if 'MAFFT.aln' in x]
 
 for file in files:
