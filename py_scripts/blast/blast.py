@@ -5,7 +5,7 @@ from Bio.Blast import NCBIXML
 cmd = 'blastp'
 task = 'blastp'
 query = '/home/kika/ownCloud/euglenophytes/pt_proteome/EG_pt_proteins.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/eut_DEEE.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/eut_deee.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
 out = '/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/Eut_pt_proteins_blast.xml'
 evalue = 1
