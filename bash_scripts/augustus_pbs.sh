@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -N Augustus
 #PBS -q default
-#PBS -l select=1:ncpus=1:mem=500mb:scratch_local=30gb:os=debian9
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=1:mem=250mb:scratch_local=30gb:os=debian9
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -50,17 +50,17 @@ cd $SCRATCHDIR
 # augustus --species=pelomyxa pelo_final.gb.test | tee pelo_first_test.out
 # cp pelo_first_test.out $datadir
 
-#5) OPTIMIZE AUGUSTUS (~ 1h, 150 MB)
-cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
-optimize_augustus.pl --species=pelomyxa --cpus=$PBS_NUM_PPN pelo_final.corrected.gb
-cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-rm pelo_final.corrected.gb
-
-# #6) RETRAIN AUGUSTUS (2 min, 150 MB)
+# #5) OPTIMIZE AUGUSTUS (~ 1h, 150 MB)
 # cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
-# etraining --species=pelomyxa pelo_final.corrected.gb
+# optimize_augustus.pl --species=pelomyxa --cpus=$PBS_NUM_PPN pelo_final.corrected.gb
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm pelo_final.corrected.gb
+
+#6) RETRAIN AUGUSTUS (2 min, 150 MB)
+cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
+etraining --species=pelomyxa pelo_final.corrected.gb
+cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+rm pelo_final.corrected.gb
 
 # #7) PREDICT GENES (1.5 hod, 3 GB)
 # cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
