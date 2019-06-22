@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -N Augustus
 #PBS -q default
-#PBS -l select=1:ncpus=1:mem=250mb:scratch_local=30gb:os=debian9
-#PBS -l walltime=2:00:00
+#PBS -l select=1:ncpus=1:mem=5gb:scratch_local=30gb:os=debian9
+#PBS -l walltime=4:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -56,24 +56,24 @@ cd $SCRATCHDIR
 # cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
 # rm pelo_final.corrected.gb
 
-#6) RETRAIN AUGUSTUS (2 min, 150 MB)
-cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
-etraining --species=pelomyxa pelo_final.corrected.gb
-cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
-rm pelo_final.corrected.gb
+# #6) RETRAIN AUGUSTUS (2 min, 150 MB)
+# cp $datadir'pelo_final.corrected.gb' $SCRATCHDIR
+# etraining --species=pelomyxa pelo_final.corrected.gb
+# cp -r $SCRATCHDIR/augustus_configs/species/pelomyxa/* $augustus_configs/species/pelomyxa/.
+# rm pelo_final.corrected.gb
 
-# #7) PREDICT GENES (1.5 hod, 3 GB)
-# cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
-# cp $datadir'accepted_hits.introns.gff' $SCRATCHDIR
-# cp $datadir'extrinsic.cfg' $SCRATCHDIR
-# genome='pelomyxa_final_genome.fa'
-# introns='accepted_hits.introns.gff'
-# extrinsic='extrinsic.cfg'
-# out='pelo_augustus.gff'
+#7) PREDICT GENES (1.5 hod, 3 GB)
+cp '/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/pelomyxa_final_genome.fa' $SCRATCHDIR
+cp $datadir'accepted_hits.introns.gff' $SCRATCHDIR
+cp $datadir'extrinsic.cfg' $SCRATCHDIR
+genome='pelomyxa_final_genome.fa'
+introns='accepted_hits.introns.gff'
+extrinsic='extrinsic.cfg'
+out='pelo_augustus.gff'
 
-# augustus --extrinsicCfgFile=$extrinsic --species=pelomyxa --hintsfile=$introns --allow_hinted_splicesites=atac \
-# --protein=on --gff3=on --genemodel=complete --progress=true --min_intron_len=30 --outfile=$out $genome
-# rm $genome $introns $extrinsic
+augustus --extrinsicCfgFile=$extrinsic --species=pelomyxa --hintsfile=$introns --allow_hinted_splicesites=atac \
+--protein=on --gff3=on --genemodel=complete --progress=true --min_intron_len=30 --outfile=$out $genome
+rm $genome $introns $extrinsic
 
 
 #copy files back
