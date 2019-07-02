@@ -1,9 +1,9 @@
 #!/bin/bash
 
 targetp='/home/kika/programs/targetp-1.1/targetp'
-workdir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/fdh/'
-infile=$workdir'pelo_FdhF.fa'
-outfile=$workdir'pelo_FdhF_targetp.txt'
+workdir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/electron_transfer/'
+infile=$workdir'pelo_MDH_aa.fa'
+outfile=$workdir'pelo_MDH_targetp.txt'
 plant='P'
 non_plant='N'
 
