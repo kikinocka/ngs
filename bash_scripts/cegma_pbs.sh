@@ -11,15 +11,14 @@ cat $PBS_NODEFILE
 module add cegma-2.5
 module add blast+-2.2.29
 
-genome_dir='/auto/brno3-cerit/nfs4/home/kika/pelomyxa/genome_assembly/'
+data_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
 
 #copy file to scratch
-cd $genome_dir
-cp pelomyxa_final_genome.fa $SCRATCHDIR
+cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
 
-genome='pelomyxa_final_genome.fa'
+genome='pelomyxa_transcriptome_clean.fa'
 
 cd $SCRATCHDIR
-cegma -o pelo_p-rna-scaffolder -T $PBS_NUM_PPN -g $genome
+cegma -o pelo_clean -T $PBS_NUM_PPN -g $genome
 
-cp pelo_p-rna-scaffolder* $genome_dir'/clean_merged_hisat2_p-rna-scaffolder/'
+cp pelo_clean* $data_dir'/cegma/pelo_clean/.'
