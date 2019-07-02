@@ -18,7 +18,9 @@ cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
 
 genome='pelomyxa_transcriptome_clean.fa'
 
+#compute on scratch
 cd $SCRATCHDIR
 cegma -o pelo_clean -T $PBS_NUM_PPN -g $genome
 
+#copy files back
 cp pelo_clean* $data_dir'/cegma/pelo_clean/.'
