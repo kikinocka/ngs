@@ -11,18 +11,18 @@ cat $PBS_NODEFILE
 module add hmmer-3.2
 module add transdecoder-3.0.1
 
-data_dir='/storage/brno3-cerit/home/kika/elonga/'
+data_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
 pfam_dir='/storage/brno3-cerit/home/kika/pfam/'
 
 #copy files to scratch
 cp $pfam_dir'Pfam-A.hmm' $SCRATCHDIR
 
-cp $data_dir'el_merged.fasta' $SCRATCHDIR
-cp -r $data_dir'el_merged.fasta.transdecoder_dir' $SCRATCHDIR
+cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
+cp -r $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir' $SCRATCHDIR
 
 hmm='Pfam-A.hmm'
-transcriptome='el_merged.fasta'
-orfs='el_merged.fasta.transdecoder_dir/longest_orfs.pep'
+transcriptome='pelomyxa_transcriptome_clean.fa'
+orfs='pelomyxa_transcriptome_clean.fa.transdecoder_dir/longest_orfs.pep'
 
 
 #compute on scratch
@@ -33,7 +33,7 @@ TransDecoder.Predict -t $transcriptome --retain_blastp_hits pfam.domtblout
 
 
 #copy files back
-cd el_merged.fasta.transdecoder_dir
-cp -r * $data_dir'el_merged.fasta.transdecoder_dir/'
-cp pfam.domtblout $data_dir
-cp el_merged.fasta.transdecoder.* $data_dir
+cd $transcriptome $hmm
+cp -r * $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
+# cp pfam.domtblout $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
+# cp pelomyxa_transcriptome_clean.fa.transdecoder.* $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
