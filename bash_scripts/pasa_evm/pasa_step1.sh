@@ -3,15 +3,15 @@
 pasa_path='/opt/pasa/current/scripts/'
 
 #genome file
-genome=/home/kika/pelomyxa_schiedti/genome_assembly/pelomyxa_final_genome.fa
+genome='/home/kika/pelomyxa_schiedti/genome_assembly/pelomyxa_final_genome.fa'
 #transcriptome file
-transcriptome=/home/kika/pelomyxa_schiedti/transcriptome_assembly/pelomyxa_transcriptome_clean.fa
+transcriptome='/home/kika/pelomyxa_schiedti/transcriptome_assembly/pelomyxa_transcriptome_clean.fa'
 
 #database name for mysql
-database='/home/kika/pelomyxa_schiedti/pasa/pelomyxa_pasa_mysql'
-pasa_fasta=$database'.assemblies.fasta'
-pasa_gff=$database'.pasa_assemblies.gff3'
-config='/home/kika/pelomyxa_schiedti/pasa/alignAssembly.config'
+database=pelomyxa_pasa_mysql
+pasa_fasta=$database.assemblies.fasta
+pasa_gff=$database.pasa_assemblies.gff3
+config=alignAssembly.config
 
 ## run pasa 
 $pasa_path'Launch_PASA_pipeline.pl' -c $config -C -r -R -g $genome -t $transcriptome --CPU 15 \
