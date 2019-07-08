@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/Eut_pt_hits.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/eg_deeg.fa'
+query = '/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/SufS2.fa'
+db = '/home/kika/programs/blast-2.5.0+/bin/eut_deee.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/EG_reciprocal_blast.xml'
+out = '/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/eut_SufS2_blast.xml'
 evalue = 1
 outfmt = 5
 hits = 10
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/EG_reciprocal_blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/EG_reciprocal_best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/eut_SufS2_blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Eut/eut_SufS2_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

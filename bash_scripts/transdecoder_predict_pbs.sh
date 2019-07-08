@@ -29,11 +29,9 @@ orfs='pelomyxa_transcriptome_clean.fa.transdecoder_dir/longest_orfs.pep'
 cd $SCRATCHDIR
 hmmpress $hmm
 hmmscan --cpu $PBS_NUM_PPN --domtblout pfam.domtblout $hmm $orfs
-TransDecoder.Predict -t $transcriptome --retain_blastp_hits pfam.domtblout
+TransDecoder.Predict -t $transcriptome --retain_pfam_hits pfam.domtblout
 
 
 #copy files back
-cd $transcriptome $hmm
+rm -r $transcriptome $hmm 'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
 cp -r * $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
-# cp pfam.domtblout $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
-# cp pelomyxa_transcriptome_clean.fa.transdecoder.* $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'

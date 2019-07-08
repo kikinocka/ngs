@@ -1,8 +1,8 @@
 #!/bin/bash
 
-work_dir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/electron_transfer/'
-fa=$work_dir'pelo_MDH_aa.fa'
-r=$work_dir'pelo_MDH_multiloc_fungal.txt'
+work_dir='/home/kika/ownCloud/pelomyxa_schiedti/predicted_proteins/'
+fa=$work_dir'pelomyxa_transcriptome_clean.fa.transdecoder.5prime_complete.clustered.pep'
+r=$work_dir'proteins_multiloc_fungal.txt'
 a=animal
 p=plant
 f=fungal
