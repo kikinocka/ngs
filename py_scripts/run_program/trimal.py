@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_paramylon/beta-1,3-glucan_synthase/domain/')
+os.chdir('/home/kika/MEGAsync/diplonema_paramylon/glucanase/')
 files = [x for x in os.listdir() if 'MAFFT.aln' in x]
 
 for file in files:

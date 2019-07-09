@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/import/mpp_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema_paramylon/beta-1,3-glucan_synthase/domain/')
 
 #file in format Acc. number \t name of organism \n
-names = open('acc_spp.txt')
-tree = open('sboot/mpp_seqs_trimal_automated1.aln.treefile')
+names = open('acc_species.txt')
+tree = open('glucane_synthase_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('sboot/mpp.tree', 'w') as result:
+with open('glucane_synthase.tree', 'w') as result:
 	result.write(tree_line)

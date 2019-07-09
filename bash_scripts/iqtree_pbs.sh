@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/paramylon/synthase/'
+datadir='/storage/brno3-cerit/home/kika/paramylon/glucanase/'
 
 #copy files to scratch
-cp $datadir'glucane_synthase_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'glucanase_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='glucane_synthase_trimal_automated1.aln'
-guide='guide_glucane_synthase'
+aln='glucanase_trimal_automated1.aln'
+guide='guide_glucanase'
 guide_tree=$guide'.treefile'
 bb=1000
 
