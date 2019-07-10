@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_paramylon/beta-1,3-glucan_synthase/domain/')
+os.chdir('/home/kika/MEGAsync/diplonema_paramylon/glucanase/')
 
 #file in format Acc. number \t name of organism \n
 names = open('acc_species.txt')
-tree = open('glucane_synthase_trimal_0.5.aln.treefile')
+tree = open('glucanase_trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('glucane_synthase.tree', 'w') as result:
+with open('glucanase.tree', 'w') as result:
 	result.write(tree_line)
