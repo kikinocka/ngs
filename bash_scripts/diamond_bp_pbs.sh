@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module add diamond-0.8.29
 
 db_dir='/storage/brno3-cerit/home/fussyz01/DMND/'
-data_dir='/storage/brno3-cerit/home/home/kika/euglenophytes/'
+data_dir='/storage/brno3-cerit/home/kika/euglenophytes/'
 
 #copy files to scratch
 cp $db_dir'nr2.dmnd' $SCRATCHDIR/nr.dmnd

@@ -5,7 +5,7 @@ os.chdir('/home/kika/MEGAsync/diplonema_paramylon/glucanase/')
 
 #file in format Acc. number \t name of organism \n
 names = open('acc_species.txt')
-tree = open('glucanase_trimal_0.5.aln.treefile')
+tree = open('guide_glucanase.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('glucanase.tree', 'w') as result:
+with open('glucanase_guide.tree', 'w') as result:
 	result.write(tree_line)
