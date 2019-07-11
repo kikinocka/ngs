@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N diamond-bp
-#PBS -l select=1:ncpus=8:mem=50gb:scratch_local=100gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=10:mem=50gb:scratch_local=100gb
+#PBS -l walltime=10:00:00
 #PBS -m ae
 #PBS -j oe
 
