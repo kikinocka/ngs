@@ -1,11 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+import os
 from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/genes/tRNAs/iqtree/pasta/without_anticodon/trnas_deduplicated_anticodon.fasta', 'fasta')
-output1 = open('/home/kika/MEGAsync/blasto_project/genes/tRNAs/iqtree/pasta/without_anticodon/trnas_deduplicated2_anticodon.fasta', 'w')
-output2 = open('/home/kika/MEGAsync/blasto_project/genes/tRNAs/iqtree/pasta/without_anticodon/trnas_dupl_names.txt', 'w')
+os.chdir('/home/kika/MEGAsync/diplonema_paramylon/glucanase/')
+infile = SeqIO.parse('glucanase_trimal_0.5.aln', 'fasta')
+output1 = open('glucanase_trimal_0.5_dedupl.aln', 'w')
+output2 = open('glucanase_trimal_0.5_dupl_names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
