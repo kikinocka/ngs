@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/home/kika/MEGAsync/diplonema_paramylon/glucanase/')
-infile = SeqIO.parse('glucanase_trimal_0.5.aln', 'fasta')
-output1 = open('glucanase_trimal_0.5_dedupl.aln', 'w')
-output2 = open('glucanase_trimal_0.5_dupl_names.txt', 'w')
+os.chdir('/home/kika/ownCloud/euglenophytes/pt_proteome/')
+infile = SeqIO.parse('EG_pt_proteins.fa', 'fasta')
+output1 = open('EG_pt_proteins_dedupl.fa', 'w')
+output2 = open('EG_pt_proteins_dupl_names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

@@ -3,7 +3,7 @@ from Bio import SeqIO
 
 infasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/rcos_derc.fasta', 'fasta')
 infile = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Rhab/in')
-out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Rhab/check.fa', 'w')
+out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Rhab/Rhab_pt_hits.fa', 'w')
 
 retrieve = set()
 for line in infile:
