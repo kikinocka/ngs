@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/nifU/with_FdhD/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/nifU/without_FdhD/'
 
 #copy files to scratch
 cp $datadir'nifU_trimal_automated1.aln' $SCRATCHDIR
