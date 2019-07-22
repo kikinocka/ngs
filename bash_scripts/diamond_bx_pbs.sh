@@ -25,7 +25,7 @@ out='pelo_clean_dmnd_bx.out'
 
 #compute in zoli's folder
 cd $diamond_dir
-./diamond blastx -q $query -d $db -o $out -p $PBS_NUM_PPN -f 6 --sensitive --max-target-seqs 1 --evalue 1e-5
+diamond blastx -q $query -d $db -o $out -p $PBS_NUM_PPN -f 6 --sensitive --max-target-seqs 1 --evalue 1e-5
 
 #copy files back
 cp $out $data_dir'blobtools/pelo_clean/.' || export CLEAN_SCRATCH=false
