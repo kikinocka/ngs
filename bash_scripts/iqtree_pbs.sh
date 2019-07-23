@@ -11,14 +11,14 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/nifU/without_FdhD/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/trees/apsk/'
 
 #copy files to scratch
-cp $datadir'nifU_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'apsk_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='nifU_trimal_automated1.aln'
+aln='apsk_trimal_automated1.aln'
 guide='guide_glucanase'
 guide_tree=$guide'.treefile'
 bb=1000
