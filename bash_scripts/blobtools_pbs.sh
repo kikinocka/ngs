@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blobtools
 #PBS -l select=1:ncpus=1:mem=80gb:scratch_local=50gb
-#PBS -l walltime=2:00:00
+#PBS -l walltime=15:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -28,11 +28,11 @@ transcriptome='pelomyxa_transcriptome_clean.fa'
 sam='pelo_trinity_clean_bw2.sam'
 dmnd='pelo_clean_dmnd_bx.out'
 taxid='prot.accession2taxid'
-taxified='pelo_clean.taxified.out'
+taxified='pelo_clean_dmnd_bx.taxified.out'
 base='blobDB'
 rank='superkingdom'
 
-blobtools taxify -f $dmnd -m $taxid -s 1 -t 2 -o $taxified
+blobtools taxify -f $dmnd -m $taxid -s 1 -t 2
 blobtools create -i $transcriptome -s $sam -t $taxified -o $base
 blobtools view -i $base'.blobDB.json' --cov -o table
 blobtools plot -i $base'.blobDB.json' -r $rank -o plot 
