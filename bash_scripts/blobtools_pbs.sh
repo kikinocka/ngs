@@ -10,28 +10,33 @@ cat $PBS_NODEFILE
 #add module
 module add blobtools-1.0
 
+pelo_dir='/storage/brno3-cerit/home/kika/pelomyxa/'
+data_dir=$pelo_dir'transcriptome_assembly/'
+mapping_dir=$pelo_dir'mapping/bowtie2/RNA_to_transcriptome/pelo_clean/'
+blob_dir='/storage/brno3-cerit/home/kika/blobtools/'
+
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/
-cp pelomyxa_trinity.fa $SCRATCHDIR
-cp blobtools/pelo_trinity.taxified.out $SCRATCHDIR
-
-cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/RNA_to_transcriptome/
-cp pelo_trinity_bw2.sam $SCRATCHDIR
-
+cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
+cp $mapping_dir'pelo_trinity_clean_bw2.sam' $SCRATCHDIR
+cp $data_dir'blobtools/pelo_clean/pelo_clean_dmnd_bx.out' $SCRATCHDIR
+cp $blob_dir'prot.accession2taxid' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-transcriptome='pelomyxa_trinity.fa'
-sam='pelo_trinity_bw2.sam'
-taxified='pelo_trinity.taxified.out'
+transcriptome='pelomyxa_transcriptome_clean.fa'
+sam='pelo_trinity_clean_bw2.sam'
+dmnd='pelo_clean_dmnd_bx.out'
+taxid='prot.accession2taxid'
+taxified='pelo_clean.taxified.out'
 base='blobDB'
 rank='superkingdom'
 
+blobtools taxify -f $dmnd -m $taxid -s 1 -t 2 -o $taxified
 blobtools create -i $transcriptome -s $sam -t $taxified -o $base
 blobtools view -i $base'.blobDB.json' --cov -o table
 blobtools plot -i $base'.blobDB.json' -r $rank -o plot 
 
 #copy files back
-rm $transcriptome $sam $taxified
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/blobtools/superkingdom/. || export CLEAN_SCRATCH=false
+rm $transcriptome $sam $dmnd $taxid
+cp -r * $data_dir'blobtools/pelo_clean/' || export CLEAN_SCRATCH=false
