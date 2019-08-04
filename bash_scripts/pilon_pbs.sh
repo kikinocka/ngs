@@ -23,7 +23,7 @@ bam='p57_ra_DNA_bw2_sorted.bam'
 index='p57_ra_DNA_bw2_sorted.bam.bai'
 
 #compute on scratch
-cd SCRATCHDIR
+cd $SCRATCHDIR
 java -jar -Xmx20G $pilon --genome $assembly --bam $bam --threads $PBS_NUM_PPN
 
 #copy results to your folder
