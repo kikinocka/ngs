@@ -13,7 +13,7 @@ module add openjdk-10
 data_dir='/storage/brno3-cerit/home/kika/p57/'
 
 #copy files to scratch
-cp $data_dir'p57_ra.fa' $SCRATCHDIR
+cp $data_dir'p57_pilon_1.fa' $SCRATCHDIR
 cp $data_dir'p57_ra_DNA_bw2_sorted.bam' $SCRATCHDIR
 cp $data_dir'p57_ra_DNA_bw2_sorted.bam.bai' $SCRATCHDIR
 
