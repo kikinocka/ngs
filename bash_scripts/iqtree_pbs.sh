@@ -15,17 +15,18 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/trees/nifU/pmsf_without_iscU/'
 
 #copy files to scratch
 cp $datadir'nifU_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'guide_nifU.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 aln='nifU_trimal_automated1.aln'
 guide='guide_nifU'
-guide_tree=$guide'.treefile'
+guide_tree='guide_nifU.treefile'
 bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST
 
-iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
+# iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
 iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree
 
 #copy files back
