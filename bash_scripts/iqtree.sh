@@ -3,7 +3,7 @@
 data_dir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifU_tree/pmsf_without_iscU/'
 aln=$data_dir'nifU_trimal_automated1.aln'
 guide=$data_dir'guide_nifU'
-guide_tree=$data_dir$guide'.treefile'
+guide_tree=$data_dir'guide_nifU.treefile'
 bb=1000
 
 # iqtree -m LG+F+G -nt 4 -s $aln -pre $guide

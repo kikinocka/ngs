@@ -2,7 +2,7 @@
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=15:mem=2gb:scratch_local=30gb:os=debian9
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -15,13 +15,12 @@ datadir='/storage/brno3-cerit/home/kika/pelomyxa/trees/nifU/pmsf_without_iscU/'
 
 #copy files to scratch
 cp $datadir'nifU_trimal_automated1.aln' $SCRATCHDIR
-cp $datadir'guide_nifU.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 aln='nifU_trimal_automated1.aln'
 guide='guide_nifU'
-guide_tree='guide_nifU.treefile'
+guide_tree=$guide'.treefile'
 bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST
