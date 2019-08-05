@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/trees/ipp/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/trees/nifU/pmsf_with_iscU/'
 
 #copy files to scratch
-cp $datadir'ipp_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'nifU_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='ipp_trimal_automated1.aln'
-guide='guide_ipp'
+aln='nifU_trimal_automated1.aln'
+guide='guide_nifU'
 guide_tree=$guide'.treefile'
 bb=1000
 
