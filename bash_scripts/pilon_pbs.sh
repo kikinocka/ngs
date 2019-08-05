@@ -18,7 +18,7 @@ cp $data_dir'p57_ra_DNA_bw2_sorted.bam' $SCRATCHDIR
 cp $data_dir'p57_ra_DNA_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
-assembly='p57_ra.fa'
+assembly='p57_pilon_1.fa'
 bam='p57_ra_DNA_bw2_sorted.bam'
 index='p57_ra_DNA_bw2_sorted.bam.bai'
 
