@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifU_tree/pmsf_with_iscU/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifU_tree/pmsf_without_iscU/')
 
 #file in format Acc. number \t name of organism \n
 names = open('nifU_names.txt')
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('nifU_renamed.tree', 'w') as result:
+with open('nifU_pmsf_without_iscU_renamed.tree', 'w') as result:
 	result.write(tree_line)
