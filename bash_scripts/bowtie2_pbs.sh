@@ -12,21 +12,20 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/
-cp pelomyxa_transcriptome_clean.fa $SCRATCHDIR
+data_dir='/storage/brno3-cerit/home/kika/p57/'
 
-cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome
-cp merged_trimmed_1.fq.gz $SCRATCHDIR
-cp merged_trimmed_2.fq.gz $SCRATCHDIR
+cp $data_dir'pilon1/p57_pilon1.fa' $SCRATCHDIR
+cp $data_dir'p57_trimmed_1.fq' $SCRATCHDIR
+cp $data_dir'p57_trimmed_2.fq' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='pelo_trinity_clean_bw2'
-ref='pelomyxa_transcriptome_clean.fa'
-p1_1='merged_trimmed_1.fq.gz'
-p1_2='merged_trimmed_2.fq.gz'
+base_name='p57_pilon1_bw2'
+ref='p57_pilon1.fa'
+p1_1='p57_trimmed_1.fq'
+p1_2='p57_trimmed_2.fq'
 
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
@@ -44,4 +43,4 @@ samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile
 samtools index $sorted
 
 #copy files back
-cp *bw2* /storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/RNA_to_transcriptome/pelo_clean/.
+cp *bw2* $data_dir'pilon1/'
