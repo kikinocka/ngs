@@ -14,7 +14,7 @@ module add iqtree-1.6.8
 datadir='/storage/brno3-cerit/home/kika/catalase/pmsf/'
 
 #copy files to scratch
-cp $datadir'PAPStransporter_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'catalase_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
