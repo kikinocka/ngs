@@ -14,7 +14,7 @@ module add samtools-1.3.1
 #copy files to scratch
 data_dir='/storage/brno3-cerit/home/kika/p57/'
 
-cp $data_dir'pilon2/p57_pilon2.fa' $SCRATCHDIR
+cp $data_dir'pilon3/p57_pilon3.fa' $SCRATCHDIR
 cp $data_dir'p57_trimmed_1.fq' $SCRATCHDIR
 cp $data_dir'p57_trimmed_2.fq' $SCRATCHDIR
 
@@ -22,8 +22,8 @@ cp $data_dir'p57_trimmed_2.fq' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='p57_pilon2_bw2'
-ref='p57_pilon2.fa'
+base_name='p57_pilon3_bw2'
+ref='p57_pilon3.fa'
 p1_1='p57_trimmed_1.fq'
 p1_2='p57_trimmed_2.fq'
 
@@ -43,4 +43,4 @@ samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile
 samtools index $sorted
 
 #copy files back
-cp *bw2* $data_dir'pilon2/'
+cp *bw2* $data_dir'pilon3/'

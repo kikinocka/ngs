@@ -1,8 +1,8 @@
 #!/bin/bash
 
-data_dir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifU_tree/pmsf_without_iscU/'
-aln=$data_dir'nifU_trimal_automated1.aln'
-guide=$data_dir'guide_nifU'
+data_dir='/home/kika/MEGAsync/diplonema_catalase/'
+aln=$data_dir'catalase_trimal_automated1.aln'
+guide=$data_dir'guide_catalase'
 guide_tree=$data_dir$guide'.treefile'
 bb=1000
 
