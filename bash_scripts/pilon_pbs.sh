@@ -13,14 +13,14 @@ module add openjdk-10
 data_dir='/storage/brno3-cerit/home/kika/p57/'
 
 #copy files to scratch
-cp $data_dir'pilon2/p57_pilon2.fa' $SCRATCHDIR
-cp $data_dir'pilon2/p57_pilon2_bw2_sorted.bam' $SCRATCHDIR
-cp $data_dir'pilon2/p57_pilon2_bw2_sorted.bam.bai' $SCRATCHDIR
+cp $data_dir'pilon3/p57_pilon3.fa' $SCRATCHDIR
+cp $data_dir'pilon3/p57_pilon3_bw2_sorted.bam' $SCRATCHDIR
+cp $data_dir'pilon3/p57_pilon3_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
-assembly='p57_pilon2.fa'
-bam='p57_pilon2_bw2_sorted.bam'
-index='p57_pilon2_bw2_sorted.bam.bai'
+assembly='p57_pilon3.fa'
+bam='p57_pilon3_bw2_sorted.bam'
+index='p57_pilon3_bw2_sorted.bam.bai'
 
 #compute on scratch
 cd $SCRATCHDIR
