@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/trees/PAPS_transporter/'
+datadir='/storage/brno3-cerit/home/kika/catalase/pmsf/'
 
 #copy files to scratch
 cp $datadir'PAPStransporter_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='PAPStransporter_trimal_automated1.aln'
-guide='guide_PAPStransporter'
+aln='catalase_trimal_automated1.aln'
+guide='guide_catalase'
 guide_tree=$guide'.treefile'
 bb=1000
 
