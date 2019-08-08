@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd /home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifU_tree/domain/
-infile='nifU_seqs.fa'
-outfile='nifU_MAFFT.aln'
+cd /home/kika/ownCloud/lmex_mutants/eep_ko/
+infile='ko2_EEP.fasta'
+outfile='ko2_EEP.aln'
 
 mafft --thread 4 --threadit 0 --inputorder --auto $infile > $outfile
