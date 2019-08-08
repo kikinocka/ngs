@@ -15,17 +15,18 @@ datadir='/storage/brno3-cerit/home/kika/catalase/pmsf/'
 
 #copy files to scratch
 cp $datadir'catalase_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'guide_catalase.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 aln='catalase_trimal_automated1.aln'
 guide='guide_catalase'
-guide_tree=$guide'.treefile'
+guide_tree='guide_catalase.treefile'
 bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST
 
-iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
+# iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
 iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree
 
 #copy files back
