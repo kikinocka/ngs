@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/sulfate_activation/PAPS_transporter_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema_catalase/')
 
 #file in format Acc. number \t name of organism \n
-names = open('PAPStransporter_names.txt')
-tree = open('PAPStransporter_trimal_automated1.aln.treefile')
+names = open('catalase_names.txt')
+tree = open('guide_catalase.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('PAPStransporter_renamed.tree', 'w') as result:
+with open('catalase_renamed.tree', 'w') as result:
 	result.write(tree_line)
