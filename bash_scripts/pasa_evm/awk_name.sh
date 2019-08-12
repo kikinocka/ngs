@@ -3,7 +3,8 @@
 FNR == 1 { 
 count = 1
 
-gsub(/evm\.[a-zA-Z]+\.scaffold[0-9]+-[0-9]+\.[0-9]+/,"BlNa"count)
+gsub(/evm\.[a-zA-Z]+\.scaffold[0-9]+_[0-9]+\.[0-9]+/,"Pelo"count)
+
 print # print the line after replace
 }
 FNR > 1 { 
@@ -12,7 +13,7 @@ FNR > 1 {
 	print $0
 	}
 	else{ # still the same gene
-		gsub(/evm\.[a-zA-Z]+\.scaffold[0-9]+-[0-9]+\.[0-9]+/,"BlNa"count)
+		gsub(/evm\.[a-zA-Z]+\.scaffold[0-9]+_[0-9]+\.[0-9]+/,"Pelo"count)
 		print
 	}
 }

@@ -3,8 +3,8 @@ use Bio::Index::Fasta;
 
 # file names
 #
-my $In_Fasta_File_Name = "simple_name.fas";
-my $List_File_Name     = "list_genes.txt";
+my $In_Fasta_File_Name = "simple_names.fa";
+my $List_File_Name     = "genes_list.txt";
 
 #
 # make index
