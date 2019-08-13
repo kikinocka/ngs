@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/pelomyxa_schiedti/pasa-evm/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
 infasta = SeqIO.parse('pelomyxa_predicted_proteins.fa', 'fasta')
 
 with open('pelomyxa_proteins_stops.fa', 'w') as stops, open('pelomyxa_proteins_correct.fa', 'w') as good:

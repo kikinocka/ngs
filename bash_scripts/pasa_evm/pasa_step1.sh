@@ -9,7 +9,7 @@ transcriptome='/home/kika/pelomyxa_schiedti/transcriptome_assembly/pelomyxa_tran
 
 #database name for mysql
 database='pelomyxa_pasa_mysql'
-config='pasa1/alignAssembly.config'
+config='alignAssembly.config'
 pasa_fasta=$database'.assemblies.fasta'
 pasa_gff=$database'.pasa_assemblies.gff3'
 
