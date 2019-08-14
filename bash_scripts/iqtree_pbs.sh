@@ -27,7 +27,7 @@ bb=1000
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
-iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree
+iqtree -m LG+C20+F+G -nt $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree
 
 #copy files back
 rm $aln
