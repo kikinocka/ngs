@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.313
 
-data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/helicases/'
+data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/apex/'
 
 #copy files to scratch
-cp $data_dir'helicases.aln' $SCRATCHDIR
+cp $data_dir'apex.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-seqs='helicases.fa'
-aln='helicases_mafft.aln'
+seqs='apex.fa'
+aln='apex_mafft.aln'
 
 mafft --thread $PBS_NUM_PPN --inputorder --auto $seqs > $aln
 
