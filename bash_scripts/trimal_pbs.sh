@@ -13,7 +13,7 @@ module add trimal-1.4
 data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/apex/'
 
 #copy files to scratch
-cp $data_dir'helicases_mafft.aln' $SCRATCHDIR
+cp $data_dir'apex_mafft.aln' $SCRATCHDIR
 
 aln='apex_mafft.aln'
 trimmed='apex_trimal_automated1.aln'
