@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/euglenophytes/replication/')
-files = [x for x in os.listdir() if 'MAFFT.aln' in x]
+os.chdir('/home/kika/ownCloud/euglenophytes/replication/helicases/')
+files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
 	print(file)
