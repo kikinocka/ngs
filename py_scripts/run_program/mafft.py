@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/sulfate_activation/PAPS_transporter_tree/')
-files = [x for x in os.listdir() if x.endswith('_deduplicated.fa')]
+os.chdir('/home/kika/ownCloud/euglenophytes/replication/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)

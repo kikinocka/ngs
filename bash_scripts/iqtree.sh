@@ -1,8 +1,8 @@
 #!/bin/bash
 
-data_dir='/home/kika/MEGAsync/diplonema_catalase/'
-aln=$data_dir'catalase_trimal_automated1.aln'
-guide=$data_dir'guide_catalase'
+data_dir='/home/kika/ownCloud/euglenophytes/replication/'
+aln=$data_dir'helicases_trimal_automated1.aln'
+guide=$data_dir'guide_helicases'
 guide_tree=$data_dir$guide'.treefile'
 bb=1000
 
