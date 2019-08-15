@@ -10,13 +10,13 @@ cat $PBS_NODEFILE
 #add module
 module add trimal-1.4
 
-data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/helicases/'
+data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/apex/'
 
 #copy files to scratch
 cp $data_dir'helicases_mafft.aln' $SCRATCHDIR
 
-aln='helicases_mafft.aln'
-trimmed='helicases_trimal_automated1.aln'
+aln='apex_mafft.aln'
+trimmed='apex_trimal_automated1.aln'
 option='automated1'
 
 #compute on scratch
