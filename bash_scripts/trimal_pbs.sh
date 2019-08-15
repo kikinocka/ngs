@@ -22,6 +22,7 @@ option='automated1'
 #compute on scratch
 cd $SCRATCHDIR
 trimal -in $aln -out $trimmed -$option -fasta
+# trimal -in $aln -out $trimmed -gt $option -fasta
 
 #copy files back
 cp $trimmed $data_dir
