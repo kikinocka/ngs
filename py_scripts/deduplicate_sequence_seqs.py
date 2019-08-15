@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/sulfate_activation/PAPS_transporter_tree/')
-infile = SeqIO.parse('PAPS_transporter_seqs.fa', 'fasta')
-out_fasta = open('PAPS_transporter_deduplicated.fa', 'w')
-out_names = open('PAPS_transporter_dupl-names.txt', 'w')
+os.chdir('/home/kika/ownCloud/euglenophytes/replication/')
+infile = SeqIO.parse('helicases_seqs.fa', 'fasta')
+out_fasta = open('helicases_deduplicated.fa', 'w')
+out_names = open('helicases_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
