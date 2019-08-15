@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N trimAl
-#PBS -l select=1:ncpus=1:mem=5gb:scratch_local=1gb
+#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -16,13 +16,13 @@ data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/apex/'
 cp $data_dir'apex_mafft.aln' $SCRATCHDIR
 
 aln='apex_mafft.aln'
-trimmed='apex_trimal_automated1.aln'
-option='automated1'
+trimmed='apex_trimal_0.5.aln'
+option='0.5'
 
 #compute on scratch
 cd $SCRATCHDIR
-trimal -in $aln -out $trimmed -$option -fasta
-# trimal -in $aln -out $trimmed -gt $option -fasta
+# trimal -in $aln -out $trimmed -$option -fasta
+trimal -in $aln -out $trimmed -gt $option -fasta
 
 #copy files back
 cp $trimmed $data_dir
