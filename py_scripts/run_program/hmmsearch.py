@@ -2,11 +2,11 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/dpap/')
+os.chdir('/home/kika/MEGAsync/diplonema/hydrogenase/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/el_merged_translated.fasta'
-orgn = 'el'
+db = '/home/kika/MEGAsync/Data/dpapilatum/dpap_transcripts_translated.fa'
+orgn = 'dpap_transcripts'
 threads = 4
 
 for file in files:

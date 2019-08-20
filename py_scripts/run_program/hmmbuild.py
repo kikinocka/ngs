@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/dpap/')
+os.chdir('/home/kika/MEGAsync/diplonema/hydrogenase/')
 files = os.listdir()
 threads = 4
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_catalase/apx_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
 
 #file in format Acc. number \t name of organism \n
 names = open('apx_names.txt')
