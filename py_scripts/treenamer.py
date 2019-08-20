@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema_catalase/tree/')
+os.chdir('/home/kika/MEGAsync/diplonema_catalase/apx_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('catalase_names.txt')
-tree = open('catalase_trimal_automated1.aln.treefile')
+names = open('apx_names.txt')
+tree = open('apx_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
 	split_line = name.split('\t')
-	name_dict[split_line[0]] = split_line[1][:-1] + ' ' + split_line[0]
+	name_dict[split_line[0]] = split_line[0] + ' ' + split_line[1][:-1]
 
 tree_line = tree.readline()
 
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('catalase_renamed.tree', 'w') as result:
+with open('apx_renamed.tree', 'w') as result:
 	result.write(tree_line)
