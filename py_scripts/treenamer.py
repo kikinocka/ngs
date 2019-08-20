@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/euglenophytes/replication/')
+os.chdir('/home/kika/MEGAsync/diplonema_catalase/tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('helicases_names.txt')
-tree = open('helicases_trimal_automated1.aln.treefile')
+names = open('catalase_names.txt')
+tree = open('catalase_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('helicases_renamed.tree', 'w') as result:
+with open('catalase_renamed.tree', 'w') as result:
 	result.write(tree_line)

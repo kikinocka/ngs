@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/diplonema_mt/1621/genome_assembly/1621_tadpole.fa', 'fasta')
+infile = SeqIO.parse('/home/kika/mapping/blasto/blasto_mapping/p57_pilon/p57_pilon5.fa', 'fasta')
 
-with open('/home/kika/MEGAsync/diplonema_mt/1621/genome_assembly/1621_tadpole_renamed.fa', 'w') as output:
+with open('/home/kika/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa', 'w') as output:
 	for seq in infile:
-		desc = seq.description.replace(',', '_').replace('=', '_')
+		desc = '{}_length_{}'.format(seq.description.split('_')[0], len(seq.seq))
 		print(desc)
 		output.write('>{}\n{}\n'.format(desc, seq.seq))

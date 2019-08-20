@@ -1,10 +1,7 @@
 #!/bin/bash
 
 pasa_path='/opt/pasa/current/scripts/'
-
-#genome file
 genome='/home/kika/pelomyxa_schiedti/genome_assembly/pelomyxa_final_genome.fa'
-#transcriptome file
 transcriptome='/home/kika/pelomyxa_schiedti/transcriptome_assembly/pelomyxa_transcriptome_clean.fa'
 
 #database name for mysql

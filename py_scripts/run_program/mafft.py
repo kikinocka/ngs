@@ -2,11 +2,11 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/ownCloud/euglenophytes/replication/helicases/')
+os.chdir('/home/kika/MEGAsync/diplonema_catalase/apx_tree/')
 files = [x for x in os.listdir() if x.endswith('_deduplicated.fa')]
 
 for file in files:
 	print(file)
-	out = '{}_MAFFT.aln'.format(file.split('.fa')[0])
+	out = '{}_mafft.aln'.format(file.split('.fa')[0])
 	subprocess.call('mafft --thread 4 --inputorder --auto {} > {}'.format(file, out), 
 		shell=True)
