@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/euglenophytes/trees/helicases/'
+datadir='/storage/brno3-cerit/home/kika/euglenophytes/trees/gyraseB/'
 
 #copy files to scratch
-cp $datadir'helicases_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'gyrB_trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='helicases_trimal_automated1.aln'
-guide='guide_helicases'
+aln='gyrB_trimal_automated1.aln'
+guide='guide_gyrB'
 guide_tree=$guide'.treefile'
 bb=1000
 
