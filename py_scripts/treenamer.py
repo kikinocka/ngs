@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
+os.chdir('/home/kika/ownCloud/euglenophytes/repair/gyraseB/')
 
 #file in format Acc. number \t name of organism \n
-names = open('apx_names.txt')
-tree = open('apx_trimal_automated1.aln.treefile')
+names = open('gyrB_names.txt')
+tree = open('gyrB_trimal_automated1.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('apx_renamed.tree', 'w') as result:
+with open('gyrB_renamed.tree', 'w') as result:
 	result.write(tree_line)
