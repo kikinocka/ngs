@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/euglenophytes/repair/gyraseB/input'
-db = '/home/kika/programs/blast-2.5.0+/bin/eut_NIES-381_transcriptome.nt.fa'
+query = '/home/kika/ownCloud/euglenophytes/repair/gyraseA/in'
+db = '/home/kika/programs/blast-2.5.0+/bin/pyramimonas_obovata_CCMP722.nt.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/euglenophytes/repair/gyraseB/nies_gyrB.blast.xml'
+out = '/home/kika/ownCloud/euglenophytes/repair/gyraseA/pob_gyrA.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 10
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/euglenophytes/repair/gyraseB/nies_gyrB.blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/euglenophytes/repair/gyraseB/nies_gyrB.best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/euglenophytes/repair/gyraseA/pob_gyrA.blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/euglenophytes/repair/gyraseA/pob_gyrA.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
