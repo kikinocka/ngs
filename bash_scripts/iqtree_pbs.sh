@@ -2,7 +2,7 @@
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=15:mem=15gb:scratch_local=30gb:os=debian9
-#PBS -l walltime=2:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver5/'
+datadir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver6/'
 
 #copy files to scratch
 cp $datadir'apx_trimal_automated1.aln' $SCRATCHDIR
