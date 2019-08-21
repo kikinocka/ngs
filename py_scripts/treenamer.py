@@ -10,7 +10,7 @@ tree = open('apx_trimal_automated1.aln.treefile')
 name_dict = {}
 for name in names:
 	split_line = name.split('\t')
-	name_dict[split_line[0]] = split_line[1][:-1] + ' ' + split_line[0]
+	name_dict[split_line[0]] = split_line[0] + ' ' + split_line[1][:-1]
 
 tree_line = tree.readline()
 

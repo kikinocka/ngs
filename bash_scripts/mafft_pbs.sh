@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.313
 
-data_dir='/auto/brno3-cerit/nfs4/home/kika/euglenophytes/trees/gyraseB/'
+data_dir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver6/'
 
 #copy files to scratch
-cp $data_dir'gyrB.fa' $SCRATCHDIR
+cp $data_dir'apx_seqs.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-seqs='gyrB.fa'
-aln='gyrB_mafft.aln'
+seqs='apx_seqs.fa'
+aln='apx_mafft.aln'
 
 mafft --thread $PBS_NUM_PPN --inputorder --auto $seqs > $aln
 
