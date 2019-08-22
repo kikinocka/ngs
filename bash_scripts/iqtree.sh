@@ -1,9 +1,9 @@
 #!/bin/bash
 
-data_dir='/home/kika/ownCloud/euglenophytes/replication/'
-aln=$data_dir'helicases_trimal_automated1.aln'
-guide=$data_dir'guide_helicases'
-guide_tree=$data_dir$guide'.treefile'
+data_dir='/home/kika/MEGAsync/diplonema/catalase/'
+aln=$data_dir'apx_tree/apx_trimal_0.5.aln'
+guide=$data_dir'guide_apx'
+guide_tree=$guide'.treefile'
 bb=1000
 
 iqtree -m LG+F+G -nt 4 -s $aln -pre $guide
