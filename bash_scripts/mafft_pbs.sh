@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.313
 
-data_dir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver8/'
+data_dir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver9/'
 
 #copy files to scratch
 cp $data_dir'apx_seqs.fa' $SCRATCHDIR

@@ -11,23 +11,21 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver8/'
+datadir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver9/'
 
 #copy files to scratch
 cp $datadir'apx_trimal_0.5.aln' $SCRATCHDIR
-cp $datadir'guide_apx.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 aln='apx_trimal_0.5.aln'
 guide='guide_apx'
-# guide_tree=$guide'.treefile'
-guide_tree='guide_apx.treefile'
+guide_tree=$guide'.treefile'
 bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST
 
-# iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
+iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
 iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree
 
 #copy files back
