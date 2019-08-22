@@ -5,7 +5,7 @@ os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
 
 #file in format Acc. number \t name of organism \n
 names = open('apx_names.txt')
-tree = open('apx_trimal_automated1.aln.treefile')
+tree = open('apx_trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:

@@ -2,15 +2,15 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/euglenophytes/repair/photolyases/seqs/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver6/')
 inacc = open('acc.delete.txt')
-infasta = SeqIO.parse('photolyases_deduplicated.fa', 'fasta')
+infasta = SeqIO.parse('apx_deduplicated.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
-with open('photolyases_reduced.fa', 'w') as result:
+with open('apx_reduced.fa', 'w') as result:
 	for seq in infasta:
 		if seq.name in omitted:
 			print('{} in omitted list'.format(seq.name))
