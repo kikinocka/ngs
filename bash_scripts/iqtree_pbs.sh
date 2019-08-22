@@ -15,6 +15,7 @@ datadir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver9/'
 
 #copy files to scratch
 cp $datadir'apx_trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'guide_apx.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
