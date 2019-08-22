@@ -16,13 +16,13 @@ data_dir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver7/'
 cp $data_dir'apx_mafft.aln' $SCRATCHDIR
 
 aln='apx_mafft.aln'
-trimmed='apx_trimal_automated1.aln'
-option='automated1'
+trimmed='apx_trimal_0.5.aln'
+option='0.5'
 
 #compute on scratch
 cd $SCRATCHDIR
-trimal -in $aln -out $trimmed -$option -fasta
-# trimal -in $aln -out $trimmed -gt $option -fasta
+# trimal -in $aln -out $trimmed -$option -fasta
+trimal -in $aln -out $trimmed -gt $option -fasta
 
 #copy files back
 cp $trimmed $data_dir
