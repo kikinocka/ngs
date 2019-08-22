@@ -14,11 +14,11 @@ module add iqtree-1.6.8
 datadir='/storage/brno3-cerit/home/kika/catalase/apx_tree/ver6/'
 
 #copy files to scratch
-cp $datadir'apx_trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'apx_trimal_0.5.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='apx_trimal_automated1.aln'
+aln='apx_trimal_0.5.aln'
 guide='guide_apx'
 guide_tree=$guide'.treefile'
 bb=1000
