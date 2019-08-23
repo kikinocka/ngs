@@ -1,6 +1,7 @@
 #!/bin/bash
 
 awk_path='/home/sebastian/extract/'
+evm_path='/opt/evm/EVM_r2012-06-25/EvmUtils/'
 gffread='/home/sebastian/gffread/gffread/gffread'
 genome='/home/kika/pelomyxa_schiedti/genome_assembly/pelomyxa_final_genome.fa'
 deduplicated=$data_dir'sorted_deduplicated.gff3'
@@ -34,11 +35,13 @@ predicted_prot='pelomyxa_predicted_proteins.fa'
 # sed -i 's/\.model\./\.TU\./' $missing
 # echo '***Matching IDs done***'
 
+#CONTINUE IN GFF RENAMING
+
 # #get initial proteins
 # $evm_path'gff3_file_to_proteins.pl' $final $genome > $initial
 # echo '***Getting initial proteins done***'
 
-#get gene list
+# #get gene list
 # grep ">" $initial | sed -E 's/>(Pelo[0-9]+)(.*) [PASA].*$/\1\2/' | sed 's/\.1//' | sort --version-sort > $genes
 # echo '***Getting gene list done***'
 

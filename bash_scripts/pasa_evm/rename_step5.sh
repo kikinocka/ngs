@@ -10,6 +10,7 @@ no_partials='sorted_deduplicated_no_partials.gff3'
 renamed='renamed.gff3'
 renamed2='renamed2.gff3'
 final='pelomyxa_prediction_final.gff3'
+missing='missing_list.txt'
 
 # #sort the gff
 # gff3_sort -g $evm -i -og $sorted
@@ -18,6 +19,8 @@ final='pelomyxa_prediction_final.gff3'
 # #remove duplicates since for unknown reason EVM makes some
 # awk -f$awk_path'remove_duplicates_gff' $sorted > $deduplicated
 # echo '***Deduplicating gff done***'
+
+#EXTRACT PROTEINS (INCLUDING MATCH IDS)
 
 # #remove partials
 # awk -f$awk_path'remove_partial_gff3' $missing $deduplicated > $no_partials
