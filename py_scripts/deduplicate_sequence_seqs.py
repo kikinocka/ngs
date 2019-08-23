@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/ownCloud/euglenophytes/repair/ligases/')
-infile = SeqIO.parse('ligases_seqs.fa', 'fasta')
-out_fasta = open('ligases_deduplicated.fa', 'w')
-out_names = open('ligases_dupl-names.txt', 'w')
+os.chdir('/home/kika/ownCloud/euglenophytes/repair/ruvX/')
+infile = SeqIO.parse('ruvx_seqs.fa', 'fasta')
+out_fasta = open('ruvx_deduplicated.fa', 'w')
+out_names = open('ruvx_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
