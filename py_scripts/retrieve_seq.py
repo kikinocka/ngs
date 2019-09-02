@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from Bio import SeqIO
 
-infasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/rcos_derc.fasta', 'fasta')
-infile = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Rhab/in')
-out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/Rhab/Rhab_pt_hits.fa', 'w')
+infasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/CAM_P_0001000.pep.fa', 'fasta')
+infile = open('/home/kika/MEGAsync/diplonema/octopine_superfamily/MMETSP_dp_ocdh.dmnd.acc.out')
+out = open('/home/kika/MEGAsync/diplonema/octopine_superfamily/MMETSP_dp_ocdh.dmnd.prot.out', 'w')
 
 retrieve = set()
 for line in infile:

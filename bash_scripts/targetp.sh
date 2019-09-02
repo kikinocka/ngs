@@ -1,9 +1,9 @@
 #!/bin/bash
 
 targetp='/home/kika/programs/targetp-1.1/targetp'
-workdir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/sulfate_activation/'
-infile=$workdir'pelo_PAPase.fasta'
-outfile=$workdir'pelo_PAPase_targetp.txt'
+workdir='/home/kika/MEGAsync/diplonema/mt_metabolism/tca_cycle/'
+infile=$workdir'tca_cycle.fa'
+outfile=$workdir'tca_cycle.targetp.txt'
 plant='P'
 non_plant='N'
 
