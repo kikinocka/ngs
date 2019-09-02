@@ -15,7 +15,6 @@ datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/'
 
 #copy files to scratch
 cp $datadir'ocdh_trimal_0.5.aln' $SCRATCHDIR
-cp $datadir'guide_ocdh.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
