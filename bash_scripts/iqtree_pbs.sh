@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/ver2/'
 
 #copy files to scratch
 cp $datadir'ocdh_trimal_0.5.aln' $SCRATCHDIR
