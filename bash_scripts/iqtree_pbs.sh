@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=30gb:os=debian9
