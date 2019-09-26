@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/ver2/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/catalase/apx_tree/ver10/'
 
 #copy files to scratch
-cp $datadir'ocdh_trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'apx_trimal_0.5.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='ocdh_trimal_0.5.aln'
-guide='guide_ocdh'
+aln='apx_trimal_0.5.aln'
+guide='guide_apx'
 guide_tree=$guide'.treefile'
 bb=1000
 

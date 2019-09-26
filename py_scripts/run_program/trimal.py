@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/octopine_superfamily/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:

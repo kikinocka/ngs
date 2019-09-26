@@ -8,8 +8,8 @@ from Bio import SeqIO
 
 Entrez.email = 'zahonova.kristina@gmail.com'
 
-os.chdir('/home/kika/MEGAsync/diplonema_catalase/')
-acc = open('catalase.acc')
+os.chdir('/home/kika/MEGAsync/diplonema/octopine_superfamily/')
+acc = open('ocdh.acc')
 
 ids = []
 for line in acc:
@@ -27,7 +27,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('catalase.lineage', 'w') as out:
+with open('ocdh.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
 		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
