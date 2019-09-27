@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/octopine_superfamily/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('ocdh_family_names.txt')
-tree = open('ocdh_trimal_0.5.aln.treefile')
+names = open('apx_names.txt')
+tree = open('apx_trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('ocdh_renamed.tree', 'w') as result:
+with open('apx_renamed.tree', 'w') as result:
 	result.write(tree_line)
