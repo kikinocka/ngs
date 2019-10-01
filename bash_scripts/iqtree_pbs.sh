@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/catalase/apx_tree/ver12/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/catalase/apx_tree/ver13/'
 
 #copy files to scratch
 cp $datadir'apx_trimal_0.5.aln' $SCRATCHDIR

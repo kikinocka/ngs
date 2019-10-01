@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver13/')
 infile = SeqIO.parse('apx_seqs.fa', 'fasta')
 out_fasta = open('apx_deduplicated.fa', 'w')
 out_names = open('apx_dupl-names.txt', 'w')
