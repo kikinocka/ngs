@@ -3,11 +3,11 @@ import os
 import subprocess
 
 os.chdir('/home/kika/pelomyxa_schiedti/predicted_proteins/')
-files = [x for x in os.listdir() if '.fa' in x]
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
-	out = file.split('.fa')[0] + '.targetp.fa'
+	out = file.split('.fa')[0] + '.targetp.txt'
 
 	option = 'N'
 	# option = 'P'
