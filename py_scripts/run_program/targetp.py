@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+import os
+import subprocess
+
+os.chdir('/home/kika/pelomyxa_schiedti/predicted_proteins/')
+files = [x for x in os.listdir() if '.fa' in x]
+
+for file in files:
+	print(file)
+	out = file.split('.fa')[0] + '.targetp.fa'
+
+	option = N
+	# option = P
+	
+	subprocess.call('targetp -{} -c {} > {}'.format(option, file, out), shell=True)
