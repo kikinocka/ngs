@@ -9,7 +9,7 @@ for file in files:
 	print(file)
 	out = file.split('.fa')[0] + '.targetp.fa'
 
-	option = N
-	# option = P
+	option = 'N'
+	# option = 'P'
 	
 	subprocess.call('targetp -{} -c {} > {}'.format(option, file, out), shell=True)
