@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver13/')
-files = [x for x in os.listdir() if x.endswith('deduplicated.fa')]
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver14/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)

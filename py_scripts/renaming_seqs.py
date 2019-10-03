@@ -1,10 +1,19 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+import os
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/mapping/blasto/blasto_mapping/p57_pilon/p57_pilon5.fa', 'fasta')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/predicted_proteins/')
+fasta = SeqIO.parse('pelo_transcriptome_clean.fa.transdecoder.5prime_complete.clustered.pep', 'fasta')
+targetp = open('pelo_transcriptome_clean.fa.transdecoder.5prime_complete.clustered.targetp.txt')
 
-with open('/home/kika/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa', 'w') as output:
-	for seq in infile:
-		desc = '{}_length_{}'.format(seq.description.split('_')[0], len(seq.seq))
-		print(desc)
-		output.write('>{}\n{}\n'.format(desc, seq.seq))
+names = {}
+for seq in fasta:
+	full = seq.name.split(':')[0]
+	short = seq.name[:20]
+	names[short] = full
+
+with open('pelo_transcriptome_clean.fa.transdecoder.5prime_complete.clustered.targetp_renamed.txt', 'w') as out:
+	for line in targetp:
+		if line.split('\t')[0] in names:
+			new = line.replace(line.split('\t')[0], names[line.split('\t')[0]])
+			out.write(new)

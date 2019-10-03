@@ -3,72 +3,124 @@ import os
 import csv
 import re
 
-#input je tsvcko s dvomi stlpcami, prvy je to co chces najst, druhy ako sa to vola (skratka); druhy stlpec nemusi byt
+print("UniProt requests version", requests.__version__)
+#https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/UniProt_programmatically_py3.pdf
+BASE = "http://www.uniprot.org/"
+KB_ENDPOINT = "uniprot/"
+TOOL_ENDPOINT = "uploadlists/"
+orgnpattern = r"OS=(.*)OX="
+
+queryfile = "query.tsv"
 
 
-print('UniProt requests version', requests.__version__)
-
-BASE = 'http://www.uniprot.org/'
-KB_ENDPOINT = 'uniprot/'
-TOOL_ENDPOINT = 'uploadlists/'
-orgnpattern = r'OS=(.*)OX='
-
-queryfile = 'query.tsv'
-
-
-def uniprotfetch(feature, query, outfmt):
-	if feature != '':
+def uniprotreviewed(feature, query, outfmt):
+	if feature != "":
 		query = f'{query} AND reviewed:yes'
 	else:
-		query = f'{feature}:'{query}' AND reviewed:yes'
+		query = f'{feature}:"{query}" AND reviewed:yes'
 	#always reviewed!
-	searchparams = {'query': query, 'format': outfmt}
-	if outfmt == 'tab':
-		searchparams['columns'] = 'organism,id,entry_name,ec,protein_names,sequence'
+	searchparams = {"query": query, "format": outfmt}
+	if outfmt == "tab":
+		#check webpage for further available columns
+		searchparams["columns"] = "organism,id,entry_name,ec,protein_names,sequence" 
 	result = requests.get(BASE + KB_ENDPOINT, params=searchparams)
 
 	if result.ok:
-		if outfmt == 'fasta':
-			resultstring = ''
-			rawresult = result.text.replace('sp|', '')
-			for line in rawresult.split('>')[1:]:
-				print(line)
+		if outfmt == "fasta":
+			resultstring = ""
+			rawresult = result.text.replace("sp|", "")
+			for line in rawresult.split(">")[1:]:
+				#print(line)
 				try:
 					orgn = re.search(orgnpattern, line).group(1)
-					orgn = '_'.join(orgn.split()[:2])
-					acc_entry = line.split()[0].replace('|', '@')
-					annot = line.split()[1].split('OS=')[0]
-					seq = ''.join(line.split('\n')[1:])
-					resultstring += f'>{orgn}_{acc_entry} {annot}\n{seq}\n'
+					orgn = "_".join(orgn.split()[:2])
+					acc_entry = line.split()[0].replace("|", "@")
+					annot = line.split()[1].split("OS=")[0]
+					seq = "".join(line.split("\n")[1:])
+					resultstring += f">{orgn}_{acc_entry} {annot}\n{seq}\n"
 				except IndexError:
 					pass
-		elif outfmt == 'tab':
-			resultstring = ''
-			for line in result.text.split('\n'):
-				if line.startswith('Organism'):
+		elif outfmt == "tab":
+			resultstring = ""
+			for line in result.text.split("\n"):
+				if line.startswith("Organism"):
 					continue
-				line = line.split('\t')
+				line = line.split("\t")
+				#print(line)
 				try:
-					orgn = '_'.join(line[0].split()[:2])
+					orgn = "_".join(line[0].split()[:2])
 					acc = line[1]
 					entry = line[2]
 					ecno = line[3]
-					annot = line[4].split(' (')[0]
+					annot = line[4].split(" (")[0]
 					seq = line[-1]
-					resultstring += f'>{orgn}_{acc}@{entry} {annot} EC:{ecno}\n{seq}\n'
+					resultstring += f">{orgn}_{acc}@{entry} {annot} EC:{ecno}\n{seq}\n"
 				except IndexError:
 					pass
-				print(line)
 		return resultstring
+	
 	else:
-		print('Error:', result.status_code)
+		print("\tReviewed accessions error:", result.status_code)
+		return ""
 
+def uniprotgeneral(feature, query, outfmt):
+	if feature != "":
+		query = f'{query}'
+	else:
+		query = f'{feature}:"{query}"'
+	#always reviewed!
+	searchparams = {"query": query, "format": outfmt}
+	if outfmt == "tab":
+		#check webpage for further available columns
+		searchparams["columns"] = "organism,id,entry_name,ec,protein_names,sequence" 
+	result = requests.get(BASE + KB_ENDPOINT, params=searchparams)
+
+	if result.ok:
+		if outfmt == "fasta":
+			resultstring = ""
+			rawresult = result.text.replace("sp|", "")
+			for line in rawresult.split(">")[1:]:
+				#print(line)
+				try:
+					orgn = re.search(orgnpattern, line).group(1)
+					orgn = "_".join(orgn.split()[:2])
+					acc_entry = line.split()[0].replace("|", "@")
+					annot = line.split()[1].split("OS=")[0]
+					seq = "".join(line.split("\n")[1:])
+					resultstring += f">{orgn}_{acc_entry} {annot}\n{seq}\n"
+				except IndexError:
+					pass
+		elif outfmt == "tab":
+			resultstring = ""
+			for line in result.text.split("\n"):
+				if line.startswith("Organism"):
+					continue
+				line = line.split("\t")
+				#print(line)
+				try:
+					orgn = "_".join(line[0].split()[:2])
+					acc = line[1]
+					entry = line[2]
+					ecno = line[3]
+					annot = line[4].split(" (")[0]
+					seq = line[-1]
+					resultstring += f">{orgn}_{acc}@{entry} {annot} EC:{ecno}\n{seq}\n"
+				except IndexError:
+					pass
+		#print(resultstring)
+		return resultstring
+	
+	else:
+		print("Error:", result.status_code)
+		return ""
 
 queries = []
 enz2annot = {}
 with open(queryfile, 'r') as f:
 	reader = csv.reader(f, delimiter='\t', skipinitialspace=False)
 	for r in reader:
+		if r[0].startswith("#"):
+			continue
 		try:
 			enz2annot[r[0]] = r[1]
 			queries.append(r[0])
@@ -79,13 +131,59 @@ with open(queryfile, 'r') as f:
 print(queries)
 
 for q in queries:
-	annot = enz2annot.get(q, 'ec')
-	with open(f'{annot}_{q}.fasta', 'w') as outfile:
-		result = uniprotfetch('ec', q, 'tab') 
-		#list = a list of accessions, gff = seq features only, tab = data-rich tabular format
-		print('Sequences retrieved:', len(result.split('>')))
-		outfile.write(result)
-	os.system(f'/Users/morpholino/.local/bin/usearch -cluster_fast {annot}_{q}.fasta -id 0.6 -sort length -centroids {annot}_{q}.clust.fasta -notrunclabels')
+	run_usearch = True
+	print(f"Fetching data for {q}...")
+	if len(q.split(".")) == 4:
+		#this is an EC number
+		annot = enz2annot.get(q, "ec")
+		outfilename = f"{annot}_{q}.fasta"
+		result = uniprotreviewed("ec", q, "tab") 
+		#formats: list = a list of accessions, gff = seq features only, tab = data-rich tabular format
+		if result == "":
+			#try a more general search
+			result = uniprotgeneral("ec", q, "tab")
+			if result == "":
+				print(f"\tNo sequences for {q}")
+				#do not write anything, turn off usearch flag
+				run_usearch = False
+			else:
+				print(f"\tWarning, reviewed accessions not found for {q}, fetching all accessions")
+				seqs = len(result.split(">")) - 1
+				print("Sequences retrieved:", seqs)
+				with open(outfilename, "w") as out:
+					out.write(result)
+		else:
+			seqs = len(result.split(">")) - 1
+			print("\tSequences retrieved:", seqs)
+			with open(outfilename, "w") as out:
+				out.write(result)
+	else:
+		annot = q
+		outfilename = f"{annot}.fasta"
+		result = uniprotreviewed("", q, "tab")
+		#formats: list = a list of accessions, gff = seq features only, tab = data-rich tabular format
+		if result == "":
+			#try a more general search
+			result = uniprotgeneral("name", q, "tab")
+			if result == "":
+				print(f"\tNo sequences for {q}")
+				#do not write anything, turn off usearch flag
+				run_usearch = False
+			else:
+				print(f"\tWarning, reviewed accessions not found for {q}, fetching all accessions")
+				seqs = len(result.split(">")) - 1
+				print("\tSequences retrieved:", seqs)
+				with open(outfilename, "w") as out:
+					out.write(result)
+		else:
+			seqs = len(result.split(">")) - 1
+			print("\tSequences retrieved:", seqs)
+			with open(outfilename, "w") as out:
+				out.write(result)
+	
+	if run_usearch == True:
+		clustname = outfilename.replace(".fasta", "") + ".clust.fasta"
+		os.system(f"/Users/morpholino/.local/bin/usearch -cluster_fast {outfilename} -id 0.6 -sort length -centroids {clustname} -notrunclabels" + ">> usearch.log 2>&1")
 
 
-print('success!')
+print("success!")
