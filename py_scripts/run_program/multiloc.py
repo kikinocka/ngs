@@ -11,8 +11,8 @@ for file in files:
 	print(file)
 	name = file.split('.fa')[0]
 	
-	option = 'animal'
-	# option = 'fungal'
+	# option = 'animal'
+	option = 'fungal'
 	# option = 'plant'
 	
 	out = '{}.multiloc_{}.txt'.format(name, option)
