@@ -11,7 +11,9 @@ $pasa_path'Launch_PASA_pipeline.pl' -c $config -g $genome -t $transcriptome -A -
 	--annots_gff3 *.gene_structures_post_PASA_updates.*.gff3 --CPU 15
 
 # #RUN NEXT:
-# change EVM to MVE (or something else)
+# change EVM to MVE in second column
 # sed 's/EVM/MVE/' 'PASA file' > updated.gff
+# change . to PASA in second column
+# sed 's/\(scaffold[0-9]*_[0-9]*\t\)\.\t/\1PASA\t/' updated.gff > updated2.gff
 # remove all lines starting with #
-# grep -v '#' updated.gff > updated2.gff
+# grep -v '#' updated2.gff > updated3.gff

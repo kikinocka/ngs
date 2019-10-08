@@ -13,14 +13,14 @@ cat $PBS_NODEFILE
 module add diamond-0.8.29
 
 diamond_dir='/storage/brno3-cerit/home/fussyz01/DMND/'
-data_dir='/storage/brno3-cerit/home/kika/euglenophytes/'
+data_dir='/storage/brno3-cerit/home/kika/pelomyxa/predicted_proteins_transdecoder/'
 
 #copy files to zoli's folder
-cp $data_dir'rhab_check.fa' $diamond_dir
+cp $data_dir'mit.predicted.fa' $diamond_dir
 
-query='rhab_check.fa'
+query='pelo.mit_predicted.fa'
 db='nr2.dmnd'
-out='rhab_check_dmnd_bp.out'
+out='pelo.mit_predicted.dmnd_bp.out'
 
 
 #compute in zoli's folder

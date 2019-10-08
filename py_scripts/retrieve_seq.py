@@ -12,8 +12,8 @@ for line in infile:
 	retrieve.add(line[:-1])
 
 for seq in infasta:
-	if seq.name.split('::')[0] in retrieve:
-		out.write('>{}\n{}\n'.format(seq.name.split('::')[0], seq.seq))
+	if seq.name in retrieve:
+		out.write('>{}\n{}\n'.format(seq.name, seq.seq))
 	else:
 		# print(seq.description)
 		pass

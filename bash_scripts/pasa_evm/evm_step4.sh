@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#Check if all comment lines are removed and EVM changed in $pasa_genes
+#Check if all comment lines are removed, and EVM and . are changed in $pasa_genes
 evm_path='/opt/evm/EVM_r2012-06-25/EvmUtils'
 genome='/home/kika/pelomyxa_schiedti/genome_assembly/pelomyxa_final_genome.fa'
 transdecoder='/home/kika/pelomyxa_schiedti/pasa-evm/pasa1/pelomyxa_pasa_mysql.assemblies.fasta.transdecoder.genome.gff3'
-pasa_genes='/home/kika/pelomyxa_schiedti/pasa-evm/pasa2/pelomyxa_pasa_mysql.gene_structures_post_PASA_updates.24539.updated2.gff3'
+pasa_genes='/home/kika/pelomyxa_schiedti/pasa-evm/pasa2/pelomyxa_pasa_mysql.gene_structures_post_PASA_updates.24539.updated3.gff3'
 pasa_gff='/home/kika/pelomyxa_schiedti/pasa-evm/pasa1/pelomyxa_pasa_mysql.pasa_assemblies.gff3'
 
 #merging the prediction
