@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/pelomyxa_schiedti/predicted_proteins/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/home/kika/pelomyxa_schiedti/predicted_proteins_transdecoder/')
+files = [x for x in os.listdir() if x.endswith('_renamed.fa')]
 
 for file in files:
 	print(file)

@@ -6,11 +6,11 @@ data_dir='/home/kika/pelomyxa_schiedti/pasa-evm/'
 evm=$data_dir'evm2/evm.all.gff3'
 sorted=$data_dir'sorted.gff3'
 deduplicated=$data_dir'sorted_deduplicated.gff3'
-no_partials='sorted_deduplicated_no_partials.gff3'
-renamed='renamed.gff3'
-renamed2='renamed2.gff3'
-final='pelomyxa_prediction_final.gff3'
-missing='missing_list.txt'
+no_partials=$data_dir'sorted_deduplicated_no_partials.gff3'
+renamed=$data_dir'renamed.gff3'
+renamed2=$data_dir'renamed2.gff3'
+final=$data_dir'pelomyxa_prediction_final.gff3'
+missing=$data_dir'missing_list.txt'
 
 # #sort the gff
 # gff3_sort -g $evm -i -og $sorted
@@ -33,16 +33,18 @@ missing='missing_list.txt'
 
 # #change EVM names in last columns
 # awk -f awk_name.sh $no_partials > $renamed
-# echo '***Change EVM names in last columns***'
+# echo '***Changing EVM names in last columns done***'
 
-# #removes Name=.* from last columns
+# #remove Name=.* from last columns
 # sed -E -i 's/Name=.*$//' $renamed
-# echo '***Remove Name=.* from last columns***'
+# echo '***Removing Name=.* from last columns done***'
 
-# #replaces the source of the prediction with PASA
+# #replace the source of the prediction with PASA
 # sed -E 's/(scaffold[0-9]+_[0-9]+\t)\EVM(\t)/\1PASA\2/' $renamed > $renamed2
-# echo '***Replacing source with PASA***'
+# echo '***Replacing source with PASA done***'
 
-#corrects the parent issue in the gff file with mRNA
+#correct the parent issue in the gff file with mRNA
 cat $renamed2 | awk -f $awk_path'fix_mRNA' > $final
 echo '***Correcting parent issue done***'
+
+#CONTINUE IN EXTRACTING FINAL SET OF PROTEINS

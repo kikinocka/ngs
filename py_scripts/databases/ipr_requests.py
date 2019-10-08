@@ -10,7 +10,8 @@ KB_ENDPOINT = "uniprot/"
 TOOL_ENDPOINT = "uploadlists/"
 orgnpattern = r"OS=(.*)OX="
 
-queryfile = "query.tsv"
+queryfile = "upr_query.tsv"
+usearchfileid = len([x for x in os.listdir(".") if x.startswith("usearch")]) + 1
 
 
 def uniprotreviewed(feature, query, outfmt):
@@ -51,10 +52,13 @@ def uniprotreviewed(feature, query, outfmt):
 					orgn = "_".join(line[0].split()[:2])
 					acc = line[1]
 					entry = line[2]
-					ecno = line[3]
+					if line[3] != "":
+						ecno = f" EC:{line[3]}"
+					else:
+						ecno == ""
 					annot = line[4].split(" (")[0]
 					seq = line[-1]
-					resultstring += f">{orgn}_{acc}@{entry} {annot} EC:{ecno}\n{seq}\n"
+					resultstring += f">{orgn}_{acc}@{entry} {annot}{ecno}\n{seq}\n"
 				except IndexError:
 					pass
 		return resultstring
@@ -80,6 +84,8 @@ def uniprotgeneral(feature, query, outfmt):
 			resultstring = ""
 			rawresult = result.text.replace("sp|", "")
 			for line in rawresult.split(">")[1:]:
+				if query.lower() not in line.split("\n")[0].lower():
+					continue
 				#print(line)
 				try:
 					orgn = re.search(orgnpattern, line).group(1)
@@ -95,16 +101,24 @@ def uniprotgeneral(feature, query, outfmt):
 			for line in result.text.split("\n"):
 				if line.startswith("Organism"):
 					continue
+				try:
+					if query.lower() not in line.split("\t")[4].lower():
+						continue
+				except IndexError:
+					print(line)
 				line = line.split("\t")
 				#print(line)
 				try:
 					orgn = "_".join(line[0].split()[:2])
 					acc = line[1]
 					entry = line[2]
-					ecno = line[3]
+					if line[3] != "":
+						ecno = f" EC:{line[3]}"
+					else:
+						ecno = ""
 					annot = line[4].split(" (")[0]
 					seq = line[-1]
-					resultstring += f">{orgn}_{acc}@{entry} {annot} EC:{ecno}\n{seq}\n"
+					resultstring += f">{orgn}_{acc}@{entry} {annot}{ecno}\n{seq}\n"
 				except IndexError:
 					pass
 		#print(resultstring)
@@ -183,7 +197,7 @@ for q in queries:
 	
 	if run_usearch == True:
 		clustname = outfilename.replace(".fasta", "") + ".clust.fasta"
-		os.system(f"/Users/morpholino/.local/bin/usearch -cluster_fast {outfilename} -id 0.6 -sort length -centroids {clustname} -notrunclabels" + ">> usearch.log 2>&1")
+		os.system(f"/Users/morpholino/.local/bin/usearch -cluster_fast {outfilename} -id 0.6 -sort length -centroids {clustname} -notrunclabels" + f">> usearch{usearchfileid}.log 2>&1")
 
 
 print("success!")
