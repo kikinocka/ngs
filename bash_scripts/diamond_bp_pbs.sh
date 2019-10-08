@@ -16,7 +16,7 @@ diamond_dir='/storage/brno3-cerit/home/fussyz01/DMND/'
 data_dir='/storage/brno3-cerit/home/kika/pelomyxa/predicted_proteins_transdecoder/'
 
 #copy files to zoli's folder
-cp $data_dir'mit.predicted.fa' $diamond_dir
+cp $data_dir'pelo.mit_predicted.fa' $diamond_dir
 
 query='pelo.mit_predicted.fa'
 db='nr2.dmnd'

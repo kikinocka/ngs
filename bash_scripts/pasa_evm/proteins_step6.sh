@@ -32,9 +32,9 @@ predicted_prot=$data_dir'pelomyxa_predicted_proteins.fa'
 # grep ">" $incomplete | awk '{print $1}' | sed 's/>//' | sort | uniq > $missing
 # echo '***List of genes without start codon done***'
 
-# #replace to match the ID in gene
-# sed -i 's/\.model\./\.TU\./' $missing
-# echo '***Matching IDs done***'
+#replace to match the ID in gene
+sed -i 's/\.model\./\.TU\./' $missing
+echo '***Matching IDs done***'
 
 #CONTINUE IN GFF RENAMING
 
@@ -56,6 +56,6 @@ predicted_prot=$data_dir'pelomyxa_predicted_proteins.fa'
 # sed -i 's/\.1//' $simple
 # echo '***Simplifying names done***'
 
-#the final set of proteins sorted in the correct order
-perl ./sort.pl > $predicted_prot
-echo '***Final set of proteins done***'
+# #the final set of proteins sorted in the correct order
+# perl ./sort.pl > $predicted_prot
+# echo '***Final set of proteins done***'
