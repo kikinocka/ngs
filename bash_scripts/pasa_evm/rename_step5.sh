@@ -16,9 +16,9 @@ missing=$data_dir'missing_list.txt'
 # gff3_sort -g $evm -i -og $sorted
 # echo '***Sorting gff done***'
 
-#remove duplicates since for unknown reason EVM makes some
-awk -f$awk_path'remove_duplicates_gff' $sorted > $deduplicated
-echo '***Deduplicating gff done***'
+# #remove duplicates since for unknown reason EVM makes some
+# awk -f$awk_path'remove_duplicates_gff' $sorted > $deduplicated
+# echo '***Deduplicating gff done***'
 
 #EXTRACT PROTEINS (INCLUDING MATCH IDS)
 
@@ -43,8 +43,8 @@ echo '***Deduplicating gff done***'
 # sed -E 's/(scaffold[0-9]+_[0-9]+\t)\EVM(\t)/\1PASA\2/' $renamed > $renamed2
 # echo '***Replacing source with PASA done***'
 
-# #correct the parent issue in the gff file with mRNA
-# cat $renamed2 | awk -f $awk_path'fix_mRNA' > $final
-# echo '***Correcting parent issue done***'
+#correct the parent issue in the gff file with mRNA
+cat $renamed2 | awk -f $awk_path'fix_mRNA' > $final
+echo '***Correcting parent issue done***'
 
 #CONTINUE IN EXTRACTING FINAL SET OF PROTEINS
