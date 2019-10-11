@@ -2,7 +2,7 @@
 #PBS -N InterProScan
 #PBS -q default
 #PBS -l select=1:ncpus=10:mem=5gb:scratch_local=50gb
-#PBS -l walltime=4:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
