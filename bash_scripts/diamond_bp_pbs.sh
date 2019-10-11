@@ -25,7 +25,7 @@ out='pelo.mit_predicted.dmnd_bp.out'
 
 #compute in zoli's folder
 cd $diamond_dir
-./diamond blastp -p $PBS_NUM_PPN -d $db -q $query -o $out -f 6 qseqid sseqid stitle evalue bitscore full_sseq --sensitive --max-target-seqs 5 --evalue 1e-5
+./diamond blastp -p $PBS_NUM_PPN -d $db -q $query -o $out -f 6 qseqid sseqid stitle evalue bitscore full_sseq --sensitive --max-target-seqs 1 --evalue 1e-5
 
 #copy files back
 cp $out $data_dir/.
