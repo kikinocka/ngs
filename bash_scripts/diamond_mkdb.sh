@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N Diamond-bp
+#PBS -N Diamond-mkdb
 #PBS -l select=1:ncpus=5:mem=20gb:scratch_local=10gb
 #PBS -l walltime=01:00:00
 #PBS -m ae
