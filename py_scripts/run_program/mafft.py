@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver16/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver17/')
+files = [x for x in os.listdir() if x.endswith('_seqs.fa')]
 
 for file in files:
 	print(file)

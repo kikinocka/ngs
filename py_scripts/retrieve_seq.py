@@ -2,8 +2,8 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/storage/brno3-cerit/home/kika/diplonema/catalase/apx_tree/ver17/')
-infasta = SeqIO.parse('/storage/brno3-cerit/home/kika/dmnd/excavata.fasta', 'fasta')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver17/')
+infasta = SeqIO.parse('excavata.fasta', 'fasta')
 infile = open('excavata.acc')
 out = open('excavata.fa', 'w')
 
