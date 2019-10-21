@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/ownCloud/SAGs/')
-infile = SeqIO.parse('sequenceserver-178_hits.fa', 'fasta')
-out_fasta = open('sequenceserver_deduplicated.fa', 'w')
-out_names = open('sequenceserver_dupl-names.txt', 'w')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver17/')
+infile = SeqIO.parse('archaea.fa', 'fasta')
+out_fasta = open('archaea_deduplicated.fa', 'w')
+out_names = open('archaea_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
