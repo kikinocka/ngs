@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/predicted_proteins_transdecoder/')
-infasta = SeqIO.parse('pelo_transcriptome_clean.fa.transdecoder.5prime_complete.clustered.pep', 'fasta')
-infile = open('mit.acc')
-out = open('mit.predicted.fa', 'w')
+os.chdir('/storage/brno3-cerit/home/kika/diplonema/catalase/apx_tree/ver17/')
+infasta = SeqIO.parse('/storage/brno3-cerit/home/kika/dmnd/excavata.fasta', 'fasta')
+infile = open('excavata.acc')
+out = open('excavata.fa', 'w')
 
 retrieve = set()
 for line in infile:

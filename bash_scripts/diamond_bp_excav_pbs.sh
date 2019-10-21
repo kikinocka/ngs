@@ -26,4 +26,4 @@ cd $SCRATCHDIR
 diamond blastp -p $PBS_NUM_PPN -d $db -q $query -o $out -f 6 qseqid sseqid stitle evalue bitscore --sensitive --max-target-seqs 30 --evalue 1e-3
 
 #copy files back
-cp $out $diamond_dir
+cp $out $datadir
