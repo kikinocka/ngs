@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data_dir='/home/kika/MEGAsync/diplonema/catalase/apx_tree/'
+data_dir='/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver18/'
 aln=$data_dir'apx_trimal_0.5.aln'
 guide=$data_dir'guide_apx'
 guide_tree=$guide'.treefile'

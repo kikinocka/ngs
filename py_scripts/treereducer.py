@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver13/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver18/')
 inacc = open('acc.delete.txt')
-infasta = SeqIO.parse('apx_deduplicated.fa', 'fasta')
+infasta = SeqIO.parse('apx_seqs.fa', 'fasta')
 
 omitted = []
 for line in inacc:
