@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver19/')
+os.chdir('/home/kika/ownCloud/SAGs/SSUs/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
