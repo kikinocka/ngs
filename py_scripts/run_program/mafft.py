@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/')
+os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver2/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
