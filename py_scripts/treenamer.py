@@ -5,11 +5,12 @@ os.chdir('/home/kika/ownCloud/SAGs/SSUs/')
 
 #file in format Acc. number \t name of organism \n
 names = open('ssu_names.txt')
-tree = open('ver2/ssus_trimal_0.75.aln.treefile')
+tree = open('ver4/ssus_trimal_0.75.aln.treefile')
 
 name_dict = {}
 for name in names:
 	split_line = name.split('\t')
+	print(split_line[0])
 	name_dict[split_line[0]] = split_line[0] + ' ' + split_line[1][:-1]
 
 tree_line = tree.readline()
@@ -24,5 +25,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('ver2/ssu_renamed.tree', 'w') as result:
+with open('ver4/ssu_renamed.tree', 'w') as result:
 	result.write(tree_line)

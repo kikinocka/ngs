@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver3//')
+os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver4/')
 infile = SeqIO.parse('ssus.fa', 'fasta')
 out_fasta = open('ssus_deduplicated.fa', 'w')
 out_names = open('ssus_dupl-names.txt', 'w')
