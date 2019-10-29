@@ -9,7 +9,7 @@ from Bio import SeqIO
 Entrez.email = 'zahonova.kristina@gmail.com'
 
 os.chdir('/home/kika/ownCloud/SAGs/SSUs/')
-acc = open('euglenozoa_ssu.acc')
+acc = open('euglenozoa_ssu_more.acc')
 
 ids = []
 for line in acc:
@@ -27,7 +27,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('euglenozoa_ssu.lineage', 'w') as out:
+with open('euglenozoa_ssu_more.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
 		prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')

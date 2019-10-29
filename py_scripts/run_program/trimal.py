@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver2/')
+os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver3/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
@@ -10,8 +10,8 @@ for file in files:
 	aut = 'automated1'
 	gt = 0.75
 
-	# output = '{}_trimal_{}.aln'.format(file_name, aut)
-	# os.system('/home/kika/programs/trimAl/source/trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
+	output = '{}_trimal_{}.aln'.format(file_name, aut)
+	os.system('/home/kika/programs/trimAl/source/trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
 	
-	output = '{}_trimal_{}.aln'.format(file_name, gt)
-	os.system('/home/kika/programs/trimAl/source/trimal -in {} -out {} -gt {} -fasta'.format(file, output, gt))
+	# output = '{}_trimal_{}.aln'.format(file_name, gt)
+	# os.system('/home/kika/programs/trimAl/source/trimal -in {} -out {} -gt {} -fasta'.format(file, output, gt))
