@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver5/')
+os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver6/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
