@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver6/')
+os.chdir('/home/kika/ownCloud/SAGs/SSUs/ver7/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
 	print(file)
 	file_name = file.split('_')[0] #+ '_' + file.split('_')[1]
 	aut = 'automated1'
-	gt = 0.75
+	gt = 0.89
 	st = 0.001
 
 	# output = '{}_trimal_{}.aln'.format(file_name, aut)
