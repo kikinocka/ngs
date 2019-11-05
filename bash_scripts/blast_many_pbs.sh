@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N BLAST
+#PBS -N tblastn
 #PBS -l select=1:ncpus=10:mem=50gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module add blast+-2.7.1
 
 datadir='/auto/brno3-cerit/nfs4/home/kika/elonga_bct_genomes/'
-program=tblast
+program=tblastn
 query=$datadir'query.fa'
 outfmt=7
 word=3
