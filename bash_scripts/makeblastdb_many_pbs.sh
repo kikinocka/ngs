@@ -12,8 +12,9 @@ module add blast+-2.7.1
 
 datadir='/storage/brno3-cerit/home/kika/elonga_bct_genomes/'
 files=$datadir'*.fna'
+dbtype=nucl
 
 for file in $files; do
 	echo $file
-	makeblastdb -in $file -dbtype nucl -parse_seqids
+	makeblastdb -in $file -dbtype $dbtype -parse_seqids
 done
