@@ -90,10 +90,10 @@ def blast_parser(blast_records):
 							max_send = best.hsps[0].sbjct_start
 				if frame in [1, 2, 3]:
 					result[record.query.split(' ')[0]] = [min_sstart, max_send, frame, best.hit_id, 
-						record.query.split(' ')[0]_length, min_qstart, max_qend]
+						record.query_length, min_qstart, max_qend]
 				else:
 					result[record.query.split(' ')[0]] = [max_send, min_sstart, frame, best.hit_id, 
-						record.query.split(' ')[0]_length, min_qstart, max_qend]
+						record.query_length, min_qstart, max_qend]
 		except:
 			err_out.write('{}:\tno hit found\n'.format(record.query.split(' ')[0]))
 	errors = set(errors)
