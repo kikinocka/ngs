@@ -5,6 +5,6 @@ files=$datadir'*.fna'
 
 for file in $files; do
 	echo $file
-	makeblastdb -in $file -dbtype nucl -parse_seqids
+	# makeblastdb -in $file -dbtype nucl -parse_seqids
 	echo $file': BLASTable database done'
 done
