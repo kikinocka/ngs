@@ -30,7 +30,8 @@ def translation(sequence):
 		cut_seq.append(sequence[i:i+3])
 	aa = []
 	for codon in cut_seq:
-		if ['W', 'S', 'M', 'K', 'R', 'Y', 'B', 'D', 'H', 'V', 'N'] in codon:
+		if 'W' in codon or 'S' in codon or 'M' in codon or 'K' in codon or 'R' in codon or 'Y' in codon or \
+		   'B' in codon or 'D' in codon or 'H' in codon or 'V' in codon or 'N' in codon:
 			aa.append('X')
 		else:
 			aa.append(gencode[codon])
@@ -89,6 +90,7 @@ def blast_parser(blast_records):
 
 for file in files:
 	name = file.split('.fna')[0]
+	short_name = 'GCF_' + name.split('_')[1]
 	fasta = SeqIO.parse(file, 'fasta')
 	nt_out = open('{}_nt.fa'.format(name), 'w')
 	aa_out = open('{}_aa.fa'.format(name), 'w')
@@ -138,8 +140,8 @@ for file in files:
 							seq_end = seq_end
 					nucleotides = contig.seq[new_start:seq_end+3]
 					protein = translation(nucleotides)[:-1]
-					nt_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, nucleotides))
-					aa_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, protein))
+					nt_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, nucleotides))
+					aa_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, protein))
 				else:
 					print(contig.name + '_____reverse')
 					reverse = contig.seq.reverse_complement()
@@ -175,8 +177,8 @@ for file in files:
 							seq_end = seq_end
 					nucleotides = reverse[new_start:seq_end+3]
 					protein = translation(nucleotides)[:-1]
-					nt_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, nucleotides))
-					aa_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, protein))
+					nt_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, nucleotides))
+					aa_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, protein))
 			else:
 				pass
 
