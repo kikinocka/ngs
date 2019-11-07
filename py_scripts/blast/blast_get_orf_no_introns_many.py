@@ -36,7 +36,7 @@ def translation(sequence):
 			aa.append(gencode[codon])
 	return ''.join(aa)
 
-def blast_parser(blast_records):
+def blast_parser(blast_records, file_name):
 	result = {}
 	errors = []
 	for record in blast_records:
@@ -49,8 +49,7 @@ def blast_parser(blast_records):
 			max_qend = False
 			frame = best.frame[1]
 			if best.expect > 0.001:
-				# print('{}:\ttoo high evalue\n'.format(record.query))
-				err_out.write('{}:\ttoo high evalue\n'.format(record.query))
+				err_out.write('{} {}:\ttoo high evalue\n'.format(file_name, record.query))
 			else:
 				if not min_qstart:
 					min_qstart = best.query_start
@@ -83,11 +82,11 @@ def blast_parser(blast_records):
 					result[record.query] = [max_send, min_sstart, frame, acc, 
 						record.query_length, min_qstart, max_qend]
 		except:
-			# print('{}:\tno hit found\n'.format(record.query))
-			err_out.write('{}:\tno hit found\n'.format(record.query))
+			err_out.write('{} {}:\tno hit found\n'.format(file_name, record.query))
 	return result
 
 for file in files:
+	print(file)
 	name = file.split('.fna')[0]
 	short_name = 'GCF_' + name.split('_')[1]
 	fasta = SeqIO.parse(file, 'fasta')
@@ -96,9 +95,7 @@ for file in files:
 	err_out = open('{}_errors.txt'.format(name), 'w')
 	result_handle = open('{}.tblastn.xml'.format(name))
 	blast_records = NCBIXML.parse(result_handle)
-	print(file)
-
-	blast_dict = blast_parser(blast_records)
+	blast_dict = blast_parser(blast_records, short_name)
 	# print(blast_dict)
 
 	for contig in fasta:
