@@ -30,8 +30,7 @@ def translation(sequence):
 		cut_seq.append(sequence[i:i+3])
 	aa = []
 	for codon in cut_seq:
-		if 'W' in codon or 'S' in codon or 'M' in codon or 'K' in codon or 'R' in codon or 'Y' in codon or \
-		   'B' in codon or 'D' in codon or 'H' in codon or 'V' in codon or 'N' in codon:
+		if codon not in gencode:
 			aa.append('X')
 		else:
 			aa.append(gencode[codon])
