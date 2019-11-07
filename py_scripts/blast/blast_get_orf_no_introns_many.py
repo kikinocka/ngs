@@ -4,7 +4,7 @@ import os
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/precorrin-2_dehydrogenase/')
+os.chdir('/storage/brno3-cerit/home/kika/elonga_bct_genomes/')
 files = [x for x in os.listdir() if x.endswith('.fna')]
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
