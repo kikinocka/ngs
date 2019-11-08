@@ -37,5 +37,5 @@ spades.py --sc --careful -t PBS_NUM_PPN
 -o out 2> $report
 
 #copy results to your folder
-rm 
+rm $pe1m $pe11 $pe12 $pe1u $pe2m $pe21 $pe22 $pe2u
 cp -r * $outdir
