@@ -48,8 +48,8 @@ def blast_parser(blast_records, file_name):
 			min_qstart = False
 			max_qend = False
 			frame = best.frame[1]
-			if best.expect > 0.001:
-				err_out.write('{} {}:\ttoo high evalue\n'.format(file_name, record.query))
+			if best.expect >= 0.001:
+				err_out.write('{}\t{}:\ttoo high evalue\n'.format(file_name, record.query))
 			else:
 				if not min_qstart:
 					min_qstart = best.query_start
@@ -82,7 +82,7 @@ def blast_parser(blast_records, file_name):
 					result[record.query] = [max_send, min_sstart, frame, acc, 
 						record.query_length, min_qstart, max_qend]
 		except:
-			err_out.write('{} {}:\tno hit found\n'.format(file_name, record.query))
+			err_out.write('{}\t{}:\tno hit found\n'.format(file_name, record.query))
 	return result
 
 for file in files:
@@ -136,8 +136,8 @@ for file in files:
 							seq_end = seq_end
 					nucleotides = contig.seq[new_start:seq_end+3]
 					protein = translation(nucleotides)[:-1]
-					nt_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, nucleotides))
-					aa_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, protein))
+					nt_out.write('>{} {} {}\n{}\n'.format(short_name, contig.name, ref_name, nucleotides))
+					aa_out.write('>{} {} {}\n{}\n'.format(short_name, contig.name, ref_name, protein))
 				else:
 					print(contig.name + '_____reverse')
 					reverse = contig.seq.reverse_complement()
@@ -173,8 +173,8 @@ for file in files:
 							seq_end = seq_end
 					nucleotides = reverse[new_start:seq_end+3]
 					protein = translation(nucleotides)[:-1]
-					nt_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, nucleotides))
-					aa_out.write('>{} {} {}\n{}\n'.format(contig.name, short_name, ref_name, protein))
+					nt_out.write('>{} {} {}\n{}\n'.format(short_name, contig.name, ref_name, nucleotides))
+					aa_out.write('>{} {} {}\n{}\n'.format(short_name, contig.name, ref_name, protein))
 			else:
 				pass
 

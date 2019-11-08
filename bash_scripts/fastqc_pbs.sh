@@ -7,34 +7,21 @@
 #hashes explained: 
 #-N job name, -q queue, -l select resources, -l walltime, -m ae, -j oe mail will be send at the end of the job
 
-#get name of the machine where the job is run
 cat $PBS_NODEFILE
 
-read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-out_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/fastqc/'
-
-# #just in case scratch is not created, but never happened to me:
-# if [ ! -d "$SCRATCHDIR" ] ; then echo "Scratch directory is not created!" 1>&2; exit 1; fi
-# echo $SCRATCHDIR
-# trap 'clean_scratch' TERM EXIT
-
-#load modules
+#add modules
 module add fastQC-0.11.5
 
+read_dir='/storage/brno3-cerit/home/kika/sags/reassembly/raw_reads/'
+out_dir='/storage/brno3-cerit/home/kika/sags/reassembly/raw_reads/fastqc/'
+
 #copy data to scratch
-cd $read_dir
-cp pelo1_trimmed_1.fq.gz pelo1_trimmed_2.fq.gz pelo2_trimmed_1.fq.gz pelo2_trimmed_2.fq.gz pelo3_trimmed_1.fq.gz pelo3_trimmed_2.fq.gz pelo5_trimmed_1.fq.gz pelo5_trimmed_2.fq.gz pelo6_trimmed_1.fq.gz pelo6_trimmed_2.fq.gz $SCRATCHDIR
+cp $read_dir'EU17_r1.fq.gz' $read_dir'EU17_r2.fq.gz' $read_dir'EU18_r1.fq.gz' $read_dir'EU18_r2.fq.gz' $SCRATCHDIR
 
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir 'pelo1_trimmed_1.fq.gz'
-fastqc -o $out_dir 'pelo1_trimmed_2.fq.gz'
-fastqc -o $out_dir 'pelo2_trimmed_1.fq.gz'
-fastqc -o $out_dir 'pelo2_trimmed_2.fq.gz'
-fastqc -o $out_dir 'pelo3_trimmed_1.fq.gz'
-fastqc -o $out_dir 'pelo3_trimmed_2.fq.gz'
-fastqc -o $out_dir 'pelo5_trimmed_1.fq.gz'
-fastqc -o $out_dir 'pelo5_trimmed_2.fq.gz'
-fastqc -o $out_dir 'pelo6_trimmed_1.fq.gz'
-fastqc -o $out_dir 'pelo6_trimmed_2.fq.gz'
+fastqc -o $out_dir 'EU17_r1.fq.gz'
+fastqc -o $out_dir 'EU17_r2.fq.gz'
+fastqc -o $out_dir 'EU18_r1.fq.gz'
+fastqc -o $out_dir 'EU18_r2.fq.gz'
