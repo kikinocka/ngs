@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N SPAdes
-#PBS -q uv@wagap-pro.cerit-sc.cz -l select=1:ncpus=20:ompthreads=30:mem=100gb:scratch_local=100gb
+#PBS -q uv@wagap-pro.cerit-sc.cz -l select=1:ncpus=20:ompthreads=20:mem=100gb:scratch_local=100gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
