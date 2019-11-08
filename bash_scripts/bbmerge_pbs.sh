@@ -13,13 +13,13 @@ module add bbmap-36.92
 reads='/storage/brno3-cerit/home/kika/sags/reassembly/trimmed_reads/'
 
 #copy data to scratch
-cp $reads'' $reads'' $SCRATCHDIR
+cp $reads'EU17_r1_trimmed.fq.gz' $reads'EU17_r2_trimmed.fq.gz' $SCRATCHDIR
 
-fw=''
-rv=''
-merged=''
-un1=''
-un2=''
+fw='EU17_r1_trimmed.fq.gz'
+rv='EU17_r2_trimmed.fq.gz'
+merged='EU17_trimmed_merged.fq.gz'
+un1='EU17_r1_trimmed_unmerged.fq.gz'
+un2='EU17_r2_trimmed_unmerged.fq.gz'
 report='bbmerge_report.txt'
 
 
