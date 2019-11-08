@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N trim_galore
-#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=100gb
+#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
