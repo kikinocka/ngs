@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N trim_galore
-#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
+#PBS -l select=1:ncpus=8:mem=10gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -18,7 +18,7 @@ cp $raw'EU18_r1.fq.gz' $raw'EU18_r2.fq.gz' $SCRATCHDIR
 
 fw='EU18_r1.fq.gz'
 rv='EU18_r2.fq.gz'
-report=trim_galore_report.txt
+report='trim_galore_report.txt'
 
 
 #run on scratch
