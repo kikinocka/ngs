@@ -32,8 +32,8 @@ report='spades_report.txt'
 #compute on scratch
 cd $SCRATCHDIR
 spades.py --sc --careful -t $PBS_NUM_PPN \
---pe1-m $pe1m --pe1-1 $pe11 --pe1-2 $pe12 --pe1-s $pe1u \
---pe2-m $pe2m --pe2-1 $pe21 --pe2-2 $pe22 --pe2-s $pe2u \
+--pe1-12 $pe1m --pe1-1 $pe11 --pe1-2 $pe12 --pe1-s $pe1u \
+--pe2-12 $pe2m --pe2-1 $pe21 --pe2-2 $pe22 --pe2-s $pe2u \
 -o out 2> $report
 
 #copy results to your folder
