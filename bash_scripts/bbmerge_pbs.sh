@@ -20,7 +20,7 @@ rv='EU18_r2_trimmed.fq.gz'
 merged='EU18_trimmed_merged.fq.gz'
 un1='EU18_r1_trimmed_unmerged.fq.gz'
 un2='EU18_r2_trimmed_unmerged.fq.gz'
-report='bbmerge_report.txt'
+report='EU18_bbmerge_report.txt'
 
 
 #run on scratch
