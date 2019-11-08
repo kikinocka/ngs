@@ -12,16 +12,16 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/sags/reassembly/raw_reads/'
-out_dir='/storage/brno3-cerit/home/kika/sags/reassembly/raw_reads/fastqc/'
+read_dir='/storage/brno3-cerit/home/kika/sags/reassembly/trimmed_reads/'
+out_dir='/storage/brno3-cerit/home/kika/sags/reassembly/trimmed_reads/fastqc/'
 
 #copy data to scratch
-cp $read_dir'EU17_r1.fq.gz' $read_dir'EU17_r2.fq.gz' $read_dir'EU18_r1.fq.gz' $read_dir'EU18_r2.fq.gz' $SCRATCHDIR
+cp $read_dir'EU17_r1_trimmed.fq.gz' $read_dir'EU17_r2_trimmed.fq.gz' $read_dir'EU18_r1_trimmed.fq.gz' $read_dir'EU18_r2_trimmed.fq.gz' $SCRATCHDIR
 
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir 'EU17_r1.fq.gz'
-fastqc -o $out_dir 'EU17_r2.fq.gz'
-fastqc -o $out_dir 'EU18_r1.fq.gz'
-fastqc -o $out_dir 'EU18_r2.fq.gz'
+fastqc -o $out_dir 'EU17_r1_trimmed.fq.gz'
+fastqc -o $out_dir 'EU17_r2_trimmed.fq.gz'
+fastqc -o $out_dir 'EU18_r1_trimmed.fq.gz'
+fastqc -o $out_dir 'EU18_r2_trimmed.fq.gz'
