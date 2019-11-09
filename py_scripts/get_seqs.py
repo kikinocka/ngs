@@ -1,15 +1,14 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import os
 from Bio import SeqIO
 
-contigs = SeqIO.parse('/home/kika/MEGAsync/Chlamydomonas/od_toma/Amazonie_transdecoder.faa', 'fasta')
-names = open('/home/kika/MEGAsync/Chlamydomonas/od_toma/names.txt')
+os.chdir('/home/kika/ownCloud/SAGs/phylogenomics/')
+files = [x for x in os.listdir() if x.endswith('fas')]
 
-name_lst = []
-for line in names:
-	name_lst.append(line[:-1])
-
-with open('/home/kika/MEGAsync/Chlamydomonas/od_toma/putative_pt_genes_aa.fa', 'w') as mit:
-	for contig in contigs:
-		if contig.description in name_lst:
-			mit.write('>{}\n{}\n'.format(contig.description, contig.seq))
+with open('D1_seqs.fa', 'w') as out:
+	for file in files:
+		print(file)
+		name = file.split('_')[0]
+		for seq in SeqIO.parse(file, 'fasta'):
+			if seq.name == 'D1Redo':
+				out.write('>{} {}\n{}\n'.format(name, seq.name, str(seq.seq).replace('-', '')))
