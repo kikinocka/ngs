@@ -38,6 +38,9 @@ report_mapped_unpaired=$base_name'_mapped_unpaired.report.txt'
 bam=$base_name'_mapped_all.bam'
 sorted=$base_name'mapped_all.sorted.bam'
 
+
+#compute on scratch
+cd $SCRATCHDIR
 bwa index -a bwtsw $assembly 2>$index_report
 
 bwa mem -t $PBS_NUM_PPN $assembly $fw $rv | tee >(samtools flagstat - > $stat_mapped_paired) \
