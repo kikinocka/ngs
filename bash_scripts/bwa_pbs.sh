@@ -29,11 +29,13 @@ base_name='EU1718_bwa_'
 index_report=$base_name'index_genome.report'
 stat_mapped_paired=$base_name'mapped_paired.flagstat'
 bam_mapped_paired=$base_name'mapped_paired.bam'
-bai_mapped_paired=$base_name'mapped_paired.bam.bai'
+sorted_mapped_paired=$base_name'mapped_paired.sorted.bam'
+# bai_mapped_paired=$base_name'mapped_paired.sorted.bam.bai'
 report_mapped_paired=$base_name'mapped_paired.report'
 stat_mapped_unpaired=$base_name'mapped_unpaired.flagstat'
 bam_mapped_unpaired=$base_name'mapped_unpaired.bam'
-bai_mapped_unpaired=$base_name'mapped_unpaired.bam.bai'
+sorted_mapped_unpaired=$base_name'mapped_unpaired.sorted.bam'
+# bai_mapped_unpaired=$base_name'mapped_unpaired.bam.bai'
 report_mapped_unpaired=$base_name'mapped_unpaired.report'
 bam=$base_name'mapped_all.bam'
 sorted=$base_name'mapped_all.sorted.bam'
@@ -43,13 +45,15 @@ sorted=$base_name'mapped_all.sorted.bam'
 cd $SCRATCHDIR
 bwa index -a bwtsw $assembly 2>$index_report
 
-bwa mem -t $PBS_NUM_PPN $assembly $fw $rv | tee >(samtools flagstat - > $stat_mapped_paired) \
-| samtools sort -O BAM | tee $bam_mapped_paired \
-| samtools index $bai_mapped_paired 2> $report_mapped_paired
+bwa mem -t $PBS_NUM_PPN $assembly $fw $rv 2> $report_mapped_paired
+samtools flagstat $bam_mapped_paired > $stat_mapped_paired
+samtools sort -O BAM -o $sorted_mapped_paired -@ PBS_NUM_PPN $bam_mapped_paired
+samtools index $sorted_mapped_paired
 
-bwa mem -t $PBS_NUM_PPN $assembly $unpaired | tee >(samtools flagstat - > $stat_mapped_unpaired) \
-| samtools sort -O BAM | tee $bam_mapped_unpaired \
-| samtools index $bam_mapped_unpaired 2> $report_mapped_unpaired
+bwa mem -t $PBS_NUM_PPN $assembly $unpaired 2> $report_mapped_unpaired
+samtools flagstat $bam_mapped_unpaired > $stat_mapped_unpaired
+samtools sort -O BAM -o $sorted_mapped_unpaired -@ PBS_NUM_PPN $bam_mapped_unpaired
+samtools index $sorted_mapped_unpaired
 
 samtools merge -@ $PBS_NUM_PPN -f $bam $bam_mapped_paired $bam_mapped_unpaired
 samtools sort -@ $PBS_NUM_PPN -o $sorted $bam
