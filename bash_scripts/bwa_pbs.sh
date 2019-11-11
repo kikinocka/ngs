@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N bwa
-#PBS -l select=1:ncpus=25:mem=100gb:scratch_local=350gb
+#PBS -l select=1:ncpus=25:mem=50gb:scratch_local=100gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -43,7 +43,7 @@ sorted=$base_name'mapped_all.sorted.bam'
 
 #compute on scratch
 cd $SCRATCHDIR
-bwa index -a bwtsw $assembly 2>$index_report
+bwa index $assembly 2>$index_report
 
 bwa mem -t $PBS_NUM_PPN $assembly $fw $rv 2> $report_mapped_paired
 samtools flagstat $bam_mapped_paired > $stat_mapped_paired
