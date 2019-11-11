@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N kat
-#PBS -l select=1:ncpus=10:mem=50gb:scratch_local=100gb
+#PBS -l select=1:ncpus=10:mem=5gb:scratch_local=100gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
