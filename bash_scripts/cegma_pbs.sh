@@ -15,7 +15,7 @@ assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
 cegma_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/cegma/'
 
 #copy file to scratch
-cp $data_dir'contigs.fasta' $SCRATCHDIR
+cp $assembly_dir'contigs.fasta' $SCRATCHDIR
 
 genome='contigs.fasta'
 base='EU1718'
