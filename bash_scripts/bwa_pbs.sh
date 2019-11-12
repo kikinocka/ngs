@@ -65,5 +65,5 @@ samtools sort -@ $PBS_NUM_PPN -o $sorted $bam
 samtools index $sorted
 
 #copy files back
-rm $assembly $fw $rv $unpaired
+rm $assembly $sam_mapped_unpaired $sam_mapped_unpaired #$fw $rv $unpaired
 cp * $outdir
