@@ -28,8 +28,8 @@ cp $assembly_dir'contigs.fasta' $SCRATCHDIR
 cp -r $lin_dir'bacteria_odb9//' $SCRATCHDIR
 
 assembly='contigs.fasta'
-base='bacteria_odb9/'
-lineage='bacteria_odb9'
+base='bacteria_odb9'
+lineage='bacteria_odb9/'
 mode='genome'
 species='E_coli_K12'
 
