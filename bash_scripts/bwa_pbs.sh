@@ -45,12 +45,12 @@ sorted=$base_name'mapped_all.sorted.bam'
 cd $SCRATCHDIR
 bwa index $assembly 2>$index_report
 
-bwa mem -t $PBS_NUM_PPN $assembly $fw $rv 2> $report_mapped_paired
+bwa mem -t $PBS_NUM_PPN $assembly $fw $rv > $SCRATCHDIR 2> $report_mapped_paired
 samtools flagstat $bam_mapped_paired > $stat_mapped_paired
 samtools sort -O BAM -o $sorted_mapped_paired -@ PBS_NUM_PPN $bam_mapped_paired
 samtools index $sorted_mapped_paired
 
-bwa mem -t $PBS_NUM_PPN $assembly $unpaired 2> $report_mapped_unpaired
+bwa mem -t $PBS_NUM_PPN $assembly $unpaired > $SCRATCHDIR 2> $report_mapped_unpaired
 samtools flagstat $bam_mapped_unpaired > $stat_mapped_unpaired
 samtools sort -O BAM -o $sorted_mapped_unpaired -@ PBS_NUM_PPN $bam_mapped_unpaired
 samtools index $sorted_mapped_unpaired
