@@ -10,16 +10,22 @@
 module add busco-3.0.2
 module add augustus-3.3.1
 
+#setting augustus config file environment variable
+augustus_configs='/storage/brno3-cerit/home/kika/augustus_configs/'
+mkdir $SCRATCHDIR/augustus_configs/
+cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
+export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
+export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
+
+BUSCO_DB=eukaryota_odb9
 assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
 lin_dir='/software/busco/3.0.2/src/db/'
 busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
 
 #copy files to scratch
 cp $data_dir'contigs.fasta' $SCRATCHDIR
-cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
 assembly='contigs.fasta'
-lineage='eukaryota_odb9/'
 base='eukaryota_odb9'
 mode='genome'
 species='fly'
@@ -27,4 +33,8 @@ species='fly'
 
 #compute on scratch
 cd $SCRATCHDIR
-run_BUSCO.py -i $assembly -o base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species
+python run_BUSCO.py -i $assembly -o $base -l $BUSCO_DB -m $mode -c $PBS_NUM_PPN -sp $species
+
+#copy files back
+rm $assembly $augustus_configs
+cp -r * $busco_dir
