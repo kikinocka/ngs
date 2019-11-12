@@ -33,8 +33,8 @@ species='fly'
 
 #compute on scratch
 cd $SCRATCHDIR
-python run_BUSCO.py -i $assembly -o $base -l $BUSCO_DB -m $mode -c $PBS_NUM_PPN -sp $species
+run_BUSCO.py -i $assembly -o $base -l $BUSCO_DB -m $mode -c $PBS_NUM_PPN -sp $species
 
 #copy files back
-rm $assembly $augustus_configs
+rm $assembly augustus_configs
 cp -r * $busco_dir
