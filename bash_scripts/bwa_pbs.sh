@@ -43,7 +43,7 @@ sorted=$base_name'mapped_all.sorted.bam'
 
 #compute on scratch
 cd $SCRATCHDIR
-bwa index $assembly 2>$index_report
+bwa index -a bwtsw $assembly 2>$index_report
 
 bwa mem -t $PBS_NUM_PPN $assembly $fw $rv > $SCRATCHDIR 2> $report_mapped_paired
 samtools flagstat $bam_mapped_paired > $stat_mapped_paired
