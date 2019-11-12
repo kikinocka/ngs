@@ -25,11 +25,11 @@ busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
 
 #copy files to scratch
 cp $assembly_dir'contigs.fasta' $SCRATCHDIR
-cp -r $lin_dir'bacteria_odb9//' $SCRATCHDIR
+cp -r $lin_dir'fungi_odb9//' $SCRATCHDIR
 
 assembly='contigs.fasta'
-base='bacteria_odb9'
-lineage='bacteria_odb9/'
+base='fungi_odb9'
+lineage='fungi_odb9/'
 mode='genome'
 species='E_coli_K12'
 
