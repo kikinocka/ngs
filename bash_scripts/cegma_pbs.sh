@@ -11,16 +11,19 @@ cat $PBS_NODEFILE
 module add cegma-2.5
 module add blast+-2.2.29
 
-data_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
+assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
+cegma_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/cegma/'
 
 #copy file to scratch
-cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
+cp $data_dir'contigs.fasta' $SCRATCHDIR
 
-genome='pelomyxa_transcriptome_clean.fa'
+genome='contigs.fasta'
+base='EU1718'
 
 #compute on scratch
 cd $SCRATCHDIR
-cegma -o pelo_clean -T $PBS_NUM_PPN -g $genome
+cegma -o $base -T $PBS_NUM_PPN -g $genome
 
 #copy files back
-cp pelo_clean* $data_dir'/cegma/pelo_clean/.'
+rm $genome
+cp * $cegma_dir
