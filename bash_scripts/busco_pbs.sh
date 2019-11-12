@@ -2,7 +2,7 @@
 #PBS -N BUSCO
 #PBS -q default
 #PBS -l select=1:ncpus=1:mem=15gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -25,13 +25,13 @@ busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
 
 #copy files to scratch
 cp $assembly_dir'contigs.fasta' $SCRATCHDIR
-cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
+cp -r $lin_dir'bacteria_odb9//' $SCRATCHDIR
 
 assembly='contigs.fasta'
-base='eukaryota_odb9'
-lineage='eukaryota_odb9/'
+base='bacteria_odb9/'
+lineage='bacteria_odb9'
 mode='genome'
-species='fly'
+species='E_coli_K12'
 
 
 #compute on scratch
@@ -39,5 +39,5 @@ cd $SCRATCHDIR
 run_BUSCO.py -i $assembly -o $base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species
 
 #copy files back
-rm -r $assembly augustus_configs
+rm -r $assembly $lineage augustus_configs
 cp -r * $busco_dir
