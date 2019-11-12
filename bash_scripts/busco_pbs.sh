@@ -6,6 +6,8 @@
 #PBS -m ae
 #PBS -j oe
 
+cat $PBS_NODEFILE
+
 #add module
 module add busco-3.0.2
 module add augustus-3.3.1
@@ -23,7 +25,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
 
 #copy files to scratch
-cp $data_dir'contigs.fasta' $SCRATCHDIR
+cp $assembly_dir'contigs.fasta' $SCRATCHDIR
 
 assembly='contigs.fasta'
 base='eukaryota_odb9'
