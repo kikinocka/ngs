@@ -27,7 +27,6 @@ sumaries='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/sumaries/
 #copy files to scratch
 # cp $assembly_dir'contigs.fasta' $SCRATCHDIR
 # cp -r $lin_dir'protists_ensembl/' $SCRATCHDIR
-cp $sumaries'*' $SCRATCHDIR
 
 # assembly='contigs.fasta'
 # base='protists_ensembl'
@@ -39,10 +38,9 @@ cp $sumaries'*' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 # run_BUSCO.py -i $assembly -o $base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species
- generate_plot.py -wd $sumaries
+generate_plot.py -wd $sumaries
 
 #copy files back
 # rm -r $assembly $lineage augustus_configs
 # cp -r * $busco_dir
-rm short_summary*
 cp -r * $sumaries

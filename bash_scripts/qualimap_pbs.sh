@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module ad qualiMap-11_12-16
 
-mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping_bwa'
+mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping_bwa/'
 outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/qualimap_bwa/'
 
 #copy files to scratch
