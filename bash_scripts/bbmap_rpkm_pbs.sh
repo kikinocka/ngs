@@ -20,9 +20,9 @@ assembly='Trinity_job_11485672.fasta'
 fw='23all_trimmed_1.fq.gz'
 rv='23all_trimmed_2.fq.gz'
 
-sam=$out_dir'lsey_23_bbmap_rna.sam'
-rpkm=$out_dir'lsey_23_bbmap.rpkm'
-report=$out_dir'lsey_23_bbmap.report'
+sam=$out_dir'cther_23_bbmap_rna.sam'
+rpkm=$out_dir'cther_23_bbmap.rpkm'
+report=$out_dir'cther_23_bbmap.report'
 
 
 #compute on scratch
