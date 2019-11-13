@@ -11,13 +11,13 @@ cat $PBS_NODEFILE
 #add module
 module ad qualiMap-11_12-16
 
-mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bowtie2/'
-outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/qualimap/bowtie2/'
+mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bbmap/'
+outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/qualimap/bbmap/'
 
 #copy files to scratch
-cp $mapping'EU1718_bw2_sorted.bam' $SCRATCHDIR
+cp $mapping'EU1718_bbm_mapped_all.sorted.bam' $SCRATCHDIR
 
-bam='EU1718_bw2_sorted.bam'
+bam='EU1718_bbm_mapped_all.sorted.bam'
 
 
 #compute on scratch
