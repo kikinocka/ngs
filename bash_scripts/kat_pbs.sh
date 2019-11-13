@@ -20,11 +20,11 @@ cp $reads'all_r1_trimmed.fq.gz' $reads'all_r2_trimmed.fq.gz' $reads'all_unpaired
 fw='all_r1_trimmed.fq.gz'
 rv='all_r2_trimmed.fq.gz'
 unpaired='all_unpaired.fq.gz'
-
+report='kat.report'
 
 #compute on scratch
 cd $SCRATCHDIR
-kat hist -o $SCRATCHDIR -d -t $PBS_NUM_PPN $fw $rv $unpaired
+kat hist -o $SCRATCHDIR -d -t $PBS_NUM_PPN $fw $rv $unpaired 2> $report
 
 #copy files back
 rm $fw $rv $unpaired
