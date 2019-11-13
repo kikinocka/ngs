@@ -19,25 +19,30 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
-lin_dir='/software/busco/3.0.2/src/db/'
-busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
+# assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
+# lin_dir='/software/busco/3.0.2/src/db/'
+# busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
+sumaries='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/sumaries/'
 
 #copy files to scratch
-cp $assembly_dir'contigs.fasta' $SCRATCHDIR
-cp -r $lin_dir'protists_ensembl/' $SCRATCHDIR
+# cp $assembly_dir'contigs.fasta' $SCRATCHDIR
+# cp -r $lin_dir'protists_ensembl/' $SCRATCHDIR
+cp $sumaries'*' $SCRATCHDIR
 
-assembly='contigs.fasta'
-base='protists_ensembl'
-lineage='protists_ensembl/'
-mode='genome'
-species='toxoplasma'
+# assembly='contigs.fasta'
+# base='protists_ensembl'
+# lineage='protists_ensembl/'
+# mode='genome'
+# species='toxoplasma'
 
 
 #compute on scratch
 cd $SCRATCHDIR
-run_BUSCO.py -i $assembly -o $base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species
+# run_BUSCO.py -i $assembly -o $base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species
+ generate_plot.py -wd $sumaries
 
 #copy files back
-rm -r $assembly $lineage augustus_configs
-cp -r * $busco_dir
+# rm -r $assembly $lineage augustus_configs
+# cp -r * $busco_dir
+rm short_summary*
+cp -r * $sumaries
