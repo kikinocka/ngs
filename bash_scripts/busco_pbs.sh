@@ -31,7 +31,7 @@ assembly='contigs.fasta'
 base='protists_ensembl'
 lineage='protists_ensembl/'
 mode='genome'
-species='E_coli_K12'
+species='toxoplasma'
 
 
 #compute on scratch
