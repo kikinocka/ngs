@@ -14,7 +14,7 @@ data='/storage/brno3-cerit/home/kika/cther/'
 
 #copy files to scratch
 cp $data'Trinity_job_11485672.fasta' $SCRATCHDIR
-cp $reads'23all_trimmed_1.fq.gz' $reads'23all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $data'23all_trimmed_1.fq.gz' $data'23all_trimmed_2.fq.gz' $SCRATCHDIR
 
 assembly='Trinity_job_11485672.fasta'
 fw='23all_trimmed_1.fq.gz'
