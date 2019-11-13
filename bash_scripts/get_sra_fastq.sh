@@ -8,6 +8,8 @@ wget https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos/sra-pub-run-2/SRR2048653/S
 echo 'SRA SRR2048653.1 downloaded'
 fastq-dump --defline-seq '@$sn[_$rn]/$ri' --split-files --gzip ./SRR2048653.1
 echo 'SRA SRR2048653.1 split to pair-end files'
+mv SRR2048653.1* /storage/brno3-cerit/home/kika/lsey/.
+echo 'SRA SRR2048653.1 moved'
 echo '-----------------------------'
 echo
 
@@ -15,6 +17,8 @@ wget https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos/sra-pub-run-2/SRR2048654/S
 echo 'SRA SRR2048654.1 downloaded'
 fastq-dump --defline-seq '@$sn[_$rn]/$ri' --split-files --gzip ./SRR2048654.1
 echo 'SRA SRR2048654.1 split to pair-end files'
+mv SRR2048654.1* /storage/brno3-cerit/home/kika/lsey/.
+echo 'SRA SRR2048654.1 moved'
 echo '-----------------------------'
 echo
 
@@ -22,6 +26,8 @@ wget https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos/sra-pub-run-2/SRR2048655/S
 echo 'SRA SRR2048655.1 downloaded'
 fastq-dump --defline-seq '@$sn[_$rn]/$ri' --split-files --gzip ./SRR2048655.1
 echo 'SRA SRR2048655.1 split to pair-end files'
+mv SRR2048655.1* /storage/brno3-cerit/home/kika/lsey/.
+echo 'SRA SRR2048655.1 moved'
 echo '-----------------------------'
 echo
 
@@ -29,6 +35,8 @@ wget https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos/sra-pub-run-2/SRR2048656/S
 echo 'SRA SRR2048656.1 downloaded'
 fastq-dump --defline-seq '@$sn[_$rn]/$ri' --split-files --gzip ./SRR2048656.1
 echo 'SRA SRR2048656.1 split to pair-end files'
+mv SRR2048656.1* /storage/brno3-cerit/home/kika/lsey/.
+echo 'SRA SRR2048656.1 moved'
 echo '-----------------------------'
 echo
 
@@ -36,5 +44,7 @@ wget https://sra-downloadb.be-md.ncbi.nlm.nih.gov/sos/sra-pub-run-2/SRR2048657/S
 echo 'SRA SRR2048657.1 downloaded'
 fastq-dump --defline-seq '@$sn[_$rn]/$ri' --split-files --gzip ./SRR2048657.1
 echo 'SRA SRR2048657.1 split to pair-end files'
+mv SRR2048657.1* /storage/brno3-cerit/home/kika/lsey/.
+echo 'SRA SRR2048657.1 moved'
 echo '-----------------------------'
 echo
