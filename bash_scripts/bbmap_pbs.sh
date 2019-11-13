@@ -44,13 +44,13 @@ sorted=$base_name'mapped_all.sorted.bam'
 
 #compute on scratch
 cd $SCRATCHDIR
-$bbmap.sh in=$fw in2=$rv out=$sam_mapped_paired ref=$assembly threads=$PBS_NUM_PPN 2> $report_mapped_paired
+bbmap.sh in=$fw in2=$rv out=$sam_mapped_paired ref=$assembly threads=$PBS_NUM_PPN 2> $report_mapped_paired
 samtools view -bS $sam_mapped_paired > $bam_mapped_paired -@ $PBS_NUM_PPN
 samtools flagstat $bam_mapped_paired > $stat_mapped_paired
 samtools sort -o $sorted_mapped_paired -@ PBS_NUM_PPN $bam_mapped_paired
 samtools index $sorted_mapped_paired
 
-$bbmap.sh in=$unpaired out=$sam_mapped_unpaired ref=$assembly threads=$PBS_NUM_PPN 2> $report_mapped_unpaired
+bbmap.sh in=$unpaired out=$sam_mapped_unpaired ref=$assembly threads=$PBS_NUM_PPN 2> $report_mapped_unpaired
 samtools view -bS $sam_mapped_unpaired > $bam_mapped_unpaired -@ $PBS_NUM_PPN
 samtools flagstat $bam_mapped_unpaired > $stat_mapped_unpaired
 samtools sort -o $sorted_mapped_unpaired -@ PBS_NUM_PPN $bam_mapped_unpaired
