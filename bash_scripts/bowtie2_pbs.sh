@@ -24,7 +24,7 @@ cp $reads'all_r1_trimmed.fq.gz' $reads'all_r2_trimmed.fq.gz' $reads'all_unpaired
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='EU1718_bw2_'
+base_name='EU1718_bw2'
 ref='contigs.fasta'
 p1_1='all_r1_trimmed.fq.gz'
 p1_2='all_r2_trimmed.fq.gz'
@@ -38,12 +38,11 @@ bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
 bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
-bowtie2 --very-sensitive -p $PBS_NUM_PPN -x $base_name -1 $p1_1 -2 $p1_2 -r $unpaired \
---un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $samfile 2> $report
+bowtie2 --very-sensitive -p $PBS_NUM_PPN -x $base_name -1 $p1_1 -2 $p1_2 -U $unpaired --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $samfile 2> $report
 
 samtools view -bS $samfile > $bamfile -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile 
 samtools index $sorted
 
 #copy files back
-cp *bw2* $data_dir'pilon5/'
+cp *bw2* $outdir
