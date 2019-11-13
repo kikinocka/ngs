@@ -9,6 +9,7 @@ cat $PBS_NODEFILE
 
 #add module
 module add bbmap-36.92
+module add samtools-1.3.1
 
 sags='/storage/brno3-cerit/home/kika/sags/reassembly/'
 reads=$sags'trimmed_reads/'
