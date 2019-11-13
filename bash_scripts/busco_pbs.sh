@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N BUSCO
 #PBS -q default
-#PBS -l select=1:ncpus=1:mem=15gb:scratch_local=10gb:os=debian9
+#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=10gb:os=debian9
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -25,11 +25,11 @@ busco_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/'
 
 #copy files to scratch
 cp $assembly_dir'contigs.fasta' $SCRATCHDIR
-cp -r $lin_dir'fungi_odb9//' $SCRATCHDIR
+cp -r $lin_dir'protists_ensembl/' $SCRATCHDIR
 
 assembly='contigs.fasta'
-base='fungi_odb9'
-lineage='fungi_odb9/'
+base='protists_ensembl'
+lineage='protists_ensembl/'
 mode='genome'
 species='E_coli_K12'
 
