@@ -11,22 +11,24 @@ cat $PBS_NODEFILE
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-#copy files to scratch
-data_dir='/storage/brno3-cerit/home/kika/p57/'
+sags='/storage/brno3-cerit/home/kika/sags/reassembly/'
+reads=$sags'trimmed_reads/'
+spades=$sags'spades/'
+outdir=$sags'mapping_bowtie2/'
 
-cp $data_dir'pilon5/p57_pilon5.fa' $SCRATCHDIR
-cp $data_dir'p57_trimmed_1.fq' $SCRATCHDIR
-cp $data_dir'p57_trimmed_2.fq' $SCRATCHDIR
+#copy files to scratch
+cp $spades'contigs.fasta' $SCRATCHDIR
+cp $reads'all_r1_trimmed.fq.gz' $reads'all_r2_trimmed.fq.gz' $reads'all_unpaired.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='p57_pilon5_bw2'
-ref='p57_pilon5.fa'
-p1_1='p57_trimmed_1.fq'
-p1_2='p57_trimmed_2.fq'
-
+base_name='EU1718_bw2_'
+ref='contigs.fasta'
+p1_1='all_r1_trimmed.fq.gz'
+p1_2='all_r2_trimmed.fq.gz'
+unpaired='all_unpaired.fq.gz'
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
@@ -36,7 +38,8 @@ bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
 bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
-bowtie2 --very-sensitive -p $PBS_NUM_PPN -x $base_name -1 $p1_1 -2 $p1_2 --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $samfile 2> $report
+bowtie2 --very-sensitive -p $PBS_NUM_PPN -x $base_name -1 $p1_1 -2 $p1_2 -r $unpaired \
+--un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $samfile 2> $report
 
 samtools view -bS $samfile > $bamfile -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile 
