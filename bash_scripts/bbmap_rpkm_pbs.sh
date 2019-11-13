@@ -14,15 +14,15 @@ data='/storage/brno3-cerit/home/kika/cther/'
 
 #copy files to scratch
 cp $data'Trinity_job_11485672.fasta' $SCRATCHDIR
-cp $data'23all_trimmed_1.fq.gz' $data'23all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $data'37all_trimmed_1.fq.gz' $data'37all_trimmed_2.fq.gz' $SCRATCHDIR
 
 assembly='Trinity_job_11485672.fasta'
-fw='23all_trimmed_1.fq.gz'
-rv='23all_trimmed_2.fq.gz'
+fw='37all_trimmed_1.fq.gz'
+rv='37all_trimmed_2.fq.gz'
 
-sam=$out_dir'cther_23_bbmap_rna.sam'
-rpkm=$out_dir'cther_23_bbmap.rpkm'
-report=$out_dir'cther_23_bbmap.report'
+sam=$out_dir'cther_37_bbmap_rna.sam'
+rpkm=$out_dir'cther_37_bbmap.rpkm'
+report=$out_dir'cther_37_bbmap.report'
 
 
 #compute on scratch
