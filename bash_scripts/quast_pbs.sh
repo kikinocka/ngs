@@ -26,7 +26,7 @@ min_contig=500
 
 #compute on scratch
 cd $SCRATCHDIR
-quast.py -o $output -t PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote --bam $bam $f
+quast.py -o $output -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote --bam $bam $f
 
 #copy results to your folder
 rm $f $bam
