@@ -14,15 +14,15 @@ data='/storage/brno3-cerit/home/kika/lsey/'
 
 #copy files to scratch
 cp $data'TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta' $SCRATCHDIR
-cp $data'23all_1.fq.gz' $data'23all_2.fq.gz' $SCRATCHDIR
+cp $data'35all_1.fq.gz' $data'35all_2.fq.gz' $SCRATCHDIR
 
 assembly='TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta'
-fw='23all_1.fq.gz'
-rv='23all_2.fq.gz'
+fw='35all_1.fq.gz'
+rv='35all_2.fq.gz'
 
-sam=$out_dir'lsey_23_bbmap_rna.sam'
-rpkm=$out_dir'lsey_23_bbmap.rpkm'
-report=$out_dir'lsey_23_bbmap.report'
+sam='lsey_35_bbmap_rna.sam'
+rpkm='lsey_35_bbmap.rpkm'
+report='lsey_35_bbmap.report'
 
 
 #compute on scratch
