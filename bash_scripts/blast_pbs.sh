@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blastn-megablast
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=100gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=100gb
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -19,7 +19,7 @@ db_dir='/storage/brno3-cerit/home/kika/ncbi_db/'
 program=blastn
 task=megablast
 db='nt'
-# outfmt=6 'qseqid staxids bitscore std'
+# outfmt='6 qseqid staxids bitscore std'
 max_seqs=1
 max_hsps=1
 evalue=1e-10
