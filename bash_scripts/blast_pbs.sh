@@ -14,7 +14,7 @@ datadir='/storage/brno3-cerit/home/kika/sags/reassembly/'
 query=$datadir'spades/contigs.fasta'
 out=$datadir'blast/EU1718.fa_vs_nt_1e-10.megablast'
 report=$datadir'blast/EU1718.fa_vs_nt_1e-10.megablast.report'
-db_dir='/storage/brno3-cerit/home/kika/ncbi_db/'
+db_dir='/storage/brno3-cerit/home/kika/ncbi_db_preformatted/'
 
 program=blastn
 task=megablast
