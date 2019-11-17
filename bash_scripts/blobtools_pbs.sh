@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blobtools
 #PBS -l select=1:ncpus=1:mem=80gb:scratch_local=50gb
-#PBS -l walltime=15:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,33 +10,53 @@ cat $PBS_NODEFILE
 #add module
 module add blobtools-1.0
 
-pelo_dir='/storage/brno3-cerit/home/kika/pelomyxa/'
-data_dir=$pelo_dir'transcriptome_assembly/'
-mapping_dir=$pelo_dir'mapping/bowtie2/RNA_to_transcriptome/pelo_clean/'
-blob_dir='/storage/brno3-cerit/home/kika/blobtools/'
+assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
+blast_dir='/storage/brno3-cerit/home/kika/sags/reassembly/blast/'
+mapping_dir='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bbmap/'
+ncbi='/storage/brno3-cerit/home/kika/ncbi_db/'
+blob_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/blobtools/'
 
 #copy files to scratch
-cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
-cp $mapping_dir'pelo_trinity_clean_bw2.sam' $SCRATCHDIR
-cp $data_dir'blobtools/pelo_clean/pelo_clean_dmnd_bx.out' $SCRATCHDIR
-cp $blob_dir'prot.accession2taxid' $SCRATCHDIR
+cp $assembly_dir'contigs.fasta' $SCRATCHDIR
+cp $blast_dir'EU1718.fa_vs_nt_1e-10.megablast' $SCRATCHDIR
+cp $mapping_dir'EU1718_bbm_mapped_all.sorted.bam' $SCRATCHDIR
+cp $ncbi'nodes.dmp' $ncbi'names.dmp' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
+mkdir tables
+mkdir images
 
-transcriptome='pelomyxa_transcriptome_clean.fa'
-sam='pelo_trinity_clean_bw2.sam'
-dmnd='pelo_clean_dmnd_bx.out'
-taxid='prot.accession2taxid'
-taxified='pelo_clean_dmnd_bx.taxified.out'
-base='blobDB'
-rank='superkingdom'
+genome='contigs.fasta'
+blast='EU1718.fa_vs_nt_1e-10.megablast'
+bam='EU1718_bbm_mapped_all.sorted.bam'
+tax_nodes='nodes.dmp'
+tax_names='names.dmp'
+base='EU1718_blobtools'
 
-blobtools taxify -f $dmnd -m $taxid -s 1 -t 2
-blobtools create -i $transcriptome -s $sam -t $taxified -o $base
-blobtools view -i $base'.blobDB.json' --cov -o table
-blobtools plot -i $base'.blobDB.json' -r $rank -o plot 
+echo 'Running BlobTools create'
+blobtools create -i $genome --nodes $tax_nodes --names $tax_names -t $blast -b $bam -o $base
+echo 'Running BlobTools View - Phylum'
+blobtools view -i $base'.blobDB.json' --out tables/phylum --rank 'phylum'
+echo 'Running BlobTools View - Super Kingdom'
+blobtools view -i $base'.blobDB.json' --out tables/superkingdom --rank 'superkingdom'
+echo 'Running BlobTools Plot PNG - Phylum'
+blobtools plot -i $base'.blobDB.json' --rank 'phylum' --out images
+echo 'Running BlobTools Plot PNG - Super Kingdom'
+blobtools plot -i $base'.blobDB.json' --rank 'superkingdom' --out images
+echo 'Running BlobTools Plot SVG - Phylum'
+blobtools plot -i $base'.blobDB.json' --rank 'phylum' --format 'svg' --out images
+echo 'Running BlobTools Plot SVG - Super Kingdom'
+blobtools plot -i $base'.blobDB.json' --rank 'superkingdom' --format 'svg' --out images
+
+# blobtools taxify -f $dmnd -m $taxid -s 1 -t 2
+# blobtools create -i $transcriptome -s $sam -t $taxified -o $base
+# blobtools view -i $base'.blobDB.json' --cov -o table
+# blobtools plot -i $base'.blobDB.json' -r $rank -o plot 
 
 #copy files back
-rm $transcriptome $sam $dmnd $taxid
-cp -r * $data_dir'blobtools/pelo_clean/' || export CLEAN_SCRATCH=false
+rm $genome $blast $bam $tax_names $tax_nodes
+cp -r * $blob_dir
+
+# rm $transcriptome $sam $dmnd $taxid
+# cp -r * $data_dir'blobtools/pelo_clean/' || export CLEAN_SCRATCH=false

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/precorrin-2_dehydrogenase/tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('ssu_names.txt')
-tree = open('ver7/ssus_trimal_0.75.aln.treefile')
+names = open('SDR_a4_names.txt')
+tree = open('SDR_a4_trimal_0.75.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('ver7/ssu_renamed.tree', 'w') as result:
+with open('SDR_a4_renamed.tree', 'w') as result:
 	result.write(tree_line)
