@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module add blobtools-1.0
 
 cp /storage/brno3-cerit/home/kika/sags/reassembly/mapping/bbmap/EU1718_bbm_mapped_all.sorted.bam $SCRATCHDIR
-cp /storage/brno3-cerit/home/kika/sags/reassembly//spades/contigs.fasta $SCRATCHDIR
+cp /storage/brno3-cerit/home/kika/sags/reassembly/spades/contigs.fasta $SCRATCHDIR
 
 genome='contigs.fasta'
 bam='EU1718_bbm_mapped_all.sorted.bam'
