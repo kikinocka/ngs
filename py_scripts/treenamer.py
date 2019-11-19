@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/precorrin-2_dehydrogenase/tree/')
+os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/precorrin-2_dehydrogenase/bct_tree/')
 
 #file in format Acc. number \t name of organism \n
 names = open('SDR_a4_names.txt')
