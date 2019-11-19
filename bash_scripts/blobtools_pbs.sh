@@ -17,7 +17,7 @@ genome='contigs.fasta'
 bam='EU1718_bbm_mapped_all.sorted.bam'
 out='EU1718_blobtools'
 
-cd SCRATCHDIR
+cd $SCRATCHDIR
 blobtools map2cov -i $genome -b $bam -o $out
 
 rm $genome $bam
