@@ -22,7 +22,7 @@ export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/
 # assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/'
 # busco_dir=$assembly_dir'busco/'
 # lin_dir='/software/busco/3.0.2/src/db/'
-sumaries='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/sumaries/'
+sumaries=$busco_dir'sumaries/'
 
 # # copy files to scratch
 # cp $assembly_dir'mab_trinity_050516_renamed_nucl.fasta' $SCRATCHDIR
