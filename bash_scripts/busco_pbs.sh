@@ -19,7 +19,7 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-# assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/'
+assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/'
 busco_dir=$assembly_dir'busco/'
 # lin_dir='/software/busco/3.0.2/src/db/'
 
