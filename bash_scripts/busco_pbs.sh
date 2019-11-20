@@ -24,11 +24,11 @@ busco_dir=$assembly_dir'busco/'
 # lin_dir='/software/busco/3.0.2/src/db/'
 
 sumaries=$busco_dir'sumaries/'
-ln -s $busco_dir'mab_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
-ln -s $busco_dir'mei_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
-ln -s $busco_dir'psp_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
-ln -s $busco_dir'rel_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
-ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
+ln -s $busco_dir'mab_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries'short_summary_eukaryota_odb9_mab.txt'
+ln -s $busco_dir'mei_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries'short_summary_eukaryota_odb9_mei.txt'
+ln -s $busco_dir'psp_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries'short_summary_eukaryota_odb9_psp.txt'
+ln -s $busco_dir'rel_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries'short_summary_eukaryota_odb9_rel.txt'
+ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries'short_summary_eukaryota_odb9_rli.txt'
 
 # copy files to scratch
 # cp $assembly_dir'rli_trinity_010416_renamed_nucl.fasta' $SCRATCHDIR
