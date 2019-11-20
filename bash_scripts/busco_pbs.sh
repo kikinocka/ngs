@@ -31,10 +31,10 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries'short_summary_eukaryota_odb9_rli.txt'
 
 # copy files to scratch
-cp $assembly_dir'psp_trinity_230616_renamed_nucl.fasta' $SCRATCHDIR
+cp $assembly_dir'rel_trinity_010416_renamed_nucl.fasta' $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assembly='psp_trinity_230616_renamed_nucl.fasta'
+assembly='rel_trinity_010416_renamed_nucl.fasta'
 base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='transcriptome'
