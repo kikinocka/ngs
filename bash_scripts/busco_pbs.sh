@@ -26,7 +26,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 
 copy files to scratch
 cp $assembly_dir'mab_trinity_050516_renamed_nucl.fasta' $SCRATCHDIR
-cp -r $lin_dir'protists_ensembl/' $SCRATCHDIR
+cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
 assembly='mab_trinity_050516_renamed_nucl.fasta'
 base='eukaryota_odb9'
