@@ -27,10 +27,10 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln 
 
 # copy files to scratch
-cp $assembly_dir'rel_trinity_010416_renamed_nucl.fasta' $SCRATCHDIR
+cp $assembly_dir'rli_trinity_010416_renamed_nucl.fasta' $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assembly='rel_trinity_010416_renamed_nucl.fasta'
+assembly='rli_trinity_010416_renamed_nucl.fasta'
 base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='transcriptome'
