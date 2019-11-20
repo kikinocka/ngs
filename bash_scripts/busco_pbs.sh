@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N BUSCO
 #PBS -q default
-#PBS -l select=1:ncpus=5:mem=1gb:scratch_local=10gb:os=debian9
+#PBS -l select=1:ncpus=3:mem=1gb:scratch_local=10gb:os=debian9
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -25,10 +25,10 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # sumaries='/storage/brno3-cerit/home/kika/sags/reassembly/reports/busco/sumaries/'
 
 copy files to scratch
-cp $assembly_dir'mab_trinity_050516_renamed_nucl.fasta' $SCRATCHDIR
+cp $assembly_dir'mei_trinity_150316_renamed_nucl.fasta' $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assembly='mab_trinity_050516_renamed_nucl.fasta'
+assembly='mei_trinity_150316_renamed_nucl.fasta'
 base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='transcriptome'
