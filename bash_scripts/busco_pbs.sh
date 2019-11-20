@@ -19,29 +19,33 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/'
+# assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/'
 busco_dir=$assembly_dir'busco/'
-lin_dir='/software/busco/3.0.2/src/db/'
-# sumaries=$busco_dir'sumaries/'
+# lin_dir='/software/busco/3.0.2/src/db/'
 
-# ln 
+sumaries=$busco_dir'sumaries/'
+ln -s $busco_dir'mab_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
+ln -s $busco_dir'mei_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
+ln -s $busco_dir'psp_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
+ln -s $busco_dir'rel_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
+ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $sumaries
 
 # copy files to scratch
-cp $assembly_dir'rli_trinity_010416_renamed_nucl.fasta' $SCRATCHDIR
-cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
+# cp $assembly_dir'rli_trinity_010416_renamed_nucl.fasta' $SCRATCHDIR
+# cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assembly='rli_trinity_010416_renamed_nucl.fasta'
-base='eukaryota_odb9'
-lineage='eukaryota_odb9/'
-mode='transcriptome'
+# assembly='rli_trinity_010416_renamed_nucl.fasta'
+# base='eukaryota_odb9'
+# lineage='eukaryota_odb9/'
+# mode='transcriptome'
 
 
 #compute on scratch
 cd $SCRATCHDIR
-run_BUSCO.py -i $assembly -o $base -l $lineage -m $mode -c $PBS_NUM_PPN
-# generate_plot.py -wd $sumaries
+# run_BUSCO.py -i $assembly -o $base -l $lineage -m $mode -c $PBS_NUM_PPN
+generate_plot.py -wd $sumaries
 
 #copy files back
-rm -r $assembly $lineage augustus_configs
-cp -r * $busco_dir
-# cp -r * $sumaries
+# rm -r $assembly $lineage augustus_configs
+# cp -r * $busco_dir
+cp -r * $sumaries
