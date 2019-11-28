@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/precorrin-2_dehydrogenase/bct_tree/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifS_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('SDR_a4_names.txt')
-tree = open('SDR_a4_trimal_0.75.aln.treefile')
+names = open('nifS_names.txt')
+tree = open('ver2/nifS_trimal_0.3.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('SDR_a4_renamed.tree', 'w') as result:
+with open('ver2/nifS_renamed.tree', 'w') as result:
 	result.write(tree_line)

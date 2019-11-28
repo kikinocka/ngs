@@ -2,8 +2,10 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/pelomyxa_schiedti/predicted_proteins_transdecoder/')
-files = [x for x in os.listdir() if x.endswith('_renamed.fa')]
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pro_degradation/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
+targetp='/home/kika/programs/targetp-1.1/targetp'
+
 
 for file in files:
 	print(file)
@@ -12,4 +14,4 @@ for file in files:
 	option = 'N'
 	# option = 'P'
 	
-	subprocess.call('targetp -{} -c {} > {}'.format(option, file, out), shell=True)
+	subprocess.call('{} -{} -c {} > {}'.format(targetp, option, file, out), shell=True)

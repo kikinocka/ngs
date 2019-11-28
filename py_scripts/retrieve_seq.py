@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver17/')
-infasta = SeqIO.parse('excavata.fasta', 'fasta')
-infile = open('excavata.acc')
-out = open('excavata.fa', 'w')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/predicted_proteins_transdecoder/')
+db = SeqIO.parse('pelo_transcriptome_clean.fa.transdecoder.5prime_complete.clustered.pep', 'fasta')
+accessions = open('in')
+out = open('possibly_interesting.fa', 'w')
 
 retrieve = set()
-for line in infile:
+for line in accessions:
 	retrieve.add(line[:-1])
 
-for seq in infasta:
+for seq in db:
 	if seq.name in retrieve:
 		out.write('>{}\n{}\n'.format(seq.name, seq.seq))
 	else:
