@@ -26,8 +26,8 @@ cd $SCRATCHDIR
 
 base_name='pelo_DNA_bw2'
 ref='pelomyxa_final_genome.fa'
-p1_1=$data'all_trimmed_1.fq.gz'
-p1_2=$data'all_trimmed_2.fq.gz'
+p1_1=$reads'all_trimmed_1.fq.gz'
+p1_2=$reads'all_trimmed_2.fq.gz'
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
