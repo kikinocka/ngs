@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N Bowtie2
-#PBS -l select=1:ncpus=30:mem=100gb:scratch_local=200gb
+#PBS -l select=1:ncpus=50:mem=100gb:scratch_local=200gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
