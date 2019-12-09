@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pro_degradation/')
+os.chdir('/home/kika/MEGAsync/diplonema/metabolism/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 targetp='/home/kika/programs/targetp-1.1/targetp'
 
