@@ -1,0 +1,15 @@
+krtecek1
+  500G RAM
+  128 cores
+
+krtecek2
+  500G RAM
+  64 cores
+
+krtecek3
+  500G RAM
+  64 cores
+
+krtecek4
+  1000G
+  128 cores
