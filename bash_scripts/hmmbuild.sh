@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sdir='/home/kika/ownCloud/pelomyxa/mito_proteins/complexII/'
-msa=$sdir'aox_pfam.aln'
-out_hmm=$sdir'aox_pfam_profile.hmm'
-name='aox_pfam'
-summary=$sdir'aox_pfam_build.out'
+sdir='/home/kika/MEGAsync/diplonema/paramylon/phosphorylase/'
+msa=$sdir'GH149_mafft.aln'
+out_hmm=$sdir'GH149_profile.hmm'
+name='GH149'
+summary=$sdir'GH149_build.out'
 seq_type=amino
 threads=4
 
