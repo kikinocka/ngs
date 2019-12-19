@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifS_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/phospholipasesD_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('nifS_names.txt')
-tree = open('ver2/nifS_trimal_0.3.aln.treefile')
+names = open('phospholipasesD_names.txt')
+tree = open('phospholipasesD_trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('ver2/nifS_renamed.tree', 'w') as result:
+with open('phospholipasesD_renamed.tree', 'w') as result:
 	result.write(tree_line)
