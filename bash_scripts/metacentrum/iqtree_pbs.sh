@@ -2,7 +2,7 @@
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/CDP-DAGtransferases/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/ALCAT1/'
 
 #copy files to scratch
-cp $datadir'CDP-DAGtransferases_trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'nr90_trimal_0.5.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='CDP-DAGtransferases_trimal_0.5.aln'
-guide='guide_CDP-DAGtransferases'
+aln='nr90_trimal_0.5.aln'
+guide='guide_nr90'
 guide_tree=$guide'.treefile'
 bb=1000
 
