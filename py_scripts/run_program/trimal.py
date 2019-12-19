@@ -1,14 +1,14 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifS_tree/ver2/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/phospholipasesD_tree/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
 	print(file)
 	file_name = file.split('_')[0] #+ '_' + file.split('_')[1]
 	aut = 'automated1'
-	gt = 0.3
+	gt = 0.5
 	st = 0.001
 
 	# output = '{}_trimal_{}.aln'.format(file_name, aut)
