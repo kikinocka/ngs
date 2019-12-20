@@ -2,7 +2,7 @@
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=15:mem=20gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/ALCAT1/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/TAZ/'
 
 #copy files to scratch
-cp $datadir'alcat_nr90.trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'taz_nr90.trimal_0.5.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='alcat_nr90.trimal_0.5.aln'
-guide='guide_alcat'
+aln='taz_nr90.trimal_0.5.aln'
+guide='guide_taz'
 guide_tree=$guide'.treefile'
 bb=1000
 

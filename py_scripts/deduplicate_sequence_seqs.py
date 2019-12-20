@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLD1/')
-infile = SeqIO.parse('cld_nr90.fa', 'fasta')
-out_fasta = open('cld_nr90_deduplicated.fa', 'w')
-out_names = open('cld_nr90_dupl-names.txt', 'w')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/TAZ/')
+infile = SeqIO.parse('taz_nr90.fa', 'fasta')
+out_fasta = open('taz_nr90_deduplicated.fa', 'w')
+out_names = open('taz_nr90_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
