@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
 os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/ALCAT1/')
-infile = SeqIO.parse('nr90.fa', 'fasta')
-out_fasta = open('nr90_deduplicated.fa', 'w')
-out_names = open('nr90_dupl-names.txt', 'w')
+infile = SeqIO.parse('alcat_nr90.fa', 'fasta')
+out_fasta = open('alcat_nr90_deduplicated.fa', 'w')
+out_names = open('alcat_nr90_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

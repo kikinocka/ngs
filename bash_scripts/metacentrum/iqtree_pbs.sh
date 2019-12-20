@@ -14,12 +14,12 @@ module add iqtree-1.6.8
 datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/ALCAT1/'
 
 #copy files to scratch
-cp $datadir'nr90_trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'alcat_nr90.trimal_0.5.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='nr90_trimal_0.5.aln'
-guide='guide_nr90'
+aln='alcat_nr90.trimal_0.5.aln'
+guide='guide_alcat'
 guide_tree=$guide'.treefile'
 bb=1000
 
