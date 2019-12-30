@@ -14,4 +14,4 @@ lineage=1
 # 8) Toxoplasma
 # 9) Trypanosomatida
 
-NommPred.py -i $input -l $lineage #-o $out --overwrite
+NommPred.py -i $input -o $out -l $lineage #--overwrite
