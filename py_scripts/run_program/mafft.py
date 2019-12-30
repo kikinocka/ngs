@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/TAZ/')
-files = [x for x in os.listdir() if x.endswith('_nr90.fa')]
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)

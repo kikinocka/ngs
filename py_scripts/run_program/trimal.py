@@ -1,12 +1,12 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/TAZ/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
 	print(file)
-	file_name = file.split('_')[0] #+ '_' + file.split('_')[1]
+	file_name = file.split('.')[0] #+ '_' + file.split('_')[1]
 	aut = 'automated1'
 	gt = 0.5
 	st = 0.001
