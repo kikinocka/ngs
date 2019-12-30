@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/ALCAT1/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/TAZ/')
 
 #file in format Acc. number \t name of organism \n
-names = open('alcat_names.txt')
-tree = open('alcat_nr90.trimal_0.5.aln.treefile')
+names = open('taz_names.txt')
+tree = open('taz_nr90.trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('alcat_renamed.tree', 'w') as result:
+with open('taz_renamed.tree', 'w') as result:
 	result.write(tree_line)
