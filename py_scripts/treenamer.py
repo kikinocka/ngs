@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/TAZ/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/')
 
 #file in format Acc. number \t name of organism \n
-names = open('taz_names.txt')
-tree = open('taz_nr90.trimal_0.5.aln.treefile')
+names = open('cls-cap_names.txt')
+tree = open('cls-cap.trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('taz_renamed.tree', 'w') as result:
+with open('cls-cap_renamed.tree', 'w') as result:
 	result.write(tree_line)

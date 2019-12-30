@@ -3,7 +3,7 @@ import os
 import subprocess
 
 os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+files = [x for x in os.listdir() if x.endswith('_deduplicated.fa')]
 
 for file in files:
 	print(file)
