@@ -8,8 +8,8 @@ from Bio import SeqIO
 
 Entrez.email = 'zahonova.kristina@gmail.com'
 
-os.chdir('/home/kika/ownCloud/SAGs/SSUs/')
-acc = open('euglenozoa_ssu_more.acc')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver3/')
+acc = open('cls-cap.acc')
 
 ids = []
 for line in acc:
@@ -27,14 +27,14 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('euglenozoa_ssu_more.lineage', 'w') as out:
+with open('cls-cap.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
-		prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
+		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
 		prot_record = SeqIO.read(prot, 'genbank')
 		tax = prot_record.annotations['taxonomy'][::-1]
 		tax = str(tax).replace('\'', '').replace('[', '').replace(']', '').replace(', ', '_')
 		orgn = prot_record.annotations['organism']
-		out.write('{}\t@{} @{}\n'.format(prot_id, orgn, tax))
+		out.write('{}\t{} @{}\n'.format(prot_id, orgn, tax))
 		# print(orgn)
 		# print(tax)
