@@ -2,8 +2,8 @@
 
 workdir='/mnt/mokosz/home/kika/'
 input=$workdir'diplo_all.fa'
-out=$workdir'diplo_all.nommpred.out'
-lineage=1
+out=$workdir'diplo_all.nommpred_tryp.out'
+lineage=9
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
