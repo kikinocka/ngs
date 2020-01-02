@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/CLS-cap/ver8/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/CLS-pld/ver2/'
 
 #copy files to scratch
-cp $datadir'cls-cap.trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'cls-pld.trimal_0.5.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='cls-cap.trimal_0.5.aln'
-guide='guide_cls-cap'
+aln='cls-pld.trimal_0.5.aln'
+guide='guide_cls-pld'
 guide_tree=$guide'.treefile'
 bb=1000
 
