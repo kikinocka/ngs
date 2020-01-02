@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/CLS-cap/ver6/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/cardiolipin/CLS-cap/ver7/'
 
 #copy files to scratch
 cp $datadir'cls-cap.trimal_0.5.aln' $SCRATCHDIR

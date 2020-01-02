@@ -8,7 +8,7 @@ from Bio import SeqIO
 
 Entrez.email = 'zahonova.kristina@gmail.com'
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver5/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver6/')
 acc = open('seqdump.acc')
 
 ids = []
