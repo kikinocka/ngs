@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver1/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver7/')
 inacc = open('acc.delete.txt')
-infasta = SeqIO.parse('CDP-DAGtransferases.fa', 'fasta')
+infasta = SeqIO.parse('cls-cap.fa', 'fasta')
 
 omitted = []
 for line in inacc:

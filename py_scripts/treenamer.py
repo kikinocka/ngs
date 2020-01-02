@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver6/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver7/')
 
 #file in format Acc. number \t name of organism \n
 names = open('cls-cap_names.txt')
