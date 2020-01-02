@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/')
-infile = SeqIO.parse('cls-cap_reduced.fa', 'fasta')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver6/')
+infile = SeqIO.parse('cls-cap.fa', 'fasta')
 out_fasta = open('cls-cap_deduplicated.fa', 'w')
 out_names = open('cls-cap_dupl-names.txt', 'w')
 
