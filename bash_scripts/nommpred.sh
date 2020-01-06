@@ -1,9 +1,9 @@
 #!/bin/sh
 
-workdir='/mnt/mokosz/home/kika/'
-input=$workdir'diplo_all.fa'
-out=$workdir'diplo_all.nommpred_tryp.out'
-lineage=9
+workdir='/mnt/mokosz/home/kika/pelomyxa_schiedti/'
+input=$workdir'pelo_all.fa'
+out=$workdir'pelo_all.nommpred_tryp.out'
+lineage=2
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
