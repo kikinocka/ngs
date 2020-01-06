@@ -1,3 +1,4 @@
 qsub -I -l nodes=1:ppn=10,walltime=24:00:00
 
+qsub -I -l nodes=1:ppn=15,walltime=96:00:00
 qsub -I -l nodes=krtecek4:ppn=15,walltime=96:00:00

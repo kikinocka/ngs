@@ -8,8 +8,8 @@ from Bio import SeqIO
 
 Entrez.email = 'zahonova.kristina@gmail.com'
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_cap/ver7/')
-acc = open('seqdump.acc')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_pld/ver3/')
+acc = open('cls-pld.acc')
 
 ids = []
 for line in acc:
@@ -27,7 +27,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('seqdump.lineage', 'w') as out:
+with open('cls-pld.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
 		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')

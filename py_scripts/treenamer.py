@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_pld/ver2/')
+os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_pld/ver3/')
 
 #file in format Acc. number \t name of organism \n
 names = open('cls-pld_names.txt')
