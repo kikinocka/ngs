@@ -4,15 +4,15 @@ import subprocess
 
 multiloc = '/home/kika/programs/MultiLoc2-26-10-2009/src/multiloc2_prediction.py'
 
-os.chdir('/home/kika/MEGAsync/diplonema/metabolism/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/')
+files = [x for x in os.listdir() if x.endswith('all.fa')]
 
 for file in files:
 	print(file)
 	name = file.split('.fa')[0]
 	
-	option = 'animal'
-	# option = 'fungal'
+	# option = 'animal'
+	option = 'fungal'
 	# option = 'plant'
 	
 	out = '{}.multiloc_{}.txt'.format(name, option)
