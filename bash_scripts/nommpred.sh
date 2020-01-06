@@ -2,8 +2,8 @@
 
 workdir='/mnt/mokosz/home/kika/pelomyxa_schiedti/'
 input=$workdir'pelo_all.fa'
-out=$workdir'pelo_all.nommpred_dict.tsv'
-lineage=5
+out=$workdir'pelo_all.nommpred_mro.tsv'
+lineage=2
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
