@@ -11,10 +11,10 @@ for file in files:
 	print(file)
 	name = file.split('.fa')[0]
 	
-	# option = 'animal'
-	option = 'fungal'
+	option = 'animal'
+	# option = 'fungal'
 	# option = 'plant'
 	
-	out = '{}.multiloc_{}.txt'.format(name, option)
+	out = '{}.multiloc_{}.tsv'.format(name, option)
 	subprocess.call('python2 {} -fasta={} -origin={} -predictor=LowRes -result={} -output=simple'.format(
 		multiloc, file, option, out), shell=True)
