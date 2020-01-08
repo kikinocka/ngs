@@ -2,8 +2,8 @@
 
 targetp='/home/kika/programs/targetp-1.1/targetp'
 workdir='/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/'
-infile=$workdir'pelo_all.fa'
-outfile=$workdir'pelo_all.targetp.txt'
+infile=$workdir'pelo_others.fa'
+outfile=$workdir'pelo_others.targetp.txt'
 plant='P'
 non_plant='N'
 
