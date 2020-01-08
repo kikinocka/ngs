@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQTree
 #PBS -q default
-#PBS -l select=1:ncpus=15:mem=10gb:scratch_local=10gb:os=debian9
+#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=10gb:os=debian9
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
