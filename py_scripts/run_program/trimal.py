@@ -1,7 +1,7 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/FdhD_tree/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/FdhD_tree/ver2/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:

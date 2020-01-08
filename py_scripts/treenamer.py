@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/MEGAsync/diplonema/cardiolipin/CLS_pld/ver3/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/FdhD_tree/')
 
 #file in format Acc. number \t name of organism \n
-names = open('cls-pld_names.txt')
-tree = open('cls-pld.trimal_0.5.aln.treefile')
+names = open('fdhD_names.txt')
+tree = open('fdhD.trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('cls-pld_renamed.tree', 'w') as result:
+with open('fdhD_renamed.tree', 'w') as result:
 	result.write(tree_line)
