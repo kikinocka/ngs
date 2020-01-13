@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /storage/brno3-cerit/home/kika/sl_euglenozoa/
+
 wget http://richardslab.exeter.ac.uk/downloads/raquel/V9/1_CACTGT_L001_R1_001.fastq.bz2
 wget http://richardslab.exeter.ac.uk/downloads/raquel/V9/1_CACTGT_L001_R2_001.fastq.bz2
 wget http://richardslab.exeter.ac.uk/downloads/raquel/V9/2_GATCTG_L001_R1_001.fastq.bz2
