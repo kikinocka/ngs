@@ -8,7 +8,7 @@ from Bio import SeqIO
 
 Entrez.email = 'zahonova.kristina@gmail.com'
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/FdhD_tree/ver2/')
+os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/fdhF_tree/')
 acc = open('seqdump.acc')
 
 ids = []
