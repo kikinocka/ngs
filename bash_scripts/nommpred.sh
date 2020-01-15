@@ -1,9 +1,9 @@
 #!/bin/sh
 
-workdir='/mnt/mokosz/home/kika/pelomyxa_schiedti/'
-input=$workdir'pelo_others.fa'
-out=$workdir'pelo_others.nommpred_mro.tsv'
-lineage=2
+workdir='/mnt/mokosz/home/kika/workdir/'
+input=$workdir'seqs.fa'
+out=$workdir'seqs.nommpred.tsv'
+lineage=9
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma

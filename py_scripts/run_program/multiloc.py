@@ -4,8 +4,8 @@ import subprocess
 
 multiloc = '/home/kika/programs/MultiLoc2-26-10-2009/src/multiloc2_prediction.py'
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/')
-files = [x for x in os.listdir() if x.endswith('others.fa')]
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/targeting/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)

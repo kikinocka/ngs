@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/fdhF_tree/')
+os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/ver20/')
 
 #file in format Acc. number \t name of organism \n
-names = open('fdhF_names.txt')
-tree = open('fdhF.trimal_0.5.aln.treefile')
+names = open('apx_names.txt')
+tree = open('apx_seqs.trimal_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('fdhF_renamed.tree', 'w') as result:
+with open('apx_renamed.tree', 'w') as result:
 	result.write(tree_line)
