@@ -10,24 +10,30 @@ cat $PBS_NODEFILE
 #add module
 module add bbmap-36.92
 
-data='/storage/brno3-cerit/home/kika/lsey/'
+data='/storage/brno3-cerit/home/kika/elonga/'
 
 #copy files to scratch
-cp $data'TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta' $SCRATCHDIR
-cp $data'35all_1.fq.gz' $data'35all_2.fq.gz' $SCRATCHDIR
+cp $data'el_merged.fasta' $SCRATCHDIR
+cp $data'el_reads_new.fa' $SCRATCHDIR
 
-assembly='TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta'
-fw='35all_1.fq.gz'
-rv='35all_2.fq.gz'
+assembly='el_merged.fasta'
+# fw='35all_1.fq.gz'
+# rv='35all_2.fq.gz'
+all='el_reads_new.fa'
 
-sam='lsey_35_bbmap_rna.sam'
-rpkm='lsey_35_bbmap.rpkm'
-report='lsey_35_bbmap.report'
+sam='elonga_bbmap_rna.sam'
+rpkm='elonga_bbmap.rpkm'
+report='elonga_bbmap.report'
 
 
 #compute on scratch
 cd $SCRATCHDIR
-bbmap.sh in=$fw in2=$rv out=$sam ref=$assembly rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+#separate read files
+# bbmap.sh in=$fw in2=$rv out=$sam ref=$assembly rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+
+#one read file
+bbmap.sh in=$all out=$sam ref=$assembly rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+
 
 #copy files back
 rm $assembly $fw $rv
