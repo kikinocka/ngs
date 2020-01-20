@@ -8,7 +8,7 @@ cat $PBS_NODEFILE
 
 module add bbmap-36.92
 
-adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
+adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/cther/'
 fw='14I_1.fastq.gz'
