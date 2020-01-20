@@ -13,7 +13,7 @@ cat $PBS_NODEFILE
 module add fastQC-0.11.5
 
 read_dir='/storage/brno3-cerit/home/kika/cther/'
-out_dir='/storage/brno3-cerit/home/kika/cther/fqc/'
+out_dir='/storage/brno3-cerit/home/kika/cther/fastqc/'
 
 
 #copy data to scratch
