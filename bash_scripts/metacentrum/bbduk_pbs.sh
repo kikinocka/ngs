@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N BBduk
 #PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
-#PBS -l walltime=0:20:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 cat $PBS_NODEFILE
@@ -10,12 +10,12 @@ module add bbmap-36.92
 
 adapt='/auto/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
-read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-fw='pelo6_r1.fastq.gz'
-rv='pelo6_r2.fastq.gz'
+read_dir='/storage/brno3-cerit/home/kika/cther/'
+fw='14I_1.fastq.gz'
+rv='14I_2.fastq.gz'
 
-trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-name='pelo6'
+# trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
+name='14I'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
@@ -28,4 +28,4 @@ cp $fw $rv $SCRATCHDIR
 cd $SCRATCHDIR
 bbduk.sh overwrite=true in1=$fw in2=$rv out1=$trimmed_fw out2=$trimmed_rv ref=$adapt usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 
-cp $trimmed_fw $trimmed_rv $report $trimdir
+cp $trimmed_fw $trimmed_rv $report $read_dir
