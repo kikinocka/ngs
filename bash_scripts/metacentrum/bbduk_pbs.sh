@@ -11,11 +11,11 @@ module add bbmap-36.92
 adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/lsey/'
-fw='14I_1.fastq.gz'
-rv='14I_2.fastq.gz'
+fw='14II_1.fastq.gz'
+rv='14II_2.fastq.gz'
 
 # trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-name='14I'
+name='14II'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
