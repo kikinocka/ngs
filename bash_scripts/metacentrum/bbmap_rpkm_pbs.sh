@@ -17,7 +17,7 @@ cp $data'TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta' $SCRATCHDIR
 cp $data'14all_trimmed_1.fq.gz' $SCRATCHDIR
 cp $data'14all_trimmed_2.fq.gz' $SCRATCHDIR
 
-assembly='Trinity_job_11485672.fasta'
+assembly='TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta'
 fw='14all_trimmed_1.fq.gz'
 rv='14all_trimmed_2.fq.gz'
 # all='el_reads_new.fa'
