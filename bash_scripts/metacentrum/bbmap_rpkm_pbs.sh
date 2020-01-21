@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module add bbmap-36.92
 
-data='/storage/brno3-cerit/home/kika/cther/'
+data='/storage/brno3-cerit/home/kika/lsey/'
 
 #copy files to scratch
-cp $data'Trinity_job_11485672.fasta' $SCRATCHDIR
+cp $data'TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta' $SCRATCHDIR
 cp $data'14all_trimmed_1.fq.gz' $SCRATCHDIR
 cp $data'14all_trimmed_2.fq.gz' $SCRATCHDIR
 
@@ -22,9 +22,9 @@ fw='14all_trimmed_1.fq.gz'
 rv='14all_trimmed_2.fq.gz'
 # all='el_reads_new.fa'
 
-sam='cther_14_bbmap_rna.sam'
-rpkm='cther_14_bbmap.rpkm'
-report='cther_14_bbmap.report'
+sam='lsey_14_bbmap_rna.sam'
+rpkm='lsey_14_bbmap.rpkm'
+report='lsey_14_bbmap.report'
 
 
 #compute on scratch
