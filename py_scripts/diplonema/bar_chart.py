@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
-import os
 import numpy as np
 import matplotlib.pyplot as plt
-
-os.chdir('/home/kika/MEGAsync/diplonema_mt/tables_comparison/')
 
 genes = ('atp6', 'cob', 'cox1', 'cox2', 'cox3', 'nad1', 'nad2', 'nad3', 'nad4', 'nad4L', 'nad5', 'nad6', 'nad7', 'nad8', 'nad9', 'rnl', 'rns', 'y4', 'y7')
 djap = [0, 1, 1, 1, 1, 1, 3, 0, 1, 0, 2, 1, 0, 0, 1, 1, 1, 0, 0]
