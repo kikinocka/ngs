@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N BBduk
+#PBS -N bbduk
 #PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -12,7 +12,7 @@ adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/tbruc/'
 fw='ID-003057-NS091_R1_input.fq.gz'
-rv='ID-003057-NS091_R1_input.fq.gz'
+rv='ID-003057-NS091_R2_input.fq.gz'
 
 # trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
 name='tbruc'
