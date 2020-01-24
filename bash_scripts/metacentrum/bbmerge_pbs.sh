@@ -14,14 +14,14 @@ raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
 res='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_reads/'
 
 #copy data to scratch
-cp $raw'3_GAACGA_L001_R1_001.fastq.bz2' $raw'3_GAACGA_L001_R2_001.fastq.bz2' $SCRATCHDIR
+cp $raw'4_TACAAG_L001_R1_001.fastq.bz2' $raw'4_TACAAG_L001_R2_001.fastq.bz2' $SCRATCHDIR
 
-fw='3_GAACGA_L001_R1_001.fastq.bz2'
-rv='3_GAACGA_L001_R2_001.fastq.bz2'
-merged='3_GAACGA_merged.fq.gz'
-un1='3_GAACGA_unmerged_R1.fq.gz'
-un2='3_GAACGA_unmerged_R2.fq.gz'
-report='3_GAACGA_bbmerge_report.txt'
+fw='4_TACAAG_L001_R1_001.fastq.bz2'
+rv='4_TACAAG_L001_R2_001.fastq.bz2'
+merged='4_TACAAG_merged.fq.gz'
+un1='4_TACAAG_unmerged_R1.fq.gz'
+un2='4_TACAAG_unmerged_R2.fq.gz'
+report='4_TACAAG_bbmerge_report.txt'
 
 
 #run on scratch
