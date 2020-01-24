@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N bbmerge
-#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
+#PBS -l select=1:ncpus=10:mem=5gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -14,14 +14,14 @@ raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
 res='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_reads/'
 
 #copy data to scratch
-cp $raw'1_CACTGT_L001_R1_001.fastq.bz2' $raw'1_CACTGT_L001_R2_001.fastq.bz2' $SCRATCHDIR
+cp $raw'2_GATCTG_L001_R1_001.fastq.bz2' $raw'2_GATCTG_L001_R2_001.fastq.bz2' $SCRATCHDIR
 
-fw='1_CACTGT_L001_R1_001.fastq.bz2'
-rv='1_CACTGT_L001_R2_001.fastq.bz2'
-merged='1_CACTGT_merged.fq.gz'
-un1='1_CACTGT_unmerged_R1.fq.gz'
-un2='1_CACTGT_unmerged_R2.fq.gz'
-report='1_CACTGT_bbmerge_report.txt'
+fw='2_GATCTG_L001_R1_001.fastq.bz2'
+rv='2_GATCTG_L001_R2_001.fastq.bz2'
+merged='2_GATCTG_merged.fq.gz'
+un1='2_GATCTG_unmerged_R1.fq.gz'
+un2='2_GATCTG_unmerged_R2.fq.gz'
+report='2_GATCTG_bbmerge_report.txt'
 
 
 #run on scratch
