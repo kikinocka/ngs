@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Bowtie2
-#PBS -l select=1:ncpus=80:mem=150gb:scratch_local=200gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,23 +11,21 @@ cat $PBS_NODEFILE
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-data='/storage/brno3-cerit/home/kika/pelomyxa/'
-reads=$data'reads/genome/'
-spades=$data'genome_assembly/'
-outdir=$data'mapping/bowtie2/DNA_to_genome/'
+data='/storage/brno3-cerit/home/kika/tbruc/'
+outdir=$data'bw2_mapping/'
 
 #copy files to scratch
-cp $spades'pelomyxa_final_genome.fa' $SCRATCHDIR
-# cp $reads'all_trimmed_1.fq.gz' $reads'all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $data'tbruc_genome.fa' $SCRATCHDIR
+cp $data'tbruc_trimmed_1.fq.gz' $data'tbruc_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='pelo_DNA_bw2'
-ref='pelomyxa_final_genome.fa'
-p1_1=$reads'all_trimmed_1.fq.gz'
-p1_2=$reads'all_trimmed_2.fq.gz'
+base_name='tbruc_bw2'
+ref='tbruc_genome.fa'
+p1_1=$reads'tbruc_trimmed_1.fq.gz'
+p1_2=$reads'tbruc_trimmed_2.fq.gz'
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
