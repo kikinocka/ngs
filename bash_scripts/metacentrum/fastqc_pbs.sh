@@ -12,27 +12,17 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/lsey/'
-out_dir='/storage/brno3-cerit/home/kika/lsey/fastqc/'
+read_dir='/storage/brno3-cerit/home/kika/tbruc/'
+out_dir='/storage/brno3-cerit/home/kika/tbruc/fastqc/'
 
 
 #copy data to scratch
-cp $read_dir'14I_1.fastq.gz' $read_dir'14I_2.fastq.gz' $read_dir'14II_1.fastq.gz' $read_dir'14II_2.fastq.gz' $read_dir'14III_1.fastq.gz' $read_dir'14III_2.fastq.gz' $SCRATCHDIR
-cp $read_dir'14I_trimmed_1.fq.gz' $read_dir'14I_trimmed_2.fq.gz' $read_dir'14II_trimmed_1.fq.gz' $read_dir'14II_trimmed_2.fq.gz' $read_dir'14III_trimmed_1.fq.gz' $read_dir'14III_trimmed_2.fq.gz' $SCRATCHDIR
+cp $read_dir'ID-003057-NS091_R1_input.fq.gz' $read_dir'ID-003057-NS091_R2_input.fq.gz' $read_dir'tbruc_trimmed_1.fq.gz' $read_dir'tbruc_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #chdir to scratch and perform operations
 cd $SCRATCHDIR
-fastqc -o $out_dir '14I_1.fastq.gz'
-fastqc -o $out_dir '14I_2.fastq.gz'
-fastqc -o $out_dir '14II_1.fastq.gz'
-fastqc -o $out_dir '14II_2.fastq.gz'
-fastqc -o $out_dir '14III_1.fastq.gz'
-fastqc -o $out_dir '14III_2.fastq.gz'
-
-fastqc -o $out_dir '14I_trimmed_1.fq.gz'
-fastqc -o $out_dir '14I_trimmed_2.fq.gz'
-fastqc -o $out_dir '14II_trimmed_1.fq.gz'
-fastqc -o $out_dir '14II_trimmed_2.fq.gz'
-fastqc -o $out_dir '14III_trimmed_1.fq.gz'
-fastqc -o $out_dir '14III_trimmed_2.fq.gz'
+fastqc -o $out_dir 'ID-003057-NS091_R1_input.fq.gz'
+fastqc -o $out_dir 'ID-003057-NS091_R2_input.fq.gz'
+fastqc -o $out_dir 'tbruc_trimmed_1.fq.gz'
+fastqc -o $out_dir 'tbruc_trimmed_2.fq.gz'
