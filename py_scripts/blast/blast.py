@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pelo_all.fa'
-db = '/home/kika/programs/blast-2.5.0+/bin/pelo_predicted_proteins.fa'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/home/kika/ownCloud/kinetoplastids/diff_expression/tryp_genes.fa'
+db = '/home/kika/MEGAsync/Data/kinetoplastids/TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pelo_all_proteins.blast.xml'
+out = '/home/kika/ownCloud/kinetoplastids/diff_expression/lsey.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 10
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pelo_all_proteins.blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/pelo_all_proteins.best_blast.tsv', 'w')
+output = open('/home/kika/ownCloud/kinetoplastids/diff_expression/lsey.blast.tsv', 'w')
+out_best = open('/home/kika/ownCloud/kinetoplastids/diff_expression/lsey.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
