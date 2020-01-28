@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/fdhF_tree/')
-infile = SeqIO.parse('seqdump.txt', 'fasta')
-out_fasta = open('seqdump_deduplicated.fa', 'w')
-out_names = open('seqdump_dupl-names.txt', 'w')
+os.chdir('/kajo/')
+infile = SeqIO.parse('kajo.txt', 'fasta')
+out_fasta = open('kajo_deduplicated.fa', 'w')
+out_names = open('kajo_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
