@@ -1,8 +1,8 @@
 #!/bin/sh
 
 workdir='/mnt/mokosz/home/kika/workdir/'
-input=$workdir'seqs.fa'
-out=$workdir'seqs.nommpred.tsv'
+input=$workdir'new.fa'
+out=$workdir'new.nommpred.tsv'
 lineage=9
 # 1) Mt
 # 2) MRO
