@@ -15,7 +15,7 @@ WORKING_DIR='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
 cd $WORKING_DIR
 CUTADAPT_SCRIPT='clean_fastq_files.sh'
 
-for f in 'merged_reads/'*_merged.fq.gz ; do
+for f in 'merged_pear/'*.assembled.fastq ; do
  # V4 or V9 as an option
  bash ${CUTADAPT_SCRIPT} ${f} V9
 done

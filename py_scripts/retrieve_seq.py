@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/diplonema/catalase/apx_tree/')
-db = SeqIO.parse('ver19/apx_seqs.fa', 'fasta')
-accessions = open('ver20/apx.acc')
-out = open('ver20/apx_seqs.fa', 'w')
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/')
+db = SeqIO.parse('dbeuEU1718.fas', 'fasta')
+accessions = open('eu1718_found.acc')
+out = open('eu1718_found.fa', 'w')
 
 retrieve = set()
 for line in accessions:
