@@ -9,11 +9,11 @@ cat $PBS_NODEFILE
 #add module
 module add pear-0.9.11
 
-raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
+raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads'
 merged='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_pear/'
 
 #copy files to scratch
-cp $raw'*' $SCRATCHDIR
+cp $raw/*.bz2 $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
