@@ -9,27 +9,27 @@ cat $PBS_NODEFILE
 #add module
 module add pear-0.9.11
 
-# raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
-# merged='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_pear/'
+raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
+merged='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_pear/'
 
 #copy files to scratch
-# cp $raw'*' $SCRATCHDIR
+cp $raw'*' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-WORKING_DIR=`pwd`
-SAMPLE_DIR='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
-echo 'Working Dir: ${WORKING_DIR}'
-echo ' Sample Dir: ${SAMPLE_DIR}'
+# WORKING_DIR=`pwd`
+# SAMPLE_DIR='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
+# echo 'Working Dir: ' ${WORKING_DIR}
+# echo ' Sample Dir: ' ${SAMPLE_DIR}
 
-echo 'IGNORE PERMISSION DENIED ERRORS'
+# echo 'IGNORE PERMISSION DENIED ERRORS'
 
-# find ${SAMPLE_DIR} -name '*.gz' | \
-find ${SAMPLE_DIR} -name '*.bz2' | \
-while read R1 ; do
- cp ${R1} ${WORKING_DIR}
- cp ${R1/R1/R2} ${WORKING_DIR}
-done
+# # find ${SAMPLE_DIR} -name '*.gz' | \
+# find ${SAMPLE_DIR} -name '*.bz2' | \
+# while read R1 ; do
+#  cp ${R1} ${WORKING_DIR}
+#  cp ${R1/R1/R2} ${WORKING_DIR}
+# done
 
 # gunzip *.gz
 bzip2 -d *.bz2
