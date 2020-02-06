@@ -23,6 +23,8 @@ cp $sl'hashing.py' $SCRATCHDIR
 cd $SCRATCHDIR
 CUTADAPT_SCRIPT='clean_fastq_files.sh'
 
+export TMPDIR=$SCRATCHDIR
+
 for f in *.assembled.fastq ; do
  # V4 or V9 as an option
  bash ${CUTADAPT_SCRIPT} ${f} V9
