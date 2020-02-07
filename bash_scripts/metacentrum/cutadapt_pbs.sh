@@ -14,7 +14,7 @@ data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
 out_dir=$data'trimmed_cutadapt/'
 
 #copy files to scratch
-cp $data'/merged_reads/1_CACTGT_merged.fq.gz' $SCRATCHDIR
+cp $data'merged_pear/1_CACTGT_merged.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch

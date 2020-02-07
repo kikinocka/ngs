@@ -10,17 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.313
 
-data_dir='/storage/brno3-cerit/home/kika/euglenophytes/trees/ligases/'
+data_dir='/storage/brno3-cerit/home/kika/sags/alignments/'
 
 #copy files to scratch
-cp $data_dir'ligases_seqs.fa' $SCRATCHDIR
+cp $data_dir'*.faa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-seqs='ligases_seqs.fa'
-aln='ligases_mafft.aln'
 
-mafft --thread $PBS_NUM_PPN --inputorder --auto $seqs > $aln
+for f in *.faa ; do
+ aln=${f%.faa}.mafft.aln
+ mafft --thread $PBS_NUM_PPN --inputorder --auto ${f} > $aln
+done
+
 
 #copy files back
-cp $aln $data_dir
+cp *.mafft.aln $data_dir
