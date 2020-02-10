@@ -2,9 +2,9 @@
 
 # targetp='/home/kika/programs/targetp-1.1/targetp'
 targetp='/home/osboxes/programs/targetp-2.0/bin/targetp'
-workdir='/home/osboxes/Desktop/'
-infile=$workdir'seqs.fa'
-outfile=$workdir'seqs.targetp.tsv'
+workdir='/Dcko/MEGAsync/diplonema/catalase/targeting/'
+infile=$workdir'skompletovane.fa'
+outfile=$workdir'skompletovane.targetp.tsv'
 
 # plant='P'
 # non_plant='N'
