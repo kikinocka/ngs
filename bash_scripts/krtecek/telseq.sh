@@ -1,7 +1,7 @@
 #!/bin/sh
 
-workdir='/home/users/kika/p57/'
-bam=$workdir'p57_pilon5_bw2_sorted.bam'
+workdir='/home/users/kika/tbruc/'
+bam=$workdir'tbruc_bw2_sorted.bam'
 out=$workdir'telseq.out'
 pattern='TTAGGG'
 
