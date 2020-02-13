@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/home/kika/ownCloud/kinetoplastids/diff_expression/tryp_genes.fa'
-db = '/home/kika/MEGAsync/Data/kinetoplastids/TriTrypDB-46_LseymouriATCC30220_AnnotatedCDSs.fasta'
+query = '/Dcko/ownCloud/membrane-trafficking/Rhynchopus_humrisRAB_aa.txt'
+db = '/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/home/kika/ownCloud/kinetoplastids/diff_expression/lsey.blast.xml'
+out = '/Dcko/ownCloud/membrane-trafficking/1608_RABs.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 10
@@ -19,9 +19,8 @@ print('running BLAST')
 subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -max_target_seqs {} -word_size {}  \
 	-num_threads {}'.format(
 		cmd, task, query, db, out, evalue, outfmt, hits, word_size, threads), shell=True)
-#  
 
-# query - subject
+# #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
 # 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 
@@ -30,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/home/kika/ownCloud/kinetoplastids/diff_expression/lsey.blast.tsv', 'w')
-out_best = open('/home/kika/ownCloud/kinetoplastids/diff_expression/lsey.best_blast.tsv', 'w')
+output = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs.blast.tsv', 'w')
+out_best = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

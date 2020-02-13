@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/el_merged.fasta', 'fasta')
-nt_out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_hits_nt.fa', 'w')
-aa_out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_hits_aa.fa', 'w')
-err_out = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_hits_errors.txt', 'w')
-result_handle = open('/home/kika/ownCloud/euglenophytes/pt_proteome/EL_pt_proteins_blast.xml')
+fasta = SeqIO.parse('/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta', 'fasta')
+nt_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_nt.fa', 'w')
+aa_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_aa.fa', 'w')
+err_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_errors.txt', 'w')
+result_handle = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
