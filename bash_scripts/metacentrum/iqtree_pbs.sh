@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/catalase/apx_tree/ver20/'
+datadir='/storage/brno3-cerit/home/kika/proteromonas/ACSL_tree/'
 
 #copy files to scratch
-cp $datadir'apx_seqs.trimal_0.5.aln' $SCRATCHDIR
+cp $datadir'ACSL.trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='apx_seqs.trimal_0.5.aln'
-guide='guide_apx_seqs'
+aln='ACSL.trimal_automated1.aln'
+guide='guide_acsl_seqs'
 guide_tree=$guide'.treefile'
 bb=1000
 

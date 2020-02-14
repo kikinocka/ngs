@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd '/home/kika/MEGAsync/diplonema/paramylon/phosphorylase/'
-infile='GH149.fa'
-outfile='GH149_mafft.aln'
+cd '/Dcko/ownCloud/proteromonas/ACSL_tree/'
+infile='ACSL_seqs.fa'
+outfile='ACSL.mafft.aln'
 
-mafft --thread 4 --threadit 0 --inputorder --auto $infile > $outfile
+mafft --thread 4 --threadit 0 --maxiterate 100 --inputorder --auto $infile > $outfile
