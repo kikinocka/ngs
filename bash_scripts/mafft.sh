@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/Dcko/ownCloud/proteromonas/ACSL_tree/'
+cd '/Dcko/ownCloud/proteromonas/ACSL_tree/ver2/'
 infile='ACSL_seqs.fa'
 outfile='ACSL.mafft.aln'
 
