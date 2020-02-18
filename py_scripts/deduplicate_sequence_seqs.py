@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/kajo/')
-infile = SeqIO.parse('kajo.txt', 'fasta')
-out_fasta = open('kajo_deduplicated.fa', 'w')
-out_names = open('kajo_dupl-names.txt', 'w')
+os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/ver3/')
+infile = SeqIO.parse('ACSL_seqs.fa', 'fasta')
+out_fasta = open('ACSL_deduplicated.fa', 'w')
+out_names = open('ACSL_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
