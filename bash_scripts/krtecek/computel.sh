@@ -3,8 +3,8 @@
 computel='/home/software/computel/computel.sh'
 
 workdir='/home/users/kika/p57/'
-fw='p57_trimmed_1.fq'
-rv='p57_trimmed_2.fq'
+fw=$workdir'p57_trimmed_1.fq'
+rv=$workdir'p57_trimmed_2.fq'
 out=$workdir'computel/'
 pattern='TTAGGG'
 threads=15
