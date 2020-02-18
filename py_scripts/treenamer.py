@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/')
+os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/ver2/')
 
 #file in format Acc. number \t name of organism \n
 names = open('acsl_names.txt')
