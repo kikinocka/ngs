@@ -1,15 +1,15 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/ver2/')
+os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/ver3/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
 	print(file)
 	file_name = file.split('.')[0] #+ '_' + file.split('_')[1]
 	aut = 'automated1'
-	gt = 0.5
-	st = 0.001
+	gt = 0.5 #fraction of sequences with a gap allowed
+	st = 0.001 #minimum average similarity allowed.
 
 	output = '{}.trimal_{}.aln'.format(file_name, aut)
 	os.system('trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
