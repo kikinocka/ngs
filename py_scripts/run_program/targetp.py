@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/home/osboxes/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/home/osboxes/Desktop/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/Dcko/MEGAsync/diplonema/catalase/targeting/')
+files = [x for x in os.listdir() if x.endswith('missing.fa')]
 
 for file in files:
 	print(file)
@@ -19,4 +19,4 @@ for file in files:
 	#TagetP-2
 	option = 'non-pl'
 	# option = 'pl'
-	subprocess.call('{} -fasta {} -org {} -format short'.format(targetp, file, option))
+	subprocess.call('{} -fasta {} -org {} -format short'.format(targetp, file, option), shell=True)

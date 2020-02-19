@@ -1,8 +1,8 @@
 #!/bin/sh
 
 workdir='/mnt/mokosz/home/kika/workdir/'
-input=$workdir'skompletovane.fa'
-out=$workdir'skompletovane.nommpred.tsv'
+input=$workdir'eut_missing.fa'
+out=$workdir'eut_missing.nommpred.tsv'
 lineage=9
 # 1) Mt
 # 2) MRO
