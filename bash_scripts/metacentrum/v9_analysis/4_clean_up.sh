@@ -15,5 +15,5 @@ trimmed='/storage/brno3-cerit/home/kika/sl_euglenozoa/trimmed_cutadapt/'
 # rename
 cd $trimmed
 for f in *.assembled.fasta ; do
-    mv ${f} ${f/.assembled.fasta/.fas}
+    mv ${f} ${f/.fas/.assembled.fasta}
 done
