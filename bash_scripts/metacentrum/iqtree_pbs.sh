@@ -2,7 +2,7 @@
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -15,17 +15,19 @@ datadir='/storage/brno3-cerit/home/kika/proteromonas/ACSL_tree/ver3/'
 
 #copy files to scratch
 cp $datadir'acsl.trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'guide_acsl_seqs.iqtree' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 aln='acsl.trimal_automated1.aln'
-guide='guide_acsl_seqs'
-guide_tree=$guide'.treefile'
+# guide='guide_acsl_seqs'
+# guide_tree=$guide'.treefile'
+guide_tree='guide_acsl_seqs.iqtree'
 bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
 
-iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
+# iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
 iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree
 
 #copy files back
