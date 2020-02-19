@@ -14,7 +14,7 @@ diamond_dir='/storage/brno3-cerit/home/kika/refseq/'
 data_dir='/storage/brno3-cerit/home/kika/proteromonas/peroxisomal/'
 
 #copy files to db's folder
-cp $data_dir'possibly_peroxisomal.fa' $diamond_dir
+# cp $data_dir'possibly_peroxisomal.fa' $diamond_dir
 
 #compute in db's folder
 cd $diamond_dir
@@ -25,5 +25,5 @@ out='peroxisomal.dmnd_bp.out'
 diamond blastp -p $PBS_NUM_PPN -d $db -q $query -o $out -f 6 qseqid sseqid stitle evalue bitscore --sensitive --max-target-seqs 1 --evalue 1e-3
 
 #copy files back
-rm $query
+# rm $query
 mv $out $data_dir/.
