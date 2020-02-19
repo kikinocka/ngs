@@ -16,12 +16,12 @@ out=$sl'trimmed_cutadapt'
 
 #copy file to scratch
 cp $merged/*.assembled.fastq $SCRATCHDIR
-cp $sl'clean_fastq_files.sh' $SCRATCHDIR
+cp '/brno6/home/kika/scripts/kika/bash_scripts/metacentrum/V9_analysis/2b_clean_fastq_files.sh' $SCRATCHDIR
 # cp $sl'hashing.py' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-CUTADAPT_SCRIPT='clean_fastq_files.sh'
+CUTADAPT_SCRIPT='2b_clean_fastq_files.sh'
 
 export TMPDIR=$SCRATCHDIR
 
