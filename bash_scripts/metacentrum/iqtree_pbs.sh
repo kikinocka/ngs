@@ -15,14 +15,14 @@ datadir='/storage/brno3-cerit/home/kika/proteromonas/ACSL_tree/ver3/'
 
 #copy files to scratch
 cp $datadir'acsl.trimal_automated1.aln' $SCRATCHDIR
-cp $datadir'guide_acsl_seqs.iqtree' $SCRATCHDIR
+cp $datadir'guide_acsl_seqs.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 aln='acsl.trimal_automated1.aln'
 # guide='guide_acsl_seqs'
 # guide_tree=$guide'.treefile'
-guide_tree='guide_acsl_seqs.iqtree'
+guide_tree='guide_acsl_seqs.treefile'
 bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
