@@ -17,7 +17,7 @@ out=$sl'trimmed_cutadapt'
 #copy file to scratch
 cp $merged/*.assembled.fastq $SCRATCHDIR
 cp $sl'clean_fastq_files.sh' $SCRATCHDIR
-cp $sl'hashing.py' $SCRATCHDIR
+# cp $sl'hashing.py' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -31,5 +31,5 @@ for f in *.assembled.fastq ; do
 done
 
 #copy files back
-rm 'clean_fastq_files.sh' 'hashing.py' *.assembled.fastq
+rm *.assembled.fastq 'clean_fastq_files.sh' #'hashing.py'
 cp * $out
