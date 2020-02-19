@@ -42,4 +42,4 @@ while read R1 ; do
 done
 
 #copy files back
-cp *assebled.fastq $merged
+cp *assembled.fastq $merged
