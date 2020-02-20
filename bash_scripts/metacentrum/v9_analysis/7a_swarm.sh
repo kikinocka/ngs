@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N swarm
-#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=50gb
+#PBS -l select=1:ncpus=15:mem=50gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -26,8 +26,8 @@ cd $SCRATCHDIR
 fasta='global_dereplicated.fa'
 swarm_sc='7b_swarm_fastidious.sh'
 
-# ./$swarm_sc $fasta $PBS_NUM_PPN
+./$swarm_sc $fasta $PBS_NUM_PPN
 
-# #copy files back
-# rm $fasta $swarm_sc
-# cp * $data
+#copy files back
+rm $fasta $swarm_sc
+cp * $data
