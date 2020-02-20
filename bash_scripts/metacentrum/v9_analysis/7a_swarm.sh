@@ -24,16 +24,9 @@ cd $SCRATCHDIR
 # fi
 
 fasta='global_dereplicated.fa'
-echo '******'
-echo $fasta
-echo '******'
-
 swarm_sc='7b_swarm_fastidious.sh'
-echo '******'
-echo $swarm_sc
-echo '******'
 
-$swarm_sc $fasta $PBS_NUM_PPN
+./$swarm_sc $fasta $PBS_NUM_PPN
 
 #copy files back
 rm $fasta $swarm_sc

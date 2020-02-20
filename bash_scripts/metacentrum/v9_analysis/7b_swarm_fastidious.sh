@@ -2,12 +2,26 @@
 
 SWARM="swarm"
 FASTA_FILE=$(readlink -f "${1}")
+echo '******'
+echo $FASTA_FILE
+echo '******'
 THREADS=$(readlink -f "${2}")
+echo '******'
+echo $THREADS
+echo '******'
 RESOLUTION="1"
 OUTPUT_SWARMS="${FASTA_FILE%%.*}_${RESOLUTION}f.swarms"
+echo '******'
+echo $OUTPUT_SWARMS
+echo '******'
 OUTPUT_STATS="${FASTA_FILE%%.*}_${RESOLUTION}f.stats"
+echo '******'
+echo $OUTPUT_STATS
+echo '******'
 OUTPUT_REPRESENTATIVES="${FASTA_FILE%%.*}_${RESOLUTION}f_representatives.fas"
-
+echo '******'
+echo $OUTPUT_REPRESENTATIVES
+echo '******'
 
 ## Verify the abundance annotation style
 if [[ ${FASTA_FILE##*.} == "bz2" ]] ; then
