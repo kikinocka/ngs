@@ -20,6 +20,6 @@ done &
 
 # rename
 cd $trimmed
-for f in *.fas ; do
-    mv ${f} ${f/.fas/.assembled.fasta}
+for f in *.assembled.fasta ; do
+    mv ${f} ${f/.assembled.fasta/.fas}
 done
