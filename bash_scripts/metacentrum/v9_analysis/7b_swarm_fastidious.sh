@@ -10,15 +10,15 @@ echo '******'
 echo $THREADS
 echo '******'
 RESOLUTION="1"
-OUTPUT_SWARMS="${FASTA_FILE%%.*}_${RESOLUTION}f.swarms"
+OUTPUT_SWARMS="global_dereplicated_${RESOLUTION}f.swarms"
 echo '******'
 echo $OUTPUT_SWARMS
 echo '******'
-OUTPUT_STATS="${FASTA_FILE%%.*}_${RESOLUTION}f.stats"
+OUTPUT_STATS="global_dereplicated_${RESOLUTION}f.stats"
 echo '******'
 echo $OUTPUT_STATS
 echo '******'
-OUTPUT_REPRESENTATIVES="${FASTA_FILE%%.*}_${RESOLUTION}f_representatives.fas"
+OUTPUT_REPRESENTATIVES="global_dereplicated_${RESOLUTION}f_representatives.fas"
 echo '******'
 echo $OUTPUT_REPRESENTATIVES
 echo '******'
