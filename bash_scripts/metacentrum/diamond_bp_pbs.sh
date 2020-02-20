@@ -20,9 +20,9 @@ data_dir='/storage/brno3-cerit/home/kika/proteromonas/peroxisomal/'
 cd $diamond_dir
 query='possibly_peroxisomal.fa'
 db='refseq.dmnd'
-out='peroxisomal.dmnd_bp.out'
+out='peroxisomal.dmnd_bp.without_eval.out'
 
-diamond blastp -p $PBS_NUM_PPN -d $db -q $query -o $out -f 6 qseqid sseqid stitle evalue bitscore --sensitive --max-target-seqs 1 --evalue 1e-3
+diamond blastp -p $PBS_NUM_PPN -d $db -q $query -o $out -f 6 qseqid sseqid stitle evalue bitscore --sensitive --max-target-seqs 1 #--evalue 1e-3
 
 #copy files back
 # rm $query
