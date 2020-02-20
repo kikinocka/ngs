@@ -1,14 +1,23 @@
 #!/bin/bash
 #PBS -N cutadapt-vsearch
-#PBS -l select=1:ncpus=1:mem=150gb:scratch_local=500gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=1:mem=50gb:scratch_local=50gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
-module add python36-modules-gcc
 module add vsearch-1.4.4
+
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
+trimmed=$data'trimmed_cutadapt'
+
+#copy file to scratch
+cp $trimmed'/'*.fas $SCRATCHDIR
+
+#compute on scratch
+cd $SCRATCHDIR
+export TMPDIR=$SCRATCHDIR
 
 TMP_FASTA=$(mktemp)
 TMP_FASTA_DEREPLICATED=$(mktemp)
@@ -30,4 +39,6 @@ vsearch --threads $PBS_NUM_PPN \
 
 bzip2 -9k $1 &
 
+#copy files back
 rm ${TMP_FASTA} ${TMP_FASTA_DEREPLICATED}
+cp * $data
