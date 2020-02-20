@@ -1,11 +1,17 @@
 #!/bin/bash
 
 raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
+merged='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_pear/'
 trimmed='/storage/brno3-cerit/home/kika/sl_euglenozoa/trimmed_cutadapt/'
 
 # compress
 cd $raw
-for f in *_001.fastq ; do
+for f in *.fastq ; do
+    bzip2 -9 ${f}
+done &
+
+cd $merged
+for f in *.fastq ; do
     bzip2 -9 ${f}
 done &
 
