@@ -2,8 +2,8 @@
 
 SWARM="swarm"
 FASTA_FILE=$(readlink -f "${1}")
-RESOLUTION="1"
 THREADS=$(readlink -f "${2}")
+RESOLUTION="1"
 OUTPUT_SWARMS="${FASTA_FILE%%.*}_${RESOLUTION}f.swarms"
 OUTPUT_STATS="${FASTA_FILE%%.*}_${RESOLUTION}f.stats"
 OUTPUT_REPRESENTATIVES="${FASTA_FILE%%.*}_${RESOLUTION}f_representatives.fas"
