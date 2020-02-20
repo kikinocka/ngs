@@ -1,0 +1,58 @@
+#!/bin/bash -
+
+SWARM="swarm"
+FASTA_FILE=$(readlink -f "${1}")
+RESOLUTION="1"
+THREADS=$(readlink -f "${2}")
+OUTPUT_SWARMS="${FASTA_FILE%%.*}_${RESOLUTION}f.swarms"
+OUTPUT_STATS="${FASTA_FILE%%.*}_${RESOLUTION}f.stats"
+OUTPUT_REPRESENTATIVES="${FASTA_FILE%%.*}_${RESOLUTION}f_representatives.fas"
+
+
+## Verify the abundance annotation style
+if [[ ${FASTA_FILE##*.} == "bz2" ]] ; then
+    SAMPLE=$(bzcat "${FASTA_FILE}" | head -n 1 | grep -o ";size=\|_")
+else
+    SAMPLE=$(head -n 1 "${FASTA_FILE}" | grep -o ";size=\|_")
+fi
+case "${SAMPLE}" in
+    ";size=")
+        ANNOTATION_OPTION="-z"
+        ;;
+    "_")
+        ANNOTATION_OPTION=""
+        ;;
+    *)
+        echo "Unidentified abundance annotation (\"_\" or \";size=\")." 1>&2
+        exit 1
+        ;;
+esac
+
+
+if [[ ${FASTA_FILE##*.} == "bz2" ]] ; then
+    if [[ ${ANNOTATION_OPTION} ]] ; then
+        "${SWARM}" -d "${RESOLUTION}" -f \
+            -w "${OUTPUT_REPRESENTATIVES}" \
+            -t "${THREADS}" "${ANNOTATION_OPTION}" \
+            -s "${OUTPUT_STATS}" <(bzcat "${FASTA_FILE}") > "${OUTPUT_SWARMS}"
+    else
+        "${SWARM}" -d "${RESOLUTION}" -f \
+            -w "${OUTPUT_REPRESENTATIVES}" \
+            -t "${THREADS}" \
+            -s "${OUTPUT_STATS}" <(bzcat "${FASTA_FILE}") > "${OUTPUT_SWARMS}"
+    fi
+else
+    if [[ ${ANNOTATION_OPTION} ]] ; then
+        "${SWARM}" -d "${RESOLUTION}" -f \
+            -w "${OUTPUT_REPRESENTATIVES}" \
+            -t "${THREADS}" "${ANNOTATION_OPTION}" \
+            -s "${OUTPUT_STATS}" < "${FASTA_FILE}" > "${OUTPUT_SWARMS}"
+    else
+        "${SWARM}" -d "${RESOLUTION}" -f \
+            -w "${OUTPUT_REPRESENTATIVES}" \
+            -t "${THREADS}" \
+            -s "${OUTPUT_STATS}" < "${FASTA_FILE}" > "${OUTPUT_SWARMS}"
+    fi
+fi
+
+exit 0
