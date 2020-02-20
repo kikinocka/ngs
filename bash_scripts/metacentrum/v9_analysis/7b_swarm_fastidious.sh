@@ -1,5 +1,4 @@
-#!/bin/bash -
-cd $SCRATCHDIR
+#!/bin/bash
 
 SWARM="swarm"
 FASTA_FILE=$(readlink -f "${1}")
