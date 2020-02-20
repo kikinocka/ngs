@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module add swarm-3.0.3
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
-script='/storage/brno6/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
+script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
 #copy files to scratch
 cp $data'global_dereplicated.fa' $SCRATCHDIR
