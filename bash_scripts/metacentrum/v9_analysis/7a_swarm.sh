@@ -14,19 +14,22 @@ script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analys
 
 #copy files to scratch
 cp $data'global_dereplicated.fa' $SCRATCHDIR
+echo '*** fasta copied ***'
 cp $script'7b_swarm_fastidious.sh' $SCRATCHDIR
-
+echo '*** swarm script copied ***'
 
 #compute on scratch
 cd $SCRATCHDIR
-
+echo '*** scratch entered ***'
 # if [ $# != 1 ]; then
 #     echo "You need to supply an input filename - this is your global dereplicated fasta file (not the bzip)!";
 #     exit 1;
 # fi
 
 fasta='global_dereplicated.fa'
+echo '*** fasta file is ${fasta} ***' 
 swarm_sc='7b_swarm_fastidious.sh'
+echo '*** swarm script file is ${swarm_sc} ***' 
 
 $swarm_sc $fasta $PBS_NUM_PPN
 
