@@ -22,11 +22,12 @@ cd $SCRATCHDIR
 #     echo "You need to supply an input filename - this is your global dereplicated fasta file (not the bzip)!";
 #     exit 1;
 # fi
+touch "global_dereplicated_1f.swarms" "global_dereplicated_1f.stats" "global_dereplicated_1f_representatives.fas"
 
 fasta='global_dereplicated.fa'
 swarm_sc='7b_swarm_fastidious.sh'
 
-./$swarm_sc $fasta $PBS_NUM_PPN
+./$swarm_sc $fasta
 
 #copy files back
 rm $fasta $swarm_sc

@@ -5,20 +5,20 @@ FASTA_FILE=$(readlink -f "${1}")
 echo '******'
 echo $FASTA_FILE
 echo '******'
-THREADS=$(readlink -f "${2}")
+THREADS=15
 echo '******'
 echo $THREADS
 echo '******'
 RESOLUTION="1"
-OUTPUT_SWARMS="global_dereplicated_${RESOLUTION}f.swarms"
+OUTPUT_SWARMS="global_dereplicated_1f.swarms"
 echo '******'
 echo $OUTPUT_SWARMS
 echo '******'
-OUTPUT_STATS="global_dereplicated_${RESOLUTION}f.stats"
+OUTPUT_STATS="global_dereplicated_1f.stats"
 echo '******'
 echo $OUTPUT_STATS
 echo '******'
-OUTPUT_REPRESENTATIVES="global_dereplicated_${RESOLUTION}f_representatives.fas"
+OUTPUT_REPRESENTATIVES="global_dereplicated_1f_representatives.fas"
 echo '******'
 echo $OUTPUT_REPRESENTATIVES
 echo '******'
