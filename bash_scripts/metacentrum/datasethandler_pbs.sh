@@ -9,11 +9,8 @@
 # get name of the machine where the job is run
 cat $PBS_NODEFILE
 
-# set home directory
-DATADIR="/storage/brno3-cerit/home/fussyz01/datasethandler"
-
 #SCRATCH-related statements
-if [ ! -d "$SCRATCHDIR" ] ; then echo "Scratch directory is not created!" 1>&2; exit 1; fi
+if [ ! -d '$SCRATCHDIR' ] ; then echo 'Scratch directory is not created!' 1>&2; exit 1; fi
 echo $SCRATCHDIR
 trap 'clean_scratch' TERM EXIT
 
@@ -23,14 +20,17 @@ module add iqtree-1.6.8
 module add mafft-7.313
 module add trimal-1.4
 
-cd $DATADIR
-cp datasethandler-server.py $SCRATCHDIR
-cp *.fasta $SCRATCHDIR
+#copy files to scratch
+DATADIR='/storage/brno3-cerit/home/kika/proteromonas/PXMP2_tree/ver2'
 
+cp '/storage/brno2/home/kika/scripts/kika/py_scripts/datasethandler-server.py' $SCRATCHDIR
+cp $DATADIR'/'*.fasta $SCRATCHDIR
+
+#compute on scratch
 cd $SCRATCHDIR
+./datasethandler-server.py -a mafft -t iqtree -i batch -b -s
 
-python datasethandler-server.py -a mafft -t iqtree -i batch -b -s
-
+#copy files back
 cp -R RESULT $DATADIR
 cp -R temp $DATADIR
 cp error.log $DATADIR
