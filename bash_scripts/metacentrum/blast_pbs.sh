@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blastp
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
-#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -20,8 +20,8 @@ db=$db_dir'nr'
 program=blastp
 task=blastp
 outfmt=5
-max_seqs=1
-eval=1e-3
+# max_seqs=1
+# eval=1e-3
 
 #run in DB folder
 # cd $db_dir
@@ -30,7 +30,7 @@ $program -task $task \
 	-db $db \
 	-out $out \
 	-outfmt $outfmt \
-	-max_target_seqs $max_seqs \
-	-evalue $eval \
+	# -max_target_seqs $max_seqs \
+	# -evalue $eval \
 	-num_threads $PBS_NUM_PPN \
 	2>$report

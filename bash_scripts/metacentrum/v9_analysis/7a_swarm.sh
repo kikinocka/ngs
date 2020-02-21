@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-module add swarm-3.0.3
+module add swarm-3.0.0
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
 script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'

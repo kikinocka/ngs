@@ -7,7 +7,7 @@ fasta = SeqIO.parse('/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta'
 nt_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_nt.fa', 'w')
 aa_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_aa.fa', 'w')
 err_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_errors.txt', 'w')
-result_handle = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs.blast.xml')
+result_handle = open('/storage/brno3-cerit/home/kika/proteromonas/peroxisomal/1608_RABs.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
