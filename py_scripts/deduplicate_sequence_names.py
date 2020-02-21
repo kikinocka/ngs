@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/home/kika/ownCloud/euglenophytes/pt_proteome/')
-infile = SeqIO.parse('EG_pt_proteins.fa', 'fasta')
-output1 = open('EG_pt_proteins_dedupl.fa', 'w')
-output2 = open('EG_pt_proteins_dupl_names.txt', 'w')
+os.chdir('/storage/brno3-cerit/home/kika/nr_blast/')
+infile = SeqIO.parse('nr.fa', 'fasta')
+output1 = open('nr_dedupl.fa', 'w')
+output2 = open('nr_dupl_names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
