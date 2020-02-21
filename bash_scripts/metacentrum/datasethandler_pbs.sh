@@ -24,7 +24,7 @@ module add trimal-1.4
 DATADIR='/storage/brno3-cerit/home/kika/proteromonas/PXMP2_tree/ver2'
 
 cp '/storage/brno2/home/kika/scripts/kika/py_scripts/datasethandler-server.py' $SCRATCHDIR
-cp $DATADIR'/'*.fasta $SCRATCHDIR
+cp $DATADIR'/'*.fa $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
