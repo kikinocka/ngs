@@ -9,10 +9,10 @@
 # get name of the machine where the job is run
 cat $PBS_NODEFILE
 
-#SCRATCH-related statements
-if [ ! -d '$SCRATCHDIR' ] ; then echo 'Scratch directory is not created!' 1>&2; exit 1; fi
-echo $SCRATCHDIR
-trap 'clean_scratch' TERM EXIT
+# #SCRATCH-related statements
+# if [ ! -d '$SCRATCHDIR' ] ; then echo 'Scratch directory is not created!' 1>&2; exit 1; fi
+# echo $SCRATCHDIR
+# trap 'clean_scratch' TERM EXIT
 
 # add modules
 module add python36-modules-gcc
