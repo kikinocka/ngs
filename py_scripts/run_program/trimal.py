@@ -1,7 +1,7 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/ver3/')
+os.chdir('/Dcko/ownCloud/proteromonas/PXMP2_tree/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd '/Dcko/ownCloud/proteromonas/ACSL_tree/ver2/'
-infile='ACSL_seqs.fa'
-outfile='ACSL.mafft.aln'
+cd '/Dcko/ownCloud/proteromonas/PXMP2_tree/'
+infile='pxmp2.fa'
+outfile='pxmp2.mafft.aln'
 
 mafft --thread 4 --threadit 0 --maxiterate 100 --inputorder --auto $infile > $outfile
