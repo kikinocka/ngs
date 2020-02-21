@@ -119,7 +119,7 @@ if os.path.isdir("RESULT") == False:
 #	reader = csv.reader(f, delimiter='\t')
 #	tax2lineage = {r[0]: r[1] for r in reader}
 
-allowed = ("fasta", "fas", "fst", "phy", "phylip")
+allowed = ("fasta", "fas", "fst", "fa", "faa", "phy", "phylip")
 if args.infile == "batch":
 	infilelist = [x for x in os.listdir(".") if x.split(".")[-1] in allowed]
 	infilelist = [x for x in infilelist if not x.startswith("safe")] #bc these have been created by a previous run
@@ -285,7 +285,7 @@ for file in infilelist:
 		print("PHYLOHANDLER: Processing file: {}".format(file))
 	else:
 		print("PHYLOHANDLER: Processing file: {}, version {}".format(file, generation.replace("_", "")))
-	if extension in ("fasta", "fas", "fst"):
+	if extension in ("fasta", "fas", "fst", "fa", "faa"):
 		try:
 			indataset = [x for x in SeqIO.parse(file, 'fasta')]
 		except FileNotFoundError:
