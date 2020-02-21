@@ -12,19 +12,19 @@ module add blast+-2.7.1
 
 datadir='/storage/brno3-cerit/home/kika/proteromonas/peroxisomal/'
 query=$datadir'possibly_peroxisomal.fa'
-out=$datadir'peroxisomal.blastp.xml'
-report=$datadir'peroxisomal.blastp.report'
-db_dir='/storage/brno3-cerit/home/kika/nr_blast/'
+out=$datadir'peroxisomal.blastp_nr.xml'
+report=$datadir'peroxisomal.blastp_nr.report'
+db_dir='/storage/projects/BlastDB/'
+db=$db_dir'nr'
 
 program=blastp
 task=blastp
-db='nr.fa'
 outfmt=5
 max_seqs=1
 eval=1e-3
 
 #run in DB folder
-cd $db_dir
+# cd $db_dir
 $program -task $task \
 	-query $query \
 	-db $db \
