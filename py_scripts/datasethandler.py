@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Performs fasta header renaming, and calls mafft and trimal to align and trim datasets 
 # automatically on all fasta files in the current folder
 # Alternatively, set folder with -d
