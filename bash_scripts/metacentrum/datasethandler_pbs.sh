@@ -4,15 +4,9 @@
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
-# hashes explained: -N job name, -q queue, -l select resources, -l walltime, -m ae, -j oe mail will be send at the end of the job
 
 # get name of the machine where the job is run
 cat $PBS_NODEFILE
-
-# #SCRATCH-related statements
-# if [ ! -d '$SCRATCHDIR' ] ; then echo 'Scratch directory is not created!' 1>&2; exit 1; fi
-# echo $SCRATCHDIR
-# trap 'clean_scratch' TERM EXIT
 
 # add modules
 module add python36-modules-gcc
