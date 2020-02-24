@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Dcko/ownCloud/membrane-trafficking/Rhynchopus_humrisRAB_aa.txt'
-db = '/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta'
-subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
+# query = '/Dcko/ownCloud/membrane-trafficking/Rhynchopus_humrisRAB_aa.txt'
+# db = '/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta'
+# subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
 out = '/Dcko/ownCloud/proteromonas/peroxisomal.blastp_nr.xml'
 evalue = 1
 outfmt = 5
@@ -14,18 +14,18 @@ hits = 10
 word_size = 3
 threads = 4
 
-print('running BLAST')
-#query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -max_target_seqs {} -word_size {}  \
-	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, hits, word_size, threads), shell=True)
+# print('running BLAST')
+# #query - database
+# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -max_target_seqs {} -word_size {}  \
+# 	-num_threads {}'.format(
+# 		cmd, task, query, db, out, evalue, outfmt, hits, word_size, threads), shell=True)
 
-# #query - subject
-# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# # #query - subject
+# # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# # 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 
-print('BLAST done')
-print('writing BLAST results to tables')
+# print('BLAST done')
+# print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
