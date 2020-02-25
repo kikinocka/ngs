@@ -22,7 +22,7 @@ cp $DATADIR'/'*.fa $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-./datasethandler-server.py -a mafft -t iqtree -i batch -b --trimalparams '-gt 0.5'
+python datasethandler-server.py -a mafft -t iqtree -i batch -b --trimalparams '-gt 0.5'
 
 #'-d', '--directory', help='Change working directory', default='.'
 #'-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch"
