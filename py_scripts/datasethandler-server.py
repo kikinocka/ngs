@@ -56,15 +56,27 @@ def find_generation(filename):
 #########################
 
 parser = argparse.ArgumentParser(description='How to use argparse')
-parser.add_argument('-a', '--aligner', help='Aligner', default='run_pasta.py')
-parser.add_argument('-b', '--bootstrap', help='Boostrap calculation', action='store_true')
+#whereabouts
 parser.add_argument('-d', '--directory', help='Change working directory', default='.')
-parser.add_argument('-g', '--no_guide', help='Do not perform guide tree inference', action='store_true')
 parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch")
-parser.add_argument('-m', '--testmodel', help='Test best model', action='store_true')
+#programs used
+parser.add_argument('-a', '--aligner', help='Aligner', default='mafft')
+parser.add_argument('-t', '--treemaker', help='Program for tree inference', default='iqtree')
+#seq processing
 parser.add_argument('-n', '--no_dedupe', help='Do not filter duplicates', action='store_true')
+#aligner params
+parser.add_argument('--alignerparams', help='Custom aligner parameters, check with manual', default='')
+#trimal params
+parser.add_argument('--trimalparams', help='Custom TrimAl parameters, check with manual', default='')
+#main params for tree inference
+parser.add_argument('-b', '--ufbootstrap', help='Ultra-fast boostrap calculation', action='store_true')
+parser.add_argument('-B', '--bootstrap', help='Boostrap calculation', action='store_true')
+parser.add_argument('--shalrt', help='Calculate SH-aLRT', action='store_true')
+parser.add_argument('-g', '--no_guide', help='Do not perform guide tree inference', action='store_true')
+parser.add_argument('--treeparams', help='Custom tree inference parameters, check with manual', default='')
+#parser.add_argument('-m', '--testmodel', help='Test best model', action='store_true') #not implemented
+#post-processing
 parser.add_argument('-s', '--mark_similarity', help='Mark similarity on branches', action='store_true')
-parser.add_argument('-t', '--treemaker', help='Program for tree inference', default='none')
 
 args = parser.parse_args()
 
@@ -79,6 +91,7 @@ elif os.path.isdir("/Volumes/zoliq data/OwnCloud/"):
 	home = "/Volumes/zoliq data/OwnCloud/"
 elif os.path.isdir("/storage/brno3-cerit/home/fussyz01/"):
 	home = "/storage/brno3-cerit/home/fussyz01/"
+	print("PHYLOHANDLER: Home dir exists!")
 elif os.path.isdir("/usr/local/scratch/METAGENOMICS/zfussy/"):
 	home = "/usr/local/scratch/METAGENOMICS/zfussy/"
 	print("PHYLOHANDLER: Home dir exists!")
@@ -129,7 +142,7 @@ elif args.infile.split(".")[-1] in allowed:
 else:
 	quit("file type not recognized - is it fasta/fas/fst or phy/phylip?")
 
-infilelist.sort() #sort(reverse=True) if you need a parallel run for many datasets
+infilelist.sort() #sort(reverse=True) if you need a parallel run for many datasets - datasethandler-reverse.py
 print("PHYLOHANDLER: Files to be analyzed: " + ", ".join(infilelist))
 #outdir only needed for pasta
 #print("PHYLOHANDLER: Data output to dir: " + outdir)
@@ -351,20 +364,32 @@ for file in infilelist:
 		print("PHYLOHANDLER: Alignment detected, previous data not cleaned?")
 	else:
 		if args.aligner == "run_pasta.py":
-			command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir)
+			if args.alignerparams == "":
+				command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir)
+			else:
+				command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir, args.alignerparams)
 		elif args.aligner == "mafft":
-			command = "{0} --maxiterate 1000 --localpair --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log".format(args.aligner, filename, maxcores)
+			if args.alignerparams == "":
+				command = "{0} --maxiterate 1000 --localpair --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log".format(args.aligner, filename, maxcores)
+			else:
+				command = "{0} --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log {3}".format(args.aligner, filename, maxcores, args.alignerparams)
 		os.system(command)
 		print("PHYLOHANDLER: Issuing aligner\n" + command)
 
 	#copy and rename PASTA alignment to current directory and issue trimal
 	if args.aligner == "run_pasta.py":
 		os.system("cp ./{1}/{0}.marker001.safe-{0}.aln ./safe-{0}.aln".format(filename, outdir))
-		command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.3".format(filename) #-gappyout / -automated1 / -gt 0.3
+		if args.trimalparams == "":
+			command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.3".format(filename) #-gappyout / -automated1 / -gt 0.3
+		else:
+			command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta {1}".format(filename, args.trimalparams)
 		print("PHYLOHANDLER: Issuing trimmer:\n{}".format(command))
 		os.system(command)
 	elif args.aligner == "mafft":
-		command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.5".format(filename) #-gappyout / -automated1 / -gt 0.3
+		if arg.trimalparams == "":
+			command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -automated1".format(filename) #-gappyout / -automated1 / -gt 0.3
+		else:
+			command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta {1}".format(filename, args.trimalparams)
 		print("PHYLOHANDLER: Issuing trimmer:\n{}".format(command))
 		os.system(command)
 	elif args.aligner == "-":
@@ -450,12 +475,23 @@ for file in infilelist:
 
 				#specify iqtree command
 				if args.no_guide:
-					treecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
+					if args.treeparams == "":
+						treecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
+					else:
+						treecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log {2}".format(filename, maxcores, args.treeparams)
 				else:
-					guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
-					treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
-				if args.bootstrap:
+					if args.treeparams == "":
+						guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
+						treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
+					else:
+						guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log {2}".format(filename, maxcores, args.treeparams) #GTR20 only for very large datasets
+						treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log {2}".format(filename, maxcores, args.treeparams) #GTR20 only for very large datasets						
+				if args.ufbootstrap:
 					treecommand += " -bb 1000"
+				elif args.bootstrap: #will not calculate bootstrap if UFBoot requested
+					treecommand += " -b 1000"
+				if args.shalrt:
+					treecommand += " -alrt 1000"
 
 				#start inference
 				if args.no_guide:
