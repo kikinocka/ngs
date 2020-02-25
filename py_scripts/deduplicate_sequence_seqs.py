@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Dcko/ownCloud/proteromonas/ACSL_tree/ver3/')
-infile = SeqIO.parse('ACSL_seqs.fa', 'fasta')
-out_fasta = open('ACSL_deduplicated.fa', 'w')
-out_names = open('ACSL_dupl-names.txt', 'w')
+os.chdir('/Dcko/ownCloud/proteromonas/SOD_tree/')
+infile = SeqIO.parse('SOD_seqs.fa', 'fasta')
+out_fasta = open('SOD_deduplicated.fa', 'w')
+out_names = open('SOD_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

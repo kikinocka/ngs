@@ -2,7 +2,7 @@
 import os
 from bioservices import UniProt as up
 
-os.chdir('/Dcko/ownCloud/proteromonas/PXMP2_tree/ver2/')
+os.chdir('/Dcko/ownCloud/proteromonas/SOD_tree/')
 acc_files = [x for x in os.listdir() if x.endswith('.acc')]
 
 for acc_file in acc_files:
