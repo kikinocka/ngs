@@ -2,7 +2,7 @@
 
 workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
-lineage=7
+lineage=1
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
@@ -16,6 +16,6 @@ lineage=7
 cd $workdir
 for file in $files; do
 	echo $file
-	out=${file%.*}'.nommpred_stramenopiles.txt'
+	out=${file%.*}'.nommpred_mt.txt'
 	NommPred.py -i $file -o $out -l $lineage --overwrite
 done
