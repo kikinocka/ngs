@@ -375,9 +375,9 @@ for file in infilelist:
 				command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir, alignerparams)
 		elif args.aligner == "mafft":
 			if args.alignerparams == "":
-				command = "{0} --maxiterate 1000 --localpair --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log".format(args.aligner, filename, maxcores)
+				command = "{0} --maxiterate 1000 --localpair --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log".format(args.aligner, filename, args.maxcores)
 			else:
-				command = "{0} --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log {3}".format(args.aligner, filename, maxcores, alignerparams)
+				command = "{0} --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log {3}".format(args.aligner, filename, args.maxcores, alignerparams)
 		os.system(command)
 		print("PHYLOHANDLER: Issuing aligner\n" + command)
 
@@ -481,16 +481,16 @@ for file in infilelist:
 				#specify iqtree command
 				if args.no_guide:
 					if args.treeparams == "":
-						treecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
+						treecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log".format(filename, args.maxcores) #GTR20 only for very large datasets
 					else:
-						treecommand = "-nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log {2}".format(filename, maxcores, treeparams)
+						treecommand = "-nt AUTO -ntmax {1} -s trimfilt-{0}.fasta 1>final-{0}_iqtree.log {2}".format(filename, args.maxcores, treeparams)
 				else:
 					if args.treeparams == "":
-						guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
-						treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log".format(filename, maxcores) #GTR20 only for very large datasets
+						guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log".format(filename, args.maxcores) #GTR20 only for very large datasets
+						treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log".format(filename, args.maxcores) #GTR20 only for very large datasets
 					else:
-						guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log {2}".format(filename, maxcores, treeparams) #GTR20 only for very large datasets
-						treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log {2}".format(filename, maxcores, treeparams) #GTR20 only for very large datasets						
+						guidetreecommand = "-m LG+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -pre guide-{0} 1>guide-{0}_iqtree.log {2}".format(filename, args.maxcores, treeparams) #GTR20 only for very large datasets
+						treecommand = "-m LG+C20+F+G -nt AUTO -ntmax {1} -s trimfilt-{0}.fasta -ft guide-{0}.treefile 1>final-{0}_iqtree.log {2}".format(filename, args.maxcores, treeparams) #GTR20 only for very large datasets						
 				if args.ufbootstrap:
 					treecommand += " -bb 1000"
 				elif args.bootstrap: #will not calculate bootstrap if UFBoot requested
