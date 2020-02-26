@@ -1,9 +1,8 @@
 #!/bin/sh
 
 workdir='/mnt/mokosz/home/kika/workdir/'
-input=$workdir'eut_missing.fa'
-out=$workdir'eut_missing.nommpred.tsv'
-lineage=9
+files=$workdir'*.na'
+lineage=7
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
@@ -14,4 +13,9 @@ lineage=9
 # 8) Toxoplasma
 # 9) Trypanosomatida
 
-NommPred.py -i $input -o $out -l $lineage --overwrite
+cd $workdir
+for file in $files; do
+	echo $file
+	out=${db%.*}'.nommpred_stramenopiles.txt'
+	NommPred.py -i $file -o $out -l $lineage --overwrite
+done
