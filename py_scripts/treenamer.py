@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/proteromonas/PXMP2_tree/')
+os.chdir('/Dcko/ownCloud/proteromonas/SOD_tree/ver2/')
 
 #file in format Acc. number \t name of organism \n
-names = open('pxmp2_names.txt')
-tree = open('pxmp2.trimal_automated1.aln.treefile')
+names = open('sod_names.txt')
+tree = open('sod.trimal_gt_0.5.aln.treefile')
 
 name_dict = {}
 for name in names:
@@ -24,5 +24,5 @@ for key in name_dict:
 ##result.close()
 
 #2) closes result file automatically
-with open('pxmp2_renamed.tree', 'w') as result:
+with open('sod_renamed.tree', 'w') as result:
 	result.write(tree_line)
