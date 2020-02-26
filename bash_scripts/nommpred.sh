@@ -1,7 +1,7 @@
 #!/bin/sh
 
 workdir='/mnt/mokosz/home/kika/workdir/'
-files=$workdir'*.na'
+files=$workdir'*.fa'
 lineage=7
 # 1) Mt
 # 2) MRO
