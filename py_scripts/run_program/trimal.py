@@ -1,7 +1,7 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/proteromonas/PXMP2_tree/')
+os.chdir('/Dcko/ownCloud/proteromonas/SOD_tree/ver2//')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
@@ -14,9 +14,9 @@ for file in files:
 	output = '{}.trimal_{}.aln'.format(file_name, aut)
 	os.system('trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
 	
-	# output = '{}.trimal_{}.aln'.format(file_name, gt)
-	# os.system('/home/kika/programs/trimAl/source/trimal -in {} -out {} -gt {} -fasta'.format(file, output, gt))
+	output = '{}.trimal_gt_{}.aln'.format(file_name, gt)
+	os.system('trimal -in {} -out {} -gt {} -fasta'.format(file, output, gt))
 
-	# output = '{}.trimal_{}_{}.aln'.format(file_name, gt, st)
-	# os.system('/home/kika/programs/trimAl/source/trimal -in {} -out {} -gt {} -st {} -fasta'.format(
+	# output = '{}.trimal_gt_{}_st_{}.aln'.format(file_name, gt, st)
+	# os.system('trimal -in {} -out {} -gt {} -st {} -fasta'.format(
 	# file, output, gt, st))
