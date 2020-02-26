@@ -5,7 +5,6 @@
 #PBS -m ae
 #PBS -j oe
 
-# get name of the machine where the job is run
 cat $PBS_NODEFILE
 
 # add modules
@@ -22,7 +21,13 @@ cp $DATADIR'/'*.fa $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-python datasethandler-server.py -a mafft -t iqtree -i batch -b --trimalparams='-gt 0.5' --maxcores $PBS_NUM_PPN
+python datasethandler-server.py \
+	-i batch \
+	-a mafft \
+	--trimalparams='-gt 0.5' \
+	-t iqtree \
+	-b \
+	--maxcores $PBS_NUM_PPN
 
 #'-d', '--directory', help='Change working directory', default='.'
 #'-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch"
