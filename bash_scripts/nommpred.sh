@@ -16,6 +16,6 @@ lineage=7
 cd $workdir
 for file in $files; do
 	echo $file
-	out=${db%.*}'.nommpred_stramenopiles.txt'
+	out=${file%.*}'.nommpred_stramenopiles.txt'
 	NommPred.py -i $file -o $out -l $lineage --overwrite
 done
