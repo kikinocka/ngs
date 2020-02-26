@@ -22,10 +22,11 @@ cp $DATADIR'/'*.fa $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-python datasethandler-server.py -a mafft -t iqtree -i batch -b --trimalparams '-gt 0.5'
+python datasethandler-server.py -a mafft -t iqtree -i batch -b --trimalparams='-gt 0.5' --maxcores $PBS_NUM_PPN
 
 #'-d', '--directory', help='Change working directory', default='.'
 #'-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch"
+#'--maxcores', help='Maximum cores to use for multithreading', default=20
 #'-a', '--aligner', help='Aligner', default='mafft'
 #'-t', '--treemaker', help='Program for tree inference', default='iqtree'
 #'-n', '--no_dedupe', help='Do not filter duplicates', action='store_true'
