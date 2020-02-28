@@ -5,7 +5,7 @@ import subprocess
 targetp='/home/osboxes/programs/targetp-2.0/bin/targetp'
 
 os.chdir('/Dcko/ownCloud/proteromonas/targeting/')
-files = [x for x in os.listdir() if x.endswith('2.fa')]
+files = [x for x in os.listdir() if x.endswith('.fasta')]
 
 for file in files:
 	print(file)

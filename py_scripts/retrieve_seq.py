@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/')
-db = SeqIO.parse('dbeuEU1718.fas', 'fasta')
-accessions = open('eu1718_found.acc')
-out = open('eu1718_found.fa', 'w')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/diplonema_papillatum/')
+db = SeqIO.parse('/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa', 'fasta')
+accessions = open('dp_RABs.acc')
+out = open('dp_RABs.fa', 'w')
 
 retrieve = set()
 for line in accessions:
@@ -13,7 +13,7 @@ for line in accessions:
 
 for seq in db:
 	if seq.name in retrieve:
-		out.write('>{}\n{}\n'.format(seq.name, seq.seq))
+		out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 	else:
 		# print(seq.description)
 		pass

@@ -2,35 +2,35 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-# query = '/Dcko/ownCloud/membrane-trafficking/Rhynchopus_humrisRAB_aa.txt'
-# db = '/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta'
+cmd = 'blastp'
+task = 'blastp'
+query = '/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rh_RABs_aa.fa'
+db = '/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Dcko/ownCloud/proteromonas/peroxisomal.blastp_nr.xml'
+out = '/Dcko/ownCloud/membrane-trafficking/diplonema_papillatum/dp_RABs.blastp.xml'
 evalue = 1
 outfmt = 5
 hits = 10
 word_size = 3
-threads = 4
+threads = 2
 
-# print('running BLAST')
-# #query - database
-# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -max_target_seqs {} -word_size {}  \
-# 	-num_threads {}'.format(
-# 		cmd, task, query, db, out, evalue, outfmt, hits, word_size, threads), shell=True)
+print('running BLAST')
+#query - database
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -max_target_seqs {} -word_size {}  \
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, hits, word_size, threads), shell=True)
 
-# # #query - subject
-# # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# # 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# #query - subject
+# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 
-# print('BLAST done')
-# print('writing BLAST results to tables')
+print('BLAST done')
+print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Dcko/ownCloud/proteromonas/peroxisomal.blast.tsv', 'w')
-out_best = open('/Dcko/ownCloud/proteromonas/peroxisomal.best_blast.tsv', 'w')
+output = open('/Dcko/ownCloud/membrane-trafficking/diplonema_papillatum/dp_RABs.blastp.tsv', 'w')
+out_best = open('/Dcko/ownCloud/membrane-trafficking/diplonema_papillatum/dp_RABs.best_blastp.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
