@@ -10,12 +10,12 @@ module add bbmap-36.92
 
 adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
-read_dir='/storage/brno3-cerit/home/kika/egracilis/'
-fw='Light_L004_R1.fastq.gz'
-rv='Light_L004_R2.fastq.gz'
+read_dir='/storage/brno3-cerit/home/kika/cther/genome/'
+fw='SRR1028161_1.fastq.gz'
+rv='SRR1028161_2.fastq.gz'
 
 # trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-name='light'
+name='SRR1028161'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
