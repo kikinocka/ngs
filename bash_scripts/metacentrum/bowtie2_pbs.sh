@@ -23,7 +23,7 @@ cp $data'reads/'*.fq.gz $SCRATCHDIR
 cd $SCRATCHDIR
 
 base_name='cfas_bw2'
-ref='tbruc_genome.fa'
+ref='cfas_AODS02.fasta'
 p1_1='SRR1028161_trimmed_1.fq.gz'
 p1_2='SRR1028161_trimmed_2.fq.gz'
 p2_1='SRR1593518_trimmed_1.fq.gz'
