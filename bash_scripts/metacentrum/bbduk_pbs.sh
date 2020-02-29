@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N bbduk
-#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
+#PBS -l select=1:ncpus=10:mem=15gb:scratch_local=20gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -11,11 +11,11 @@ module add bbmap-36.92
 adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/cther/genome/'
-fw='SRR1028161_1.fastq.gz'
-rv='SRR1028161_2.fastq.gz'
+fw='SRR1593518_1.fastq.gz'
+rv='SRR1593518_2.fastq.gz'
 
 # trimdir='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-name='SRR1028161'
+name='SRR1593518'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name"_report.txt"
