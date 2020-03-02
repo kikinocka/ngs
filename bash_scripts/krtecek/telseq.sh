@@ -1,6 +1,6 @@
 #!/bin/sh
 
-workdir='/home/users/kika/cfas/'
+workdir='/home/users/kika/telseq/cfas/'
 bam=$workdir'cfas_bw2_sorted.bam'
 out=$workdir'telseq.out'
 pattern='TTAGGG'
