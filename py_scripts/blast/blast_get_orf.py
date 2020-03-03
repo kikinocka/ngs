@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta', 'fasta')
-nt_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_nt.fa', 'w')
-aa_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_aa.fa', 'w')
-err_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_errors.txt', 'w')
-result_handle = open('/storage/brno3-cerit/home/kika/proteromonas/peroxisomal/1608_RABs.blast.xml')
+fasta = SeqIO.parse('/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1608_Trinity.fasta', 'fasta')
+nt_out = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_nt.fa', 'w')
+aa_out = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_aa.fa', 'w')
+err_out = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_errors.txt', 'w')
+result_handle = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
