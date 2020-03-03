@@ -4,8 +4,8 @@ import subprocess
 
 mafft = '/home/osboxes/miniconda3/bin/mafft'
 
-os.chdir('/Dcko/ownCloud/proteromonas/PXMP2_tree/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/Dcko/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/nifS_tree/ver6/')
+files = [x for x in os.listdir() if x.endswith('alt.fa')]
 
 for file in files:
 	print(file)

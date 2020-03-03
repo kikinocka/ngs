@@ -4,24 +4,40 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/storage/brno3-cerit/home/kika/nr_blast/')
-infile = SeqIO.parse('nr.fa', 'fasta')
-output1 = open('nr_dedupl.fa', 'w')
-output2 = open('nr_dupl_names.txt', 'w')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/Rab_db/')
+infile = SeqIO.parse('RABs_deduplicated_seqs.fa', 'fasta')
+# out_fasta = open('RABs_deduplicated_seqs_names.fa', 'w')
+# out_names = open('RABs_dupl-names_seqs_names.txt', 'w')
 
-multiplications = defaultdict(list)
-seq_dict = OrderedDict()
-for sequence in infile:
-	multiplications[sequence.name].append(sequence.seq)
-	if sequence.name not in seq_dict:
-		seq_dict[sequence.description] = sequence.seq
+names = []
+with open('RABs_deduplicated.fa', 'w') as out:	
+	for seq in infile:
+		if seq.name.lower() not in names:
+			names.append(seq.name.lower())
+			new_name = seq.name.replace('|', '_')
+			new_desc = '{} {}'.format(new_name, ' '.join(seq.description.split()[1:]))
+			out.write('>{}\n{}\n'.format(new_desc[:50], seq.seq))
+			print(seq.name + ' not in names')
+		else:
+			names.append(seq.name.lower())
+			new_name = '{}_{}'.format(seq.name.replace('|', '_'), names.count(seq.name.lower()))
+			new_desc = '{} {}'.format(new_name, ' '.join(seq.description.split()[1:]))
+			out.write('>{}\n{}\n'.format(new_desc[:50], seq.seq))
+			print('{} changed to {}'.format(seq.name, new_name))
 
-for key, value in seq_dict.items():
-	output1.write('>{}\n{}\n'.format(key, value))
+# multiplications = defaultdict(list)
+# seq_dict = OrderedDict()
+# for sequence in infile:
+# 	multiplications[sequence.name].append(sequence.description)
+# 	if sequence.name not in seq_dict:
+# 		seq_dict[sequence.name] = [sequence.description, sequence.seq]
 
-for key, value in multiplications.items():
-    if len(value) > 1:
-        output2.write('{}\n'.format(str(key)))
+# for key, value in seq_dict.items():
+# 	out_fasta.write('>{}\n{}\n'.format(key, value))
 
-output1.close()
-output2.close()
+# for key, value in multiplications.items():
+#     if len(value) > 1:
+#         out_names.write('{}\n'.format(str(value)))
+
+# out_fasta.close()
+# out_names.close()
