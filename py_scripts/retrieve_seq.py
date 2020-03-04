@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/diplonema_papillatum/')
-db = SeqIO.parse('/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa', 'fasta')
-accessions = open('dp_RABs.acc')
-out = open('dp_RABs.fa', 'w')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/')
+db = SeqIO.parse('/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1608_Trinity.fasta', 'fasta')
+accessions = open('rhRABs_hits.acc')
+out = open('rhRABs_hits.fa', 'w')
 
 retrieve = set()
 for line in accessions:
