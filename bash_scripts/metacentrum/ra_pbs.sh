@@ -11,16 +11,16 @@ cat $PBS_NODEFILE
 #add module
 module add ra-032020
 
-data='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku70/'
+data='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/wt/'
 
 #copy files to scratch
-cp $data'reads/ku70_pacbio_all.fq.gz' $SCRATCHDIR
-cp $data'reads/ku70_illumina_all.fq.gz' $SCRATCHDIR
+cp $data'reads/wt_pacbio_all.fq.gz' $SCRATCHDIR
+cp $data'reads/wt_illumina_all.fq.gz' $SCRATCHDIR
 
-tgs='ku70_pacbio_all.fq.gz'
-hiseq='ku70_illumina_all.fq.gz'
-report='ku70_ra_report.txt'
-assembly='ku70_ra.fa'
+tgs='wt_pacbio_all.fq.gz'
+hiseq='wt_illumina_all.fq.gz'
+report='wt_ra_report.txt'
+assembly='wt_ra.fa'
 
 #run on scratch
 cd $SCRATCHDIR

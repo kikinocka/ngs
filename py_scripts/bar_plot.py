@@ -8,27 +8,31 @@ import matplotlib.pyplot as plt
 # f, (ax, ax2) = plt.subplots(2, 1, sharex=True)
 fig, ax = plt.subplots()
 
-species = ['DPr', 'DPp', 'RH', 'LL', 'BP57', 'LS14', 'LS23', 'LS34', 'CT14', 'CT23', 'CT34', 'NE', 'TB', 'EGl', 'EGd', 'EL']
+species = ['DPr', 'DPp', 'RH', 'BP57', 'LS14', 'LS23', 'LS34', 'CT14', 'CT23', 'CT34', 'NE', 'TB', 'EGl', 'EGd', 'EL']
 
 # #APX activity
-# value = [0, 0, 0, X, 4, 5.3, 0, 0, 6.3, 4.3, 4.3, 20, 0, 5100, 0, 0]
-# std = [0, 0, 0, X, 1, 2, 0, 0, 0.4, 1.8, 1.8, 10, 0, 270, 0, 0]
-#APX transcripts
-value = [0, 0, 0, 7.3, 0, 164, 16.7, 41.5, 181, 18, 27.7, 73.8, 0, 13.8, 9.9, 0]
+# value = [0, 0, 0, 4, 5.3, 0, 0, 6.3, 4.3, 4.3, 20, 0, 5100, 0, 0]
+# std = [0, 0, 0, 1, 2, 0, 0, 0.4, 1.8, 1.8, 10, 0, 270, 0, 0]
+# #APX transcripts
+# value = [0, 0, 0, 0, 164, 16.7, 41.5, 181, 18, 27.7, 73.8, 0, 13.8, 9.9, 0]
 # #CAT activity
-# value = [2, 1.8, 0, X, 0, 16.3, 17.4, 8, 21, 13.3, 5.3, 9, 0, 0, 0, 0]
-# std = [0.1, 0.2, 0, X, 0, 2.1, 1.4, 0.6, 0.2, 0.3, 0.5, 0.8, 0, 0, 0, 0]
+# value = [2, 1.8, 0, 0, 16.3, 17.4, 8, 21, 13.3, 5.3, 9, 0, 0, 0, 0]
+# std = [0.1, 0.2, 0, 0, 2.1, 1.4, 0.6, 0.2, 0.3, 0.5, 0.8, 0, 0, 0, 0]
 # #CAT transcripts
-# value = [216.2, 256.9, 25.4, 0, 26.9, 813.5, 116.8, 432.9, 567.6, 678.9, 972.9, 626.2, 0, 0, 0, 0]
-# #Respiration
-# value = [2.4, 7.8, 12.5, X, 2.5, 5.8, 8.9, 7.9, 6.2, 10.9, 11.8, 2.7, 2.4, 16.9, 23.6]
-# std = [0.9, 2.5, 1.3, X, 0.6, 0.8, 0.4, 0.5, 0.1, 2.7, 1, 0.7, 1.1, 2.9, 3.3]
+# value = [216.2, 256.9, 25.4, 26.9, 813.5, 116.8, 432.9, 567.6, 678.9, 972.9, 626.2, 0, 0, 0, 0]
+#Respiration
+value = [2.4, 7.8, 12.5, 2.5, 5.8, 8.9, 7.9, 6.2, 10.9, 11.8, X, 2.7, 2.4, 16.9, 23.6]
+std = [0.9, 2.5, 1.3, 0.6, 0.8, 0.4, 0.5, 0.1, 2.7, 1, X, 0.7, 1.1, 2.9, 3.3]
 
 #ONE GRAPH
-# plot the same data on both axes
-ax.bar(species, value, color='lightgrey')
-plt.ylabel('APX transcripts [TPM]')
+# ax.bar(species, value, color='lightgrey')
+# plt.ylabel('CAT transcripts [TPM]')
+ax.bar(species, value, color='lightgrey', yerr=std, capsize=3)
+ax.set_ylim(0, 30)
+# plt.ylabel('CAT activity [U/mg]')
+plt.ylabel('Respiration [O2 µmol/min*10^6 cells]')
 plt.show()
+
 
 # #TWO GRAPHS IN ONE FIGURE
 # # plot the same data on both axes
@@ -43,7 +47,7 @@ plt.show()
 # ax.spines['bottom'].set_visible(False)
 # ax2.spines['top'].set_visible(False)
 # ax.xaxis.tick_top()
-# ax.tick_params(labeltop='off') # don't put tick labels at the top
+# # ax.tick_params(labeltop='off') # don't put tick labels at the top
 # ax2.xaxis.tick_bottom()
 
 # d = .005 # how big to make the diagonal lines in axes coordinates
@@ -56,7 +60,6 @@ plt.show()
 # ax2.plot((-d, +d), (1 - d, 1 + d), **kwargs)  # bottom-left diagonal
 # ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 
-# plt.ylabel('CAT transcripts [TPM]')
+# plt.ylabel('APX activity [mU/mg]')
 # plt.show()
-# # plt.savefig('apx_activity.svg', dpi=600)
 
