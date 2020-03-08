@@ -35,7 +35,7 @@ cp $assembly_dir'/'*.fasta $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
 assemblies='*.fasta'
-base='eukaryota_odb9'
+# base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='transcriptome'
 
@@ -45,7 +45,8 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	run_BUSCO.py -i $fasta -l $lineage -m $mode -c $PBS_NUM_PPN #-o $base
+	base=${fasta%_Trinity.fasta}_eukaryota_odb9
+	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN
 done
 # generate_plot.py -wd $summaries
 
