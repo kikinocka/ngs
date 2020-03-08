@@ -1,3 +1,4 @@
+#!/bin/bash
 #PBS -N ra
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=70gb:scratch_local=50gb
