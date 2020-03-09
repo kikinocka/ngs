@@ -21,10 +21,11 @@ pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
 assembly='wt_ra.fa'
 bam='lmex_bw2_sorted.bam'
 index='lmex_bw2_sorted.bam.bai'
+report='lmex_pilon1_report.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
-java -jar -Xmx20G $pilon --genome $assembly --bam $bam --threads $PBS_NUM_PPN
+java -jar -Xmx20G $pilon --genome $assembly --bam $bam --threads $PBS_NUM_PPN 2> $report
 
 #copy results to your folder
 rm $assembly $bam $index
