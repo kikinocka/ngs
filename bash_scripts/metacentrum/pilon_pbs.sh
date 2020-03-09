@@ -19,8 +19,8 @@ cp $data_dir'bw2_mapping/pilon2/wt_p2_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
 assembly='wt_pilon2.fa'
-bam='wt_p1_bw2_sorted.bam'
-index='wt_p1_bw2_sorted.bam.bai'
+bam='wt_p2_bw2_sorted.bam'
+index='wt_p2_bw2_sorted.bam.bai'
 
 #compute on scratch
 cd $SCRATCHDIR
