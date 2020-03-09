@@ -12,18 +12,18 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 data='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/wt/'
-outdir=$data'bw2_mapping/pilon6/'
+outdir=$data'bw2_mapping/pilon7/'
 
 #copy files to scratch
-cp $data'wt_pilon6.fa' $SCRATCHDIR
+cp $data'wt_pilon7.fa' $SCRATCHDIR
 cp $data'reads/'*.fq $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='wt_p6_bw2'
-ref='wt_pilon6.fa'
+base_name='wt_p7_bw2'
+ref='wt_pilon7.fa'
 p1_1='L_mex_wt_trimmed_1.fq'
 p1_2='L_mex_wt_trimmed_2.fq'
 # p2_1='SRR1593518_trimmed_1.fq.gz'
