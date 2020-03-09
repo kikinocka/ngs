@@ -13,19 +13,18 @@ module add openjdk-10
 data_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/wt/'
 
 #copy files to scratch
-cp $data_dir'wt_ra.fa' $SCRATCHDIR
-cp $data_dir'bw2_mapping/lmex_bw2_sorted.bam' $SCRATCHDIR
-cp $data_dir'bw2_mapping/lmex_bw2_sorted.bam.bai' $SCRATCHDIR
+cp $data_dir'wt_pilon1.fa' $SCRATCHDIR
+cp $data_dir'bw2_mapping/pilon1/wt_p1_bw2_sorted.bam' $SCRATCHDIR
+cp $data_dir'bw2_mapping/pilon1/wt_p1_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
-assembly='wt_ra.fa'
-bam='lmex_bw2_sorted.bam'
-index='lmex_bw2_sorted.bam.bai'
-report='lmex_pilon1_report.txt'
+assembly='wt_pilon1.fa'
+bam='wt_p1_bw2_sorted.bam'
+index='wt_p1_bw2_sorted.bam.bai'
 
 #compute on scratch
 cd $SCRATCHDIR
-java -jar -Xmx20G $pilon --genome $assembly --bam $bam --threads $PBS_NUM_PPN 2> $report
+java -jar -Xmx20G $pilon --genome $assembly --bam $bam --threads $PBS_NUM_PPN
 
 #copy results to your folder
 rm $assembly $bam $index
