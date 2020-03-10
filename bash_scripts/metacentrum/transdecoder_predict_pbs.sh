@@ -17,7 +17,7 @@ data_dir='/storage/brno3-cerit/home/kika/diplonemids/trafficking/'
 #copy files to scratch
 # cp $pfam_dir'Pfam-A.hmm' $SCRATCHDIR
 cp $data_dir'rhRABs.fwd_hits.fa' $SCRATCHDIR
-# cp -r $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir' $SCRATCHDIR
+cp -r $data_dir'rhRABs.fwd_hits.fa.transdecoder_dir' $SCRATCHDIR
 cp $data_dir'rhRABs_rev.blastx.out' $SCRATCHDIR
 
 # hmm='Pfam-A.hmm'
@@ -36,5 +36,5 @@ TransDecoder.Predict -t $transcriptome --retain_blastp_hits $blast #--retain_pfa
 #copy files back
 # rm -r $transcriptome $hmm 'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
 # cp -r * $data_dir'pelomyxa_transcriptome_clean.fa.transdecoder_dir/'
-rm $transcriptome $blast
+rm -r $transcriptome $blast 'rhRABs.fwd_hits.fa.transdecoder_dir'
 cp -r * $data_dir
