@@ -10,12 +10,12 @@ cat $PBS_NODEFILE
 #add module
 module add transdecoder-3.0.1
 
-data_dir='/storage/brno3-cerit/home/kika/pelomyxa/transcriptome_assembly/'
+data_dir='/storage/brno3-cerit/home/kika/diplonemids/trafficking/'
 
 #copy files to scratch
-cp $data_dir'pelomyxa_transcriptome_clean.fa' $SCRATCHDIR
+cp $data_dir'rhRABs.fwd_hits.fa' $SCRATCHDIR
 
-transcriptome='pelomyxa_transcriptome_clean.fa'
+transcriptome='rhRABs.fwd_hits.fa'
 
 #compute on scratch
 cd $SCRATCHDIR

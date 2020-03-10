@@ -4,8 +4,8 @@ from Bio import SeqIO
 
 os.chdir('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/')
 db = SeqIO.parse('/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1608_Trinity.fasta', 'fasta')
-accessions = open('rhRABs_hits.acc')
-out = open('rhRABs_hits.fa', 'w')
+accessions = open('rhRABs.fwd_hits.acc')
+out = open('rhRABS.fwd_hits.fa', 'w')
 
 retrieve = set()
 for line in accessions:
