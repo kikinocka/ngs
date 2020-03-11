@@ -2,7 +2,7 @@
 
 workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
-lineage=9
+lineage=1
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
@@ -16,6 +16,6 @@ lineage=9
 cd $workdir
 for file in $files; do
 	echo $file
-	out=${file%.*}'.nommpred.tsv'
+	out=${file%.*}'.nommpred_mit.tsv'
 	NommPred.py -i $file -o $out -l $lineage --overwrite
 done
