@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/home/osboxes/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Dcko/MEGAsync/diplonema/catalase/targeting/')
-files = [x for x in os.listdir() if x.endswith('_shortened.fa')]
+os.chdir('/Dcko/ownCloud/proteromonas/targeting/')
+files = [x for x in os.listdir() if x.endswith('trifunctional.fa')]
 
 for file in files:
 	print(file)
