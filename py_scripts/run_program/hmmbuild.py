@@ -2,12 +2,12 @@
 import os
 import subprocess
 
-os.chdir('/home/kika/MEGAsync/diplonema/hydrogenase/')
+os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/3-hydroxacyl-CoA_dehydrogenase/')
 files = os.listdir()
-threads = 4
+threads = 2
 
 for file in files:
-	if file.endswith('.txt'):
+	if file.endswith('.aln'):
 		print(file)
 		name = file.split('_')[0]
 		hmm = name + '_profile.hmm'

@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/MEGAsync/Data/kinetoplastids/')
-infile = SeqIO.parse('TriTrypDB-46_BsaltansLakeKonstanz_Genome.fasta', 'fasta')
-output = open('TriTrypDB-46_BsaltansLakeKonstanz_Genome_translated.fa', 'w')
-error = open('TriTrypDB-46_BsaltansLakeKonstanz_Genome_errors.txt', 'w')
+os.chdir('/Dcko/MEGAsync/Data/stramenopiles/')
+infile = SeqIO.parse('Proteromonas_l_genomic.fa', 'fasta')
+output = open('Proteromonas_l_genomic_translated.fa', 'w')
+error = open('Proteromonas_l_genomic_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
