@@ -2,14 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/Dcko/ownCloud/membrane-trafficking/RhuRAB_aa.txt'
-db = '/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1608_Trinity.fasta'
-# db = '/Dcko/ownCloud/membrane-trafficking/Rab_db/RABs_deduplicated.fa'
+cmd = 'blastx'
+task = 'blastx'
+# query = '/Dcko/ownCloud/membrane-trafficking/coats_queries/TSET_Ngru.faa'
+query = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL.fwd_hits.fna'
+# db = '/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1621_Trinity.fasta'
+db = '/Dcko/MEGAsync/Data/EG/eg_deeg.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_fwd.blast.xml'
-evalue = 1e-4
+out = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_rev.blast.xml'
+evalue = 1
 outfmt = 5
 hits = 10
 word_size = 3
@@ -31,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_fwd.blast.tsv', 'w')
-out_best = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_fwd.best_blast.tsv', 'w')
+output = open('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_rev.blast.tsv', 'w')
+out_best = open('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_rev.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

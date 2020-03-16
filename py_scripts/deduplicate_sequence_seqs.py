@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/3-hydroxacyl-CoA_dehydrogenase/')
-infile = SeqIO.parse('stram.fa', 'fasta')
-out_fasta = open('stram_deduplicated.fa', 'w')
-out_names = open('stram_dupl-names.txt', 'w')
+os.chdir('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/')
+infile = SeqIO.parse('EL.fwd_hits.fna', 'fasta')
+out_fasta = open('EL.fwd_hits_deduplicated.rev_hits.faa', 'w')
+out_names = open('EL.fwd_hits_dupl-names.rev_hits.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
