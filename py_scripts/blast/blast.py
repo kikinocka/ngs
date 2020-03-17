@@ -2,18 +2,18 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastx'
-task = 'blastx'
+cmd = 'blastn'
+task = 'blastn'
 # query = '/Dcko/ownCloud/membrane-trafficking/coats_queries/TSET_Ngru.faa'
 query = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL.fwd_hits.fna'
 # db = '/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1621_Trinity.fasta'
-db = '/Dcko/MEGAsync/Data/EG/eg_deeg.fa'
+db = '/Dcko/MEGAsync/Data/EL_RNAseq/NCBI_submission/GGOE01.1.fsa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_rev.blast.xml'
+out = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_check.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 10
-word_size = 3
+word_size = 7
 threads = 2
 
 print('running BLAST')
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_rev.blast.tsv', 'w')
-out_best = open('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_rev.best_blast.tsv', 'w')
+output = open('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_check.blast.tsv', 'w')
+out_best = open('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_check.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
