@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add openjdk-10
 
-data_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/wt/'
+data_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku70/'
 
 #copy files to scratch
-cp $data_dir'wt_pilon9.fa' $SCRATCHDIR
-cp $data_dir'bw2_mapping/pilon9/wt_p9_bw2_sorted.bam' $SCRATCHDIR
-cp $data_dir'bw2_mapping/pilon9/wt_p9_bw2_sorted.bam.bai' $SCRATCHDIR
+cp $data_dir'ku70_ra.fa' $SCRATCHDIR
+cp $data_dir'bw2_mapping/ra/ku70_ra_bw2_sorted.bam' $SCRATCHDIR
+cp $data_dir'bw2_mapping/ra/ku70_ra_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
-assembly='wt_pilon9.fa'
-bam='wt_p9_bw2_sorted.bam'
-index='wt_p9_bw2_sorted.bam.bai'
+assembly='ku70_ra.fa'
+bam='ku70_ra_bw2_sorted.bam'
+index='ku70_ra_bw2_sorted.bam.bai'
 
 #compute on scratch
 cd $SCRATCHDIR

@@ -4,7 +4,7 @@ import subprocess
 
 # mafft = '/home/osboxes/miniconda3/bin/mafft'
 
-os.chdir('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/tRNA-Glu/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
