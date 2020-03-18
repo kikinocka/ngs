@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/MEGAsync/Data/stramenopiles/')
-infile = SeqIO.parse('Proteromonas_l_genomic.fa', 'fasta')
-output = open('Proteromonas_l_genomic_translated.fa', 'w')
-error = open('Proteromonas_l_genomic_errors.fa', 'w')
+os.chdir('/Dcko/MEGAsync/Data/diplonemids_genomes/')
+infile = SeqIO.parse('1601_spades.fa', 'fasta')
+output = open('1601_spades_translated.fa', 'w')
+error = open('1601_spades_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
