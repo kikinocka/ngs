@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Dcko/MEGAsync/Data/EL_RNAseq/EL_merged.fasta'
+database = '/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa'
 
 for accessions in files: 
 	print(accessions)

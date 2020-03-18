@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/3-hydroxacyl-CoA_dehydrogenase/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
 files = os.listdir()
 threads = 2
 

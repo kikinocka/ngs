@@ -2,11 +2,11 @@
 import os
 import subprocess
 
-os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/3-hydroxacyl-CoA_dehydrogenase/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Dcko/MEGAsync/Data/stramenopiles/Proteromonas_l_genomic_translated.fa'
-orgn = 'prot'
+db = '/Dcko/MEGAsync/Data/dpapilatum/dpap_genome_translated.fa'
+orgn = 'dpap_gen'
 threads = 2
 
 for file in files:
