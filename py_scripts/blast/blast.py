@@ -10,9 +10,9 @@ query = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL.fwd_hi
 db = '/Dcko/MEGAsync/Data/EL_RNAseq/NCBI_submission/GGOE01.1.fsa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
 out = '/Dcko/MEGAsync/Euglena_longa/2013_Sekvenovanie/EG_pt_proteome/EL_check.blast.xml'
-evalue = 1
+evalue = 1e-5
 outfmt = 5
-hits = 10
+hits = 1
 word_size = 7
 threads = 2
 

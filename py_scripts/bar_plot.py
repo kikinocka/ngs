@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-# os.chdir('/home/kika/MEGAsync/Manuscripts/Euglenozoa_CAT-APX/')
 
 # f, (ax, ax2) = plt.subplots(2, 1, sharex=True)
 fig, ax = plt.subplots()
@@ -11,18 +9,18 @@ fig, ax = plt.subplots()
 species = ['DPr', 'DPp', 'RH', 'BP57', 'LS14', 'LS23', 'LS34', 'CT14', 'CT23', 'CT34', 'NE', 'TB', 'EGl', 'EGd', 'EL']
 
 # #APX activity
-# value = [0, 0, 0, 4, 5.3, 0, 0, 6.3, 4.3, 4.3, 20, 0, 5100, 0, 0]
-# std = [0, 0, 0, 1, 2, 0, 0, 0.4, 1.8, 1.8, 10, 0, 270, 0, 0]
+# value = [0, 0, 3.69, 2.06, 54.26, 39.79, 34.35, 65.40, 48.63, 51.57, 206.63, 0, 625.22, 0, 0]
+# std = [0, 0, 1.80, 1.84, 21.32, 10.96, 7.93, 28.87, 19.51, 27.44, 69.37, 0, 176.36, 0, 0]
 # #APX transcripts
 # value = [0, 0, 0, 0, 164, 16.7, 41.5, 181, 18, 27.7, 73.8, 0, 13.8, 9.9, 0]
 # #CAT activity
-# value = [2, 1.8, 0, 0, 16.3, 17.4, 8, 21, 13.3, 5.3, 9, 0, 0, 0, 0]
-# std = [0.1, 0.2, 0, 0, 2.1, 1.4, 0.6, 0.2, 0.3, 0.5, 0.8, 0, 0, 0, 0]
+# value = [3.99, 6.27, 0.66, 0, 16.84, 12.90, 5.07, 17.19, 13.19, 4.79, 10.76, 0, 0, 0, 0]
+# std = [1.48, 3.47, 0.26, 0, 1.94, 6.48, 3.81, 6.06, 2.43, 1.11, 2.43, 0, 0, 0, 0]
 # #CAT transcripts
 # value = [216.2, 256.9, 25.4, 26.9, 813.5, 116.8, 432.9, 567.6, 678.9, 972.9, 626.2, 0, 0, 0, 0]
 #Respiration
-value = [2.4, 7.8, 12.5, 2.5, 5.8, 8.9, 7.9, 6.2, 10.9, 11.8, 4.7, 2.7, 2.4, 16.9, 23.6]
-std = [0.9, 2.5, 1.3, 0.6, 0.8, 0.4, 0.5, 0.1, 2.7, 1, 0.2, 0.7, 1.1, 2.9, 3.3]
+value = [2.42, 7.83, 15.42, 2.44, 5.84, 8.93, 7.86, 6.21, 10.92, 11.82, 4.78, 2.95, 2.37, 15.81, 23.65]
+std = [0.98, 2.81, 6.09, 0.67, 0.90, 0.52, 0.61, 0.16, 3.15, 1.16, 0.20, 0.67, 1.22, 4.42, 3.69]
 
 #ONE GRAPH
 # ax.bar(species, value, color='lightgrey')
@@ -40,8 +38,8 @@ plt.show()
 # ax2.bar(species, value, color='lightgrey', yerr=std, capsize=3)
 
 # # zoom-in / limit the view to different portions of the data
-# ax.set_ylim(4500, 5500) # outliers
-# ax2.set_ylim(0, 35) # most of the data
+# ax.set_ylim(120, 900) # outliers
+# ax2.set_ylim(0, 100) # most of the data
 
 # # hide the spines between ax and ax2
 # ax.spines['bottom'].set_visible(False)
@@ -62,4 +60,3 @@ plt.show()
 
 # plt.ylabel('APX activity [mU/mg]')
 # plt.show()
-
