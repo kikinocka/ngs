@@ -5,7 +5,7 @@ import subprocess
 targetp='/home/osboxes/programs/targetp-2.0/bin/targetp'
 
 os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/targeting/')
-files = [x for x in os.listdir() if x.endswith('MECR.fa')]
+files = [x for x in os.listdir() if x.endswith('pxmp2.fa')]
 
 for file in files:
 	print(file)
