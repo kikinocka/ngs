@@ -12,18 +12,18 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 data='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku70/'
-outdir=$data'bw2_mapping/pilon3/'
+outdir=$data'bw2_mapping/pilon4/'
 
 #copy files to scratch
-cp $data'ku70_pilon3.fa' $SCRATCHDIR
+cp $data'ku70_pilon4.fa' $SCRATCHDIR
 cp $data'reads/'*.fq $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='ku70_p3_bw2'
-ref='ku70_pilon3.fa'
+base_name='ku70_p4_bw2'
+ref='ku70_pilon4.fa'
 p1_1='Lmex_Ku70_trimmed_1.fq'
 p1_2='Lmex_Ku70_trimmed_2.fq'
 # p2_1='SRR1593518_trimmed_1.fq.gz'
