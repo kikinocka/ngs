@@ -31,6 +31,5 @@ def seq_cleaner(file):
 					out.write('>{}\n{}\n'.format(seq.name, str(seq.seq).replace('-', '')))
 		err.write('======================================\n')
 
-
 for file in files:
 	seq_cleaner(file)
