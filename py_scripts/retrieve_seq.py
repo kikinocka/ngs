@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa'
+os.chdir('/Dcko/ownCloud/proteromonas/RABs/')
+files = [x for x in os.listdir() if x.endswith('rev_hits.acc')]
+database = '/Dcko/MEGAsync/Data/stramenopiles/Proteromonas_l_proteins.fasta'
 
 for accessions in files: 
 	print(accessions)
 	fname = accessions.split('.')[0]
 	retrieve = set()
 
-	with open('{}.fna'.format(fname), 'w') as out:
+	with open('{}.fa'.format(fname), 'w') as out:
 		db = SeqIO.parse(database, 'fasta')
 
 		for line in open(accessions):
