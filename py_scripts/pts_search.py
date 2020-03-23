@@ -16,13 +16,9 @@ pts2 = r'^\w{1,21}R(L|I|V|Q)\w{2}(L|I|V|Q|H)(L|S|G|A)\w{1}(H|Q)(L|A)'
 
 with open('caf_mit.possibly_peroxisomal.fa', 'w') as out:
 	for protein in proteins:
-		# print(protein.seq)
-		# print(str(protein.seq)[-3:])
-		# if str(protein.seq)[-3:] == pts1:
 		if re.search(pts1, str(protein.seq)[-3:]):
 			out.write('>{} @PTS1:{}\n{}\n'.format(protein.description, protein.seq[-3:], protein.seq))
 		elif re.search(pts2, str(protein.seq)):
-			# match = re.match(pts2, str(protein.seq))
 			match = re.search(pts2, str(protein.seq))
 			out.write('>{} @PTS2:{}\n{}\n'.format(protein.description, match.group(), protein.seq))
 		else:
