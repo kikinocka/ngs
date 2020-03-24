@@ -14,8 +14,8 @@ data_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku80/'
 
 #copy files to scratch
 cp $data_dir'ku80_pilon1.fa' $SCRATCHDIR
-cp $data_dir'bw2_mapping/ra/ku80_p1_bw2_sorted.bam' $SCRATCHDIR
-cp $data_dir'bw2_mapping/ra/ku80_p1_bw2_sorted.bam.bai' $SCRATCHDIR
+cp $data_dir'bw2_mapping/pilon1/ku80_p1_bw2_sorted.bam' $SCRATCHDIR
+cp $data_dir'bw2_mapping/pilon1/ku80_p1_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
 assembly='ku80_pilon1.fa'
