@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 import argparse
 from Bio import SeqIO
@@ -27,7 +26,7 @@ if filtercolour in basecolours:
 elif filtercolour == 'all':
 	print('any colour accepted')
 else:
-	print('unknown filter, setting to 'user-defined'. taxa with unrecognized colour codes will be retained')
+	print('unknown filter, setting to \'user-defined\'. taxa with unrecognized colour codes will be retained')
 
 #load fasta
 seq_d = {}

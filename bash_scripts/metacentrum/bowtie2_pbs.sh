@@ -22,7 +22,7 @@ cp $data'reads/'*.fq $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='ku70_p10_bw2'
+base_name='ku80_ra_bw2'
 ref='ku80_ra.fa'
 p1_1='Lmex_Ku80_trimmed_1.fq'
 p1_2='Lmex_Ku80_trimmed_2.fq'
