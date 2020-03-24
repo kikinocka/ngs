@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/home/osboxes/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/targeting/')
-files = [x for x in os.listdir() if x.endswith('peroxy.fa')]
+os.chdir('/Dcko/ownCloud/pelomyxa_schiedti/mito_proteins/targeting/')
+files = [x for x in os.listdir() if x.endswith('corrected.fa')]
 
 for file in files:
 	print(file)
