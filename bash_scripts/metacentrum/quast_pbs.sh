@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-assembly='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
-mapping='/auto/brno3-cerit/nfs4/home/kika/sags/reassembly/mapping/bbmap/'
-outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/'
+assembly='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/wt/'
+mapping=$assembly'bw2_mapping/pilon10/'
+# outdir=$assembly'quast/'
 
 #copy assembly to scratch
-cp $assembly'contigs.fasta' $SCRATCHDIR
-cp $mapping'EU1718_bbm_mapped_all.sorted.bam' $SCRATCHDIR
+cp $assembly'wt_pilon10.fa' $SCRATCHDIR
+cp $mapping'wt_p10_bw2_sorted.bam' $SCRATCHDIR
 
-f='contigs.fasta'
-bam='EU1718_bbm_mapped_all.sorted.bam'
+f='wt_pilon10.fa'
+bam='wt_p10_bw2_sorted.bam'
 output='quast/'
 min_contig=500
 
@@ -30,4 +30,4 @@ quast.py -o $output -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryo
 
 #copy results to your folder
 rm $f $bam
-cp -r * $outdir
+cp -r * $assembly
