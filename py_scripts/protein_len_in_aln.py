@@ -2,7 +2,7 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/mafft_EU_added/')
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/ver1/mafft_EU_added/')
 files = [x for x in os.listdir() if x.endswith('aln')]
 errors = 'corrected/short_seqs.txt'
 
@@ -15,7 +15,7 @@ def seq_cleaner(file):
 		err.write('{}\nalignment length: {} ({})\n'.format(file, len_aln, len_aln/5))
 
 		for seq in aln:
-			if 'EU' in seq.name:
+			if str(seq.name).startswith('EU'):
 				if len(str(seq.seq).replace('-', '')) >= len_aln/5:
 					seq_dict[seq.description] = str(seq.seq).replace('-', '')
 				else:
@@ -25,7 +25,7 @@ def seq_cleaner(file):
 			for key, value in seq_dict.items():
 					out.write('>{}\n{}\n'.format(key, value))
 			for seq in aln:
-				if 'EU' in seq.name:
+				if str(seq.name).startswith('EU'):
 					pass
 				else:
 					out.write('>{}\n{}\n'.format(seq.name, str(seq.seq).replace('-', '')))
