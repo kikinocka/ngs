@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-assembly='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku70/'
+assembly='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku80/'
 mapping=$assembly'bw2_mapping/pilon10/'
 # outdir=$assembly'quast/'
 
 #copy assembly to scratch
-cp $assembly'ku70_pilon10.fa' $SCRATCHDIR
-cp $mapping'ku70_p10_bw2_sorted.bam' $SCRATCHDIR
+cp $assembly'ku80_pilon10.fa' $SCRATCHDIR
+cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
 
-f='ku70_pilon10.fa'
-bam='ku70_p10_bw2_sorted.bam'
+f='ku80_pilon10.fa'
+bam='ku80_p10_bw2_sorted.bam'
 output='quast/'
 min_contig=500
 
