@@ -1,6 +1,6 @@
 #/bin/bash
 #PBS -N datasethandler
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=2gb
+#PBS -l select=1:ncpus=10:mem=1gb:scratch_local=2gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
