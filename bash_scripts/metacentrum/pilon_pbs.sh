@@ -13,14 +13,14 @@ module add openjdk-10
 data_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku80/'
 
 #copy files to scratch
-cp $data_dir'ku80_pilon7.fa' $SCRATCHDIR
-cp $data_dir'bw2_mapping/pilon7/ku80_p7_bw2_sorted.bam' $SCRATCHDIR
-cp $data_dir'bw2_mapping/pilon7/ku80_p7_bw2_sorted.bam.bai' $SCRATCHDIR
+cp $data_dir'ku80_pilon8.fa' $SCRATCHDIR
+cp $data_dir'bw2_mapping/pilon8/ku80_p8_bw2_sorted.bam' $SCRATCHDIR
+cp $data_dir'bw2_mapping/pilon8/ku80_p8_bw2_sorted.bam.bai' $SCRATCHDIR
 
 pilon='/storage/brno2/home/kika/tools/pilon-1.23.jar'
-assembly='ku80_pilon7.fa'
-bam='ku80_p7_bw2_sorted.bam'
-index='ku80_p7_bw2_sorted.bam.bai'
+assembly='ku80_pilon8.fa'
+bam='ku80_p8_bw2_sorted.bam'
+index='ku80_p8_bw2_sorted.bam.bai'
 
 #compute on scratch
 cd $SCRATCHDIR
