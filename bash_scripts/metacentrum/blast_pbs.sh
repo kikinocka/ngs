@@ -10,16 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.7.1
 
-datadir='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/'
-query=$datadir'Acas_rRNA.fa'
-out=$datadir'1310.fwd_rRNA.blast.xml'
-report=$datadir'1310.fwd_rRNA.blast.report'
-db='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/nt_db/MMETSP1310.nt.fa.txt'
-# db='/storage/projects/BlastDB/nr'
+datadir='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/rRNA'
+query=$datadir'1310_rRNA.fwd_hits.fa'
+out=$datadir'1310_rRNA.rev.blast.xml'
+# db='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/nt_db/MMETSP1310.nt.fa.txt'
+db='/storage/projects/BlastDB/nt'
 program=blastn
 task=blastn
 outfmt=5
-# eval=1e-3
+eval=1e-4
 # max_seqs=1
 
 #run in DB folder
@@ -30,6 +29,5 @@ $program -task $task \
 	-out $out \
 	-outfmt $outfmt \
 	-num_threads $PBS_NUM_PPN \
-	2>$report
-	# -evalue $eval \
+	-evalue $eval \
 	# -max_target_seqs $max_seqs \

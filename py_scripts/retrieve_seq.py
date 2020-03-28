@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/proteromonas/RABs/')
-files = [x for x in os.listdir() if x.endswith('rev_hits.acc')]
-database = '/Dcko/MEGAsync/Data/stramenopiles/Proteromonas_l_proteins.fasta'
+os.chdir('/Dcko/ownCloud/MMETSP1310/')
+files = [x for x in os.listdir() if x.endswith('.acc')]
+database = '/Dcko/MEGAsync/Data/MMETSP1310.nt.fa.txt'
 
 for accessions in files: 
 	print(accessions)
