@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.7.1
 
-datadir='/auto/brno3-cerit/nfs4/home/fussyz01/hampllab/'
+datadir='/auto/brno3-cerit/nfs4/home/fussyz01/hampllab/MMETSP1310/'
 files=$datadir'*.nt.fa.txt'
 dbtype=nucl
 
