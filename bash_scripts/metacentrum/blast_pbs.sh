@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.7.1
 
-datadir='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/rRNA'
+datadir='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/rRNA/'
 query=$datadir'1310_rRNA.fwd_hits.fa'
 out=$datadir'1310_rRNA.rev.blast.xml'
 # db='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/nt_db/MMETSP1310.nt.fa.txt'
