@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add blast+-2.7.1
+module add blast+-2.8.0a
 
 datadir='/storage/brno3-cerit/home/kika/sags/'
 query=$datadir'found_proteins.fa'
