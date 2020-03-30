@@ -2,10 +2,10 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-# cmd = 'blastp'
-# task = 'blastp'
-# query = '/Dcko/ownCloud/proteromonas/RABs/Plac.fwd_hits.fa'
-# db = '/Dcko/ownCloud/RAB_db/RABs_deduplicated.fa'
+cmd = 'blastp'
+task = 'blastp'
+query = '/Dcko/ownCloud/proteromonas/RABs/Plac.fwd_hits.fa'
+db = '/Dcko/ownCloud/RAB_db/RABs_deduplicated.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
 out = '/Dcko/ownCloud/SAGs/phylogenomics/found/found_proteins.fwd.blast.xml'
 evalue = 1e-2
@@ -14,12 +14,12 @@ hits = 1
 word_size = 3
 threads = 2
 
-# print('running BLAST')
-# #query - database
-# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {}  \
-# 	-num_threads {}'.format(
-# 		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-# # -max_target_seqs {} hits, 
+print('running BLAST')
+#query - database
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {}  \
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# -max_target_seqs {} hits, 
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
