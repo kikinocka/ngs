@@ -4,7 +4,7 @@ import subprocess
 
 hmmbuild = '/home/osboxes/miniconda3/bin/hmmbuild'
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/AP1/')
 files = os.listdir()
 threads = 2
 

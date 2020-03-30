@@ -4,7 +4,7 @@ import subprocess
 
 hmmsearch = '/home/osboxes/miniconda3/bin/hmmsearch'
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/AP1/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
 db = '/Dcko/MEGAsync/Data/kinetoplastids/TriTrypDB-46_BsaltansLakeKonstanz_Genome_translated.fa'

@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Dcko/ownCloud/MMETSP1310/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
+files = [x for x in os.listdir() if x.endswith('rev_hits.acc')]
 database = '/Dcko/MEGAsync/Data/MMETSP1310.nt.fa.txt'
 
 for accessions in files: 
