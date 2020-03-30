@@ -1,14 +1,28 @@
 # !/usr/bin/env python3
+import os
+from Bio import SeqIO
 
-import argparse
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/bordor/')
+alignments = [x for x in os.listdir() if x.endswith('.fas')]
 
-parser = argparse.ArgumentParser(description='How to use argparse')
-parser.add_argument('-i', '--input', help='FASTA eclist')
+with open('EU1718_gordon.fa', 'w') as out:
+	for aln in alignments:
+		print(aln)
+		name = aln.split('_')[0]
+		for seq in SeqIO.parse(aln, 'fasta'):
+			out.write('>{}_{}\n{}\n'.format(seq.name, name, seq.seq))
 
-args = parser.parse_args()
 
-eclist = args.input
-print(eclist)
+
+# import argparse
+
+# parser = argparse.ArgumentParser(description='How to use argparse')
+# parser.add_argument('-i', '--input', help='FASTA eclist')
+
+# args = parser.parse_args()
+
+# eclist = args.input
+# print(eclist)
 
 
 

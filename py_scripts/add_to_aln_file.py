@@ -23,7 +23,7 @@ for aln in alignments:
 		with open(aln, 'a') as out:
 			out.write('>EU1718g\n{}\n'.format(gprots[aln.split('.')[0]]))
 	if aln.split('.')[0] in dprots:
-		print(aln + ' in proteins from Gordon')
+		print(aln + ' in proteins from David')
 		print('Adding protein to the alignment')
 		with open(aln, 'a') as out:
 			out.write('>EU1718d\n{}\n'.format(dprots[aln.split('.')[0]]))
