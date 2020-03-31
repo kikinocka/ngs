@@ -2,8 +2,8 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/proteromonas/RABs/tree/ver2/')
-inacc = open('acc.delete')
+os.chdir('/Dcko/ownCloud/proteromonas/RABs/tree/ver6/')
+inacc = open('delete.acc')
 infasta = SeqIO.parse('rabome_prot.fa', 'fasta')
 
 omitted = []
