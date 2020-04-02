@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/home/osboxes/miniconda3/bin/hmmsearch'
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/coat_queries/hmm/AP1/')
+os.chdir('/Dcko/ownCloud/membrane-trafficking/queries/coats/hmm/AP4/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Dcko/MEGAsync/Data/kinetoplastids/TriTrypDB-46_BsaltansLakeKonstanz_Genome_translated.fa'
-orgn = 'bsal_gen'
+db = '/Dcko/MEGAsync/Data/Eutreptiella/NIES_MMETSP0039_clean.pep.fa.txt'
+orgn = 'eutn'
 threads = 2
 
 for file in files:
