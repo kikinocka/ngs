@@ -7,8 +7,8 @@ hmmsearch = '/home/osboxes/miniconda3/bin/hmmsearch'
 os.chdir('/Dcko/ownCloud/membrane-trafficking/queries/coats/hmm/AP5/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa'
-orgn = 'dpap_prot'
+db = '/Dcko/MEGAsync/Data/EL_RNAseq/el_merged_translated.fasta'
+orgn = 'elon'
 threads = 2
 
 for file in files:
