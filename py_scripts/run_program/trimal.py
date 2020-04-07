@@ -1,7 +1,7 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/proteromonas/SOD_tree/ver2//')
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/ver2/taxa_outgroup_trimmed/mafft/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
@@ -11,8 +11,8 @@ for file in files:
 	gt = 0.5 #fraction of sequences with a gap allowed
 	st = 0.001 #minimum average similarity allowed.
 
-	output = '{}.trimal_{}.aln'.format(file_name, aut)
-	os.system('trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
+	# output = '{}.trimal_{}.aln'.format(file_name, aut)
+	# os.system('trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
 	
 	output = '{}.trimal_gt_{}.aln'.format(file_name, gt)
 	os.system('trimal -in {} -out {} -gt {} -fasta'.format(file, output, gt))

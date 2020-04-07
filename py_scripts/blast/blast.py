@@ -2,13 +2,13 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Dcko/ownCloud/proteromonas/RABs/Plac.fwd_hits.fa'
-db = '/Dcko/ownCloud/RAB_db/RABs_deduplicated.fa'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/Dcko/ownCloud/blastocrithidia/genes/telomerase/tbruc_telomerase.fa'
+db = '/Dcko/ownCloud/blastocrithidia/genome_assembly/blastdb/p57_polished.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Dcko/ownCloud/SAGs/phylogenomics/found/found_proteins.fwd.blast.xml'
-evalue = 1e-2
+out = '/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.blast.xml'
+evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Dcko/ownCloud/SAGs/phylogenomics/found/found_proteins.fwd.blast.tsv', 'w')
-out_best = open('/Dcko/ownCloud/SAGs/phylogenomics/found/found_proteins.fwd.best_blast.tsv', 'w')
+output = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.blast.tsv', 'w')
+out_best = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

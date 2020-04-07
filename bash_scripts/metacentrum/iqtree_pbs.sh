@@ -2,7 +2,7 @@
 #PBS -N IQTree
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=30gb:scratch_local=10gb:os=debian9
-#PBS -l walltime=96:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/concat/'
+datadir='/storage/brno3-cerit/home/kika/sags/concat_ver2_tot/'
 
 #copy files to scratch
 cp $datadir'concat.aln' $SCRATCHDIR

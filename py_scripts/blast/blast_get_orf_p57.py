@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Dcko/MEGAsync/diplonema/transcriptomes/1608_Trinity.fasta', 'fasta')
-nt_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_nt.fa', 'w')
-aa_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_aa.fa', 'w')
-err_out = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs_errors.txt', 'w')
-result_handle = open('/Dcko/ownCloud/membrane-trafficking/1608_RABs.blast.xml')
+fasta = SeqIO.parse('/Dcko/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa', 'fasta')
+nt_out = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.fna', 'w')
+aa_out = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.faa', 'w')
+err_out = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.errors.txt', 'w')
+result_handle = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

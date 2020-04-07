@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/ver3/sg-trees/')
-trees = [x for x in os.listdir() if x.endswith('.treefile')]
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/iq/')
+trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('bordor_taxa.txt')
+names = open('concat_names.txt')
 
 name_dict = {}
 for name in names:
