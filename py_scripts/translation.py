@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Dcko/MEGAsync/Data/diplonemids_genomes/')
-infile = SeqIO.parse('1601_spades.fa', 'fasta')
-output = open('1601_spades_translated.fa', 'w')
-error = open('1601_spades_errors.fa', 'w')
+infile = SeqIO.parse('1621_spades.fa', 'fasta')
+output = open('1621_spades_translated.fa', 'w')
+error = open('1621_spades_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
