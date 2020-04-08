@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/iq/')
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/ver2/taxa_trimmed/iq/')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
