@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-mafft = '/home/osboxes/miniconda3/bin/mafft'
+mafft = '/Users/kika/miniconda3/bin/mafft'
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/ver2/taxa_outgroup_trimmed/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/coats/hmm/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:

@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-hmmbuild = '/home/osboxes/miniconda3/bin/hmmbuild'
+hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/queries/coats/hmm/AP5/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/coats/hmm/')
 files = os.listdir()
 threads = 2
 
