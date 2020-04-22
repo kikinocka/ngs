@@ -4,9 +4,9 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/coats/hmm/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/coats/hmm/COPII/')
 files = os.listdir()
-threads = 2
+threads = 7
 
 for file in files:
 	if file.endswith('.aln'):

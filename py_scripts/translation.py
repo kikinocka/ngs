@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/data/kinetoplastids/')
-infile = SeqIO.parse('TriTrypDB-46_LmajorFriedlin_Genome.fasta', 'fasta')
-output = open('TriTrypDB-46_LmajorFriedlin_Genome_translated.fa', 'w')
-error = open('TriTrypDB-46_LmajorFriedlin_Genome_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/data/diplonemids_genomes/')
+infile = SeqIO.parse('1618_spades.fa', 'fasta')
+output = open('1618_spades_translated.fa', 'w')
+error = open('1618_spades_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
