@@ -1,7 +1,7 @@
 #/bin/bash
 #PBS -N datasethandler
-#PBS -l select=1:ncpus=20:mem=10gb:scratch_local=10gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=20:mem=5gb:scratch_local=1gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,7 +14,7 @@ module add mafft-7.313
 module add trimal-1.4
 
 #copy files to scratch
-DATADIR='/storage/brno3-cerit/home/kika/pelomyxa/trees/fdhF/ver2'
+DATADIR='/storage/brno3-cerit/home/kika/trafficking/COPII/sec16'
 
 cp '/storage/brno2/home/kika/scripts/kika/py_scripts/datasethandler-server.py' $SCRATCHDIR
 cp $DATADIR'/'*.fa $SCRATCHDIR
