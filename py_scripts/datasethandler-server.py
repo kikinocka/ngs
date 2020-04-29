@@ -58,11 +58,11 @@ def find_generation(filename):
 parser = argparse.ArgumentParser(description='How to use argparse')
 #whereabouts
 parser.add_argument('-d', '--directory', help='Change working directory', default='.')
-parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be analyzed', default='batch')
+parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch")
 #programs used
 parser.add_argument('-a', '--aligner', help='Aligner', default='mafft')
 parser.add_argument('-t', '--treemaker', help='Program for tree inference', default='iqtree')
-parser.add_argument('--maxcores', help='Maximum cores to use for multithreading', default=20)
+parser.add_argument('--maxcores', help='Maximum cores to use for multithreading', default=10)
 #seq processing
 parser.add_argument('-n', '--no_dedupe', help='Do not filter duplicates', action='store_true')
 #aligner params
@@ -74,7 +74,7 @@ parser.add_argument('-b', '--ufbootstrap', help='Ultra-fast boostrap calculation
 parser.add_argument('-B', '--bootstrap', help='Boostrap calculation', action='store_true')
 parser.add_argument('--shalrt', help='Calculate SH-aLRT', action='store_true')
 parser.add_argument('-g', '--no_guide', help='Do not perform guide tree inference', action='store_true')
-parser.add_argument('--treeparams', nargs='*', action='store', help='Custom tree inference parameters, check with manual', default='')
+parser.add_argument('--treeparams', nargs='*', action="store", help='Custom tree inference parameters, check with manual', default='')
 #parser.add_argument('-m', '--testmodel', help='Test best model', action='store_true') #not implemented
 #post-processing
 parser.add_argument('-s', '--mark_similarity', help='Mark similarity on branches', action='store_true')
@@ -92,19 +92,16 @@ print("ALIGN:", alignerparams, "|TRIM:", trimalparams, "|TREE:", treeparams)
 
 if os.path.isdir("/Users/morpholino/OwnCloud/"):
 	home = "/Users/morpholino/OwnCloud/"
-elif os.path.isdir("/Volumes/zoliq data/OwnCloud/"):
-	home = "/Volumes/zoliq data/OwnCloud/"
 elif os.path.isdir("/storage/brno3-cerit/home/fussyz01/"):
 	home = "/storage/brno3-cerit/home/fussyz01/"
 	print("PHYLOHANDLER: Home dir exists!")
-elif os.path.isdir("/usr/local/scratch/METAGENOMICS/zfussy/"):
-	home = "/usr/local/scratch/METAGENOMICS/zfussy/"
+elif os.path.isdir("/mnt/mokosz/home/zoli/trees/"):
+	home = "/mnt/mokosz/home/zoli/trees/"
 	print("PHYLOHANDLER: Home dir exists!")
 else:
 	print("Please set a homedir")
 if args.directory == ".": 	#called by a qsub script following copying to scratch
 	print("PHYLOHANDLER: changing to default directory")
-	defdir = "" 			#"datasethandler" >> commented to calculate on scratch
 	wd = "." 				#home + defdir >> commented to calculate on scratch
 	os.chdir(wd)
 else:
@@ -208,25 +205,28 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "eugLEPTp": "Leptomonas pyrrhocoris", "eugLEPTs": "Leptomonas seymouri",
 "eugNEOBd": "Neobodo designis", "eugPARco": "Paratrypanosoma confusum", "eugPHYTO": "Phytomonas sp em1", 
 "eugTRYPb": "Trypanosoma brucei", 
-"excADUpa": "Aduncisulcus paluster Carplike_NY0171", 
-"excBLATn": "Blattamonas nauphoetae", "excCARPm": "Carpediemonas membranifera", "excCHIca": "Chilomastix caulleri", 
-"excCHIcu": "Chilomastix cuspidata", "excDYSNb": "Dysnectes brevis", 
+"excADUpa": "Aduncisulcus paluster Carplike_NY0171", "excBLATn": "Blattamonas nauphoetae", "excCARPm": "Carpediemonas membranifera", 
+"excCHIca": "Chilomastix caulleri", "excCHIcu": "Chilomastix cuspidata", "excDYSNb": "Dysnectes brevis", 
 "excERGcy": "Ergobibamus cyprinoides", "excGIARi": "Giardia intestinalis P15", "excHISTm": "Histomonas meleagridis", 
-"excIOTAs": "Iotanema sp.", "excKIPFb": "Kipferlia bialata", 
-"excMONOe": "Monocercomonoides exilis", "excNAEgr": "Naegleria gruberi", "excPERco": "Percolomonas cosmopolitus ATCC50343", 
-"excPTRIp": "Paratrimastix pyriformis", "excSPIRs": "Spironucleus salmonicida ATCC50377",
-"excTREPs": "Trepomonas sp. PC1", "excTRIMm": "Trimastix marina", "extTTRIf": "Tritrichomonas foetus",
-"firmBACIa": "Bacillus anthracis", 
-"firmLISTm": "Listeria monocytogenes", "firmSTAPa": "Staphyllococcus aureus", "funASPEf": "Aspergillus fumigatus", 
-"funCRYPn": "Cryptococcus neoformans", "funDEBAh": "Debaryomyces hansenii cbs767", "funLACCb": "Laccaria bicolor", 
-"funNEURc": "Neurospora crassa", "funPUCCg": "Puccinia graminis", "funSCHIp": "Schizosaccharomyces pombe", 
+"excIOTAs": "Iotanema sp.", "excKIPFb": "Kipferlia bialata", "excMONOe": "Monocercomonoides exilis", "excNAEgr": "Naegleria gruberi", 
+"excPERco": "Percolomonas cosmopolitus ATCC50343", "excPTRIp": "Paratrimastix pyriformis", 
+"excSPIRs": "Spironucleus salmonicida ATCC50377", "excTREPs": "Trepomonas sp. PC1", "excTRIMm": "Trimastix marina", 
+"extTTRIf": "Tritrichomonas foetus",
+"firmBACIa": "Bacillus anthracis", "firmLISTm": "Listeria monocytogenes", "firmSTAPa": "Staphyllococcus aureus", 
+"funASPEf": "Aspergillus fumigatus", "funCRYPn": "Cryptococcus neoformans", "funDEBAh": "Debaryomyces hansenii cbs767", 
+"funLACCb": "Laccaria bicolor", "funNEURc": "Neurospora crassa", "funPUCCg": "Puccinia graminis", 
+"funSCHIp": "Schizosaccharomyces pombe", 
 "gamaSHEWb": "Shewanella baltica", "gamaVIBRc": "Vibrio cholerae", "gamaYERSp": "Yersinia pestis", 
 "glauGLOEw": "Gloeochaete wittrockiana", "glauCYApa": "Cyanophora paradoxa", 
 "glauCYPTg": "Cyanoptyche gloeocystis SAG4.97", "glauGLOwi": "Gloeochaete wittrockiana SAG46.84", 
+"grnASTEs": "Asterochloris sp.", "grnAUXEp": "Auxenochlorella protothecoides",
 "grnBATHp": "Bathycoccus prasinos", "grnCHLAl": "Chlamydomonas leiostraca", "grnCHLAl": "Chlamydomonas reinhardtii",
-"grnCOCCs": "Coccomyxa subellipsoidea", "grnHELIs": "Helicosporidium sp.",
-"grnDUNAt": "Dunaliella tertiolecta", "grnMICpu": "Micromonas pusilla CCMP1545", "grnMICRZ": "Micromonas pusilla", 
-"grnMONOn": "Monoraphidium neglectum", "grnNEPHp": "Nephroselmis pyriformis", 
+"grnCHLOs": "Chlorella sp.", "grnCHROz": "Chromochloris zofingiensis",
+"grnCOCCs": "Coccomyxa subellipsoidea", "grnDUNAs": "Dunaliella salina", 
+"grnDUNAt": "Dunaliella tertiolecta", 
+"grnGONIp": "Gonium pectorale", "grnHELIs": "Helicosporidium sp.", 
+"grnMICco": "Micromonas commoda", "grnMICpu": "Micromonas pusilla CCMP1545", "grnMICRZ": "Micromonas pusilla", 
+"grnMONOn": "Monoraphidium neglectum", "grnNEPHp": "Nephroselmis pyriformis", "grnOSTRl": "Ostreococcus lucimarinus",
 "grnOSTRm": "Ostreococcus mediterraneus", "grnOSTRt": "Ostreococcus tauri", "grnPICCL": "Picochlorum sp.", 
 "grnPICCY": "Picocystis salinarum", "grnPOLYp": "Polytomella parva", "grnPOLYZ": "Polytomella parva", 
 "grnPRASc": "Prasinococcus capsulatus", "grnPYRam": "Pyramimonas amylifera CCMP720", 
@@ -234,16 +234,16 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "grnTETRs": "Tetraselmis striata", "grnVOLVc": "Volvox carteri f. nagariensis", "hapCALCl": "Calcidiscus leptoporus", 
 "hapCHRYt": "Chrysochromulina tobin", 
 "hapEXANg": "Exanthemachrysis gayraliae", "hapIMANT": "Imantonia sp.", "hapISOCHg": "Isochrysis galbana", 
-"hapPAVLs": "Pavlovales sp. CCMP2435", "hapPHAan": "Phaeocystis antarctica",
+"hapPAVLs": "Pavlovales sp. CCMP2435", "hapPHAan": "Phaeocystis antarctica", "hapPHAgl": "Phaeocystis globosa",
 "hapPHEOC": "Phaeocystis sp.", "hapPLEUc": "Pleurochrysis carterae", "hapPRYMp": "Prymnesium parvum", 
 "hapSCYPH": "Scyphosphaera apsteinii", "hapEMILh": "Emiliania huxleyi", "haptEMIZ": "Emiliania huxleyi", 
 "haptPLEUc": "Pleurochrysis carterae", "haptPRYMp": "Prymnesium parvum Texoma1", 
 "hetPERCO": "Percolomonas cosmopolitus", "kytAMBOt": "Amborella trichopoda", "kytARABt": "Arabidopsis thaliana", 
 "grnARABl": "Arabidopsis lyrata", "grnCHARb": "Chara braunii", 
 "kytGLYCm": "Glycine max", "kytHORDv": "Hordeum vulgare", "kytORYZs": "Oryza sativa Japonica", 
-"kytPHYSp": "Physcomitrella patens", "kytSELAm": "Selaginella moellendorffii", "kytSOlyc": "Solanum lycopersicum", 
-"grnPHYSp": "Physcomitrella patens", "grnSELAm": "Selaginella moellendorffii",
-"kytZEAma": "Zea mays", 
+"kytPHYSp": "Physcomitrella patens", "grnPHYSp": "Physcomitrella patens", "grnPOPtr": "Populus trichocarpa",
+"kytSELAm": "Selaginella moellendorffii", "grnSELAm": "Selaginella moellendorffii", "grnSORGb": "Sorghum bicolor",
+"kytSOlyc": "Solanum lycopersicum", "kytZEAma": "Zea mays", 
 "metANOLc": "Anolis carolinensis", "metCAENe": "Caenorhabditis elegans", 
 "metDAPHp": "Daphnia pulex", "metHELOr": "Helobdella robusta", "metLOAlo": "Loa loa",
 "metLOTTg": "Lottia gigantea", 
@@ -272,19 +272,27 @@ taxarepl9 = {"actiCORYd": "Corynebacter diphteriae", "actiMYCOt": "Mycobacterium
 "strBICOS": "Bicosoecida sp. CB-2014", "strBLASh": "Blastocystis hominis", "strBOLID": "Bolidomonas sp.", 
 "strBOLIp": "Bolidomonas pacifica", "strCAFro": "Cafeteria roenbergensis", "strCAFsp": "Cafeteria sp.", 
 "strCAFca": "Cafeteria str Caron", "strCHATs": "Chattonella subsalsa", "strCHRRH": "Chrysoreinhardia sp.", 
+"strCYCLc": "Cyclotella cryptica",
 "strCYLIN": "Cylindrotheca closterium", "strDETON": "Detonula confervacea", "strDICTY": "Dictyocha speculum", 
 "strDINOB": "Dinobryon sp.", "strDITYL": "Ditylum brightwellii", "strECTsi": "Ectocarpus siliculosus", 
 "strEXTUs": "Extubocellulus spinifer", "strFRAGc": "Fragilariopsis cylindrus", 
-"strFRAGk": "Fragilariopsis kerguelensis", "strHETak": "Heterosigma akashiwo", 
+"strFRAGk": "Fragilariopsis kerguelensis", "strFISTs": "Fistulifera solaris",
+"strHETak": "Heterosigma akashiwo", 
 "strHONDf": "Hondaea fermentalgiana", "strHYALa": "Hyaloperonospora arabidopsidis",
-"strMALLO": "Mallomonas sp.", "strNANNg": "Nannochloropsis gaditana", "strNITZs": "Nitzschia sp.", 
-"strOCHRO": "Ochromonas sp.", "strODONa": "Odontella aurita", "strPARAb": "Paraphysomonas bandaiensis", 
+"strMALLO": "Mallomonas sp.", "strNANNg": "Nannochloropsis gaditana", "strNANNo": "Nannochloropsis oceanica", 
+"strNITZs": "Nitzschia sp.", 
+"strOCHRO": "Ochromonas sp.", "strOCHR2": "Ochromonadaceae sp. CCMP2298",
+"strODONa": "Odontella aurita", "strPARAb": "Paraphysomonas bandaiensis", 
 "strPELAG": "Pelagomonas calceolata", "strPELAs": "Pelagophyceae CCMP2097", "strPHAtr": "Phaeodactylum tricornutum", 
-"strPHEOM": "Phaeomonas parva", "strPHYin": "Phytophtora infestans",
-"strPHYpa": "Phytophthora parasitica", "strPHYra": "Phytophtora ramorum", "strPINGU": "Pinguiococcus pyrenoidosus", 
-"strPOTOs": "Poterioochromonas sp. DS", "strPSEUm": "Pseudo-nitzschia multiseries",
+"strPHEOM": "Phaeomonas parva", 
+"strPHYin": "Phytophtora infestans", "strPHYca": "Phytophthora capsici", "strPHYci": "Phytophthora cinnamomi",
+"strPHYpa": "Phytophthora parasitica", "strPHYra": "Phytophtora ramorum", "strPHYso": "Phytophtora sojae", 
+"strPINGU": "Pinguiococcus pyrenoidosus", 
+"strPOTOs": "Poterioochromonas sp. DS", "strPSEUm": "Pseudo-nitzschia multistriata", 
+"strPSEma": "Pseudo-nitzschia multistriata", "strPSEms": "Pseudo-nitzschia multiseries",
 "strPTERd": "Pteridomonas danica", "strPYTHu": "Pythium ultimum var. sporangiiferum BR650", 
 "strPYTHv": "Pythium vexans", "strRHIZC": "Rhizochromulina marina", "strSAPRd": "Saprolegnia diclina", 
+"strSAPRp": "Saprolegnia parasitica", "strSCHYa": "Schizochytrium aggregatum",
 "strSKEco": "Skeletonema costatum", "strSPUMv": "Spumella vulgaris", 
 "strSTAUR": "Staurosira sp.", "strSYNCR": "Synchroma pusillum", "strTHAoc": "Thalassiosira oceanica",
 "strTHAps": "Thalassiosira pseudonana", "strTHNEM": "Thalassionema frauenfeldii", 
@@ -372,12 +380,12 @@ for file in infilelist:
 			if args.alignerparams == "":
 				command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir)
 			else:
-				command = "{0} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir, alignerparams)
+				command = "{0} {3} -d protein -i safe-{1}.fasta -j {1} -o {2}".format(args.aligner, filename, outdir, alignerparams)
 		elif args.aligner == "mafft":
 			if args.alignerparams == "":
 				command = "{0} --maxiterate 1000 --localpair --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log".format(args.aligner, filename, args.maxcores)
 			else:
-				command = "{0} --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log {3}".format(args.aligner, filename, args.maxcores, alignerparams)
+				command = "{0} {3} --thread {2} safe-{1}.fasta > safe-{1}.aln 2>{1}_mafft.log".format(args.aligner, filename, args.maxcores, alignerparams)
 		os.system(command)
 		print("PHYLOHANDLER: Issuing aligner\n" + command)
 
@@ -400,6 +408,15 @@ for file in infilelist:
 	elif args.aligner == "-":
 		#assume aligned!
 		pass
+
+	#check alignment length!
+	length = AlignIO.read("trim-{0}.aln".format(filename), "fasta").get_alignment_length()
+	if length < 20:
+		print("PHYLOHANDLER: Retrimming alignment of lenght <20!")
+		if args.aligner == "run_pasta.py":
+			os.system("cp ./{1}/{0}.marker001.safe-{0}.aln ./safe-{0}.aln".format(filename, outdir))
+		command = "trimal -in ./safe-{0}.aln -out trim-{0}.aln -fasta -gt 0.1".format(filename)
+		os.system(command)
 
 	#open trimal-trimmed alignment for dumping any gaps-only sequences
 	outfile1, outfile2 = "trimfilt-{0}.fasta".format(filename), "trimfilt-{0}.phy".format(filename)
@@ -438,15 +455,15 @@ for file in infilelist:
 		count = len(seq_d.keys())
 		length = AlignIO.read(outfile1, "fasta").get_alignment_length()
 
+	print("PHYLOHANDLER: Post-trimming performed.")
+	print("Trimming produced a file with {} sequences of {} sites".format(count, length))
+
 	#convert trimfile to phylip format (phylobayes)
 	if os.stat(outfile1).st_size > 0: #check for file size
 		ffile = AlignIO.read(outfile1, "fasta")
 		AlignIO.write(ffile, outfile2, "phylip-relaxed")
 	else:
 		print("#####\nWARNING: File {} has zero size\n#####".format(outfile1))
-
-	print("PHYLOHANDLER: Post-trimming performed.")
-	print("Trimming produced a file with {} sequences of {} sites".format(count, length))
 
 	print("PHYLOHANDLER: Now to writing rename file...")
 	with open("rename-{}.txt".format(filename), "w") as renaming:
@@ -564,7 +581,7 @@ for file in infilelist:
 	os.system("mv *{}* temp".format(filename))
 	#os.system("mv trim* temp")
 	#os.system("mv guide* temp")
-	print("####################################\n")
+	print("#############\n")
 
 if failedfiles == []:
 	print("PHYLOHANDLER: All requested analyses finished. Hooray!")
