@@ -8,11 +8,11 @@ python3 $datasethandler \
 	-d $datadir \
 	-i batch \
 	-a mafft \
+	--alignerparams='--anysymbol' \
 	--trimalparams='-gt 0.5' \
 	-t iqtree \
 	-b \
 	--maxcores 20
-	# --alignerparams='--anysymbol' \
 
 #'-d', '--directory', help='Change working directory', default='.'
 #'-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch"
