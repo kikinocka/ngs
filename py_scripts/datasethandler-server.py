@@ -58,7 +58,7 @@ def find_generation(filename):
 parser = argparse.ArgumentParser(description='How to use argparse')
 #whereabouts
 parser.add_argument('-d', '--directory', help='Change working directory', default='.')
-parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch")
+parser.add_argument('-i', '--infile', help='Fasta/Phylip set to be analyzed', default='batch')
 #programs used
 parser.add_argument('-a', '--aligner', help='Aligner', default='mafft')
 parser.add_argument('-t', '--treemaker', help='Program for tree inference', default='iqtree')
@@ -74,7 +74,7 @@ parser.add_argument('-b', '--ufbootstrap', help='Ultra-fast boostrap calculation
 parser.add_argument('-B', '--bootstrap', help='Boostrap calculation', action='store_true')
 parser.add_argument('--shalrt', help='Calculate SH-aLRT', action='store_true')
 parser.add_argument('-g', '--no_guide', help='Do not perform guide tree inference', action='store_true')
-parser.add_argument('--treeparams', nargs='*', action="store", help='Custom tree inference parameters, check with manual', default='')
+parser.add_argument('--treeparams', nargs='*', action='store', help='Custom tree inference parameters, check with manual', default='')
 #parser.add_argument('-m', '--testmodel', help='Test best model', action='store_true') #not implemented
 #post-processing
 parser.add_argument('-s', '--mark_similarity', help='Mark similarity on branches', action='store_true')
