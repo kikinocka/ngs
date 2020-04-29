@@ -8,6 +8,7 @@ python3 $datasethandler \
 	-d $datadir \
 	-i batch \
 	-a mafft \
+	--alignerparams='--anysymbol' \
 	--trimalparams='-gt 0.5' \
 	-t iqtree \
 	-b \
