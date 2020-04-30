@@ -13,7 +13,7 @@ adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
 fw=$read_dir'SRR8447028_1.fastq.gz'
-rv=$read_dir'SRR8447028_1.fastq.gz'
+rv=$read_dir'SRR8447028_2.fastq.gz'
 
 #copy data to scratch
 cp $adapt $SCRATCHDIR
