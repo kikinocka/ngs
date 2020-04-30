@@ -29,5 +29,5 @@ for file in $files; do
 done
 
 #copy files back
-rm files
+rm $files
 cp -r * $out_dir
