@@ -18,9 +18,7 @@ fw=$datadir'BILC_trimmed_1.fq.gz'
 rv=$datadir'BILC_trimmed_2.fq.gz'
 
 #copy files to scratch
-cp $genome $SCRATCHDIR
-cp $fw $SCRATCHDIR
-cp $rv $SCRATCHDIR
+cp $genome $fw $rv $SCRATCHDIR
 
 
 #compute on scratch
