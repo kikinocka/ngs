@@ -11,21 +11,22 @@ cat $PBS_NODEFILE
 module add hisat2-2.0.5
 module add samtools-1.3.1
 
-#copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
-cp pelomyxa_final_genome.fa $SCRATCHDIR
+datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
+outidr=$datadir'mapping/hisat2/'
+genome=$datadir'Pwic_genome.fa'
+fw=$datadir'BILC_trimmed_1.fq.gz'
+rv=$datadir'BILC_trimmed_2.fq.gz'
 
-cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
-cp merged_trimmed* $SCRATCHDIR
+#copy files to scratch
+cp $genome $SCRATCHDIR
+cp $fw $SCRATCHDIR
+cp $rv $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='pelomyxa_final_genome.fa'
-index='pelomyxa_final_ht2'
-fwd='merged_trimmed_1.fq.gz'
-rv='merged_trimmed_2.fq.gz'
+index='pwic_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq'
 unmapped_paired=$index'_unmapped_paired.fq'
 sam=$index'.sam'
@@ -34,12 +35,12 @@ bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
 hisat2-build -p $PBS_NUM_PPN $genome $index
-hisat2 -p $PBS_NUM_PPN -x $index -1 $fwd -2 $rv --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
+hisat2 -p $PBS_NUM_PPN -x $index -1 $fw -2 $rv --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
 
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ PBS_NUM_PPN $bam 
 samtools index $sorted
 
 #copy files back
-rm $genome $fwd $rv
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2/pelomyxa_final/.
+rm $genome $fw $rv
+cp -r * $outidr

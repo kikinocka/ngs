@@ -30,5 +30,5 @@ cd $SCRATCHDIR
 bbduk.sh overwrite=true in1=$fw in2=$rv out1=$trimmed_fw out2=$trimmed_rv ref=$adapt usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 
 #copy files back
-rm $fw $rv
+rm $fw $rv $adapters
 cp -r * $read_dir
