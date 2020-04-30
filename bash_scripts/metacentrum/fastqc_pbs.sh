@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N FastQC
 #PBS -l select=1:ncpus=1:mem=10gb:scratch_local=30gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,8 +10,8 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii'
-out_dir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/fastqc/'
+read_dir='/storage/brno3-cerit/home/kika/prototheca/zopfii'
+out_dir='/storage/brno3-cerit/home/kika/prototheca/zopfii/fastqc/'
 
 
 #copy data to scratch
