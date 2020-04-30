@@ -11,18 +11,18 @@ module add bbmap-36.92
 
 adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
-read_dir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
-fw=$read_dir'BILC-read_1.fq.gz'
-rv=$read_dir'BILC-read_2.fq.gz'
+read_dir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
+fw=$read_dir'SRR8447028_1.fastq.gz'
+rv=$read_dir'SRR8447028_1.fastq.gz'
 
 #copy data to scratch
 cp $adapt $SCRATCHDIR
 cp $fw $rv $SCRATCHDIR
 
-name='BILC'
-trimmed_fw=$name'_trimmed_1.fq.gz'
-trimmed_rv=$name'_trimmed_2.fq.gz'
-report=$name'_report.txt'
+name='SRR8447028_'
+trimmed_fw=$name'trimmed_1.fq.gz'
+trimmed_rv=$name'trimmed_2.fq.gz'
+report=$name'bbduk_report.txt'
 
 
 #compute on scratch
