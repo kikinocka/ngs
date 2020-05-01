@@ -15,12 +15,12 @@ assembly='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
 # outdir=$assembly'quast/'
 
 #copy assembly to scratch
-cp $assembly'pwic_trinity.fa' $SCRATCHDIR
+cp $assembly'genome_db/pwic_genome.fa' $SCRATCHDIR
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
 
-f='pwic_trinity.fa'
+f='pwic_genome.fa'
 # bam='ku80_p10_bw2_sorted.bam'
-output='quast/'
+output='quast/genome/'
 min_contig=500
 
 
