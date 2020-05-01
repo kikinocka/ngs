@@ -23,7 +23,7 @@ cp $script'8c_stampa_merge.py' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-./$stampa_sc $fasta SSU_V9
+$stampa_sc $fasta SSU_V9
 
 #copy files back
 rm $fasta $stampa_sc
