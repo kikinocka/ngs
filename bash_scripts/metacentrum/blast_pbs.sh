@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.8.0a
 
-datadir='/storage/brno3-cerit/home/kika/sags/'
-query=$datadir'found_proteins.fa'
-out=$datadir'found_proteins.fwd.blast.xml'
-# db='/storage/brno3-cerit/home/fussyz01/hampllab/MMETSP1310/nt_db/MMETSP1310.nt.fa.txt'
-db='/storage/projects/BlastDB/nr'
-program=blastp
-task=blastp
+datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
+query=$datadir'pwic_trinity.clustered.rep_seq.fa'
+out=$datadir'pwic_trinity.clustered.blast.xml'
+db=$datadir'genome_db/pwic_genome.fa'
+# db='/storage/projects/BlastDB/nr'
+program=blastn
+task=blastn
 outfmt=5
-# eval=1e-4
-max_seqs=5
+eval=1e-5
+max_seqs=1
 
 #run in DB folder
 # cd $db_dir
@@ -29,5 +29,5 @@ $program -task $task \
 	-out $out \
 	-outfmt $outfmt \
 	-num_threads $PBS_NUM_PPN \
+	-evalue $eval \
 	-max_target_seqs $max_seqs \
-	# -evalue $eval \

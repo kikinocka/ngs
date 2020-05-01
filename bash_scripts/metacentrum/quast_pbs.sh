@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-assembly='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
-# mapping=$assembly'bw2_mapping/pilon10/'
-# outdir=$assembly'quast/'
+datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
+# mapping=$datadir'bw2_mapping/pilon10/'
+# outdir=$datadir'quast/'
 
-#copy assembly to scratch
-cp $assembly'genome_db/pwic_genome.fa' $SCRATCHDIR
+#copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
+cp $datadir'genome_db/pwic_genome.fa' $SCRATCHDIR
 
 f='pwic_genome.fa'
 # bam='ku80_p10_bw2_sorted.bam'
-output='quast/genome/'
+output=$datadir'quast/genome/'
 min_contig=500
 
 
