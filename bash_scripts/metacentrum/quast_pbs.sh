@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N Quast
-#PBS -l select=1:ncpus=10:mem=3gb:scratch_local=100gb
+#PBS -l select=1:ncpus=10:mem=3gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -15,10 +15,10 @@ assembly='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
 # outdir=$assembly'quast/'
 
 #copy assembly to scratch
-cp $assembly'ku80_pilon10.fa' $SCRATCHDIR
+cp $assembly'pwic_trinity.fa' $SCRATCHDIR
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
 
-f='ku80_pilon10.fa'
+f='pwic_trinity.fa'
 # bam='ku80_p10_bw2_sorted.bam'
 output='quast/'
 min_contig=500
@@ -31,5 +31,6 @@ quast.py -o $output -t $PBS_NUM_PPN --k-mer-stats --glimmer --min-contig $min_co
 
 
 #copy results to your folder
-rm $f $bam
-cp -r * $assembly
+# rm $f $bam
+rm $f
+cp -r * $output
