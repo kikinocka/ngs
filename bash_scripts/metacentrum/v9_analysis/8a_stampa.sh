@@ -7,5 +7,23 @@
 
 cat $PBS_NODEFILE
 
-module add swarm-3.0.3
+module add vsearch-1.4.4
 
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
+script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
+
+fasta=$data'global_dereplicated_1f_representatives.fas'
+stampa_sc=$script'8b_stampa.sh'
+
+#copy files to scratch
+cp $fasta $SCRATCHDIR
+cp $stampa_sc $SCRATCHDIR
+
+#compute on scratch
+cd $SCRATCHDIR
+
+./$stampa_sc $fasta SSU_V9
+
+#copy files back
+rm $fasta $stampa_sc
+cp -r * $data
