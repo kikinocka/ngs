@@ -18,6 +18,7 @@ stampa_sc=$script'8b_stampa.sh'
 #copy files to scratch
 cp $fasta $SCRATCHDIR
 cp $stampa_sc $SCRATCHDIR
+cp $script'8c_stampa_merge.py' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR

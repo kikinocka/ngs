@@ -130,7 +130,7 @@ THREADS=15
 
 #echo "DIR: ${PWD}"
 
-python "../stampa_merge.py" "${PWD}"
+python2 "../stampa_merge.py" "${PWD}"
 
 RESULTS="${ASSIGNMENTS/.hits/.results}"
 
