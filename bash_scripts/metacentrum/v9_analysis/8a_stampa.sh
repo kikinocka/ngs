@@ -12,13 +12,14 @@ module add vsearch-1.4.4
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
 script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
-fasta=$data'global_dereplicated_1f_representatives.fas'
-stampa_sc=$script'8b_stampa.sh'
-
 #copy files to scratch
-cp $fasta $SCRATCHDIR
-cp $stampa_sc $SCRATCHDIR
+cp $data'global_dereplicated_1f_representatives.fas' $SCRATCHDIR
+cp $script'8b_stampa.sh' $SCRATCHDIR
 cp $script'8c_stampa_merge.py' $SCRATCHDIR
+
+fasta='global_dereplicated_1f_representatives.fas'
+stampa_sc='8b_stampa.sh'
+
 
 #compute on scratch
 cd $SCRATCHDIR
