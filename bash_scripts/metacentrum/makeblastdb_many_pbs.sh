@@ -10,8 +10,8 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.7.1
 
-datadir='/auto/brno3-cerit/nfs4/home/fussyz01/hampllab/MMETSP1310/'
-files=$datadir'*.nt.fa.txt'
+datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/genome_db/'
+files=$datadir'*.fa'
 dbtype=nucl
 
 for file in $files; do
