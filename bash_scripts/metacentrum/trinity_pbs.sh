@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Trinity
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=30gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=30:mem=100gb:scratch_local=50gb
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,20 +10,20 @@ cat $PBS_NODEFILE
 #add module
 module add trinity-2.6.5
 
-datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
-outdir=$datadir'trinity/'
-fw=$datadir'BILC_trimmed_1.fq.gz'
-rv=$datadir'BILC_trimmed_2.fq.gz'
+datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii'
+outdir=$datadir'/trinity/'
 
-#copy reads to scratch
-cp $fw $rv $SCRATCHDIR
+#copy files to scratch
+cp $datadir'/'*trimmed_renamed*.fq.gz $SCRATCHDIR
 
-report='pwic_trinity_report.txt'
+fw=SRR8447028_trimmed_renamed_1.fq.gz,SRR8447029_trimmed_renamed_1.fq.gz,SRR8447030_trimmed_renamed_1.fq.gz
+rv=SRR8447028_trimmed_renamed_2.fq.gz,SRR8447029_trimmed_renamed_2.fq.gz,SRR8447030_trimmed_renamed_2.fq.gz
+
 
 #compute on scratch
 cd $SCRATCHDIR
-Trinity --seqType fq --left $fw --right $rv --max_memory 50G --CPU $PBS_NUM_PPN 2> $report
+Trinity --seqType fq --left $fw --right $rv --max_memory 100G --CPU $PBS_NUM_PPN
 
 #copy files back
-rm $fw $rv
+rm *trimmed_renamed*fq.gz
 cp -r * $outdir

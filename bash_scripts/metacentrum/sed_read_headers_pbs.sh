@@ -19,4 +19,6 @@ for file in $files; do
 
 	echo 'Removing ' $unzipped
 	rm $unzipped
+
+	echo '==============================================='
 done
