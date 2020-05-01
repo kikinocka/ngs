@@ -6,7 +6,7 @@ files=*trimmed*.fq.gz
 
 for file in $files; do
 	echo $file
-	first=${file/trimmed/trimmed_renamed}
+	first=${file/trimmed/trimmed_renamed%.gz}
 	# sed 's/_trimmed/_trimmed_renamed/' $file
 	# new=${file%.fq.gz}_renamed.fq
 	echo $first
