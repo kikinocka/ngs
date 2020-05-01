@@ -19,7 +19,7 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-assembly_dir='/storage/brno3-cerit/home/kika/workdir'
+assembly_dir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii'
 # busco_dir=$assembly_dir'busco/'
 # summaries=$busco_dir'summaries/'
 lin_dir='/software/busco/3.0.2/src/db/'
@@ -31,10 +31,10 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $summaries'short_summary_eukaryota_odb9_rli.txt'
 
 #copy files to scratch
-cp $assembly_dir'/'*.fasta $SCRATCHDIR
+cp $assembly_dir'/'*.fa $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assemblies='*.fasta'
+assemblies='*.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='transcriptome'
@@ -45,7 +45,7 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%_Trinity.fasta}_eukaryota_odb9
+	base=${fasta%.fa}_eukaryota_odb9
 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN
 done
 # generate_plot.py -wd $summaries
