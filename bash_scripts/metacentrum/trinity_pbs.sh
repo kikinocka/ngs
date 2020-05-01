@@ -11,7 +11,6 @@ cat $PBS_NODEFILE
 module add trinity-2.6.5
 
 datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii'
-outdir=$datadir'/trinity/'
 
 #copy files to scratch
 cp $datadir'/'*trimmed_renamed*.fq.gz $SCRATCHDIR
@@ -26,4 +25,4 @@ Trinity --seqType fq --left $fw --right $rv --max_memory 100G --CPU $PBS_NUM_PPN
 
 #copy files back
 rm *trimmed_renamed*fq.gz
-cp -r * $outdir
+cp -r * $datadir
