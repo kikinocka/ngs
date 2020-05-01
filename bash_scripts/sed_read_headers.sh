@@ -6,8 +6,9 @@ files=*trimmed*.fq.gz
 
 for file in $files; do
 	echo $file
-	new=${file%.fq.gz}_renamed.fq
-	echo $new
+	first=${file_\d%.fq.gz}
+	# new=${file%.fq.gz}_renamed.fq
+	echo $first
 done	
 # sed -E 's/(@.*)\/([[:digit:]]).*/\1_\2/' SRR8447029_1.fastq > SRR8447029_renamed_1.fastq
 # SRR8447029_trimmed_1.fq.gz 
