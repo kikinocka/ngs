@@ -37,7 +37,7 @@ cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 assemblies='*.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
-mode='transcriptome'
+mode='genome'
 
 
 #compute on scratch
