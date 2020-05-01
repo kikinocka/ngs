@@ -14,11 +14,11 @@ script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analys
 
 #copy files to scratch
 cp $data'global_dereplicated_1f_representatives.fas' $SCRATCHDIR
-cp $script'8b_stampa.sh' $SCRATCHDIR
-cp $script'8c_stampa_merge.py' $SCRATCHDIR
+cp $script'9b_stampa.sh' $SCRATCHDIR
+cp $script'9c_stampa_merge.py' $SCRATCHDIR
 
 fasta='global_dereplicated_1f_representatives.fas'
-stampa_sc='8b_stampa.sh'
+stampa_sc='9b_stampa.sh'
 
 
 #compute on scratch
@@ -27,5 +27,5 @@ cd $SCRATCHDIR
 $stampa_sc $fasta SSU_V9
 
 #copy files back
-rm $fasta $stampa_sc
+rm $fasta $stampa_sc '9c_stampa_merge.py'
 cp -r * $data

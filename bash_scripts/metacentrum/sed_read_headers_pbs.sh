@@ -15,7 +15,7 @@ for file in $fw; do
 	echo '==================================================='
 done
 
-for file in $fw; do
+for file in $rv; do
 	unzipped=${file%.gz}
 	renamed_fq=${unzipped/trimmed_/trimmed_renamed_}.gz
 
