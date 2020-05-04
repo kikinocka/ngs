@@ -37,4 +37,4 @@ dos2unix < '${SOURCE}' | \
 
 #copy files back
 rm $SOURCE
-cp -r * $$DATADIR
+cp -r * $DATADIR
