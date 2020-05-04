@@ -21,8 +21,8 @@ cd $SCRATCHDIR
 SOURCE='pr2_version_4.12.0_18S_taxo_long.fasta'
 PRIMER_F='CCAGCASCYGCGGTAATTCC'
 PRIMER_R='TYRATCAAGAACGAAAGT'
-OUTPUT='${SOURCE/_taxo*/}_${PRIMER_F}_${PRIMER_R}.fas'
-LOG='${OUTPUT/.fas/.log}'
+OUTPUT='pr2_version_4.12.0_18S_taxo_trimmed.fas'
+LOG='pr2_version_4.12.0_18S_taxo_trimmed.log}'
 MIN_LENGTH=32
 MIN_F=$(( ${#PRIMER_F} * 2 / 3 ))
 MIN_R=$(( ${#PRIMER_R} * 2 / 3 ))
@@ -36,5 +36,5 @@ dos2unix < '${SOURCE}' | \
 	${CUTADAPT} -a '${PRIMER_R}' -O '${MIN_R}' - 2>> '${LOG}' > '${OUTPUT}'
 
 #copy files back
-rm $SOURCE
+# rm $SOURCE
 cp -r * $DATADIR
