@@ -31,11 +31,11 @@ MIN_R=$(( ${#PRIMER_R} * 2 / 3 ))
 CUTADAPT="$(which cutadapt) --discard-untrimmed --minimum-length ${MIN_LENGTH} -j $PBS_NUM_PPN"
 
 dos2unix < "${SOURCE}" | \
-    sed '/^>/ s/;tax=k:/ /
-         /^>/ s/,[dpcofgs]:/|/g
-         /^>/ ! s/U/T/g' | \
-    ${CUTADAPT} -g "${PRIMER_F}" -O "${MIN_F}" - 2> "${LOG}" | \
-    ${CUTADAPT} -a "${PRIMER_R}" -O "${MIN_R}" - 2>> "${LOG}" > "${OUTPUT}"
+	sed '/^>/ s/;tax=k:/ /
+		 /^>/ s/,[dpcofgs]:/|/g
+		 /^>/ ! s/U/T/g' | \
+	${CUTADAPT} -g "${PRIMER_F}" -O "${MIN_F}" - 2> "${LOG}" | \
+	${CUTADAPT} -a "${PRIMER_R}" -O "${MIN_R}" - 2>> "${LOG}" > "${OUTPUT}"
 
 #copy files back
 rm $SOURCE
