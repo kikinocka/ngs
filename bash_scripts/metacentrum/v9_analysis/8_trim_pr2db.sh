@@ -26,7 +26,7 @@ LOG='pr2_version_4.12.0_18S_taxo_trimmed.log}'
 MIN_LENGTH=32
 MIN_F=$(( ${#PRIMER_F} * 2 / 3 ))
 MIN_R=$(( ${#PRIMER_R} * 2 / 3 ))
-CUTADAPT='$(which cutadapt) --discard-untrimmed --minimum-length ${MIN_LENGTH} -j $$PBS_NUM_PPN'
+CUTADAPT='$(which cutadapt) --discard-untrimmed --minimum-length ${MIN_LENGTH} -j $PBS_NUM_PPN'
 
 dos2unix < '${SOURCE}' | \
 	sed '/^>/ s/;tax=k:/ /
