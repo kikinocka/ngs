@@ -38,7 +38,7 @@ assemblies='*.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='genome'
-species=chlamydomonas
+species='chlamydomonas'
 
 
 #compute on scratch
