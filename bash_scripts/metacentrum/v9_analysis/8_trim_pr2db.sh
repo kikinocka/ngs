@@ -27,7 +27,7 @@ LOG="${OUTPUT/.fas/.log}"
 MIN_LENGTH=32
 MIN_F=$(( ${#PRIMER_F} * 2 / 3 ))
 MIN_R=$(( ${#PRIMER_R} * 2 / 3 ))
-CUTADAPT="$(which cutadapt) --discard-untrimmed --minimum-length ${MIN_LENGTH}"
+CUTADAPT="$(which cutadapt) --discard-untrimmed --minimum-length ${MIN_LENGTH} -j $PBS_NUM_PPN"
 
 dos2unix < "${SOURCE}" | \
     sed '/^>/ s/;tax=k:/ /
@@ -37,5 +37,5 @@ dos2unix < "${SOURCE}" | \
     ${CUTADAPT} -a "${PRIMER_R}" -O "${MIN_R}" - 2>> "${LOG}" > "${OUTPUT}"
 
 #copy files back
-# rm $SOURCE
+rm $SOURCE
 cp -r * $DATADIR
