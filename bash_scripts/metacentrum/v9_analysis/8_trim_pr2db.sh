@@ -7,7 +7,8 @@
 
 cat $PBS_NODEFILE
 
-module add python36-modules-gcc
+module add python27-modules-gcc
+# module add python36-modules-gcc
 
 DATADIR='/storage/brno3-cerit/home/kika/pr2db/'
 
@@ -22,7 +23,7 @@ SOURCE='pr2_version_4.12.0_18S_taxo_long.fasta'
 
 PRIMER_F="CCAGCASCYGCGGTAATTCC"
 PRIMER_R="TYRATCAAGAACGAAAGT"
-OUTPUT="${SOURCE/_taxo*/}_${PRIMER_F}_${PRIMER_R}.fas"
+OUTPUT="${SOURCE/_long*/}_${PRIMER_F}_${PRIMER_R}.fas"
 LOG="${OUTPUT/.fas/.log}"
 MIN_LENGTH=32
 MIN_F=$(( ${#PRIMER_F} * 2 / 3 ))
