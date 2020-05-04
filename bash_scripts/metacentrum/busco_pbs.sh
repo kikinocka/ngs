@@ -38,6 +38,7 @@ assemblies='*.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='genome'
+species=chlamydomonas
 
 
 #compute on scratch
@@ -46,7 +47,7 @@ cd $SCRATCHDIR
 for fasta in $assemblies; do
 	echo $fasta
 	base=${fasta%.fa}_eukaryota_odb9
-	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN
+	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -sp $species -c $PBS_NUM_PPN
 done
 # generate_plot.py -wd $summaries
 
