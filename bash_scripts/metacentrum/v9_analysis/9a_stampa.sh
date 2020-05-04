@@ -24,7 +24,7 @@ stampa_sc='9b_stampa.sh'
 #compute on scratch
 cd $SCRATCHDIR
 
-$stampa_sc $fasta SSU_V9
+./$stampa_sc $fasta SSU_V9
 
 #copy files back
 rm $fasta $stampa_sc '9c_stampa_merge.py'
