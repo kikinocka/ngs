@@ -16,11 +16,11 @@ datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
-cp $datadir'genome_db/pzop_genome.fa' $SCRATCHDIR
+cp $datadir'pzop_trinity.fa' $SCRATCHDIR
 
-f='pzop_genome.fa'
+f='pzop_trinity.fa'
 # bam='ku80_p10_bw2_sorted.bam'
-output=$datadir'quast/genome/'
+output=$datadir'quast/transcriptome/'
 min_contig=500
 
 
