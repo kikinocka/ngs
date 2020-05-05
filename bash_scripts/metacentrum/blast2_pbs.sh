@@ -10,9 +10,9 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.8.0a
 
-datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
-query=$datadir'pzop_hits.fa'
-out=$datadir'pzop_hits.nr.blast.xml'
+datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
+query=$datadir'pwic_hits.fa'
+out=$datadir'pwic_hits.nr.blast.xml'
 # db=$datadir'genome_db/pzop_genome.fa'
 db='/storage/projects/BlastDB/nr'
 program=tblastn
