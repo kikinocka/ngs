@@ -10,13 +10,13 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
+datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
 # mapping=$datadir'bw2_mapping/pilon10/'
 # outdir=$datadir'quast/'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
-cp $datadir'genome_db/pwic_genome.fa' $SCRATCHDIR
+cp $datadir'genome_db/pzop_genome.fa' $SCRATCHDIR
 
 f='pwic_genome.fa'
 # bam='ku80_p10_bw2_sorted.bam'
