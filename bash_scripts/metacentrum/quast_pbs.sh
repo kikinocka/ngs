@@ -18,7 +18,7 @@ datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
 cp $datadir'genome_db/pzop_genome.fa' $SCRATCHDIR
 
-f='pwic_genome.fa'
+f='pzop_genome.fa'
 # bam='ku80_p10_bw2_sorted.bam'
 output=$datadir'quast/genome/'
 min_contig=500
