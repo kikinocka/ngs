@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/membrane-trafficking/diplonema_papillatum/')
-files = [x for x in os.listdir() if x.endswith('acc')]
-database = '/Dcko/MEGAsync/Data/dpapilatum/dpap_predicted_proteins.fa'
+os.chdir('/Users/kika/ownCloud/prototheca_HGT/')
+files = [x for x in os.listdir() if x.endswith('pwic_hits.acc')]
+database = '/Users/kika/ownCloud/prototheca_HGT//pwic_trinity.clustered.rep_seq.fa'
 
 for accessions in files: 
 	print(accessions)

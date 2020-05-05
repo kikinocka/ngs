@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blast
 #PBS -l select=1:ncpus=10:mem=50gb:scratch_local=10gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,15 +11,15 @@ cat $PBS_NODEFILE
 module add blast+-2.8.0a
 
 datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
-query=$datadir'pzop_trinity.clustered.rep_seq.fa'
-out=$datadir'pzop_trinity.clustered.blast.xml'
-db=$datadir'genome_db/pzop_genome.fa'
-# db='/storage/projects/BlastDB/nr'
-program=blastn
-task=blastn
+query=$datadir'pzophits.fa'
+out=$datadir'pzop_hits.nr.blast.xml'
+# db=$datadir'genome_db/pzop_genome.fa'
+db='/storage/projects/BlastDB/nr'
+program=tblastn
+task=tblastn
 outfmt=5
-eval=1e-5
-max_seqs=1
+eval=1e-3
+max_seqs=5
 
 #run in DB folder
 # cd $db_dir
