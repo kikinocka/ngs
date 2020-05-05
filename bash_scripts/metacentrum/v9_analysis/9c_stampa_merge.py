@@ -65,7 +65,10 @@ def main():
                     #amplicon, abundance = amplicon.split("_")
                     amplicon, abundance = amplicon.split(";size=")
                     if hit != "*":
-                        accession, taxonomy = hit.split(" ", 1)
+                        # accession, taxonomy = hit.split(" ", 1) #older PR2 database
+                        #PR2 database v4.12.0
+                        accession, taxonomy = hit.split("||")
+                        accession = accession.split(".")[0]
                     else:  # no hit
                         accession = taxonomy = "No_hit"
                     taxonomy = taxonomy.split("|")
