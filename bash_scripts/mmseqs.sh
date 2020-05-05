@@ -1,8 +1,8 @@
 #!/bin/bash
 
 datadir='/Users/kika/ownCloud/prototheca_HGT/'
-fasta=$datadir'pwic_trinity.fa'
-clustered=$datadir'pwic_trinity.clustered'
+fasta=$datadir'pzop_trinity.fa'
+clustered=$datadir'pzop_trinity.clustered'
 seqid=0.95
 coverage=0.5
 mode=0
