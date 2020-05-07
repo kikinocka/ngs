@@ -1,7 +1,9 @@
 	#!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/ver2/taxa_outgroup_trimmed/mafft/')
+trimal = '/Users/kika/miniconda3/bin/trimal'
+
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/PNT/tree/')
 files = [x for x in os.listdir() if 'mafft.aln' in x]
 
 for file in files:
@@ -11,12 +13,12 @@ for file in files:
 	gt = 0.5 #fraction of sequences with a gap allowed
 	st = 0.001 #minimum average similarity allowed.
 
-	# output = '{}.trimal_{}.aln'.format(file_name, aut)
-	# os.system('trimal -in {} -out {} -{} -fasta'.format(file, output, aut))
+	output = '{}.trimal_{}.aln'.format(file_name, aut)
+	os.system('{} -in {} -out {} -{} -fasta'.format(trimal, file, output, aut))
 	
-	output = '{}.trimal_gt_{}.aln'.format(file_name, gt)
-	os.system('trimal -in {} -out {} -gt {} -fasta'.format(file, output, gt))
+	# output = '{}.trimal_gt_{}.aln'.format(file_name, gt)
+	# os.system('{} -in {} -out {} -gt {} -fasta'.format(trimal, file, output, gt))
 
 	# output = '{}.trimal_gt_{}_st_{}.aln'.format(file_name, gt, st)
-	# os.system('trimal -in {} -out {} -gt {} -st {} -fasta'.format(
-	# file, output, gt, st))
+	# os.system('{} -in {} -out {} -gt {} -st {} -fasta'.format(
+	# trimal, file, output, gt, st))
