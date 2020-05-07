@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/data/diplonemids_genomes/')
-infile = SeqIO.parse('1618_spades.fa', 'fasta')
-output = open('1618_spades_translated.fa', 'w')
-error = open('1618_spades_errors.fa', 'w')
+os.chdir('/mnt/mokosz/home/kika/pelomyxa_schiedti/genome_assembly/')
+infile = SeqIO.parse('pelomyxa_final_genome.fa', 'fasta')
+output = open('pelomyxa_genome.translated.fa', 'w')
+error = open('pelomyxa_genome.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
