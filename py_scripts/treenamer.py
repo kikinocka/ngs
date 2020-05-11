@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/ver2/taxa_trimmed/iq/')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/PNT/tree/')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('concat_names.txt')
+names = open('pnt_names.txt')
 
 name_dict = {}
 for name in names:
-	split_line = name.split('\t')
-	name_dict[split_line[0]] = split_line[0] + ' ' + split_line[1][:-1]
+	split_line = name.strip().split('\t')
+	new = split_line[0] + ' ' + split_line[1]
+	name_dict[split_line[0]] = new
 
 for tree in trees:
 	print(tree)
