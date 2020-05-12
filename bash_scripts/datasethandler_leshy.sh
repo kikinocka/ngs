@@ -2,7 +2,7 @@
 
 datasethandler='/mnt/mokosz/home/kika/scripts/py_scripts/datasethandler-server.py'
 
-datadir='/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/fdhA'
+datadir='/mnt/mokosz/home/kika/titins'
 
 python3 $datasethandler \
 	-d $datadir \
@@ -12,7 +12,7 @@ python3 $datasethandler \
 	--trimalparams='-gt 0.5' \
 	-t iqtree \
 	-b \
-	--maxcores 20
+	--maxcores 10
 
 #'-d', '--directory', help='Change working directory', default='.'
 #'-i', '--infile', help='Fasta/Phylip set to be analyzed', default="batch"
