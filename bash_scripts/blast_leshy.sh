@@ -8,11 +8,9 @@ program=blastx
 task=blastx
 outfmt=5
 eval=1e-3
-max_seqs=3
+max_seqs=5
 cpu=20
 
-#run in DB folder
-# cd $db_dir
 $program -task $task \
 	-query $query \
 	-db $db \
