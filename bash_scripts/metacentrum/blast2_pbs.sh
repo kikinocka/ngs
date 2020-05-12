@@ -19,7 +19,7 @@ program=blastx
 task=blastx
 outfmt=5
 eval=1e-3
-max_seqs=5
+max_seqs=3
 
 #run in DB folder
 # cd $db_dir
