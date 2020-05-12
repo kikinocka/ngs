@@ -3,7 +3,7 @@
 datadir='/mnt/mokosz/home/kika/prototheca/'
 query=$datadir'pzop_hits.fa'
 out=$datadir'pzop_hits.nr.blast.xml'
-db='/opt/databases/nr'
+db='/opt/databases/nr/nr'
 program=blastx
 task=blastx
 outfmt=5
