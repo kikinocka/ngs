@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/pnt/ver2/'
+data='/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/pnt/ver3/'
 
 cd $data
 for aln in *.aln ; do
