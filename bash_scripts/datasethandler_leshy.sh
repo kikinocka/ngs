@@ -2,7 +2,7 @@
 
 datasethandler='/mnt/mokosz/home/kika/scripts/py_scripts/datasethandler-server.py'
 
-datadir='/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/hsp70'
+datadir='/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/hsp70/ver2'
 
 python3 $datasethandler \
 	-d $datadir \
