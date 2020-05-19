@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/PNT/tree/ver3/')
-trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/')
+trees = [x for x in os.listdir() if x.endswith('iq.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('pnt_names.txt')
+names = open('qa_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	new = split_line[0] + ' ' + split_line[1]
+	new = split_line[1]
+	# new = split_line[0] + ' ' + split_line[1]
 	name_dict[split_line[0]] = new
 
 for tree in trees:
