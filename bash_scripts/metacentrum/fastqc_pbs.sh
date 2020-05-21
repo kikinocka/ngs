@@ -10,12 +10,12 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lguy_genome/reads'
-out_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lguy_genome/reads/fastqc/'
+read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lama_genome/reads'
+out_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lama_genome/reads/fastqc/'
 
 
 #copy data to scratch
-cp $read_dir'/'*trimmed*.gz $SCRATCHDIR
+cp $read_dir'/'*.gz $SCRATCHDIR
 
 
 #chdir to scratch and perform operations
