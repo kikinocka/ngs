@@ -33,7 +33,7 @@ p1_2='SRR8179913_trimmed_2.fq.gz'
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
-report=$base_name'_report.txt'
+report=$base_name'_bw2_report.txt'
 
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
