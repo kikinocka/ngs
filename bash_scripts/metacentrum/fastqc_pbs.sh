@@ -15,7 +15,7 @@ out_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lguy_genome/reads/fastqc/
 
 
 #copy data to scratch
-cp $read_dir'/'*.gz $SCRATCHDIR
+cp $read_dir'/'*trimmed*.gz $SCRATCHDIR
 
 
 #chdir to scratch and perform operations

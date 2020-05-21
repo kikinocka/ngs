@@ -34,5 +34,5 @@ bbduk.sh overwrite=true \
 	usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 
 #copy files back
-rm $fw $rv $adapters
+rm $fw $rv $adapt
 cp -r * $read_dir
