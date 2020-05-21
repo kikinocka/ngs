@@ -11,21 +11,21 @@ cat $PBS_NODEFILE
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-data='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku80/'
-outdir=$data'bw2_mapping/pilon10/'
+data='/storage/brno3-cerit/home/kika/kinetoplastids/lguy_genome/'
+outdir=$data'bw2_mapping/'
 
 #copy files to scratch
-cp $data'ku80_pilon10.fa' $SCRATCHDIR
-cp $data'reads/'*.fq $SCRATCHDIR
+cp $data'lguy_QVNO01.fa' $SCRATCHDIR
+cp $data'reads/'*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='ku80_p10_bw2'
-ref='ku80_pilon10.fa'
-p1_1='Lmex_Ku80_trimmed_1.fq'
-p1_2='Lmex_Ku80_trimmed_2.fq'
+base_name='lguy_bw2'
+ref='lguy_QVNO01.fa'
+p1_1='SRR8179913_trimmed_1.fq.gz'
+p1_2='SRR8179913_trimmed_2.fq.gz'
 # p2_1='SRR1593518_trimmed_1.fq.gz'
 # p2_2='SRR1593518_trimmed_2.fq.gz'
 # p3_1='SRR834693_trimmed_1.fq.gz'
