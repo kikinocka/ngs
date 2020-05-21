@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N bbduk
-#PBS -l select=1:ncpus=30:mem=30gb:scratch_local=20gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=20:mem=10gb:scratch_local=10gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,15 +11,15 @@ module add bbmap-36.92
 
 adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
-read_dir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
-fw=$read_dir'SRR8447030_1.fastq.gz'
-rv=$read_dir'SRR8447030_2.fastq.gz'
+read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lguy_genome/reads/'
+fw=$read_dir'SRR8179913_1.fastq.gz'
+rv=$read_dir'SRR8179913_2.fastq.gz'
 
 #copy data to scratch
 cp $adapt $SCRATCHDIR
 cp $fw $rv $SCRATCHDIR
 
-name='SRR8447030_'
+name='SRR8179913_'
 trimmed_fw=$name'trimmed_1.fq.gz'
 trimmed_rv=$name'trimmed_2.fq.gz'
 report=$name'bbduk_report.txt'
