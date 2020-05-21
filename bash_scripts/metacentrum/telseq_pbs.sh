@@ -11,14 +11,14 @@ cat $PBS_NODEFILE
 module add telseq-0.0.2
 
 #copy files to scratch
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/lmex_genome/ku80/'
-cp $datadir'bw2_mapping/pilon10/ku80_p10_bw2_sorted.bam' $SCRATCHDIR
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/lguy_genome/'
+cp $datadir'bw2_mapping/lguy_bw2_sorted.bam' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-bam='ku80_p10_bw2_sorted.bam'
-out='ku80_telseq.out'
+bam='lguy_bw2_sorted.bam'
+out='lguy_telseq.out'
 pattern='TTAGGG'
 
 telseq -z $pattern -o $out $bam
