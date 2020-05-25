@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N TopHat2
 #PBS -l select=1:ncpus=25:mem=50gb:scratch_local=100gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -16,8 +16,8 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/
-cp pelomyxa_final_genome.fa $SCRATCHDIR/pelo_final_bw2.fa
+cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_RNA_tophat2/
+cp scaffold237-495.fa $SCRATCHDIR/scaffold237-495_bw2.fa
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
 cp merged_trimmed_renamed* $SCRATCHDIR
@@ -26,8 +26,8 @@ cp merged_trimmed_renamed* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='pelo_final_bw2.fa'
-index='pelo_final_bw2'
+genome='scaffold237-495_bw2.fa'
+index='scaffold237-495_bw2'
 fwd='merged_trimmed_renamed_1.fq'
 rv='merged_trimmed_renamed_2.fq'
 out='tophat_out/'
@@ -43,4 +43,4 @@ tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv
 
 #copy files back
 cd $out
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2/for_augustus/.
+cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_RNA_tophat2/.
