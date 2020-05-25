@@ -20,7 +20,7 @@ cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_RNA_tophat2/
 cp scaffold237-495.fa $SCRATCHDIR/scaffold237-495_bw2.fa
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
-cp merged_trimmed_renamed* $SCRATCHDIR
+cp merged_trimmed* $SCRATCHDIR
 
 
 #compute on scratch
