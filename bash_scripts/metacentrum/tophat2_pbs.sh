@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N TopHat2
-#PBS -l select=1:ncpus=25:mem=50gb:scratch_local=100gb
+#PBS -l select=1:ncpus=25:mem=100gb:scratch_local=100gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
