@@ -28,8 +28,8 @@ cd $SCRATCHDIR
 
 genome='scaffold237-495_bw2.fa'
 index='scaffold237-495_bw2'
-fwd='merged_trimmed_renamed_1.fq'
-rv='merged_trimmed_renamed_2.fq'
+fwd='merged_trimmed_1.fq'
+rv='merged_trimmed_2.fq'
 out='tophat_out/'
 bam=$out'accepted_hits.bam'
 sam=$out'accepted_hits.sam'
