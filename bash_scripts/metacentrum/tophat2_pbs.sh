@@ -16,7 +16,7 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 #copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_RNA_tophat2/
+cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_tophat/
 cp scaffold237-495.fa $SCRATCHDIR/scaffold237-495_bw2.fa
 
 cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
