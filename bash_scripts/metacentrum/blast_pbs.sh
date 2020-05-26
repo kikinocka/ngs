@@ -17,7 +17,7 @@ out=$datadir'blast/EU1718_contigs.vs_nr.1e-4.out'
 db='/storage/projects/BlastDB/nr'
 program=blastx
 task=blastx
-outfmt='6 qseqid staxids bitscore std'
+outfmt=6
 eval=1e-4
 max_seqs=1
 
