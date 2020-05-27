@@ -13,7 +13,7 @@ module add blobtools-1.0
 assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
 blast_dir='/storage/brno3-cerit/home/kika/sags/reassembly/blast/'
 mapping_dir='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bbmap/'
-ncbi='/storage/brno3-cerit/home/kika/ncbi_db/'
+ncbi='/storage/brno3-cerit/home/kika/ncbi/'
 blob_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/blobtools/'
 
 #copy files to scratch
