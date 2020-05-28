@@ -2,7 +2,7 @@
 #PBS -N IQT-LG4X
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb:os=debian9
-#PBS -l walltime=96:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 aln='concat.aln'
 # guide='guide_concat'
 # guide_tree=$guide'.treefile'
-bb=200
+bb=1000
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m GTR+G -quiet
 iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
