@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/SAGs/phylogenomics/concatenated/ver4/')
+os.chdir('/Users/kika/ownCloud/SAGs/phylogenomics/concatenated/ver4/LG4X_model/')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
