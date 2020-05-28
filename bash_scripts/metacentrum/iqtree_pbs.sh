@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 aln='ssus_eukaryotes.trimal_gt_0.8.aln'
 # guide='guide_concat'
 # guide_tree=$guide'.treefile'
-bb=1000
+bb=100
 
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m GTR+G -quiet
 iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m GTR+G -quiet
