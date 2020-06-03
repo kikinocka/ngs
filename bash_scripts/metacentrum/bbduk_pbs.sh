@@ -12,14 +12,14 @@ module add bbmap-36.92
 adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lpyr_genome/reads/illumina/'
-fw=$read_dir'SRR2045872_1.fastq.gz'
-rv=$read_dir'SRR2045872_2.fastq.gz'
+fw=$read_dir'SRR2045873_1.fastq.gz'
+rv=$read_dir'SRR2045873_2.fastq.gz'
 
 #copy data to scratch
 cp $adapt $SCRATCHDIR
 cp $fw $rv $SCRATCHDIR
 
-name='SRR2045872_'
+name='SRR2045873_'
 trimmed_fw=$name'trimmed_1.fq.gz'
 trimmed_rv=$name'trimmed_2.fq.gz'
 report=$name'bbduk_report.txt'
