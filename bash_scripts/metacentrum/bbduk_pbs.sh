@@ -9,24 +9,25 @@ cat $PBS_NODEFILE
 
 module add bbmap-36.92
 
-adapt='/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa'
 
 read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lpyr_genome/reads/illumina/'
-fw=$read_dir'SRR2045873_1.fastq.gz'
-rv=$read_dir'SRR2045873_2.fastq.gz'
 
 #copy data to scratch
-cp $adapt $SCRATCHDIR
-cp $fw $rv $SCRATCHDIR
-
-name='SRR2045873_'
-trimmed_fw=$name'trimmed_1.fq.gz'
-trimmed_rv=$name'trimmed_2.fq.gz'
-report=$name'bbduk_report.txt'
+cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
+cp $read_dir'SRR2045873_1.fastq.gz' $read_dir'SRR2045873_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
+
+adapt='adapters.fa'
+name='SRR2045873_'
+fw=$name'1.fastq.gz'
+rv=$name'2.fastq.gz'
+trimmed_fw=$name'trimmed_1.fq.gz'
+trimmed_rv=$name'trimmed_2.fq.gz'
+report=$name'bbduk_report.txt'
+
 bbduk.sh overwrite=true \
 	in1=$fw in2=$rv \
 	out1=$trimmed_fw out2=$trimmed_rv \
