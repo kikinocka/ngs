@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lpyr_genome/reads/illumina'
+read_dir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/reads'
 out_dir=$read_dir'/fastqc/'
 
 
