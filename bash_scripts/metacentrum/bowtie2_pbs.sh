@@ -11,21 +11,21 @@ cat $PBS_NODEFILE
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-data='/storage/brno3-cerit/home/kika/pelomyxa/'
-outdir=$data'mapping/scaff_DNA/'
+data='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
+outdir=$data'bw2_mapping/denovo/'
 
 #copy files to scratch
-cp $outdir'scaffold237-495.fa' $SCRATCHDIR
-cp $data'reads/genome/'*.fq.gz $SCRATCHDIR
+cp $data'cbom_genome.fa' $SCRATCHDIR
+cp $data'reads/'*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='scaffold237-495_bw2'
-ref='scaffold237-495.fa'
-p1_1='all_trimmed_1.fq.gz'
-p1_2='all_trimmed_2.fq.gz'
+base_name='cbom_'
+ref='cbom_genome.fa'
+p1_1='AK08_047.R1.trim.fq.gz'
+p1_2='AK08_047.R2.trim.fq.gz'
 # p2_1='SRR1593518_trimmed_1.fq.gz'
 # p2_2='SRR1593518_trimmed_2.fq.gz'
 # p3_1='SRR834693_trimmed_1.fq.gz'
