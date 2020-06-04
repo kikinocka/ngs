@@ -19,7 +19,7 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-assembly_dir='/storage/brno3-cerit/home/kika/prototheca/zopfii'
+assembly_dir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome'
 # busco_dir=$assembly_dir'busco/'
 # summaries=$busco_dir'summaries/'
 lin_dir='/software/busco/3.0.2/src/db/'
@@ -37,8 +37,8 @@ cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 assemblies='*.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
-mode='transcriptome'
-species='chlamydomonas'
+mode='genome'
+species='leishmania_tarentolae'
 
 
 #compute on scratch

@@ -22,7 +22,7 @@ cp $data'reads/'*.fq.gz $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='cbom_'
+base_name='cbom_bw2'
 ref='cbom_genome.fa'
 p1_1='AK08_047.R1.trim.fq.gz'
 p1_2='AK08_047.R2.trim.fq.gz'
