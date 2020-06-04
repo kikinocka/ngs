@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
 # mapping=$datadir'bw2_mapping/pilon10/'
 # outdir=$datadir'quast/'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
-cp $datadir'pzop_trinity.fa' $SCRATCHDIR
+cp $datadir'cbom_genome.fa' $SCRATCHDIR
 
-f='pzop_trinity.fa'
+f='cbom_genome.fa'
 # bam='ku80_p10_bw2_sorted.bam'
-output=$datadir'quast/transcriptome/'
+output=$datadir'quast'
 min_contig=500
 
 
