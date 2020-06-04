@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N SPAdes
-#PBS -l select=1:ncpus=10:ompthreads=10:mem=100gb:scratch_local=100gb
+#PBS -l select=1:ncpus=10:ompthreads=10:mem=30gb:scratch_local=30gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
