@@ -21,12 +21,12 @@ cp $read_dir'454_all.fq.gz' $SCRATCHDIR
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='454_all_'
+name='454_all'
 fw=$name'.fq.gz'
 # rv=$name'2.fastq.gz'
-trimmed_fw=$name'trimmed.fq.gz'
+trimmed_fw=$name'_trimmed.fq.gz'
 # trimmed_rv=$name'trimmed_2.fq.gz'
-report=$name'bbduk_report.txt'
+report=$name'_bbduk_report.txt'
 
 bbduk.sh overwrite=true in1=$fw out1=$trimmed_fw\
 	# in1=$fw in2=$rv \
