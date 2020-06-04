@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module add spades-3.14.0
 
 reads='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/reads/'
-outdir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
+outdir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
 
 #copy reads to scratch
 cp $reads'AK08_047.R1.trim.fq.gz' $reads'AK08_047.R2.trim.fq.gz' $SCRATCHDIR
@@ -21,7 +21,7 @@ pe1_2='AK08_047.R2.trim.fq.gz'
 
 #compute on scratch
 cd $SCRATCHDIR
-spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --careful -t PBS_NUM_PPN -o $SCRATCHDIR
+spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --careful -t $PBS_NUM_PPN -o spades
 
 
 # spades.py --sc --careful -t $PBS_NUM_PPN -o out \
