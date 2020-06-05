@@ -14,12 +14,12 @@ data_dir='/storage/brno3-cerit/home/kika/sags/mit/sg-trees'
 sg_trees='/storage/brno3-cerit/home/kika/sags/mit/sg-trees/'
 
 #copy files to scratch
-mv $data_dir'/'*.trimal_0.5.aln $SCRATCHDIR
+mv $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for f in *.trimal_0.5.aln ; do
+for f in *.trimal_gt_0.5.aln ; do
  guide=guide_${f%.trimal_0.5.aln}
  guide_tree=$guide'.treefile'
  bb=1000
@@ -29,5 +29,5 @@ for f in *.trimal_0.5.aln ; do
 done
 
 #copy files back
-rm *.trimal_0.5.aln
+rm *.trimal_gt_0.5.aln
 cp * $sg_trees
