@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/mit/ver2/concat/'
+datadir='/storage/brno3-cerit/home/kika/sags/mit/ver3/'
 
 #copy files to scratch
 cp $datadir'mit_concat.aln' $SCRATCHDIR
