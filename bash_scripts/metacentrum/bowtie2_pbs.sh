@@ -29,7 +29,8 @@ p1_1='SRR2045872_trimmed_1.fq.gz'
 p1_2='SRR2045872_trimmed_2.fq.gz'
 p2_1='SRR2045873_trimmed_1.fq.gz'
 p2_2='SRR2045873_trimmed_2.fq.gz'
-454='454_all_trimmed.fq.gz'
+454zip='454_all_trimmed.fq.gz'
+454='454_all_trimmed.fq'
 # p3_1='SRR834693_trimmed_1.fq.gz'
 # p3_2='SRR834693_trimmed_2.fq.gz'
 samfile=$base_name'.sam'
@@ -40,12 +41,14 @@ report=$base_name'.report.txt'
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
+gzip -d $454zip
+
 bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
 bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
 	-1 $p1_1,$p2_1 \
 	-2 $p1_2,$p2_2 \
-	-U < (zcat $454) \
+	-U $454 \
 	--un-gz $unmapped_unpaired \
 	--un-conc-gz $unmapped_paired \
 	-S $samfile 2> $report
