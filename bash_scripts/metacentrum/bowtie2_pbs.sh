@@ -45,7 +45,7 @@ bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
 	-1 $p1_1,$p2_1 \
 	-2 $p1_2,$p2_2 \
-	-U $454 \
+	-U < (zcat $454) \
 	--un-gz $unmapped_unpaired \
 	--un-conc-gz $unmapped_paired \
 	-S $samfile 2> $report
