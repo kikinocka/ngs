@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Bowtie2
 #PBS -l select=1:ncpus=30:mem=50gb:scratch_local=20gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -12,10 +12,10 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 data='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
-outdir=$data'bw2_mapping/denovo/'
+outdir=$data'bw2_mapping/cfas_guided/'
 
 #copy files to scratch
-cp $data'cbom_genome.fa' $SCRATCHDIR
+cp $data'cbom_genome.cfas_guided.fa' $SCRATCHDIR
 cp $data'reads/'*.fq.gz $SCRATCHDIR
 
 
@@ -23,7 +23,7 @@ cp $data'reads/'*.fq.gz $SCRATCHDIR
 cd $SCRATCHDIR
 
 base_name='cbom_bw2'
-ref='cbom_genome.fa'
+ref='cbom_genome.cfas_guided.fa'
 p1_1='AK08_047.R1.trim.fq.gz'
 p1_2='AK08_047.R2.trim.fq.gz'
 # p2_1='SRR1593518_trimmed_1.fq.gz'
