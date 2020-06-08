@@ -24,7 +24,7 @@ adapt='adapters.fa'
 name='454_all'
 fw=$name'.fq.gz'
 # rv=$name'2.fastq.gz'
-trimmed_fw=$name'_trimmed.fq.gz'
+trimmed_fw=$name'_trimmed_20.fq.gz'
 # trimmed_rv=$name'trimmed_2.fq.gz'
 report=$name'_bbduk_report.txt'
 
@@ -34,7 +34,7 @@ report=$name'_bbduk_report.txt'
 # 	ref=$adapt \
 # 	usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 
-bbduk.sh in=$fw out=$trimmed_fw ref=$adapt k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=15 t=$PBS_NUM_PPN 2> $report
+bbduk.sh in=$fw out=$trimmed_fw ref=$adapt k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> $report
 
 #copy files back
 rm $fw $adapt
