@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N SPAdes
-#PBS -l select=1:ncpus=10:ompthreads=10:mem=30gb:scratch_local=30gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=10:ompthreads=10:mem=50gb:scratch_local=30gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -23,7 +23,7 @@ cbom='cbom_OESO01.fa'
 
 #compute on scratch
 cd $SCRATCHDIR
-spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --untrusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom
+spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted
 
 
 # spades.py --sc --careful -t $PBS_NUM_PPN -o out \
