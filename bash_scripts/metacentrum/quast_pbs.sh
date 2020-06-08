@@ -16,9 +16,9 @@ datadir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
-cp $datadir'cbom_genome.cfas_guided.fa' $SCRATCHDIR
+cp $datadir'/'*trusted.fa $SCRATCHDIR
 
-f='cbom_genome.cfas_guided.fa'
+assemblies='*trusted.fa'
 # bam='ku80_p10_bw2_sorted.bam'
 output=$datadir'quast'
 min_contig=500
@@ -27,10 +27,14 @@ min_contig=500
 #compute on scratch
 cd $SCRATCHDIR
 # quast.py -o $output -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote --bam $bam $f
-quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $f
+
+for fasta in $assemblies; do
+	echo $fasta
+	quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $fasta
+done
 
 
 #copy results to your folder
 # rm $f $bam
-rm $f
+rm $assemblies
 cp -r * $output
