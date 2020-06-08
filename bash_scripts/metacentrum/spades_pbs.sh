@@ -10,22 +10,20 @@ cat $PBS_NODEFILE
 #add modules
 module add spades-3.14.0
 
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/'
-reads=$datadir'cbom_genome/reads/'
-outdir=$datadir'cbom_genome/'
-cfasdir=$datadir'/cfas_genome/'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
+reads=$datadir'reads/'
 
 #copy reads to scratch
 cp $reads'AK08_047.R1.trim.fq.gz' $reads'AK08_047.R2.trim.fq.gz' $SCRATCHDIR
-cp $cfasdir'cfas_AODS02.fasta' $SCRATCHDIR
+cp $datadir'cbom_OESO01.fa' $SCRATCHDIR
 
 pe1_1='AK08_047.R1.trim.fq.gz'
 pe1_2='AK08_047.R2.trim.fq.gz'
-cfas='cfas_AODS02.fasta'
+cbom='cbom_AODS02.fasta'
 
 #compute on scratch
 cd $SCRATCHDIR
-spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --untrusted-contigs $cfas --careful -t $PBS_NUM_PPN -o spades-cfas
+spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --untrusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom
 
 
 # spades.py --sc --careful -t $PBS_NUM_PPN -o out \
@@ -33,5 +31,5 @@ spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --untrusted-contigs $cfas --careful -t $
 # --pe2-m $pe2m --pe2-1 $pe21 --pe2-2 $pe22 --pe2-s $pe2u \
 
 #copy results back
-rm $pe1_1 $pe1_2 $cfas
-cp -r * $outdir
+rm $pe1_1 $pe1_2 $cbom
+cp -r * $datadir
