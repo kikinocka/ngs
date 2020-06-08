@@ -19,7 +19,7 @@ cp $datadir'cbom_OESO01.fa' $SCRATCHDIR
 
 pe1_1='AK08_047.R1.trim.fq.gz'
 pe1_2='AK08_047.R2.trim.fq.gz'
-cbom='cbom_AODS02.fasta'
+cbom='cbom_OESO01.fa'
 
 #compute on scratch
 cd $SCRATCHDIR
