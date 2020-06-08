@@ -34,7 +34,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 cp $assembly_dir'/'*.fa $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assemblies='*.cfas_guided.fa'
+assemblies='*trusted.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='genome'
