@@ -21,10 +21,10 @@ pe1_1='AK08_047.R1.trim.fq.gz'
 pe1_2='AK08_047.R2.trim.fq.gz'
 cbom='cbom_OESO01.fa'
 
+
 #compute on scratch
 cd $SCRATCHDIR
 spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted
-
 
 # spades.py --sc --careful -t $PBS_NUM_PPN -o out \
 # --pe1-m $pe1m --pe1-1 $pe11 --pe1-2 $pe12 --pe1-s $pe1u \
