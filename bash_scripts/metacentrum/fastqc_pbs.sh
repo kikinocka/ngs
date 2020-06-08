@@ -15,7 +15,7 @@ out_dir=$read_dir'/fastqc/'
 
 
 #copy data to scratch
-cp $read_dir'/'454*.gz $SCRATCHDIR
+cp $read_dir'/'*trimmed* $SCRATCHDIR
 
 
 #compute on scratch
