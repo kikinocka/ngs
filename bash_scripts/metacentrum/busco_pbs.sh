@@ -34,7 +34,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 cp $assembly_dir'/'*.fa $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assemblies='*.fa'
+assemblies='*OESO01.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
 mode='genome'
@@ -47,7 +47,7 @@ cd $SCRATCHDIR
 for fasta in $assemblies; do
 	echo $fasta
 	base=${fasta%.fa}_eukaryota_odb9
-	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
+	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species 
 done
 # generate_plot.py -wd $summaries
 
