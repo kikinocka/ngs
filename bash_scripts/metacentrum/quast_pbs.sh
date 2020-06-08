@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N Quast
+#PBS -N quast
 #PBS -l select=1:ncpus=10:mem=3gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -16,9 +16,9 @@ datadir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
-cp $datadir'cbom_genome.fa' $SCRATCHDIR
+cp $datadir'cbom_genome.cfas_guided.fa' $SCRATCHDIR
 
-f='cbom_genome.fa'
+f='cbom_genome.cfas_guided.fa'
 # bam='ku80_p10_bw2_sorted.bam'
 output=$datadir'quast'
 min_contig=500
