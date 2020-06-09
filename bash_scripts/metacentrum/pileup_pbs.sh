@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N bbmap_rpkm
+#PBS -N pileup
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae

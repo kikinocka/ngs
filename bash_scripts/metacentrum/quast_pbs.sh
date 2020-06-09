@@ -16,9 +16,9 @@ outdir=$datadir'quast'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
-cp $datadir'/'*trusted.fa $SCRATCHDIR
+cp $datadir'/'*OESO01.fa $SCRATCHDIR
 
-assemblies='*trusted.fa'
+assemblies='*OESO01.fa'
 # bam='ku80_p10_bw2_sorted.bam'
 min_contig=500
 
@@ -29,7 +29,7 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	out=`echo $fasta | cut -d '.' -f 2`
+	out=`echo $fasta | cut -d '.' -f 1`
 	full_out=$outdir'/'$out
 
 	quast.py -o $full_out -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $fasta
