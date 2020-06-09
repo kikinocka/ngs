@@ -17,7 +17,6 @@ outdir=$data'bw2_mapping/'
 #copy files to scratch
 cp $data'lpyr_LGTL01.1.fa' $SCRATCHDIR
 cp $data'reads/illumina/'*.fq.gz $SCRATCHDIR
-cp $data'reads/454/'*trimmed.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
@@ -29,26 +28,20 @@ p1_1='SRR2045872_trimmed_1.fq.gz'
 p1_2='SRR2045872_trimmed_2.fq.gz'
 p2_1='SRR2045873_trimmed_1.fq.gz'
 p2_2='SRR2045873_trimmed_2.fq.gz'
-454zip='454_all_trimmed.fq.gz'
-454='454_all_trimmed.fq'
 # p3_1='SRR834693_trimmed_1.fq.gz'
 # p3_2='SRR834693_trimmed_2.fq.gz'
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
 unmapped_paired=$base_name'_unmapped_paired.fq'
 report=$base_name'.report.txt'
-
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
-
-gzip -d $454zip
 
 bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
 bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
 	-1 $p1_1,$p2_1 \
 	-2 $p1_2,$p2_2 \
-	-U $454 \
 	--un-gz $unmapped_unpaired \
 	--un-conc-gz $unmapped_paired \
 	-S $samfile 2> $report
