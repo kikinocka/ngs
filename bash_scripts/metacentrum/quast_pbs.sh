@@ -12,15 +12,14 @@ module add quast-4.6.3
 
 datadir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome/'
 # mapping=$datadir'bw2_mapping/pilon10/'
-# outdir=$datadir'quast/'
+outdir=$datadir'quast/cbom_trusted'
 
 #copy files to scratch
 # cp $mapping'ku80_p10_bw2_sorted.bam' $SCRATCHDIR
 cp $datadir'/'*trusted.fa $SCRATCHDIR
 
-assemblies='*trusted.fa'
+assemblies='*_trusted.fa'
 # bam='ku80_p10_bw2_sorted.bam'
-output=$datadir'quast'
 min_contig=500
 
 
@@ -37,4 +36,4 @@ done
 #copy results to your folder
 # rm $f $bam
 rm $assemblies
-cp -r * $output
+cp -r * $outdir
