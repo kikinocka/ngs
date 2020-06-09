@@ -33,7 +33,7 @@ for fasta in $assemblies; do
 	full_out=$outdir'/'$out
 
 	quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $fasta
-	mv -r $full_out
+	mv -r * $full_out
 done
 
 
