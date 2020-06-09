@@ -4,15 +4,15 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Dcko/ownCloud/blastocrithidia/genes/telomerase/tbruc_telomerase.fa'
-db = '/Dcko/ownCloud/blastocrithidia/genome_assembly/blastdb/p57_polished.fa'
+query = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/tb_query.fa'
+db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Ldonovani_BPK282A1_Genome.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/prototheca_HGT/pzop_trinity.clustered.blast.xml'
+out = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 2
+threads = 5
 
 print('running BLAST')
 #query - database
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.blast.tsv', 'w')
-out_best = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

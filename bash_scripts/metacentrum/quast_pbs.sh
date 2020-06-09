@@ -32,11 +32,11 @@ for fasta in $assemblies; do
 	out=`echo $fasta | cut -d '.' -f 2`
 	full_out=$outdir'/'$out
 
-	quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $fasta
-	mv -r * $full_out
+	quast.py -o $full_out -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $fasta
+	# cp -r * $full_out
 done
 
 
 #copy results to your folder
 # rm $f $bam
-rm $assemblies
+# rm $assemblies

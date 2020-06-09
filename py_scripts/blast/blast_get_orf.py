@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Dcko/MEGAsync/Data/diplonemids_transcriptomes/1608_Trinity.fasta', 'fasta')
-nt_out = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_nt.fa', 'w')
-aa_out = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_aa.fa', 'w')
-err_out = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs_errors.txt', 'w')
-result_handle = open('/Dcko/ownCloud/membrane-trafficking/rhynchopus_humris_1608/rhRABs.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Ldonovani_BPK282A1_Genome.fasta', 'fasta')
+nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK_nt.fa', 'w')
+aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK_aa.fa', 'w')
+err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK_errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -51,7 +51,7 @@ def blast_parser(blast_records):
 			min_qstart = False
 			max_qend = False
 			frame = best.hsps[0].frame[1]
-			if best.hsps[0].expect > 0.001:
+			if best.hsps[0].expect > 0.1:
 				err_out.write('{}:\ttoo high evalue\n'.format(record.query.split(' ')[0]))
 			else:
 				for hsp in best.hsps:
