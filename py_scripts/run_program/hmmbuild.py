@@ -12,7 +12,7 @@ for file in files:
 	if file.endswith('.aln'):
 		print(file)
 		name = file.split('.')[0]
-		hmm = name + '.hmm_profile.hmm'
-		summary = name + '.hmm_build.out'
+		hmm = name + '.hmm_profile'
+		summary = name + '.hmm_build'
 		subprocess.call('{} -n {} -o {} --amino --cpu {} {} {}'.format(hmmbuild, name, summary, threads, hmm, file), 
 			shell=True)

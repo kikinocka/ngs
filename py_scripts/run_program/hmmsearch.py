@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
-files = [x for x in os.listdir() if x.endswith('.hmm')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/SNAREs')
+files = [x for x in os.listdir() if x.endswith('syn7.hmm_profile')]
 
-db = '/Users/kika/ownCloud/data/dpapilatum/dpap_genome_translated.fa'
-orgn = 'dpap_gen'
+db = '/Users/kika/ownCloud/data/diplonemids_genomes/1608_spades_translated.fa'
+orgn = 'rh_gen'
 threads = 7
 
 for file in files:
