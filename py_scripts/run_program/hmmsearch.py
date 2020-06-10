@@ -4,7 +4,7 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/SNAREs/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
 db = '/Users/kika/ownCloud/data/dpapilatum/dpap_genome_translated.fa'
