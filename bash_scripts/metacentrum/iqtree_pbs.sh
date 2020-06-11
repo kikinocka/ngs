@@ -14,12 +14,12 @@ module add iqtree-1.6.8
 datadir='/storage/brno3-cerit/home/kika/sags/mit/ver5_eug/'
 
 #copy files to scratch
-cp $datadir'mit_concat.aln' $SCRATCHDIR
+cp $datadir'mit_eug_concat.aln' $SCRATCHDIR
 # cp $datadir'guide_acsl_seqs.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='mit_concat.aln'
+aln='mit_eug_concat.aln'
 # guide='guide_nifU'
 # guide_tree=$guide'.treefile'
 bb=1000
