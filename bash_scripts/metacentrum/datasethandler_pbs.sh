@@ -14,7 +14,7 @@ module add mafft-7.313
 module add trimal-1.4
 
 #copy files to scratch
-DATADIR='/storage/brno3-cerit/home/kika/trafficking/SNARE/Qc/ver5'
+DATADIR='/storage/brno3-cerit/home/kika/trafficking/SNARE/ver-automated1'
 
 cp '/storage/brno2/home/kika/scripts/kika/py_scripts/datasethandler-server.py' $SCRATCHDIR
 cp $DATADIR'/'*.fa $SCRATCHDIR
@@ -25,7 +25,7 @@ python datasethandler-server.py \
 	-i batch \
 	-a mafft \
 	--alignerparams='--anysymbol' \
-	--trimalparams='-gt 0.5' \
+	--trimalparams='-automated1' \
 	-t iqtree \
 	-b \
 	--maxcores $PBS_NUM_PPN
