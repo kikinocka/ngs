@@ -14,10 +14,10 @@ script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analys
 
 #copy files to scratch
 cp $data'global_dereplicated_1f_representatives.fas' $SCRATCHDIR
-cp $script'10b_chimera_detection.sh' $SCRATCHDIR
+cp $script'10b_vsearch_chimera.sh' $SCRATCHDIR
 
 fasta='global_dereplicated_1f_representatives.fas'
-chimera_sc='10b_chimera_detection.sh'
+chimera_sc='10b_vsearch_chimera.sh'
 
 
 #compute on scratch
