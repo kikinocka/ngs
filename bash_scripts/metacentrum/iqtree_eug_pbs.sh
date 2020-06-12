@@ -1,8 +1,8 @@
 #!/bin/bash
-#PBS -N IQT-cob
+#PBS -N IQT-mitBS
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb:os=debian9
-#PBS -l walltime=02:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,20 +11,20 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/mit/ver4/sg-trees/'
+datadir='/storage/brno3-cerit/home/kika/sags/mit/ver4_bs/'
 
 #copy files to scratch
-cp $datadir'cob.trimal_gt_0.5.aln' $SCRATCHDIR
+cp $datadir'mit_concat.aln' $SCRATCHDIR
 # cp $datadir'guide_acsl_seqs.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='cob.trimal_gt_0.5.aln'
+aln='mit_concat.aln'
 # guide='guide_concat'
 # guide_tree=$guide'.treefile'
 bb=1000
 
-iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
+iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet -wsr
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m GTR+G -quiet
 # iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
 
