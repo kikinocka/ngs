@@ -20,8 +20,8 @@ cp $datadir'concat.aln' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='concat.aln'
-# guide='guide_nifU'
-# guide_tree=$guide'.treefile'
+guide='guide_concat'
+guide_tree=$guide'.treefile'
 bb=1000
 
 # iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet -wsr
