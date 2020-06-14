@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/SAGs/mit/phylogenomics/ver4/concat_bs/')
+os.chdir('/Users/kika/ownCloud/SAGs/phylogenomics/concatenated/ver5/C20_ufb/')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('mit_names.txt')
+names = open('concat_names.txt')
 
 name_dict = {}
 for name in names:
