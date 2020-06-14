@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N IQT-conC20
+#PBS -N IQT-conLG4x
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb:os=debian9
 #PBS -l walltime=02:00:00
