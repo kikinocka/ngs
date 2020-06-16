@@ -8,14 +8,18 @@ Entrez.email = 'kika.zahonova@gmail.com'
 os.chdir('/mnt/mokosz/home/kika/prototheca/')
 table = 'pzop_hits.nr.blast.tsv'
 output = 'pzop_hits.taxonomy_assigned.tsv'
+errors = open('pzop_hits.tax_errors.txt')
 
-def taxonomy_assign(accs, database):
+def taxonomy_assign(accs, database, errors):
 	final = set()
 	for acc in accs:
-		sequence = Entrez.efetch(db=database, id=acc, rettype='gb', retmode='text')
-		record = SeqIO.read(sequence, 'genbank')
-		tax = record.annotations['taxonomy'][1]
-		final.add(tax)
+		try:
+			sequence = Entrez.efetch(db=database, id=acc, rettype='gb', retmode='text')
+			record = SeqIO.read(sequence, 'genbank')
+			tax = record.annotations['taxonomy'][1]
+			final.add(tax)
+		except:
+			errors.write('{}\n'.format(acc))
 	final = str(final).replace('{', '').replace('}', '').replace('\'', '')
 	return final
 
@@ -35,5 +39,5 @@ for line in open(table):
 with open(output, 'w') as out:
 	for query, accs in accessions.items():
 		print(query)
-		taxonomy = taxonomy_assign(accs, 'protein')
+		taxonomy = taxonomy_assign(accs, 'protein', errors)
 		out.write('{}\t{}\n'.format(query, taxonomy))
