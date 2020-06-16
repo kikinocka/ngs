@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/SNARE/ver-add-mafft'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/SNARE/Qa/ver6'
 
 #copy files to scratch
 mv $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
