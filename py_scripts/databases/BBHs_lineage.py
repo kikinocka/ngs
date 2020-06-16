@@ -5,8 +5,8 @@ from collections import defaultdict
 
 Entrez.email = 'kika.zahonova@gmail.com'
 
-os.chdir('/Users/kika/ownCloud/prototheca_HGT/')
-table = 'pzop_hits.test.tsv'
+os.chdir('/mnt/mokosz/home/kika/prototheca/')
+table = 'pzop_hits.nr.blast.tsv'
 output = 'pzop_hits.taxonomy_assigned.tsv'
 
 def taxonomy_assign(accs, database):
