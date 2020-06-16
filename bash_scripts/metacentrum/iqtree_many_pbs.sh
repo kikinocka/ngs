@@ -13,7 +13,7 @@ module add iqtree-1.6.8
 data_dir='/storage/brno3-cerit/home/kika/trafficking/SNARE/Qa/ver6'
 
 #copy files to scratch
-mv $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
+cp $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
 
 
 #compute on scratch
