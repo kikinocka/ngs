@@ -8,7 +8,7 @@ Entrez.email = 'kika.zahonova@gmail.com'
 os.chdir('/mnt/mokosz/home/kika/prototheca/')
 table = 'pzop_hits.nr.blast.tsv'
 output = 'pzop_hits.taxonomy_assigned.tsv'
-errors = open('pzop_hits.tax_errors.txt')
+errors = open('pzop_hits.tax_errors.txt', 'w')
 
 def taxonomy_assign(accs, database, errors):
 	final = set()
