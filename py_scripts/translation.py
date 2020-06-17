@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/pelomyxa_schiedti/genome_assembly/')
-infile = SeqIO.parse('pelomyxa_final_genome.fa', 'fasta')
-output = open('pelomyxa_genome.translated.fa', 'w')
-error = open('pelomyxa_genome.errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/data/kinetoplastids/')
+infile = SeqIO.parse('TriTrypDB-29_TbruceiTREU927_Genome.fasta', 'fasta')
+output = open('TriTrypDB-29_TbruceiTREU927_Genome_translated.fa', 'w')
+error = open('TriTrypDB-29_TbruceiTREU927_Genome_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
