@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 # add modules
 module add python36-modules-gcc
 module add iqtree-1.6.8
-module add mafft-7.313
+module add mafft-7.453
 module add trimal-1.4
 
 #copy files to scratch
