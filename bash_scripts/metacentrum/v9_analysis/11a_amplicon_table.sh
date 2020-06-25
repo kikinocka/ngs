@@ -33,7 +33,7 @@ ls -1 ./[1-9]*.fas | cut -d '/' -f 2 | sort -d | uniq -d
 
 python '${SCRIPT}' ./[1-9]*.fas > ${OUTPUT} &
 
-
+/var/spool/pbs/mom_priv/jobs/721817.cerit-pbs.cerit-sc.cz.SC: line 39: ${OUTPUT}: ambiguous redirect
 
 #copy files back
 rm $fasta $SCRIPT
