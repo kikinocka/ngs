@@ -9,11 +9,11 @@ cat $PBS_NODEFILE
 
 module add vsearch-1.4.4
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/stampa_global_dereplicated_1f_representatives/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/trimmed_cutadapt'
 script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
 #copy files to scratch
-cp $data'global_dereplicated_1f_representatives.fas' $SCRATCHDIR
+cp $data'/'*.fas $SCRATCHDIR
 cp $script'11b_amplicon_contingency_table.py' $SCRATCHDIR
 
 OUTPUT=
