@@ -19,7 +19,7 @@ cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-assembly_dir='/storage/brno3-cerit/home/kika/kinetoplastids/cbom_genome'
+assembly_dir='/storage/brno3-cerit/home/kika/archamoebae'
 # busco_dir=$assembly_dir'busco/'
 # summaries=$busco_dir'summaries/'
 lin_dir='/software/busco/3.0.2/src/db/'
@@ -34,10 +34,10 @@ lin_dir='/software/busco/3.0.2/src/db/'
 cp $assembly_dir'/'*.fa $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
-assemblies='*trusted.fa'
+assemblies='*.fa'
 # base='eukaryota_odb9'
 lineage='eukaryota_odb9/'
-mode='genome'
+mode='proteins'
 species='leishmania_tarentolae'
 
 
@@ -47,9 +47,9 @@ cd $SCRATCHDIR
 for fasta in $assemblies; do
 	echo $fasta
 	base=${fasta%.fa}_eukaryota_odb9
-	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN -sp $species 
+	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 done
-# generate_plot.py -wd $summaries
+generate_plot.py -wd $SCRATCHDIR
 
 #copy files back
 rm -r $assemblies $lineage augustus_configs
