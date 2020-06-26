@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N iqtree
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb:os=debian9
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/sags/mit/ver4/sg-trees'
+data_dir='/storage/brno3-cerit/home/kika/sags/mit/ver4/sg-trees/new'
 
 #copy files to scratch
 cp $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
