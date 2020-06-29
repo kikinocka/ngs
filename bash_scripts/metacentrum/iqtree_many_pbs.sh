@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/sags/mit/ver4/sg-trees/new'
+data_dir='/storage/brno3-cerit/home/kika/sags/mit/ver4/concat_ufb'
 
 #copy files to scratch
 cp $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
