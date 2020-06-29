@@ -13,15 +13,15 @@ module add iqtree-1.6.12
 data_dir='/storage/brno3-cerit/home/kika/sags/mit/ver4/concat_ufb'
 
 #copy files to scratch
-cp $data_dir'/'*.trimal_gt_0.5.aln $SCRATCHDIR
+cp $data_dir'/'*.aln $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for f in *.trimal_gt_0.5.aln ; do
- guide=guide_${f%.trimal_0.5.aln}
- guide_tree=$guide'.treefile'
+for f in *.aln ; do
+ # guide=guide_${f%.trimal_0.5.aln}
+ # guide_tree=$guide'.treefile'
  bb=1000
  iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
  # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
