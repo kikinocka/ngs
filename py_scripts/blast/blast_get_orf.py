@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Ldonovani_BPK282A1_Genome.fasta', 'fasta')
-nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK_nt.fa', 'w')
-aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK_aa.fa', 'w')
-err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK_errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/LdonBPK.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Phytomonas_sp.HART1_genomic.fna', 'fasta')
+nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar_Tb927.11.370.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar_Tb927.11.370.faa', 'w')
+err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar_Tb927.11.370.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

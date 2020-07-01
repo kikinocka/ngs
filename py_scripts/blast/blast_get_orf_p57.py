@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Dcko/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa', 'fasta')
-nt_out = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.fna', 'w')
-aa_out = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.faa', 'w')
-err_out = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.errors.txt', 'w')
-result_handle = open('/Dcko/ownCloud/blastocrithidia/genes/telomerase/p57_telomerase.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/p57_polished.fa', 'fasta')
+nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.faa', 'w')
+err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -237,9 +237,9 @@ for contig in fasta:
 					else:
 						seq_end = len(reverse)
 				nucleotides = reverse[seq_start:seq_end]
-				protein = translation(nucleotides[:-3]).replace('B', 'X').replace('Z', 'X').replace('J', 'X')
+				protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
 				nt_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, nucleotides))
-				aa_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, protein))
+				aa_out.write('>{}__{}\n{}\n'.format(contig.name, ref_name, protein[:-1]))
 		else:
 			pass
 

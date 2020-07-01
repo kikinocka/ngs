@@ -11,10 +11,10 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/phylogenomics/concat_ver6_LG4X_bs/'
+datadir='/storage/brno3-cerit/home/kika/sags/phylogenomics/concat_ver6_LG4X_bs'
 
 #copy files to scratch
-cp $datadir'concat.aln' $SCRATCHDIR
+cp $datadir'/'* $SCRATCHDIR
 
 
 #compute on scratch
