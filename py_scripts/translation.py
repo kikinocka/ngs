@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/data/kinetoplastids/')
-infile = SeqIO.parse('TriTrypDB-29_TbruceiTREU927_Genome.fasta', 'fasta')
-output = open('TriTrypDB-29_TbruceiTREU927_Genome_translated.fa', 'w')
-error = open('TriTrypDB-29_TbruceiTREU927_Genome_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/')
+infile = SeqIO.parse('TriTrypDB-45_TrangeliSC58_Genome.fasta', 'fasta')
+output = open('TriTrypDB-45_TrangeliSC58_Genome_translated.fa', 'w')
+error = open('TriTrypDB-45_TrangeliSC58_Genome_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
