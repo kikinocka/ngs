@@ -4,15 +4,15 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/synteny.faa'
-db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/TriTrypDB-45_TrangeliSC58_Genome.fasta'
+query = '/mnt/mokosz/home/kika/eg_db/eugr_all.fa'
+db = '/mnt/mokosz/home/kika/eg_db/GEFR01.1.fsa_nt'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/tran_synt.blast.xml'
+out = '/mnt/mokosz/home/kika/eg_db/eugr-gefr.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 5
+threads = 4
 
 print('running BLAST')
 #query - database
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/tran_synt.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/tran_synt.best_blast.tsv', 'w')
+output = open('/mnt/mokosz/home/kika/eg_db/eugr-gefr.blast.tsv', 'w')
+out_best = open('/mnt/mokosz/home/kika/eg_db/eugr-gefr.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
