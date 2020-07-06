@@ -4,8 +4,8 @@ import subprocess
 
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/')
-files = [x for x in os.listdir() if x.endswith('370.fa')]
+os.chdir('/Users/kika/ownCloud/SAGs/mit/tRNAs/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
