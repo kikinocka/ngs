@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.9.15360/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Lamazonensis_MHOMBR71973M2269_Genome_translated.fa'
-orgn = 'lama'
+db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Herpetomonas_muscarum_genome_translated.fa'
+orgn = 'hmus'
 threads = 3
 
 for file in files:

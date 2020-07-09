@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/query.faa'
-db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Strigomonas_galati_genomic.fna'
+query = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/synteny.faa'
+db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Herpetomonas_muscarum_genome.fna'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/sgal.blast.xml'
+out = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/hmus_syn.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/sgal.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/sgal.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/hmus_syn.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/hmus_syn.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

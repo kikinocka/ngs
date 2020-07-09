@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/SAGs/phylogenomics/concatenated/ver7_full/LG4X_ufb/')
-trees = [x for x in os.listdir() if x.endswith('.treefile')]
+os.chdir('/Users/kika/ownCloud/SAGs/phylogenomics/concatenated/ver7_full/C20_ufb/')
+trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
 names = open('concat_names.txt')

@@ -4,7 +4,7 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.3.1560/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/')
 files = os.listdir()
 threads = 2
 

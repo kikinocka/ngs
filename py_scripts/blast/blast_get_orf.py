@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Strigomonas_culicis_genomic.fna', 'fasta')
-nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul_Tb927.11.5550.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul_Tb927.11.5550.faa', 'w')
-err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul_Tb927.11.5550.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Phytomonas_serpens_genomic.fna', 'fasta')
+nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/pser_Tb927.11.9870.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/pser_Tb927.11.9870.faa', 'w')
+err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/pser_Tb927.11.9870.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.9870/pser.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

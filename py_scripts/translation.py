@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/')
-infile = SeqIO.parse('Lamazonensis_MHOMBR71973M2269_Genome.fasta', 'fasta')
-output = open('Lamazonensis_MHOMBR71973M2269_Genome_translated.fa', 'w')
-error = open('Lamazonensis_MHOMBR71973M2269_Genome_errors.fa', 'w')
+infile = SeqIO.parse('Herpetomonas_muscarum_genome.fna', 'fasta')
+output = open('Herpetomonas_muscarum_genome_translated.fa', 'w')
+error = open('Herpetomonas_muscarum_genome_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -31,7 +31,7 @@ def translation(sequence):
         cut_seq.append(sequence[i:i+3])
     aa = []
     for codon in cut_seq:
-        if 'N' in codon:
+        if ('N' in codon) or ('W' in codon) or ('S' in codon) or ('M' in codon) or ('K' in codon) or ('R' in codon) or ('Y' in codon):
             aa.append('X')
         else:
             aa.append(gencode[codon])
@@ -45,7 +45,7 @@ for sequence in infile:
     ambiguous = False
     print(name)
     for nucleotide in seq:
-        if nucleotide not in 'ATCGN':
+        if nucleotide not in 'ATCGNWSMKRY':
             ambiguous = True
     if ambiguous == True:
         error.write('>{}\n{}\n'.format(name, seq))
