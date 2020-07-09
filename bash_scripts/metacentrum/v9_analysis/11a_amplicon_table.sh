@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module add vsearch-1.4.4
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/trimmed_cutadapt'
-script_dir='/auto/brno6/home/fsbrno2/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
+script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 out='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
 
 #copy files to scratch
@@ -32,9 +32,9 @@ cd $SCRATCHDIR
 
 ls -1 ./[1-9]*.fas | cut -d '/' -f 2 | sort -d | uniq -d
 
-python '${SCRIPT}' ./[1-9]*.fas > ${OUTPUT} &
+python ${SCRIPT} ./[1-9]*.fas > ${OUTPUT} &
 
 
 #copy files back
-rm *fas $SCRIPT
+rm *fas
 cp -r * $out
