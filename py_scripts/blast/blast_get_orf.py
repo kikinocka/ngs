@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Phytomonas_sp.HART1_genomic.fna', 'fasta')
-nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar_Tb927.11.370.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar_Tb927.11.370.faa', 'w')
-err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar_Tb927.11.370.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/phar.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Strigomonas_culicis_genomic.fna', 'fasta')
+nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul_Tb927.11.5550.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul_Tb927.11.5550.faa', 'w')
+err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul_Tb927.11.5550.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/scul.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -30,11 +30,12 @@ gencode = {
 
 def translation(sequence):
     cut_seq = []
+    sequence = sequence.upper()
     for i in range(0,len(sequence)-2,3):
         cut_seq.append(sequence[i:i+3])
     aa = []
     for codon in cut_seq:
-        if 'N' in codon:
+        if ('N' in codon) or ('W' in codon) or ('S' in codon) or ('M' in codon) or ('K' in codon) or ('R' in codon) or ('Y' in codon):
             aa.append('X')
         else:
             aa.append(gencode[codon])

@@ -4,16 +4,16 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.9.15360/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/data/kinetoplastids/TriTrypDB-46_BsaltansLakeKonstanz_Genome_translated.fa'
-orgn = 'bsal'
-threads = 7
+db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Lamazonensis_MHOMBR71973M2269_Genome_translated.fa'
+orgn = 'lama'
+threads = 3
 
 for file in files:
 	print(file)
-	name = file.split('.')[0]
+	name = file.split('.hmm')[0]
 	out = orgn + '_' + name + '.hmm_search.out'
 	subprocess.call('{} -o {} --cpu {} {} {}'.format(hmmsearch, out, threads, file, db), shell=True)
 # --tblout {0}.table.txt 

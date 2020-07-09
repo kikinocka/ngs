@@ -4,22 +4,22 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/mnt/mokosz/home/kika/eg_db/eugr_all.fa'
-db = '/mnt/mokosz/home/kika/eg_db/GEFR01.1.fsa_nt'
+query = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/query.faa'
+db = '/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/Strigomonas_galati_genomic.fna'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/mnt/mokosz/home/kika/eg_db/eugr-gefr.blast.xml'
+out = '/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/sgal.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 4
+threads = 2
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -max_target_seqs {} -outfmt {} -word_size {}  \
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {}  \
 	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, hits, outfmt, word_size, threads), shell=True)
-#  
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# -max_target_seqs {}  hits, 
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/mnt/mokosz/home/kika/eg_db/eugr-gefr.blast.tsv', 'w')
-out_best = open('/mnt/mokosz/home/kika/eg_db/eugr-gefr.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/sgal.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/sgal.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

@@ -4,13 +4,13 @@ import subprocess
 
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
-os.chdir('/Users/kika/ownCloud/SAGs/mit/tRNAs/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.5550/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --maxiterate 100 --inputorder --auto {} > {}'.format(mafft, file, out), shell=True)
+	subprocess.call('{} --thread 4 --maxiterate 100 --inputorder --auto {} > {}'.format(mafft, file, out), shell=True)
 
 # #add to aligned sequences
 # os.chdir('/Users/kika/ownCloud/membrane-trafficking/')

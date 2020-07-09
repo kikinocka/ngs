@@ -1,16 +1,13 @@
 #!/bin/bash
 
-#tRNAscan-SE [-options] <FASTA file(s)>
-#option -N: codons instead of anticodons in output
-#option -O: search for organellar tRNAs
+tRNAscan='/Users/kika/miniconda3/bin/tRNAscan-SE'
 
-inf="/home/kika/ownCloud/zoli_mt_genome/mt_genome.txt"
-out_str="/home/kika/ownCloud/zoli_mt_genome/mt_genome_tRNAscanSE-2.txt"
-# out_cod="/home/kika/Dropbox/blasto_project/jaculum/genes/tRNAs/jac_org-tRNAs_anticodons_tRNAscan.txt"
+cd /Users/kika/ownCloud/data/diplonemids_transcriptomes
 
-
-#table output
-tRNAscan-SE -O -o $out_str $inf
-
-#secondary structures
-# tRNAscan-SE -O -f $out_str $inf
+for assembly in *.fasta ; do
+	echo $assembly
+	table=${assembly%.fasta}.tRNAscan_table.out
+	seq=${assembly%.fasta}.tRNAscan.fa
+	structures=${assembly%.fasta}.tRNAscan_structures.out
+	$tRNAscan --thread 5 -o $table -a $seq -f $structures ${assembly}
+done
