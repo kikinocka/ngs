@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N amplicons
-#PBS -l select=1:ncpus=15:mem=10gb:scratch_local=50gb
+#PBS -l select=1:ncpus=1:mem=5gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
