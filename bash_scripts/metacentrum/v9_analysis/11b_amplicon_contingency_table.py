@@ -39,7 +39,7 @@ def fasta_parse():
             for line in fasta_file:
                 if line.startswith(">"):
                     amplicon, abundance = line.strip(">\n").split(separator)
-                    abundance = int(abundance[:-1])
+                    abundance = int(abundance.strip(";"))
                     if amplicon not in amplicons2samples:
                         amplicons2samples[amplicon] = {sample: abundance}
                     else:
