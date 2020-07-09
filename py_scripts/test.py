@@ -3,21 +3,15 @@ import os
 from Bio import SeqIO
 
 
-line = '>8f0953b5021e3266714b18b26e054aca;size=79030;'
-separator = ";size="
-amplicon, abundance = line.split(separator)
-abundance = int(abundance.strip(';'))
-print(abundance)
+os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/bordor/')
+alignments = [x for x in os.listdir() if x.endswith('.fas')]
 
-# os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/bordor/')
-# alignments = [x for x in os.listdir() if x.endswith('.fas')]
-
-# with open('EU1718_gordon.fa', 'w') as out:
-# 	for aln in alignments:
-# 		print(aln)
-# 		name = aln.split('_')[0]
-# 		for seq in SeqIO.parse(aln, 'fasta'):
-# 			out.write('>{}_{}\n{}\n'.format(seq.name, name, seq.seq))
+with open('EU1718_gordon.fa', 'w') as out:
+	for aln in alignments:
+		print(aln)
+		name = aln.split('_')[0]
+		for seq in SeqIO.parse(aln, 'fasta'):
+			out.write('>{}_{}\n{}\n'.format(seq.name, name, seq.seq))
 
 
 

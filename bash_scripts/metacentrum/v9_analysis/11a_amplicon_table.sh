@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-module add vsearch-1.4.4
+module add python-3.6.2-gcc
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/trimmed_cutadapt'
 script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
