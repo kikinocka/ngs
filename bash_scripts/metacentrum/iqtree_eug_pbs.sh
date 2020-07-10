@@ -11,16 +11,16 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/COPII/ver2/'
+datadir='/storage/brno3-cerit/home/kika/sags/phylogenomics/concat_ver7_C20_ufb/'
 
 #copy files to scratch
-cp $datadir'sec13.trimal_gt_0.8.aln' $SCRATCHDIR
+cp $datadir'concat.aln' $SCRATCHDIR
 # cp $datadir'guide_acsl_seqs.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='sec13.trimal_gt_0.8.aln'
-guide='guide_sec13'
+aln='concat.aln'
+guide='guide_concat'
 guide_tree=$guide'.treefile'
 bb=1000
 
