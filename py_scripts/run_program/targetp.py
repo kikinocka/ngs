@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/SAGs/mit/')
-files = [x for x in os.listdir() if x.endswith('_full.fa')]
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/electron_transfer/AAT/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
