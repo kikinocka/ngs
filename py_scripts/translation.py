@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/')
-infile = SeqIO.parse('Herpetomonas_muscarum_genome.fna', 'fasta')
-output = open('Herpetomonas_muscarum_genome_translated.fa', 'w')
-error = open('Herpetomonas_muscarum_genome_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/SAGs/assemblies/')
+infile = SeqIO.parse('EU12_contigs.fasta', 'fasta')
+output = open('EU12_translated.fa', 'w')
+error = open('EU12_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
