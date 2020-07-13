@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/SAGs/assemblies/')
-infile = SeqIO.parse('EU12_contigs.fasta', 'fasta')
-output = open('EU12_translated.fa', 'w')
-error = open('EU12_errors.fa', 'w')
+infile = SeqIO.parse('EU20_contigs.fasta', 'fasta')
+output = open('EU20_translated.fa', 'w')
+error = open('EU20_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
