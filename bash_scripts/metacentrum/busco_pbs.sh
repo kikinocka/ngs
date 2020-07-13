@@ -49,9 +49,9 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # 	base=${fasta%.fa}_eukaryota_odb9
 # 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 # done
-generate_plot.py -wd $summaries
+generate_plot.py -wd $assembly_dir
 
 #copy files back
-rm -r $assemblies $lineage augustus_configs
-cp -r * $assembly_dir
+# rm -r $assemblies $lineage augustus_configs
+# cp -r * $assembly_dir
 # cp -r * $summaries
