@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/nad11/C20_ufb'
+datadir='/storage/brno3-cerit/home/kika/sags/phylogenomics/concat_ver8_LG4X_ufb'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -19,16 +19,15 @@ cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='nad11.trimal_gt_0.5.aln'
-guide='guide_nad11'
-guide_tree=$guide'.treefile'
+aln='concat.aln'
+# guide='guide_concat'
+# guide_tree=$guide'.treefile'
 bb=1000
 
-# iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
+iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
 
-iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
-iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree -wsr
-
+# iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
+# iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree #-wsr
 
 #copy files back
 rm $aln

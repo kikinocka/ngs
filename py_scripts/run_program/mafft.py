@@ -4,7 +4,7 @@ import subprocess
 
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
-os.chdir('/Users/kika/ownCloud/SAGs/phylogenomics/concatenated/ver8_full_final/dataset/')
+os.chdir('/Users/kika/ownCloud/SAGs/mit/nad11/ver2/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
