@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/data/diplonemids_transcriptomes/')
-infile = SeqIO.parse('1601_Trinity.fasta', 'fasta')
-output = open('1601_translated.fa', 'w')
-error = open('1601_errors.fa', 'w')
+infile = SeqIO.parse('1608_Trinity.fasta', 'fasta')
+output = open('1608_translated.fa', 'w')
+error = open('1608_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
