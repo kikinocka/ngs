@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 aln='concat.aln'
 guide='guide_concat'
 guide_tree=$guide'.treefile'
-bb=1000
+bb=200
 
 # iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet -wsr
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
