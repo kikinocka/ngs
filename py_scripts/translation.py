@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/SAGs/assemblies/')
-infile = SeqIO.parse('EU20_contigs.fasta', 'fasta')
-output = open('EU20_translated.fa', 'w')
-error = open('EU20_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/data/diplonemids_transcriptomes/')
+infile = SeqIO.parse('1601_Trinity.fasta', 'fasta')
+output = open('1601_translated.fa', 'w')
+error = open('1601_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

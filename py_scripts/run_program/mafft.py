@@ -14,7 +14,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/SNAREs/Qb_160302.afa'
-new = 'trees/SNARE/Qb/ver7/euglenozoa.fa'
-out = 'trees/SNARE/Qb/ver7/qb_v7.mafft.aln'
-subprocess.call('{} --add {} --thread 7 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)
+existing = 'queries/SNAREs/Qc_160302_2.afa'
+new = 'trees/SNARE/Qc/ver9/euglenozoa.fa'
+out = 'trees/SNARE/Qc/ver9/qc_v9.mafft.aln'
+subprocess.call('{} --add {} --thread 6 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)
