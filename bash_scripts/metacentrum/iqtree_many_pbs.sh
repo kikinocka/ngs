@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/SNARE/Qc/ver10'
+data_dir='/storage/brno3-cerit/home/kika/sags/nad11/ver3'
 
 #copy files to scratch
 cp $data_dir'/'*.aln $SCRATCHDIR
@@ -20,12 +20,12 @@ cp $data_dir'/'*.aln $SCRATCHDIR
 cd $SCRATCHDIR
 
 for f in *.aln ; do
- guide=guide_${f%.trimal_gt_0.8.aln}
- guide_tree=$guide'.treefile'
+ # guide=guide_${f%.trimal_gt_0.8.aln}
+ # guide_tree=$guide'.treefile'
  bb=1000
- # iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
- iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
- iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f} -ft $guide_tree #-wsr
+ iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
+ # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
+ # iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f} -ft $guide_tree #-wsr
 done
 
 #copy files back
