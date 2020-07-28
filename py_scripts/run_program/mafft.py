@@ -14,7 +14,7 @@ files = [x for x in os.listdir() if x.endswith('.fa')]
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/SNAREs/Qc_160302_2.afa'
-new = 'trees/SNARE/Qc/ver11/euglenozoa.fa'
-out = 'trees/SNARE/Qc/ver11/qc_v11.mafft.aln'
+existing = 'queries/SNAREs/R_SNARES_all.afa'
+new = 'trees/SNARE/R/ver1/euglenozoa.fa'
+out = 'trees/SNARE/R/ver1/r_v1.mafft.aln'
 subprocess.call('{} --add {} --thread 6 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)
