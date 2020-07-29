@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/TriTrypDB-45_BsaltansLakeKonstanz_Genome.fasta', 'fasta')
-nt_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver2/bsal.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver2/bsal.faa', 'w')
-err_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver2/bsal.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver2/bsal.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/TriTrypDB-46_LmajorFriedlin_Genome.fasta', 'fasta')
+nt_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.faa', 'w')
+err_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

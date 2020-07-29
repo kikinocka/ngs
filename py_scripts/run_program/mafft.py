@@ -4,8 +4,8 @@ import subprocess
 
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
-os.chdir('/Users/kika/ownCloud/SAGs/mit/nad11/ver3/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/SNAREs/')
+# files = [x for x in os.listdir() if x.endswith('.fa')]
 
 # for file in files:
 # 	print(file)
@@ -15,6 +15,6 @@ files = [x for x in os.listdir() if x.endswith('.fa')]
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
 existing = 'queries/SNAREs/R_SNARES_all.afa'
-new = 'trees/SNARE/R/ver1/euglenozoa.fa'
-out = 'trees/SNARE/R/ver1/r_v1.mafft.aln'
+new = 'trees/SNARE/R/ver2/euglenozoa.fa'
+out = 'trees/SNARE/R/ver2/r_v2.mafft.aln'
 subprocess.call('{} --add {} --thread 6 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)
