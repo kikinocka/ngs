@@ -4,12 +4,12 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/SNAREs/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/ESCRTs/')
 files = os.listdir()
 threads = 6
 
 for file in files:
-	if file.endswith('.mafft.aln'):
+	if file.endswith('.aln'):
 		print(file)
 		name = file.split('.mafft')[0]
 		hmm = name + '.hmm_profile'
