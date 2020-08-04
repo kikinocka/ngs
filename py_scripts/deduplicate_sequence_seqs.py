@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/MCF_transporters/ver2/')
-infile = SeqIO.parse('mcf.fa', 'fasta')
-out_fasta = open('mcf_deduplicated.fa', 'w')
-out_names = open('mcf_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/Qcr8/')
+infile = SeqIO.parse('qcr8.fa', 'fasta')
+out_fasta = open('qcr8_deduplicated.fa', 'w')
+out_names = open('qcr8_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
