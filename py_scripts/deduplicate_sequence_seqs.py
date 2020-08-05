@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/MCF_transporters/ver2/')
-infile = SeqIO.parse('mcfs.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/MCF_transporters/ver4/')
+infile = SeqIO.parse('mcfs_v4.fa', 'fasta')
 out_fasta = open('mcfs_deduplicated.fa', 'w')
 out_names = open('mcfs_dupl-names.txt', 'w')
 
