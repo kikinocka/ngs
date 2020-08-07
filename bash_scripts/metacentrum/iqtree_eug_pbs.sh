@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/mit/ver5/sg-trees/concat_ufb'
+datadir='/storage/brno3-cerit/home/kika/sags/mit/ver5/concat_ufb'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -24,7 +24,7 @@ aln='mit_concat.aln'
 # guide_tree=$guide'.treefile'
 bb=1000
 
-iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet -wsr
+iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet -wsr
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
