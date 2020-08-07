@@ -1,8 +1,8 @@
 #!/bin/bash
-#PBS -N IQT-nad11
+#PBS -N IQT-mitUFB
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb:os=debian9
-#PBS -l walltime=96:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/nad11/ver4'
+datadir='/storage/brno3-cerit/home/kika/sags/mit/ver5/sg-trees/concat_ufb'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -19,7 +19,7 @@ cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='nad11.trimal_gt_0.5.aln'
+aln='mit_concat.aln'
 # guide='guide_concat'
 # guide_tree=$guide'.treefile'
 bb=1000
