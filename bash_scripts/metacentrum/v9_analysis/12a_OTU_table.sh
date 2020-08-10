@@ -38,7 +38,7 @@ SWARMS='global_dereplicated_1f.swarms'
 AMPLICON_TABLE='amplicon_table.out'
 TAXONOMY='global_dereplicated_1f_representatives.results'
 CHIMERA='global_dereplicated_1f_representatives.uchime'
-OTU_TABLE='global_dereplicated_1f.OTU_table.out'
+OTU_TABLE='OTU_table.out'
 
 bash ${SCRIPT} ${STATS} ${SWARMS} ${AMPLICON_TABLE} ${TAXONOMY} ${CHIMERA} ${OTU_TABLE}
 

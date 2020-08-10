@@ -70,5 +70,4 @@ awk -v SWARM="${SWARMS}" \
      delete samples
      }' <(sort -k2,2nr -k1,1nr "${STATS}") >> "${OTU_TABLE}"
 
-echo "bzip2 -9fk "${OTU_TABLE}" &"
-
+bzip2 -9fk "${OTU_TABLE}" &
