@@ -7,7 +7,6 @@
 
 cat $PBS_NODEFILE
 
-
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
 script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
@@ -44,4 +43,4 @@ OTU_TABLE='global_dereplicated_1f.OTU_table.out'
 bash ${SCRIPT} ${STATS} ${SWARMS} ${AMPLICON_TABLE} ${TAXONOMY} ${CHIMERA} ${OTU_TABLE}
 
 #copy files back
-cp ${OTU_TABLE} $data
+cp ${OTU_TABLE}'.bz2' $data
