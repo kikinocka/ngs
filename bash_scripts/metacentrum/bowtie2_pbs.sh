@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-data='/storage/brno3-cerit/home/kika/sags/mapping/EU2/'
+data='/storage/brno3-cerit/home/kika/sags/mapping/EU2-2/'
 
 #copy files to scratch
 cp $data'EU2_contigs.fasta' $SCRATCHDIR
