@@ -11,26 +11,25 @@ cat $PBS_NODEFILE
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-data='/storage/brno3-cerit/home/kika/sags/'
-mapping=$data'mapping/EU18/'
+data='/storage/brno3-cerit/home/kika/sags/mapping/EU2/'
 
 #copy files to scratch
-cp $mapping'EU18_contigs.fasta' $SCRATCHDIR
-cp $data'reassembly/trimmed_reads/EU18_r1_trimmed.fq.gz' $SCRATCHDIR
-cp $data'reassembly/trimmed_reads/EU18_r2_trimmed.fq.gz' $SCRATCHDIR
-cp $data'reassembly/trimmed_reads/EU18_r1_unpaired_1.fq.gz' $SCRATCHDIR
-cp $data'reassembly/trimmed_reads/EU18_r2_unpaired_2.fq.gz' $SCRATCHDIR
+cp $data'EU2_contigs.fasta' $SCRATCHDIR
+cp $data'EU2_r1_val_1.fq.gz' $SCRATCHDIR
+cp $data'EU2_r2_val_2.fq.gz' $SCRATCHDIR
+cp $data'EU2_r1_unpaired_1.fq.gz' $SCRATCHDIR
+cp $data'EU2_r2_unpaired_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='EU18_bw2'
-ref='EU18_contigs.fasta'
-p1_1='EU18_r1_trimmed.fq.gz'
-p1_2='EU18_r2_trimmed.fq.gz'
-r1='EU18_r1_unpaired_1.fq.gz'
-r2='EU18_r2_unpaired_2.fq.gz'
+base_name='EU2_bw2'
+ref='EU2_contigs.fasta'
+p1_1='EU2_r1_val_1.fq.gz'
+p1_2='EU2_r2_val_2.fq.gz'
+r1='EU2_r1_unpaired_1.fq.gz'
+r2='EU2_r2_unpaired_2.fq.gz'
 
 samfile=$base_name'.sam'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
@@ -54,4 +53,4 @@ samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile
 samtools index $sorted
 
 #copy files back
-cp *bw2* $mapping
+cp *bw2* $data
