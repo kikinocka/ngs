@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N blobtools
-#PBS -l select=1:ncpus=1:mem=20gb:scratch_local=50gb
+#PBS -l select=1:ncpus=1:mem=20gb:scratch_local=10gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -12,14 +12,14 @@ module add blobtools-1.0
 
 assembly_dir='/storage/brno3-cerit/home/kika/sags/reassembly/spades/'
 blast_dir='/storage/brno3-cerit/home/kika/sags/reassembly/blast/'
-mapping_dir='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bbmap/'
+mapping_dir='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bwa/'
 ncbi='/storage/brno3-cerit/home/kika/ncbi/'
 blob_dir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/blobtools/'
 
 #copy files to scratch
 cp $assembly_dir'contigs.fasta' $SCRATCHDIR
 cp $blast_dir'EU1718.fa_vs_nt_1e-10.megablast' $SCRATCHDIR
-cp $mapping_dir'EU1718_bbm_mapped_all.sorted.bam' $SCRATCHDIR
+cp $mapping_dir'EU1718_bwa_mapped_all.sorted.bam' $SCRATCHDIR
 cp $ncbi'nodes.dmp' $ncbi'names.dmp' $SCRATCHDIR
 
 #compute on scratch
@@ -29,7 +29,7 @@ mkdir images
 
 genome='contigs.fasta'
 blast='EU1718.fa_vs_nt_1e-10.megablast'
-bam='EU1718_bbm_mapped_all.sorted.bam'
+bam='EU1718_bwa_mapped_all.sorted.bam'
 tax_nodes='nodes.dmp'
 tax_names='names.dmp'
 base='EU1718_blobtools'
