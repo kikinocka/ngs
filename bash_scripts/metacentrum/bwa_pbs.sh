@@ -24,7 +24,7 @@ fw='all_r1_trimmed.fq.gz'
 rv='all_r2_trimmed.fq.gz'
 unpaired='all_unpaired.fq.gz'
 
-base_name='EU18_bwa_'
+base_name='EU1718_bwa_'
 index_report=$base_name'index_genome.report'
 
 stat_mapped_paired=$base_name'mapped_paired.flagstat'
