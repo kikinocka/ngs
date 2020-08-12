@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N qualiMap
+#PBS -N qualimap
 #PBS -q default
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=10gb:os=debian9
 #PBS -l walltime=02:00:00

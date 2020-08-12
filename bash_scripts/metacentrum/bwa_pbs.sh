@@ -11,18 +11,18 @@ cat $PBS_NODEFILE
 module add bwa-0.7.17
 module add samtools-1.3.1
 
-sags='/storage/brno3-cerit/home/kika/sags/mapping/EU18/'
-reads='/storage/brno3-cerit/home/kika/sags/reassembly/trimmed_reads/'
+sags='/storage/brno3-cerit/home/kika/sags/reassembly/'
+reads=$sags'trimmed_reads/'
 outdir=$sags'bwa/'
 
 #copy files to scratch
-cp $sags'EU18_contigs.fasta' $SCRATCHDIR
-cp $reads'EU18_r1_trimmed.fq.gz' $reads'EU18_r2_trimmed.fq.gz' $reads'EU18_all_unpaired.fq.gz' $SCRATCHDIR
+cp $sags'EU1718_contigs.fa' $SCRATCHDIR
+cp $reads'all_r1_trimmed.fq.gz' $reads'all_r2_trimmed.fq.gz' $reads'all_unpaired.fq.gz' $SCRATCHDIR
 
-assembly='EU18_contigs.fasta'
-fw='EU18_r1_trimmed.fq.gz'
-rv='EU18_r2_trimmed.fq.gz'
-unpaired='EU18_all_unpaired.fq.gz'
+assembly='EU1718_contigs.fa'
+fw='all_r1_trimmed.fq.gz'
+rv='all_r2_trimmed.fq.gz'
+unpaired='all_unpaired.fq.gz'
 
 base_name='EU18_bwa_'
 index_report=$base_name'index_genome.report'
