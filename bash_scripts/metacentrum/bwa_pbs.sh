@@ -15,7 +15,7 @@ sags='/storage/brno3-cerit/home/kika/sags/mapping/EU2/'
 outdir=$sags'bwa/'
 
 #copy files to scratch
-cp $spades'EU2_contigs.fasta' $SCRATCHDIR
+cp $sags'EU2_contigs.fasta' $SCRATCHDIR
 cp $sags'EU2_r1_val_1.fq.gz' $sags'EU2_r2_val_2.fq.gz' $sags'unpaired_all.fq.gz' $SCRATCHDIR
 
 assembly='EU2_contigs.fasta'
