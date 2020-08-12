@@ -13,7 +13,7 @@ module add samtools-1.3.1
 
 sags='/storage/brno3-cerit/home/kika/sags/reassembly/'
 reads=$sags'trimmed_reads/'
-outdir=$sags'bwa/'
+outdir=$sags'mapping/bwa/'
 
 #copy files to scratch
 cp $sags'EU1718_contigs.fa' $SCRATCHDIR
