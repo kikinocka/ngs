@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N bwa
-#PBS -l select=1:ncpus=25:mem=50gb:scratch_local=100gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=25:mem=20gb:scratch_local=20gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,19 +11,20 @@ cat $PBS_NODEFILE
 module add bwa-0.7.17
 module add samtools-1.3.1
 
-sags='/storage/brno3-cerit/home/kika/sags/mapping/EU2/'
+sags='/storage/brno3-cerit/home/kika/sags/mapping/EU18/'
+reads='/storage/brno3-cerit/home/kika/sags/reassembly/trimmed_reads/'
 outdir=$sags'bwa/'
 
 #copy files to scratch
-cp $sags'EU2_contigs.fasta' $SCRATCHDIR
-cp $sags'EU2_r1_val_1.fq.gz' $sags'EU2_r2_val_2.fq.gz' $sags'unpaired_all.fq.gz' $SCRATCHDIR
+cp $sags'EU18_contigs.fasta' $SCRATCHDIR
+cp $reads'EU18_r1_trimmed.fq.gz' $reads'EU18_r2_trimmed.fq.gz' $reads'EU18_all_unpaired.fq.gz' $SCRATCHDIR
 
-assembly='EU2_contigs.fasta'
-fw='EU2_r1_val_1.fq.gz'
-rv='EU2_r2_val_2.fq.gz'
-unpaired='unpaired_all.fq.gz'
+assembly='EU18_contigs.fasta'
+fw='EU18_r1_trimmed.fq.gz'
+rv='EU18_r2_trimmed.fq.gz'
+unpaired='EU18_all_unpaired.fq.gz'
 
-base_name='EU2_bwa_'
+base_name='EU18_bwa_'
 index_report=$base_name'index_genome.report'
 
 stat_mapped_paired=$base_name'mapped_paired.flagstat'
