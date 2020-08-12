@@ -11,13 +11,12 @@ cat $PBS_NODEFILE
 #add module
 module ad qualiMap-11_12-16
 
-mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bbmap/'
-outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/qualimap/bbmap/'
+mapping='/storage/brno3-cerit/home/kika/sags/mapping/EU2/bwa/'
 
 #copy files to scratch
-cp $mapping'EU1718_bbm_mapped_all.sorted.bam' $SCRATCHDIR
+cp $mapping'EU2_bwa_mapped_all.sorted.bam' $SCRATCHDIR
 
-bam='EU1718_bbm_mapped_all.sorted.bam'
+bam='EU2_bwa_mapped_all.sorted.bam'
 
 
 #compute on scratch
@@ -26,4 +25,4 @@ qualimap bamqc -nt $PBS_NUM_PPN -bam $bam -outdir $SCRATCHDIR -outformat pdf
 
 #copy files back
 rm $bam
-cp -r * $outdir
+cp -r * $mapping
