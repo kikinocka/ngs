@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/pelomyxa/mito_proteins/import/tom-tim/hmm/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/home/kika/ownCloud/pelomyxa/transcriptome_assembly/pelomyxa_trinity_translated.fasta', 'fasta')
+db = SeqIO.parse('/Users/kika/ownCloud/data/dpapilatum/dpap_genome_translated.fa', 'fasta')
 
 alltables = set()
 for file in files:
