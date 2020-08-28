@@ -32,7 +32,7 @@ missing=$data_dir'missing_list.txt'
 # echo '***Removing lines of ### done***'
 
 # #change EVM names in last columns
-# awk -f awk_name.sh $no_partials > $renamed
+# awk -f 5b_awk_name.sh $no_partials > $renamed
 # echo '***Changing EVM names in last columns done***'
 
 # #remove Name=.* from last columns

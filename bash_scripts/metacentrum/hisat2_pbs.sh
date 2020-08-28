@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -N HISAT2
-#PBS -l select=1:ncpus=15:mem=50gb:scratch_local=100gb
-#PBS -l walltime=02:00:00
+#PBS -N Hisat2
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,22 +11,25 @@ cat $PBS_NODEFILE
 module add hisat2-2.0.5
 module add samtools-1.3.1
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/'
-outidr=$datadir'mapping/scaff_RNA_tophat2/'
-genome=$outadir'scaffold237-495.fa'
-fw=$datadir'reads/transcriptome/merged_trimmed_renamed_1.fq'
-rv=$datadir'reads/transcriptome/merged_trimmed_renamed_2.fq'
+
+genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
+reads='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
+outdir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2_genome_corr/'
 
 #copy files to scratch
-cp $genome $fw $rv $SCRATCHDIR
+cp $genome_dir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
+cp $reads'merged_trimmed_1.fq' $reads'merged_trimmed_2.fq' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-index='scaffold237-495_ht2'
-unmapped_unpaired=$index'_unmapped_unpaired.fq'
-unmapped_paired=$index'_unmapped_paired.fq'
+genome='pelomyxa_final_corr_genome.fa'
+fw='merged_trimmed_1.fq'
+rv='merged_trimmed_2.fq'
+index='pelomyxa_final_corr_ht2'
+unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
+unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
 report=$index'_report.txt'
 bam=$index'_unsorted.bam'
@@ -41,4 +44,4 @@ samtools index $sorted
 
 #copy files back
 rm $genome $fw $rv
-cp -r * $outidr
+cp -r * $outdir

@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N TopHat2
-#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=100gb
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -15,32 +15,34 @@ module add tophat-2.1.1
 module add bowtie2-2.3.0
 module add samtools-1.3.1
 
-#copy files to scratch
-cd /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_RNA_tophat2/
-cp scaffold237-495.fa $SCRATCHDIR/scaffold237-495_bw2.fa
+genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
+reads='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
+outdir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2_genome_corr/'
 
-cd /storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/
-cp merged_trimmed_renamed* $SCRATCHDIR
+#copy files to scratch
+cp $genome_dir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
+cp $reads'merged_trimmed_renamed*' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='scaffold237-495_bw2.fa'
-index='scaffold237-495_bw2'
+genome='pelomyxa_final_corr_genome.fa'
+index='pelomyxa_final_corr_bw2'
 fwd='merged_trimmed_renamed_1.fq'
 rv='merged_trimmed_renamed_2.fq'
+report='pelomyxa_final_corr_tophat_report.txt'
 out='tophat_out/'
 bam=$out'accepted_hits.bam'
 sam=$out'accepted_hits.sam'
 
 bowtie2-build --threads $PBS_NUM_PPN $genome $index
 
-tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv
+tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv 2> $report
 
-samtools view $bam > $sam -@ $PBS_NUM_PPN
+samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
 samtools index $bam
 
 #copy files back
 cd $out
-cp -r * /storage/brno3-cerit/home/kika/pelomyxa/mapping/scaff_RNA_tophat2/.
+cp -r * $outdir

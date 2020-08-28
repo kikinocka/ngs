@@ -57,5 +57,5 @@ predicted_prot=$data_dir'pelomyxa_predicted_proteins.fa'
 # echo '***Simplifying names done***'
 
 #the final set of proteins sorted in the correct order
-perl ./sort.pl > $predicted_prot
+perl ./6b_sort.pl > $predicted_prot
 echo '***Final set of proteins done***'
