@@ -16,12 +16,12 @@ module add bowtie2-2.3.0
 module add samtools-1.3.1
 
 genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
-reads='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
+reads='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome'
 outdir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/tophat2_genome_corr/'
 
 #copy files to scratch
 cp $genome_dir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
-cp $reads'merged_trimmed_renamed*' $SCRATCHDIR
+cp $reads'/'merged_trimmed_renamed* $SCRATCHDIR
 
 
 #compute on scratch
