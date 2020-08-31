@@ -29,20 +29,21 @@ cd $SCRATCHDIR
 
 genome='pelomyxa_final_corr_genome.fa'
 index='pelomyxa_final_corr_bw2'
-fwd='merged_trimmed_renamed_1.fq'
+fw='merged_trimmed_renamed_1.fq'
 rv='merged_trimmed_renamed_2.fq'
 report='pelomyxa_final_corr_tophat_report.txt'
 out='tophat_out/'
 bam=$out'accepted_hits.bam'
 sam=$out'accepted_hits.sam'
 
+export TMPDIR=$SCRATCHDIR
 bowtie2-build --threads $PBS_NUM_PPN $genome $index
 
-tophat2 -r 50 --mate-std-dev 50 -i 30 -p $PBS_NUM_PPN -o $out $index $fwd $rv 2> $report
+tophat2 -r 50 --mate-std-dev 50 -i 30 --keep-tmp -p $PBS_NUM_PPN -o $out $index $fw $rv 2> $report
 
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
 samtools index $bam
 
 #copy files back
-cd $out
+rm $genome $fw $rv
 cp -r * $outdir
