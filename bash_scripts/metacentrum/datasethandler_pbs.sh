@@ -14,7 +14,7 @@ module add mafft-7.453
 module add trimal-1.4
 
 #copy files to scratch
-DATADIR='/storage/brno3-cerit/home/kika/pelomyxa/trees/nifU/ver10'
+DATADIR='/storage/brno3-cerit/home/kika/pelomyxa/trees/nifS/ver14'
 
 cp '/storage/brno2/home/kika/scripts/kika/py_scripts/datasethandler-server.py' $SCRATCHDIR
 cp $DATADIR'/'*.fa $SCRATCHDIR
