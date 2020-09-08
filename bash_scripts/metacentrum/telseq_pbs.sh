@@ -10,15 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add telseq-0.0.2
 
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/cfas_genome/'
+
 #copy files to scratch
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/lpyr_genome/'
-cp $datadir'bw2_mapping/lpyr_bw2_sorted.bam' $SCRATCHDIR
+cp $datadir'bw2_mapping/cfas_bw2_sorted.bam' $SCRATCHDIR
+
 
 #compute on scratch
 cd $SCRATCHDIR
 
-bam='lpyr_bw2_sorted.bam'
-out='lpyr_telseq.out'
+bam='cfas_bw2_sorted.bam'
+out='cfas_telseq.out'
 pattern='TTAGGG'
 
 telseq -z $pattern -o $out $bam
