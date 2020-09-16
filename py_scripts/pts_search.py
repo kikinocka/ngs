@@ -3,8 +3,8 @@ import os
 import re
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/proteromonas/peroxisome/targeting/')
-proteins = SeqIO.parse('caf_mit.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
+proteins = SeqIO.parse('pelomyxa_predicted_proteins_corr.fa', 'fasta')
 
 # #kinetoplastids
 # pts1 = r'(S|A|G|C|N|P)(R|H|K|N|Q)(L|I|V|F|A|M|Y)'
@@ -14,7 +14,7 @@ proteins = SeqIO.parse('caf_mit.fa', 'fasta')
 pts1 = r'(S|A|C)(K|R|H|Q)(L|M)'
 pts2 = r'^\w{1,21}R(L|I|V|Q)\w{2}(L|I|V|Q|H)(L|S|G|A)\w{1}(H|Q)(L|A)'
 
-with open('caf_mit.possibly_peroxisomal.fa', 'w') as out:
+with open('pelomyxa.possibly_peroxisomal.fa', 'w') as out:
 	for protein in proteins:
 		if re.search(pts1, str(protein.seq)[-3:]):
 			out.write('>{} @PTS1:{}\n{}\n'.format(protein.description, protein.seq[-3:], protein.seq))

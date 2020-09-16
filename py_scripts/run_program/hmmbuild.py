@@ -4,7 +4,7 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
+os.chdir('/Users/kika/ownCloud/proteromonas/peroxisome/pexins/pex3/')
 files = os.listdir()
 threads = 6
 

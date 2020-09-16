@@ -1,15 +1,15 @@
 #!/bin/bash
 
-datadir='/mnt/mokosz/home/kika/prototheca/'
-query=$datadir'pwic_hits.fa'
-out=$datadir'pwic_hits.nr.blast.xml'
+datadir='/mnt/mokosz/home/kika/pelomyxa_schiedti/peroxisomes/'
+query=$datadir'pelomyxa_predicted_proteins.possibly_peroxisomal.fa'
+out=$datadir'pelo.possibly_peroxisomal.nr.blast.xml'
 db='/opt/databases/nr/nr'
-program=blastx
-task=blastx
+program=blastp
+task=blastp
 outfmt=5
 eval=1e-3
-max_seqs=5
-cpu=4
+max_seqs=1
+cpu=8
 
 $program -task $task \
 	-query $query \
