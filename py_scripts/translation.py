@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/data/diplonemids_transcriptomes/')
-infile = SeqIO.parse('1621_Trinity.fasta', 'fasta')
-output = open('1621_translated.fa', 'w')
-error = open('1621_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/data/stramenopiles/')
+infile = SeqIO.parse('caf_RCC970-E3.genome.fa', 'fasta')
+output = open('caf_RCC970-E3.genome_translated.fa', 'w')
+error = open('caf_RCC970-E3.genome_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
