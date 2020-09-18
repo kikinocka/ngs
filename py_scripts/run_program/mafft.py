@@ -14,7 +14,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/ESCRTs/vps2-24-46.R6.aln'
-new = 'trees/ESCRTs/ver2/euglenozoans_vps2-24-46.fa'
-out = 'trees/ESCRTs/ver2/vps2-24-46.mafft.aln'
+existing = 'queries/ESCRTs/vps20-32-60.R15.aln'
+new = 'trees/ESCRTs/vps20-32-60/euglenozoans_vps20-32-60.fa'
+out = 'trees/ESCRTs/vps20-32-60/vps20-32-60.mafft.aln'
 subprocess.call('{} --add {} --thread 6 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)
