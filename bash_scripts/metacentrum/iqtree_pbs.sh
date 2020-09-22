@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/ESCRT/vps20-32-60/ver2'
+datadir='/storage/brno3-cerit/home/kika/trafficking/ESCRT/vps20-32-60/ver3'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -19,8 +19,8 @@ cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='vps20-32-60.trimal_gt_0.8.aln'
-guide='guide_vps20-32-60'
+aln='chmp7-vps20-32-60.trimal_gt_0.8.aln'
+guide='guide_chmp7-vps20-32-60.trimal_gt_0.8.aln'
 guide_tree=$guide'.treefile'
 bb=1000
 
