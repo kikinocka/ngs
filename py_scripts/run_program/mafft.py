@@ -4,8 +4,8 @@ import subprocess
 
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
-#align de-novo
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/proteromonas/peroxisome/pexins/')
 # files = [x for x in os.listdir() if x.endswith('.fa')]
 
 # for file in files:
@@ -15,7 +15,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/ESCRTs/vps20-32-60.R15.aln'
-new = 'trees/ESCRTs/vps20-32-60/ver2/euglenozoans_vps20-32-60.fa'
-out = 'trees/ESCRTs/vps20-32-60/ver2/vps20-32-60.mafft.aln'
+existing = 'queries/ESCRTs/CHMP7.R9.mask.aln'
+new = 'trees/ESCRTs/vps20-32-60/ver3/euglenozoa_chmp7-vps20-32-60.fa'
+out = 'trees/ESCRTs/vps20-32-60/ver3/chmp7-vps20-32-60.mafft.aln'
 subprocess.call('{} --add {} --thread 6 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)

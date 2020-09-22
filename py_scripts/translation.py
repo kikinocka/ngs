@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/data/stramenopiles/')
-infile = SeqIO.parse('caf_RCC970-E3.genome.fa', 'fasta')
-output = open('caf_RCC970-E3.genome_translated.fa', 'w')
-error = open('caf_RCC970-E3.genome_errors.fa', 'w')
+infile = SeqIO.parse('blastocystis_scaffolds.fasta', 'fasta')
+output = open('blastocystis_scaffolds_translated.fa', 'w')
+error = open('blastocystis_scaffolds_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
