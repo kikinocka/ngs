@@ -16,6 +16,6 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
 existing = 'queries/ESCRTs/CHMP7.R9.mask.aln'
-new = 'trees/ESCRTs/chmp7/ver2/excavata_chmp7.fa'
-out = 'trees/ESCRTs/chmp7/ver2/chmp7.mafft.aln'
+new = 'trees/ESCRTs/chmp7/ver1/excavata_chmp7.fa'
+out = 'trees/ESCRTs/chmp7/ver1/chmp7.mafft.aln'
 subprocess.call('{} --add {} --thread 6 --inputorder {} > {}'.format(mafft, new, existing, out), shell=True)
