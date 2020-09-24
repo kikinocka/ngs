@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/NifU/ver9')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/PFO/ver2')
 inacc = open('delete.acc')
-infasta = SeqIO.parse('nifU_v9.fa', 'fasta')
+infasta = SeqIO.parse('pfo.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('nifU_v10.fa', 'w') as result:
+with open('pfo_v3.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
