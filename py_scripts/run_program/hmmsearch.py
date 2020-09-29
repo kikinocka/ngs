@@ -7,8 +7,8 @@ hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/data/diplonemids_genomes/1621_spades_translated.fa'
-orgn = '1621'
+db = '/Users/kika/ownCloud/data/Andalucia_godoyi_genome_translated.fa'
+orgn = 'Agod'
 threads = 6
 
 for file in files:
