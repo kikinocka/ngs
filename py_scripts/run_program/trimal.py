@@ -3,12 +3,12 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ESCRTs/chmp7/ver4/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ESCRTs/snf7/ver2/')
 files = [x for x in os.listdir() if '.aln' in x]
 
 for file in files:
 	print(file)
-	file_name = file.split('.')[0] #+ '_' + file.split('_')[1]
+	file_name = file.split('.aln')[0] #+ '_' + file.split('_')[1]
 	aut = 'automated1'
 	gt = 0.8 #fraction of sequences with a gap allowed
 	st = 0.001 #minimum average similarity allowed.
