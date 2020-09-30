@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N mrbayes
-#PBS -l nodes=1:ppn=2:mem=10gb:scratch_local=5gb
+#PBS -l select=1:ncpus=2:mem=10gb:scratch_local=5gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
