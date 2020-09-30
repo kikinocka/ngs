@@ -1,7 +1,6 @@
 #!/bin/sh
 #PBS -N mrbayes
-#PBS -q default
-#PBS -l nodes=1:ppn=20:mem=20gb:scratch_local=10gb
+#PBS -l nodes=1:ppn=2:mem=10gb:scratch_local=5gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -9,7 +8,6 @@
 cat $PBS_NODEFILE
 
 #add module
-module add parallel
 module add mrbayes-3.2.4
 
 data_dir='/storage/brno3-cerit/home/kika/trafficking/ESCRT/snf7/ver4/mrbayes/'
@@ -44,8 +42,7 @@ sump burnin=250;
 sumt burnin=250;
 end;" >> $aln
 
-ls $aln | parallel -j $PBS_NUM_PPN 'mb {}'
-# mpirun mb-mpi $aln
+mpirun -np $PBS_NUM_PPN mb-mpi $aln
 
 #copy files back
 rm $aln
