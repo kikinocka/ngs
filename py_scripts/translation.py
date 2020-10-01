@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/data/')
-infile = SeqIO.parse('Andalucia_godoyi_genome.fasta', 'fasta')
-output = open('andalucia_godoyi_genome_translated.fa', 'w')
-error = open('andalucia_godoyi_genome_errors.fa', 'w')
+infile = SeqIO.parse('Prorocentrum_minimum.JXLM01.fa', 'fasta')
+output = open('Prorocentrum_minimum.JXLM01_translated.fa', 'w')
+error = open('Prorocentrum_minimum.JXLM01_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -31,7 +31,8 @@ def translation(sequence):
         cut_seq.append(sequence[i:i+3])
     aa = []
     for codon in cut_seq:
-        if ('N' in codon) or ('W' in codon) or ('S' in codon) or ('M' in codon) or ('K' in codon) or ('R' in codon) or ('Y' in codon):
+        if ('N' in codon) or ('W' in codon) or ('S' in codon) or ('M' in codon) or ('K' in codon) or ('R' in codon) \
+        or ('Y' in codon) or ('B' in codon) or ('D' in codon) or ('H' in codon) or ('V' in codon):
             aa.append('X')
         else:
             aa.append(gencode[codon])
@@ -45,7 +46,7 @@ for sequence in infile:
     ambiguous = False
     print(name)
     for nucleotide in seq:
-        if nucleotide not in 'ATCGNWSMKRY':
+        if nucleotide not in 'ATCGNWSMKRYBDHV':
             ambiguous = True
     if ambiguous == True:
         error.write('>{}\n{}\n'.format(name, seq))
