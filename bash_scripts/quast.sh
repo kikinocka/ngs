@@ -1,6 +1,9 @@
 #!/bin/sh
 
-f='/home/kika/ownCloud/SAGs/reassembly/EU1718_contigs.fa'
-output='/home/kika/ownCloud/SAGs/reassembly/quast/'
+quast='/Users/kika/miniconda3/bin/quast.py'
 
-/usr/bin/python3.5 /home/kika/programs/quast-5.0.2/quast.py $f --glimmer --min-contig 500 --k-mer-stats --rna-finding --eukaryote -o $output -t 4
+cd '/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/'
+assembly='mastiga_genome_v5.1.fasta'
+output='/quast/'
+
+python $quast --eukaryote -o $output -t 4 $assembly

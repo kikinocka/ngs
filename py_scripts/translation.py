@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/data/')
-infile = SeqIO.parse('Prorocentrum_minimum.JXLM01.fa', 'fasta')
-output = open('Prorocentrum_minimum.JXLM01_translated.fa', 'w')
-error = open('Prorocentrum_minimum.JXLM01_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/')
+infile = SeqIO.parse('mastiga_genome_v5.1.fasta', 'fasta')
+output = open('mastiga_genome_v5.1_translated.fa', 'w')
+error = open('mastiga_genome_v5.1_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

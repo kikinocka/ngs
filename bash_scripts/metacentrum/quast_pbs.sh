@@ -11,12 +11,12 @@ cat $PBS_NODEFILE
 module add quast-4.6.3
 
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
-outdir=$datadir'quast'
+outdir=$datadir'quast_mbal'
 
 #copy files to scratch
-cp $datadir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
+cp $datadir'mastiga_genome_v5.1.fasta' $SCRATCHDIR
 
-assemblies='pelomyxa_final_corr_genome.fa'
+assemblies='mastiga_genome_v5.1.fasta'
 min_contig=500
 
 
