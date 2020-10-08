@@ -1,10 +1,10 @@
 #!/bin/sh
 
 genome='/Users/kika/ownCloud/pelomyxa_schiedti/genome_assembly/pelomyxa_final_corr_genome.fa'
-gff='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_prediction_final_corr.gff3'
-proteins='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_predicted_proteins_corr.fa'
+gff='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns_final.gff'
+output='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns_corr.fa'
 
-bedtools getfasta -s -fo $proteins -fi $genome -bed $gff
+bedtools getfasta -fi $genome -bed $gff -fo $output -name -s
 
 # -fi		Input FASTA file
 # -fo		Output file (opt., default is STDOUT
