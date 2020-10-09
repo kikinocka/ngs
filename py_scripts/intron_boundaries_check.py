@@ -4,7 +4,7 @@ from Bio import SeqIO
 from collections import Counter
 
 os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
-introns = SeqIO.parse('pelomyxa_introns_corr.fa', 'fasta')
+introns = SeqIO.parse('pelomyxa_introns_final.fa', 'fasta')
 outfile = 'pelomyxa_intron_counts.txt'
 
 starts = []

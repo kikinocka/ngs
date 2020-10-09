@@ -2,7 +2,7 @@
 
 genome='/Users/kika/ownCloud/pelomyxa_schiedti/genome_assembly/pelomyxa_final_corr_genome.fa'
 gff='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns_final.gff'
-output='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns_corr.fa'
+output='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns.fa'
 
 bedtools getfasta -fi $genome -bed $gff -fo $output -name -s
 
