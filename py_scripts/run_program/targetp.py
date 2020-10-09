@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/aa_metabolism/')
-files = [x for x in os.listdir() if x.endswith('pelo_THF-connected.fa')]
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/energy_generation/')
+files = [x for x in os.listdir() if x.endswith('adh-aldehyde_dehydrogenase.fa')]
 
 for file in files:
 	print(file)
