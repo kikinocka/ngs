@@ -11,22 +11,21 @@ cat $PBS_NODEFILE
 module add hisat2-2.0.5
 module add samtools-1.3.1
 
-
 genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
-reads='/storage/brno3-cerit/home/kika/pelomyxa/reads/transcriptome/'
-outdir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2_genome_corr/'
+reads='/storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/RNA_to_transcriptome_clean/'
+outdir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2_trans-clean_genome-corr/'
 
 #copy files to scratch
 cp $genome_dir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
-cp $reads'merged_trimmed_1.fq' $reads'merged_trimmed_2.fq' $SCRATCHDIR
+cp $reads'pelo_bw2_mapped.1.fq.gz' $reads'pelo_bw2_mapped.2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 genome='pelomyxa_final_corr_genome.fa'
-fw='merged_trimmed_1.fq'
-rv='merged_trimmed_2.fq'
+fw='pelo_bw2_mapped.1.fq.gz'
+rv='pelo_bw2_mapped.2.fq.gz'
 index='pelomyxa_final_corr_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
