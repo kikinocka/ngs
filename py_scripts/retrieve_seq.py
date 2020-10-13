@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/tom1/blast/')
 files = [x for x in os.listdir() if x.endswith('acc')]
-database = '/Users/kika/ownCloud/data/stramenopiles/platysulcus_tardus.fa'
+database = '/Users/kika/data/eukprot/EP00004_Rigifila_ramosa.fasta'
 
 for accessions in files: 
 	print(accessions)
