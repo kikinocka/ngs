@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
+cmd = 'tblastn'
+task = 'tblastn'
 query = '/Users/kika/ownCloud/membrane-trafficking/tom1/blast/tom1_query.fa'
-db = '/Users/kika/data/eukprot/EP00004_Rigifila_ramosa.fasta'
+db = '/Users/kika/data/alveolates/chromera_velia_CDMZ01.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/membrane-trafficking/tom1/blast/rigifila.blast.xml'
+out = '/Users/kika/ownCloud/membrane-trafficking/tom1/blast/chromera.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/tom1/blast/rigifila.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/tom1/blast/rigifila.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/tom1/blast/chromera.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/tom1/blast/chromera.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

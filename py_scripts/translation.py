@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/genome_assembly/')
-infile = SeqIO.parse('pelomyxa_final_corr_genome.fa', 'fasta')
-output = open('pelomyxa_final_corr_genome_translated.fa', 'w')
-error = open('pelomyxa_final_corr_genome_errors.fa', 'w')
+os.chdir('/mnt/mokosz/home/kika/workdir/')
+infile = SeqIO.parse('chromera_velia.CDMZ01.fa', 'fasta')
+output = open('chromera_velia.CDMZ01_translated.fa', 'w')
+error = open('chromera_velia.CDMZ01_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
