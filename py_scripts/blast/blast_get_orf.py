@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/TriTrypDB-46_LmajorFriedlin_Genome.fasta', 'fasta')
-nt_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.faa', 'w')
-err_out = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/membrane-trafficking/trees/SNARE/R/ver2/lmjf.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1608_Trinity.fasta', 'fasta')
+nt_out = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.faa', 'w')
+err_out = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

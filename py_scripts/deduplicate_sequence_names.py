@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/PFO/ver2/')
-infile = SeqIO.parse('pfo.fa', 'fasta')
-out_fasta = open('pfo_deduplicated.fa', 'w')
-out_names = open('pfo_names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
+infile = SeqIO.parse('pelomyxa_predicted_proteins_corr.to_annotate.fa', 'fasta')
+out_fasta = open('pelomyxa_predicted_proteins_corr.to_annotate_deduplicated.fa', 'w')
+out_names = open('pelomyxa_predicted_proteins_corr.to_annotate_names.txt', 'w')
 
 # names = []
 # with open('RABs_deduplicated.fa', 'w') as out:	

@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/mito_proteins/energy_generation/MPC/')
-infile = SeqIO.parse('mpc.fa', 'fasta')
-out_fasta = open('mpc_deduplicated.fa', 'w')
-out_names = open('mpc_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
+infile = SeqIO.parse('pelomyxa_predicted_proteins_corr.to_annotate.fa', 'fasta')
+out_fasta = open('pelomyxa_predicted_proteins_corr.to_annotate_deduplicated.fa', 'w')
+out_names = open('pelomyxa_predicted_proteins_corr.to_annotate_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

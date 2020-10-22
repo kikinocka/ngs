@@ -7,7 +7,7 @@ hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/tom1/hmm/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/data/alveolates/chromera_velia_CDMZ01_translated.fa'
+db = '/Users/kika/data/alveolates/chromera_velia.CDMZ01_translated.fa'
 orgn = 'chromera'
 threads = 6
 
