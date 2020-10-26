@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ESCRTs/')
+os.chdir('/Users/kika/ownCloud/proteromonas/RABs/tree/ver9/')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('vps2-24-46.names.txt')
+names = open('rabs_names.txt')
 
 name_dict = {}
 for name in names:
