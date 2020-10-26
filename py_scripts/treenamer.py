@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/proteromonas/RABs/tree/ver9/')
+os.chdir('/Users/kika/ownCloud/proteromonas/RABs/tree/ver10/rab2-4-14/')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
@@ -10,8 +10,8 @@ names = open('rabs_names.txt')
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	new = split_line[1]
-	# new = split_line[1] + ' ' + split_line[0]
+	# new = split_line[1]
+	new = split_line[0] + ' ' + split_line[1]
 	name_dict[split_line[0]] = new
 
 for tree in trees:
