@@ -1,6 +1,7 @@
 #!/bin/bash
 
-data_dir='/mnt/mokosz/home/kika/workdir/'
+cd /mnt/mokosz/home/kika/workdir/
+
 aln='rabs.trimal_gt_0.8.aln'
 guide='guide_rabs'
 guide_tree=$guide'.treefile'
