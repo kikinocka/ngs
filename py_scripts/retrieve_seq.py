@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/')
-files = [x for x in os.listdir() if x.endswith('acc')]
-database = '/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_prot_LATEST.fa'
+files = [x for x in os.listdir() if x.endswith('fwd.acc')]
+database = '/Users/kika/ownCloud/pelomyxa_schiedti/blastdb/pelomyxa_predicted_proteins_corr.fa'
 
 for accessions in files: 
 	print(accessions)

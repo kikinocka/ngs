@@ -5,12 +5,12 @@ from Bio.Blast import NCBIXML
 cmd = 'blastp'
 task = 'blastp'
 # query = '/Users/kika/ownCloud/membrane-trafficking/queries/RABs/RhuRAB_aa.txt'
-query = '/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/to-blast.fa'
+query = '/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo_fwd.fa'
 # db = '/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1608_Trinity.fasta'
-db = '/Users/kika/ownCloud/RAB_db/RABs_deduplicated.fa'
+db = '/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/blastdb/Masba_prot_LATEST.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/to-blast.rev_RABdb.blast.xml'
-evalue = 0.0001
+out = '/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo.rev_mastig.blast.xml'
+evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/to-blast.rev_RABdb.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/to-blast.rev_RABdb.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo.rev_mastig.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo.rev_mastig.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
