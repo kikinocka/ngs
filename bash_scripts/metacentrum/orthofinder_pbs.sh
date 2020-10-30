@@ -1,6 +1,6 @@
 #!/bin/sh
-#PBS -N bbmerge
-#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=50gb
+#PBS -N orthofinder
+#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add orthofinder-2.0.0
 
-data='/storage/brno3-cerit/home/kika/pelomyxa/peroxisomes'
+data='/storage/brno3-cerit/home/kika/pelomyxa/peroxisomes/'
 
 
 #copy files to scratch
