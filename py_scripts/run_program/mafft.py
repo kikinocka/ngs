@@ -5,7 +5,7 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/proteromonas/RABs/tree/ver14/')
+os.chdir('/Users/kika/ownCloud/SAGs/ribosomal-import/alns/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
