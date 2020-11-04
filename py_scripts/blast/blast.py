@@ -2,15 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastx'
-task = 'blastx'
-# query = '/Users/kika/ownCloud/membrane-trafficking/queries/RABs/RhuRAB_aa.txt'
-query = '/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo_tran_fwd.fa'
-# db = '/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1608_Trinity.fasta'
-db = '/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/blastdb/Masba_prot_LATEST.fa'
+cmd = 'blastp'
+task = 'blastp'
+query = '/Users/kika/ownCloud/membrane-trafficking/queries/RABs/RhuRAB_aa.txt'
+# query = '/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/orthofinder/OGs_sc/pelo_sc-OGs.fa'
+db = '/Users/kika/ownCloud/diplonema/dpapilatum/dpap_predicted_proteins.fa'
+# db = '/Users/kika/ownCloud/pelomyxa_schiedti/blastdb/pelomyxa_transcriptome_clean.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo_tran.rev_mastig.blast.xml'
-evalue = 1
+out = '/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/fwd.blast.xml'
+evalue = 1e-04
 outfmt = 5
 hits = 1
 word_size = 3
@@ -18,10 +18,10 @@ threads = 6
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -max_target_seqs {} \
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
 	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, hits, threads), shell=True)
-#
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+#-max_target_seqs {} hits, 
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo_tran.rev_mastig.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/pelo_tran.rev_mastig.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/fwd.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/fwd.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

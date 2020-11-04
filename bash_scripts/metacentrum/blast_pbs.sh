@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blast
-#PBS -l select=1:ncpus=10:mem=20gb:scratch_local=3gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=15:mem=20gb:scratch_local=3gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,19 +10,18 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.8.0a
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/1608/'
+datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/dpap/'
 
 #copy files to scratch
 cp $datadir'1608_fwd_hits.fa' $SCRATCHDIR
 
-query='1608_fwd_hits.fa'
-out='1608.rev_nr.blast.xml'
-# db=$datadir'genome_db/pzop_genome.fa'
+query='fwd_hits.fa'
+out='rev_nr.blast.xml'
 db='/storage/projects/BlastDB/nr'
-program=blastx
-task=blastx
+program=blastp
+task=blastp
 outfmt=5
-eval=0.0001
+eval=1e-04
 max_seqs=1
 
 #run on scratch
