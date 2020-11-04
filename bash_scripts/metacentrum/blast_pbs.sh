@@ -13,7 +13,7 @@ module add blast+-2.8.0a
 datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/dpap/'
 
 #copy files to scratch
-cp $datadir'1608_fwd_hits.fa' $SCRATCHDIR
+cp $datadir'fwd_hits.fa' $SCRATCHDIR
 
 query='fwd_hits.fa'
 out='rev_nr.blast.xml'
