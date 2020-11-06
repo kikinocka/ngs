@@ -2,10 +2,10 @@
 
 cd /mnt/mokosz/home/kika/workdir/
 
-aln='rabs.trimal_gt_0.8.aln'
-guide='guide_rabs'
+aln='NR.trimal_gt_0.8.aln'
+guide='guide_NR'
 guide_tree=$guide'.treefile'
-bb=10000
+bb=1000
 threads=10
 
 iqtree -m LG+F+G -nt AUTO -ntmax $threads -quiet -s $aln -pre $guide
