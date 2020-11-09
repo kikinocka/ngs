@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/diplonema/metabolism/N2/nitrate_reductase_tree/')
+os.chdir('/Users/kika/ownCloud/diplonema/metabolism/N2/nitrate_reductase_tree/ver2/')
 files = [x for x in os.listdir() if '.aln' in x]
 
 for file in files:
