@@ -4,7 +4,7 @@ import re
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/')
-infile = open('orthofinder/pelo_mastig_single-copy-OGs.txt')
+infile = open('orthofinder/pelo_mastig_OGs-sc_tran-supp.txt')
 pelo_fa = SeqIO.parse('/Users/kika/ownCloud/pelomyxa_schiedti/blastdb/pelomyxa_predicted_proteins_corr.fa', 'fasta')
 mast_fa = SeqIO.parse('mastig_lopit.fa', 'fasta')
 
@@ -33,7 +33,7 @@ for seq in pelo_fa:
 	for og, accessions in pelo_all.items():
 		for pelo in accessions:
 			if pelo == seq.name:
-				with open('orthofinder/OGs_sc/{}.fa'.format(og), 'a') as result:
+				with open('orthofinder/OGs_sc_tran-supp/{}.fa'.format(og), 'a') as result:
 					result.write('>{}\n{}\n'.format(pelo, seq.seq))
 
 
@@ -41,5 +41,5 @@ for seq in mast_fa:
 	for og, accessions in mast_all.items():
 		for mast in accessions:
 			if mast == seq.name:
-				with open('orthofinder/OGs_sc/{}.fa'.format(og), 'a') as result:
-					result.write('>{}\n{}\n'.format(mast, seq.seq))
+				with open('orthofinder/OGs_sc_tran-supp/{}.fa'.format(og), 'a') as result:
+					result.write('>{}\n{}\n'.format(mast, seq.seq[:-1]))
