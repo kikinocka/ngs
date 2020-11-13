@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 import os
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from Bio import AlignIO
 from Bio.Phylo.TreeConstruction import DistanceCalculator
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/orthofinder/OGs_sc_tran-supp/ends_fasta/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/mastig_lopit/orthofinder/OGs_sc_tran-supp/starts_noM_alns/')
+files = [x for x in os.listdir() if x.endswith('.aln')]
 
 distances = []
-with open('ends_fasta.txt', 'w') as result:
+with open('starts_noM_alns.txt', 'w') as result:
 	for file in files:
 		print(file)
 		aln = AlignIO.read(file, format = 'fasta')
@@ -25,8 +24,7 @@ with open('ends_fasta.txt', 'w') as result:
 	# 'pam30', 'pam300', 'pam60', 'pam90', 'rao', 'risler', 'structure']
 
 
-arr = np.array(distances)
-plt.hist(arr, color='#00BE89')
+plt.hist(np.array(distances), color='#00BE89')
 plt.xlabel('distance')
 plt.ylabel('frequency')
 plt.show()
