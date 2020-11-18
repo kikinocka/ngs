@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/workdir/')
-infile = SeqIO.parse('chromera_velia.CDMZ01.fa', 'fasta')
-output = open('chromera_velia.CDMZ01_translated.fa', 'w')
-error = open('chromera_velia.CDMZ01_errors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/oil_sands/BML_photosystems/')
+infile = SeqIO.parse('BML_photosystems.fa', 'fasta')
+output = open('BML_photosystems_translated.fa', 'w')
+error = open('BML_photosystems_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -41,7 +41,7 @@ def translation(sequence):
 i = 0
 for sequence in infile:
     i += 1
-    name = sequence.name
+    name = sequence.description
     seq = sequence.seq.upper()
     ambiguous = False
     print(name)

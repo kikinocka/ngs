@@ -10,19 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.8.0a
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/dpap/'
+datadir='/storage/brno3-cerit/home/kika/bml/'
 
 #copy files to scratch
-cp $datadir'fwd_hits.fa' $SCRATCHDIR
+cp $datadir'BML_photosystems_aa.fa' $SCRATCHDIR
 
-query='fwd_hits.fa'
-out='rev_nr.blast.xml'
+query='BML_photosystems_aa.fa'
+out='BML_photosystems.blast.xml'
 db='/storage/projects/BlastDB/nr'
 program=blastp
 task=blastp
 outfmt=5
-eval=1e-04
-max_seqs=1
+eval=1
+max_seqs=5
 
 #run on scratch
 cd $SCRATCHDIR
