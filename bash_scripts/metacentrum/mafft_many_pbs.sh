@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
-#PBS -l select=1:ncpus=15:mem=15gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
