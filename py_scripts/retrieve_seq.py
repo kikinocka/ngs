@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonema_japonicum_1604/RABs/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/namystynia_karyoxenos_1621/RABs/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1604_Trinity.fasta'
+database = '/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1621_Trinity.fasta'
 
 for accessions in files: 
 	print(accessions)
