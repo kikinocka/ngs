@@ -5,10 +5,10 @@ from collections import defaultdict
 
 Entrez.email = 'kika.zahonova@gmail.com'
 
-os.chdir('/mnt/mokosz/home/kika/prototheca/')
-table = 'pwic_hits.nr.blast.tsv'
-output = 'pwic_hits.taxonomy_assigned.tsv'
-errors = open('pwic_hits.taxonomy_errors.txt', 'w')
+os.chdir('/Users/kika/owncloud/oil_sands/BML_photosystems/')
+table = 'BML_photosystems.blast.tsv'
+output = 'BML_photosystems.taxonomy_assigned.tsv'
+errors = open('BML_photosystems.taxonomy_errors.txt', 'w')
 
 def taxonomy_assign(accs, database, errors):
 	final = set()
@@ -26,14 +26,14 @@ def taxonomy_assign(accs, database, errors):
 
 accessions = defaultdict(set)
 for line in open(table):
-	query = line.split('\t')[0].split(' ')[0]
+	query = line.split('\t')[0]
 	subject = line.split('\t')[2].strip()
 	if subject == 'sseqid':
 		pass
 	elif subject == '***no hit found***':
 		pass
 	else:
-		subject = subject.split('|')[3]
+		subject = subject.split('|')[1]
 		accessions[query].add(subject)
 
 with open(output, 'w') as out:

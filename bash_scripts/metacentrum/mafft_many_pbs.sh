@@ -8,9 +8,9 @@
 cat $PBS_NODEFILE
 
 #add module
-module add mafft-7.313
+module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/proteromonas/ACSL_tree/ver3'
+data_dir='/storage/brno3-cerit/home/kika/mic60-dynamins'
 
 #copy files to scratch
 cp $data_dir'/'*.fa $SCRATCHDIR
@@ -20,9 +20,11 @@ cd $SCRATCHDIR
 
 for f in *.fa ; do
  aln=${f%.fa}.mafft.aln
- mafft --thread $PBS_NUM_PPN --maxiterate 100 --inputorder --auto ${f} > ${aln}
+ log=${f%.fa}.mafft.log
+ mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 done
 
 
 #copy files back
-cp *.mafft.aln $data_dir
+rm *.fa
+cp * $data_dir
