@@ -2,19 +2,19 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
+cmd = 'blastx'
+task = 'blastx'
 # query = '/Users/kika/ownCloud/membrane-trafficking/queries/RABs/RhuRAB_aa.txt'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/fwd_hits.fa'
-# db = '/Users/kika/ownCloud/diplonema/dpapilatum/dpap_predicted_proteins.fa'
+query = '/Users/kika/ownCloud/membrane-trafficking/diplonema_japonicum_1604/RABs/fwd_hits.fa'
+# db = '/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1604_Trinity.fasta'
 db = '/Users/kika/ownCloud/RAB_db/RABs_deduplicated.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/rev_RABdb.blast.xml'
+out = '/Users/kika/ownCloud/membrane-trafficking/diplonema_japonicum_1604/RABs/rev_RABdb.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 6
+threads = 7
 
 print('running BLAST')
 #query - database
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/rev_RABdb.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/rev_RABdb.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_japonicum_1604/RABs/rev_RABdb.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_japonicum_1604/RABs/rev_RABdb.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
