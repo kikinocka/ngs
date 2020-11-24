@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/diplonema/metabolism/N2/formate-nitrite_transporter/')
-infile = SeqIO.parse('seqdump.fa', 'fasta')
-out_fasta = open('seqdump_deduplicated.fa', 'w')
-out_names = open('seqdump_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/artemidia_motanka_1610/RABs/')
+infile = SeqIO.parse('rev_geneMark.fa', 'fasta')
+out_fasta = open('rev_geneMark_deduplicated.fa', 'w')
+out_names = open('rev_geneMark_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

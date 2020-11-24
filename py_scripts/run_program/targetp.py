@@ -4,7 +4,7 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/diplonema/metabolism/TCA_cycle/isocitrate_dehydrogenase/')
+os.chdir('/Users/kika/ownCloud/diplonema/metabolism/TCA_cycle/FRD/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
