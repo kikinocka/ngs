@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/artemidia_motanka_1610/RABs/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/namystynia_karyoxenos_1621/RABs/')
 infile = SeqIO.parse('rev_geneMark.fa', 'fasta')
 out_fasta = open('rev_geneMark_deduplicated.fa', 'w')
 out_names = open('rev_geneMark_dupl-names.txt', 'w')
