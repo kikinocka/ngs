@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 
-db = '/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/blastdb/Masba_prot_LATEST.fa'
+db = '/Users/kika/ownCloud/anaeramoeba/proteomes/Tvag_proteins.fasta'
 dbtype = 'prot'
 
 subprocess.call('makeblastdb -in {} -dbtype {} -parse_seqids'.format(db, dbtype), shell=True)
