@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
 os.chdir('/Users/kika/ownCloud/anaeramoeba/RABs/')
-infile = SeqIO.parse('BM_rev.fa', 'fasta')
-out_fasta = open('BM_rev_deduplicated.fa', 'w')
-out_names = open('BM_rev_dupl-names.txt', 'w')
+infile = SeqIO.parse('Tvag_rev.fa', 'fasta')
+out_fasta = open('Tvag_rev_deduplicated.fa', 'w')
+out_names = open('Tvag_rev_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
