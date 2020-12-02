@@ -5,11 +5,11 @@ from Bio.Blast import NCBIXML
 cmd = 'blastp'
 task = 'blastp'
 # query = '/Users/kika/ownCloud/anaeramoeba/queries_blast/RABs.fa'
-query = '/Users/kika/ownCloud/anaeramoeba/RABs/BM_fwd.fa'
-# db = '/Users/kika/ownCloud/anaeramoeba/proteomes/Ai_BM_proteins.fasta'
+query = '/Users/kika/ownCloud/anaeramoeba/RABs/Tvag_fwd.fa'
+# db = '/Users/kika/ownCloud/anaeramoeba/proteomes/Tvag_proteins.fasta'
 db = '/Users/kika/ownCloud/RAB_db/RABs_deduplicated.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/anaeramoeba/RABs/BM_rev.RABdb.blast.xml'
+out = '/Users/kika/ownCloud/anaeramoeba/RABs/Tvag_rev.RABdb.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/anaeramoeba/RABs/BM_rev.RABdb.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/anaeramoeba/RABs/BM_rev.RABdb.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/anaeramoeba/RABs/Tvag_rev.RABdb.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/anaeramoeba/RABs/Tvag_rev.RABdb.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

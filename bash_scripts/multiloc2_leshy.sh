@@ -14,6 +14,6 @@ for file in $files; do
 	out=${file%.*}'.multiloc_fungal.txt'
 	python $multiloc -fasta=$file -origin=$f -predictor=LowRes -result=$out -output=simple
 	
-	# out=${file%.*}'.multiloc_animal.txt'
-	# python $multiloc -fasta=$file -origin=$a -predictor=LowRes -result=$out -output=simple
+	out=${file%.*}'.multiloc_animal.txt'
+	python $multiloc -fasta=$file -origin=$a -predictor=LowRes -result=$out -output=simple
 done

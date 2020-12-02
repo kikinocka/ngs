@@ -2,8 +2,8 @@
 import os
 
 os.chdir('/Users/kika/ownCloud/anaeramoeba/RABs/')
-btable = open('BM_rev.RABdb.best_blast.tsv')
-out = 'BM_rev.acc'
+btable = open('Tvag_rev.RABdb.best_blast.tsv')
+out = 'Tvag_rev.acc'
 rabs = ['Rab', 'IFT', 'Ran', 'RAN', 'RTW', 'Ypt']
 
 with open(out, 'w') as result:
