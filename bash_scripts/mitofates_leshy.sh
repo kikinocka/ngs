@@ -11,9 +11,9 @@ cd $workdir
 for file in $files; do
 	echo $file
 	
-	out=${file%.*}'.mitofates_fungal.txt'
-	perl $mitofates $file $f > $out
+	# out=${file%.*}'.mitofates_fungal.txt'
+	# perl $mitofates $file $f > $out
 	
-	# out=${file%.*}'.multiloc_animal.txt'
-	# python $multiloc -fasta=$file -origin=$a -predictor=LowRes -result=$out -output=simple
+	out=${file%.*}'.multiloc_metazoa.txt'
+	perl $mitofates $file $m > $out
 done
