@@ -11,8 +11,8 @@ cat $PBS_NODEFILE
 #add module
 module ad qualiMap-11_12-16
 
-mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bwa_joined_contigs2-FINAL/'
-outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/qualimap/bwa-FINAL/'
+mapping='/storage/brno3-cerit/home/kika/sags/reassembly/mapping/bwa_joined_contigs-FINAL/'
+outdir='/storage/brno3-cerit/home/kika/sags/reassembly/reports/qualimap/bwa_joined_contigs-FINAL/'
 
 #copy files to scratch
 cp $mapping'EU1718_bwa_mapped_all.sorted.bam' $SCRATCHDIR
