@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/opisth-crums/mgm1_search/')
-files = [x for x in os.listdir() if x.endswith('Parvularia.acc')]
-database = '/Users/kika/data/eukprot/EP00160_Parvularia_atlantis.fasta'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/transcripts/')
+files = [x for x in os.listdir() if x.endswith('rev_hits.acc')]
+database = '/Users/kika/ownCloud/diplonema/dpapilatum/dpap_transcripts.fa'
 
 for accessions in files: 
 	print(accessions)
