@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N iqtree
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/mic60-dynamins'
+data_dir='/storage/brno3-cerit/home/kika/mic60-dynamins/ver2'
 
 #copy files to scratch
 cp $data_dir'/'*trimal*.aln $SCRATCHDIR
