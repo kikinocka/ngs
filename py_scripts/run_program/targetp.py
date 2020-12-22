@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/diplonema/metabolism/FA_synthesis/')
-files = [x for x in os.listdir() if x.endswith('FA_synthesis.fa')]
+os.chdir('/Users/kika/ownCloud/diplonema/metabolism/FA_degradation/')
+files = [x for x in os.listdir() if x.endswith('acox.fa')]
 
 for file in files:
 	print(file)
