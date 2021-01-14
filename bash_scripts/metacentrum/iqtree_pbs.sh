@@ -10,8 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/anaeramoeba'
-outdir=$datadir'/C20/'
+datadir='/storage/brno3-cerit/home/kika/anaeramoeba/hops-corvet/ver2'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -32,4 +31,4 @@ iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $gu
 
 #copy files back
 rm $aln
-cp * $outdir
+cp * $datadir

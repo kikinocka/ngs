@@ -17,7 +17,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/HOPS-CORVET/')
-existing = 'HOPS_CORVET_T2.aln'
+existing = 'HOPS_CORVET_T3.aln'
 add = 'anaer.fa'
 out = 'hops_corvet.mafft.aln'
 log = 'hops_corvet.mafft.log'

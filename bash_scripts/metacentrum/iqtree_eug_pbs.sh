@@ -11,7 +11,6 @@ cat $PBS_NODEFILE
 module add iqtree-1.6.8
 
 datadir='/storage/brno3-cerit/home/kika/anaeramoeba'
-outdir=$datadir'/modeltest/'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -33,4 +32,4 @@ iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet #-wsr
 
 #copy files back
 rm $aln
-cp * $outdir
+cp * $datadir
