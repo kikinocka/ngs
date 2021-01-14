@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-c20
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/mit/ver6/concat_C20_bs'
+datadir='/storage/brno3-cerit/home/kika/anaeramoeba'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -18,8 +18,8 @@ cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='mit_concat.aln'
-guide='guide_mit_concat'
+aln='hops_corvet.trimal_gt_0.8.aln'
+guide='guide_hops_corvet'
 guide_tree=$guide'.treefile'
 bb=1000
 

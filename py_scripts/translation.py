@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/oil_sands/BML_photosystems/')
-infile = SeqIO.parse('BML_photosystems.fa', 'fasta')
-output = open('BML_photosystems_translated.fa', 'w')
-error = open('BML_photosystems_errors.fa', 'w')
+os.chdir('/Users/kika/data/stramenopiles/Phytophthora_ramorum-Phyra1_1-jgi/')
+infile = SeqIO.parse('phyra.fasta', 'fasta')
+output = open('phyra_translated.fa', 'w')
+error = open('phyra_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
