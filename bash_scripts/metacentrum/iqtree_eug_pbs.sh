@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N IQT-nm
+#PBS -N IQT-test
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
