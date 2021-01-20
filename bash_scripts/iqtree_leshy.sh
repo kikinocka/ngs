@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/egracilis/RABs/
+cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/acs/ver4/
 
-aln='rabs.trimal_gt_0.8.aln'
-guide='guide_rabs'
+aln='acs.trimal_gt_0.5.aln'
+guide='guide_acs'
 guide_tree=$guide'.treefile'
 bb=1000
 threads=10
