@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/acs/ver5/
+cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/acs/ver6/
 
 aln='acs.trimal_gt_0.5.aln'
 guide='guide_acs'
