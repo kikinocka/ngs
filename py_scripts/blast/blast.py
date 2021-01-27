@@ -2,26 +2,26 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
+cmd = 'tblastn'
+task = 'tblastn'
 # query = '/Users/kika/ownCloud/anaeramoeba/queries_blast/RABs.fa'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/transcripts/rev_geneMark.fa'
+query = '/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/tbruc_aa-rs.fa'
 # db = '/Users/kika/ownCloud/anaeramoeba/proteomes/Tvag_proteins.fasta'
-db = '/Users/kika/ownCloud/RAB_db/RABs_deduplicated.fa'
+db = '/Users/kika/ownCloud/blastocrithidia/genome_assembly/blastdb/p57_polished.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/transcripts/rev_geneMark.rev_RABdb.blast.xml'
+out = '/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/p57_aa-rs.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 5
+threads = 6
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} -max_target_seqs {} \
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
 	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, hits, threads), shell=True)
-#
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+#-max_target_seqs {} hits, 
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/transcripts/rev_geneMark.rev_RABdb.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/transcripts/rev_geneMark.rev_RABdb.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/p57_aa-rs.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/p57_aa-rs.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
