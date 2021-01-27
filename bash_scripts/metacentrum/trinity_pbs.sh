@@ -10,13 +10,14 @@ cat $PBS_NODEFILE
 #add module
 module add trinity-2.6.5
 
-datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii'
+read_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads'
+out_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
 
 #copy files to scratch
-cp $datadir'/'*trimmed_renamed*.fq.gz $SCRATCHDIR
+cp $read_dir'/'*trimmed_*.fq.gz $SCRATCHDIR
 
-fw=SRR8447028_trimmed_renamed_1.fq.gz,SRR8447029_trimmed_renamed_1.fq.gz,SRR8447030_trimmed_renamed_1.fq.gz
-rv=SRR8447028_trimmed_renamed_2.fq.gz,SRR8447029_trimmed_renamed_2.fq.gz,SRR8447030_trimmed_renamed_2.fq.gz
+fw=SRR5396411_trimmed_1.fq.gz,SRR5396412_trimmed_1.fq.gz
+rv=SRR5396411_trimmed_2.fq.gz,SRR5396412_trimmed_2.fq.gz
 
 
 #compute on scratch
@@ -24,5 +25,5 @@ cd $SCRATCHDIR
 Trinity --seqType fq --left $fw --right $rv --max_memory 100G --CPU $PBS_NUM_PPN
 
 #copy files back
-rm *trimmed_renamed*fq.gz
-cp -r * $datadir
+rm *trimmed_*fq.gz
+cp -r * $out_dir
