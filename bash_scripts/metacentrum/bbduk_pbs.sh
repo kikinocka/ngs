@@ -15,15 +15,15 @@ trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'SRR5396411_1.fastq.gz' $SCRATCHDIR
-cp $raw_dir'SRR5396411_2.fastq.gz' $SCRATCHDIR
+cp $raw_dir'SRR5396412_1.fastq.gz' $SCRATCHDIR
+cp $raw_dir'SRR5396412_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='SRR5396411'
+name='SRR5396412'
 fw=$name'_1.fastq.gz'
 rv=$name'_2.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
@@ -41,5 +41,5 @@ bbduk.sh overwrite=true \
 # bbduk.sh in=$fw out=$trimmed_fw ref=$adapt k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> $report
 
 #copy files back
-rm $fw $adapt
+rm $fw $rv $adapt
 cp -r * $trim_dir
