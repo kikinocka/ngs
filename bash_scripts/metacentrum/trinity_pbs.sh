@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add trinity-2.6.5
+module add trinity-2.9.1
 
 read_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads'
 out_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
