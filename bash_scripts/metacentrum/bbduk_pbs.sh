@@ -10,21 +10,22 @@ cat $PBS_NODEFILE
 module add bbmap-36.92
 
 
-raw_dir='/storage/brno3-cerit/home/kika/kinetoplastids/lpyr_genome/reads/454/'
-trim_dir=''
+raw_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/raw_reads/'
+trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $read_dir'454_all.fq.gz' $SCRATCHDIR
+cp $read_dir'SRR5396411_1.fastq.gz' $SCRATCHDIR
+cp $read_dir'SRR5396411_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='454_all'
-fw=$name'1.fq.gz'
-rv=$name'2.fastq.gz'
+name='SRR5396411'
+fw=$name'_1.fastq.gz'
+rv=$name'_2.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name'_bbduk_report.txt'
