@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/raw_reads'
+read_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads'
 out_dir=$read_dir'/fastqc/'
 
 
