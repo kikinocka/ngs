@@ -15,8 +15,8 @@ trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $read_dir'SRR5396411_1.fastq.gz' $SCRATCHDIR
-cp $read_dir'SRR5396411_2.fastq.gz' $SCRATCHDIR
+cp $raw_dir'SRR5396411_1.fastq.gz' $SCRATCHDIR
+cp $raw_dir'SRR5396411_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
