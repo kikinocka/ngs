@@ -10,13 +10,13 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
-outdir=$datadir'quast_mbal'
+datadir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
+outdir=$datadir'quast'
 
 #copy files to scratch
-cp $datadir'mastiga_genome_v5.1.fasta' $SCRATCHDIR
+cp $datadir'rhizomastix_reassembly.trinity.fa' $SCRATCHDIR
 
-assemblies='mastiga_genome_v5.1.fasta'
+assemblies='rhizomastix_reassembly.trinity.fa'
 min_contig=500
 
 
