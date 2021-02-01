@@ -23,8 +23,3 @@ $program -task $task \
 	-max_target_seqs $max_seqs \
 	-max_hsps $max_hsps \
 
-blastn -db $BLASTDIR \
-		-query $SAMPLE -out $SAMPLE.blast \
-		-outfmt '6 qseqid staxids bitscore sseqid qcovs pident' \
-		-max_target_seqs 20 -max_hsps 1 -evalue 1e-2 \
-		-num_threads 4
