@@ -1,15 +1,17 @@
 #!/bin/bash
 
-datadir='/mnt/mokosz/home/kika/pelomyxa_schiedti/peroxisomes/'
-query=$datadir'pelomyxa_predicted_proteins.possibly_peroxisomal.fa'
-out=$datadir'pelo.possibly_peroxisomal.nr.blast.xml'
-db='/opt/databases/nr/nr'
-program=blastp
-task=blastp
-outfmt=5
-eval=1e-3
-max_seqs=1
-cpu=8
+datadir='/mnt/mokosz/home/kika/rhizomastix_reassembly/'
+query=$datadir'rhizomastix_reassembly.trinity.fa'
+out=$datadir'rhizomastix_reassembly.nt.blast.out'
+db='/opt/databases/nt_auto/current/blast'
+program=blastn
+task=blastn
+# outfmt=5
+outfmt='6 qseqid staxids bitscore sseqid qcovs pident'
+eval=1e-2
+max_seqs=20
+max_hsps=1
+cpu=4
 
 $program -task $task \
 	-query $query \
@@ -19,3 +21,10 @@ $program -task $task \
 	-num_threads $cpu \
 	-evalue $eval \
 	-max_target_seqs $max_seqs \
+	-max_hsps $max_hsps \
+
+blastn -db $BLASTDIR \
+		-query $SAMPLE -out $SAMPLE.blast \
+		-outfmt '6 qseqid staxids bitscore sseqid qcovs pident' \
+		-max_target_seqs 20 -max_hsps 1 -evalue 1e-2 \
+		-num_threads 4
