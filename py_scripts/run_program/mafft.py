@@ -8,17 +8,17 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 # os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/enolase/')
 # files = [x for x in os.listdir() if x.endswith('.fa')]
 
-# for file in files:
-# 	print(file)
-# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
-# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-# 		mafft, file, out, log), shell=True)
+for file in files:
+	print(file)
+	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+	log = '{}.mafft.log'.format(file.split('.fa')[0])
+	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+		mafft, file, out, log), shell=True)
 
-#add to aligned sequences
-os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/Vps9/')
-existing = 'VPS9_all.aln'
-add = 'anaer.fa'
-out = 'vps9.mafft.aln'
-log = 'vps9.mafft.log'
-subprocess.call('{} --add {} --thread 6 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# #add to aligned sequences
+# os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/Vps9/')
+# existing = 'VPS9_all.aln'
+# add = 'anaer.fa'
+# out = 'vps9.mafft.aln'
+# log = 'vps9.mafft.log'
+# subprocess.call('{} --add {} --thread 6 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
