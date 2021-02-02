@@ -4,12 +4,12 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/proteromonas/peroxisome/pexins/cafeteria/')
+os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/enolase/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/data/stramenopiles/Phytophthora_ramorum-Phyra1_1-jgi/phyra_translated.fa'
-orgn = 'phyra'
-threads = 6
+db = '/Users/kika/data/eukprot/eukprot_v2_proteins_renamed.faa'
+orgn = 'eukprot'
+threads = 66
 
 for file in files:
 	print(file)
