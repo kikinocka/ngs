@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/wax_esters/')
+os.chdir('/Users/kika/ownCloud/diplonema/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
 database = '/Users/kika//ownCloud/diplonema/seq_data/dpapilatum/dpap_predicted_proteins.fa'
 
