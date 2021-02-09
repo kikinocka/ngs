@@ -7,7 +7,7 @@ db='/opt/databases/nr_auto/current/blast/nr'
 program=blastp
 task=blastp
 # outfmt=5
-outfmt=' "6 qseqid staxids bitscore sseqid qcovs pident" '
+# outfmt=' "6 qseqid staxids bitscore sseqid qcovs pident" '
 eval=1e-2
 max_seqs=20
 max_hsps=1
@@ -17,7 +17,7 @@ $program -task $task \
 	-query $query \
 	-db $db \
 	-out $out \
-	-outfmt $outfmt \
+	-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 	-num_threads $cpu \
 	-evalue $eval \
 	-max_target_seqs $max_seqs \
