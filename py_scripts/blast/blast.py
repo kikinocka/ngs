@@ -2,14 +2,14 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
+cmd = 'blastp'
+task = 'blastp'
 # query = '/Users/kika/ownCloud/anaeramoeba/queries_blast/RABs.fa'
-query = '/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/tbruc_aa-rs.fa'
+query = '/Users/kika/ownCloud/diplonema/ETC/cI_MV.fa'
 # db = '/Users/kika/ownCloud/anaeramoeba/proteomes/Tvag_proteins.fasta'
-db = '/Users/kika/ownCloud/blastocrithidia/genome_assembly/blastdb/p57_polished.fa'
+db = '/Users/kika/ownCloud/diplonema/seq_data/dpapilatum/dpap_predicted_proteins.fa'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/p57_aa-rs.blast.xml'
+out = '/Users/kika/ownCloud/diplonema/ETC/cI.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/p57_aa-rs.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/p57_aa-rs.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/diplonema/ETC/cI.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/diplonema/ETC/cI.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

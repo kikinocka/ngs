@@ -1,13 +1,13 @@
 #!/bin/bash
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_reassembly/'
-query=$datadir'rhizomastix_reassembly.trinity.fa'
-out=$datadir'rhizomastix_reassembly.nt.blast.out'
-db='/opt/databases/nt_auto/current/blast'
-program=blastn
-task=blastn
+datadir='/mnt/mokosz/home/kika/rhizomastix_reassembly/rhizomastix_reassembly.trinity.NTfilt.fasta.transdecoder_dir/'
+query=$datadir'longest_orfs.pep'
+out=$datadir'longest_orfs.nr.blast.out'
+db='/opt/databases/nr_auto/current/blast/nr'
+program=blastp
+task=blastp
 # outfmt=5
-outfmt=' "6 qseqid staxids bitscore sseqid qcovs pident" '
+outfmt='"6 qseqid staxids bitscore sseqid qcovs pident"'
 eval=1e-2
 max_seqs=20
 max_hsps=1

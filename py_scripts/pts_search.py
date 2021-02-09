@@ -3,8 +3,8 @@ import os
 import re
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/wax_esters/')
-proteins = SeqIO.parse('more_PCC.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/diplonema/ETC/')
+proteins = SeqIO.parse('complexes.fa', 'fasta')
 
 #kinetoplastids
 pts1 = r'(S|A|G|C|N|P)(R|H|K|N|Q)(L|I|V|F|A|M|Y)'
@@ -18,7 +18,7 @@ pts2 = r'^M\w{0,20}(R|K)(L|V|I)\w{5}(H|K|Q|R)(L|A|I|V|F|Y)'
 # pts1 = r'(S|A|C)(K|R|H|Q)(L|M)')
 # pts2 = r'^\w{1,21}R(L|I|V|Q)\w{2}(L|I|V|Q|H)(L|S|G|A)\w{1}(H|Q)(L|A)'
 
-with open('more_PCC.possibly_peroxisomal.fa', 'w') as out:
+with open('complexes.possibly_peroxisomal.fa', 'w') as out:
 	for protein in proteins:
 		if re.search(pts1, str(protein.seq)[-3:]):
 			out.write('>{} @PTS1:{}\n{}\n'.format(protein.description, protein.seq[-3:], protein.seq))
