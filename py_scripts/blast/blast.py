@@ -2,15 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-# query = '/Users/kika/ownCloud/anaeramoeba/queries_blast/RABs.fa'
-query = '/Users/kika/ownCloud/diplonema/ETC/cI_MV.fa'
-# db = '/Users/kika/ownCloud/anaeramoeba/proteomes/Tvag_proteins.fasta'
+cmd = 'blastx'
+task = 'blastx'
+query = '/Users/kika/ownCloud/diplonema/diff_expression/metabolism.H-_vs_H+.H+UP.fwd.fa'
+# query = '/Users/kika/ownCloud/diplonema/diff_expression/metabolism_queries.fa'
 db = '/Users/kika/ownCloud/diplonema/seq_data/dpapilatum/dpap_predicted_proteins.fa'
+# db = '/Users/kika/ownCloud/diplonema/diff_expression/databases/H-_vs_H+.H+UP.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/diplonema/ETC/cI.blast.xml'
-evalue = 1
+out = '/Users/kika/ownCloud/diplonema/diff_expression/metabolism.H-_vs_H+.H+UP.rev_blast.xml'
+evalue = 1e-10
 outfmt = 5
 hits = 1
 word_size = 3
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/diplonema/ETC/cI.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/diplonema/ETC/cI.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/diplonema/diff_expression/metabolism.H-_vs_H+.H+UP.rev_blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/diplonema/diff_expression/metabolism.H-_vs_H+.H+UP.rev_best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

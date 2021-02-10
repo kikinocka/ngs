@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
+import os
 import subprocess
 
-db = '/Users/kika/data/eukprot/EP00160_Parvularia_atlantis.fasta'
-dbtype = 'prot'
+os.chdir('/Users/kika/ownCloud/diplonema/diff_expression/databases/')
+files = [x for x in os.listdir() if x.endswith('.fasta')]
+dbtype = 'nucl'
 
-subprocess.call('makeblastdb -in {} -dbtype {} -parse_seqids'.format(db, dbtype), shell=True)
+for file in files: 
+	print(file)
+	fname = file.split('.fasta')[0]
+	subprocess.call('makeblastdb -in {} -dbtype {} -parse_seqids'.format(file, dbtype), shell=True)

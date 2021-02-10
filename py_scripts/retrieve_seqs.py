@@ -2,13 +2,13 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/ETC/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika//ownCloud/diplonema/seq_data/dpapilatum/dpap_predicted_proteins.fa'
+os.chdir('/Users/kika/ownCloud/diplonema/diff_expression/')
+files = [x for x in os.listdir() if x.endswith('H-_vs_H+.H+UP.fwd.acc')]
+database = '/Users/kika/ownCloud/diplonema/diff_expression/H-_vs_H+.H+UP.fasta'
 
 for accessions in files: 
 	print(accessions)
-	fname = accessions.split('.')[0]
+	fname = accessions.split('.acc')[0]
 	retrieve = set()
 
 	with open('{}.fa'.format(fname), 'w') as out:
