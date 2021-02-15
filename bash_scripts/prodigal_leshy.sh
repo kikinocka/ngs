@@ -1,14 +1,15 @@
 #!/bin/bash
 
+#run on Veles
 workdir='/mnt/mokosz/home/kika/rhizomastix_reassembly/'
 fasta='rhizomastix_reassembly.trinity.NTfilt.fasta'
-genes='rhizomastix_reassembly.trinity.NTfilt.prodigal.fna'
-proteins='rhizomastix_reassembly.trinity.NTfilt.prodigal.faa'
+genes='rhizomastix_reassembly.trinity.NTfilt.prodigal_bct.gb'
+proteins='rhizomastix_reassembly.trinity.NTfilt.prodigal_bct.faa'
 setting=meta
 table=1
 
 cd $workdir
-prodigal -i $fasta -o $genes -a $proteins -p $setting -g 1 -n
+prodigal -i $fasta -o $genes -a $proteins -p $setting #-g 1 -n
 
 # -a:  Write protein translations to the selected file.
 # -c:  Closed ends. Do not allow genes to run off edges.

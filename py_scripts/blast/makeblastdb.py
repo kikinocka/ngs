@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/diplonema/diff_expression/databases/')
+os.chdir('/Users/kika/data/eukprot/')
 files = [x for x in os.listdir() if x.endswith('.fasta')]
 dbtype = 'nucl'
 

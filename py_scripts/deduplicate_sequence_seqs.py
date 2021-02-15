@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/AS/')
-infile = SeqIO.parse('as.fa', 'fasta')
-out_fasta = open('as_deduplicated.fa', 'w')
-out_names = open('as_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonema_papillatum/RABs/')
+infile = SeqIO.parse('dpap_RABs.fa', 'fasta')
+out_fasta = open('dpap_RABs_deduplicated.fa', 'w')
+out_names = open('dpap_RABs_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
