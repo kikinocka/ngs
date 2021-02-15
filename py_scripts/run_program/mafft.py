@@ -18,7 +18,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/Vps9/')
 existing = 'VPS9_all_no_RIN.aln'
-add = 'ver2/anaer.fa'
-out = 'ver2/vps9.mafft.aln'
-log = 'ver2/vps9.mafft.log'
+add = 'ver3/anaer.fa'
+out = 'ver3/vps9.mafft.aln'
+log = 'ver3/vps9.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
