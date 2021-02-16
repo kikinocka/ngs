@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/bash
 
 task=blastp
 query='/mnt/mokosz/home/kika/rhizomastix_reassembly/rhizomastix_reassembly.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
