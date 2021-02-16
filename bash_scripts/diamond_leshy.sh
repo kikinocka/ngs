@@ -13,7 +13,7 @@ diamond $task \
 	-q $query \
 	-d $db \
 	-o $out \
-	--outfmt "6 qseqid bitscore sseqid qcovhsp pident qlen length" \
+	--outfmt 6 qseqid bitscore sseqid qcovhsp pident qlen length \
 	--threads $cpu \
 	--evalue $eval \
 	--max-target-seqs $max_seqs \
