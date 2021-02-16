@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/RABs/ver4'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/RABs/ver5'
 
 #copy files to scratch
 cp $data_dir'/'*trimal*.aln $SCRATCHDIR
