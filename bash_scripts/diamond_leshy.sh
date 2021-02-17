@@ -4,6 +4,7 @@ task=blastp
 query='/mnt/mokosz/home/kika/rhizomastix_reassembly/rhizomastix_reassembly.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
 out='/mnt/mokosz/home/kika/rhizomastix_reassembly/rhizomastix_reassembly.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.nr.dmnd.out'
 db='/opt/databases/nr_auto/2021-02-15/diamond/nr.dmnd'
+taxify='/mnt/mokosz/home/kika/rhizomastix_reassembly/taxify_DMND_nr_gz.py'
 # outfmt=5
 eval=1e-5
 max_seqs=20
@@ -18,3 +19,5 @@ diamond $task \
 	--evalue $eval \
 	--max-target-seqs $max_seqs \
 	--sensitive
+
+python3 $taxify -i $out 
