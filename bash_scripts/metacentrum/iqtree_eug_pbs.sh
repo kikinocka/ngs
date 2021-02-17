@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/anaeramoeba'
+datadir='/storage/brno3-cerit/home/kika/anaeramoeba/vps9/ver4'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -18,7 +18,7 @@ cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='hops_corvet.trimal_gt_0.8.aln'
+aln='vps9.trimal_gt_0.8.aln'
 # guide='guide_rabs.trimal_gt_0.8.aln'
 # guide_tree=$guide'.treefile'
 bb=1000
@@ -32,4 +32,4 @@ iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet #-wsr
 
 #copy files back
 rm $aln
-cp * $datadir
+cp * $datadir'/test/'
