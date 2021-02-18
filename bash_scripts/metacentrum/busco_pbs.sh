@@ -35,7 +35,7 @@ cp $assembly_dir'/rhizomastix_reassembly.trinity.NRfilt.fasta' $SCRATCHDIR
 cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 # cp -r $lin_dir'bacteria_odb9/' $SCRATCHDIR
 
-assemblies='*.fa'
+assemblies='*.fasta'
 base='eukaryota_odb9'
 # lineage='bacteria_odb9/'
 mode='transcriptome'
