@@ -13,9 +13,8 @@ module add busco-3.0.2
 module add augustus-3.3.1
 
 #setting augustus config file environment variable
-augustus_configs='/storage/brno3-cerit/home/kika/augustus_configs/'
 mkdir $SCRATCHDIR/augustus_configs/
-cp -r $augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
+cp -r $/storage/brno3-cerit/home/kika/augustus_configs/* $SCRATCHDIR/augustus_configs/ || exit 1
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
@@ -36,8 +35,7 @@ cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 # cp -r $lin_dir'bacteria_odb9/' $SCRATCHDIR
 
 assemblies='*.fasta'
-base='eukaryota_odb9'
-lineage='eukaryota_odb9/'
+lineage='bacteria_odb9/'
 mode='transcriptome'
 # species='pelomyxa'
 
@@ -47,12 +45,12 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%.fa}_eukaryota_odb9
+	base=${fasta%.fasta}_bacteria_odb9
 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 done
 # generate_plot.py -wd $summaries
 
 #copy files back
-rm -r $assemblies $lineage
+rm -r $assemblies $lineage augustus_configs
 cp -r * $assembly_dir
 # cp -r * $summaries
