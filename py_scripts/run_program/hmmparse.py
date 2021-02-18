@@ -2,20 +2,13 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/')
+os.chdir('/Users/kika/ownCloud/archamoebae/import/hmms/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/Users/kika/ownCloud/data/dpapilatum/dpap_genome_translated.fa', 'fasta')
-
-alltables = set()
-for file in files:
-	data = open(file).read().split()
-	for item in data:
-		alltables.add(item)
+db = SeqIO.parse('/Users/kika/ownCloud/archamoebae/rhizomastix_libera_reassembly-IND8-VAV/rhizomastix_reassembly.trinity.NRfilt.faa', 'fasta')
 
 seq_d = {}
 for seq in db:
-	if seq.name in alltables:
-		seq_d[seq.name] = seq.seq
+	seq_d[seq.name] = seq.seq
 
 # #get first hit only
 # for file in files:
@@ -29,6 +22,7 @@ for seq in db:
 # 					protein = name.split('_')[1].split('.')[0]
 # 					result.write('>{} {}\n{}\n'.format(seqname, protein, seq_d[seqname]))
 
+
 #get all hits above certain threshold
 multidomain = set()
 written = set() #move multidomain, written into the for loop to have domain-specific files
@@ -38,9 +32,8 @@ for file in files:
 	with open(file) as infile, open(name, 'w') as result:
 		for line in infile:
 			if not line.startswith('#'):
-				data = line.split()
-				seqname = data[0]
-				evalue = float(data[4])
+				seqname = line.split()[0]
+				evalue = float(line.split()[4])
 				if seqname in written:				
 					pass
 				elif evalue < 0.0001:
@@ -52,3 +45,9 @@ for file in files:
 					written.add(seqname)
 				else:
 					multidomain.add(seqname)
+
+
+
+
+
+

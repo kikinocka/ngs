@@ -37,7 +37,7 @@ cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 
 assemblies='*.fasta'
 base='eukaryota_odb9'
-# lineage='bacteria_odb9/'
+lineage='eukaryota_odb9/'
 mode='transcriptome'
 # species='pelomyxa'
 
