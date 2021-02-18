@@ -11,12 +11,12 @@ cat $PBS_NODEFILE
 module add quast-4.6.3
 
 datadir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
-outdir=$datadir'quast'
+outdir=$datadir'quast_rhizomastix_reassembly.NRfilt'
 
 #copy files to scratch
-cp $datadir'rhizomastix_reassembly.trinity.fa' $SCRATCHDIR
+cp $datadir'rhizomastix_reassembly.trinity.NRfilt.fasta' $SCRATCHDIR
 
-assemblies='rhizomastix_reassembly.trinity.fa'
+assemblies='rhizomastix_reassembly.trinity.NRfilt.fasta'
 min_contig=500
 
 
