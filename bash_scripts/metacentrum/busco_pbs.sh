@@ -31,11 +31,11 @@ lin_dir='/software/busco/3.0.2/src/db/'
 
 #copy files to scratch
 cp $assembly_dir'/rhizomastix_reassembly.trinity.NRfilt.fasta' $SCRATCHDIR
-cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
+# cp -r $lin_dir'eukaryota_odb9/' $SCRATCHDIR
 # cp -r $lin_dir'bacteria_odb9/' $SCRATCHDIR
 
 assemblies='*.fasta'
-lineage='bacteria_odb9/'
+lineage='/software/busco/3.0.2/src/db/bacteria_odb9/'
 mode='transcriptome'
 # species='pelomyxa'
 
