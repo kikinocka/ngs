@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/mnt/mokosz/home/kika/archam_trees/'
+data='/mnt/mokosz/home/kika/archam_trees/hsp70'
 
 cd $data
 for aln in *.aln ; do
