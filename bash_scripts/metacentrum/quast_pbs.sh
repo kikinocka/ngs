@@ -14,9 +14,9 @@ datadir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
 outdir=$datadir'quast_rhizomastix_reassembly.NRfilt'
 
 #copy files to scratch
-cp $datadir'rhizomastix_reassembly.trinity.NRfilt.fasta' $SCRATCHDIR
+cp $datadir'rhizomastix_reassembly.trinity.NRfilt-p70.fna' $SCRATCHDIR
 
-assemblies='rhizomastix_reassembly.trinity.NRfilt.fasta'
+assemblies='rhizomastix_reassembly.trinity.NRfilt-p70.fna'
 min_contig=500
 
 
