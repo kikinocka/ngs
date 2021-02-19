@@ -33,7 +33,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 cp $assembly_dir'/rhizomastix_reassembly.trinity.NRfilt-p70.fna' $SCRATCHDIR
 
 assemblies='*.fna'
-lineage=$lin_dir'bacteria_odb9/'
+lineage=$lin_dir'eukaryota_odb9/'
 mode='transcriptome'
 # species='pelomyxa'
 
@@ -43,7 +43,7 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%.fasta}_bacteria_odb9
+	base=${fasta%.fasta}_eukaryota_odb9
 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 done
 # generate_plot.py -wd $summaries
