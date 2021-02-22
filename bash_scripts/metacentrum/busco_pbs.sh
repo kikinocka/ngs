@@ -30,7 +30,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $summaries'short_summary_eukaryota_odb9_rli.txt'
 
 #copy files to scratch
-cp $assembly_dir'/rhizomastix_reassembly.trinity.NRfilt-p70.fna' $SCRATCHDIR
+cp $assembly_dir'/*.faa' $SCRATCHDIR
 
 assemblies='*.faa'
 lineage=$lin_dir'eukaryota_odb9/'
