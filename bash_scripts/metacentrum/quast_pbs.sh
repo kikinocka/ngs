@@ -10,19 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
-outdir=$datadir'quast_rhizomastix_reassembly.NRfilt'
+datadir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies-NRfilt/'
+outdir=$datadir'quast_Mabd'
 
 #copy files to scratch
-cp $datadir'rhizomastix_reassembly.trinity.NRfilt-p70.fna' $SCRATCHDIR
+cp $datadir'Mastigabducta_CHOM1_050516_renamed_prot.NRfilt.faa' $SCRATCHDIR
 
-assemblies='rhizomastix_reassembly.trinity.NRfilt-p70.fna'
+assemblies='Mastigabducta_CHOM1_050516_renamed_prot.NRfilt.faa'
 min_contig=500
 
 
 #compute on scratch
 cd $SCRATCHDIR
-quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $assemblies
+quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig --eukaryote $assemblies
 
 # for fasta in $assemblies; do
 # 	echo $fasta
