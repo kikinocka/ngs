@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/rhizomastix_libera_reassembly-IND8-VAV/')
+os.chdir('/Users/kika/ownCloud/archamoebae/mastigella_eilhardi_MAST/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/archamoebae/rhizomastix_libera_reassembly-IND8-VAV/rhizomastix_reassembly.trinity.NRfilt-p70.faa'
+database = '/Users/kika/ownCloud/archamoebae/mastigella_eilhardi_MAST/Mastigella_150316_prot.NRfilt.faa'
 
 for accessions in files: 
 	print(accessions)

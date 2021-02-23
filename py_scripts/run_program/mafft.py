@@ -5,7 +5,7 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/Hsp70/')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
@@ -16,9 +16,9 @@ for file in files:
 		mafft, file, out, log), shell=True)
 
 # #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/Vps9/')
-# existing = 'VPS9_all_no_RIN_no_MONOS.aln'
-# add = 'ver4/anaer.fa'
-# out = 'ver4/vps9.mafft.aln'
-# log = 'ver4/vps9.mafft.log'
+# os.chdir('/Users/kika/ownCloud/archamoebae/')
+# existing = 'import/alns/Sam50.fas'
+# add = 'trees/Sam50/sam50.fa'
+# out = 'import/sam50-archam.mafft.aln'
+# log = 'import/sam50-archam.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)

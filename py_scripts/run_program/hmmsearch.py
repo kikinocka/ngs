@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/import/hmms/')
-files = [x for x in os.listdir() if x.endswith('.hmm')]
+os.chdir('/Users/kika/ownCloud/archamoebae/import/')
+files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/archamoebae/rhizomastix_libera_reassembly-IND8-VAV/rhizomastix_reassembly.trinity.NRfilt.faa'
-orgn = 'rli_reas'
+db = '/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/mastiga_genome_v5.1_translated.fa'
+orgn = 'mab_genome'
 threads = 6
 
 for file in files:

@@ -4,7 +4,7 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/enolase/')
+os.chdir('/Users/kika/ownCloud/archamoebae/import/')
 files = os.listdir()
 threads = 7
 
