@@ -22,10 +22,11 @@ for f in *.aln ; do
  guide=guide_${f%.aln}
  guide_tree=$guide'.treefile'
  bb=1000
+ nm=2000
  # iqtree -m LG+F+R8 -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
  # iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
  iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
- iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f} -ft $guide_tree #-wsr
+ iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -s ${f} -ft $guide_tree #-wsr
 done
 
 #copy files back

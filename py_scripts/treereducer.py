@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/ver5/')
 inacc = open('delete.acc')
-infasta = SeqIO.parse('TBC_all_parabasalids.fa', 'fasta')
+infasta = SeqIO.parse('rabs.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('TBC_all_parabasalids-reduced.fa', 'w') as result:
+with open('rabs-reduced.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
