@@ -16,7 +16,7 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/18S'
 cp $datadir'/'*.fa $SCRATCHDIR
 
 program=blastn
-db='/storage/projects/BlastDB/nr'
+db='/storage/projects/BlastDB/nt'
 outfmt=5
 word=11
 
