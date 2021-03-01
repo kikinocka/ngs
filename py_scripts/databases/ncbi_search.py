@@ -8,8 +8,8 @@ from Bio import SeqIO
 
 Entrez.email = 'zahonova.kristina@gmail.com'
 
-os.chdir('/home/kika/ownCloud/pelomyxa_schiedti/mito_proteins/fes_cluster_assembly/nif/fdhF_tree/')
-acc = open('seqdump.acc')
+os.chdir('/mnt/mokosz/home/kika/workdir/')
+acc = open('eukaryota.acc')
 
 ids = []
 for line in acc:
@@ -27,14 +27,15 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('seqdump.lineage', 'w') as out:
+with open('eukaryota.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
-		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
+		prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
 		prot_record = SeqIO.read(prot, 'genbank')
 		tax = prot_record.annotations['taxonomy'][::-1]
 		tax = str(tax).replace('\'', '').replace('[', '').replace(']', '').replace(', ', '_')
-		orgn = prot_record.annotations['organism']
-		out.write('{}\t{} @{}\n'.format(prot_id, orgn, tax))
+		# orgn = prot_record.annotations['organism']
+		# out.write('{}\t{} @{}\n'.format(prot_id, orgn, tax))
+		out.write('{}\t{}\n'.format(prot_id, tax))
 		# print(orgn)
 		# print(tax)
