@@ -2,9 +2,9 @@
 
 tRNAscan='/Users/kika/miniconda3/bin/tRNAscan-SE'
 
-cd /Users/kika/ownCloud/data/diplonemids_genomes
+cd /Users/kika/ownCloud/Rhabdomonas_costata/mitochondrion/
 
-for assembly in *.fna ; do
+for assembly in *.fa ; do
 	echo $assembly
 	table=${assembly%.fasta}.tRNAscan_table.out
 	seq=${assembly%.fasta}.tRNAscan.fa

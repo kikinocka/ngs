@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/mastigella_eilhardi_MAST/')
+os.chdir('/Users/kika/ownCloud/Rhabdomonas_costata/mitochondrion/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/archamoebae/mastigella_eilhardi_MAST/Mastigella_150316_prot.NRfilt.faa'
+database = '/Users/kika/ownCloud/Rhabdomonas_costata/rcos.sp_q20-scaffolds.gc.fasta'
 
 for accessions in files: 
 	print(accessions)
