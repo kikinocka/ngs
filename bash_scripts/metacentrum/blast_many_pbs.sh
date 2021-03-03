@@ -19,7 +19,7 @@ program=blastn
 db='/storage/projects/BlastDB/nt'
 outfmt=5
 word=11
-evalue=1e-04
+evalue=1e-03
 
 
 #run on scratch
