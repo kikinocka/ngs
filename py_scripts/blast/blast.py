@@ -9,7 +9,7 @@ query = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution-test/enolase_for_mgm1.
 db = '/Users/kika/data/eukprot/EP00131_Spizellomyces_punctatus.fasta'
 # db = '/Users/kika/ownCloud/diplonema/diff_expression/databases/H-_vs_H+.H+UP.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/oil_sands/18S/blast/unassigned.blastn.xml'
+out = '/Users/kika/ownCloud/oil_sands/18S/blast/eukaryota.blastn.xml'
 evalue = 1e-3
 outfmt = 5
 hits = 1
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/oil_sands/18S/blast/unassigned.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/oil_sands/18S/blast/unassigned.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/oil_sands/18S/blast/eukaryota.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/oil_sands/18S/blast/eukaryota.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
