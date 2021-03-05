@@ -9,7 +9,7 @@ from Bio import SeqIO
 Entrez.email = 'zahonova.kristina@gmail.com'
 
 os.chdir('/mnt/mokosz/home/kika/workdir/')
-acc = open('unassigned.acc')
+acc = open('unassigned2.acc')
 
 ids = []
 for line in acc:
@@ -27,7 +27,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('unassigned.lineage', 'w') as out:
+with open('unassigned2.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
 		prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
