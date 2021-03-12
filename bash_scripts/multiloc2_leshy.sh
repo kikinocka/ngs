@@ -1,7 +1,7 @@
 #!/bin/bash
 
 multiloc='/opt/multiloc2/git/MultiLoc2/MultiLoc2/src/multiloc2_prediction.py'
-workdir='/mnt/mokosz/home/kika/targeting/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 a=animal
 p=plant

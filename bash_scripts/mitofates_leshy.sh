@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mitofates='/mnt/mokosz/home/kika/MitoFates/MitoFates.pl'
-workdir='/mnt/mokosz/home/kika/targeting/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 m=metazoa
 p=plant

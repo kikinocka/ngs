@@ -1,6 +1,6 @@
 #!/bin/sh
 
-workdir='/mnt/mokosz/home/kika/targeting/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 mit=1
 tryp=9
