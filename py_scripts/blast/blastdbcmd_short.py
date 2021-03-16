@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Dcko/ownCloud/proteromonas/RABs/')
+os.chdir('/Users/kika/ownCloud/Naegleria/S81_protease/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-db = '/Dcko/ownCloud/RAB_db/RABs_deduplicated.fa'
+db = '/Users/kika/data/eukprot/EP00687_Percolomonas_cosmopolitus.fasta'
 
 for file in files: 
 	print(file)

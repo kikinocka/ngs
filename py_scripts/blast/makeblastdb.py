@@ -3,8 +3,8 @@ import os
 import subprocess
 
 os.chdir('/Users/kika/data/eukprot/')
-files = [x for x in os.listdir() if x.endswith('.fasta')]
-dbtype = 'nucl'
+files = [x for x in os.listdir() if x.endswith('.faa')]
+dbtype = 'prot'
 
 for file in files: 
 	print(file)

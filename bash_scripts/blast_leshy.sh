@@ -1,25 +1,25 @@
 #!/bin/bash
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_reassembly/rhizomastix_reassembly.trinity.NTfilt.fasta.transdecoder_dir/'
-query=$datadir'longest_orfs.pep'
-out=$datadir'longest_orfs.nr.blast.out'
-db='/opt/databases/nr_auto/current/blast/nr'
+datadir='/mnt/mokosz/home/kika/workdir/'
+query=$datadir'Nfow.fa'
+out=$datadir'Nfow.eukprot.blast.out'
+db='/opt/databases/eukprot/current/blast/eukprot'
 program=blastp
 task=blastp
-# outfmt=5
-eval=1e-2
+outfmt=5
+eval=1e-3
 max_seqs=20
 max_hsps=1
-cpu=4
+cpu=8
 
 $program -task $task \
 	-query $query \
 	-db $db \
 	-out $out \
-	# -outfmt $outfmt \
-	-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
+	-outfmt $outfmt \
+	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 	-num_threads $cpu \
 	-evalue $eval \
-	-max_target_seqs $max_seqs \
-	-max_hsps $max_hsps \
+	# -max_target_seqs $max_seqs \
+	# -max_hsps $max_hsps \
 
