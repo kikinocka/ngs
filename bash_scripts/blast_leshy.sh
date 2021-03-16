@@ -2,7 +2,7 @@
 
 datadir='/mnt/mokosz/home/kika/workdir/'
 query=$datadir'Nfow.fa'
-out=$datadir'Nfow.eukprot.blast.out'
+out=$datadir'Nfow.eukprot.blast.xml'
 db='/opt/databases/eukprot/current/blast/eukprot'
 program=blastp
 task=blastp
