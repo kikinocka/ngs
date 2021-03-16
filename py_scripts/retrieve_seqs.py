@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/peroxisomes/')
+os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_predicted_proteins_corr.fa'
+database = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/dynamins_tree/ver2/dynamins.fa'
 
 for accessions in files: 
 	print(accessions)
