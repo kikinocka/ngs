@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N samtools_index
+#PBS -N samtools_view
 #PBS -l select=1:ncpus=5:mem=50gb:scratch_local=150gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
