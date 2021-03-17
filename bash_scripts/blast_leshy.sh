@@ -1,8 +1,8 @@
 #!/bin/bash
 
 datadir='/mnt/mokosz/home/kika/workdir/'
-query=$datadir'scer.fa'
-out=$datadir'scer.eukprot.blast.xml'
+query=$datadir'Nfow_short.fa'
+out=$datadir'Nfow_short.eukprot.blast.xml'
 db='/opt/databases/eukprot/current/blast/eukprot'
 program=blastp
 task=blastp
@@ -18,7 +18,7 @@ $program -task $task \
 	-out $out \
 	-outfmt $outfmt \
 	-num_threads $cpu \
-	-evalue $eval \
+	# -evalue $eval \
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 	# -max_target_seqs $max_seqs \
 	# -max_hsps $max_hsps \
