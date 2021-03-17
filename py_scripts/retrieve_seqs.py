@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/Naegleria/S81_protease/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/data/eukprot/EP00687_Percolomonas_cosmopolitus.fasta'
+files = [x for x in os.listdir() if x.endswith('eukprot.acc')]
+database = '/Users/kika/data/eukprot/eukprot_v2_proteins_renamed.faa'
 
 for accessions in files: 
 	print(accessions)
