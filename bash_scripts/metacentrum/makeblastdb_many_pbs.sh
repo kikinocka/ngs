@@ -8,13 +8,26 @@
 cat $PBS_NODEFILE
 
 #add module
-module add blast+-2.7.1
+module add blast+-2.8.0a
 
-datadir='/storage/brno3-cerit/home/kika/prototheca/zopfii/genome_db/'
-files=$datadir'*.fa'
-dbtype=nucl
+datadir='/storage/brno12-cerit/home/kika/anaeramoeba/RABs'
 
-for file in $files; do
+#copy files to scratch
+cp $datadir'/'*.fa $SCRATCHDIR
+cp $datadir'/refs/'*.fa $SCRATCHDIR
+
+
+#run on scratch
+cd $SCRATCHDIR
+
+dbtype=prot
+
+for file in *.fa; do
 	echo $file
 	makeblastdb -in $file -dbtype $dbtype -parse_seqids
+	echo *** BLASTable database done ***
 done
+
+#copy files back
+rm *.fa
+cp -r * $datadir'/dbs/'
