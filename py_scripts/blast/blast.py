@@ -4,24 +4,24 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/scer.fa'
-# query = '/Users/kika/ownCloud/diplonema/diff_expression/metabolism_queries.fa'
-db = '/Users/kika/data/eukprot/EP00687_Percolomonas_cosmopolitus.fasta'
-# db = '/Users/kika/ownCloud/diplonema/diff_expression/databases/H-_vs_H+.H+UP.fasta'
+# query = '/Users/kika/ownCloud/diplonema/diff_expression/aminotransferases.D-_vs_D+.D-UP.fwd.fa'
+query = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/mic60.fa'
+# db = '/Users/kika/ownCloud/diplonema/seq_data/dpapilatum/dpap_predicted_proteins.fa'
+db = '/Users/kika/data/eukprot/EP00132_Gonapodya_prolifera.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/scer.eukprot.blast.xml'
-evalue = 1e-3
+out = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/mic60.EP00158.blast.xml'
+evalue = 1e-02
 outfmt = 5
 hits = 1
 word_size = 3
 threads = 6
 
-# print('running BLAST')
-# #query - database
-# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
-# 	-num_threads {}'.format(
-# 		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-# #-max_target_seqs {} hits, 
+print('running BLAST')
+#query - database
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+#-max_target_seqs {} hits, 
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/scer.eukprot.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/scer.eukprot.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/mic60.EP00158.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/mic60.EP00158.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

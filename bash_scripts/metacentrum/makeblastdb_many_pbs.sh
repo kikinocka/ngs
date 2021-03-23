@@ -14,7 +14,6 @@ datadir='/storage/brno12-cerit/home/kika/anaeramoeba/RABs'
 
 #copy files to scratch
 cp $datadir'/'*.fa $SCRATCHDIR
-cp $datadir'/refs/'*.fa $SCRATCHDIR
 
 
 #run on scratch
