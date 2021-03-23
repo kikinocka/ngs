@@ -5,11 +5,11 @@ from Bio.Blast import NCBIXML
 cmd = 'blastp'
 task = 'blastp'
 # query = '/Users/kika/ownCloud/diplonema/diff_expression/aminotransferases.D-_vs_D+.D-UP.fwd.fa'
-query = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/mic60.fa'
+query = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/enol.fa'
 # db = '/Users/kika/ownCloud/diplonema/seq_data/dpapilatum/dpap_predicted_proteins.fa'
-db = '/Users/kika/data/eukprot/EP00132_Gonapodya_prolifera.fasta'
+db = '/Users/kika/data/eukprot/EP00148_Cryptococcus_gattii.fasta'
 # subject = '/home/kika/MEGAsync/diplonema_mt/1621/transcripts/y8/y8.fasta'
-out = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/mic60.EP00158.blast.xml'
+out = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/enol.EP00148.blast.xml'
 evalue = 1e-02
 outfmt = 5
 hits = 1
@@ -32,8 +32,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/mic60.EP00158.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/mic60.EP00158.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/enol.EP00148.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/search/enol.EP00148.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

@@ -3,7 +3,7 @@ import os
 import subprocess
 
 os.chdir('/Users/kika/data/eukprot/')
-files = [x for x in os.listdir() if x.endswith('EP00132_Gonapodya_prolifera.fasta')]
+files = [x for x in os.listdir() if x.endswith('EP00148_Cryptococcus_gattii.fasta')]
 dbtype = 'prot'
 
 for file in files: 

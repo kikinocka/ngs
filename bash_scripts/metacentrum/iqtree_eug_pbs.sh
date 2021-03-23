@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-test
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -13,7 +13,7 @@ module add iqtree-1.6.12
 datadir='/storage/brno3-cerit/home/kika/anaeramoeba/vps9/ver4'
 
 #copy files to scratch
-cp $datadir'/'* $SCRATCHDIR
+cp $datadir'/'*.aln $SCRATCHDIR
 
 
 #compute on scratch
