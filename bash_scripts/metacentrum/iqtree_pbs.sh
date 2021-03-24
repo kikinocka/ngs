@@ -10,21 +10,22 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/ver3'
+datadir='/storage/brno3-cerit/home/kika/sags/mit/atp6'
 
 #copy files to scratch
-cp $datadir'/'* $SCRATCHDIR
+cp $datadir'/'*.aln $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='ocdh.trimal_gt_0.8.aln'
-guide='guide_vps9'
-guide_tree=$guide'.treefile'
+aln='atp6.trimal_gt_0.5.aln'
+# guide='guide_vps9'
+# guide_tree=$guide'.treefile'
 bb=1000
 
-iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet -wsr
-# iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet -wsr
+iqtree -m TEST -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
+# iqtree -m LG4X -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
+
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
 # iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree #-wsr
 
