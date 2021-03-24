@@ -1,16 +1,16 @@
 #!/bin/bash
 #PBS -N IQT-test
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
 #add module
-module add iqtree-1.6.12
+module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/anaeramoeba/vps9/ver4'
+datadir='/storage/brno3-cerit/home/kika/sags/mit/ver7'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,14 +18,14 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='vps9.trimal_gt_0.8.aln'
+aln='concat.aln'
 # guide='guide_rabs.trimal_gt_0.8.aln'
 # guide_tree=$guide'.treefile'
 bb=100
 nm=2000
 
-iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
-# iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
+# iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
+iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet #-wsr
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
@@ -33,4 +33,4 @@ iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
 
 #copy files back
 rm $aln
-cp * $datadir'/test_bs/'
+cp * $datadir'/concat_test_ufb/'

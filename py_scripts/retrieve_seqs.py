@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/diff_expression/')
-files = [x for x in os.listdir() if x.endswith('aminotransferases.D-_vs_D+.D-UP.fwd.acc')]
-database = '/Users/kika/ownCloud/diplonema/diff_expression/D-_vs_D+.D-UP.fasta'
+os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/opa1/')
+files = [x for x in os.listdir() if x.endswith('.acc')]
+database = '/Users/kika/ownCloud/Mic60-Mgm1-Opa1/dynamins_tree/ver1/dynamins.fa'
 
 for accessions in files: 
 	print(accessions)

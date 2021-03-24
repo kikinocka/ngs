@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/IPP/')
+os.chdir('/Users/kika/ownCloud/SAGs/mit/ORFs/atp6_tree')
 trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('ipp_names.txt')
+names = open('mit_names.txt')
 
 name_dict = {}
 for name in names:
