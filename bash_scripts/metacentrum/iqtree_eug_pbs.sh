@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-test
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -25,7 +25,7 @@ bb=1000
 nm=2000
 
 # iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
-iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
+iqtree -s $aln -bb $b -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet #-wsr
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
@@ -33,4 +33,4 @@ iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
 
 #copy files back
 rm $aln
-cp * $datadir'/concat_test_ufb/'
+cp * $datadir'/concat_test_bs/'
