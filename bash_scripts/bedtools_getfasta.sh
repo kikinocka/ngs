@@ -1,8 +1,8 @@
 #!/bin/sh
 
-genome='/Users/kika/ownCloud/pelomyxa_schiedti/genome_assembly/pelomyxa_final_corr_genome.fa'
-gff='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns_final.gff'
-output='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_introns.fa'
+genome='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/mastiga_genome_v5.1.fasta'
+gff='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/masba_exons_only.gff3'
+output='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/masba_exons.fa'
 
 bedtools getfasta -fi $genome -bed $gff -fo $output -name -s
 
