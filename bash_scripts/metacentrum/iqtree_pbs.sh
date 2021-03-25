@@ -31,4 +31,4 @@ iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s $aln -ft $gui
 
 #copy files back
 rm $aln
-cp * $datadir'/concat_C20_ufb/'
+cp * $datadir'/concat_C20_bs/'
