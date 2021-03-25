@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 aln='concat.aln'
 # guide='guide_rabs.trimal_gt_0.8.aln'
 # guide_tree=$guide'.treefile'
-bb=100
+bb=1000
 nm=2000
 
 # iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
