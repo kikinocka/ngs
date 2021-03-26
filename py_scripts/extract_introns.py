@@ -11,7 +11,7 @@ f.close()
 
 for line in fileinput.input('introns.gff3', inplace=True):
 	line2=line.strip()
-	print line2.replace(",", "_")
+	print(line2.replace(",", "_"))
 
 fasta = pyfaidx.Fasta(sys.argv[2])
 db2 = gffutils.create_db('introns.gff3', ':memory:')
@@ -19,5 +19,5 @@ original_stdout = sys.stdout
 with open('introns.fasta', 'w') as f:
 	sys.stdout = f
 	for introns in db2.features_of_type('intron', order_by='start'):
-		print ('>' + str(introns.id)+ '\n' + introns.sequence(fasta))
+		print('>' + str(introns.id)+ '\n' + introns.sequence(fasta))
 	sys.stdout = original_stdout
