@@ -8,7 +8,7 @@
 library(GenomicFeatures)
 
 ## make TxDb from GTF file 
-txdb <- makeTxDbFromGFF('masba_exons_only.gff3')
+txdb <- makeTxDbFromGFF('masba_cds_only.gff3')
 
 ## get intron information
 all.introns <- intronicParts(txdb)

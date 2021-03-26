@@ -1,8 +1,8 @@
 #!/bin/sh
 
 genome='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/mastiga_genome_v5.1.fasta'
-gff='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/masba_exons_only.gff3'
-output='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/masba_exons.fa'
+gff='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/masba_introns_final.gff3'
+output='/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/masba_introns_final.fa'
 
 bedtools getfasta -fi $genome -bed $gff -fo $output -name -s
 
