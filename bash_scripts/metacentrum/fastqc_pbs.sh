@@ -10,8 +10,7 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads'
-out_dir=$read_dir'/fastqc/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome'
 
 
 #copy data to scratch
@@ -30,4 +29,4 @@ done
 
 #copy files back
 rm $files
-cp -r * $out_dir
+cp -r * $read_dir'/fastqc/'

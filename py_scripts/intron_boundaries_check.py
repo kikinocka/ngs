@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import Counter
 
 os.chdir('/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_gff3_LATEST/')
-introns = SeqIO.parse('masba_introns_final.fa', 'fasta')
-outfile = 'masba_intron_counts.txt'
+introns = SeqIO.parse('masba_introns_python.fasta', 'fasta')
+outfile = 'masba_intron_counts_python.txt'
 
 starts = []
 ends = []
