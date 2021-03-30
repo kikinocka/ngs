@@ -16,7 +16,7 @@ raw_dir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenome/reads/'
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
 cp $raw_dir'BML_S1_L001_R1_001.fastq.gz' $SCRATCHDIR
-cp $raw_dir'BML_S1_L001_R2_001.gz' $SCRATCHDIR
+cp $raw_dir'BML_S1_L001_R2_001.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
