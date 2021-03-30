@@ -14,7 +14,7 @@ read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome'
 
 
 #copy data to scratch
-cp $read_dir'/'*.gz $SCRATCHDIR
+cp $read_dir'/'*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
