@@ -10,22 +10,22 @@ cat $PBS_NODEFILE
 module add bbmap-36.92
 
 
-raw_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/raw_reads/'
-trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
+raw_dir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenome/reads/'
+# trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'SRR5396412_1.fastq.gz' $SCRATCHDIR
-cp $raw_dir'SRR5396412_2.fastq.gz' $SCRATCHDIR
+cp $raw_dir'BML_S1_L001_R1_001.fastq.gz' $SCRATCHDIR
+cp $raw_dir'BML_S1_L001_R2_001.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='SRR5396412'
-fw=$name'_1.fastq.gz'
-rv=$name'_2.fastq.gz'
+name='BML'
+fw=$name'_S1_L001_R1_001.fastq.gz'
+rv=$name'_S1_L001_R2_001.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name'_bbduk_report.txt'
@@ -42,4 +42,4 @@ bbduk.sh overwrite=true \
 
 #copy files back
 rm $fw $rv $adapt
-cp -r * $trim_dir
+cp -r * $raw_dir
