@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Bowtie2
 #PBS -l select=1:ncpus=30:mem=80gb:scratch_local=150gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
-read_dir='/storage/brno3-cerit/home/kika/pelomyxa/reads/genome/'
-mapping_dir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/DNA_to_genome/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/reads/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/bw2_mapping/'
 
 #copy files to scratch
-cp $assembly_dir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
-cp $read_dir'all_trimmed_1.fq.gz' $SCRATCHDIR
-cp $read_dir'all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $assembly_dir'scaffolds.fasta' $SCRATCHDIR
+cp $read_dir'BML_trimmed_1.fq.gz' $SCRATCHDIR
+cp $read_dir'BML_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='pelo_genome_bw2'
-ref='pelomyxa_final_corr_genome.fa'
-p1_1='all_trimmed_1.fq.gz'
-p1_2='all_trimmed_2.fq.gz'
+base_name='BML-meta_bw2'
+ref='scaffolds.fasta'
+p1_1='BML_trimmed_1.fq.gz'
+p1_2='BML_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
 
