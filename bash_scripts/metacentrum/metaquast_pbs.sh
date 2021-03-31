@@ -14,16 +14,17 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
 
 #copy files to scratch
 cp $datadir'spades_assembly/scaffolds.fasta' $SCRATCHDIR
-cp $datadir'' $SCRATCHDIR
+cp $datadir'reads/BML_trimmed_*' $SCRATCHDIR
 
 assemblies='scaffolds.fasta'
-bam=''
+fwd='BML_trimmed_1.fq.gz'
+rev='BML_trimmed_2.fq.gz'
 
 #compute on scratch
 cd $SCRATCHDIR
-metaquast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --bam $bam $assemblies
+metaquast.py -o $SCRATCHDIR -t $PBS_NUM_PPN -1 $fwd -2 $rev $assemblies
 
 
 #copy results to your folder
-rm $assemblies
+rm $assemblies $fwd $rev
 cp -r * $datadir'quast/'
