@@ -21,12 +21,11 @@ cp $datadir'reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
 assemblies='scaffolds.fasta'
 fwd='BML_trimmed_1.fq.gz'
 rev='BML_trimmed_2.fq.gz'
-blast='/storage/projects/BlastDB/nt'
 
 
 #compute on scratch
 cd $SCRATCHDIR
-metaquast.py -o $SCRATCHDIR -t $PBS_NUM_PPN -1 $fwd -2 $rev --blast-db $blast $assemblies
+metaquast.py -o $SCRATCHDIR -t $PBS_NUM_PPN -1 $fwd -2 $rev $assemblies
 
 
 #copy results to your folder
