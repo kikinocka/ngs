@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N Bowtie2
-#PBS -l select=1:ncpus=30:mem=80gb:scratch_local=150gb
+#PBS -l select=1:ncpus=20:mem=70gb:scratch_local=15gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -42,8 +42,8 @@ sorted=$base_name'_sorted.bam'
 bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
 bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
-	-1 $p1_1,$p2_1 \
-	-2 $p1_2,$p2_2 \
+	-1 $p1_1 \
+	-2 $p1_2 \
 	--un-gz $unmapped_unpaired \
 	--un-conc-gz $unmapped_paired \
 	--al-conc-gz $mapped \
