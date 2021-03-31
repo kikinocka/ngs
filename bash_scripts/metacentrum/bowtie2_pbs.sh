@@ -11,9 +11,9 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
-read_dir='/storage/brno3-cerit/home/kika/oil_sands/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/bw2_mapping/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/spades_assembly/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/'
 
 #copy files to scratch
 cp $assembly_dir'scaffolds.fasta' $SCRATCHDIR
