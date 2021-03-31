@@ -14,11 +14,13 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
 
 #copy files to scratch
 cp $datadir'spades_assembly/scaffolds.fasta' $SCRATCHDIR
-cp $datadir'reads/BML_trimmed_*' $SCRATCHDIR
+cp $datadir'reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
 
 assemblies='scaffolds.fasta'
 fwd='BML_trimmed_1.fq.gz'
 rev='BML_trimmed_2.fq.gz'
+
 
 #compute on scratch
 cd $SCRATCHDIR
