@@ -24,7 +24,7 @@ pe1_2='BML_trimmed_2.fq.gz'
 cd $SCRATCHDIR
 
 #metagenome assembly
-metaspades.py --pe-1 $pe1_1 --pe-2 $pe1_2 -t $PBS_NUM_PPN -o BML_metagenome
+metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -t $PBS_NUM_PPN -o BML_metagenome
 
 # #using reference genome
 # spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted
