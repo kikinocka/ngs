@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N metaquast
-#PBS -l select=1:ncpus=15:mem=5gb:scratch_local=10gb
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=20gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
