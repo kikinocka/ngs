@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/octopine_superfamily/ver3/')
+os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/octopine_superfamily/ver4/')
 infile = SeqIO.parse('ocdh.fa', 'fasta')
 out_fasta = open('ocdh_deduplicated.fa', 'w')
 out_names = open('ocdh_dupl-names.txt', 'w')

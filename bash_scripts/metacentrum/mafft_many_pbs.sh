@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/archamoebae/trees'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/ocdh/ver4'
 
 #copy files to scratch
 cp $data_dir'/'*.fa $SCRATCHDIR
