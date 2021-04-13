@@ -3,8 +3,8 @@
 cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/pfo/ver4/
 
 aln='pfo.trimal_gt_0.8.aln'
-# guide='guide_acs'
-# guide_tree=$guide'.treefile'
+guide='guide_pfo'
+guide_tree=$guide'.treefile'
 bb=1000
 threads=10
 
