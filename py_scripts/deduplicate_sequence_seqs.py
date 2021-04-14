@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/octopine_superfamily/ver4/')
-infile = SeqIO.parse('ocdh.fa', 'fasta')
-out_fasta = open('ocdh_deduplicated.fa', 'w')
-out_names = open('ocdh_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/PFL')
+infile = SeqIO.parse('pfl.fa', 'fasta')
+out_fasta = open('pfl_deduplicated.fa', 'w')
+out_names = open('pfl_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
