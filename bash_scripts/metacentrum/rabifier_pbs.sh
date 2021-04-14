@@ -8,9 +8,9 @@
 cat $PBS_NODEFILE
 
 #add module
-module add rabifier-2.0.2 
+module add rabifier-2.0.2
 
-datadir='/storage/brno12-cerit/home/kika/anaeramoeba/RABs'
+datadir='/storage/brno3-cerit/home/kika/anaeramoeba/rabs'
 
 #copy files to scratch
 cp $datadir'/'*.fa $SCRATCHDIR
@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 
 for fasta in *.fa; do
 	echo $fasta
-	rabifier --cpu $PBS_NUM_PPN $fasta
+	rabifier --outfmt csv --cpu $PBS_NUM_PPN $fasta
 	echo ***Rabifier done***
 done
 # optional arguments:
