@@ -1,7 +1,7 @@
 #!/bin/sh
 
 workdir='/mnt/mokosz/home/kika/workdir/'
-files=$workdir'*.fa'
+files=$workdir'*.fasta'
 mit=1
 tryp=5
 # 1) Mt
