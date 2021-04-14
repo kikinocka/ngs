@@ -5,7 +5,7 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/PFO/ver4/')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/PFO/ver5/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
@@ -16,9 +16,10 @@ for file in files:
 		mafft, file, out, log), shell=True)
 
 # #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/oil_sands/18S/')
-# existing = 'tree/18S_euk.mafft.aln'
-# add = 'MG-18S-sequences.fasta'
-# out = 'tree/18S_euk-MG.mafft-fragments.aln'
-# log = 'tree/18S_euk-MG.mafft-fragments.log'
-# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/PFO/ver5/')
+# existing = 'pfo-wo-ACZ97600.mafft.aln'
+# add = 'pelo3613.fa'
+# out = 'pfo.mafft.aln'
+# log = 'pfo.mafft.log'
+# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)

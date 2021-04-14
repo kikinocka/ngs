@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add python36-modules-gcc
+module add rabifier-2.0.2 
 
 datadir='/storage/brno12-cerit/home/kika/anaeramoeba/RABs'
 

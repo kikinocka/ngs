@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/pfo/ver4/
+cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/pfo/ver5/
 
 aln='pfo.trimal_gt_0.8.aln'
 guide='guide_pfo'
