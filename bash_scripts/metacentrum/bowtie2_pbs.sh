@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Bowtie2
 #PBS -l select=1:ncpus=20:mem=70gb:scratch_local=15gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,9 +11,9 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/spades_assembly/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/spades_kmers/'
 read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/spades_kmers/'
 
 #copy files to scratch
 cp $assembly_dir'scaffolds.fasta' $SCRATCHDIR
@@ -24,7 +24,7 @@ cp $read_dir'BML_trimmed_2.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='BML-meta_bw2'
+base_name='BML-meta-kmers_bw2'
 ref='scaffolds.fasta'
 p1_1='BML_trimmed_1.fq.gz'
 p1_2='BML_trimmed_2.fq.gz'
