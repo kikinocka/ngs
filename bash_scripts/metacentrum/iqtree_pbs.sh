@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-c20
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/ver5'
+datadir='/storage/brno3-cerit/home/kika/diplonema/ocdh/ver6'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
