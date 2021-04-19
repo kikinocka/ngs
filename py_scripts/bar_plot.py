@@ -3,13 +3,13 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/manuscripts/diplonema_metabolism/figures/')
+os.chdir('/Users/kika/ownCloud/manuscripts/18_diplonema_metabolism/figures/')
 
 f, (ax, ax2) = plt.subplots(2, 1, sharex=True)
 # fig, ax = plt.subplots()
 
 # species = ['DPr', 'DPp', 'RH', 'BP57', 'LS14', 'LS23', 'LS34', 'CT14', 'CT23', 'CT34', 'NE', 'TB', 'EGl', 'EGd', 'EL']
-species = ['R+', 'R-1', 'R-3', 'P+', 'P-1', 'P-3']
+species = ['Total', 'R+', 'R-', 'P+', 'P-']
 
 # #APX activity
 # value = [0, 0, 3.69, 2.06, 54.26, 39.79, 34.35, 65.40, 48.63, 51.57, 206.63, 0, 625.22, 0, 0]
@@ -24,8 +24,8 @@ species = ['R+', 'R-1', 'R-3', 'P+', 'P-1', 'P-3']
 #Respiration
 # value = [2.42, 7.83, 15.42, 2.44, 5.84, 8.93, 7.86, 6.21, 10.92, 11.82, 4.78, 2.95, 2.37, 15.81, 23.65]
 # std = [0.98, 2.81, 6.09, 0.67, 0.90, 0.52, 0.61, 0.16, 3.15, 1.16, 0.20, 0.67, 1.22, 4.42, 3.69]
-value = [122.5242556, 94.62920971, 132.0244605, 1.74689441, 0.345592783, 1.656751261]
-std = [3.070351868, 8.48128787, 35.03546424, 1.498108103, 0.640051959, 1.390970518]
+value = [1560220, 400, 700, 0, 1850]
+# std = [3.070351868, 8.48128787, 35.03546424, 1.498108103, 0.640051959, 1.390970518]
 
 
 # #ONE GRAPH
@@ -41,12 +41,12 @@ std = [3.070351868, 8.48128787, 35.03546424, 1.498108103, 0.640051959, 1.3909705
 
 #TWO GRAPHS IN ONE FIGURE
 # plot the same data on both axes
-ax.bar(species, value, color='lightgrey', yerr=std, capsize=3)
-ax2.bar(species, value, color='lightgrey', yerr=std, capsize=3)
+ax.bar(species, value, color='lightgrey', capsize=3)
+ax2.bar(species, value, color='lightgrey', capsize=3)
 
 # zoom-in / limit the view to different portions of the data
-ax.set_ylim(60, 180) # outliers
-ax2.set_ylim(0, 5) # most of the data
+ax.set_ylim(0, 2000000) # outliers
+ax2.set_ylim(0, 2000) # most of the data
 
 # hide the spines between ax and ax2
 ax.spines['bottom'].set_visible(False)
@@ -65,6 +65,6 @@ kwargs.update(transform=ax2.transAxes)
 ax2.plot((-d, +d), (1 - d, 1 + d), **kwargs)  # bottom-left diagonal
 ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 
-plt.ylabel('U/mg')
+plt.ylabel('DPM in 5 x 10^6 cells')
 # plt.show()
-plt.savefig('sdh.pdf', dpi=300)
+plt.savefig('glu.pdf', dpi=300)
