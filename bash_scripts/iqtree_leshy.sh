@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/pfla/
+cd /mnt/mokosz/home/kika/archam_trees/pfl/ver2/
 
-aln='pfla.trimal_gt_0.8.aln'
-guide='guide_pfla'
+aln='pfl.trimal_gt_0.8.aln'
+guide='guide_pfl'
 guide_tree=$guide'.treefile'
 bb=1000
 threads=10
