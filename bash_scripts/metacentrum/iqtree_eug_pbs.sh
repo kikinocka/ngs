@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add iqtree-1.6.8
+module add iqtree-1.6.12
 
 datadir='/storage/brno3-cerit/home/kika/anaeramoeba/ccz1/ver4'
 
