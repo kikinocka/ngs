@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.8
 
-datadir='/storage/brno3-cerit/home/kika/sags/mit/ver7'
+datadir='/storage/brno3-cerit/home/kika/anaeramoeba/ccz1/ver4'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,14 +18,14 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='concat.aln'
+aln='ccz1.trimal_gt_0.8.aln'
 # guide='guide_rabs.trimal_gt_0.8.aln'
 # guide_tree=$guide'.treefile'
 bb=1000
 nm=2000
 
 # iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
-iqtree -s $aln -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
+iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m TEST -quiet
 # iqtree -s $aln -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -m LG4X -quiet #-wsr
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
