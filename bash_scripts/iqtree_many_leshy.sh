@@ -1,8 +1,7 @@
 #!/bin/bash
 
-data='/mnt/mokosz/home/kika/archam_trees/hydA/'
+cd /mnt/mokosz/home/kika/archam_trees/hydA/ver2/
 
-cd $data
 for aln in *trimal_gt_0.8.aln ; do
 	echo $aln
 	guide=guide_${aln%.aln}
