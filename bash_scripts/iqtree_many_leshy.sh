@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/mnt/mokosz/home/kika/archam_trees/pfo/'
+data='/mnt/mokosz/home/kika/archam_trees/hydA/'
 
 cd $data
 for aln in *trimal_gt_0.8.aln ; do
