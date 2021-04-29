@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/eukprot/')
-files = [x for x in os.listdir() if x.endswith('EP00095_Tigriopus_kingsejongensis.fasta')]
-dbtype = 'prot'
+os.chdir('/Users/kika/data/parduczia/')
+files = [x for x in os.listdir() if x.endswith('MMETSP1317.nt.fa')]
+dbtype = 'nucl'
 
 for file in files: 
 	print(file)

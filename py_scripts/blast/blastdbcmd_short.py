@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/Naegleria/S81_protease/')
+os.chdir('/Users/kika/ownCloud/manuscripts/Blastocrithidia_genetic_code_figured/eRF1/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-db = '/Users/kika/data/eukprot/EP00687_Percolomonas_cosmopolitus.fasta'
+db = '/Users/kika/data/eukprot/EP00394_Amoebophrya_sp_ex-Karlodinium-veneficum.fasta'
 
 for file in files: 
 	print(file)
