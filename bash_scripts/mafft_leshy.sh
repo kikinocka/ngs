@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/archam_trees'
+cd '/mnt/mokosz/home/kika/archam_trees/ak/ver2/'
 infile='ak.fa'
 outfile='ak.mafft.aln'
 report='ak.mafft.log'
