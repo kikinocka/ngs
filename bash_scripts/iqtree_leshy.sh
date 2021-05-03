@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/ak/
+cd /mnt/mokosz/home/kika/archam_trees/ak/ver2/
 
 aln='ak.trimal_gt_0.8.aln'
 guide='guide_ak'
