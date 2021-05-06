@@ -1,8 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+impor os
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/programs/blast-2.5.0+/bin/triat_raw_reads.fastq', 'fastq')
-output = open('/home/kika/programs/blast-2.5.0+/bin/triat_raw_reads.fasta', 'w')
+os.chdir('/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/')
+
+infile = SeqIO.parse('BML_trimmed_1.fq', 'fastq')
+output = open('BML_trimmed_1.fa', 'w')
 
 for sequence in infile:
 	seq = sequence.seq
