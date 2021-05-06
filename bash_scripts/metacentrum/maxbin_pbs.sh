@@ -28,7 +28,6 @@ out='bml_meta.maxbin.out'
 
 run_MaxBin.pl -contig $meta -reads $fwd -reads2 $rev -plotmarker -thread $PBS_NUM_PPN -out $out
 
-
 #copy files back
 rm $meta $fwd $rev
 cp -R * $datadir
