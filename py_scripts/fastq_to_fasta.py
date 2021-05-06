@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-impor os
+import os
 from Bio import SeqIO
 
 os.chdir('/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/')
