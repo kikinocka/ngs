@@ -24,10 +24,11 @@ cd $SCRATCHDIR
 meta='bml_meta.spades_def.fa'
 fwd='BML_trimmed_1.fa'
 rev='BML_trimmed_2.fa'
+min=500
 out='bml_meta.maxbin.out'
 
-run_MaxBin.pl -contig $meta -reads $fwd -reads2 $rev -plotmarker -thread $PBS_NUM_PPN -out $out
+run_MaxBin.pl -contig $meta -reads $fwd -reads2 $rev -min_contig_length $min -plotmarker -thread $PBS_NUM_PPN -out $out
 
 #copy files back
 rm $meta $fwd $rev
-cp -R * $datadir
+cp -R * $datadir'maxbin_500'
