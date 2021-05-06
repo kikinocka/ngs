@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N maxbin
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=3gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -24,11 +24,11 @@ cd $SCRATCHDIR
 meta='bml_meta.spades_def.fa'
 fwd='BML_trimmed_1.fa'
 rev='BML_trimmed_2.fa'
-min=500
+min=250
 out='bml_meta.maxbin.out'
 
 run_MaxBin.pl -contig $meta -reads $fwd -reads2 $rev -min_contig_length $min -plotmarker -thread $PBS_NUM_PPN -out $out
 
 #copy files back
 rm $meta $fwd $rev
-cp -R * $datadir'maxbin_500'
+cp -R * $datadir'maxbin_250'
