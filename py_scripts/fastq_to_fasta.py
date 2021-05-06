@@ -9,6 +9,6 @@ output = open('BML_trimmed_1.fa', 'w')
 
 for sequence in infile:
 	seq = sequence.seq
-	name = sequence.name
+	name = sequence.description
 	output.write('>{}\n{}\n'.format(name, seq))
 output.close()
