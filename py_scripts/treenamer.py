@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver3/')
+os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver4/')
 trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n

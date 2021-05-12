@@ -16,10 +16,10 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/')
-existing = 'ver4/TBC_all_parabasalids_mask.aln'
-add = 'ver3/tbcB.fa'
-out = 'ver4/TBCs.mafft.aln'
-log = 'ver4/TBCs.mafft.log'
+os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver5/')
+existing = 'TBC_all_parabasalids_and_Bs.mask.aln'
+add = 'exA.fa'
+out = 'TBCs.mafft.aln'
+log = 'TBCs.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
