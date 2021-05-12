@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -21,9 +21,9 @@ cd $SCRATCHDIR
 aln='TBCs.trimal_gt_0.9.aln'
 # guide='guide_ocdh'
 # guide_tree=$guide'.treefile'
-bb=1000
+bb=100
 
-iqtree -m TEST -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
+iqtree -m TEST -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 # iqtree -m GTR+G -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
