@@ -31,4 +31,4 @@ iqtree -m TEST -b $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
 #copy files back
 rm $aln
-cp * $datadir
+cp * $datadir'/bs'
