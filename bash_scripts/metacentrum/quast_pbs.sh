@@ -10,13 +10,13 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/'
-outdir=$datadir'quast_rhizomastix_reassembly.NRfilt'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
+outdir=$datadir'quast/'
 
 #copy files to scratch
-cp $datadir'rhizomastix_reassembly.trinity.NRfilt-p70.fna' $SCRATCHDIR
+cp $datadir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
 
-assemblies='rhizomastix_reassembly.trinity.NRfilt-p70.fna'
+assemblies='pelomyxa_final_corr_genome.fa'
 min_contig=500
 
 
