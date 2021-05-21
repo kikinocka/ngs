@@ -3,29 +3,31 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/home/kika/MEGAsync/Data/EL_RNAseq/20140707_ver._r2013-02-05/')
-contamination = open('NCBI_submission/to_trim.txt')
-transcriptome = SeqIO.parse('EL_merged_withoutNs_longer200_without_primers.fsa', 'fasta')
-result = open('EL_merged_withoutNs_longer200_without_adaptors.fsa', 'w')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/ncbi_submission/transcriptome/')
+contamination = open('to_trim.txt')
+transcriptome = SeqIO.parse('pelomyxa_transcriptome_clean.for_ncbi.fa', 'fasta')
+result = open('pelomyxa_transcriptome_clean.for_ncbi_without_adaptors.fa', 'w')
 
 primers = {}
 for line in contamination:
+	print(line.strip().split('\t')[1])
 	contig = line.split('\t')[0]
-	start = int(line.split('\t')[1])
-	stop = int(line.split('\t')[2][:-1])
+	start = line.split('\t')[1].split('..')[0]
+	stop = line.strip().split('\t')[2].split('..')[0]
 	primers[contig] = (start, stop)
+print(primers)
 
-contigs = OrderedDict()
-for contig in transcriptome:
-	contigs[contig.description] = contig.seq
+# contigs = OrderedDict()
+# for contig in transcriptome:
+# 	contigs[contig.description] = contig.seq
 
-for key, value in contigs.items():
-	if key in primers.keys():
-		if primers[key][0] == 1:
-			result.write('>{}\n{}\n'.format(key, value[primers[key][1]:]))
-		else:
-			result.write('>{}\n{}\n'.format(key, value[:primers[key][0]]))
-	else:
-		result.write('>{}\n{}\n'.format(key, value))
+# for key, value in contigs.items():
+# 	if key in primers.keys():
+# 		if primers[key][0] == 1:
+# 			result.write('>{}\n{}\n'.format(key, value[primers[key][1]:]))
+# 		else:
+# 			result.write('>{}\n{}\n'.format(key, value[:primers[key][0]]))
+# 	else:
+# 		result.write('>{}\n{}\n'.format(key, value))
 
-result.close()
+# result.close()

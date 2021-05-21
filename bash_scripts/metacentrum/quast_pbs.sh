@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/check/'
+datadir='/storage/brno3-cerit/home/kika/pelomyxa/check-for-ncbi/'
 outdir=$datadir'quast/'
 
 #copy files to scratch

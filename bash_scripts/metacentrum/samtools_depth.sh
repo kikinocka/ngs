@@ -15,12 +15,13 @@ mapping_dir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/DNA_to_geno
 #copy files to scratch
 cp $mapping_dir'/pelo_genome_bw2_sorted.bam' $SCRATCHDIR
 
+out='average_coverage.txt'
 
 #compute on scratch
 cd $SCRATCHDIR
 bam=$base'pelo_genome_bw2_sorted.bam'
 
-samtools depth -a $bam | awk '{sum+=$3} END { print "Average = ",sum/NR}'
+samtools depth -a $bam | awk '{sum+=$3} END { print "Average = ",sum/NR}' > $out
 
 
 #copy files back
