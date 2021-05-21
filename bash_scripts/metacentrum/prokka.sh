@@ -22,7 +22,7 @@ report='prokka.report'
 cd $SCRATCHDIR
 conda activate prokka 
 
-prokka $genome --outdir $SCRATCHDIR --cpus $PBS_NUM_PPN 2> $report
+prokka $genome --cpus $PBS_NUM_PPN 2> $report
 
 #copy files back
 rm $genome
