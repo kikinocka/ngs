@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add conda-modules-py37
 
-data='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
+data='/storage/brno3-cerit/home/kika/oil_sands/metagenome/prokka/'
 
 #copy files to scratch
 cp $data'bml_meta.spades_def.fa' $SCRATCHDIR
@@ -26,4 +26,4 @@ prokka $genome --cpus $PBS_NUM_PPN 2> $report
 
 #copy files back
 rm $genome
-cp * $data'prokka'
+cp * $data
