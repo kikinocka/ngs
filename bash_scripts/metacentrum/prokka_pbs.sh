@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N prokka
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
