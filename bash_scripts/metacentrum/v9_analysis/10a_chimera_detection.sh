@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N chimera
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=50gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module add vsearch-1.4.4
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/stampa_global_dereplicated_1f_representatives/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/stampa_global_dereplicated_1f_representatives/'
 script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
 #copy files to scratch
