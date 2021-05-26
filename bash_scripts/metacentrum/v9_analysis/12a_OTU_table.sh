@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
 script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
 #copy files to scratch
