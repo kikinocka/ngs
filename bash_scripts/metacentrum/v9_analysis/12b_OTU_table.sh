@@ -17,12 +17,12 @@
 #CHIMERA="sediment_v9_17_samples_1f_representatives.uchime"
 #OTU_TABLE="sediment_v9_17_samples.OTU.table"
 
-STATS=$2
-SWARMS=$3
-AMPLICON_TABLE=$4
-TAXONOMY=$5
-CHIMERA=$6
-OTU_TABLE=$7
+STATS=$1
+SWARMS=$2
+AMPLICON_TABLE=$3
+TAXONOMY=$4
+CHIMERA=$5
+OTU_TABLE=$6
 
 # Header
 echo -e "OTU\t$(head -n 1 "${AMPLICON_TABLE}")\tchimera\tidentity\ttaxonomy\treferences" > "${OTU_TABLE}"
