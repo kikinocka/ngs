@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/parduczia/')
-files = [x for x in os.listdir() if x.endswith('MMETSP1317.nt.fa')]
-dbtype = 'nucl'
+os.chdir('/Users/kika/data/eukprot/')
+files = [x for x in os.listdir() if x.endswith('EP00093_Oithona_nana.fasta')]
+dbtype = 'prot'
 
 for file in files: 
 	print(file)
