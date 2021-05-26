@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N chimera
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=50gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
