@@ -18,8 +18,8 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/TBCs/')
 existing = 'ksTBC_5mafft_upd.aln'
-add = 'ver2/euglenozoans.fa'
-out = 'ver2/tbcs.mafft.aln'
-log = 'ver2/tbcs.mafft.log'
+add = 'ver3/euglenozoans.fa'
+out = 'ver3/tbcs.mafft.aln'
+log = 'ver3/tbcs.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
