@@ -11,23 +11,22 @@ cat $PBS_NODEFILE
 module add spades-3.14.0
 
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
-reads=$datadir'reads/'
+reads=$datadir'bw2_mapping/eukaryotes_prokka/'
 
 #copy reads to scratch
-cp $reads'BML_trimmed_1.fq.gz' $reads'BML_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'bml_euk_prokka_bw2_mapped.fq.1.gz' $reads'bml_euk_prokka_bw2_mapped.fq.2.gz' $SCRATCHDIR
 
-pe1_1='BML_trimmed_1.fq.gz'
-pe1_2='BML_trimmed_2.fq.gz'
-out='spades_kmers'
+pe1_1='bml_euk_prokka_bw2_mapped.fq.1.gz'
+pe1_2='bml_euk_prokka_bw2_mapped.fq.2.gz'
 
 #compute on scratch
 cd $SCRATCHDIR
 
-# #metagenome assembly
-# metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -t $PBS_NUM_PPN -o BML_metagenome
+#metagenome assembly
+metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -t $PBS_NUM_PPN -o eukaryotes_prokka_reassembly
 
-#metagenome specifying k-mers
-metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o $out
+# #metagenome specifying k-mers
+# metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o spades_kmers
 
 # #using reference genome
 # spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted
