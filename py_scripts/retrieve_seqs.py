@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/opa1/search/')
-files = [x for x in os.listdir() if x.endswith('in.acc')]
-database = '/Users/kika/data/eukprot/EP00111_Clytia_hemisphaerica.fasta'
+os.chdir('/Users/kika/ownCloud/oil_sands/metagenome/')
+files = [x for x in os.listdir() if x.endswith('prokka.acc')]
+database = '/Users/kika/ownCloud/oil_sands/metagenome/bml_meta.spades_def.fa'
 
 for accessions in files: 
 	print(accessions)

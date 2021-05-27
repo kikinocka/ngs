@@ -16,14 +16,13 @@ data='/storage/brno3-cerit/home/kika/oil_sands/metagenome/prokka/'
 cp $data'bml_meta.spades_def.fa' $SCRATCHDIR
 
 genome='bml_meta.spades_def.fa'
-report='prokka.report'
 
 #compute on scratch
 cd $SCRATCHDIR
 conda activate prokka 
 
-prokka $genome --cpus $PBS_NUM_PPN 2> $report
+prokka $genome --cpus $PBS_NUM_PPN
 
 #copy files back
 rm $genome
-cp * $data
+cp -r * $data

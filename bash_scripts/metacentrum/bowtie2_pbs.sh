@@ -11,12 +11,12 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/spades_kmers/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
 read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/spades_kmers/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/eukaryotes_prokka/'
 
 #copy files to scratch
-cp $assembly_dir'scaffolds.fasta' $SCRATCHDIR
+cp $assembly_dir'bml_eukaryotes_prokka.fa' $SCRATCHDIR
 cp $read_dir'BML_trimmed_1.fq.gz' $SCRATCHDIR
 cp $read_dir'BML_trimmed_2.fq.gz' $SCRATCHDIR
 
@@ -24,8 +24,8 @@ cp $read_dir'BML_trimmed_2.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='BML-meta-kmers_bw2'
-ref='scaffolds.fasta'
+base_name='bml_euk_prokka_bw2'
+ref='bml_eukaryotes_prokka.fa'
 p1_1='BML_trimmed_1.fq.gz'
 p1_2='BML_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
