@@ -4,7 +4,7 @@ bbduk='/mnt/mokosz/home/kika/tools/bbmap/bbduk.sh'
 adapt='/mnt/mokosz/home/kika/tools/bbmap/resources/adapters.fa'
 
 cd '/mnt/mokosz/home/kika/endolimax_nana/reads/'
-name='Endo1'
+name='Endo2'
 fw=$name'_1.fastq.gz'
 rv=$name'_2.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
