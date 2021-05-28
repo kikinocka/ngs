@@ -8,20 +8,18 @@
 cat $PBS_NODEFILE
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
-# script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
 #copy files to scratch
-# cp $script_dir'12b_OTU_table.sh' $SCRATCHDIR
 cp $data'global_dereplicated_1f.stats' $SCRATCHDIR
 cp $data'global_dereplicated_1f.swarms' $SCRATCHDIR
 cp $data'amplicon_table.out' $SCRATCHDIR
 cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.results' $SCRATCHDIR
 cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.uchime' $SCRATCHDIR
 
+
 #compute on scratch
 cd $SCRATCHDIR
 
-# SCRIPT='12b_OTU_table.sh'
 STATS='global_dereplicated_1f.stats'
 SWARMS='global_dereplicated_1f.swarms'
 AMPLICON_TABLE='amplicon_table.out'

@@ -12,7 +12,8 @@ function usage () {
 SCRIPT_NAME="stampa.sh"
 VSEARCH="vsearch"
 SSU_V4="/storage/brno3-cerit/home/kika/pr2db/4.12.0/pr2_version_4.12.0_18S_taxo_CCAGCASCYGCGGTAATTCC_TYRATCAAGAACGAAAGT.fas"
-SSU_V9="/storage/brno3-cerit/home/kika/pr2db/4.13.0/pr2_version_4.13.0_18S_TTGTACACACCGCCC_GTAGGTGAACCTGCNGAAGG.fas"
+# SSU_V9="/storage/brno3-cerit/home/kika/pr2db/4.13.0/pr2_version_4.13.0_18S_TTGTACACACCGCCC_GTAGGTGAACCTGCNGAAGG.fas"
+SSU_V9="/storage/brno3-cerit/home/kika/databases/V9_DeepSea.fas"
 OUTPUT_PREFIX="fasta."
 INPUT_FILE=$(readlink -f "${1}")  # Works if $1 is a symbolic link
 PATH_TO_FILE=$(readlink -f $(dirname "${1}"))
