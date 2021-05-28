@@ -25,7 +25,7 @@ SWARMS='global_dereplicated_1f.swarms'
 AMPLICON_TABLE='amplicon_table.out'
 TAXONOMY='global_dereplicated_1f_representatives.results'
 CHIMERA='global_dereplicated_1f_representatives.uchime'
-OTU_TABLE='OTU_table.out'
+OTU_TABLE='otu_table.out'
 
 # Header
 echo -e "OTU\t$(head -n 1 "${AMPLICON_TABLE}")\tchimera\tidentity\ttaxonomy\treferences" > "${OTU_TABLE}"
