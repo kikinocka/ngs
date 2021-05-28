@@ -23,4 +23,4 @@ fwd='BML_trimmed_1.fq.gz'
 rev='BML_trimmed_2.fq.gz'
 out='bml_kma'
 
-kma -ipe $fwd $rev -o $out -t_db $db -t $th -1t1 -mem_mode -and -apm f
+kma -ipe $fwd $rev -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f
