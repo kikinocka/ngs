@@ -12,22 +12,22 @@ module add bowtie2-2.4.2
 module add samtools-1.11
 
 assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
-read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/eukaryotes_prokka/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/eukaryotes_prokka/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/bw2_mapping/eukaryotes_reassembly/'
 
 #copy files to scratch
-cp $assembly_dir'bml_eukaryotes_prokka.fa' $SCRATCHDIR
-cp $read_dir'BML_trimmed_1.fq.gz' $SCRATCHDIR
-cp $read_dir'BML_trimmed_2.fq.gz' $SCRATCHDIR
+cp $assembly_dir'bml_eukaryotes.spades_reassembly.fa' $SCRATCHDIR
+cp $read_dir'bml_euk_prokka_bw2_mapped.fq.1.gz' $SCRATCHDIR
+cp $read_dir'bml_euk_prokka_bw2_mapped.fq.2.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='bml_euk_prokka_bw2'
-ref='bml_eukaryotes_prokka.fa'
-p1_1='BML_trimmed_1.fq.gz'
-p1_2='BML_trimmed_2.fq.gz'
+base_name='bml_euk_reassembly_bw2'
+ref='bml_eukaryotes.spades_reassembly.fa'
+p1_1='bml_euk_prokka_bw2_mapped.fq.1.gz'
+p1_2='bml_euk_prokka_bw2_mapped.fq.2.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
 
