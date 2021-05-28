@@ -1,6 +1,6 @@
 #!/bin/sh
 
-read_dir='/mnt/mokosz/home/kika/endolimax_nana/reads/'
+read_dir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/reads/'
 out_dir=$read_dir'fastqc/'
 
 cd $read_dir
