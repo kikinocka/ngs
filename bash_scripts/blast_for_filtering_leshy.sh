@@ -16,7 +16,7 @@ $program -task $task \
 	-query $query \
 	-db $db \
 	-out $out \
-	-outfmt $outfmt \
+	# -outfmt $outfmt \
 	-num_threads $cpu \
 	-evalue $eval \
 	-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
