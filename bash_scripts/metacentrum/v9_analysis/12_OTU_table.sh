@@ -1,11 +1,11 @@
 #!/bin/bash
 #PBS -N otu_table
-#PBS -l select=1:ncpus=10:mem=15gb:scratch_local=50gb
+#PBS -l select=1:ncpus=1:mem=5gb:scratch_local=50gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
-# cat $PBS_NODEFILE
+cat $PBS_NODEFILE
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
 
