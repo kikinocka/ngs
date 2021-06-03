@@ -5,7 +5,7 @@
 #PBS -m ae
 #PBS -j oe
 
-cat $PBS_NODEFILE
+# cat $PBS_NODEFILE
 
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
 
@@ -13,8 +13,8 @@ data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
 cp $data'global_dereplicated_1f.stats' $SCRATCHDIR
 cp $data'global_dereplicated_1f.swarms' $SCRATCHDIR
 cp $data'amplicon_table.out' $SCRATCHDIR
-cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.results' $SCRATCHDIR
-cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.uchime' $SCRATCHDIR
+cp $data'V9_PR2db/stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.results' $SCRATCHDIR
+cp $data'V9_PR2db/stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.uchime' $SCRATCHDIR
 
 
 #compute on scratch
@@ -25,7 +25,7 @@ SWARMS='global_dereplicated_1f.swarms'
 AMPLICON_TABLE='amplicon_table.out'
 TAXONOMY='global_dereplicated_1f_representatives.results'
 CHIMERA='global_dereplicated_1f_representatives.uchime'
-OTU_TABLE='otu_table.out'
+OTU_TABLE='otu_table.tsv'
 
 # Header
 echo -e "OTU\t$(head -n 1 "${AMPLICON_TABLE}")\tchimera\tidentity\ttaxonomy\treferences" > "${OTU_TABLE}"
@@ -57,9 +57,9 @@ awk -v SWARM="${SWARMS}" \
            }
 
      {# Parse the stat file (OTUs sorted by decreasing abundance)
-      seed = $3 "_" $4
-      n = split(swarms[seed], OTU, "[ _]")
-      for (i = 1; i < n; i = i + 2) {
+      seed = $3 ";size=" $4 ";"
+      n = split(swarms[seed], OTU, "[; ]")
+      for (i = 1; i < n; i = i + 3) {
           s = split(table[OTU[i]], abundances, "\t")
           for (j = 1; j < s; j++) {
               samples[j] += abundances[j+1]
@@ -73,8 +73,8 @@ awk -v SWARM="${SWARMS}" \
      delete samples
      }' <(sort -k2,2nr -k1,1nr "${STATS}") >> "${OTU_TABLE}"
 
-bzip2 -9fk "${OTU_TABLE}" &
+# bzip2 -9fk "${OTU_TABLE}" &
 
 
 #copy files back
-cp ${OTU_TABLE}'.bz2' $data
+cp ${OTU_TABLE} $data
