@@ -19,8 +19,9 @@ cp $reads'BML_trimmed_2.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
+db='/storage/praha5-elixir/home/leontovyc_roman/DBs_software_installations/compress_ncbi_nt/ncbi_nt'
 fwd='BML_trimmed_1.fq.gz'
 rev='BML_trimmed_2.fq.gz'
 out='bml_kma'
 
-kma -ipe $fwd $rev -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f
+kma -ipe $fwd $rev -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f -ef
