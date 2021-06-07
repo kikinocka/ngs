@@ -9,11 +9,11 @@ cat $PBS_NODEFILE
 
 module add kma-1.3.0
 
-reads='/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
 
 #copy files to scratch
-cp $reads'BML_trimmed_1.fq.gz' $SCRATCHDIR
-cp $reads'BML_trimmed_2.fq.gz' $SCRATCHDIR
+cp $datadir'reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
@@ -25,3 +25,7 @@ rev='BML_trimmed_2.fq.gz'
 out='bml_kma'
 
 kma -ipe $fwd $rev -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f -ef
+
+#copy files back
+rm $fwd $rev
+cp -R * $datadir'kma'
