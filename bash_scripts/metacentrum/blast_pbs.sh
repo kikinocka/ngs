@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N blast
-#PBS -l select=1:ncpus=15:mem=20gb:scratch_local=3gb
+#PBS -l select=1:ncpus=15:mem=30gb:scratch_local=3gb
 #PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
@@ -25,8 +25,8 @@ db='/storage/projects/BlastDB/nt'
 program=blastn
 task=blastn
 # outfmt=5
-eval=1e-02
-max_seqs=5
+eval=1e-20
+max_seqs=1
 max_hsps=1
 
 $program -task $task \
