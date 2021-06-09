@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+#courtesy of github.com/morpholino
+
 #use p2 or uncomment the decode attribute on l.66
 import argparse, gzip, time, os
 from Bio import Entrez,SeqIO
