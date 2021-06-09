@@ -3,8 +3,8 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/diplonema/FA_elongases/')
-files = [x for x in os.listdir() if 'glycomonads.mafft.aln' in x]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/')
+files = [x for x in os.listdir() if '.mafft.aln' in x]
 
 for file in files:
 	print(file)
