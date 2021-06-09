@@ -13,12 +13,12 @@ module add iqtree-1.6.12
 datadir='/storage/brno3-cerit/home/kika/diplonema/elongases'
 
 #copy files to scratch
-cp $datadir'/'*.aln $SCRATCHDIR
+cp $datadir'/glycomonads.trimal_gt_0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='elongases.trimal_gt_0.8.aln'
+aln='glycomonads.trimal_gt_0.8.aln'
 # guide='guide_elongases'
 # guide_tree=$guide'.treefile'
 bb=1000

@@ -5,8 +5,8 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/opa1/noX/')
-files = [x for x in os.listdir() if x.endswith('enol.fa')]
+os.chdir('/Users/kika/ownCloud/diplonema/FA_elongases/')
+files = [x for x in os.listdir() if x.endswith('monads.fa')]
 
 for file in files:
 	print(file)
