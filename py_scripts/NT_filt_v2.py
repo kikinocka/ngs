@@ -473,7 +473,7 @@ for i,filepath in enumerate(files):
 			print("{}\tsequences of {}".format(distribution[g], g))
 			result.write("{}\tsequences of {}\n".format(distribution[g], g))
 	if not args.test_mode:
-		os.system("mv {} {}_NR/".format(file, dataset))
+		os.system("mv {} {}_NT/".format(file, dataset))
 		for tmpfile in [filt, check]:
 			os.system("rm {}".format(tmpfile))
 	if keeptmpblastfile == False:
