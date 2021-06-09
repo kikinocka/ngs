@@ -6,7 +6,7 @@ datadir='/mnt/mokosz/home/kika/endolimax_nana/'
 blast=$datadir'enan_trinity.blast'
 transcriptome=$datadir'trinity_out_dir/Trinity.fasta'
 coverage='50' #default: 50
-identity='70' #default: 75
+identity='75' #default: 75
 taxon='Amoebozoa'
 
 $filt_script -i $blast -d $datadir -nt $transcriptome -q $coverage -p $identity -g $taxon
