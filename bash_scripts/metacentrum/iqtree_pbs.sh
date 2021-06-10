@@ -18,7 +18,7 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='arfs.trimal_gt_0.8.aln'
+aln='rabs.trimal_gt_0.8.aln'
 guide='guide_rabs'
 guide_tree=$guide'.treefile'
 bb=1000
