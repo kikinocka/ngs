@@ -14,7 +14,8 @@ Entrez.api_key = "ed51bca6c73792ecc692af11ff762b72a008"
 
 
 def assembly_methods(blastline):
-	seqname = blastline.split()
+	# Infer the assembler and protein predictor from blast input or faa file
+	seqname = blastline.split()[0].replace(">", "")
 	assembler, predictor = "NA", "NA"
 	if "::" in seqname:
 		predictor = "transdecoder"
@@ -25,7 +26,7 @@ def assembly_methods(blastline):
 			predictor = "prodigal"
 	elif seqname.startswith("NODE"):
 		assembler = "spades"
-		if seqname.split("_")[-2].startswith("cov"):
+		if seqname.split("_")[-3] == "cov":
 			predictor = "prodigal"
 	
 	return assembler, predictor
@@ -35,63 +36,98 @@ def get_scaffold(predictor, seqname):
 	if predictor == "transdecoder":
 		return seqname.split("::")[1]
 	elif predictor == "prodigal":
-		return "_".join(seqname.split("_")[-2])
+		return "_".join(seqname.split("_")[:-1])
 	return seqname
 
 
-def parse_faa(predictor, fasta_aa):
-	#assumes assembly is made by SPAdes!
+def parse_faa(assembler, predictor, fasta_aa):
+	# scaflen requires assembly is made by SPAdes!
+	# For Trinity assemblies, this scaffold lengths are inferred from nt assembly.
 	faa_file = SeqIO.parse(fasta_aa, "fasta")
 	faa_d = {}
 
-	if predictor == "transdecoder":
-		coordsregex = r":(\d+)-(\d+)\("
-		for seq in faa_file:
-			header = seq.description
-			coords = (int(re.search(coordsregex, header).group(1)), 
-					  int(re.search(coordsregex, header).group(2)))
-			coords = (min(coords), max(coords))
-			scaflen = int(header.split("_")[3])
-			#print(coords, scaflen)
-			frac = (coords[1] - coords[0])/scaflen
-			faa_d[seq.name] = {"coords": coords, "frac": frac}
-	elif predictor == "prodigal":
-		for seq in faa_file:
-			header = seq.description
-			coords = (int(header.split("#")[1]), 
-					  int(header.split("#")[2]))
-			scaflen = int(header.split("_")[3])
-			#print(coords, scaflen)
-			frac = (coords[1] - coords[0])/scaflen
-			faa_d[seq.name] = {"coords": coords, "frac": frac}
+	if assembler == "spades":
+		if predictor == "transdecoder":
+			coordsregex = r":(\d+)-(\d+)\("
+			for seq in faa_file:
+				header = seq.description
+				coords = (float(re.search(coordsregex, header).group(1)), 
+						  float(re.search(coordsregex, header).group(2)))
+				coords = (min(coords), max(coords))
+				scaflen = float(header.split("_")[3])
+				#print(coords, scaflen)
+				genelen = coords[1] - coords[0] + 1
+				faa_d[seq.name] = {"coords": coords, "gene_len": genelen, "scaf_len": scaflen}
+		elif predictor == "prodigal":
+			for seq in faa_file:
+				header = seq.description
+				coords = (float(header.split("#")[1]), 
+						  float(header.split("#")[2]))
+				scaflen = float(header.split("_")[3])
+				#print(coords, scaflen)
+				genelen = coords[1] - coords[0] + 1
+				faa_d[seq.name] = {"coords": coords, "gene_len": genelen, "scaf_len": scaflen}
+	elif assembler == "trinity":
+		if predictor == "transdecoder":
+			coordsregex = r":(\d+)-(\d+)\("
+			for seq in faa_file:
+				header = seq.description
+				coords = (float(re.search(coordsregex, header).group(1)), 
+						  float(re.search(coordsregex, header).group(2)))
+				coords = (min(coords), max(coords))
+				scaflen = scaffolds_d.get(header.split("::")[1], {"length": 1})["length"]
+				#print(coords, scaflen)
+				genelen = coords[1] - coords[0] + 1
+				faa_d[seq.name] = {"coords": coords, "gene_len": genelen, "scaf_len": scaflen}
+		elif predictor == "prodigal":
+			for seq in faa_file:
+				header = seq.description
+				coords = (float(header.split("#")[1]), 
+						  float(header.split("#")[2]))
+				scaflen = scaffolds_d.get("_".join(header.split("_")[:5]), {"length": 1})["length"]
+				#print(coords, scaflen)
+				genelen = coords[1] - coords[0] + 1
+				faa_d[seq.name] = {"coords": coords, "gene_len": genelen, "scaf_len": scaflen}
+	else:
+		print("unrecognized assembler")
 
 	return faa_d
+
+
+def parse_fna(fasta_nt):
+	# Works with any assembly, requires Bio.SeqIO
+	fna_d = {}
+
+	for seq in SeqIO.parse(fasta_nt, "fasta"):
+		fna_d[seq.name] = {"length": float(len(seq.seq)), "genes": []}
+
+	return fna_d
 
 
 def force_taxid_prot(accession):
 	print("Requesting", accession)
 	if "|" in accession:
-		#this is a bit of a problem
+		# This is a bit of a problem
 		if len(accession.split("|")) == 4:
-			#this happened with old-style headers, now NCBI does not use GI
+			# This happened with old-style headers, now NCBI does not use GI
 			accession = accession.split("|")[3]
 		else:
-			#there should be just one item in accession.split("|") that is not an empty string
-			#also, it is supposedly never the first item in such headers
+			# There should be just one item in accession.split("|") that is not an empty string
+			# Also, it is supposedly never the first item in such headers
 			accession  = [x for x in accession.split("|")[1:] if x not in [""]][0]
 		#print(accession)
 		
-	#Efetch will still fail if a pir| accession is passed!
+	# Efetch will still fail if a pir| accession is passed!
 	try:
 		prot = Entrez.efetch(db='protein', id=accession, rettype='gb', retmode='text')
 		prot_record = SeqIO.read(prot, 'genbank')
 		orgn = prot_record.annotations['organism']
 	except:
 		print("Could not process", accession)
-		taxid = 1
 		keeptmpblastfile = True
 		with open("errors.log", "a") as errorfile:
 			errorfile.write(f"error retrieving taxid for {accession}\n")
+		return 1
 			
 	try:
 		name2taxid = ncbi.get_name_translator([orgn])
@@ -109,7 +145,7 @@ def force_taxid_prot(accession):
 
 
 def force_taxid_nucl(accession):
-	#lower data traffic with docsum, sufficient for taxid retrieval
+	#lower data traffic with rettype=docsum, sufficient for taxid retrieval
 	if "|" in accession:
 		accession = accession.split("|")[3]
 		#print(accession)
@@ -121,7 +157,7 @@ def force_taxid_nucl(accession):
 	except:
 		print("Could not process", accession)
 		keeptmpblastfile = True
-		quit()
+		return 1
 	print("Organism retrieved:", taxid)
 
 	return taxid
@@ -140,10 +176,11 @@ def force_taxid_gbnuc(accession):
 	except:
 		print("Could not process", accession)
 		keeptmpblastfile = True
-		quit()
+		return 1
 	print("Organism retrieved:", orgn, taxid)
 
 	return taxid
+
 
 ############################
 ###   PARSE PARAMETERS   ###
@@ -152,7 +189,7 @@ def force_taxid_gbnuc(accession):
 t = time.localtime()
 current_time = time.strftime("%H:%M:%S", t)
 print("starting {}".format(current_time))
-#to parse arguments listed in the command after the script
+
 parser = argparse.ArgumentParser(description='How to use argparse')
 #dmnd blast input absolutely requires -outfmt 6 qseqid bitscore sseqid qcovhsp pident qlen length !
 parser.add_argument('-i', '--infile', help='Diamond outfile(s) to be taxified', required=True)
@@ -161,13 +198,18 @@ parser.add_argument('-d', '--work_dir', help='Working directory with the files',
 #input fasta names can be inferred from blast input
 parser.add_argument('-nt', '--fasta_nt', help='Nucleotide fasta for parsing', default="")
 parser.add_argument('-aa', '--fasta_aa', help='Amino acid fasta for parsing', default="")
-parser.add_argument('-q', '--qcov_threshold', help='query coverage threshold', default=50)
-parser.add_argument('-p', '--pident_threshold', help='percent identity threshold', default=75)
-parser.add_argument('-g', '--good_groups', nargs='+', help='List of good taxonomic groups', default=["Amoebozoa"])
+parser.add_argument('-q', '--qcov_threshold', help='Query coverage threshold', default=50)
+parser.add_argument('-p', '--pident_threshold', help='Percent identity threshold', default=75)
+parser.add_argument('-s', '--scaffold_coverage_threshold', help='percent coverage of scaffold to consider as contamination', default=65)
+parser.add_argument('-g', '--good_groups', nargs='+', help='List of "good" taxonomic groups', default=["Amoebozoa"])
 parser.add_argument('-t', '--test_mode', help='Testing mode to allow checking tmp files', action="store_true")
 parser.add_argument('--genomic', help='Genome analysis mode, requires protein fasta as generated by TransDecoder or Prodigal', action="store_true")
 
 args = parser.parse_args()
+
+# cd to wdir first
+if args.work_dir != ".":
+	os.chdir(args.work_dir)
 
 filetype = "dmnd.out"
 
@@ -177,11 +219,9 @@ else:
 	files = args.infile.split(",")
 print("to analyze:", ", ".join(files))
 
-if args.work_dir != ".":
-	os.chdir(args.work_dir)
-
 qthr = float(args.qcov_threshold)
 pthr = float(args.pident_threshold)
+sthr = float(args.scaffold_coverage_threshold)/100
 
 goodgroups = set()
 goodgroupsrep = ""
@@ -213,19 +253,20 @@ except:
 for i,filepath in enumerate(files):
 	path, file = os.path.split(filepath)
 	print("\n\n======\nAnalyzing", file)
-	# find nucleotide fasta for processing
+	# Find nucleotide fasta in wdir for processing
 	if args.fasta_nt == "":
 		ntfasta = file.replace(filetype, "fasta")
 		if os.path.exists(ntfasta):
 			writent = True
 		else:
-			print("Nucleotide fasta missing/unspecified, nt fasta output muted")
+			print("Nucleotide fasta missing/unspecified, skipping")
 			writent = False
+			continue # modification to allow proteome sorting might be added
 	else:
 		ntfasta = args.fasta_nt
 		writent = True
 	
-	# find amino acid fasta for processing
+	# Find amino acid fasta in wdir for processing
 	if args.fasta_aa == "":
 		aafasta = file.replace(filetype, "faa")
 		if os.path.exists(aafasta):
@@ -239,22 +280,31 @@ for i,filepath in enumerate(files):
 	else:
 		aafasta = args.fasta_aa
 		writeaa = True
-		
-	assembler, predictor = assembly_methods(open(filepath).readline())
+
+	# Check fasta requirements for genomic analysis	
+	if args.genomic and writent == False:
+		print("Scaffold fasta required for genomic mode, skipping!")
+		continue
+	if args.genomic and writeaa == False:
+		print("Protein fasta required for genomic mode, skipping!")
+		continue
+
+	# Start processing files
+	with open(filepath) as f:
+		assembler, predictor = assembly_methods(f.readline())
 	print("Assembly probably {}, protein prediction by {}".format(assembler, predictor))
-	if args.genomic:
-		if writeaa:
-			parse_faa(predictor, aafasta)
-		else:
-			print("Protein fasta required for genomic mode, skipping!")
-			continue
+
+	if writeaa:
+		faa_d = parse_faa(assembler, predictor, aafasta)
+	else:
+		faa_d = {}
 
 	dataset = file.split(".")[0]
-	if os.path.isdir("./tmp".format(dataset)) == False:
-		os.system("mkdir tmp".format(dataset))
+	if os.path.isdir("./tmp") == False:
+		os.system("mkdir tmp")
 		print("tmp directory created")
-	if os.path.isdir("./contaminants".format(dataset)) == False:
-		os.system("mkdir contaminants".format(dataset))
+	if os.path.isdir("./contaminants") == False:
+		os.system("mkdir contaminants")
 		print("contaminant directory created")
 	if os.path.isdir("./{}_NR".format(dataset)) == False:
 		os.system("mkdir {}_NR".format(dataset))
@@ -262,11 +312,13 @@ for i,filepath in enumerate(files):
 	statfile = dataset + "_report.txt"
 	filt = "tmp/{}_filt.txt".format(dataset)
 	check = "tmp/{}_check.txt".format(dataset)
-	#use tmpblast file to retrieve taxids if the script crashes on NCBI requests
-	#cut -f 3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
-	#warning, this file has an atypical column order!
-	tmpblast =  "tmp/{}.tmp".format(file)
+	# Use tmpblast file to retrieve taxids if the script crashes on NCBI requests
+	# cut -f 3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
+	# Warning, this file has an atypical column order!
+	tmpblast =  "tmp/{}.tmp".format(dataset)
 	keeptmpblastfile = False
+
+	# Various contaminant lists:
 	cont_bact = list()
 	cont_mix = set()
 	cont_fungal = list()
@@ -274,18 +326,25 @@ for i,filepath in enumerate(files):
 	cont_plant = list()
 	#cont_parabasalia = list()
 	cont_other = list()
+
+	# All hit species list
 	species = set()
-	goodscafs = {}
-	outscafs = {}
-	scaf_d = {}
+
+	# Dictionaries for comparisons
+	# Initiate scaffold dictionaries or update scaffolds_d with new gene model
+	global scaffolds_d
+	scaffolds_d = parse_fna(ntfasta)
+	
+	goodscafs = {scaf: 0 for scaf in scaffolds_d}
+	outscafs = {scaf: 0 for scaf in scaffolds_d}
+	queries_d = {}
 	ranks = {}
-	#replacement = {"319938": "288004", "1317118": "1379903", "427920": "1983720"}
 	distribution = {goodgroupsrep: 0}
-	c = 0 #we need a process monitor
+	c = 0 # We need a process monitor
 
 	with open(filepath) as infile, \
-	open(tmpblast, "w") as outfile,\
-	open(check, "w") as checkfile,\
+	open(tmpblast, "w") as outblastfile, \
+	open(check, "w") as checkfile, \
 	open(filt, "w") as filtfile:
 		lines = sum(1 for line in open(filepath))
 		print("To be processed: {}".format(lines))
@@ -296,9 +355,9 @@ for i,filepath in enumerate(files):
 			if len(line.split("\t")) != 1:
 				line = line.split("\t")
 				
-				#First create a dictionary item
-				if len(line) == 7:
-					#this is a diamond blastp output, so additional columns can be used for filtering
+				# Parse query details
+				if len(line) > 7:
+					# This is a diamond blastp output, so additional columns can be used for filtering
 					score, qcovs, pident = float(line[1]), float(line[3]), float(line[4])
 				else:
 					print("Not enough columns")
@@ -307,45 +366,46 @@ for i,filepath in enumerate(files):
 					query = line[0]
 					query_scaf = get_scaffold(predictor, query)
 				except IndexError:
-					#assuming protein ID is the same as the contig's!
+					# Assuming protein ID is the same as the contig's!
+					print("Could not get scaffold ID for {}!".format(query))
 					query_scaf = query
-				if query_scaf not in goodscafs:
-					goodscafs[query_scaf] = 0
-					outscafs[query_scaf] = 0
 
-				if query not in scaf_d.keys():
-					scaf_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""]}
-				elif score > scaf_d[query]["score"]:
-					#keep the best scoring hit
-					scaf_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""]}
+				gene_len = faa_d[query]["gene_len"] if query in faa_d else 1
+
+				# Keep a best scoring hit or skip to next result
+				if query not in queries_d.keys():
+					queries_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""], "gene_len": gene_len, "scaffold": query_scaf}
+				elif score > queries_d[query]["score"]:
+					queries_d[query] = {"score": score, "qcovs": qcovs, "pident": pident, "taxid": 0, "rank": [""], "gene_len": gene_len, "scaffold": query_scaf}
 				else:
 					continue
 
-				#Second get taxid and lineage ranks
-				if qcovs < 20: #ignore queries not sufficiently covered
+				# Get taxid and lineage ranks
+				if qcovs < 20: # Ignore queries not sufficiently covered
 					continue
-				accession = line[2]
-				if accession in taxids:
-					taxid = taxids[accession]
+				
+				targetAC = line[2]
+				if targetAC in taxids:
+					taxid = taxids[targetAC]
 				else:
-					taxid = force_taxid_prot(accession)
+					taxid = force_taxid_prot(targetAC)
 				try:
 					lineage = ncbi.get_lineage(taxid)[2:]
 					names = ncbi.get_taxid_translator(lineage)
 					rank = [names[taxid] for taxid in lineage]
 				except ValueError:
-					print(f"problem with {accession}:{taxid}, please try updating taxa.sqlite")
+					print(f"problem with {targetAC}:{taxid}, please try updating taxa.sqlite")
 					keeptmpblastfile = True
 					with open("errors.log", "a") as errorfile:
-						errorfile.write(f"error retrieving taxid for {accession}:{orgn}\n")
+						errorfile.write(f"error retrieving taxid for {targetAC}:{orgn}\n")
 					continue
 
-				outfile.write("{}\t{}\t{}\t{}\t{}\t{}\n".format(line[0], line[1], line[2], line[3], line[4], taxid))
+				outblastfile.write("{}\t{}\t{}\t{}\t{}\t{}\n".format(line[0], line[1], line[2], line[3], line[4], taxid))
 				
-				scaf_d[query]["taxid"] = taxid
-				scaf_d[query]["rank"] = rank
+				queries_d[query]["taxid"] = taxid
+				queries_d[query]["rank"] = rank
 				
-				#Third, prepare ranks to print and store distribution data
+				# Prepare ranks to print and store distribution data
 				if query_scaf not in ranks:
 					ranks[query_scaf] = set()
 				if taxid not in species:
@@ -355,7 +415,7 @@ for i,filepath in enumerate(files):
 				if any(x in rank for x in goodgroups):
 					#print(rank)
 					orgn = ncbi.get_taxid_translator([taxid])[int(taxid)]
-					scaf_d[query]["rank"] = [goodgroupsrep]
+					queries_d[query]["rank"] = [goodgroupsrep]
 					ranks[query_scaf].add(orgn)
 					group = goodgroupsrep
 					distribution[goodgroupsrep] += 1
@@ -396,57 +456,153 @@ for i,filepath in enumerate(files):
 					#print("\tweird rank", rank)
 					checkfile.write(f"{query}\t{rank}\n")
 
-				#Write ranks of the filtered files
-				if query in goodscafs:
-					filtfile.write(f"{query}\t{rank}\n")
+		#update scaffolds_d with query data
+		for query in queries_d:
+			scaffold = queries_d[query]["scaffold"]
+			scaffolds_d[scaffold]["genes"].append(query)
 
-		#ANY FILTER CAN BE APPLIED			
-		for query in scaf_d:
-			try:
-				query_scaf = query.split("::")[1]
-			except IndexError:
-				#assuming protein ID is the same as the contig's!
-				query_scaf = query
-			item = scaf_d[query]
-			qcovs, pident, rank = item["qcovs"], item["pident"], item["rank"]
-			if qcovs > qthr and pident > pthr:
-				# Usually 75% identity and 50% query coverage means high-probability hits.
-				# LGT's usually don't have such a high identity towards any bacteria. 
-				# Sort the sequences as contaminants or good hits to subsets:
-				if "Bacteria" in rank:
-					cont_bact.append(query_scaf)
-					outscafs[query_scaf] += 1
-				elif "Fungi" in rank:
-					cont_fungal.append(query_scaf)
-					outscafs[query_scaf] += 1
-				elif "Metazoa" in rank:
-					cont_animal.append(query_scaf)
-					outscafs[query_scaf] += 1
-				elif "Streptophyta" in rank:
-					cont_plant.append(query_scaf)
-					outscafs[query_scaf] += 1
-				#elif "Parabasalia" in rank:
-				#	cont_parabasalia.append(query_scaf)
-				#	outscafs[query_scaf] += 1
-				elif goodgroupsrep in rank:
-					goodscafs[query_scaf] += 1
-				else:
-					#modify this if organism of interest is in NT
-					#if seqID has been added to goodscafs, this will be ignored
-					cont_other.append(query_scaf)
-					outscafs[query_scaf] += 1
-					#print(rank)
-			elif outscafs[query_scaf] > 0: # another protein had a contaminant signature
-				cont_mix.add(query_scaf)
-			elif any(x in rank for x in goodgroups):
-				goodscafs[query_scaf] += 1
-			else:
-				#this has no good hit in nt:
-				goodscafs[query_scaf] += 1
-				if "Bacteria" in rank:
-					#cont_bact.append(query_scaf)
-					outscafs[query_scaf] += 1
-	
+		#ANY FILTER CAN BE APPLIED
+		for scaffold in scaffolds_d:
+			filtfile.write(">>>{}<<<\n".format(scaffold))
+			breakhere = False
+			scaflen = scaffolds_d[scaffold]["length"]
+			queries = scaffolds_d[scaffold]["genes"]
+			#based on values in queries_d, sort scaffolds into 
+			#contaminants from bacteria, fungi, animals, plants, or mixed:
+			#if total_frac[contaminants] > threshold, dump into category
+			#put into header which contaminant groups were recovered
+			taxon2contlist = {
+							 "Bacteria": cont_bact,
+							 "Fungi": cont_fungal,
+							 "Metazoa": cont_animal,
+							 "Streptophyta": cont_plant,
+							 #"Parabasalia": cont_parabasalia,
+							 }
+			high = [x for x in queries if (queries_d[x]["qcovs"] > qthr and queries_d[x]["pident"] > pthr)]
+			#highranks = [queries_d[x]["rank"] for x in high] #rank is a list of taxonomic groups, will not work
+
+			# If the majority of proteins have a good taxonomic hit:
+			filtfile.write("High confidence:\n")
+			for taxon in goodgroups:
+				subset = [x for x in high if taxon in queries_d[x]["rank"]]
+				scaf_coverage = sum(queries_d[x]["gene_len"] for x in subset) / scaflen
+				filtfile.write("{} {}\n".format(taxon, scaf_coverage))
+				if scaf_coverage > sthr:
+					filtfile.write("{}=>Good h.c.\n".format(scaffold))
+					goodscafs[scaffold] += 1
+					breakhere = True
+					break
+			if breakhere:
+				filtfile.write("\n")
+				continue
+
+			# If the majority of proteins have a bad taxonomic hit:
+			for taxon in taxon2contlist:
+				subset = [x for x in high if taxon in queries_d[x]["rank"]]
+				scaf_coverage = sum(queries_d[x]["gene_len"] for x in subset) / scaflen
+				filtfile.write("{} {}\n".format(taxon, scaf_coverage))
+				if scaf_coverage > sthr:
+					taxon2contlist[taxon].append(scaffold)
+					filtfile.write("{}=>Bad h.c.\n".format(scaffold))
+					outscafs[scaffold] += 1
+					breakhere = True
+					break
+			if breakhere:
+				filtfile.write("\n")
+				continue
+
+			# If the majority of proteins have taxonomic hits not listed above, but not in good groups:
+			high_nontarget = [x for x in high if not any(y in queries_d[x]["rank"] for y in goodgroups)]
+			scaf_coverage = sum(queries_d[x]["gene_len"] for x in high_nontarget) / scaflen
+			filtfile.write("any bad {}\n".format(scaf_coverage))
+			if scaf_coverage > sthr:
+				filtfile.write("{}=>Bad h.c. mix\n".format(scaffold))
+				cont_mix.add(scaffold)
+				outscafs[scaffold] += 1
+				filtfile.write("\n")
+				continue
+
+			# If the majority of proteins have a good taxonomic hit with low confidence:
+			filtfile.write("Low confidence:\n")
+			for taxon in goodgroups:
+				subset = [x for x in queries if taxon in queries_d[x]["rank"]]
+				scaf_coverage = sum(queries_d[x]["gene_len"] for x in subset) / scaflen
+				filtfile.write("{} {}\n".format(taxon, scaf_coverage))
+				if scaf_coverage > sthr:
+					filtfile.write("{}=>Good l.c.\n".format(scaffold))
+					goodscafs[scaffold] += 1
+					breakhere = True
+					break
+			if breakhere:
+				filtfile.write("\n")
+				continue
+
+			# If the majority of proteins have a bad taxonomic hit with low confidence:
+			for taxon in taxon2contlist:
+				subset = [x for x in queries if taxon in queries_d[x]["rank"]]
+				scaf_coverage = sum(queries_d[x]["gene_len"] for x in subset) / scaflen
+				filtfile.write("{} {}\n".format(taxon, scaf_coverage))
+				if scaf_coverage > sthr:
+					taxon2contlist[taxon].append(scaffold)
+					filtfile.write("{}=>Bad l.c.\n".format(scaffold))
+					outscafs[scaffold] += 1
+					breakhere = True
+					break
+			if breakhere:
+				filtfile.write("\n")
+				continue
+
+			# All the rest goes to goodscafs:
+			filtfile.write("{}=>Good (rest)\n".format(scaffold))
+			goodscafs[scaffold] += 1
+			filtfile.write("\n")
+		#this is purely based on counts of how many times a bad or good hit was found for each query scaf
+		# for query in queries_d:
+		# 	try:
+		# 		query_scaf = get_scaffold(predictor, query)
+		# 	except IndexError:
+		# 		#assuming protein ID is the same as the contig's!
+		# 		query_scaf = query
+		# 	besthit = queries_d[query]
+		# 	qcovs, pident, rank, gene_len = besthit["qcovs"], besthit["pident"], besthit["rank"], besthit["gene_len"]
+		# 	if qcovs > qthr and pident > pthr:
+		# 		# Usually 75% identity and 50% query coverage means high-probability hits.
+		# 		# LGT's usually don't have such a high identity towards any bacteria. 
+		# 		# Sort the sequences as contaminants or good hits to subsets:
+		# 		if "Bacteria" in rank:
+		# 			cont_bact.append(query_scaf)
+		# 			outscafs[query_scaf] += 1
+		# 		elif "Fungi" in rank:
+		# 			cont_fungal.append(query_scaf)
+		# 			outscafs[query_scaf] += 1
+		# 		elif "Metazoa" in rank:
+		# 			cont_animal.append(query_scaf)
+		# 			outscafs[query_scaf] += 1
+		# 		elif "Streptophyta" in rank:
+		# 			cont_plant.append(query_scaf)
+		# 			outscafs[query_scaf] += 1
+		# 		#elif "Parabasalia" in rank:
+		# 		#	cont_parabasalia.append(query_scaf)
+		# 		#	outscafs[query_scaf] += 1
+		# 		elif goodgroupsrep in rank:
+		# 			goodscafs[query_scaf] += 1
+		# 		else:
+		# 			#modify this if organism of interest is in NT
+		# 			#if seqID has been added to goodscafs, this will be ignored
+		# 			cont_other.append(query_scaf)
+		# 			outscafs[query_scaf] += 1
+		# 			#print(rank)
+		# 	elif outscafs[query_scaf] > 0: # another protein had a contaminant signature
+		# 		cont_mix.add(query_scaf)
+		# 	elif any(x in rank for x in goodgroups):
+		# 		goodscafs[query_scaf] += 1
+		# 	else:
+		# 		#this has no good hit in nt:
+		# 		goodscafs[query_scaf] += 1
+		# 		if "Bacteria" in rank:
+		# 			#cont_bact.append(query_scaf)
+		# 			outscafs[query_scaf] += 1
+
 	#now to extract sequence data as requested
 	seqlen = 0
 	if writent == True:
@@ -499,7 +655,7 @@ for i,filepath in enumerate(files):
 		out_prot = open("{0}_NR/{0}.{1}.NRfilt.faa".format(dataset, assembler), "w")
 		for seq in in_prot:
 			try:
-				query_scaf = seq.name.split("::")[1]
+				query_scaf = get_scaffold(predictor, seq.name)
 			except IndexError:
 				print("could not parse protID to contig", seq.name)
 				query_scaf = seq.name
@@ -524,7 +680,7 @@ for i,filepath in enumerate(files):
 				out_prot.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 		out_prot.close()
 	
-	print("{} different species as hits".format(len(species)))
+	print("{} different species as hits. Please, check for any unwanted clades.".format(len(species)))
 	with open(statfile, "w") as result:
 		if seqlen != 0:
 			result.write("{} bases extracted\n".format(seqlen))
