@@ -1,8 +1,8 @@
 #!/bin/bash
 
 task=blastp
-query='/mnt/mokosz/home/kika/endolimax_nana/enan_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
-out='/mnt/mokosz/home/kika/endolimax_nana/enan.trinity.NTfilt.dmnd.out'
+query='/mnt/mokosz/home/kika/rhizomastix_vacuolata/rvac_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
+out='/mnt/mokosz/home/kika/rhizomastix_vacuolata/rvac.trinity.NTfilt.dmnd.out'
 db='/opt/databases/nr_auto/2021-02-15/diamond/nr.dmnd'
 taxify='/mnt/mokosz/home/kika/scripts/py_scripts/taxify_DMND_nr_gz.py'
 # outfmt=5
