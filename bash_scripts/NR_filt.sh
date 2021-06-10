@@ -10,7 +10,7 @@ coverage='50' #default: 50
 identity='70' #default: 75
 taxon='Amoebozoa'
 
-$filt_script -i $diamond -d $datadir -nt $transcriptome -a $proteins -q $coverage -p $identity -g $taxon
+$filt_script -i $diamond -d $datadir -nt $transcriptome -aa $proteins -q $coverage -p $identity -g $taxon --test_mode
 
 # -i: --infile
 # -d: --work_dir
