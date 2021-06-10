@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NT_filt_v2.py'
+filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NT_filt.py'
 
 datadir='/mnt/mokosz/home/kika/endolimax_nana/'
 blast=$datadir'enan_trinity.blast'
