@@ -294,6 +294,10 @@ for i,filepath in enumerate(files):
 		assembler, predictor = assembly_methods(f.readline())
 	print("Assembly probably {}, protein prediction by {}".format(assembler, predictor))
 
+	# Initiate scaffold dictionaries or update scaffolds_d with new gene model
+	global scaffolds_d
+	scaffolds_d = parse_fna(ntfasta)
+	
 	if writeaa:
 		faa_d = parse_faa(assembler, predictor, aafasta)
 	else:
@@ -331,10 +335,6 @@ for i,filepath in enumerate(files):
 	species = set()
 
 	# Dictionaries for comparisons
-	# Initiate scaffold dictionaries or update scaffolds_d with new gene model
-	global scaffolds_d
-	scaffolds_d = parse_fna(ntfasta)
-	
 	goodscafs = {scaf: 0 for scaf in scaffolds_d}
 	outscafs = {scaf: 0 for scaf in scaffolds_d}
 	queries_d = {}
@@ -356,7 +356,7 @@ for i,filepath in enumerate(files):
 				line = line.split("\t")
 				
 				# Parse query details
-				if len(line) > 7:
+				if len(line) >= 7:
 					# This is a diamond blastp output, so additional columns can be used for filtering
 					score, qcovs, pident = float(line[1]), float(line[3]), float(line[4])
 				else:
