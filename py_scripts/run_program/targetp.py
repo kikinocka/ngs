@@ -4,8 +4,8 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/diplonema/urea_cycle/CPS/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/Users/kika/ownCloud/diplonema/FA_elongases/')
+files = [x for x in os.listdir() if x.endswith('dpap_elongases.fa')]
 
 for file in files:
 	print(file)
