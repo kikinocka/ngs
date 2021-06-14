@@ -10,7 +10,7 @@ log='/Users/kika/ownCloud/pelomyxa_schiedti/ncbi_submission/genome/pelomyxa_out.
 
 #genome
 $table2asn -M n -J -c w -euk \
-	-j "[organism=Pelomyxa schiedti] [strain=SKARADSKE] [gcode=1]" \
+	-j "[organism=Pelomyxa schiedti] [strain=SKADARSKE] [gcode=1]" \
 	-gaps-min 10 \
 	-l paired-ends \
 	-t $template \

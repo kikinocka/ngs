@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/ncbi_submission/transcriptome/')
-contamination = open('to_trim.txt')
-transcriptome = SeqIO.parse('pelomyxa_transcriptome_clean.for_ncbi.fa', 'fasta')
-result = open('pelomyxa_transcriptome_clean.for_ncbi_without_adaptors.fa', 'w')
+os.chdir('/Users/kika/ownCloud/rhabdomonas_costata/ncbi_submission/')
+contamination = open('3-to_trim.txt') #contig_name \t \d+..\d+
+transcriptome = SeqIO.parse('Rhabdomonas_costata_transcriptome-20110611renamed.without_adaptors2_longer200-2_cont-removed.fa', 'fasta')
+result = open('Rhabdomonas_costata_transcriptome-20110611renamed.without_adaptors3_cont-removed.fa', 'w')
 
 primers = {}
 for line in contamination:
@@ -22,10 +22,10 @@ for contig in transcriptome:
 
 for key, value in contigs.items():
 	if key in primers.keys():
-		if primers[key][0] == 1:
+		if primers[key][0] <= 10:
 			result.write('>{}\n{}\n'.format(key, value[primers[key][1]:]))
-		elif primers[key][1] == len(value):
-			 result.write('>{}\n{}\n'.format(key, value[:primers[key][0]]))
+		elif primers[key][1] >= len(value)-10:
+			result.write('>{}\n{}\n'.format(key, value[:primers[key][0]]))
 		# elif primers[key][1] < len(value)/2:
 		# 	print(key)
 		# 	print(value)
