@@ -10,9 +10,9 @@ cat $PBS_NODEFILE
 module add python36-modules-gcc
 module add vsearch-1.4.4
 
-sl='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
-merged=$sl'merged_pear'
-out=$sl'trimmed_cutadapt'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/'
+merged=$data'merged_pear'
+out=$data'trimmed_cutadapt'
 
 #copy file to scratch
 cp $merged/*.assembled.fastq $SCRATCHDIR
@@ -31,5 +31,5 @@ for f in *.assembled.fastq ; do
 done
 
 #copy files back
-rm *.assembled.fastq 'clean_fastq_files.sh' #'hashing.py'
+rm *.assembled.fastq '2b_clean_fastq_files.sh' #'hashing.py'
 cp * $out
