@@ -2,15 +2,15 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/rhabdomonas_costata/ncbi_submission/')
-remove = open('3-ncbi_report_contamination.txt')
-fasta = SeqIO.parse('Rhabdomonas_costata_transcriptome-20110611renamed.without_adaptors2_longer200-2.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/')
+remove = open('ncbi_submission/genome/remove.acc')
+fasta = SeqIO.parse('pasa-evm/pelomyxa_introns_final.fa', 'fasta')
 
 acc = set()
 for line in remove:
 	acc.add(line.strip())
 
-with open('Rhabdomonas_costata_transcriptome-20110611renamed.without_adaptors2_longer200-2_cont-removed.fa', 'w') as out:
+with open('pasa-evm/pelomyxa_introns_final-removed.fa', 'w') as out:
 	for seq in fasta:
 		if seq.name in acc:
 			print(seq.name)

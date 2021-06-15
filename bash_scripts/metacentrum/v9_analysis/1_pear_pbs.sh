@@ -9,11 +9,12 @@ cat $PBS_NODEFILE
 #add module
 module add pear-0.9.11
 
-raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads'
-merged='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_pear/'
+raw='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/raw_reads'
+merged='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/merged_pear/'
 
 #copy files to scratch
-cp $raw/*.bz2 $SCRATCHDIR
+cp $raw'/'*.gz $SCRATCHDIR
+# cp $raw/*.bz2 $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -31,8 +32,8 @@ cd $SCRATCHDIR
 #  cp ${R1/R1/R2} ${WORKING_DIR}
 # done
 
-# gunzip *.gz
-bzip2 -d *.bz2
+gunzip *.gz
+# bzip2 -d *.bz2
 
 find . -name '*_R1_001.fastq' | \
 while read R1 ; do
