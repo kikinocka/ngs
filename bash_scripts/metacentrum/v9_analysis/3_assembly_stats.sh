@@ -1,6 +1,6 @@
 #!/bin/bash
 
-raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
+raw='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/raw_reads/'
 
 cd $raw
 for TARGET in *.assembled.fastq ; do
