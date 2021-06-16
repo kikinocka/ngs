@@ -1,7 +1,7 @@
 #/bin/bash
 #PBS -N datasethandler
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,7 +14,7 @@ module add mafft-7.453
 module add trimal-1.4
 
 #copy files to scratch
-DATADIR='/storage/brno3-cerit/home/kika/trafficking/RABs/ver3'
+DATADIR='/storage/brno3-cerit/home/kika/trafficking/COPII/ver2'
 
 cp '/storage/brno2/home/kika/scripts/kika/py_scripts/datasethandler-server.py' $SCRATCHDIR
 cp $DATADIR'/'*.fa $SCRATCHDIR
@@ -24,7 +24,7 @@ cd $SCRATCHDIR
 python datasethandler-server.py \
 	-i batch \
 	-a mafft \
-	--trimalparams='-gt 0.8' \
+	--trimalparams='-gt 0.5' \
 	-t iqtree \
 	-b \
 	--maxcores $PBS_NUM_PPN
