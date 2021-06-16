@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ESCRTs/chmp7-NT_vps25/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/retromer/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 
 for file in files:
