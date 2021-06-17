@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N CCMetagen
-#PBS -l select=1:ncpus=2:mem=100mb:scratch_local=100mb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=20:mem=1gb:scratch_local=1gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
