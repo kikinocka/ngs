@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N amplicons
-#PBS -l select=1:ncpus=1:mem=5gb:scratch_local=50gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=1:mem=5gb:scratch_local=5gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -9,9 +9,9 @@ cat $PBS_NODEFILE
 
 module add python-3.6.2-gcc
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/trimmed_cutadapt'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/trimmed_cutadapt'
 script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
-out='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
+out='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 
 #copy files to scratch
 cp $data'/'*.fas $SCRATCHDIR
