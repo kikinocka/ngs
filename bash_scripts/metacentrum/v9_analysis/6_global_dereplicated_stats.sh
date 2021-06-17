@@ -10,9 +10,9 @@ cd $data
 #     exit 1;
 # fi
 
-echo 'I am in: ' pwd
+echo 'I am in: ' ${pwd}
 echo 'Running global stats on: ' $fasta
-echo "Unique Seqs | Raw Reads" >$out
+echo "Unique Seqs | Raw Reads" > $out
 awk -F "[;=]" '/^>/ {s += $3 ; c += 1} END {print s, c}' $fasta >> $out
 echo 'awk done'
 echo '******************'
