@@ -4,7 +4,9 @@ data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 raw=$data'raw_reads/'
 merged=$data'merged_pear/'
 trimmed=$data'trimmed_cutadapt/'
+stats=$data'assembly.stats.txt'
 
+rm $stats
 cd $merged
 for TARGET in *.assembled.fastq ; do
 	cd $merged
@@ -30,7 +32,7 @@ for TARGET in *.assembled.fastq ; do
         -v before=${RAW} \
         -v trimmed=${TRIMMED} \
         -v file=${TARGET/.assembled*/} \
-        'BEGIN {printf "| %s | %s | %s | %.2f | %s | %.2f |\n", file, before / 4, after / 4, 100 * after / before, trimmed, 100 * trimmed / (after / 4)}'
+        'BEGIN {printf "| %s | %s | %s | %.2f | %s | %.2f |\n", file, before / 4, after / 4, 100 * after / before, trimmed, 100 * trimmed / (after / 4)}' >> $stats
     echo 'awk done'
     echo '**********************************'
 done
