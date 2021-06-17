@@ -7,14 +7,14 @@ trimmed=$data'trimmed_cutadapt/'
 
 # # compress
 # cd $raw
-# echo 'I am in: ' pwd
+# echo 'I am in: ' `pwd`
 # for f in *.fastq ; do
 # 	echo 'Compressing: ' $f
 #     bzip2 -9 ${f}
 # done &
 
 cd $merged
-echo 'I am in: ' pwd
+echo 'I am in: ' `pwd`
 for f in *.fastq ; do
 	echo 'Compressing: ' $f
     bzip2 -9 ${f}
@@ -25,7 +25,7 @@ done &
 
 # rename
 cd $trimmed
-echo 'I am in: ' pwd
+echo 'I am in: ' `pwd`
 for f in *.assembled.fasta ; do
 	echo 'Renaming: ' $f
     mv ${f} ${f/.assembled.fasta/.fas}
