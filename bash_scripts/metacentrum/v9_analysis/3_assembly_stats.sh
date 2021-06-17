@@ -10,12 +10,12 @@ echo '| file | raw | merged | % merged | trimmed | % trimmed |' > $stats
 cd $merged
 for TARGET in *.assembled.fastq ; do
 	cd $merged
-	echo 'I am in: ' $pwd
+	echo 'I am in: ' pwd
     ASSEMBLED=$(wc -l < ${TARGET})
     echo 'Target is: ' $TARGET
 
     cd $raw
-    echo 'I am in: ' $pwd
+    echo 'I am in: ' pwd
     fwd=${TARGET/.assembled/_L001_R1_001}
     echo 'Extracting: ' $fwd.gz
     gzip -k -d $fwd.gz
@@ -24,7 +24,7 @@ for TARGET in *.assembled.fastq ; do
     rm $fwd
     
     cd $trimmed
-    echo 'I am in: ' $pwd
+    echo 'I am in: ' pwd
     TRIMMED=$(tail -n 1 ${TARGET/.fastq/.log} | cut -f 2)
     echo 'Target is: ' ${TARGET/.fastq/.log}
     
