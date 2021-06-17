@@ -1,17 +1,22 @@
 #!/bin/bash
 
-raw='/storage/brno3-cerit/home/kika/sl_euglenozoa/raw_reads/'
-merged='/storage/brno3-cerit/home/kika/sl_euglenozoa/merged_pear/'
-trimmed='/storage/brno3-cerit/home/kika/sl_euglenozoa/trimmed_cutadapt/'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
+raw=$data'raw_reads/'
+merged=$data'merged_pear/'
+trimmed=$data'trimmed_cutadapt/'
 
-# compress
-cd $raw
-for f in *.fastq ; do
-    bzip2 -9 ${f}
-done &
+# # compress
+# cd $raw
+# echo 'I am in: ' $pwd
+# for f in *.fastq ; do
+# 	echo 'Compressing: ' $f
+#     bzip2 -9 ${f}
+# done &
 
 cd $merged
+echo 'I am in: ' $pwd
 for f in *.fastq ; do
+	echo 'Compressing: ' $f
     bzip2 -9 ${f}
 done &
 
@@ -20,6 +25,8 @@ done &
 
 # rename
 cd $trimmed
+echo 'I am in: ' $pwd
 for f in *.assembled.fasta ; do
+	echo 'Renaming: ' $f
     mv ${f} ${f/.assembled.fasta/.fas}
 done
