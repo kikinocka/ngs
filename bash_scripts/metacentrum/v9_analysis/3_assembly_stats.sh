@@ -24,7 +24,7 @@ for TARGET in *.assembled.fastq ; do
     cd $trimmed
     echo 'I am in: ' $trimmed
     TRIMMED=$(tail -n 1 ${TARGET/.fastq/.log} | cut -f 2)
-    echo 'Target is: ' $TRIMMED
+    echo 'Target is: ' ${TARGET/.fastq/.log}
     
     awk -v after=${ASSEMBLED} \
         -v before=${RAW} \
