@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module add vsearch-1.4.4
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
 
 #copy files to scratch
