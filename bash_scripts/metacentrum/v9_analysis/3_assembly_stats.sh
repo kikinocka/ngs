@@ -6,7 +6,7 @@ merged=$data'merged_pear/'
 trimmed=$data'trimmed_cutadapt/'
 stats=$data'assembly.stats.txt'
 
-rm $stats
+echo '| file | raw | merged | % merged | trimmed | % trimmed |' > $stats
 cd $merged
 for TARGET in *.assembled.fastq ; do
 	cd $merged
