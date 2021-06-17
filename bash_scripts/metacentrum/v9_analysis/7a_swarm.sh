@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N swarm
-#PBS -l select=1:ncpus=15:mem=10gb:scratch_local=50gb
+#PBS -l select=1:ncpus=15:mem=1gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe

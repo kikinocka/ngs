@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N vsearch
-#PBS -l select=1:ncpus=1:mem=50gb:scratch_local=50gb
+#PBS -l select=1:ncpus=1:mem=1gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
