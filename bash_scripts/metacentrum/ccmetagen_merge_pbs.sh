@@ -13,8 +13,9 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/kma-ccmeta/'
 
 # $datadir must contain .res.csv file with CCMetagen results !
 
-level='Kingdom'
-lineage='Eukaryota'
+level='Superkingdom'
+lineage='Bacteria'
 out='eukaryotes.table'
 
-CCMetagen_merge.py -i $datadir -kr k -l $level -tlist $lineage -o $out
+CCMetagen_merge.py -i $datadir -kr r -l $level -tlist $lineage -o $out
+# CCMetagen_merge.py -i /storage/brno3-cerit/home/kika/oil_sands/metagenome/kma-ccmeta/ -kr k -l Superkingdom -tlist Eukaryota -o eukaryotes.table
