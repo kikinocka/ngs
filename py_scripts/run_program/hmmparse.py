@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/import/masba-prot_LATEST/')
+os.chdir('/Users/kika/ownCloud/archamoebae/import/rva-decon-p70/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/Users/kika/ownCloud/archamoebae/mastigamoeba_balamuthi/Masba_prot_LATEST.fa', 'fasta')
+db = SeqIO.parse('/Users/kika/ownCloud/archamoebae/rhizomastix_vacuolata/rvac.trinity.NRfilt-p70.faa', 'fasta')
 
 seq_d = {}
 for seq in db:
