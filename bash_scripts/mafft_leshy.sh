@@ -1,8 +1,9 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/archam_trees/ak/ver2/'
-infile='ak.fa'
-outfile='ak.mafft.aln'
-report='ak.mafft.log'
+cd '/mnt/mokosz/home/kika/archam_trees/'
 
-mafft --thread 15 --localpair --maxiterate 1000 --inputorder $infile > $outfile 2> $report
+for f in *.fa ; do
+	aln=${f%.fa}.mafft.aln
+	log=${f%.fa}.mafft.log
+	mafft --thread 15 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
+done
