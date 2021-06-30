@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/tom7/
+cd /mnt/mokosz/home/kika/archam_trees/tom7/ver2/
 
-aln='tom7.trimal_gt_0.8.aln'
+aln='tom7.trimmed_man.aln'
 # guide='guide_ak'
 # guide_tree=$guide'.treefile'
 bb=1000
