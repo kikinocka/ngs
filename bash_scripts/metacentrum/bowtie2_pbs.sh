@@ -51,9 +51,9 @@ bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	# -U $r1,$r2 \
 	#--no-unal \ #writes only mapped reads to sam file
 
-# samtools view -bS -F 4 $samfile > $bamfile -@ PBS_NUM_PPN #writes only mapped reads to bamfile
+# samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
 samtools view -bS $samfile > $bamfile -@ $PBS_NUM_PPN
-samtools sort -o $sorted -@ PBS_NUM_PPN $bamfile 
+samtools sort -o $sorted -@ $PBS_NUM_PPN $bamfile 
 samtools index $sorted
 
 #copy files back

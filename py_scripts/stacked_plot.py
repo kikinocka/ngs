@@ -27,8 +27,8 @@ df = pd.read_csv('V9_deepsea/otu_identities.tsv', sep='\t')
 # print(df)
 
 colors = ['#000000', '#CD950B', '#FFB90F', '#FFFF99', '#FAEBD7', 
-	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#C9C9C9', 
-	'#1F78B4', '#BCDEB4', '#7FFFD4', '#A6CEE3']
+	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
+	'#C9C9C9', '#BCDEB4', '#7FFFD4', '#A6CEE3']
 
 ax = df.plot(x='perc', kind='bar', stacked=True, color=colors, width=0.5, align='center')
 ax.set_xticklabels(df.perc, rotation=0)
