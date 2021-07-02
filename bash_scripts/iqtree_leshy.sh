@@ -2,7 +2,7 @@
 
 cd /mnt/mokosz/home/kika/archam_trees/cpn10
 
-aln='cpn10.trimmed_man.aln'
+aln='cpn10.trimal_gt_0.8.aln'
 # guide='guide_ak'
 # guide_tree=$guide'.treefile'
 bb=1000
