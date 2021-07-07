@@ -1,11 +1,11 @@
 #!/bin/bash
 
 cd '/mnt/mokosz/home/kika/rhizomastix_vacuolata/mapping/rvac2/'
-assembly_dir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/rvac_NR/'
+assembly_dir='/mnt/mokosz/home/kika/rhizomastix_libera+elongata_reassembly/rhizomastix_reassembly_NR/'
 read_dir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/reads/'
 
 base_name='rvac2_bw2'
-ref=$assembly_dir'rvac.trinity.NRfilt.fna'
+ref=$assembly_dir'rhizomastix_reassembly.trinity.NRfilt.fasta'
 p1_1=$read_dir'RV2_trimmed_1.fq.gz'
 p1_2=$read_dir'RV2_trimmed_2.fq.gz'
 cpu=10
