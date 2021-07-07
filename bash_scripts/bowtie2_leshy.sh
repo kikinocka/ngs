@@ -4,7 +4,7 @@ cd '/mnt/mokosz/home/kika/rhizomastix_libera+elongata_reassembly/mapping/'
 assembly_dir='/mnt/mokosz/home/kika/rhizomastix_libera+elongata_reassembly/rhizomastix_reassembly_NR/'
 read_dir='/mnt/mokosz/home/kika/rhizomastix_libera+elongata_reassembly/reads/'
 
-base_name='rvac2_bw2'
+base_name='rlib_bw2'
 ref=$assembly_dir'rhizomastix_reassembly.trinity.NRfilt.fasta'
 p1_1=$read_dir'SRR5396411_trimmed_1.fq.gz'
 p1_2=$read_dir'SRR5396411_trimmed_2.fq.gz'
