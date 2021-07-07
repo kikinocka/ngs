@@ -1,13 +1,13 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/endolimax_nana/mapping/endo1/'
+cd '/mnt/mokosz/home/kika/endolimax_nana/mapping/endo2/'
 assembly_dir='/mnt/mokosz/home/kika/endolimax_nana/enan_NR/'
 read_dir='/mnt/mokosz/home/kika/endolimax_nana/reads/'
 
-base_name='endo1_bw2'
+base_name='endo2_bw2'
 ref=$assembly_dir'enan.trinity.NRfilt.fna'
-p1_1=$read_dir'Endo1_trimmed_1.fq.gz'
-p1_2=$read_dir'Endo1_trimmed_2.fq.gz'
+p1_1=$read_dir'Endo2_trimmed_1.fq.gz'
+p1_2=$read_dir'Endo2_trimmed_2.fq.gz'
 cpu=10
 
 samfile=$base_name'.sam'
