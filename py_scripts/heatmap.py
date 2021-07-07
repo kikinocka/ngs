@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/mgm1/no_redundancy_trimmed/')
+os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/opa1/no_redundancy_trimmed/')
 # array1 = pd.read_csv('opa1_MT_correlation.tsv', sep='\t')
-array2 = pd.read_csv('mgm1_MT_correlation.tsv', sep='\t')
+array2 = pd.read_csv('opa1_MT_correlation.tsv', sep='\t')
 
 fig, ax2 = plt.subplots()
 # fig, (ax1,ax2) = plt.subplots(ncols=2)
@@ -42,4 +42,4 @@ ax2 = sns.heatmap(data2,
 	xticklabels=labels2, yticklabels=labels2)
 
 # plt.show()
-plt.savefig('mgm1_MT-coevol.pdf', dpi=300)
+plt.savefig('opa1_MT-coevol.pdf', dpi=300)
