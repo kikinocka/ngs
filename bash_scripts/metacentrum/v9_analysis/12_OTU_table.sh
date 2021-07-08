@@ -7,14 +7,14 @@
 
 cat $PBS_NODEFILE
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/'
+data='/storage/brno3-cerit/home/kika/oil_sands/'
 
 #copy files to scratch
 cp $data'global_dereplicated_1f.stats' $SCRATCHDIR
 cp $data'global_dereplicated_1f.swarms' $SCRATCHDIR
 cp $data'amplicon_table.out' $SCRATCHDIR
-cp $data'V9_DeepSea/stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.results' $SCRATCHDIR
-cp $data'V9_DeepSea/stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.uchime' $SCRATCHDIR
+cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.results' $SCRATCHDIR
+cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.uchime' $SCRATCHDIR
 
 
 #compute on scratch
@@ -77,4 +77,4 @@ awk -v SWARM="${SWARMS}" \
 
 
 #copy files back
-cp ${OTU_TABLE} $data'V9_DeepSea/'
+cp ${OTU_TABLE} $data
