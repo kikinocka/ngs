@@ -30,16 +30,13 @@ cd $SCRATCHDIR
 # fi
 
 
-ls -1 ./[1-9]*.fas | cut -d '/' -f 2 | sort -d | uniq -d
+ls -1 ./*.fas | cut -d '/' -f 2 | sort -d | uniq -d
+# ls -1 ./[1-9]*.fas | cut -d '/' -f 2 | sort -d | uniq -d
 
-python ${SCRIPT} ./[1-9]*.fas > ${OUTPUT} &
+python ${SCRIPT} ./*.fas > ${OUTPUT} &
+# python ${SCRIPT} ./[1-9]*.fas > ${OUTPUT} &
 
 
 #copy files back
 # rm *fas ${SCRIPT}
 cp ${OUTPUT} $out
-
-
-(BUSTER)kika@skirit:~/scripts/kika/bash_scripts/metacentrum$ more amplicons.o7882967 
-elmo4-1.hw.elixir-czech.cz
-ls: cannot access './[1-9]*.fas': No such file or directory
