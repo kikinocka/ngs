@@ -9,6 +9,9 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/kma-ccmeta/'
 
 level='Superkingdom'
 lineage='Bacteria,Viruses'
-out=$datadir'eukaryotes.table'
+out=$datadir'eukaryotes'
 
 CCMetagen_merge.py -i $datadir -kr r -l $level -tlist $lineage -o $out
+# -kr 
+# 	k = keep
+# 	r = remove
