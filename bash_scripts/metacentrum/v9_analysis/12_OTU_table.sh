@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-data='/storage/brno3-cerit/home/kika/oil_sands/'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 
 #copy files to scratch
 cp $data'global_dereplicated_1f.stats' $SCRATCHDIR
