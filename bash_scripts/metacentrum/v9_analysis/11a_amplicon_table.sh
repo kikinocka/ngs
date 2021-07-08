@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module add python-3.6.2-gcc
 
 data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/trimmed_cutadapt'
-script_dir='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
+script_dir='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/v9_analysis/'
 out='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 
 #copy files to scratch
