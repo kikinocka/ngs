@@ -12,21 +12,24 @@ module add kma-1.3.19
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
 
 #copy files to scratch
-cp $datadir'reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
-cp $datadir'reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
+cp $datadir'bml_meta.spades_def.fa' $SCRATCHDIR
+# cp $datadir'reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
+# cp $datadir'reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 db='/storage/praha5-elixir/home/leontovyc_roman/DBs_software_installations/compress_ncbi_nt/ncbi_nt'
-fwd='BML_trimmed_1.fq.gz'
-rev='BML_trimmed_2.fq.gz'
+assembly='bml_meta.spades_def.fa'
+# fwd='BML_trimmed_1.fq.gz'
+# rev='BML_trimmed_2.fq.gz'
 out='bml_kma'
 
 kma shm -t_db $db -shmLvl 1
-kma -ipe $fwd $rev -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f -ef -tmp ${SCRATCHDIR}/
+kma -i $assembly -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f -ef -tmp ${SCRATCHDIR}/
+# kma -ipe $fwd $rev -o $out -t_db $db -t $PBS_NUM_PPN -1t1 -mem_mode -and -apm f -ef -tmp ${SCRATCHDIR}/
 
 #copy files back
-rm $fwd $rev
-cp -R * $datadir'kma'
+rm $assembly
+cp -R * $datadir'kma-ccmeta_assembly'
