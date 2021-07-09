@@ -9,31 +9,25 @@ cat $PBS_NODEFILE
 
 module add kraken2-1.0
 
+db_dir='/storage/brno3-cerit/home/kika/databases/kraken2'
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
 
 #copy files to scratch
 cp $datadir'bml_meta.spades_def.fa' $SCRATCHDIR
-# cp $datadir'reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
-# cp $datadir'reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
+cp $db_dir'/'* $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-db='/storage/praha5-elixir/home/leontovyc_roman/DBs_software_installations/compress_ncbi_nt/ncbi_nt'
 assembly='bml_meta.spades_def.fa'
-# fwd='BML_trimmed_1.fq.gz'
-# rev='BML_trimmed_2.fq.gz'
-out='bml_kma'
+out='bml_meta.kraken.out'
+report='bml_meta.kraken.report'
+
+kraken2 --db kraken2-db --threads $PBS_NUM_PPN --report $report $assembly > $out
 
 
-#copy files back
-rm $assembly
-cp -R * $datadir'kma-ccmeta_assembly'
-
-
-
-Usage: kraken2 [options] <filename(s)>
+kraken2 -db kraken2-db --threads 16 --report SRR1957167.fastq.report --unclassified-out SRR1957167.fastqunclassified#.fq --classified-out SRR1957167.fastq.fastqclassified#.fq --paired /home/pip17/scratch/giardia_pop_genomics/paired_reads_all_projects/SRR1957167/SRR1957167_1.fastq /home/pip17/scratch/giardia_pop_genomics/paired_reads_all_projects/SRR1957167/SRR1957167_2.fastq > SRR1957167.fastq.Kraken.out
 
 Options:
   --db NAME               Name for Kraken 2 DB
@@ -52,7 +46,7 @@ Options:
                           Minimum base quality used in classification (def: 0,
                           only effective with FASTQ input).
   --report FILENAME       Print a report with aggregrate counts/clade to file
-  --use-mpa-style         With --report, format report output like Kraken 1's
+  --use-mpa-style         With --report, format report output like Kraken 1s
                           kraken-mpa-report
   --report-zero-counts    With --report, report counts for ALL taxa, even if
                           counts are zero
@@ -64,5 +58,7 @@ Options:
   --help                  Print this message
   --version               Print version information
 
-If none of the *-compressed flags are specified, and the filename provided
-is a regular file, automatic format detection is attempted.
+
+#copy files back
+rm $assembly
+cp -R * $datadir'kraken2'
