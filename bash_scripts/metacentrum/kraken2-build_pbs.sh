@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N kraken-build
-#PBS -l select=1:ncpus=1:mem=2gb:scratch_local=100gb
+#PBS -l select=1:ncpus=1:mem=10gb:scratch_local=100gb
 #PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
