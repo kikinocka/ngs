@@ -12,7 +12,7 @@ data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 #copy files to scratch
 cp $data'global_dereplicated_1f.stats' $SCRATCHDIR
 cp $data'global_dereplicated_1f.swarms' $SCRATCHDIR
-cp $data'amplicon_table.out' $SCRATCHDIR
+cp $data'amplicon_table.tsv' $SCRATCHDIR
 cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.results' $SCRATCHDIR
 cp $data'stampa_global_dereplicated_1f_representatives/global_dereplicated_1f_representatives.uchime' $SCRATCHDIR
 
@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 
 STATS='global_dereplicated_1f.stats'
 SWARMS='global_dereplicated_1f.swarms'
-AMPLICON_TABLE='amplicon_table.out'
+AMPLICON_TABLE='amplicon_table.tsv'
 TAXONOMY='global_dereplicated_1f_representatives.results'
 CHIMERA='global_dereplicated_1f_representatives.uchime'
 OTU_TABLE='otu_table.tsv'

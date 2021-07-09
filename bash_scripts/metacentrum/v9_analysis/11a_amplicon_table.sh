@@ -17,7 +17,7 @@ out='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
 cp $data'/'*.fas $SCRATCHDIR
 cp $script_dir'11b_amplicon_contingency_table.py' $SCRATCHDIR
 
-OUTPUT='amplicon_table.out'
+OUTPUT='amplicon_table.tsv'
 SCRIPT='11b_amplicon_contingency_table.py'
 
 

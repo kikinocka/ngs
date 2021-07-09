@@ -22,6 +22,9 @@ cd $SCRATCHDIR
 kma='bml_kma.res'
 out='CCMetagen'
 
+echo 'from ete3 import NCBITaxa; ncbi = NCBITaxa(); ncbi.update_taxonomy_database(); quit()' > run.py
+python run.py
+
 CCMetagen.py -i $kma -o $out
 
 #copy files back
