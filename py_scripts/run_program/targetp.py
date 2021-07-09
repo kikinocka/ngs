@@ -5,7 +5,7 @@ import subprocess
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
 os.chdir('/Users/kika/ownCloud/diplonema/predictions/')
-files = [x for x in os.listdir() if x.endswith('updated.fa')]
+files = [x for x in os.listdir() if x.endswith('repre.fa')]
 
 for file in files:
 	print(file)
