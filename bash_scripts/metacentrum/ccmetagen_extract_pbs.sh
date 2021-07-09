@@ -7,8 +7,8 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/kma-ccmeta_assembly
 
 csv=$datadir'CCMetagen.res.csv'
 frag=$datadir'bml_kma.frag'
-out=$datadir'eukaryotes'
+out=$datadir'bacteria'
 level='Superkingdom'
-lineage='Eukaryota'
+lineage='Bacteria'
 
 CCMetagen_extract_seqs.py -iccm $csv -ifrag $frag -l $level -t $lineage -o $out
