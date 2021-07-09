@@ -3,7 +3,7 @@
 
 module add ccmetagen-1.2.5
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/kma-ccmeta/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/kma-ccmeta_assembly/'
 
 # $datadir must contain .res.csv file with CCMetagen results !
 
