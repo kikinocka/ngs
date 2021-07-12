@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N kraken-build
-#PBS -l select=1:ncpus=1:mem=10gb:scratch_local=100gb
-#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=100gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,15 +14,7 @@ db_dir='/storage/brno3-cerit/home/kika/databases/'
 #compute on scratch
 cd $SCRATCHDIR
 
-kraken2-build --download-taxonomy --db kraken2DB
-kraken2-build --download-library nt --db kraken2DB
-kraken2-build --download-library bacteria --db kraken2DB
-kraken2-build --download-library human --db kraken2DB
-kraken2-build --download-library fungi --db kraken2DB
-kraken2-build --download-library protozoa --db kraken2DB
-kraken2-build --download-library UniVec_Core --db kraken2DB
-kraken2-build --build --db kraken2DB --clean
-# kraken2-build --standard --db kraken2DB --threads $PBS_NUM_PPN
+kraken2-build --standard --db kraken2DB --threads $PBS_NUM_PPN
 
 #copy files back
 cp -R * $db_dir
