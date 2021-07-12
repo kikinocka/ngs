@@ -14,7 +14,19 @@ db_dir='/storage/brno3-cerit/home/kika/databases/'
 #compute on scratch
 cd $SCRATCHDIR
 
-kraken2-build --standard --db kraken2DB --threads $PBS_NUM_PPN
+db='kraken2DB'
+
+echo '*** DOWNLOADING TAXONOMY ***'
+kraken2-build --download-taxonomy --threads $PBS_NUM_PPN --db $db
+echo '*** TAXONOMY DOWNLOADED ***'
+
+echo '*** DOWNLOADING NUCLEOTIDE DATABASE ***'
+kraken2-build --download-library nt --threads $PBS_NUM_PPN --db $db
+echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
+
+echo '*** BUILDING KRAKEN2 DATABASE ***'
+kraken2-build --build --threads $PBS_NUM_PPN --db $db
+echo '*** KRAKEN2 DATABASE BUILT ***'
 
 #copy files back
 cp -R * $db_dir
