@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/opa1/no_redundancy_trimmed/')
+os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/opa1/4-no_redundancy_trimmed_enol-orgn/')
 # array1 = pd.read_csv('opa1_MT_correlation.tsv', sep='\t')
 array2 = pd.read_csv('opa1_MT_correlation.tsv', sep='\t')
 

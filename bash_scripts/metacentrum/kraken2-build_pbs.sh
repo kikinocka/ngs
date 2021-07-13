@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-module add kraken2-1.0
+module add kraken2-1.2
 
 db_dir='/storage/brno3-cerit/home/kika/databases/'
 
