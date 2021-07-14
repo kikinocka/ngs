@@ -18,7 +18,7 @@ cp -r /storage/brno3-cerit/home/kika/augustus_configs/* $SCRATCHDIR/augustus_con
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 export PATH=$PATH:/software/augustus/3.3.1/src/bin:/software/augustus/3.3.1/src/scripts
 
-assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies-NRfilt'
+assembly_dir='/storage/brno3-cerit/home/kika/giardia'
 # busco_dir=$assembly_dir'busco/'
 # summaries=$busco_dir'summaries/'
 lin_dir='/software/busco/3.0.2/src/db/'
@@ -30,11 +30,11 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $summaries'short_summary_eukaryota_odb9_rli.txt'
 
 #copy files to scratch
-cp $assembly_dir'/rhizomastix_reassembly.trinity.NRfilt-p70.faa' $SCRATCHDIR
+cp $assembly_dir'/VDLU01.1.fsa_nt' $SCRATCHDIR
 
-assemblies='*.faa'
+assemblies='*.fsa_nt'
 lineage=$lin_dir'eukaryota_odb9/'
-mode='proteins'
+mode='genome'
 # species='pelomyxa'
 
 
@@ -43,7 +43,7 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%.faa}_eukaryota_odb9
+	base=${fasta%.fsa_nt}_eukaryota_odb9
 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 done
 # generate_plot.py -wd $summaries
