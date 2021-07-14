@@ -16,16 +16,16 @@ db_dir='/storage/brno3-cerit/home/kika/databases/'
 
 db='kraken2DB'
 
-# echo '*** DOWNLOADING TAXONOMY ***'
-# kraken2-build --download-taxonomy --threads $PBS_NUM_PPN --db $db
-# echo '*** TAXONOMY DOWNLOADED ***'
+echo '*** DOWNLOADING TAXONOMY ***'
+kraken2-build --download-taxonomy --threads $PBS_NUM_PPN --db $db
+echo '*** TAXONOMY DOWNLOADED ***'
 
-# echo '*** DOWNLOADING NUCLEOTIDE DATABASE ***'
-# kraken2-build --download-library nt --threads $PBS_NUM_PPN --db $db
-# echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
+echo '*** DOWNLOADING NUCLEOTIDE DATABASE ***'
+kraken2-build --download-library nt --threads $PBS_NUM_PPN --db $db
+echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
 
 echo '*** BUILDING KRAKEN2 DATABASE ***'
-kraken2-build --build --threads $PBS_NUM_PPN --db $db
+kraken2-build --build --threads $PBS_NUM_PPN --db $db --clean
 echo '*** KRAKEN2 DATABASE BUILT ***'
 
 #copy files back
