@@ -25,7 +25,7 @@ kraken2-build --download-library nt --threads $PBS_NUM_PPN --db $db
 echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
 
 echo '*** BUILDING KRAKEN2 DATABASE ***'
-kraken2-build --build --threads $PBS_NUM_PPN --db $db --clean
+kraken2-build --build --threads $PBS_NUM_PPN --db $db
 echo '*** KRAKEN2 DATABASE BUILT ***'
 
 #copy files back
