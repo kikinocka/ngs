@@ -11,9 +11,10 @@ cat $PBS_NODEFILE
 module add spades-3.14.0
 
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
+reads=$datadir'reads/'
 
 #copy reads to scratch
-cp $datadir'P1B_trimmed_1.fq.gz' $datadir'P1B_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P1B_trimmed_1.fq.gz' $reads'P1B_trimmed_2.fq.gz' $SCRATCHDIR
 
 pe1_1='P1B_trimmed_1.fq.gz'
 pe1_2='P1B_trimmed_2.fq.gz'
