@@ -28,5 +28,9 @@ echo '*** BUILDING KRAKEN2 DATABASE ***'
 kraken2-build --build --threads $PBS_NUM_PPN --db $db
 echo '*** KRAKEN2 DATABASE BUILT ***'
 
+echo '*** CLEANING KRAKEN2 DATABSE ***'
+kraken2-build --clean --threads $PBS_NUM_PPN --db $db
+echo '*** KRAKEN2 DATABASE CLEAN ***'
+
 #copy files back
 cp -R * $db_dir
