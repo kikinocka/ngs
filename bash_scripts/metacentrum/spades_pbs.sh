@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N SPAdes
-#PBS -l select=1:ncpus=50:ompthreads=50:mem=150gb:scratch_local=30gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=50:ompthreads=50:mem=100gb:scratch_local=30gb
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,14 +10,14 @@ cat $PBS_NODEFILE
 #add modules
 module add spades-3.14.0
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
 reads=$datadir'reads/'
 
 #copy reads to scratch
-cp $reads'P1B_trimmed_1.fq.gz' $reads'P1B_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P2S_trimmed_1.fq.gz' $reads'P2S_trimmed_2.fq.gz' $SCRATCHDIR
 
-pe1_1='P1B_trimmed_1.fq.gz'
-pe1_2='P1B_trimmed_2.fq.gz'
+pe1_1='P2S_trimmed_1.fq.gz'
+pe1_2='P2S_trimmed_2.fq.gz'
 
 #compute on scratch
 cd $SCRATCHDIR
