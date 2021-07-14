@@ -30,11 +30,11 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $summaries'short_summary_eukaryota_odb9_rli.txt'
 
 #copy files to scratch
-cp $assembly_dir'/VDLU01.1.fsa_nt' $SCRATCHDIR
+cp $assembly_dir'/VDLU01P.1.fsa_aa' $SCRATCHDIR
 
-assemblies='*.fsa_nt'
+assemblies='*.fsa_aa'
 lineage=$lin_dir'eukaryota_odb9/'
-mode='genome'
+mode='proteins'
 # species='pelomyxa'
 
 
@@ -43,7 +43,7 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%.fsa_nt}_eukaryota_odb9
+	base=${fasta%.fsa_aa}_eukaryota_odb9
 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 done
 # generate_plot.py -wd $summaries
