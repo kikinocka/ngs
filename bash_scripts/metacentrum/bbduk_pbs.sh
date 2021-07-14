@@ -10,22 +10,22 @@ cat $PBS_NODEFILE
 module add bbmap-36.92
 
 
-raw_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c/'
+raw_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/reads'
 # trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'P3B_S4_L001_R1_001.fastq.gz' $SCRATCHDIR
-cp $raw_dir'P3B_S4_L001_R2_001.fastq.gz' $SCRATCHDIR
+cp $raw_dir'P3S_S2_L001_R1_001.fastq.gz' $SCRATCHDIR
+cp $raw_dir'P3S_S2_L001_R2_001.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='P3B'
-fw=$name'_S4_L001_R1_001.fastq.gz'
-rv=$name'_S4_L001_R2_001.fastq.gz'
+name='P3S'
+fw=$name'_S2_L001_R1_001.fastq.gz'
+rv=$name'_S2_L001_R2_001.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 report=$name'_bbduk_report.txt'
