@@ -11,16 +11,16 @@ cat $PBS_NODEFILE
 module add blast+-2.8.0a
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
 
 #copy files to scratch
-cp $datadir'bml_eukaryotes.spades_reassembly.fa' $SCRATCHDIR
-cp $datadir'bw2_mapping/eukaryotes_prokka/bml_euk_prokka_bw2_mapped.fq.1.gz' $SCRATCHDIR
-cp $datadir'bw2_mapping/eukaryotes_prokka/bml_euk_prokka_bw2_mapped.fq.2.gz' $SCRATCHDIR
+cp $datadir'spades/scaffolds.fasta' $SCRATCHDIR
+cp $datadir'reads/P1B_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'reads/P1B_trimmed_1.fq.gz' $SCRATCHDIR
 
-metagenome='bml_eukaryotes.spades_reassembly.fa'
-fwd='bml_euk_prokka_bw2_mapped.fq.1.gz'
-rev='bml_euk_prokka_bw2_mapped.fq.2.gz'
+metagenome='scaffolds.fasta'
+fwd='P1B_trimmed_1.fq.gz'
+rev='P1B_trimmed_1.fq.gz'
 
 
 #compute on scratch
@@ -30,4 +30,4 @@ metaquast.py -o $SCRATCHDIR -t $PBS_NUM_PPN -1 $fwd -2 $rev $metagenome
 
 #copy results to your folder
 rm $metagenome $fwd $rev
-cp -r * $datadir'metaquast/eukaryotes_reassembly/'
+cp -r * $datadir'metaquast/'
