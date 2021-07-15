@@ -12,7 +12,7 @@ module add kraken2-1.2
 db_dir='/storage/brno3-cerit/home/kika/databases/'
 
 #compute on scratch
-# cd $SCRATCHDIR
+cd $SCRATCHDIR
 
 db='kraken2DB'
 
