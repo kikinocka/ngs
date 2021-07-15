@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/fornicata'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/18S_preaxostyla'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,7 +18,7 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='fornicata.trimal_gt_0.1.aln'
+aln='preaxostyla.trimal_gt_0.1.aln'
 # guide='guide_vps29'
 # guide_tree=$guide'.treefile'
 bb=1000
