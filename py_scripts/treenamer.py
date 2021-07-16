@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/oil_sands/Lane26_18S_V9/metamonads/18S_fornicata/ver1/')
+os.chdir('/Users/kika/ownCloud/oil_sands/Lane26_18S_V9/metamonads/18S_fornicata/ver2/')
 trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n
