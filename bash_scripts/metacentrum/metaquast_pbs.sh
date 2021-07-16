@@ -16,11 +16,11 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.
 #copy files to scratch
 cp $datadir'spades/scaffolds.fasta' $SCRATCHDIR
 cp $datadir'reads/P2S_trimmed_1.fq.gz' $SCRATCHDIR
-cp $datadir'reads/P2S_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'reads/P2S_trimmed_2.fq.gz' $SCRATCHDIR
 
 metagenome='scaffolds.fasta'
 fwd='P2S_trimmed_1.fq.gz'
-rev='P2S_trimmed_1.fq.gz'
+rev='P2S_trimmed_2.fq.gz'
 
 
 #compute on scratch
