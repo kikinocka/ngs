@@ -11,16 +11,16 @@ cat $PBS_NODEFILE
 module add blast+-2.8.0a
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c/'
 
 #copy files to scratch
 cp $datadir'spades/scaffolds.fasta' $SCRATCHDIR
-cp $datadir'reads/P2S_trimmed_1.fq.gz' $SCRATCHDIR
-cp $datadir'reads/P2S_trimmed_2.fq.gz' $SCRATCHDIR
+cp $datadir'reads/P3B_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'reads/P3B_trimmed_2.fq.gz' $SCRATCHDIR
 
 metagenome='scaffolds.fasta'
-fwd='P2S_trimmed_1.fq.gz'
-rev='P2S_trimmed_2.fq.gz'
+fwd='P3B_trimmed_1.fq.gz'
+rev='P3B_trimmed_2.fq.gz'
 
 
 #compute on scratch
