@@ -10,13 +10,14 @@ cat $PBS_NODEFILE
 module add python36-modules-gcc
 module add vsearch-1.4.4
 
+scripts='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/'
 data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
 merged=$data'merged_pear'
 out=$data'trimmed_cutadapt'
 
-#copy file to scratch
+#copy files to scratch
 cp $merged/*.assembled.fastq $SCRATCHDIR
-cp '/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/2b_clean_fastq_files.sh' $SCRATCHDIR
+cp &scripts'2b_clean_fastq_files.sh' $SCRATCHDIR
 # cp $sl'hashing.py' $SCRATCHDIR
 
 #compute on scratch

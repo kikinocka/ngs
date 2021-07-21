@@ -9,12 +9,12 @@ cat $PBS_NODEFILE
 
 module add swarm-3.0.0
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
-script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
+data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+scripts='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/'
 
 #copy files to scratch
 cp $data'global_dereplicated.fa' $SCRATCHDIR
-cp $script'7b_swarm_fastidious.sh' $SCRATCHDIR
+cp $scripts'7b_swarm_fastidious.sh' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
