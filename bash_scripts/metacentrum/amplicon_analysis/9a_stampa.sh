@@ -9,22 +9,22 @@ cat $PBS_NODEFILE
 
 module add vsearch-1.4.4
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
-script='/storage/brno2/home/kika/scripts/kika/bash_scripts/metacentrum/v9_analysis/'
+data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+scripts='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/'
 
 #copy files to scratch
 cp $data'global_dereplicated_1f_representatives.fas' $SCRATCHDIR
-cp $script'9b_stampa.sh' $SCRATCHDIR
-cp $script'9c_stampa_merge.py' $SCRATCHDIR
-
-fasta='global_dereplicated_1f_representatives.fas'
-stampa_sc='9b_stampa.sh'
+cp $scripts'9b_stampa.sh' $SCRATCHDIR
+cp $scripts'9c_stampa_merge.py' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-./$stampa_sc $fasta SSU_V9
+fasta='global_dereplicated_1f_representatives.fas'
+stampa_sc='9b_stampa.sh'
+
+./$stampa_sc $fasta SSU_V4
 
 #copy files back
 rm $fasta $stampa_sc '9c_stampa_merge.py'
