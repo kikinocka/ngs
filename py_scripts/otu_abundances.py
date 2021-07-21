@@ -32,7 +32,7 @@ df[['rank1', 'rank2', 'rank3']] = df.lineage.str.split('|', 2, expand=True)
 
 
 # #metamonads
-meta = df[df.rank2.isin(['Metamonada'])]
+meta = df[df.rank3.isin(['Metamonada'])]
 meta['species'] = meta.lineage.apply(lambda x: x.split('Metamonada_X|')[1])
 grouped = meta.groupby(['species']).sum().filter(regex='V9.*', axis=1)
 transformed = grouped.T
