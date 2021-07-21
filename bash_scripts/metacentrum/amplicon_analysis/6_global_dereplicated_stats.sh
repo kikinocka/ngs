@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
+data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
 fasta=$data'global_dereplicated.fa'
 out=$data'global.stats.txt'
 
