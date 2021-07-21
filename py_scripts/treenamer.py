@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/oil_sands/Lane26_18S_V9/metamonads/18S_fornicata/ver2/')
+os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver5/mrbayes/')
 trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('fornicata_names.txt')
+names = open('tbcs_names.txt')
 
 name_dict = {}
 for name in names:

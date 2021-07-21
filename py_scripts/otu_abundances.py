@@ -33,9 +33,9 @@ df[['rank1', 'rank2', 'rank3']] = df.lineage.str.split('|', 2, expand=True)
 
 # #metamonads
 meta = df[df.rank2.isin(['Metamonada'])]
-meta['species'] = meta.lineage.apply(lambda x: x.split("|")[-1])
-meta = meta.groupby(['species']).sum().filter(regex='V9.*', axis=1)
-meta = meta.T
+meta['species'] = meta.lineage.apply(lambda x: x.split('Metamonada_X|')[1])
+grouped = meta.groupby(['species']).sum().filter(regex='V9.*', axis=1)
+transformed = grouped.T
 # print(meta)
 
 colors = [
@@ -46,7 +46,7 @@ colors = [
 	'#fdf3f5', '#f9d1d8', '#f5afbb', '#f18d9e', '#c0707e', '#90545e', '#301c1f', 
 	'#8a8119', '#e6d72a']
 
-ax = meta.plot(kind='barh', stacked=True, color=colors, width=0.5, align='center')
+ax = transformed.plot(kind='barh', stacked=True, color=colors, width=0.5, align='center')
 ax.set_xlabel('OTU abundances', fontsize=5)
 ax.set_ylabel('sample', fontsize=5)
 plt.xticks(fontsize=4)
@@ -60,7 +60,7 @@ ax.spines['right'].set_visible(False)
 ax.spines['left'].set_linewidth(0.6)
 ax.spines['top'].set_visible(False)
 ax.spines['bottom'].set_linewidth(0.6)
-ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=4, frameon=False)
+ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
 plt.tight_layout()
-plt.show()
-# plt.savefig('metamonads.pdf', dpi=300)
+# plt.show()
+plt.savefig('metamonads.pdf', dpi=300)
