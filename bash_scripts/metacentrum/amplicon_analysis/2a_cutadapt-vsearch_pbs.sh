@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module add python36-modules-gcc
 module add vsearch-1.4.4
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
+data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
 merged=$data'merged_pear'
 out=$data'trimmed_cutadapt'
 
@@ -27,7 +27,7 @@ export TMPDIR=$SCRATCHDIR
 
 for f in *.assembled.fastq ; do
  # V4 or V9 as an option
- bash ${CUTADAPT_SCRIPT} ${f} V9
+ bash ${CUTADAPT_SCRIPT} ${f} V4
 done
 
 #copy files back
