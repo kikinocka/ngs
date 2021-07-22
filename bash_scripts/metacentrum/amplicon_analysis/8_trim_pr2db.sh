@@ -19,7 +19,7 @@ cp $DATADIR'pr2_version_4.14.0_SSU_UTAX.fasta' $SCRATCHDIR
 #run on scratch
 cd $SCRATCHDIR
 
-SOURCE='pr2_version_4.13.0_18S_UTAX.fasta'
+SOURCE='pr2_version_4.14.0_SSU_UTAX.fasta'
 
 #V4 primers
 PRIMER_F="CCAGCASCYGCGGTAATTCC"
