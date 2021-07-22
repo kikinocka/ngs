@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/anaeramoeba/rabs/trees/1-8-18/ver2_bs'
+datadir='/storage/brno3-cerit/home/kika/anaeramoeba/hops-corvet/ver5_bs'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,8 +18,8 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='1-8-18.trimal_gt_0.8.aln'
-guide='guide_1-8-18'
+aln='vps3-39.trimal_gt_0.8.aln'
+guide='guide_vps3-39'
 guide_tree=$guide'.treefile'
 bb=100
 nm=5000
