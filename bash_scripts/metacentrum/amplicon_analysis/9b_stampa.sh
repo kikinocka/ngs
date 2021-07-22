@@ -11,7 +11,7 @@ function usage () {
 ## Variables
 SCRIPT_NAME="stampa.sh"
 VSEARCH="vsearch"
-SSU_V4="/storage/brno3-cerit/home/kika/databases/pr2db/4.14.0/pr2_version_4.14.0_18S_CCAGCASCYGCGGTAATTCC_TYRATCAAGAACGAAAGT.fas"
+SSU_V4="/storage/brno3-cerit/home/kika/databases/pr2db/4.14.0/pr2_version_4.14.0_SSU_CCAGCASCYGCGGTAATTCC_TYRATCAAGAACGAAAGT.taxoupd.fas"
 # SSU_V9="/storage/brno3-cerit/home/kika/databases/pr2db/4.13.0/pr2_version_4.13.0_18S_TTGTACACACCGCCC_GTAGGTGAACCTGCNGAAGG.fas"
 SSU_V9="/storage/brno3-cerit/home/kika/databases/V9_DeepSea.fas"
 OUTPUT_PREFIX="fasta."
