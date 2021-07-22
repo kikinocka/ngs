@@ -16,10 +16,10 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/oil_sands/Lane26_18S_V9/metamonads/18S_parabasalia/')
-existing = 'parabasalia_eukref.aln'
-add = 'parabasalia_otus.fa'
-out = 'parabasalia.mafft.aln'
-log = 'parabasalia.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ESCRTs/chmp7-NT_vps25/')
+existing = 'Shweta_alns/SNF8_R1.aln'
+add = 'diplo.fa'
+out = 'chmp7-NT_vps25.mafft.aln'
+log = 'chmp7-NT_vps25.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
