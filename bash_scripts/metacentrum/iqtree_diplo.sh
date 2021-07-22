@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 aln='chmp7NT_vps25.trimal_gt_0.8.aln'
 guide='guide_chmp7N_vps25'
 guide_tree=$guide'.treefile'
-bb=100
+bb=1000
 nm=5000
 
 # iqtree -m TEST -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
