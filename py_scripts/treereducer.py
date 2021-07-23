@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/octopine_superfamily/ver6/')
-inacc = open('delete.acc')
-infasta = SeqIO.parse('ocdh.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/')
+inacc = open('rab7/delete.acc')
+infasta = SeqIO.parse('ver5/rabs.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('ocdh-reduced.fa', 'w') as result:
+with open('rab7/rab7.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
