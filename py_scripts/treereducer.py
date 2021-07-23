@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/')
-inacc = open('rab7/delete.acc')
+inacc = open('rab32/delete.acc')
 infasta = SeqIO.parse('ver5/rabs.fa', 'fasta')
 
 omitted = []
@@ -11,7 +11,7 @@ for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('rab7/rab7.fa', 'w') as result:
+with open('rab32/rab32.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
