@@ -1,8 +1,8 @@
 #!/bin/bash
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/'
-query=$datadir'trinity_out_dir/Trinity.fasta'
-out=$datadir'rvac_trinity.blast'
+datadir='/mnt/mokosz/home/kika/endolimax_nana/'
+query=$datadir'trinity2/Trinity.fasta'
+out=$datadir'enan_trinity.blast'
 db='/opt/databases/nt_auto/current/blast/nt'
 program=blastn
 task=blastn
