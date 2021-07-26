@@ -19,4 +19,4 @@ rev3='RV1-2_trimmed_2.fq.gz'
 Trinity --seqType fq --left $fwd1,$fwd2,$fwd3 --right $rev1,$rev2,$rev3 --max_memory 100G --CPU 15
 
 rm *fq.gz
-mv -R * $datadir
+mv * $datadir
