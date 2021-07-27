@@ -9,20 +9,20 @@ cat $PBS_NODEFILE
 
 module add python-3.6.2-gcc
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/trimmed_cutadapt'
-script_dir='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/v9_analysis/'
-out='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/'
+data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/trimmed_cutadapt'
+script_dir='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/'
+out='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
 
 #copy files to scratch
 cp $data'/'*.fas $SCRATCHDIR
 cp $script_dir'11b_amplicon_contingency_table.py' $SCRATCHDIR
 
-OUTPUT='amplicon_table.tsv'
-SCRIPT='11b_amplicon_contingency_table.py'
-
 
 #compute on scratch
 cd $SCRATCHDIR
+
+OUTPUT='amplicon_table.tsv'
+SCRIPT='11b_amplicon_contingency_table.py'
 
 # if [ $# != 1 ]; then
 #     echo 'You need to supply an output filename - e.g. something.table';
