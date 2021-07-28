@@ -18,8 +18,8 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='syn16.trimal_gt_0.8.aln'
-guide='guide_syn16'
+aln='rab32.trimal_gt_0.8.aln'
+guide='guide_rab32'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
