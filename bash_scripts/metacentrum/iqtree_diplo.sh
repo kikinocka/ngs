@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/rab32'
+datadir='/storage/brno3-cerit/home/kika/trafficking/SNARE/Qa/syn16'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,8 +18,8 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='rab32.trimal_gt_0.8.aln'
-guide='guide_rab32'
+aln='syn16.trimal_gt_0.8.aln'
+guide='guide_syn16'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000

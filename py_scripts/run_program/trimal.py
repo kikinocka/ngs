@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/rab32/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/SNAREs/Qa/syn16/')
 files = [x for x in os.listdir() if x.endswith('.aln')]
 
 for file in files:
