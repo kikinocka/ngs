@@ -10,14 +10,14 @@ cat $PBS_NODEFILE
 #add modules
 module add spades-3.14.0
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/'
 reads=$datadir'reads/'
 
 #copy reads to scratch
-cp $reads'P3S_trimmed_1.fq.gz' $reads'P3S_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P1-7_trimmed_1.fq.gz' $reads'P1-7_trimmed_2.fq.gz' $SCRATCHDIR
 
-pe1_1='P3S_trimmed_1.fq.gz'
-pe1_2='P3S_trimmed_2.fq.gz'
+pe1_1='P1-7_trimmed_1.fq.gz'
+pe1_2='P1-7_trimmed_2.fq.gz'
 
 #compute on scratch
 cd $SCRATCHDIR
