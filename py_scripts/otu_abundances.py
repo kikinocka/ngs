@@ -3,10 +3,11 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/')
-v9 = pd.read_csv('Lane26_18S_V9/otu_table.updated.tsv', sep='\t')
-v4 = pd.read_csv('18S-V4-2018/otu_table.updated.tsv', sep='\t')
-df = pd.concat([v4, v9])
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/')
+# v9 = pd.read_csv('Lane26_18S_V9/otu_table.updated.tsv', sep='\t')
+# v4 = pd.read_csv('18S-V4-2018/otu_table.updated.tsv', sep='\t')
+# df = pd.concat([v4, v9])
+df = pd.read_csv('otu_table.V9DS.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3']] = df.lineage.str.split('|', 2, expand=True)
 
@@ -40,7 +41,7 @@ total = total[['L17May28BCR_S45', 'V9-BCR-May30-2018_S5', 'L17June4BCR_S53', 'V9
 	'V9-SWIP-Sept13-2018_S66', 'V9-SWIP-Sept24-2018_S57', 'L22SWIPNov62018_S179', 'V9-SWIP-Nov06-2018_S76', 'L22SWIPNov192018_S180', 
 	'V9-SWIP-Nov14-2018_S78', 'V9-SWIP-Nov17-2018_S80', 'L22WIPSept42010_S169', 'V9-WIP-Sept04-2010_S1', 'L22WIPNov232010_S170', 
 	'V9-WIP-Nov23-2010_S3']]
-total = total.filter(regex='.*MLSB.*', axis=1)
+# total = total.filter(regex='.*MLSB.*', axis=1)
 # total = total.drop(total.filter(regex='.*SWIP.*').columns, axis=1)
 transformed = total.T
 # print(transformed)
@@ -49,20 +50,20 @@ transformed = total.T
 # print(transformed.size)
 # transformed = transformed.drop('V9-Oct10-2018-P3S_S72', axis=0)
 
+# transformed = transformed[['No_hit', 'Eukaryota_X', 'Cryptista', 'Haptista', 'Stramenopiles', 'Alveolata', 'Rhizaria',
+# 	'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Metamonada', 'Discoba']]
 
-transformed = transformed[['No_hit', 'Eukaryota_X', 'Cryptista', 'Haptista', 'Stramenopiles', 'Alveolata', 'Rhizaria',
-	'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Metamonada', 'Discoba']]
-# print(transformed)
-
-colors = ['#999999', '#000000', '#FFFF99', '#FAEBD7', 
-	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
-	'#C9C9C9', '#7FFFD4', '#A6CEE3']
-
-# #SL_Euglenozoa
-# colors = ['#000000', '#CD950B', '#FFB90F', '#FFFF99', '#FAEBD7', 
+# colors = ['#999999', '#000000', '#FFFF99', '#FAEBD7', 
 # 	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
-# 	'#C9C9C9', '#BCDEB4', '#7FFFD4', '#A6CEE3']
+# 	'#C9C9C9', '#7FFFD4', '#A6CEE3']
 
+#SL_Euglenozoa
+colors = ['#000000', '#CD950B', '#FFB90F', '#FFFF99', '#FAEBD7', 
+	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
+	'#C9C9C9', '#BCDEB4', '#7FFFD4', '#A6CEE3']
+
+transformed = transformed[['Unknown', 'Mantamonadidea', 'Ancyromonadidea', 'Cryptista', 'Haptista', 'Stramenopiles', 
+	'Alveolata', 'Rhizaria', 'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Malawimonadidae', 'Metamonada', 'Discoba']]
 
 # #metamonads
 # meta = df[df.rank3.isin(['Metamonada'])]
@@ -98,4 +99,4 @@ ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=4, frameon=False)
 # ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
 plt.tight_layout()
 # plt.show()
-plt.savefig('MLSB_supergroups_comparison.pdf', dpi=300)
+plt.savefig('supergroups.pdf', dpi=300)
