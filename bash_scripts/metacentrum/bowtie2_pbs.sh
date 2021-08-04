@@ -24,7 +24,7 @@ cp $read_dir'P1-7_trimmed_2.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='fire-rRNA'
+base_name='fire-rRNA.bw2'
 ref='fire-rRNA_operon.fa'
 p1_1='P1-7_trimmed_1.fq.gz'
 p1_2='P1-7_trimmed_2.fq.gz'
@@ -51,8 +51,8 @@ bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	# -U $r1,$r2 \
 	#--no-unal \ #writes only mapped reads to sam file
 
-# samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
-samtools view -bS $samfile > $bamfile -@ $PBS_NUM_PPN
+samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
+# samtools view -bS $samfile > $bamfile -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ $PBS_NUM_PPN $bamfile 
 samtools index $sorted
 
