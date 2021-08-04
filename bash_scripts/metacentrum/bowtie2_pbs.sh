@@ -11,9 +11,9 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/mapping/round2/'
 read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/bw2_mapping/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/mapping/round2/'
 
 #copy files to scratch
 cp $assembly_dir'fire-rRNA_operon.fa' $SCRATCHDIR
