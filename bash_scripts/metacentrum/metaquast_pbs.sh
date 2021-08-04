@@ -11,20 +11,20 @@ cat $PBS_NODEFILE
 module add blast+-2.8.0a
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/'
 
 #copy files to scratch
 cp $datadir'spades/scaffolds.fasta' $SCRATCHDIR
-cp $datadir'reads/P3S_trimmed_1.fq.gz' $SCRATCHDIR
-cp $datadir'reads/P3S_trimmed_2.fq.gz' $SCRATCHDIR
+cp $datadir'reads/P1-7_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'reads/P1-7_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 metagenome='scaffolds.fasta'
-fwd='P3S_trimmed_1.fq.gz'
-rev='P3S_trimmed_2.fq.gz'
+fwd='P1-7_trimmed_1.fq.gz'
+rev='P1-7_trimmed_2.fq.gz'
 
 metaquast.py -o $SCRATCHDIR -t $PBS_NUM_PPN -1 $fwd -2 $rev $metagenome
 
