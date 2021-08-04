@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/oil_sands/Lane26_18S_V9/metamonads/')
+os.chdir('/Users/kika/ownCloud/archamoebae/endolimax_nana/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = 'global_dereplicated_1f_representatives.fas'
+database = 'Trinity.fasta'
 
 for accessions in files: 
 	print(accessions)

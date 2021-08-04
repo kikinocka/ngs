@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/oil_sands/metagenomes/20xx0821_BML-B-first/'
-metagenome='2-spades/bml_meta.spades_def.fa'
+cd '/Users/kika/ownCloud/archamoebae/endolimax_nana/'
+metagenome='Trinity.fasta'
 out='tiara.out'
 cpu=6
 
