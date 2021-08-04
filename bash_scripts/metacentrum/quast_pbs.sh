@@ -10,19 +10,20 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/pelomyxa/check-for-ncbi/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/'
 outdir=$datadir'quast/'
 
 #copy files to scratch
-cp $datadir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
+cp $datadir'spades/scaffolds.fasta' $SCRATCHDIR
 
-assemblies='pelomyxa_final_corr_genome.fa'
+assemblies='scaffolds.fasta'
 min_contig=500
 
 
 #compute on scratch
 cd $SCRATCHDIR
-quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $assemblies
+quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
+# quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $assemblies
 
 # for fasta in $assemblies; do
 # 	echo $fasta
