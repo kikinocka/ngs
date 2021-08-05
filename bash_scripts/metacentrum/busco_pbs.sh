@@ -30,7 +30,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 # ln -s $busco_dir'rli_eukaryota_odb9/short_summary_eukaryota_odb9.txt' $summaries'short_summary_eukaryota_odb9_rli.txt'
 
 #copy files to scratch
-cp $assembly_dir'/enan.trinity.NRfilt-p70.faa' $SCRATCHDIR
+cp $assembly_dir'/enan.longest_orfs.pep' $SCRATCHDIR
 
 assemblies='*.faa'
 lineage=$lin_dir'eukaryota_odb9/'
@@ -43,7 +43,7 @@ cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%.faa}_eukaryota_odb9
+	base=${fasta%.pep}_eukaryota_odb9
 	run_BUSCO.py -i $fasta -o $base -l $lineage -m $mode -c $PBS_NUM_PPN #-sp $species 
 done
 # generate_plot.py -wd $summaries
