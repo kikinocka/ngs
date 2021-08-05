@@ -32,7 +32,7 @@ lin_dir='/software/busco/3.0.2/src/db/'
 #copy files to scratch
 cp $assembly_dir'/enan.longest_orfs.pep' $SCRATCHDIR
 
-assemblies='*.faa'
+assemblies='*.pep'
 lineage=$lin_dir'eukaryota_odb9/'
 mode='proteins'
 # species='pelomyxa'
