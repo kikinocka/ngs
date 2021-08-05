@@ -11,9 +11,9 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor5/'
 read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor5/'
 
 #copy files to scratch
 cp $assembly_dir'fire_taxon-rRNA-cor5.fa' $SCRATCHDIR
