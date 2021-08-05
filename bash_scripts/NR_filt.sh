@@ -2,10 +2,10 @@
 
 filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NR_filt.py'
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/'
-diamond=$datadir'rvac.trinity.NTfilt.dmnd.out'
+datadir='/mnt/mokosz/home/kika/endolimax_nana/filtration2/'
+diamond=$datadir'enan.trinity.NTfilt.dmnd.out'
 transcriptome=$datadir'trinity_out_dir/Trinity.fasta'
-proteins=$datadir'rvac_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
+proteins=$datadir'enan_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
 coverage='50' #default: 50
 identity='70' #default: 75
 taxon='Amoebozoa'
