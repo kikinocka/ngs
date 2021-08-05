@@ -11,12 +11,12 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor4/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor/'
 read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/reads/'
-mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor4/'
+mapping_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/cor/'
 
 #copy files to scratch
-cp $assembly_dir'fire_taxon-rRNA-cor4.fa' $SCRATCHDIR
+cp $assembly_dir'fire_taxon-rRNA-cor5.fa' $SCRATCHDIR
 cp $read_dir'P1-7_trimmed_1.fq.gz' $SCRATCHDIR
 cp $read_dir'P1-7_trimmed_2.fq.gz' $SCRATCHDIR
 
@@ -25,7 +25,7 @@ cp $read_dir'P1-7_trimmed_2.fq.gz' $SCRATCHDIR
 cd $SCRATCHDIR
 
 base_name='fire-rRNA.bw2'
-ref='fire_taxon-rRNA-cor4.fa'
+ref='fire_taxon-rRNA-cor5.fa'
 p1_1='P1-7_trimmed_1.fq.gz'
 p1_2='P1-7_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
