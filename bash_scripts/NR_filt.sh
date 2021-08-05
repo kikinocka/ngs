@@ -4,7 +4,7 @@ filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NR_filt.py'
 
 datadir='/mnt/mokosz/home/kika/endolimax_nana/filtration2/'
 diamond=$datadir'enan.trinity.NTfilt.dmnd.out'
-transcriptome=$datadir'trinity_out_dir/Trinity.fasta'
+transcriptome=$datadir'enan_trinity_NT/enan_trinity.NTfilt.fasta'
 proteins=$datadir'enan_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
 coverage='50' #default: 50
 identity='70' #default: 75
@@ -14,8 +14,8 @@ $filt_script -i $diamond -d $datadir -nt $transcriptome -aa $proteins -q $covera
 
 # -i: --infile
 # -d: --work_dir
-# -nt: --fasta_nt
-# -aa: --fasta_aa
+# -nt: --fasta_nt #NT filtered transcriptome
+# -aa: --fasta_aa #proteins from NT filtered transcriptome
 # -q: --qcov_threshold
 # -p: --pident_threshold
 # -s: --scaffold_coverage_threshold
