@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-module add kraken2-1.0
+module add kraken2-1.2
 
 kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB'
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20xx0821_BML-B-first/'
