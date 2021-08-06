@@ -320,6 +320,8 @@ for i,filepath in enumerate(files):
 	# cut -f 3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
 	# Warning, this file has an atypical column order!
 	tmpblast =  "tmp/{}.tmp".format(dataset)
+	
+	global keeptmpblastfile
 	keeptmpblastfile = False
 
 	# Various contaminant lists:
@@ -607,14 +609,14 @@ for i,filepath in enumerate(files):
 	seqlen = 0
 	if writent == True:
 		in_nucl = SeqIO.parse(ntfasta, "fasta")
-		out_nucl = open("{0}_NR/{0}.{1}.NRfilt.fasta".format(dataset, assembler), "w")
-		out_bact = open("contaminants/{0}_bact.fasta".format(dataset), "w")
-		out_mix = open("contaminants/{0}_contmix.fasta".format(dataset), "w")
-		out_fungal = open("contaminants/{0}_fungal.fasta".format(dataset), "w")
-		out_animal = open("contaminants/{0}_animal.fasta".format(dataset), "w")
-		out_plant = open("contaminants/{0}_plant.fasta".format(dataset), "w")
-		#out_para = open("contaminants/{0}_para.fasta".format(dataset), "w")
-		out_other = open("contaminants/{0}_other.fasta".format(dataset), "w") #assuming this organism is not in nr
+		out_nucl = open("{0}_NR/{0}.{1}.NRfilt.fna".format(dataset, assembler), "w")
+		out_bact = open("contaminants/{0}_bact.NRfilt.fasta".format(dataset), "w")
+		out_mix = open("contaminants/{0}_contmix.NRfilt.fasta".format(dataset), "w")
+		out_fungal = open("contaminants/{0}_fungal.NRfilt.fasta".format(dataset), "w")
+		out_animal = open("contaminants/{0}_animal.NRfilt.fasta".format(dataset), "w")
+		out_plant = open("contaminants/{0}_plant.NRfilt.fasta".format(dataset), "w")
+		#out_para = open("contaminants/{0}_para.NRfilt.fasta".format(dataset), "w")
+		out_other = open("contaminants/{0}_other.NRfilt.fasta".format(dataset), "w") #assuming this organism is not in nr
 		for seq in in_nucl:
 			if goodscafs.get(seq.name, 0) > outscafs.get(seq.name, 0):
 				out_nucl.write(">{} {}\n{}\n".format(seq.name, ranks.get(seq.name, ""), seq.seq))
@@ -653,6 +655,7 @@ for i,filepath in enumerate(files):
 	if writeaa == True:
 		in_prot = SeqIO.parse(aafasta, "fasta")
 		out_prot = open("{0}_NR/{0}.{1}.NRfilt.faa".format(dataset, assembler), "w")
+		out_other = open("{0}_NR/{0}.{1}.cont.faa".format(dataset, assembler), "w")
 		for seq in in_prot:
 			try:
 				query_scaf = get_scaffold(predictor, seq.name)
@@ -663,22 +666,28 @@ for i,filepath in enumerate(files):
 				out_prot.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 			#there might be a lot of low-coverage hits, but most are from bacteria
 			elif cont_bact.count(query_scaf) > goodscafs.get(query_scaf, 0):
+				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			#note that the following are only high-similarity, high-coverage hits
 			elif cont_fungal.count(query_scaf) > goodscafs.get(query_scaf, 0):
+				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			elif cont_animal.count(query_scaf) > goodscafs.get(query_scaf, 0):
+				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			elif cont_plant.count(query_scaf) > goodscafs.get(query_scaf, 0):
+				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			#elif cont_parabasalia.count(query_scaf) > goodscafs.get(query_scaf, 0):
 			#	out_para.write(">{} {}\n{}\n".format(query_scaf, ranks.get(query_scaf, ""), seq.seq))
 			elif cont_other.count(query_scaf) > goodscafs.get(query_scaf, 0):
+				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			else:
 				#no nr blast hit:
 				out_prot.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
 		out_prot.close()
+		out_other.close()
 	
 	print("{} different species as hits. Please, check for any unwanted clades.".format(len(species)))
 	with open(statfile, "w") as result:
@@ -700,7 +709,12 @@ for i,filepath in enumerate(files):
 		for tmpfile in [filt, check]:
 			os.system("rm {}".format(tmpfile))
 	if keeptmpblastfile == False:
+		# BLAST file processed without errors, clean up
 		os.system("rm {}".format(tmpblast))
+		os.system("mv errors.log {}_NR/".format(dataset))
+		os.system("mv subset.accession2taxid {}_NR/".format(dataset))		
+	else:
+		print("Warning, errors occurred, please refer to errors.log".format(dataset))
 	print("now, run quast to analyze contaminants:")
 	print("quast {0}_NR/*fasta -o ~/quast/{0}_NR --threads 4".format(dataset))
 
