@@ -12,7 +12,7 @@ module add krona-2.8
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20xx0821_BML-B-first/kraken2/'
 
 #copy files to scratch
-cp $datadir'bml_meta.spades_def.fa' $SCRATCHDIR
+cp $datadir'bml_meta.kraken.report' $SCRATCHDIR
 
 
 #compute on scratch
