@@ -10,8 +10,8 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/p57_genome'
-outdir=$datadir'/quast/'
+datadir='/storage/brno3-cerit/home/kika/p57_genome/'
+outdir=$datadir'quast/'
 
 #copy files to scratch
 cp $datadir'p57_polished.fa' $SCRATCHDIR
