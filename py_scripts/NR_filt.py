@@ -71,14 +71,17 @@ def parse_faa(assembler, predictor, fasta_aa):
 		if predictor == "transdecoder":
 			coordsregex = r":(\d+)-(\d+)\("
 			for seq in faa_file:
-				header = seq.description
-				coords = (float(re.search(coordsregex, header).group(1)), 
-						  float(re.search(coordsregex, header).group(2)))
-				coords = (min(coords), max(coords))
-				scaflen = scaffolds_d.get(header.split("::")[1], {"length": 1})["length"]
-				#print(coords, scaflen)
-				genelen = coords[1] - coords[0] + 1
-				faa_d[seq.name] = {"coords": coords, "gene_len": genelen, "scaf_len": scaflen}
+				try:
+					header = seq.description
+					coords = (float(re.search(coordsregex, header).group(1)), 
+							  float(re.search(coordsregex, header).group(2)))
+					coords = (min(coords), max(coords))
+					scaflen = scaffolds_d.get(header.split("::")[1], {"length": 1})["length"]
+					#print(coords, scaflen)
+					genelen = coords[1] - coords[0] + 1
+					faa_d[seq.name] = {"coords": coords, "gene_len": genelen, "scaf_len": scaflen}
+				except AttributeError:
+					print("Could not find coords", header)
 		elif predictor == "prodigal":
 			for seq in faa_file:
 				header = seq.description
@@ -663,29 +666,29 @@ for i,filepath in enumerate(files):
 				print("could not parse protID to contig", seq.name)
 				query_scaf = seq.name
 			if goodscafs.get(query_scaf, 0) > outscafs.get(query_scaf, 0):
-				out_prot.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_prot.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 			#there might be a lot of low-coverage hits, but most are from bacteria
 			elif cont_bact.count(query_scaf) > goodscafs.get(query_scaf, 0):
-				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_other.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			#note that the following are only high-similarity, high-coverage hits
 			elif cont_fungal.count(query_scaf) > goodscafs.get(query_scaf, 0):
-				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_other.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			elif cont_animal.count(query_scaf) > goodscafs.get(query_scaf, 0):
-				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_other.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			elif cont_plant.count(query_scaf) > goodscafs.get(query_scaf, 0):
-				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_other.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			#elif cont_parabasalia.count(query_scaf) > goodscafs.get(query_scaf, 0):
 			#	out_para.write(">{} {}\n{}\n".format(query_scaf, ranks.get(query_scaf, ""), seq.seq))
 			elif cont_other.count(query_scaf) > goodscafs.get(query_scaf, 0):
-				out_other.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_other.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 				pass
 			else:
 				#no nr blast hit:
-				out_prot.write(">{} {}\n{}\n".format(seq.name, ranks.get(query_scaf, ""), seq.seq))
+				out_prot.write(">{} {}\n{}\n".format(seq.description, ranks.get(query_scaf, ""), seq.seq))
 		out_prot.close()
 		out_other.close()
 	
