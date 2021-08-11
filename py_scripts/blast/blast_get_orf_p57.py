@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/data/kinetoplastids/genomes_fasta/p57_polished.fa', 'fasta')
-nt_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.faa', 'w')
-err_out = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/kinetoplastids/telomeres/Tb927.11.370/p57.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa', 'fasta')
+nt_out = open('/Users/kika/ownCloud/blastocrithidia/genes/ribosomal_proteins/p57_cytosolic.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/blastocrithidia/genes/ribosomal_proteins/p57_cytosolic.faa', 'w')
+err_out = open('/Users/kika/ownCloud/blastocrithidia/genes/ribosomal_proteins/p57_cytosolic.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/blastocrithidia/genes/ribosomal_proteins/p57_cytosolic.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
