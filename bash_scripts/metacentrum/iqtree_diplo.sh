@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/rabs1-8-18'
+datadir='/storage/brno3-cerit/home/kika/trafficking/RABs/endocytic'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,8 +18,8 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='rabs1-8-18.trimal_gt_0.8.aln'
-guide='guide_rabs1-8-18'
+aln='endocytic.trimal_gt_0.8.aln'
+guide='guide_endocytic'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
