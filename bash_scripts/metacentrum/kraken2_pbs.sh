@@ -23,8 +23,8 @@ cd $SCRATCHDIR
 fwd='BML_trimmed_1.fq.gz'
 rev='BML_trimmed_2.fq.gz'
 # assembly='bml_meta.spades_def.fa'
-classified='BML_trimmed.classified.fq'
-unclassified='BML_trimmed.unclassified.fq'
+classified='BML_trimmed.classified#.fq'
+unclassified='BML_trimmed.unclassified#.fq'
 out='bml_reads.kraken.out'
 report='bml_reads.kraken.report'
 
