@@ -52,7 +52,7 @@ def force_taxid_prot(accession):
 	return taxid
 
 def force_taxid_nucl(accession):
-	#lower data traffic with docsum, sufficient for taxid retrieval
+	#lower data traffic with rettype=docsum, sufficient for taxid retrieval
 	if "|" in accession:
 		accession = accession.split("|")[3]
 		#print(accession)
@@ -63,7 +63,10 @@ def force_taxid_nucl(accession):
 		#name2taxid = ncbi.get_name_translator([orgn])
 	except:
 		print("Could not process", accession)
-		quit()
+		keeptmpblastfile = True
+		with open("manual.accession2taxid", "at") as out:
+			out.write("{}\t".format(accession))
+		return 1
 	print("Organism retrieved:", taxid)
 
 	return taxid
@@ -80,7 +83,9 @@ def force_taxid_gbnuc(accession):
 		taxid = name2taxid[orgn][0]
 	except:
 		print("Could not process", accession)
-		quit()
+		keeptmpblastfile = True
+		with open("manual.accession2taxid", "at") as out:
+			out.write("{}\t".format(accession))
 	print("Organism retrieved:", orgn, taxid)
 
 	return taxid
@@ -232,7 +237,7 @@ for i,filepath in enumerate(files):
 	filt = "tmp/{}_filt.txt".format(dataset)
 	check = "tmp/{}_check.txt".format(dataset)
 	#use tmpblast file to retrieve taxids if the script crashes on NCBI requests
-	#cut -f 1,3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
+	#cut -f 3,6 tmp/<blastresult>.tmp >> subset.accession2taxid
 	tmpblast =  "tmp/{}.tmp".format(file)
 	keeptmpblastfile = False
 	cont_bact = list()
