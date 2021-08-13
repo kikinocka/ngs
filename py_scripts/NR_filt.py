@@ -301,6 +301,9 @@ for i,filepath in enumerate(files):
 	global scaffolds_d
 	scaffolds_d = parse_fna(ntfasta)
 	
+	#variable to store blast queries not in scaffolds_d
+	prefiltered = set()
+	
 	if writeaa:
 		faa_d = parse_faa(assembler, predictor, aafasta)
 	else:
@@ -464,7 +467,11 @@ for i,filepath in enumerate(files):
 		#update scaffolds_d with query data
 		for query in queries_d:
 			scaffold = queries_d[query]["scaffold"]
-			scaffolds_d[scaffold]["genes"].append(query)
+			try:
+				scaffolds_d[scaffold]["genes"].append(query)
+			except KeyError:
+				#query not in input fasta - prefiltered?
+				prefiltered.add(query)
 
 		#ANY FILTER CAN BE APPLIED
 		for scaffold in scaffolds_d:

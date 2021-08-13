@@ -299,7 +299,10 @@ for i,filepath in enumerate(files):
 					continue
 				accession = parse_sseqid(line[3])
 				taxid = line[1]
-				if taxid in ["N/A", "0"]:
+				if accession in taxids:
+					taxid = taxids[accession]
+					lineage = ncbi.get_lineage(taxid)[2:]
+				elif taxid in ["N/A", "0"]:
 					taxid = force_taxid_nucl(accession)
 					lineage = ncbi.get_lineage(taxid)[2:]
 				elif taxid in lookups:
