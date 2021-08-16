@@ -3,7 +3,7 @@
 filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NR_filt.py'
 
 datadir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/filtration2/'
-diamond=$datadir'rvac.trinity.NTfilt.dmnd.out'
+diamond=$datadir'rvac_NR/rvac.trinity.NTfilt.dmnd.out'
 transcriptome=$datadir'rvac_trinity_NT/rvac_trinity.NTfilt.fasta'
 proteins=$datadir'rvac_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
 coverage='50' #default: 50
