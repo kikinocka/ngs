@@ -18,7 +18,7 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='fire_SSU.mafft.aln'
+aln='fire_SSU.trimal_gt_0.8.aln'
 # guide='guide_vps3-39'
 # guide_tree=$guide'.treefile'
 bb=1000
