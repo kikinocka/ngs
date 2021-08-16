@@ -130,6 +130,8 @@ def force_taxid_prot(accession):
 		keeptmpblastfile = True
 		with open("errors.log", "a") as errorfile:
 			errorfile.write(f"error retrieving taxid for {accession}\n")
+		with open("manual.accession2taxid", "at") as out:
+			out.write("{}\t".format(accession))
 		return 1
 			
 	try:
@@ -137,10 +139,12 @@ def force_taxid_prot(accession):
 		taxid = name2taxid[orgn][0]
 	except:
 		print(f"problem with {accession}:{orgn}, please try updating taxa.sqlite")
-		taxid = 1
 		keeptmpblastfile = True
 		with open("errors.log", "a") as errorfile:
 			errorfile.write(f"error retrieving taxid for {accession}:{orgn}\n")
+		with open("manual.accession2taxid", "at") as out:
+			out.write("{}\t".format(accession))
+		return 1
 
 	print("Organism retrieved:", orgn, taxid)
 
