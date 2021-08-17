@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -24,7 +24,7 @@ aln='arfs.trimal_gt_0.8.aln'
 bb=1000
 nm=5000
 
-iqtree -m TEST -bb $bb -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
+iqtree -m TEST -bb $bb -nt AUTO -nm nm -ntmax $PBS_NUM_PPN -quiet -s $aln
 # iqtree -m GTR+G -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
