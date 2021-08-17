@@ -9,17 +9,17 @@ cat $PBS_NODEFILE
 
 module add krona-2.8
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20xx0821_BML-B-first/6b-kraken2_reads/'
+datadir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/4-kraken2_assembly/'
 
 #copy files to scratch
-cp $datadir'bml_reads.kraken.report' $SCRATCHDIR
+cp $datadir'P3S.kraken.report' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-report='bml_reads.kraken.report'
-out='bml_reads.kraken.html'
+report='P3S.kraken.report'
+out='P3S.kraken.html'
 
 
 ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $out
