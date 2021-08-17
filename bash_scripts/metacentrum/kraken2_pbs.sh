@@ -10,40 +10,39 @@ cat $PBS_NODEFILE
 module add kraken2-1.2
 
 kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB'
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20xx0821_BML-B-first/'
+datadir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
 
 #copy files to scratch
-cp $datadir'1-reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
-cp $datadir'1-reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
-
+# cp $datadir'1-reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
+# cp $datadir'1-reads/BML_trimmed_2.fq.gz' $SCRATCHDIR
+cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd='BML_trimmed_1.fq.gz'
-rev='BML_trimmed_2.fq.gz'
-# assembly='bml_meta.spades_def.fa'
-classified='BML_trimmed.classified#.fq'
-unclassified='BML_trimmed.unclassified#.fq'
-out='bml_reads.kraken.out'
-report='bml_reads.kraken.report'
+# fwd='BML_trimmed_1.fq.gz'
+# rev='BML_trimmed_2.fq.gz'
+assembly='scaffolds.fasta'
+classified='P3S.classified.fq'
+unclassified='P3S.unclassified.fq'
+out='P3S.kraken.out'
+report='P3S.kraken.report'
 
 
-#on reads
-kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
-  --classified-out $classified \
-  --unclassified-out $unclassified \
-  --report $report \
-  --paired --gzip-compressed $fwd $rev > $out
-
-
-# #on assembly
+# #on reads
 # kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
 #   --classified-out $classified \
 #   --unclassified-out $unclassified \
-#   --report $report $assembly > $out
+#   --report $report \
+#   --paired --gzip-compressed $fwd $rev > $out
+
+#on assembly
+kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
+  --classified-out $classified \
+  --unclassified-out $unclassified \
+  --report $report $assembly > $out
 
 #copy files back
-# rm $assembly
-rm $fwd $rev
-cp -R * $datadir'6b-kraken2_reads/'
+# rm $fwd $rev
+rm $assembly
+cp -R * $datadir'4-kraken2_assembly/'
