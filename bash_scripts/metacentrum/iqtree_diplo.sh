@@ -24,7 +24,7 @@ aln='arfs.trimal_gt_0.8.aln'
 bb=1000
 nm=5000
 
-iqtree -m TEST -bb $bb -nt AUTO -nm nm -ntmax $PBS_NUM_PPN -quiet -s $aln
+iqtree -m TEST -bb $bb -nt AUTO -nm $nm -ntmax $PBS_NUM_PPN -quiet -s $aln
 # iqtree -m GTR+G -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
 # iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
