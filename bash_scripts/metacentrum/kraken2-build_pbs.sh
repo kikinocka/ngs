@@ -14,15 +14,29 @@ db_dir='/storage/brno3-cerit/home/kika/databases/'
 #compute on scratch
 cd $SCRATCHDIR
 
-db='kraken2DB'
+db='kraken2DB-refseq'
 
 echo '*** DOWNLOADING TAXONOMY ***'
 kraken2-build --download-taxonomy --threads $PBS_NUM_PPN --db $db
 echo '*** TAXONOMY DOWNLOADED ***'
 
-echo '*** DOWNLOADING NUCLEOTIDE DATABASE ***'
-kraken2-build --download-library nt --threads $PBS_NUM_PPN --db $db
-echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
+# echo '*** DOWNLOADING NUCLEOTIDE DATABASE ***'
+# kraken2-build --download-library nt --threads $PBS_NUM_PPN --db $db
+# echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
+
+echo '*** DOWNLOADING DATABASES ***'
+kraken2-build --download-library archea --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library bacteria --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library plasmid --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library viral --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library human --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library fungi --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library plant --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library metazoa --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library protozoa --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library env_nt --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library UniVec_Core --threads $PBS_NUM_PPN --db $db
+echo '*** DATABASES DOWNLOADED ***'
 
 echo '*** BUILDING KRAKEN2 DATABASE ***'
 kraken2-build --build --threads $PBS_NUM_PPN --db $db
