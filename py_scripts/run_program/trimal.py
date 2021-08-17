@@ -3,8 +3,8 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/reference_tree/ver2/')
-files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/reference_tree/ver3/')
+files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 
 for file in files:
 	print(file)
