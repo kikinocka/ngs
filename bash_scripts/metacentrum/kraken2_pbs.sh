@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module add kraken2-1.2
 
 kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB'
-datadir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
+datadir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenomes/P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c//'
 
 #copy files to scratch
 # cp $datadir'1-reads/BML_trimmed_1.fq.gz' $SCRATCHDIR
@@ -23,10 +23,10 @@ cd $SCRATCHDIR
 # fwd='BML_trimmed_1.fq.gz'
 # rev='BML_trimmed_2.fq.gz'
 assembly='scaffolds.fasta'
-classified='P2S.classified.fa'
-unclassified='P2S.unclassified.fa'
-out='P2S.kraken.out'
-report='P2S.kraken.report'
+classified='P3B.classified.fa'
+unclassified='P3B.unclassified.fa'
+out='P3B.kraken.out'
+report='P3B.kraken.report'
 
 
 # #on reads
