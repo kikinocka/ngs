@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/oil_sands/metagenomes/20210628_BML-P1-7/fire_taxa/18S_tree/ver1_bs/')
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/reference_tree/')
 trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('ssu_names.txt')
+names = open('fornicata_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	new = split_line[1]
-	# new = split_line[0] + ' ' + split_line[1]
+	# new = split_line[1]
+	new = split_line[0] + ' ' + split_line[1]
 	name_dict[split_line[0]] = new
 
 for tree in trees:
