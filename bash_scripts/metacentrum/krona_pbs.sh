@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module add krona-2.8
 
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/4b-kraken2-microbial_reads/'
-tax='/storage/brno3-cerit/home/kika/databases/krona_tax'
+tax='/storage/brno3-cerit/home/kika/databases/krona_tax/all.accession2taxid.sorted'
 
 #copy files to scratch
 cp $datadir'P3S.kraken.report' $SCRATCHDIR
