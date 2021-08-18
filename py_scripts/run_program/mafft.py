@@ -17,11 +17,11 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/')
-existing = 'ScrollSaw_output_untrimmed_masked_348seq.updated.aln'
-add = 'ver3/euglenozoans.fa'
-out = 'ver3/arfs.mafft.aln'
-log = 'ver3/arfs.mafft.log'
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/reference_tree/')
+existing = 'ver3/metamonads.mafft_man.aln'
+add = 'ver4/outgroup.fa'
+out = 'ver4/metamonads.mafft_man.aln'
+log = 'ver4/metamonads.mafft_man.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
