@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -N iqtree
+#PBS -N IQT-bs
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=48:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/anaeramoeba/rabs/trees/endocytic/ver1_bs'
+data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/ssu_tree/ver2_bs'
 
 #copy files to scratch
 cp $data_dir'/'*.aln $SCRATCHDIR
@@ -19,14 +19,14 @@ cp $data_dir'/'*.aln $SCRATCHDIR
 cd $SCRATCHDIR
 
 for f in *.aln ; do
-	guide=guide_${f%.aln}
-	guide_tree=$guide'.treefile'
+	# guide=guide_${f%.aln}
+	# guide_tree=$guide'.treefile'
 	bb=100
 	nm=2000
-	# iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
+	iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f}
 	# iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f}
-	iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
-	iqtree -m LG+C40+F+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f} -ft $guide_tree #-wsr
+	# iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
+	# iqtree -m LG+C40+F+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f} -ft $guide_tree #-wsr
 done
 
 #copy files back

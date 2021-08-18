@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N IQT
+#PBS -N IQT-ufb
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/18S_trees/metamonads_reference/ver4'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/fire/ssu_tree/ver2_ufb'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,7 +18,7 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='metamonads.trimal_gt_0.8.aln'
+aln='fire_SSU.trimal_gt_0.8.aln'
 # guide='guide_vps3-39'
 # guide_tree=$guide'.treefile'
 bb=1000
