@@ -17,13 +17,13 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/')
-existing = 'ScrollSaw_output_untrimmed_masked_348seq.updated.aln'
-add = 'ver4/euglenozoans.fa'
-out = 'ver4/arfs.mafft.aln'
-log = 'ver4/arfs.mafft.log'
-subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/')
+existing = 'reference_tree/ver1/metamonads.mafft.aln'
+add = 'MLSB/mlsb_metamonads.fa'
+out = 'MLSB/mlsb_metamonads.mafft.aln'
+log = 'MLSB/mlsb_metamonads.mafft.log'
+# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 # #merge alignments
 # os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/reference_tree')
