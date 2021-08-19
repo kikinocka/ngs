@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/ARFs/ver4'
+datadir='/storage/brno3-cerit/home/kika/trafficking/TBCs/tbc-D/ver2'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,7 +18,7 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='arfs.trimal_gt_0.8.aln'
+aln='tbc-D.trimal_gt_0.8.aln'
 # guide='guide_endocytic'
 # guide_tree=$guide'.treefile'
 bb=1000
