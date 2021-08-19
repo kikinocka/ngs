@@ -16,7 +16,6 @@ data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/18S_trees/metamonad
 cp $data'metamonads_renamed.tree' $SCRATCHDIR
 cp $data'mlsb_metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
-
 #compute on scratch
 cd $SCRATCHDIR
 
