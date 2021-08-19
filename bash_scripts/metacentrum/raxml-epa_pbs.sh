@@ -13,14 +13,14 @@ module add raxml-8.2.8
 data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/18S_trees/metamonads_EPA/'
 
 #copy files to scratch
-cp $data'metamonads_renamed.tree' $SCRATCHDIR
+cp $data'metamonads_renamed.nex' $SCRATCHDIR
 cp $data'mlsb_metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
 aln='mlsb_metamonads.trimal_gt-0.25_cons-50.aln'
-tree='metamonads_renamed.tree'
+tree='metamonads_renamed.nex'
 out='EPARUN'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCATI -n $out -s $aln -t $tree -T $PBS_NUM_PPN

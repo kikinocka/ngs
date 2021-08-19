@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/TBCs/tbc-Q/')
 inacc = open('delete.acc')
-infasta = SeqIO.parse('ver1/tbcs-Q.fa', 'fasta')
+infasta = SeqIO.parse('ver1/tbc-Q.fa', 'fasta')
 
 omitted = []
 for line in inacc:
