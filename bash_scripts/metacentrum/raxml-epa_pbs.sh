@@ -23,7 +23,7 @@ aln='mlsb_metamonads.trimal_gt-0.25_cons-50.aln'
 tree='metamonads_renamed.tree'
 out='EPARUN'
 
-raxmlHPC-PTHREADS-SSE3 -f v -G 0.2 -m GTRCATI -n $out -s $aln -t $tree -T $PBS_NUM_PPN
+raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCATI -n $out -s $aln -t $tree -T $PBS_NUM_PPN
 
 
 #copy files back
