@@ -8,6 +8,7 @@
 cat $PBS_NODEFILE
 
 module add kraken2-1.2
+module add krona-2.8
 
 kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB-microbial'
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
@@ -27,6 +28,7 @@ classified='P3S.classified#.fq'
 unclassified='P3S.unclassified#.fq'
 out='P3S.kraken.out'
 report='P3S.kraken.report'
+krona='P3S.kraken.html'
 
 
 #on reads
@@ -42,7 +44,10 @@ kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
 #   --unclassified-out $unclassified \
 #   --report $report $assembly > $out
 
+ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
+
+
 #copy files back
 rm $fwd $rev
 # rm $assembly
-cp -R * $datadir'4b-kraken2-microbial_reads/'
+cp -R * $datadir'4c-kraken2-microbial_assemnly/'
