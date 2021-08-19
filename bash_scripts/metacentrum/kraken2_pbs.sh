@@ -14,40 +14,41 @@ kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB-microbial'
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
 
 #copy files to scratch
-cp $datadir'1-reads/P3S_trimmed_1.fq.gz' $SCRATCHDIR
-cp $datadir'1-reads/P3S_trimmed_2.fq.gz' $SCRATCHDIR
-# cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
+# cp $datadir'1-reads/P3S_trimmed_1.fq.gz' $SCRATCHDIR
+# cp $datadir'1-reads/P3S_trimmed_2.fq.gz' $SCRATCHDIR
+cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd='P3S_trimmed_1.fq.gz'
-rev='P3S_trimmed_2.fq.gz'
-# assembly='scaffolds.fasta'
-classified='P3S.classified#.fq'
-unclassified='P3S.unclassified#.fq'
+# fwd='P3S_trimmed_1.fq.gz'
+# rev='P3S_trimmed_2.fq.gz'
+# classified='P3S.classified#.fq'
+# unclassified='P3S.unclassified#.fq'
+assembly='scaffolds.fasta'
+classified='P3S.classified.fq'
+unclassified='P3S.unclassified.fq'
 out='P3S.kraken.out'
 report='P3S.kraken.report'
 krona='P3S.kraken.html'
 
-
-#on reads
-kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
-  --classified-out $classified \
-  --unclassified-out $unclassified \
-  --report $report \
-  --paired --gzip-compressed $fwd $rev > $out
-
-# #on assembly
+# #on reads
 # kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
 #   --classified-out $classified \
 #   --unclassified-out $unclassified \
-#   --report $report $assembly > $out
+#   --report $report \
+#   --paired --gzip-compressed $fwd $rev > $out
+
+#on assembly
+kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
+  --classified-out $classified \
+  --unclassified-out $unclassified \
+  --report $report $assembly > $out
 
 ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
 
 
 #copy files back
-rm $fwd $rev
-# rm $assembly
+# rm $fwd $rev
+rm $assembly
 cp -R * $datadir'4c-kraken2-microbial_assemnly/'
