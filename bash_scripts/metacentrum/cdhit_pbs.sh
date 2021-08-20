@@ -24,6 +24,10 @@ threshold=0.98
 window=10
 
 cd-hit-est -i $db -o $out -c $threshold -n $window -d 0 -M 20000 -T $PBS_NUM_PPN
+# -c	sequence identity threshold, default 0.9
+# -n	word_length, default 10, see user's guide for choosing it
+# -d	length of description in .clstr file, default 20
+# -M	memory limit (in MB) for the program, default 800; 0 for unlimitted;
 
 
 #copy files back
