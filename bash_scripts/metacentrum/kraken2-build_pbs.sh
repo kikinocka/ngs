@@ -7,14 +7,19 @@
 
 cat $PBS_NODEFILE
 
+#add module
 module add kraken2-1.2
 
 db_dir='/storage/brno3-cerit/home/kika/databases/'
 
+#copy files to scratch
+cp $db_dir'eukprot_v2_proteins_renamed.taxids.faa' $SCRATCHDIR
+
+
 #compute on scratch
 cd $SCRATCHDIR
-
-db='kraken2DB-refseq'
+db='kraken2DB-eukprot'
+eukprot='eukprot_v2_proteins_renamed.taxids.faa'
 
 echo '*** DOWNLOADING TAXONOMY ***'
 kraken2-build --download-taxonomy --threads $PBS_NUM_PPN --db $db
@@ -37,6 +42,10 @@ kraken2-build --download-library protozoa --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library env_nt --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library UniVec_Core --threads $PBS_NUM_PPN --db $db
 echo '*** DATABASES DOWNLOADED ***'
+
+echo '*** ADDING EUKPROT ***'
+kraken2-build --add-to-library $eukprot --threads $PBS_NUM_PPN --db $db
+echo '*** EUKPROT ADDED ***'
 
 echo '*** BUILDING KRAKEN2 DATABASE ***'
 kraken2-build --build --threads $PBS_NUM_PPN --db $db
