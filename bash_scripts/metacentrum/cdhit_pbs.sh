@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 db='pr2_version_4.14.0_SSU_UTAX.fasta'
 out='pr2_version_4.14.0_SSU_UTAX.cdhit98.fasta'
 threshold=0.98
-window=11
+window=10
 
 cd-hit-est -i $db -o $out -c $threshold -n $window -d 0 -M 10000 -T $PBS_NUM_PPN
 # -c	sequence identity threshold, default 0.9
