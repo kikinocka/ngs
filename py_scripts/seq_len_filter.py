@@ -8,6 +8,7 @@ db = SeqIO.parse('pr2_version_4.14.0_SSU_UTAX.fasta', 'fasta')
 
 with open('pr2_version_4.14.0_SSU_UTAX.longer400.fasta', 'w') as update:
 	for seq in db:
+		print(seq.name)
 		if len(seq.seq) < 400:
 			pass
 		else:
