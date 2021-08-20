@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/18S_trees/test_EPA/'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/18S_trees/metamonads_EPA/'
 
 #copy files to scratch
-cp $data'18S_green_ref.tre' $SCRATCHDIR
-cp $data'18S_trimmed.fasta.aln' $SCRATCHDIR
+cp $data'mlsb_metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'mlsb_metamonads.trimal_gt-0.25_cons-50.no_V9.aln.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='18S_trimmed.fasta.aln'
-tree='18S_green_ref.tre'
+aln='mlsb_metamonads.trimal_gt-0.25_cons-50.aln'
+tree='mlsb_metamonads.trimal_gt-0.25_cons-50.no_V9.aln.treefile'
 out='EPARUN'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCATI -n $out -s $aln -t $tree -T $PBS_NUM_PPN
