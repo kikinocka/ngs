@@ -30,16 +30,14 @@ echo '*** TAXONOMY DOWNLOADED ***'
 # echo '*** NUCLEOTIDE DATABASE DOWNLOADED ***'
 
 echo '*** DOWNLOADING DATABASES ***'
-kraken2-build --download-library archea --threads $PBS_NUM_PPN --db $db
+kraken2-build --download-library archaea --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library bacteria --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library plasmid --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library viral --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library human --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library fungi --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library plant --threads $PBS_NUM_PPN --db $db
-kraken2-build --download-library metazoa --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library protozoa --threads $PBS_NUM_PPN --db $db
-kraken2-build --download-library env_nt --threads $PBS_NUM_PPN --db $db
 kraken2-build --download-library UniVec_Core --threads $PBS_NUM_PPN --db $db
 echo '*** DATABASES DOWNLOADED ***'
 
