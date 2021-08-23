@@ -14,20 +14,20 @@ kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB-eukprot'
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c/'
 
 #copy files to scratch
-# cp $datadir'1-reads/P3B_trimmed_1.fq.gz' $SCRATCHDIR
-# cp $datadir'1-reads/P3B_trimmed_2.fq.gz' $SCRATCHDIR
-cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
+cp $datadir'1-reads/P3B_trimmed_1.fq.gz' $SCRATCHDIR
+cp $datadir'1-reads/P3B_trimmed_2.fq.gz' $SCRATCHDIR
+# cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-# fwd='P3B_trimmed_1.fq.gz'
-# rev='P3B_trimmed_2.fq.gz'
-# classified='P3B.classified#.fq'
-# unclassified='P3B.unclassified#.fq'
-assembly='scaffolds.fasta'
-classified='P3B.classified.fa'
-unclassified='P3B.unclassified.fa'
+fwd='P3B_trimmed_1.fq.gz'
+rev='P3B_trimmed_2.fq.gz'
+classified='P3B.classified#.fq'
+unclassified='P3B.unclassified#.fq'
+# assembly='scaffolds.fasta'
+# classified='P3B.classified.fa'
+# unclassified='P3B.unclassified.fa'
 out='P3B.kraken.out'
 report='P3B.kraken.report'
 krona='P3B.kraken.html'
@@ -49,6 +49,6 @@ ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
 
 
 #copy files back
-# rm $fwd $rev
-rm $assembly
-cp -R * $datadir'4d-kraken2-eukprot_assembly/'
+rm $fwd $rev
+# rm $assembly
+cp -R * $datadir'4c-kraken2-eukprot_reads/'
