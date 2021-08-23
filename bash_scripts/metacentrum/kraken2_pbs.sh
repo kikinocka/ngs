@@ -32,18 +32,18 @@ out='P3B.kraken.out'
 report='P3B.kraken.report'
 krona='P3B.kraken.html'
 
-# #on reads
-# kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
-#   --classified-out $classified \
-#   --unclassified-out $unclassified \
-#   --report $report \
-#   --paired --gzip-compressed $fwd $rev > $out
-
-#on assembly
+#on reads
 kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
   --classified-out $classified \
   --unclassified-out $unclassified \
-  --report $report $assembly > $out
+  --report $report \
+  --paired --gzip-compressed $fwd $rev > $out
+
+# #on assembly
+# kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
+#   --classified-out $classified \
+#   --unclassified-out $unclassified \
+#   --report $report $assembly > $out
 
 ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
 
