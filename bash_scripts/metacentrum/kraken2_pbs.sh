@@ -11,7 +11,7 @@ module add kraken2-1.2
 module add krona-2.8
 
 kraken2DB='/storage/brno3-cerit/home/kika/databases/kraken2DB-eukprot'
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes//P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c/'
 
 #copy files to scratch
 # cp $datadir'1-reads/P3B_trimmed_1.fq.gz' $SCRATCHDIR
@@ -51,4 +51,4 @@ ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
 #copy files back
 # rm $fwd $rev
 rm $assembly
-cp -R * $datadir'4c-kraken2-eukprot_reads/'
+cp -R * $datadir'4d-kraken2-eukprot_assembly/'
