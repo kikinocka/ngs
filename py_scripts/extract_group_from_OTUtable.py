@@ -5,14 +5,14 @@ os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/')
 table = open('otu_table.V9DS_updated.no_chimera.tsv')
 
 groups = {}
-with open('discoba/diplonemids_counts.tsv', 'w') as counts, open('discoba/diplonemids.V9DS_updated.no_chimera.tsv', 'w') as out:
+with open('amoebozoa/conosa_counts.tsv', 'w') as counts, open('amoebozoa/conosa.V9DS_updated.no_chimera.tsv', 'w') as out:
 	for line in table:
 		taxonomy = line.split('\t')[22]
-		if 'Diplonemea' in taxonomy:
+		if 'Conosa' in taxonomy:
 			out.write(line)
-			if taxonomy.split('|')[5] not in groups:
-				groups[taxonomy.split('|')[5]] = 1
+			if taxonomy.split('|')[3] not in groups:
+				groups[taxonomy.split('|')[3]] = 1
 			else:
-				groups[taxonomy.split('|')[5]] +=1
+				groups[taxonomy.split('|')[3]] +=1
 	for key, value in groups.items():
 		counts.write('{}\t{}\n'.format(key, value))
