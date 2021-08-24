@@ -24,7 +24,7 @@ cd $SCRATCHDIR
 python datasethandler-server.py \
 	-i batch \
 	-a mafft \
-	--trimalparams='-gt 0.5' \
+	--trimalparams='-gt 0.8' \
 	-t iqtree \
 	-b \
 	--maxcores $PBS_NUM_PPN
