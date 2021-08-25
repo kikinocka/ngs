@@ -19,8 +19,8 @@ cp $data_dir'/'*.aln $SCRATCHDIR
 cd $SCRATCHDIR
 
 for f in *.aln ; do
-	# guide=guide_${f%.aln}
-	# guide_tree=$guide'.treefile'
+	guide=guide_${f%.aln}
+	guide_tree=$guide'.treefile'
 	bb=1000
 	nm=2000
 	# iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f}
