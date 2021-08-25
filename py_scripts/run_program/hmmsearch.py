@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/hsp70/')
-files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
+os.chdir('/Users/kika/ownCloud/archamoebae/import/hmms/')
+files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Users/kika/data/eukprot/eukprot_v2_proteins_renamed.faa'
-orgn = 'eukprot'
+db = '/Users/kika/ownCloud/archamoebae/endolimax_nana/enan.trinity.NRfilt-p70.faa'
+orgn = 'ena'
 threads = 6
 
 for file in files:
