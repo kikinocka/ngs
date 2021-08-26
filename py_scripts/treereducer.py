@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/TBCs/tbc-Q/')
-inacc = open('delete.acc')
-infasta = SeqIO.parse('ver1/tbc-Q.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/FolD/')
+inacc = open('ver2/delete.acc')
+infasta = SeqIO.parse('fold.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('to_check.fa', 'w') as result:
+with open('ver2/folD.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
