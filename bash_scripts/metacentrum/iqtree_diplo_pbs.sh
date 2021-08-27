@@ -19,8 +19,8 @@ cp $datadir'/'*.aln $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='rab5.trimal_gt-0.8.aln'
-# guide='guide_endocytic'
-# guide_tree=$guide'.treefile'
+guide='guide_rab5'
+guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
 
