@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABS/')
-inacc = open('Rab5/delete.acc')
-infasta = SeqIO.parse('endocytic/endocytic.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/D-LDH/')
+inacc = open('ver2/delete.acc')
+infasta = SeqIO.parse('ver1/d-ldh.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('Rab5/rab5.fa', 'w') as result:
+with open('ver2/d-ldh.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
