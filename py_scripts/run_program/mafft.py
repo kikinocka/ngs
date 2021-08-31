@@ -19,9 +19,9 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/')
 existing = 'ScrollSaw_output_untrimmed_masked_348seq.updated.aln'
-add = 'diplo_sarB.fa'
-out = 'sarB/diplo_sarB.mafft.aln'
-log = 'sarB/diplo_sarB.mafft.log'
+add = 'ver5/euglenozoans.fa'
+out = 'ver5/arfs.mafft.aln'
+log = 'ver5/arfs.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 

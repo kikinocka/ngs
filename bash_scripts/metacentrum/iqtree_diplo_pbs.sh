@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/ARFs/sarB'
+datadir='/storage/brno3-cerit/home/kika/trafficking/ARFs/ver5'
 
 #copy files to scratch
 cp $datadir'/'*.aln $SCRATCHDIR
@@ -18,8 +18,8 @@ cp $datadir'/'*.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='diplo_sarB.trimal_gt-0.8.aln'
-guide='guide_sarB'
+aln='arfs.trimal_gt-0.8.aln'
+guide='guide_arfs'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
