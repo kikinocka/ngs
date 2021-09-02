@@ -5,25 +5,25 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver2/')
-files = [x for x in os.listdir() if x.endswith('sar1.fa')]
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver2/')
+# files = [x for x in os.listdir() if x.endswith('sar1.fa')]
 
-for file in files:
-	print(file)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
+# for file in files:
+# 	print(file)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
 
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/')
-# existing = 'ScrollSaw_output_untrimmed_masked_348seq.updated.aln'
-# add = 'ver6/euglenozoans.fa'
-# out = 'ver6/arfs.mafft.aln'
-# log = 'ver6/arfs.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+#add to aligned sequences
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/arf1-6/')
+existing = 'Arf1,Arl1,Arl5_SS_untrimmed_cleargapcol.aln'
+add = 'ver2/arfs_to_add.fa'
+out = 'ver2/arf1-6.mafft.aln'
+log = 'ver2/arf1-6.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 # #merge alignments
 # os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/discoba/alns')
