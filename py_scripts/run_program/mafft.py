@@ -19,9 +19,9 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/arf1-6/')
 existing = 'Arf1,Arl1,Arl5_SS_untrimmed_cleargapcol.aln'
-add = 'ver2/arfs_to_add.fa'
-out = 'ver2/arf1-6.mafft.aln'
-log = 'ver2/arf1-6.mafft.log'
+add = 'ver3/arfs_to_add.fa'
+out = 'ver3/arf1-6.mafft.aln'
+log = 'ver3/arf1-6.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
