@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/vdac/'
+cd '/mnt/mokosz/home/kika/pelomyxa_schiedti/trees/vdac/ver2'
 
 for f in *.fa ; do
 	aln=${f%.fa}.mafft.aln

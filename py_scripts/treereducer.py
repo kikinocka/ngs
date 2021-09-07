@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/')
-inacc = open('arl3/delete.acc')
-infasta = SeqIO.parse('ver6/arfs.mafft.aln', 'fasta')
+os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/trees/VDAC/')
+inacc = open('ver2/delete.acc')
+infasta = SeqIO.parse('ver1/porins.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('arl3/arl3.fa', 'w') as result:
+with open('ver2/porins.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
