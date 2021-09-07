@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/vdac/
+cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/vdac/ver2/
 
 aln='porins.trimal_gt-0.8.aln'
 guide='guide_porins'
