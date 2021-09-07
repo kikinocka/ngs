@@ -10,21 +10,34 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/RABs/ver10/'
+data_dir='meta:/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/'
 
 #copy files to scratch
-cp $data_dir'rabs.fa' $SCRATCHDIR
+cp $data_dir'metamonads_ref.aln' $SCRATCHDIR
+cp $data_dir'metamonads_otus.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fa='rabs.fa'
-aln=${fa%.fa}.mafft.aln
-log=${fa%.fa}.mafft.log
+# #align de-novo
+# fa='rabs.fa'
+# aln=${fa%.fa}.mafft.aln
+# log=${fa%.fa}.mafft.log
 
-mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${fa} > ${aln} 2> ${log}
+# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${fa} > ${aln} 2> ${log}
+
+
+#add to aligned sequences
+existing = 'metamonads_ref.aln'
+add = 'metamonads_otus.fa'
+aln = 'metamonads_V9.mafft.aln'
+log = 'metamonads_V9.mafft.log'
+
+# mafft --add {$add} --thread $PBS_NUM_PPN --inputorder ${existing} > ${aln} 2> ${log}
+mafft --addfragments {$add} --thread $PBS_NUM_PPN --inputorder ${existing} > ${aln} 2> ${log}
 
 
 #copy files back
-rm *.fa
+# rm $fa
+rm $existing $add
 cp * $data_dir
