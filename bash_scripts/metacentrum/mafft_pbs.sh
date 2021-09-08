@@ -35,7 +35,7 @@ aln = 'metamonads_V9.mafft.aln'
 log = 'metamonads_V9.mafft.log'
 
 # mafft --add {$add} --thread $PBS_NUM_PPN --inputorder ${existing} > ${aln} 2> ${log}
-mafft --addfragments {$add} --thread $PBS_NUM_PPN --inputorder ${existing} > ${aln} 2> ${log}
+mafft --addfragments ${add} --thread $PBS_NUM_PPN --inputorder ${existing} > ${aln} 2> ${log}
 
 
 #copy files back
