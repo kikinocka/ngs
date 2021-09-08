@@ -8,12 +8,13 @@
 cat $PBS_NODEFILE
 
 #add module
-module add mafft-7.453
+module add conda-modules-py37
+conda activate mafft
 
 data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/'
 
 #copy files to scratch
-cp $data_dir'metamonads_ref.aln' $SCRATCHDIR
+cp $data_dir'metamonads_eukref.barthelona.anaeramoeba.aln' $SCRATCHDIR
 cp $data_dir'metamonads_otus.fa' $SCRATCHDIR
 
 #compute on scratch
@@ -28,7 +29,7 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing = 'metamonads_ref.aln'
+existing = 'metamonads_eukref.barthelona.anaeramoeba.aln'
 add = 'metamonads_otus.fa'
 aln = 'metamonads_V9.mafft.aln'
 log = 'metamonads_V9.mafft.log'
