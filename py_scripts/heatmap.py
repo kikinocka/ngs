@@ -5,17 +5,18 @@ import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
 
-os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/hsp70/opa1/2-enol-orgn/')
+os.chdir('/Users/kika/ownCloud/Mic60-Mgm1-Opa1/coevolution/combined/opa1-containing/')
 # array1 = pd.read_csv('opa1_MT_correlation.tsv', sep='\t')
-array2 = pd.read_csv('opa1_MT_correlation.tsv', sep='\t')
+array2 = pd.read_csv('MT_correlations.tsv', sep='\t')
 
 fig, ax2 = plt.subplots()
 # fig, (ax1,ax2) = plt.subplots(ncols=2)
 # fig.subplots_adjust(wspace=0.2)
 
-mask = [[0, 0, 0],
-		[1, 0, 0],
-		[1, 1, 0]]
+mask = [[0, 0, 0, 0],
+		[1, 0, 0, 0],
+		[1, 1, 0, 0],
+		[1, 1, 1, 0]]
 
 # data1 = array1.set_index('Unnamed: 0')
 # data1 = np.asarray(data1)
@@ -33,6 +34,7 @@ data2 = array2.set_index('Unnamed: 0')
 data2 = np.asarray(data2)
 labels2 = array2.columns.values[1:]
 ax2.tick_params(left=False, bottom=False)
+ax2.set_yticklabels(labels2, va='center')
 ax2 = sns.heatmap(data2,
 	mask=mask,
 	vmin=0, vmax=1, 
@@ -42,4 +44,4 @@ ax2 = sns.heatmap(data2,
 	xticklabels=labels2, yticklabels=labels2)
 
 # plt.show()
-plt.savefig('opa1_MT-coevol-hsp70_reduced.pdf', dpi=300)
+plt.savefig('opa1_MT-coevol.pdf', dpi=300)

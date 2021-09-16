@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N mafft
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=1gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -31,8 +31,8 @@ cd $SCRATCHDIR
 #add to aligned sequences
 existing='discobids_eukref.mafft_merge.aln'
 add='discobids_otus.fa'
-aln='metamonads_V9.mafft.aln'
-log='metamonads_V9.mafft.log'
+aln='discoba_V9.mafft.aln'
+log='discoba_V9.mafft.log'
 
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
