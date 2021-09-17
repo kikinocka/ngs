@@ -24,8 +24,9 @@ existing='metamonads_eukref.barthelona.anaeramoeba.aln'
 add='metamonads_otus.fa'
 aln='metamonads_V9.pynast.aln'
 log='metamonads_V9.pynast.log'
+length=80
 
-pynast -a $aln -g $log -i $add -t $existing
+pynast -a $aln -g $log -l $length -i $add -t $existing
 
 
 #copy files back
