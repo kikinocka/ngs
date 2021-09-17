@@ -4,7 +4,7 @@ import os
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
 os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/metamonada/')
-files = [x for x in os.listdir() if x.endswith('.silva.aln')]
+files = [x for x in os.listdir() if x.endswith('.sina.aln')]
 
 for file in files:
 	print(file)
@@ -16,8 +16,8 @@ for file in files:
 	# output = '{}.trimal_{}.aln'.format(file_name, aut)
 	# os.system('{} -in {} -out {} -{} -fasta'.format(trimal, file, output, aut))
 	
-	output = '{}.trimal_gt-{}.aln'.format(file_name, gt)
-	os.system('{} -in {} -out {} -gt {} -fasta'.format(trimal, file, output, gt))
+	output = '{}.trimal_gt-{}_cons-50.aln'.format(file_name, gt)
+	os.system('{} -in {} -out {} -gt {} -cons 50 -fasta'.format(trimal, file, output, gt))
 
 	# output = '{}.trimal_gt_{}_st_{}.aln'.format(file_name, gt, st)
 	# os.system('{} -in {} -out {} -gt {} -st {} -fasta'.format(trimal, file, output, gt, st))
