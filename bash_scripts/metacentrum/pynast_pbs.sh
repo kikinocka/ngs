@@ -13,18 +13,18 @@ module add qiime-1.9.1
 data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/'
 
 #copy files to scratch
-cp $data_dir'metamonads_eukref.barthelona.anaeramoeba.aln' $SCRATCHDIR
-cp $data_dir'metamonads_otus.fa' $SCRATCHDIR
+cp $data_dir'arb-silva.de_2021-09-16_id1053505.upd.aln' $SCRATCHDIR
+cp $data_dir'metamonads_eukref-otus.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
 
-existing='metamonads_eukref.barthelona.anaeramoeba.aln'
-add='metamonads_otus.fa'
+existing='arb-silva.de_2021-09-16_id1053505.upd.aln'
+add='metamonads_eukref-otus.fa'
 aln='metamonads_V9.pynast.aln'
 log='metamonads_V9.pynast.log'
-length=80
+length=50
 
 pynast -a $aln -g $log -l $length -i $add -t $existing
 
