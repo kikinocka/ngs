@@ -25,6 +25,7 @@ c = 0
 with open('metamonads_eukref-otus.unambiguous.fa', 'w') as out:
 	for seq in infasta:
 		if ('N' in seq.seq.upper()) or \
+		('U' in seq.seq.upper()) or \
 		('W' in seq.seq.upper()) or \
 		('S' in seq.seq.upper()) or \
 		('M' in seq.seq.upper()) or \
@@ -36,6 +37,7 @@ with open('metamonads_eukref-otus.unambiguous.fa', 'w') as out:
 		('H' in seq.seq.upper()) or \
 		('V' in seq.seq.upper()):
 			c +=1
+			print(seq.name)
 		else:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 
