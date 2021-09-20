@@ -19,7 +19,6 @@ cp $data_dir'metamonads_eukref-otus.unambiguous.fa' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-
 existing='arb-silva.de_2021-09-16_id1053505.upd.aln'
 add='metamonads_eukref-otus.unambiguous.fa'
 aln='metamonads_V9.pynast.aln'
