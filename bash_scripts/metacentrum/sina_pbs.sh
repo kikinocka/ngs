@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N pynast
+#PBS -N sina
 #PBS -l select=1:ncpus=1:mem=20gb:scratch_local=1gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
