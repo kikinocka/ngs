@@ -23,8 +23,9 @@ cd $SCRATCHDIR
 aln='metamonads_eukref_V9.trimal_gt-0.25_cons-50.aln'
 tree='RAxML_bipartitions.metamonads_eukref3'
 out='EPARUN'
+log='RAxML_log.'$out
 
-raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCATI -n $out -s $aln -t $tree -T $PBS_NUM_PPN
+raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN 2> $log
 
 
 #copy files back
