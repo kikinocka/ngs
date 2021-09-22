@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/reference_tree'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/reference_tree/'
 
 #copy files to scratch
 cp $data'metamonads_eukref.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
