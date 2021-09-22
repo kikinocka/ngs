@@ -29,4 +29,4 @@ raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCATI -n $out -s $aln -t $tree -T $PBS_NUM_PP
 
 #copy files back
 rm $aln $tree
-cp -R * $data
+cp -R * $data'placement/'
