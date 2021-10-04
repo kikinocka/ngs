@@ -20,6 +20,6 @@ for file in $files; do
 	out=${file%.*}'.nommpred_mit.txt'
 	NommPred.py -i $file -o $out -l $mit --overwrite
 
-	out=${file%.*}'.nommpred_tryp.txt'
-	NommPred.py -i $file -o $out -l $tryp --overwrite
+	# out=${file%.*}'.nommpred_tryp.txt'
+	# NommPred.py -i $file -o $out -l $tryp --overwrite
 done
