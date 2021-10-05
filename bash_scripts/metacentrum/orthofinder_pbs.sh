@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add orthofinder-2.0.0
 
-data='/storage/brno12-cerit/home/kika/anaeramoeba/RABs'
+data='/storage/brno3-cerit/home/kika/anaeramoeba/tbcs'
 
 #copy files to scratch
 cp $data'/'*.fa $SCRATCHDIR
