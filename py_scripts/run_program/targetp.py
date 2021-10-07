@@ -4,16 +4,16 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/diplonema/predictions/')
-files = [x for x in os.listdir() if x.endswith('repre.fa')]
+os.chdir('/Users/kika/ownCloud/archamoebae/targeting/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
-	out = file.split('.fa')[0] + '.targetp.txt'
 
 	# #TargetP-1.1
 	# option = 'N'
 	# option = 'P'
+	# out = file.split('.fa')[0] + '.targetp.txt'
 	# subprocess.call('{} -{} -c {} > {}'.format(targetp, option, file, out), shell=True)
 
 	#TagetP-2
