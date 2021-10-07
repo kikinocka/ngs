@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/pelomyxa_schiedti/trees/vdac/ver2/
+cd /mnt/mokosz/home/kika/archam_trees/nifU/ver4/
 
-aln='porins.trimal_gt-0.8.aln'
-guide='guide_porins'
+aln='nifU.trimal_gt-0.8.aln'
+guide='guide_nifU'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
