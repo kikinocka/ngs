@@ -12,7 +12,7 @@ out = open('ena.blast_hits.defline.tsv', 'w')
 errors = open('ena.defline_errors.txt', 'w')
 
 
-def defline_assign(accs, database, errors):
+def defline_assign(acc, database, errors):
 	try:
 		sequence = Entrez.efetch(db=database, id=acc, rettype='gb', retmode='text')
 		record = SeqIO.read(sequence, 'genbank')
@@ -30,4 +30,4 @@ for acc in accessions:
 		description = defline_assign(acc.strip(), 'protein', errors)
 		out.write('{}\t{}\t\n'.format(acc.strip(), blast_dict[acc.strip()], description))		
 	else:
-		print(acc.strip())
+		errors.write('{}\n'.format(acc.strip()))
