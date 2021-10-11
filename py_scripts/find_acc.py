@@ -5,7 +5,7 @@ from collections import defaultdict
 
 Entrez.email = 'kika.zahonova@gmail.com'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/beta-barrel/')
+os.chdir('/mnt/mokosz/home/kika/beta-barrels/')
 accessions = open('ena.acc')
 blast = open('enan.trinity.NTfilt.dmnd.out')
 out = open('ena.blast_hits.defline.tsv', 'w')
