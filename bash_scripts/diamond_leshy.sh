@@ -1,12 +1,14 @@
 #!/bin/bash
 
+cd '/mnt/mokosz/home/kika/beta-barrels/'
+
 task=blastp
-query='/mnt/mokosz/home/kika/rhizomastix_vacuolata/filtration2/rvac_trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
-out='/mnt/mokosz/home/kika/rhizomastix_vacuolata/filtration2/rvac.trinity.NTfilt.dmnd.out'
+query='ena.beta-barrel.fa'
+out='ena.beta-barrel.dmnd.out'
 db='/opt/databases/nr_auto/2021-02-15/diamond/nr.dmnd'
 taxify='/mnt/mokosz/home/kika/scripts/py_scripts/taxify_DMND_nr_gz.py'
 # outfmt=5
-eval=1e-5
+eval=1e-3
 max_seqs=1
 cpu=10
 
