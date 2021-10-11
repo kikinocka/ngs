@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 for f in *.aln ; do
 	guide=guide_${f%.aln}
 	guide_tree=$guide'.treefile'
-	bb=1000
+	bb=100
 	nm=5000
 	# iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f}
 	# iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -s ${f}
