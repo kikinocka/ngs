@@ -7,7 +7,7 @@ os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
 proteins = SeqIO.parse('pelomyxa_predicted_proteins_corr.fa', 'fasta')
 
 #beta-barrel
-motif = r'(K|R|H|S|T|N|Q)\w{1}G(A|C)\w{1}(L|I|V|F|M|W|Y)\w{1}(L|I|V|F|M|W|Y)'
+motif = r'[KRHSTNQ]\w{1}G[AC]\w{1}[LIVFMWY]\w{1}[LIVFMWY]'
 
 with open('pelo.beta-barrel.fa', 'w') as out:
 	for protein in proteins:
