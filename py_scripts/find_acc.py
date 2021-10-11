@@ -12,12 +12,13 @@ out = open('ena.blast_hits.defline.tsv', 'w')
 errors = open('ena.defline_errors.txt', 'w')
 
 
-def defline_assign(acc, database, errors):
-	try:
-		sequence = Entrez.efetch(db=database, id=acc, rettype='gb', retmode='text')
-		record = SeqIO.read(sequence, 'genbank')
-	except:
-		errors.write('{}\n'.format(acc))
+def defline_assign(accs, database, errors):
+	for acc in accs:	
+		try:
+			sequence = Entrez.efetch(db=database, id=acc, rettype='gb', retmode='text')
+			record = SeqIO.read(sequence, 'genbank')
+		except:
+			errors.write('{}\n'.format(acc))
 	return record.description
 
 
