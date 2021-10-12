@@ -5,12 +5,12 @@ from collections import defaultdict
 
 Entrez.email = 'kika.zahonova@gmail.com'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/beta-barrels/')
+os.chdir('/mnt/mokosz/home/kika/beta-barrels/')
 accessions = open('ena.acc')
-blast = open('enan.trinity.NTfilt.dmnd.out')
-out = open('ena.blast_hits.defline.tsv', 'w')
+blast = open('ena.beta-barrel.dmnd.out')
+out = open('ena.dmnd_hits.defline.tsv', 'w')
 errors_def = open('ena.defline_errors.txt', 'w')
-errors_blast = open('ena.blast_errors.txt', 'w')
+errors_blast = open('ena.dmnd_errors.txt', 'w')
 
 
 def defline_assign(acc, errors):
