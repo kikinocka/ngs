@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=50gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -12,17 +12,17 @@ cat $PBS_NODEFILE
 # conda activate mafft
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/RABs/ver12/'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/aceE/'
 
 #copy files to scratch
-cp $data_dir'rabs.fa' $SCRATCHDIR
+cp $data_dir'aceE.fa' $SCRATCHDIR
 # cp $data_dir'discobids_otus.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
 #align de-novo
-fa='rabs.fa'
+fa='aceE.fa'
 aln=${fa%.fa}.mafft.aln
 log=${fa%.fa}.mafft.log
 

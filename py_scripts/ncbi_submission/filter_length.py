@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/rhabdomonas_costata/ncbi_submission/')
-transcriptome = SeqIO.parse('Rhabdomonas_costata_transcriptome-20110611renamed.without_adaptors3_cont-removed.fa', 'fasta')
-result = open('Rhabdomonas_costata_transcriptome-20110611renamed.without_adaptors3_cont-removed_longer200.fa', 'w')
+os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/')
+transcriptome = SeqIO.parse('aceE_ref.deduplicated.fa', 'fasta')
+result = open('aceE_ref.deduplicated_longer900.fa', 'w')
 
 all_cont = 0
 long_cont = 0
