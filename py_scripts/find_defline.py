@@ -6,11 +6,11 @@ from collections import defaultdict
 Entrez.email = 'kika.zahonova@gmail.com'
 
 os.chdir('/mnt/mokosz/home/kika/beta-barrels/')
-accessions = open('ena.acc')
-blast = open('ena.beta-barrel.dmnd.out')
-out = open('ena.dmnd_hits.defline.tsv', 'w')
-errors_def = open('ena.defline_errors.txt', 'w')
-errors_blast = open('ena.dmnd_errors.txt', 'w')
+accessions = open('rva.acc')
+blast = open('rva.beta-barrel.dmnd.out')
+out = open('rva.dmnd_hits.defline.tsv', 'w')
+errors_def = open('rva.defline_errors.txt', 'w')
+errors_blast = open('rva.dmnd_errors.txt', 'w')
 
 
 def defline_assign(acc, errors):
