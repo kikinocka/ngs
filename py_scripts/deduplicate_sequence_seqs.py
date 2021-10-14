@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/')
-infile = SeqIO.parse('aceE_ref.fa', 'fasta')
-out_fasta = open('aceE_ref_deduplicated.fa', 'w')
-out_names = open('aceE_ref_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/ver2/')
+infile = SeqIO.parse('aceE.fa', 'fasta')
+out_fasta = open('aceE_deduplicated.fa', 'w')
+out_names = open('aceE_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

@@ -12,7 +12,7 @@ cat $PBS_NODEFILE
 # conda activate mafft
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/diplonema/aceE/'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/aceE/ver2/'
 
 #copy files to scratch
 cp $data_dir'aceE.fa' $SCRATCHDIR
