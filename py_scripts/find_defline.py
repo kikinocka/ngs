@@ -6,11 +6,11 @@ from collections import defaultdict
 Entrez.email = 'kika.zahonova@gmail.com'
 
 os.chdir('/storage/brno3-cerit/home/kika/diplonema/oxphos/')
-accessions = open('D+B.acc')
-blast = open('D+B.dmnd.out')
-out = open('D+B.dmnd_hits.defline.tsv', 'w')
-errors_def = open('D+B.defline_errors.txt', 'w')
-errors_blast = open('D+B.dmnd_errors.txt', 'w')
+accessions = open('D+C.acc')
+blast = open('D+C.dmnd.out')
+out = open('D+C.dmnd_hits.defline.tsv', 'w')
+errors_def = open('D+C.defline_errors.txt', 'w')
+errors_blast = open('D+C.dmnd_errors.txt', 'w')
 
 
 def defline_assign(acc, errors):
