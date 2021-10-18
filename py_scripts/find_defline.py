@@ -5,12 +5,12 @@ from collections import defaultdict
 
 Entrez.email = 'kika.zahonova@gmail.com'
 
-os.chdir('/mnt/mokosz/home/kika/beta-barrels/')
-accessions = open('rva.acc')
-blast = open('rva.beta-barrel.dmnd.out')
-out = open('rva.dmnd_hits.defline.tsv', 'w')
-errors_def = open('rva.defline_errors.txt', 'w')
-errors_blast = open('rva.dmnd_errors.txt', 'w')
+os.chdir('/storage/brno3-cerit/home/kika/diplonema/oxphos/')
+accessions = open('D+A.acc')
+blast = open('D+A.dmnd.out')
+out = open('D+A.dmnd_hits.defline.tsv', 'w')
+errors_def = open('D+A.defline_errors.txt', 'w')
+errors_blast = open('D+A.dmnd_errors.txt', 'w')
 
 
 def defline_assign(acc, errors):
