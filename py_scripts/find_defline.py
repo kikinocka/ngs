@@ -28,9 +28,12 @@ for line in blast:
 	blast_dict[line.split('\t')[0]] = line.split('\t')[2]
 
 for acc in accessions:
-	if acc.strip() in blast_dict:
-		print(acc.strip())
-		description = defline_assign(blast_dict[acc.strip()], errors_def)
-		out.write('{}\t{}\t{}\n'.format(acc.strip(), blast_dict[acc.strip()], description))		
-	else:
-		errors_blast.write('{}\n'.format(acc.strip()))
+	try:
+		if acc.strip() in blast_dict:
+			print(acc.strip())
+			description = defline_assign(blast_dict[acc.strip()], errors_def)
+			out.write('{}\t{}\t{}\n'.format(acc.strip(), blast_dict[acc.strip()], description))		
+		else:
+			errors_blast.write('{}\n'.format(acc.strip()))
+	except:
+		errors_def.write(acc)
