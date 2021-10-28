@@ -7,8 +7,8 @@ hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 os.chdir('/Users/kika/ownCloud/archamoebae/import/hmms/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Users/kika/ownCloud/archamoebae/endolimax_nana/enan.trinity.NRfilt-p70.faa'
-orgn = 'ena'
+db = '/Users/kika/ownCloud/archamoebae/entamoeba_histolytica/AmoebaDB-53_EhistolyticaHM1IMSS_AnnotatedProteins.fasta'
+orgn = 'ehis'
 
 for file in files:
 	print(file)
