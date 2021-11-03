@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=48:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/reference_tree/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/reference_tree/ver2/'
 
 #copy files to scratch
 cp $data'metamonads_eukref.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
