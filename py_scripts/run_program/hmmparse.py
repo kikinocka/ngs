@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/import/ehis/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/Dsl1/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/Users/kika/ownCloud/archamoebae/entamoeba_histolytica/AmoebaDB-53_EhistolyticaHM1IMSS_AnnotatedProteins.fasta', 'fasta')
+db = SeqIO.parse('/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/EGALL_6frames.fasta', 'fasta')
 
 seq_d = {}
 for seq in db:
@@ -36,7 +36,7 @@ for file in files:
 				evalue = float(line.split()[4])
 				# if seqname in written:				
 				# 	pass
-				if evalue < 0.0001:
+				if evalue < 0.001:
 					#don't forget to delete previously generated files
 					with open(name, 'a') as result:
 						result.write('>{} eval:{}\n{}\n'.format(seq_d[seqname][0], evalue, seq_d[seqname][1]))

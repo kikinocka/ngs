@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/ver8/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/metamonada/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/ver5/aceE.fa'
+database = 'metamonads_otus.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -18,7 +18,7 @@ for accessions in files:
 			retrieve.add(line[:-1])
 
 		for seq in db:
-			if seq.name.split(';')[0] in retrieve:
+			if seq.name.split('_')[0] in retrieve:
 				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 			else:
 				# print(seq.description)
