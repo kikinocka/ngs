@@ -14,7 +14,8 @@ if len(sys.argv) == 1:
 	message = 'Job finished, come and have a look ..-)'
 else:
 	message = " ".join(sys.argv[1:])
-response = client.chat_postMessage(channel="UGEKVC26P", text=message)
+response = client.chat_postMessage(channel="UGDV29T2L", text=message)
 #Kika: UGDV29T2L
+#Zoli: UGEKVC26P
 
 print(response["ok"])
