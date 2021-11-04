@@ -13,8 +13,8 @@ module add raxml-8.2.8
 data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonada/'
 
 #copy files to scratch
-cp $data'placement/metamonads_eukref_V9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
-cp $data'reference_tree/RAxML_bipartitions.metamonads_eukref3' $SCRATCHDIR
+cp $data'placement/ver2/metamonads_eukref_V9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'reference_tree/ver2/RAxML_bipartitions.metamonads_eukref3' $SCRATCHDIR
 
 
 #compute on scratch
@@ -29,4 +29,4 @@ raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN
 
 #copy files back
 rm $aln $tree
-cp -R * $data'placement/'
+cp -R * $data'placement/ver2/'
