@@ -12,3 +12,5 @@ for aln in *trimal_gt-0.8.aln ; do
 	# iqtree -m LG+C20+F+G -nt AUTO -ntmax 10 -bb $bb -nm $nm -quiet -s ${aln} -ft $guide_tree
 	iqtree -m TEST -nt AUTO -ntmax 10 -bb $bb -nm $nm -quiet -s ${aln}
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py IQTREE TEST done
