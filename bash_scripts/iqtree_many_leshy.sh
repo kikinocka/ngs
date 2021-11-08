@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/pmsf/
+cd /mnt/mokosz/home/kika/archam_trees/hydA/ver4/
 
 for aln in *trimal_gt-0.8.aln ; do
 	echo $aln
