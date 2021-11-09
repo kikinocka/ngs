@@ -17,27 +17,28 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 		mafft, file, out, log), shell=True)
 
 # #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/discoba/alns/')
-# existing = 'alns/ref_metamonads_eukref.barthelona.anaeramoeba.aln'
-# add = 'metamonads_otus_above100.fa'
-# out = 'metamonads_V9.mafft.aln'
-# log = 'metamonads_V9.mafft.log'
+# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/heterolobosea/')
+# existing = 'alns/heterolobosea_outgroup.mafft.aln'
+# add = 'V9_above99.fa'
+# out = 'heterolobosea_V9_above99.mafft.aln'
+# log = 'heterolobosea_V9_above99.mafft.log'
 # # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
+
 #merge alignments
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/discoba/alns/')
-aln1 = 'Euglenozoa_alignment.aln'
-# aln2 = 'Euglenida_alignment.aln'
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/heterolobosea/join/')
+aln1 = 'good.aln'
+aln2 = 'rest.aln'
 # aln3 = 'preaxostyla_eukref.aln'
-fasta = 'outgroup_nogaps.fa'
-input = 'euglenozoa_outgroup.in'
-table = 'euglenozoa_outgroup.table'
-out = 'euglenozoa_outgroup.mafft.aln'
-log = 'euglenozoa_outgroup.mafft.log'
-subprocess.call('cat {} {} > {}'.format(aln1, fasta, input), shell=True)
+# fasta = 'outgroup_nogaps.fa'
+input = 'heterolob_v9.in'
+table = 'heterolob_v9.table'
+out = 'heterolob_v9.mafft.aln'
+log = 'heterolob_v9.mafft.log'
+subprocess.call('cat {} {} > {}'.format(aln1, aln2, input), shell=True)
 print('Alignments concatenated\n\n')
-subprocess.call('ruby {} {} > {}'.format(maketable, aln1, table), shell=True)
+subprocess.call('ruby {} {} {} > {}'.format(maketable, aln1, aln2, table), shell=True)
 print('Table prepared\n\n')
 subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)
 print('Alignments merged')
