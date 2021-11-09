@@ -8,8 +8,6 @@ for aln in *trimal_gt-0.8.aln ; do
 	guide_tree=$guide'.treefile'
 	bb=1000
 	nm=5000
-	# iqtree -m LG+F+G -nt AUTO -ntmax 10 -quiet -s ${aln} -pre $guide
-	# iqtree -m LG+C20+F+G -nt AUTO -ntmax 10 -bb $bb -nm $nm -quiet -s ${aln} -ft $guide_tree
 	iqtree -m TEST -nt AUTO -ntmax 10 -bb $bb -nm $nm -quiet -s ${aln}
 done
 
