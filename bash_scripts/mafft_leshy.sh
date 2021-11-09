@@ -8,4 +8,5 @@ for f in *.fa ; do
 	mafft --thread 5 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 done
 
+source ~/.profile
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT done
