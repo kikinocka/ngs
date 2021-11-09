@@ -44,16 +44,16 @@ cd $SCRATCHDIR
 maketable='/software/mafft/7.487/core/makemergetable.rb'
 aln1='Euglenozoa_alignment.aln'
 fasta='outgroup_nogaps.fa'
-input = 'euglenozoa_outgroup.in'
-table = 'euglenozoa_outgroup.table'
-out = 'euglenozoa_outgroup.mafft.aln'
-log = 'euglenozoa_outgroup.mafft.log'
+input='euglenozoa_outgroup.in'
+table='euglenozoa_outgroup.table'
+out='euglenozoa_outgroup.mafft.aln'
+log='euglenozoa_outgroup.mafft.log'
 
 cat $aln1 $fasta > $input
 echo 'Alignments concatenated'
 ruby $maketable $aln1 > $table
 echo 'Table prepared'
-mafft --thread 7 --localpair --maxiterate 1000 --merge $table $in > $ouy 2> $log
+mafft --thread 7 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
 
 
