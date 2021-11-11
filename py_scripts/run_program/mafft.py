@@ -5,24 +5,24 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
-os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/RABs/2-4-14/tvag_320200/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/RAB_db/')
+# files = [x for x in os.listdir() if x.endswith('.fa')]
 
-for file in files:
-	print(file)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
+# for file in files:
+# 	print(file)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
 
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/heterolobosea/')
-# existing = 'alns/heterolobosea_outgroup.mafft.aln'
-# add = 'V9_above99.fa'
-# out = 'heterolobosea_V9_above99.mafft.aln'
-# log = 'heterolobosea_V9_above99.mafft.log'
-# # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+#add to aligned sequences
+os.chdir('/Users/kika/ownCloud/')
+existing = 'RAB_db/RABs_backbone.mafft.aln'
+add = 'tvag/exosomal/rabs.fa'
+out = 'tvag/exosomal/tree/rabs.mafft.aln'
+log = 'tvag/exosomal/tree/rabs.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 

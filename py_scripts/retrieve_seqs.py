@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/euglenozoa/')
+os.chdir('/Users/kika/ownCloud/tvag/exosomal/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/SL_Euglenozoa/V9/global_dereplicated_1f_representatives.fas'
+database = '/Users/kika/ownCloud/anaeramoeba/proteomes/Tvag_proteins.fasta'
 
 for accessions in files: 
 	print(accessions)
