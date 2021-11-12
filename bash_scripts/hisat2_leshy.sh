@@ -54,13 +54,13 @@ report=$index'_report.txt'
 bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
-hisat2-build -p 10 $genome $index
-hisat2 -p 10 -x $index \
+hisat2-build -p 5$genome $index
+hisat2 -p 15 -x $index \
 	-1 $fw1,$fw2,$fw3,$fw4,$fw5,$fw6,$fw7,$fw8,$fw9,$fw10,$fw11,$fw12,$fw13,$fw14,$fw15,$fw16,$fw17,$fw18,$fw19,$fw20 \
 	-2 $rv1,$rv2,$rv3,$rv4,$rv5,$rv6,$rv7,$rv8,$rv9,$rv10,$rv11,$rv12,$rv13,$rv14,$rv15,$rv16,$rv17,$rv18,$rv19,$rv20 \
  	--un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
 
-samtools view -bS $sam > $bam -@ 10
-samtools sort -o $sorted -@ 10 $bam 
+samtools view -bS $sam > $bam -@ 15
+samtools sort -o $sorted -@ 15 $bam 
 samtools index $sorted
 
