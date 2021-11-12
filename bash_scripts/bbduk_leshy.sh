@@ -5,9 +5,7 @@ adapt='/mnt/mokosz/home/kika/tools/bbmap/resources/adapters.fa'
 
 cd '/mnt/mokosz/home/zoli/proj/Euglena_v2/reads/'
 
-for file in *fastq.gz ; do 
-	echo $file
-
+for file in *_1.fastq.gz ; do 
 	name=${file%_*.fastq.gz}
 	fw=$name'_1.fastq.gz'
 	rv=$name'_2.fastq.gz'
@@ -22,6 +20,6 @@ for file in *fastq.gz ; do
 		ref=$adapt \
 		usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=10 2> $report
 
-	echo $file 'trimmed'
+	echo $name 'trimmed'
 
 done
