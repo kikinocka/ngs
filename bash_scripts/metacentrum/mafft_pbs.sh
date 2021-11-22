@@ -13,21 +13,21 @@ cat $PBS_NODEFILE
 # module add mafft-7.453
 module add mafft-7.487 
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/ciliates/'
 
 #copy files to scratch
-cp $data_dir'Euglenozoa_alignment.aln' $SCRATCHDIR
-cp $data_dir'outgroup_nogaps.fa' $SCRATCHDIR
+cp $data_dir'V9_above99.fa' $SCRATCHDIR
+# cp $data_dir'outgroup_nogaps.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-# #align de-novo
-# fa='aceE.fa'
-# aln=${fa%.fa}.mafft.aln
-# log=${fa%.fa}.mafft.log
+#align de-novo
+fa='V9_above99.fa'
+aln=${fa%.fa}.mafft.aln
+log=${fa%.fa}.mafft.log
 
-# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${fa} > ${aln} 2> ${log}
+mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${fa} > ${aln} 2> ${log}
 
 
 # #add to aligned sequences
@@ -40,25 +40,25 @@ cd $SCRATCHDIR
 # mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
 
-#merge alignments and fasta files
-maketable='/software/mafft/7.487/core/makemergetable.rb'
-aln1='Euglenozoa_alignment.aln'
-fasta='outgroup_nogaps.fa'
-input='euglenozoa_outgroup.in'
-table='euglenozoa_outgroup.table'
-out='euglenozoa_outgroup.mafft.aln'
-log='euglenozoa_outgroup.mafft.log'
+# #merge alignments and fasta files
+# maketable='/software/mafft/7.487/core/makemergetable.rb'
+# aln1='Euglenozoa_alignment.aln'
+# fasta='outgroup_nogaps.fa'
+# input='euglenozoa_outgroup.in'
+# table='euglenozoa_outgroup.table'
+# out='euglenozoa_outgroup.mafft.aln'
+# log='euglenozoa_outgroup.mafft.log'
 
-cat $aln1 $fasta > $input
-echo 'Alignments concatenated'
-ruby $maketable $aln1 > $table
-echo 'Table prepared'
-mafft --thread 7 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
-echo 'Alignments merged'
+# cat $aln1 $fasta > $input
+# echo 'Alignments concatenated'
+# ruby $maketable $aln1 > $table
+# echo 'Table prepared'
+# mafft --thread 7 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
+# echo 'Alignments merged'
 
 
 #copy files back
-# rm $fa
+rm $fa
 # rm $existing $add
-rm $aln1 $fasta
+# rm $aln1 $fasta
 cp * $data_dir
