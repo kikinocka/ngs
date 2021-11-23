@@ -32,5 +32,5 @@ echo 'Table prepared'
 mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
 
-source ~/.profile
+# source ~/.profile
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT merge done
