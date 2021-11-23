@@ -6,7 +6,7 @@
 # for f in *.fa ; do
 # 	aln=${f%.fa}.mafft.aln
 # 	log=${f%.fa}.mafft.log
-# 	mafft --thread 5 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
+# 	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 # done
 
 # source ~/.profile
@@ -28,7 +28,7 @@ cat $aln1 $aln2 > $input
 echo 'Alignments concatenated'
 ruby $maketable $aln1 $aln2 > $table
 echo 'Table prepared'
-mafft --thread 7 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
+mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
 
 source ~/.profile
