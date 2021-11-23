@@ -17,7 +17,6 @@
 cd '/mnt/mokosz/home/kika/workdir/'
 
 maketable='/mnt/mokosz/home/kika/miniconda3/bin/makemergetable.rb'
-mafft='/mnt/mokosz/home/kika/miniconda3/bin/mafft'
 ruby='/mnt/mokosz/home/kika/miniconda3/bin/ruby'
 aln1='ciliophora_eukref.aln'
 aln2='V9_above99.mafft.aln'
@@ -30,8 +29,8 @@ cat $aln1 $aln2 > $input
 echo 'Alignments concatenated'
 $ruby $maketable $aln1 $aln2 > $table
 echo 'Table prepared'
-$mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
+mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
 
-
+source ~/.profile
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT merge done
