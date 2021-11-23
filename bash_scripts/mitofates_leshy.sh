@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mitofates='/mnt/mokosz/home/kika/MitoFates/MitoFates.pl'
-workdir='/mnt/mokosz/home/kika/pelomyxa_schiedti/nts_charge/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 m=metazoa
 p=plant
@@ -14,6 +14,6 @@ for file in $files; do
 	out=${file%.*}'.mitofates_fungi.txt'
 	perl $mitofates $file $f > $out
 	
-	# out=${file%.*}'.mitofates_metazoa.txt'
-	# perl $mitofates $file $m > $out
+	out=${file%.*}'.mitofates_metazoa.txt'
+	perl $mitofates $file $m > $out
 done
