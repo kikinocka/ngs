@@ -16,8 +16,6 @@
 #merge alignments
 cd '/mnt/mokosz/home/kika/workdir/'
 
-maketable='/mnt/mokosz/home/kika/miniconda3/bin/makemergetable.rb'
-ruby='/mnt/mokosz/home/kika/miniconda3/bin/ruby'
 aln1='ciliophora_eukref.aln'
 aln2='V9_above99.mafft.aln'
 input='ciliates_V9.in'
@@ -27,7 +25,7 @@ log='ciliates_V9_above99.mafft.log'
 
 cat $aln1 $aln2 > $input
 echo 'Alignments concatenated'
-$ruby $maketable $aln1 $aln2 > $table
+maketable $aln1 $aln2 > $table
 echo 'Table prepared'
 mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
