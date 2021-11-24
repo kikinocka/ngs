@@ -25,7 +25,7 @@ log='ciliates_V9_above99.mafft.log'
 
 cat $aln1 $aln2 > $input
 echo 'Alignments concatenated'
-maketable $aln1 $aln2 > $table
+makemergetable $aln1 $aln2 > $table
 echo 'Table prepared'
 mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
