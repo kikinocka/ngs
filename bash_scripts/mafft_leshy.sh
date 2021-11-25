@@ -27,7 +27,7 @@ cat $aln1 $aln2 > $input
 echo 'Alignments concatenated'
 makemergetable $aln1 $aln2 > $table
 echo 'Table prepared'
-mafft --thread 10 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
+mafft --thread 10 --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
 echo 'Alignments merged'
 
 # source ~/.profile
