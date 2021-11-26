@@ -17,3 +17,5 @@ for file in $files; do
 	out=${file%.*}'.mitofates_metazoa.txt'
 	perl $mitofates $file $m > $out
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MitoFates done

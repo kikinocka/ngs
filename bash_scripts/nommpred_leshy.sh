@@ -23,3 +23,5 @@ for file in $files; do
 	out=${file%.*}'.nommpred_tryp.txt'
 	NommPred.py -i $file -o $out -l $tryp --overwrite
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py NommPred done

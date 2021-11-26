@@ -17,3 +17,5 @@ for file in $files; do
 	out=${file%.*}'.multiloc_animal.txt'
 	python $multiloc -fasta=$file -origin=$a -predictor=LowRes -result=$out -output=simple
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MultiLoc2 done
