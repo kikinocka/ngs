@@ -53,7 +53,7 @@ cat $aln1 $fasta > $input
 echo 'Alignments concatenated'
 ruby $maketable $aln1 > $table
 echo 'Table prepared'
-mafft --thread 7 --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
+mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $in > $out 2> $log
 echo 'Alignments merged'
 
 
