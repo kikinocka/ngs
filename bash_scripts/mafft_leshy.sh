@@ -16,7 +16,7 @@
 #merge alignments
 cd '/mnt/mokosz/home/kika/workdir'
 
-aln1='Euglenozoa_alignment.aln'
+aln1='euglenozoa_outgroup.mafft.aln'
 aln2='V9_above99.mafft.aln'
 # fasta='outgroup_nogaps.fa'
 input='euglenozoa_V9_above99.in'
