@@ -14,18 +14,21 @@
 
 
 #merge alignments
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/workdir'
 
-aln1='ciliophora_eukref.aln'
-aln2='V9_above99.mafft.aln'
-input='ciliates_V9.in'
-table='ciliates_V9.table'
-out='ciliates_V9_above99.mafft.aln'
-log='ciliates_V9_above99.mafft.log'
+aln1='Euglenozoa_alignment.aln'
+# aln2='V9_above99.mafft.aln'
+fasta='outgroup_nogaps.fa'
+input='euglenozoa_outgroup.in'
+table='euglenozoa_outgroup.table'
+out='euglenozoa_outgroup.mafft.aln'
+log='euglenozoa_outgroup.mafft.log'
 
-cat $aln1 $aln2 > $input
+# cat $aln1 $aln2 > $input
+cat $aln1 $fasta > $input
 echo 'Alignments concatenated'
-makemergetable $aln1 $aln2 > $table
+# makemergetable $aln1 $aln2 > $table
+makemergetable $aln1 > $table
 echo 'Table prepared'
 mafft --thread 10 --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
 echo 'Alignments merged'
