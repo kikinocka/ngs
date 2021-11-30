@@ -16,13 +16,13 @@
 #merge alignments
 cd '/mnt/mokosz/home/kika/workdir/'
 
-aln1='ciliophora_eukref.aln'
-aln2='apm.aln'
+aln1='ciliates_ref.mafft.aln'
+aln2='V9_above99.mafft.aln'
 # fasta='outgroup_nogaps.fa'
-input='ciliates.in'
-table='ciliates.table'
-out='ciliates_ref.mafft.aln'
-log='ciliates_ref.mafft.log'
+input='ciliates_V9_above99.in'
+table='ciliates_V9_above99.table'
+out='ciliates_V9_above99.mafft.aln'
+log='ciliates_V9_above99.mafft.log'
 
 cat $aln1 $aln2 > $input
 # cat $aln1 $fasta > $input
