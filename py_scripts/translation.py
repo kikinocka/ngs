@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/')
-infile = SeqIO.parse('dpap_transcripts_ed-minus_bac.fa', 'fasta')
-output = open('dpap_transcripts_ed-minus_bac.translated.fa', 'w')
-error = open('dpap_transcripts_ed-minus_bac.errors.fa', 'w')
+os.chdir('/Users/kika/data/kinetoplastids/')
+infile = SeqIO.parse('TriTrypDB-54_BsaltansLakeKonstanz_Genome.fasta', 'fasta')
+output = open('TriTrypDB-54_BsaltansLakeKonstanz_Genome.translated.fa', 'w')
+error = open('TriTrypDB-54_BsaltansLakeKonstanz_Genome.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
