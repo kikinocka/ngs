@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # #align denovo
-# cd '/mnt/mokosz/home/kika/workdir'
+# cd '/mnt/mokosz/home/kika/workdir/'
 
 # for f in *.fa ; do
 # 	aln=${f%.fa}.mafft.aln
@@ -14,15 +14,15 @@
 
 
 #merge alignments
-cd '/mnt/mokosz/home/kika/workdir'
+cd '/mnt/mokosz/home/kika/workdir/'
 
-aln1='euglenozoa_outgroup.mafft.aln'
-aln2='V9_above99.mafft.aln'
+aln1='ciliophora_eukref.aln'
+aln2='apm.aln'
 # fasta='outgroup_nogaps.fa'
-input='euglenozoa_V9_above99.in'
-table='euglenozoa_V9_above99.table'
-out='euglenozoa_V9_above99.mafft.aln'
-log='euglenozoa_V9_above99.mafft.log'
+input='ciliates.in'
+table='ciliates.table'
+out='ciliates_ref.mafft.aln'
+log='ciliates_ref.mafft.log'
 
 cat $aln1 $aln2 > $input
 # cat $aln1 $fasta > $input
