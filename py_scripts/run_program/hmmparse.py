@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/Dsl1/')
+os.chdir('/mnt/mokosz/home/kika/tom60/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/EGALL_6frames.fasta', 'fasta')
+db = SeqIO.parse('/mnt/mokosz/home/zoli/DMND/EukProt_v2_renamed.faa', 'fasta')
 
 seq_d = {}
 for seq in db:
