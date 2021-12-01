@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N metaeuk
-#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=20:mem=120gb:scratch_local=1gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
 metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
-database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC'
+database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC_profiles'
 
 #copy files to scratch
 cp $data_dir'7-tiara/eukarya.fa' $SCRATCHDIR
