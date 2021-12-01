@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/tvag/rab2-4-14/
+cd /mnt/mokosz/home/kika/archam_trees/tom60/
 
-for aln in *trimal_gt-0.8.aln ; do
+for aln in *.aln ; do
 	echo $aln
 	guide=guide_${aln%.aln}
 	guide_tree=$guide'.treefile'
@@ -12,5 +12,5 @@ for aln in *trimal_gt-0.8.aln ; do
 	iqtree -m LG+C20+F+G -nt AUTO -ntmax 10 -bb $bb -nm $nm -quiet -s ${aln} -ft $guide_tree
 done
 
-source ~/.profile
+#source ~/.profile
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py IQTREE PMSF done
