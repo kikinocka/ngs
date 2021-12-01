@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N metaeuk
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 contigs='eukarya.fa'
 out='euk_metaeuk'
 
-$metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out temp
+$metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out $SCRATCHDIR
 
 #copy files back
 rm $contigs
