@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 contigs='eukarya.fa'
 out='euk_metaeuk'
 
-$metaeuk easy-predict $contigs $database $out ${SCRATCHDIR} --mpi-runner "mpirun -np $PBS_NUM_PPN"
+$metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out temp
 
 #copy files back
 rm $contigs
