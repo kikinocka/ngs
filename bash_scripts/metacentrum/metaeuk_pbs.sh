@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
 metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
-database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC'
+database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC'
 
 #copy files to scratch
 cp $data_dir'7-tiara/eukarya.fa' $SCRATCHDIR
