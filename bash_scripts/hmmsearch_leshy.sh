@@ -9,3 +9,5 @@ for profile in *.hmm_profile ; do:
 	threads=10
 	hmmsearch -o $output --cpu $threads $profile $db
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py HMMsearch done
