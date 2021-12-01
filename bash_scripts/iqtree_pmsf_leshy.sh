@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/tom60/
+cd /mnt/mokosz/home/kika/archam_trees/tom60/ver2/
 
 for aln in *.aln ; do
 	echo $aln
@@ -12,5 +12,4 @@ for aln in *.aln ; do
 	iqtree -m LG+C20+F+G -nt AUTO -ntmax 10 -bb $bb -nm $nm -quiet -s ${aln} -ft $guide_tree
 done
 
-#source ~/.profile
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py IQTREE PMSF done

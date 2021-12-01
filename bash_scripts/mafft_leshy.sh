@@ -4,6 +4,7 @@
 cd '/mnt/mokosz/home/kika/archam_trees/tom60/ver2'
 
 for f in *.fa ; do
+	echo $f
 	aln=${f%.fa}.mafft.aln
 	log=${f%.fa}.mafft.log
 	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
