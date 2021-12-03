@@ -18,6 +18,7 @@ data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/ciliates/'
 #copy files to scratch
 cp $data_dir'ciliates_V9_above99.mafft.aln' $SCRATCHDIR
 cp $data_dir'outgroup.mafft.aln' $SCRATCHDIR
+cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -53,14 +54,14 @@ log='ciliates_outgroup_V9_above99.mafft.log'
 cat $aln1 $aln2 > $input
 # cat $aln1 $fasta > $input
 echo 'Alignments concatenated'
-ruby $makemergetable $aln1 $aln2 > $table
+# ruby $makemergetable $aln1 $aln2 > $table
 # makemergetable $aln1 > $table
-echo 'Table prepared'
+# echo 'Table prepared'
 mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
 echo 'Alignments merged'
 
 #copy files back
 # rm $fa
 # rm $existing $add
-rm $aln1 $aln2
+rm $aln1 $aln2 $table
 cp * $data_dir
