@@ -53,7 +53,7 @@ log='ciliates_outgroup_V9_above99.mafft.log'
 cat $aln1 $aln2 > $input
 # cat $aln1 $fasta > $input
 echo 'Alignments concatenated'
-makemergetable $aln1 $aln2 > $table
+ruby $makemergetable $aln1 $aln2 > $table
 # makemergetable $aln1 > $table
 echo 'Table prepared'
 mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
