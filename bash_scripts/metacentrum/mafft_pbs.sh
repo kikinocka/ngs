@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -56,7 +56,7 @@ echo 'Alignments concatenated'
 makemergetable $aln1 $aln2 > $table
 # makemergetable $aln1 > $table
 echo 'Table prepared'
-mafft --thread 10 --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
+mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
 echo 'Alignments merged'
 
 #copy files back
