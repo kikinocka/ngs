@@ -2,8 +2,8 @@
 
 workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
-mit=1
-tryp=9
+mit=2
+tryp=5
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
@@ -17,10 +17,10 @@ tryp=9
 cd $workdir
 for file in $files; do
 	echo $file
-	out=${file%.*}'.nommpred_mito.txt'
+	out=${file%.*}'.nommpred_mro.txt'
 	NommPred.py -i $file -o $out -l $mit --overwrite
 
-	out=${file%.*}'.nommpred_tryp.txt'
+	out=${file%.*}'.nommpred_dict.txt'
 	NommPred.py -i $file -o $out -l $tryp --overwrite
 done
 
