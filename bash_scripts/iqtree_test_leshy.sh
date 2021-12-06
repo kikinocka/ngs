@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/tom60/ver2_test/
+cd /mnt/mokosz/home/kika/archam_trees/cpn10/ver4/
 
-for aln in *trimal_gt-0.8.aln ; do
+for aln in *.aln ; do
 	echo $aln
 	guide=guide_${aln%.aln}
 	guide_tree=$guide'.treefile'
