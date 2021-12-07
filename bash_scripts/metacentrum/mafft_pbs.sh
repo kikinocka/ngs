@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
-#PBS -l select=1:ncpus=40:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -56,9 +56,10 @@ log='ciliates_outgroup_V9_above99.mafft.log'
 # # cat $aln1 $fasta > $input
 # echo 'Alignments concatenated'
 # ruby $makemergetable $aln1 $aln2 > $table
-# # makemergetable $aln1 > $table
+# # ruby $makemergetable $aln1 > $table
 # echo 'Table prepared'
-mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
+# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
+mafft --thread $PBS_NUM_PPN --merge $table $input > $out 2> $log
 echo 'Alignments merged'
 
 #copy files back
