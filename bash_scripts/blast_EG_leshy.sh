@@ -16,11 +16,11 @@ $program -task $task \
 	-query $query \
 	-db $db \
 	-out $out \
-	# -outfmt $outfmt \
 	-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 	-num_threads $cpu \
 	-evalue $eval \
 	-max_target_seqs $max_seqs \
 	-max_hsps $max_hsps
+	# -outfmt $outfmt \
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST EG done
