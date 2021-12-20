@@ -1,15 +1,17 @@
 #!/bin/bash
 
-datadir='/home/kika/MEGAsync/Euglena_longa/2013_Sekvenovanie/Tetrapyrroles/precorrin-2_dehydrogenase/'
+datadir='/mnt/mokosz/home/zoli/proj/Euglena_v2/'
 program=tblastn
-query=$datadir'query.fa'
-outfmt=7
-word=3
-files=$datadir'*.fna'
+query=$datadir'plastid/plastid_stuff.fasta'
+# outfmt=7
+# word=3
+files=$datadir'databases/*.fasta'
 
 for db in $files; do
 	echo $db
 	out=${db%.*}'.tblastn.out'
-	$program -query $query -db $db -out $out -outfmt $outfmt -word_size $word -num_threads 4
+	$program -query $query -db $db -out $out -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" -num_threads 8 -max_target_seqs 1
 	echo ***BLAST done***
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST EG done
