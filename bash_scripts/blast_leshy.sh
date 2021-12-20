@@ -1,14 +1,14 @@
 #!/bin/bash
 
 datadir='/mnt/mokosz/home/kika/workdir/'
-query=$datadir'Nfow_short.fa'
-out=$datadir'Nfow_short.eukprot.blast.xml'
-db='/opt/databases/eukprot/current/blast/eukprot'
-program=blastp
-task=blastp
+query=$datadir'v9.no_chimera.above99.fa'
+out=$datadir'v9.no_chimera.above99.blast.xml'
+db='/opt/databases/nt_auto/current/blast/nt'
+program=blastn
+task=blastn
 outfmt=5
-eval=1e-02
-max_seqs=20
+eval=1e-05
+max_seqs=1
 max_hsps=1
 cpu=8
 
@@ -18,8 +18,8 @@ $program -task $task \
 	-out $out \
 	-outfmt $outfmt \
 	-num_threads $cpu \
-	# -evalue $eval \
+	-evalue $eval \
+	-outfmt $outfmt \
+	-max_target_seqs $max_seqs \
+	-max_hsps $max_hsps
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
-	# -max_target_seqs $max_seqs \
-	# -max_hsps $max_hsps \
-
