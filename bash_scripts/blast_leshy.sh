@@ -23,3 +23,5 @@ $program -task $task \
 	-max_target_seqs $max_seqs \
 	-max_hsps $max_hsps
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
