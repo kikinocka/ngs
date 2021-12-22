@@ -8,8 +8,8 @@ from Bio import SeqIO
 
 Entrez.email = 'kika.zahonova@gmail.com'
 
-os.chdir('/Users/kika/ownCloud/Naegleria/S81_protease/')
-acc = open('fwd_hits.acc')
+os.chdir('/mnt/mokosz/home/kika/workdir/')
+acc = open('v9.nt_hits.acc')
 
 ids = []
 for line in acc:
@@ -27,16 +27,17 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('fwd_hits.lineage', 'w') as out:
+with open('v9.nt_hits.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
-		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
+		prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
 		prot_record = SeqIO.read(prot, 'genbank')
 		tax = prot_record.annotations['taxonomy']
-		# tax = prot_record.annotations['taxonomy'][::-1]
-		tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
+		tax = prot_record.annotations['taxonomy'][::-1]
+		# tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
 		# orgn = prot_record.annotations['organism']
 		# out.write('{}\t{} @{}\n'.format(prot_id, orgn, tax))
-		out.write('{}\t{}\n'.format(prot_id, tax))
+		# print(tax[-1:])
+		out.write('{}\t{}\n'.format(prot_id, tax[-1:]))
 		# print(orgn)
 		# print(tax)
