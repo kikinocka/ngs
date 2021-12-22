@@ -13,13 +13,13 @@ module add raxml-8.2.8
 data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/placement/above99/reference_tree/'
 
 #copy files to scratch
-cp $data'mlsb_metamonads.noV9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'mlsb_metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='mlsb_metamonads.noV9.trimal_gt-0.25_cons-50.aln'
+aln='mlsb_metamonads.trimal_gt-0.25_cons-50.aln'
 out='mlsb_metamonads'
 
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
