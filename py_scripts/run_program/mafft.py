@@ -5,25 +5,25 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/euglenozoa/')
+# files = [x for x in os.listdir() if x.endswith('.fa')]
+
+# for file in files:
+# 	print(file)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
+
+#add to aligned sequences
 os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/euglenozoa/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
-
-for file in files:
-	print(file)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
-
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/heterolobosea/')
-# existing = 'heterolobosea.mafft.aln'
-# add = 'v9.fa'
-# out = 'heterolobosea_v9.mafft.aln'
-# log = 'heterolobosea_v9.mafft.log'
-# # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+existing = 'euglenozoa.mafft.aln'
+add = 'v9.fa'
+out = 'euglenozoa_v9.mafft.aln'
+log = 'euglenozoa_v9.mafft.log'
+# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 
 # #merge alignments
