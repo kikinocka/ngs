@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/placement/above99/reference_tree/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/metamonads/reference_tree/'
 
 #copy files to scratch
-cp $data'mlsb_metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='mlsb_metamonads.trimal_gt-0.25_cons-50.aln'
-out='mlsb_metamonads'
+aln='metamonads.trimal_gt-0.25_cons-50.aln'
+out='metamonads'
 
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N 100 -f d -s $aln -n $out\2 -T $PBS_NUM_PPN
