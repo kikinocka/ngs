@@ -16,10 +16,10 @@
 #add to aligned sequences
 cd '/mnt/mokosz/home/kika/workdir/'
 
-existing='euglenozoa.mafft.aln'
+existing='ciliates.mafft.aln'
 add='v9.fa'
-out='euglenozoa_v9.mafft.aln'
-log='euglenozoa_v9.mafft.log'
+out='ciliates_v9.mafft.aln'
+log='ciliates_v9.mafft.log'
 # mafft --add ${add} --thread 10 --inputorder ${existing} > ${out} 2> ${log}
 mafft --addfragments ${add} --thread 10 --inputorder ${existing} > ${out} 2> ${log}
 

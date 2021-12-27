@@ -27,15 +27,15 @@ subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.for
 
 
 # #merge alignments
-# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/metamonads/')
-# aln1 = 'metamonads.mafft.aln'
+# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/euglenozoa/')
+# aln1 = 'euglenozoa.mafft.aln'
 # aln2 = 'v9.mafft.aln'
 # # aln3 = 'preaxostyla_eukref.aln'
 # # fasta = 'outgroup_nogaps.fa'
-# input = 'metamonads_v9.in'
-# table = 'metamonads_v9.table'
-# out = 'metamonads_v9.mafft.aln'
-# log = 'metamonads_v9.mafft.log'
+# input = 'euglenozoa_v9.in'
+# table = 'euglenozoa_v9.table'
+# out = 'euglenozoa_v9.mafft.aln'
+# log = 'euglenozoa_v9.mafft.log'
 # subprocess.call('cat {} {} > {}'.format(aln1, aln2, input), shell=True)
 # print('Alignments concatenated\n\n')
 # subprocess.call('ruby {} {} {} > {}'.format(maketable, aln1, aln2, table), shell=True)
