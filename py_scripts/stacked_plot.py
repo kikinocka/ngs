@@ -60,7 +60,7 @@ colors = ['#000000', '#999999', '#FFB90F', '#FFFF99', '#FAEBD7',
 # 	'#8a8119', '#e6d72a']
 
 ax = df.plot(x='sample', kind='barh', stacked=True, color=colors, width=0.5, align='center')
-ax.set_xlabel('OTU count', fontsize=8)
+ax.set_xlabel('OTU abundances', fontsize=8)
 ax.set_ylabel('sample', fontsize=8)
 plt.xticks(fontsize=6)
 plt.yticks(fontsize=6)

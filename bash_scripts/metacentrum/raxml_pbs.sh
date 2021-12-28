@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/heterolobosea/reference_tree/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/metamonads/reference_tree/'
 
 #copy files to scratch
-cp $data'heterolobosea.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'metamonads.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='heterolobosea.trimal_gt-0.25_cons-50.aln'
-out='heterolobosea'
+aln='metamonads.trimal_gt-0.25_cons-50.aln'
+out='metamonads'
 
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N 100 -f d -s $aln -n $out\2 -T $PBS_NUM_PPN

@@ -17,11 +17,11 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/euglenozoa/')
-existing = 'euglenozoa.mafft.aln'
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/metamonads/')
+existing = 'metamonads.mafft.aln'
 add = 'v9.fa'
-out = 'euglenozoa_v9.mafft.aln'
-log = 'euglenozoa_v9.mafft.log'
+out = 'metamonads_v9.mafft.aln'
+log = 'metamonads_v9.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
