@@ -19,14 +19,14 @@ cp $assembly_dir'annotation_peptides.fasta' $SCRATCHDIR
 
 assemblies='*.fasta'
 mode='proteins'
-lineage='eukaryota_odb10'
+lineage='euglenozoa_odb10'
 
 #compute on scratch
 cd $SCRATCHDIR
 
 for fasta in $assemblies; do
 	echo $fasta
-	base=${fasta%.fasta}_eukaryota_odb10
+	base=${fasta%.fasta}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 done
 
