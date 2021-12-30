@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+#courtesy of github.com/morpholino
+
 import argparse
 import re
 from math import log

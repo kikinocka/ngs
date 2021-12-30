@@ -12,6 +12,9 @@ cat $PBS_NODEFILE
 module add conda-modules-py37
 conda activate busco
 
+# #available datasets
+# busco --list-datasets
+
 assembly_dir='/storage/brno3-cerit/home/kika/p57/predicted_proteins/'
 
 #copy files to scratch
@@ -19,7 +22,7 @@ cp $assembly_dir'annotation_peptides.fasta' $SCRATCHDIR
 
 assemblies='*.fasta'
 mode='proteins'
-lineage='euglenozoa_odb10'
+lineage='protist_odb10'
 
 #compute on scratch
 cd $SCRATCHDIR
