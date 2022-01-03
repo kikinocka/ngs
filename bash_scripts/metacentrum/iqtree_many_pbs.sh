@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/diplonema/pdh/ver2'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/pdh/ver3'
 
 #copy files to scratch
 cp $data_dir'/'*.aln $SCRATCHDIR
@@ -19,6 +19,7 @@ cp $data_dir'/'*.aln $SCRATCHDIR
 cd $SCRATCHDIR
 
 for f in *.aln ; do
+	echo ${f}
 	guide=guide_${f%.aln}
 	guide_tree=$guide'.treefile'
 	bb=1000
