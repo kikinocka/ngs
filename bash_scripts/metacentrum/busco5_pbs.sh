@@ -35,3 +35,9 @@ done
 
 #copy files back
 cp -r * $assembly_dir
+
+# #generate plot (in terminal)
+# cd $assembly_dir
+# mkdir BUSCO_summaries
+# cp $base'/shortshort_summary.specific.'$lineage$base'.txt' BUSCO_summaries
+# generate_plot.py -wd BUSCO_summaries
