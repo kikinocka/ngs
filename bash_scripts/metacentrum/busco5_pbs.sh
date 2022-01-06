@@ -34,10 +34,10 @@ for fasta in *.pep; do
 	base=${fasta}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	
-	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
+	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 done
 
-generate_plot.py -wd BUSCO_summaries
+generate_plot.py -wd BUSCO_summaries_$lineage
 
 
 #copy files back
