@@ -15,22 +15,21 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/eupelagonemids/assemblies/'
+assembly_dir='/storage/brno3-cerit/home/kika/eupelagonemids/assemblies'
 
 #copy files to scratch
-cp $assembly_dir'*.pep' $SCRATCHDIR
-
-assemblies='*.pep'
-mode='proteins'
-lineage='eukaryota_odb10'
+cp $assembly_dir'/'*.pep $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
+mode='proteins'
+lineage='eukaryota_odb10'
+
 mkdir BUSCO_summaries
 
-for fasta in $assemblies; do
+for fasta in *.pep; do
 	echo $fasta
 	base=${fasta%.fasta}_pep_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
@@ -42,5 +41,5 @@ generate_plot.py -wd BUSCO_summaries
 
 
 #copy files back
-rm $assemblies
+rm *.pep
 cp -r * $assembly_dir
