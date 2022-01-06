@@ -18,18 +18,18 @@ conda activate busco
 assembly_dir='/storage/brno3-cerit/home/kika/eupelagonemids/assemblies'
 
 #copy files to scratch
-cp $assembly_dir'/'*.pep $SCRATCHDIR
+cp $assembly_dir'/'*.fasta $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-mode='proteins'
+mode='transcriptome'
 lineage='euglenozoa_odb10'
 
 mkdir BUSCO_summaries_$lineage
 
-for fasta in *.pep; do
+for fasta in *.fasta; do
 	echo $fasta
 	base=${fasta}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
@@ -41,5 +41,5 @@ generate_plot.py -wd BUSCO_summaries_$lineage
 
 
 #copy files back
-rm *.pep
+rm *.fasta
 cp -r * $assembly_dir
