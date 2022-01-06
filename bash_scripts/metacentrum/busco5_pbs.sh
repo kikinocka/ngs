@@ -25,7 +25,7 @@ cp $assembly_dir'/'*.fasta $SCRATCHDIR
 cd $SCRATCHDIR
 
 mode='transcriptome'
-lineage='euglenozoa_odb10'
+lineage='eukaryota_odb10'
 
 mkdir BUSCO_summaries_$lineage
 
