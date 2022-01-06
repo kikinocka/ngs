@@ -31,10 +31,10 @@ mkdir BUSCO_summaries
 
 for fasta in *.pep; do
 	echo $fasta
-	base=${fasta%.fasta}_pep_$lineage
+	base=${fasta%.fasta.transdecoder.pep}_pep_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	
-	cp $base'/shortshort_summary.specific.'$lineage$base'.txt' BUSCO_summaries
+	cp $base'/shortshort_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 done
 
 generate_plot.py -wd BUSCO_summaries
