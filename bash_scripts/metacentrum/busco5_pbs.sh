@@ -27,14 +27,14 @@ cd $SCRATCHDIR
 mode='proteins'
 lineage='eukaryota_odb10'
 
-mkdir BUSCO_summaries
+mkdir BUSCO_summaries_$lineage
 
 for fasta in *.pep; do
 	echo $fasta
-	base=${fasta%.fasta.transdecoder.pep}_pep_$lineage
+	base=${fasta}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	
-	cp $base'/shortshort_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
+	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 done
 
 generate_plot.py -wd BUSCO_summaries
