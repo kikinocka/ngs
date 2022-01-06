@@ -22,7 +22,7 @@ cp $assembly_dir'*.pep' $SCRATCHDIR
 
 assemblies='*.pep'
 mode='proteins'
-lineage='protist_odb10'
+lineage='eukaryota_odb10'
 
 
 #compute on scratch
