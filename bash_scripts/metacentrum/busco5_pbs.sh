@@ -25,7 +25,7 @@ cp $assembly_dir'/'*.pep $SCRATCHDIR
 cd $SCRATCHDIR
 
 mode='proteins'
-lineage='eukaryota_odb10'
+lineage='euglenozoa_odb10'
 
 mkdir BUSCO_summaries_$lineage
 
