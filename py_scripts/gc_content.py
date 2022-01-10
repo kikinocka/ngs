@@ -1,10 +1,12 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+import os
 from Bio import SeqIO
 
-infile = SeqIO.parse('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/jac_ins_nt.txt', 'fasta')
-outfile = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/jac_ins_gc.tsv', 'w')
+os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/')
+infile = SeqIO.parse('aceE_nucl.fa', 'fasta')
+outfile = open('aceE_gc.tsv', 'w')
 
-outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('ins', 'ins length [# nt]', 'A [# nt]', 
+outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('seq', 'seq length [# nt]', 'A [# nt]', 
 	'T [# nt]', 'C [# nt]', 'G [# nt]', 'ambiguous [# nt]', 'GC content [%]', 'AT content [%]'))
 
 def calculator(sequence):
