@@ -8,11 +8,11 @@
 cat $PBS_NODEFILE
 
 mmseqs='/storage/brno3-cerit/home/kika/miniconda3/bin/mmseqs'
-data_dir='/storage/brno3-cerit/home/kika/databases/'
+data_dir='/storage/brno3-cerit/home/kika/databases/eukprot/'
 ncbi=$data_dir'ncbi-taxdump'
 
 #copy files to scratch
-cp -r $data_dir'eukprot' $SCRATCHDIR
+cp $data_dir'eukprot' $SCRATCHDIR
 cp $data_dir'eukprot.taxidmapping' $SCRATCHDIR
 
 
@@ -27,3 +27,5 @@ $mmseqs createtaxdb $database tmp --ncbi-tax-dump $ncbi --tax-mapping-file $taxi
 #copy files back
 rm $database
 cp -r * $data_dir
+
+
