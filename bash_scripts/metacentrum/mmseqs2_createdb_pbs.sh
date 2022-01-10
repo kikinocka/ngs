@@ -26,5 +26,5 @@ $mmseqs createdb $fasta $database
 $mmseqs createtaxdb $database tmp --ncbi-tax-dump $ncbi --tax-mapping-file $taxidmapping --threads $PBS_NUM_PPN
 
 #copy files back
-rm $fasta
+rm $fasta $taxidmapping
 cp -r * $data_dir'eukprotDB'
