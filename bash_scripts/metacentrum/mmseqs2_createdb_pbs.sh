@@ -20,10 +20,11 @@ cd $SCRATCHDIR
 
 fasta='eukprot_v2_proteins_renamed.taxids.faa'
 database='eukprotDB'
+taxidmapping='eukprot.taxidmapping'
 
 $mmseqs createdb $fasta $database
 $mmseqs createtaxdb $database tmp --ncbi-tax-dump $ncbi --tax-mapping-file $taxidmapping --threads $PBS_NUM_PPN
 
 #copy files back
 rm $fasta
-cp -r * $data_dir
+cp -r * $data_dir'eukprotDB'
