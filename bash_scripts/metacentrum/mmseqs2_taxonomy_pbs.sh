@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N mmseqs2
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=30gb
+#PBS -l select=1:ncpus=10:mem=100gb:scratch_local=30gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -9,11 +9,11 @@ cat $PBS_NODEFILE
 
 mmseqs='/storage/brno3-cerit/home/kika/miniconda3/bin/mmseqs'
 db_dir='/storage/brno3-cerit/home/kika/databases/eukprotDB'
-data_dir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenomes/20200821_BML-P3B/8-metaeuk/profiles/'
+data_dir='/auto/brno3-cerit/nfs4/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
 
 #copy files to scratch
 cp $db_dir'/'* $SCRATCHDIR
-cp $data_dir'euk_metaeuk.fas' $SCRATCHDIR
+cp $data_dir'8-metaeuk/profiles/euk_metaeuk.fas' $SCRATCHDIR
 
 
 #compute on scratch
