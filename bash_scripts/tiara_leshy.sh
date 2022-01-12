@@ -1,11 +1,12 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/archamoebae/endolimax_nana/'
-metagenome='Trinity.fasta'
+cd '/mnt/mokosz/home/kika/workdir/'
+metagenome='P1B_scaffolds.fa'
 out='tiara.out'
+length=1000
 cpu=6
 
-tiara -i $metagenome -o $out -t $cpu -m 1000 --tf all --pr
+tiara -i $metagenome -o $out -t $cpu -m $length --tf all --pr
 
 
   # -m MIN_LEN, --min_len MIN_LEN
