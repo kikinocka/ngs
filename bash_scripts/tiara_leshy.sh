@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd '/mnt/mokosz/home/kika/workdir/'
-metagenome='P2S_scaffolds.fasta'
+metagenome='P3B_scaffolds.fasta'
 out='tiara.out'
 length=1000
 cpu=10
