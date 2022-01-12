@@ -1,6 +1,6 @@
 #!/bin/sh
 
-workdir='/mnt/mokosz/home/kika/workdir/'
+workdir='/mnt/mokosz/home/kika/ribosomal_proteins/'
 files=$workdir'*.fa'
 mit=2
 tryp=5
