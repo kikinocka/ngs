@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/dinoflagellates/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/data/eukprot/eukprot_v2_proteins_renamed.taxids.faa'
+os.chdir('/Users/kika/ownCloud/archamoebae/peroxisomes/')
+files = [x for x in os.listdir() if x.endswith('enan_pexs.acc')]
+database = '/Users/kika/ownCloud/archamoebae/endolimax_nana/enan.trinity.NRfilt-p70.fna'
 
 for accessions in files: 
 	print(accessions)
