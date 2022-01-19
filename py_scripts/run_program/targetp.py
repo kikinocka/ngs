@@ -4,7 +4,7 @@ import subprocess
 
 targetp='/Users/kika/programs/targetp-2.0/bin/targetp'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/ribosomal_proteins/amoebae/alns_updated/renamed/')
+os.chdir('/Users/kika/ownCloud/archamoebae/DNA_maintenance/replisome_amoebae/targeting/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:

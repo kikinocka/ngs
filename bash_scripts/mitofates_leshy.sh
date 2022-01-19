@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mitofates='/mnt/mokosz/home/kika/MitoFates/MitoFates.pl'
-workdir='/mnt/mokosz/home/kika/ribosomal_proteins/'
+workdir='/mnt/mokosz/home/kika/replisome/'
 files=$workdir'*.fa'
 m=metazoa
 p=plant
