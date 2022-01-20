@@ -2,7 +2,7 @@
 
 multiloc='/opt/multiloc2/git/MultiLoc2/MultiLoc2/src/multiloc2_prediction.py'
 workdir='/mnt/mokosz/home/kika/replisome/'
-files=$workdir'*.fa'
+files=$workdir'rfa2.fa'
 a=animal
 p=plant
 f=fungal

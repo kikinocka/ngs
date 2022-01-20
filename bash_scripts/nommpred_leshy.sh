@@ -1,7 +1,7 @@
 #!/bin/sh
 
 workdir='/mnt/mokosz/home/kika/replisome/'
-files=$workdir'*.fa'
+files=$workdir'rfa2.fa'
 mit=2
 tryp=5
 # 1) Mt

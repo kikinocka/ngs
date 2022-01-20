@@ -2,7 +2,7 @@
 
 mitofates='/mnt/mokosz/home/kika/MitoFates/MitoFates.pl'
 workdir='/mnt/mokosz/home/kika/replisome/'
-files=$workdir'*.fa'
+files=$workdir'rfa2.fa'
 m=metazoa
 p=plant
 f=fungi
