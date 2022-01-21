@@ -1,10 +1,14 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/replisome/'
-infile='rfa2.fa'
+workdir='/mnt/mokosz/home/kika/replisome/'
+files=$workdir'*.fa'
 plant='pl'
 non_plant='non-pl'
 
-targetp -fasta $infile -org $non_plant -format short
+cd $workdir
+for file in $files; do
+	echo $file
+	targetp -fasta $file -org $non_plant -format short
+done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py TargetP done

@@ -3,14 +3,14 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/ver15/')
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/discoba_mlsb/heterolobosea/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 
 for file in files:
 	print(file)
 	file_name = file.split('.')[0] #+ '_' + file.split('_')[1]
 	aut = 'automated1'
-	gt = 0.8 #fraction of sequences with a gap allowed
+	gt = 0.5 #fraction of sequences with a gap allowed
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 
