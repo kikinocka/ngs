@@ -17,11 +17,11 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/discoba_mlsb/heterolobosea/')
-existing = 'heterolobosea.mafft.aln'
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/discoba_mlsb/euglenozoa/')
+existing = 'euglenozoa.mafft.aln'
 add = 'v9_above99.fa'
-out = 'heterolobosea_v9.mafft.aln'
-log = 'heterolobosea_v9.mafft.log'
+out = 'euglenozoa_v9.mafft.aln'
+log = 'euglenozoa_v9.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
