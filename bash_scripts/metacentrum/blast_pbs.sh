@@ -36,7 +36,6 @@ $program -task $task \
 	-outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore ppos" \
 	-num_threads $PBS_NUM_PPN \
 	-evalue $eval \
-	-num_threads $PBS_NUM_PPN
 	# -max_target_seqs $max_seqs \
 	# -max_hsps $max_hsps 
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
