@@ -23,3 +23,5 @@ for file in *_1.fastq.gz ; do
 	echo $name 'trimmed'
 
 done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BBDuk done
