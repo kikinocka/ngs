@@ -10,6 +10,7 @@ cat $PBS_NODEFILE
 module add krona-2.8
 
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/6-metaeuk/profiles/'
+taxonomy='/storage/brno3-cerit/home/kika/databases/krona/'
 
 #copy files to scratch
 cp $datadir'euk_metaeuk.blast.out' $SCRATCHDIR
@@ -21,7 +22,7 @@ cd $SCRATCHDIR
 blast='euk_metaeuk.blast.out'
 krona='euk_metaeuk.blast.krona.html'
 
-ktImportBLAST $blast -o $krona
+ktImportBLAST $blast -o $krona -tax $taxonomy
 
 
 #copy files back

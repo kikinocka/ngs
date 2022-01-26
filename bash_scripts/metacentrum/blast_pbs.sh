@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blast
 #PBS -l select=1:ncpus=15:mem=3gb:scratch_local=3gb
-#PBS -l walltime=336:00:00
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -36,7 +36,7 @@ $program -task $task \
 	-outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore ppos" \
 	-num_threads $PBS_NUM_PPN \
 	-evalue $eval \
-	# -max_target_seqs $max_seqs \
+	-max_target_seqs $max_seqs \
 	# -max_hsps $max_hsps 
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 
