@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 blast='euk_metaeuk.blast.out'
 krona='euk_metaeuk.blast.krona.html'
 
-ktImportBLAST blast_output $blast -o $krona
+ktImportBLAST $blast -o $krona
 
 
 #copy files back
