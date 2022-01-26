@@ -37,7 +37,7 @@ $program -task $task \
 	-num_threads $PBS_NUM_PPN \
 	-evalue $eval \
 	-max_target_seqs $max_seqs \
-	# -max_hsps $max_hsps 
+	-max_hsps $max_hsps
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 
 #copy files back

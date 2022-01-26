@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N busco5
 #PBS -q default
-#PBS -l select=1:ncpus=4:mem=8gb:scratch_local=10gb
+#PBS -l select=1:ncpus=5:mem=8gb:scratch_local=10gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -15,16 +15,16 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/eupelagonemids/assemblies'
+assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_FINAL'
 
 #copy files to scratch
-cp $assembly_dir'/'*.fasta $SCRATCHDIR
+cp $assembly_dir'/'*.faa $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-mode='transcriptome'
+mode='prot'
 lineage='eukaryota_odb10'
 
 mkdir BUSCO_summaries_$lineage
@@ -41,5 +41,5 @@ generate_plot.py -wd BUSCO_summaries_$lineage
 
 
 #copy files back
-rm *.fasta
+rm *.faa
 cp -r * $assembly_dir
