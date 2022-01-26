@@ -2,8 +2,10 @@
 
 workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
-mit=2
-tryp=5
+mit=1
+tryp=9
+toxo=8
+stram=7
 # 1) Mt
 # 2) MRO
 # 3) Piroplasma
@@ -20,8 +22,14 @@ for file in $files; do
 	out=${file%.*}'.nommpred_mro.txt'
 	NommPred.py -i $file -o $out -l $mit --overwrite
 
-	out=${file%.*}'.nommpred_dict.txt'
+	out=${file%.*}'.nommpred_tryp.txt'
 	NommPred.py -i $file -o $out -l $tryp --overwrite
+
+	out=${file%.*}'.nommpred_toxo.txt'
+	NommPred.py -i $file -o $out -l $toxo --overwrite
+
+	out=${file%.*}'.nommpred_stram.txt'
+	NommPred.py -i $file -o $out -l $toxo --overwrite
 done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py NommPred done
