@@ -1,7 +1,7 @@
 #!/bin/bash
 
 multiloc='/opt/multiloc2/git/MultiLoc2/MultiLoc2/src/multiloc2_prediction.py'
-workdir='/mnt/mokosz/home/kika/replisome/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 a=animal
 p=plant
@@ -11,10 +11,10 @@ cd $workdir
 for file in $files; do
 	echo $file
 	
-	out=${file%.*}'.multiloc_fungal.txt'
+	out=${file%.*}'.ML2_fungal.txt'
 	python2 $multiloc -fasta=$file -origin=$f -predictor=LowRes -result=$out -output=simple
 	
-	out=${file%.*}'.multiloc_animal.txt'
+	out=${file%.*}'.ML2_animal.txt'
 	python2 $multiloc -fasta=$file -origin=$a -predictor=LowRes -result=$out -output=simple
 done
 

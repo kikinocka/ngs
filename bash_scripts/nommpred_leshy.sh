@@ -1,6 +1,6 @@
 #!/bin/sh
 
-workdir='/mnt/mokosz/home/kika/replisome/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 mit=2
 tryp=5

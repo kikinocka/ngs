@@ -1,6 +1,6 @@
 #!/bin/bash
 
-workdir='/mnt/mokosz/home/kika/replisome/'
+workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
 plant='pl'
 non_plant='non-pl'
