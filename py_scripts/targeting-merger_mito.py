@@ -113,7 +113,7 @@ if os.path.exists(prefix + ".ipsort.txt"):
 
 
 if os.path.exists(prefix + ".mitofates_fungi.txt"):
-	print("Found MitoFates output")
+	print("Found MitoFates-fungi output")
 	mitofates = open(prefix + ".mitofates_fungi.txt").read().split('\n')
 	possiblepredsmitofates = {'No mitochondrial presequence': 'CYT', 'Possessing mitochondrial presequence': 'MT'}
 	for item in mitofates:
@@ -128,7 +128,7 @@ if os.path.exists(prefix + ".mitofates_fungi.txt"):
 			preds_d.at[name, "MitoFates fungi"] = pred
 
 if os.path.exists(prefix + ".mitofates_metazoa.txt"):
-	print("Found MitoFates output")
+	print("Found MitoFates-metazoa output")
 	mitofates = open(prefix + ".mitofates_metazoa.txt").read().split('\n')
 	possiblepredsmitofates = {'No mitochondrial presequence': 'CYT', 'Possessing mitochondrial presequence': 'MT'}
 	for item in mitofates:
@@ -143,7 +143,7 @@ if os.path.exists(prefix + ".mitofates_metazoa.txt"):
 			preds_d.at[name, "MitoFates metazoa"] = pred
 
 if os.path.exists(prefix + ".nommpred_mro.txt"):
-	print("Found NommPred output")
+	print("Found NommPred-MRO output")
 	nommpred_mro = open(prefix + ".nommpred_mro.txt").read().split('\n')
 	possiblepredsnommpred = {'Other': 'CYT', 'MRO': 'MT'}
 	for item in nommpred_mro:
@@ -158,7 +158,7 @@ if os.path.exists(prefix + ".nommpred_mro.txt"):
 			preds_d.at[name, "NommPred MRO"] = pred
 
 if os.path.exists(prefix + ".nommpred_dict.txt"):
-	print("Found NommPred output")
+	print("Found NommPred-Dicty output")
 	nommpred_mro = open(prefix + ".nommpred_dict.txt").read().split('\n')
 	possiblepredsnommpred = {'Other': 'CYT', 'Mt': 'MT'}
 	for item in nommpred_mro:
@@ -191,8 +191,8 @@ if os.path.exists(prefix + ".ML2_animalHI.txt"):
 					best = best.replace(pred, possiblepredsml2[pred])
 					secondbest = secondbest.replace(pred, possiblepredsml2[pred])
 				pred = ("{}_({} > {})".format(Loc, best, secondbest))
-				preds_d.at[name, "ML2animal"] = Loc
-				preds_d.at[name, "ML2animal_broad"] = pred
+				preds_d.at[name, "ML2 animal"] = Loc
+				preds_d.at[name, "ML2 animal_broad"] = pred
 
 if os.path.exists(prefix + ".ML2_animal.txt"):
 	print("Found MultiLoc2-animal output")
@@ -212,8 +212,8 @@ if os.path.exists(prefix + ".ML2_animal.txt"):
 					best = best.replace(pred, possiblepredsml2[pred])
 					secondbest = secondbest.replace(pred, possiblepredsml2[pred])
 				pred = ("{}_({} > {})".format(Loc, best, secondbest))
-				preds_d.at[name, "ML2animal"] = Loc
-				preds_d.at[name, "ML2animal_broad"] = pred
+				preds_d.at[name, "ML2 animal"] = Loc
+				preds_d.at[name, "ML2 animal_broad"] = pred
 
 if os.path.exists(prefix + ".ML2_fungalHI.txt"):
 	print("Found MultiLoc2-fungal output")
@@ -234,8 +234,8 @@ if os.path.exists(prefix + ".ML2_fungalHI.txt"):
 					best = best.replace(pred, possiblepredsml2[pred])
 					secondbest = secondbest.replace(pred, possiblepredsml2[pred])
 				pred = ("{}_({} > {})".format(Loc, best, secondbest))
-				preds_d.at[name, "ML2fungal"] = Loc
-				preds_d.at[name, "ML2fungal_broad"] = pred
+				preds_d.at[name, "ML2 fungal"] = Loc
+				preds_d.at[name, "ML2 fungal_broad"] = pred
 
 if os.path.exists(prefix + ".ML2_fungal.txt"):
 	print("Found MultiLoc2-fungal output")
@@ -255,8 +255,28 @@ if os.path.exists(prefix + ".ML2_fungal.txt"):
 					best = best.replace(pred, possiblepredsml2[pred])
 					secondbest = secondbest.replace(pred, possiblepredsml2[pred])
 				pred = ("{}_({} > {})".format(Loc, best, secondbest))
-				preds_d.at[name, "ML2fungal"] = Loc
-				preds_d.at[name, "ML2fungal_broad"] = pred
+				preds_d.at[name, "ML2 fungal"] = Loc
+				preds_d.at[name, "ML2 fungal_broad"] = pred
+
+if os.path.exists(prefix + ".predotar.txt"):
+	print("Found Predotar output")
+	predotar = open(prefix + ".predotar.txt").read().split('\n')
+	possiblepredspredotar = {'possibly mitochondrial': 'MT?', 'mitochondrial': 'MT', 'none': "CYT", 
+							'possibly ER': 'SEC?', 'ER': 'SEC'}
+	for item in predotar:
+		#Identifier	Mito	ER		Elsewhere	Prediction
+		#[0]		[1]		[2]		[3]			[4]	
+
+		item = item.split('\t')
+		if not item[0].startswith('Sequence') and len(item) == 5:
+			name = item[0]#.split(" ")[0]
+			pred = item[4]
+			pred = possiblepredspredotar[pred]
+			if pred == "MT?":
+				pred = "{}_{}".format(pred, item[1])
+			elif pred == "SEC?":
+				pred = "{}_{}".format(pred, item[2])
+			preds_d.at[name, "Predotar"] = pred
 
 if os.path.exists(prefix + ".signalp.txt"):
 	print("Found SignalP output")

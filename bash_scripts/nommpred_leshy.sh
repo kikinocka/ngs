@@ -22,14 +22,8 @@ for file in $files; do
 	out=${file%.*}'.nommpred_mro.txt'
 	NommPred.py -i $file -o $out -l $mit --overwrite
 
-	out=${file%.*}'.nommpred_tryp.txt'
+	out=${file%.*}'.nommpred_dict.txt'
 	NommPred.py -i $file -o $out -l $tryp --overwrite
-
-	out=${file%.*}'.nommpred_toxo.txt'
-	NommPred.py -i $file -o $out -l $toxo --overwrite
-
-	out=${file%.*}'.nommpred_stram.txt'
-	NommPred.py -i $file -o $out -l $toxo --overwrite
 done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py NommPred done

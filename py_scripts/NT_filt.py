@@ -8,7 +8,6 @@ from ete3 import NCBITaxa
 #http://etetoolkit.org/docs/2.3/tutorial/tutorial_ncbitaxonomy.html
 ncbi = NCBITaxa()
 Entrez.email = 'kika.zahonova@gmail.com'
-Entrez.api_key = "ed51bca6c73792ecc692af11ff762b72a008"
 #update at times:
 #ncbi.update_taxonomy_database()
 
