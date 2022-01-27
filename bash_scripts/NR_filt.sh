@@ -10,7 +10,7 @@ coverage='50' #default: 50
 identity='70' #default: 75
 taxon='Amoebozoa'
 
-cd '/mnt/mokosz/home/kika/endolimax_nana/filtration_20220127/'
+cd '/mnt/mokosz/home/kika/endolimax_nana/filtration-NR_20220127/'
 $filt_script -i $diamond -d $datadir -nt $transcriptome -aa $proteins -q $coverage -p $identity -g $taxon
 
 # -i: --infile
