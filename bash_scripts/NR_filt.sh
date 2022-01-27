@@ -2,9 +2,9 @@
 
 filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NR_filt.py'
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_libera+elongata_reassembly/filtration-NR_20220127/'
-diamond=$datadir'rhizomastix_reassembly.trinity.NTfilt.dmnd.out'
-transcriptome=$datadir'rhizomastix_reassembly.trinity.NTfilt.fasta'
+datadir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/filtration-NR_20220127/'
+diamond=$datadir'rvac.trinity.NTfilt.dmnd.out'
+transcriptome=$datadir'rvac_trinity.NTfilt.fasta'
 proteins=$datadir'longest_orfs.pep'
 coverage='50' #default: 50
 identity='70' #default: 75
