@@ -15,7 +15,7 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_FINAL'
+assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_filtration-20220127'
 
 #copy files to scratch
 cp $assembly_dir'/'*.faa $SCRATCHDIR
@@ -29,7 +29,7 @@ lineage='eukaryota_odb10'
 
 mkdir BUSCO_summaries_$lineage
 
-for fasta in *.fasta; do
+for fasta in *.faa; do
 	echo $fasta
 	base=${fasta}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN

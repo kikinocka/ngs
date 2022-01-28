@@ -408,7 +408,7 @@ if os.path.exists(prefix + ".cello.txt"):
 	print("Found Cello output")
 	cello = open(prefix + ".cello.txt").read().split('\n')
 	possiblepredscello = {'Cytoplasmic': 'CYT', 'Mitochondrial': 'MT', 'PlasmaMembrane': 'SEC', 
-							'InnerMembrane': 'SEC', 'OuterMembrane': 'SEC',
+							'InnerMembrane': 'SEC', 'OuterMembrane': 'SEC', 'ER': 'SEC',
 							'Nuclear': 'NC', 'Lysosomal': 'LYSOSOME', 'Chloroplast': 'MT',
 							'Extracellular': 'SEC', 'Vacuole': 'VACUOLE', 'Peroxisomal': 'PEROXISOME'}
 	

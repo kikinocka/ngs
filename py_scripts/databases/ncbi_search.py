@@ -7,7 +7,6 @@ from Bio import SeqIO
 # https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=281204391&rettype=acc
 
 Entrez.email = 'kika.zahonova@gmail.com'
-Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
 os.chdir('/Users/kika/ownCloud/oil_sands/metagenomes/20210222_BML-P1B/8-blast-krona/')
 acc = open('blast_hits.acc')

@@ -272,10 +272,10 @@ if os.path.exists(prefix + ".predotar.txt"):
 			name = item[0]#.split(" ")[0]
 			pred = item[4]
 			pred = possiblepredspredotar[pred]
-			if pred == "MT?":
-				pred = "{}_{}".format(pred, item[1])
-			elif pred == "SEC?":
-				pred = "{}_{}".format(pred, item[2])
+			# if pred == "MT?":
+			# 	pred = "{}_{}".format(pred, item[1])
+			# elif pred == "SEC?":
+			# 	pred = "{}_{}".format(pred, item[2])
 			preds_d.at[name, "Predotar"] = pred
 
 if os.path.exists(prefix + ".signalp.txt"):
@@ -404,7 +404,7 @@ if os.path.exists(prefix + ".cello.txt"):
 	print("Found Cello output")
 	cello = open(prefix + ".cello.txt").read().split('\n')
 	possiblepredscello = {'Cytoplasmic': 'CYT', 'Mitochondrial': 'MT', 'PlasmaMembrane': 'SEC', 
-							'InnerMembrane': 'SEC', 'OuterMembrane': 'SEC',
+							'InnerMembrane': 'SEC', 'OuterMembrane': 'SEC', 'ER': 'SEC',
 							'Nuclear': 'NC', 'Lysosomal': 'LYSOSOME', 'Chloroplast': 'MT',
 							'Extracellular': 'SEC', 'Vacuole': 'VACUOLE', 'Peroxisomal': 'PEROXISOME'}
 	
