@@ -7,9 +7,10 @@ from Bio import SeqIO
 # https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=281204391&rettype=acc
 
 Entrez.email = 'kika.zahonova@gmail.com'
+Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/')
-acc = open('aceE.acc')
+os.chdir('/Users/kika/ownCloud/oil_sands/metagenomes/20210222_BML-P1B/8-blast-krona/')
+acc = open('blast_hits.acc')
 
 ids = []
 for line in acc:
@@ -27,17 +28,17 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('aceE.report', 'w') as out:
+with open('blast_hits.lineage', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
 		prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
 		prot_record = SeqIO.read(prot, 'genbank')
 		tax = prot_record.annotations['taxonomy']
 		# tax = prot_record.annotations['taxonomy'][::-1]
-		# tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
-		# orgn = prot_record.annotations['organism']
-		# out.write('{}\t{} @{}\n'.format(prot_id, orgn, tax))
+		tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
+		orgn = prot_record.annotations['organism']
+		out.write('{}\t{}\t{}\n'.format(prot_id, orgn, tax))
 		# print(tax[-1:])
-		out.write('{}\t{}\n'.format(prot_id, tax[-1:]))
+		# out.write('{}\t{}\n'.format(prot_id, tax[-1:]))
 		# print(orgn)
 		# print(tax)
