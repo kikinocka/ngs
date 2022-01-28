@@ -1,8 +1,8 @@
 #!/bin/bash
 
-datadir='/mnt/mokosz/home/kika/endolimax_nana/'
-query=$datadir'trinity2/Trinity.fasta'
-out=$datadir'enan_trinity.blast'
+datadir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
+query=$datadir'Trinity_Mastigella_150316_renamed_nucl.fasta'
+out=$datadir'filtration-NR_20220127/mei_trinity.blast'
 db='/opt/databases/nt_auto/current/blast/nt'
 program=blastn
 task=blastn
