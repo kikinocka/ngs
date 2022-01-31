@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N blast
-#PBS -l select=1:ncpus=15:mem=3gb:scratch_local=3gb
+#PBS -l select=1:ncpus=15:mem=10gb:scratch_local=3gb
 #PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module add blast+-2.8.0a
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/6-metaeuk/profiles/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
 
 #copy files to scratch
-cp $datadir'euk_metaeuk.fas' $SCRATCHDIR
+cp $datadir'6-metaeuk/profiles/euk_metaeuk.fas' $SCRATCHDIR
 
 
 #run on scratch
@@ -42,4 +42,4 @@ $program -task $task \
 
 #copy files back
 rm $query
-cp -R * $datadir
+cp -R * $datadir'8-blast-krona'
