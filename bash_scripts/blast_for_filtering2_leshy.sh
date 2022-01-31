@@ -1,7 +1,7 @@
 #!/bin/bash
 
 datadir='/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/'
-query=$datadir'trinity_out_dir/Trinity.fasta'
+query=$datadir'trinity/Trinity.fasta'
 out=$datadir'filtration_20220127/mab_trinity.blast'
 db='/opt/databases/nt_auto/current/blast/nt'
 program=blastn
