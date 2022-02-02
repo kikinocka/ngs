@@ -30,6 +30,8 @@ for line in acc:
 with open('euk_metaeuk.blast.gi', 'w') as out:
 	for prot_id in ids:
 		print(prot_id)
+
+		#get lineage based on accessions
 		# prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
 		# prot_record = SeqIO.read(prot, 'genbank')
 		# print(prot_record)
