@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module add krona-2.8
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/8-blast-krona/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/8-blast-krona/'
 taxonomy='/storage/brno3-cerit/home/kika/databases/krona/'
 
 #copy files to scratch
