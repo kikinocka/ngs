@@ -29,7 +29,7 @@ name='T-brucei-cyto'
 single='2-T-brucei-cyto.fastq.gz'
 # trimmed_fw=$name'_trimmed_1.fq.gz'
 # trimmed_rv=$name'_trimmed_2.fq.gz'
-trimmed='T-brucei-cyto_trimmed.fq.gz'
+trimmed='T-brucei-cyto_trimmed-AN.fq.gz'
 report=$name'_bbduk_report.txt'
 
 # #illumina pair-end reads
@@ -44,7 +44,8 @@ bbduk.sh overwrite=true \
 	in=$single \
 	out=$trimmed \
 	ref=$adapt \
-	qtrim=rl trimq=20 ktrim=r t=$PBS_NUM_PPN 2> $report
+	ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN qtrim=rl trimq=20 2> $report
+	# qtrim=rl trimq=20 ktrim=r t=$PBS_NUM_PPN 2> $report
 
 # #454 reads
 # bbduk.sh in=$fw out=$trimmed_fw ref=$adapt k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> $report
