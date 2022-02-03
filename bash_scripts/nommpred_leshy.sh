@@ -2,8 +2,8 @@
 
 workdir='/mnt/mokosz/home/kika/workdir/'
 files=$workdir'*.fa'
-mit=1
-tryp=9
+mit=2
+tryp=5
 toxo=8
 stram=7
 # 1) Mt
