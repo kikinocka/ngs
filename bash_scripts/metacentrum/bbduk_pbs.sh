@@ -50,5 +50,6 @@ bbduk.sh overwrite=true \
 # bbduk.sh in=$fw out=$trimmed_fw ref=$adapt k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> $report
 
 #copy files back
-rm $fw $rv $adapt
+# rm $fw $rv $adapt
+rm $single $adapt
 cp -r * $raw_dir

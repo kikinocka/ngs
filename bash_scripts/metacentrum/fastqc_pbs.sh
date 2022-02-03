@@ -14,7 +14,7 @@ read_dir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids'
 
 
 #copy data to scratch
-cp $read_dir'/'*.gz $SCRATCHDIR
+cp $read_dir'/'*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
