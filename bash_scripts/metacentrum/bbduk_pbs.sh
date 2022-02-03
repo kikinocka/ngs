@@ -30,7 +30,7 @@ single='2-T-brucei-cyto.fastq.gz'
 # trimmed_fw=$name'_trimmed_1.fq.gz'
 # trimmed_rv=$name'_trimmed_2.fq.gz'
 trimmed='T-brucei-cyto_trimmed-AN.fq.gz'
-report=$name'_bbduk_report.txt'
+report=$name'_bbduk_report-AN.txt'
 
 # #illumina pair-end reads
 # bbduk.sh overwrite=true \
