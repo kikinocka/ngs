@@ -3,7 +3,7 @@
 filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NT_filt.py'
 
 datadir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
-blast=$datadir'filtration_20220127/mei_trinity.blast'
+blast=$datadir'mei_trinity.blast'
 transcriptome=$datadir'Trinity_Mastigella_150316_renamed_nucl.fasta'
 coverage='50' #default: 50
 identity='75' #default: 75
