@@ -12,7 +12,7 @@ module add vsearch-1.4.4
 data_dir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/'
 
 #copy files to scratch
-cp $data_dir'Tbruc427_DNA.bw2_mapped.fq.gz' $SCRATCHDIR
+cp $data_dir'bw2/Tbruc427_DNA.bw2_mapped.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
