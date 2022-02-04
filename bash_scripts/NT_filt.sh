@@ -18,3 +18,5 @@ $filt_script -i $blast -d $datadir -nt $transcriptome -q $coverage -p $identity 
 # -p: --pident_threshold
 # -g: --good_groups
 # -t: --test_mode
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py NT_filt done
