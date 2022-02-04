@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-module add vsearch-1.4.4
+module add vsearch/vsearch-2.14.1-intel-19.0.4-sglyhgb
 
 data_dir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/'
 
@@ -19,7 +19,7 @@ cp $data_dir'bw2/Tbruc427_DNA.bw2_mapped.fq.gz' $SCRATCHDIR
 cd $SCRATCHDIR
 
 mapped='Tbruc427_DNA.bw2_mapped.fq.gz'
-output='Tbruc428_DNA.bw2_mapped_vsearch.fa'
+output='Tbruc427_DNA.bw2_mapped_vsearch.fa'
 
 vsearch --derep_fulllength $mapped --output $output --sizeout
 
