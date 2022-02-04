@@ -20,7 +20,7 @@ cd $SCRATCHDIR
 genome='TriTrypDB-55_TbruceiLister427_Genome.fasta'
 out='TriTrypDB-55_TbruceiLister427_Genome.aragorn.fa'
 
-aragorn -t -fo -o $out $genome
+$aragorn -t -fo -o $out $genome
 
 
 #copy files back
