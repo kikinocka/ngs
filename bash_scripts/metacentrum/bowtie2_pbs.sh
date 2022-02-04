@@ -59,7 +59,7 @@ bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
 	-U $p1_1 \
 	--un-gz $unaligned \
-	--al-conc-gz $mapped \
+	--al-gz $mapped \
 	-S $samfile 2> $report
 
 # samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
