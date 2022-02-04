@@ -2,9 +2,9 @@
 
 filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NT_filt.py'
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/'
-blast=$datadir'rvac_trinity.blast'
-transcriptome=$datadir'trinity2/Trinity.fasta'
+datadir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
+blast=$datadir'filtration_20220127/mei_trinity.blast'
+transcriptome=$datadir'Trinity_Mastigella_150316_renamed_nucl.fasta'
 coverage='50' #default: 50
 identity='75' #default: 75
 taxon='Amoebozoa'
