@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N Bowtie2
 #PBS -l select=1:ncpus=20:mem=70gb:scratch_local=15gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -59,6 +59,7 @@ bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
 	-U $p1_1 \
 	--un-gz $unaligned \
+	--al-conc-gz $mapped \
 	-S $samfile 2> $report
 
 # samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
