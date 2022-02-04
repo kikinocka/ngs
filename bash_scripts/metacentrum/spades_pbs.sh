@@ -23,10 +23,10 @@ pe1_2='P1-7_trimmed_2.fq.gz'
 cd $SCRATCHDIR
 
 #metagenome assembly
-metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -t $PBS_NUM_PPN -o spades
+metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -t $PBS_NUM_PPN -o spades
 
 # #metagenome specifying k-mers
-# metaspades.py --pe-1 1 $pe1_1 --pe-2 1 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o spades_kmers
+# metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o spades_kmers
 
 # #using reference genome
 # spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted

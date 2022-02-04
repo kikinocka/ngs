@@ -13,14 +13,14 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.
 taxonomy='/storage/brno3-cerit/home/kika/databases/krona/'
 
 #copy files to scratch
-cp $datadir'euk_metaeuk.blast.out' $SCRATCHDIR
+cp $datadir'euk_metaeuk.blast_upd.out' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-blast='euk_metaeuk.blast.out'
-krona='euk_metaeuk.blast.krona.html'
+blast='euk_metaeuk.blast_upd.out'
+krona='euk_metaeuk.blast_upd.krona.html'
 
 ktImportBLAST $blast -o $krona -tax $taxonomy
 
