@@ -20,8 +20,8 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
 existing = 'queries/SM/SM_proteins.updated.aln'
 add = 'trees/SM/euglenozoans.fa'
-out = 'trees/SM/sm.mafft.aln'
-log = 'trees/SM/sm.mafft.log'
+out = 'trees/SM/ver2/sm.mafft.aln'
+log = 'trees/SM/ver2/sm.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
