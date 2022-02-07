@@ -2,10 +2,10 @@
 
 filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NR_filt.py'
 
-datadir='/mnt/mokosz/home/kika/rhizomastix_vacuolata/filtration-NR_20220127/'
-diamond=$datadir'rvac.trinity.NTfilt.dmnd.out'
-transcriptome=$datadir'rvac_trinity.NTfilt.fasta'
-proteins=$datadir'longest_orfs.pep'
+datadir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST//'
+diamond=$datadir'mei.trinity.NTfilt.dmnd.out'
+transcriptome=$datadir'mei_trinity_NT/mei.trinity.NTfilt.fasta'
+proteins=$datadir'Trinity_Mastigella_150316_renamed_nucl.fasta.transdecoder_dir/longest_orfs.pep'
 coverage='50' #default: 50
 identity='70' #default: 75
 taxon='Amoebozoa'
