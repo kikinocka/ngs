@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blastn
-#PBS -l select=1:ncpus=15:mem=50gb:scratch_local=50gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=10:mem=1gb:scratch_local=1gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -26,7 +26,7 @@ out='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.out'
 max_seqs=1
 
 blastn -query $query -db $db -out $out \
-	-outfmt "6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send" \
+	-outfmt 5 \
 	-max_target_seqs $max_seqs \
 	-num_threads $PBS_NUM_PPN
 
