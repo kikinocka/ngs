@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add blast+-2.8.0a
+module add blast-plus/blast-plus-2.12.0-gcc-8.3.0-ohlv7t4
 
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
 
