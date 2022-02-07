@@ -26,7 +26,7 @@ out='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.out'
 max_seqs=1
 
 blastn -query $query -db $db -out $out \
-	-outfmt 5 \
+	-outfmt "6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send" \
 	-max_target_seqs $max_seqs \
 	-num_threads $PBS_NUM_PPN
 
