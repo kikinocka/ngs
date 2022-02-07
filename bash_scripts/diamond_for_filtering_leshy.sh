@@ -3,7 +3,7 @@
 cd '/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
 
 task=blastp
-query='Trinity_Mastigella_150316_renamed_nucl.fasta.transdecoder_dir/longest_orfs.pep'
+query='mei_trinity_NT/mei.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
 out='mei.trinity.NTfilt.dmnd.out'
 db='/opt/databases/nr_auto/2021-02-15/diamond/nr.dmnd'
 taxify='/mnt/mokosz/home/kika/scripts/py_scripts/taxify_DMND_nr_gz.py'
