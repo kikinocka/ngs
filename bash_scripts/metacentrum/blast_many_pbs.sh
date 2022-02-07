@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N tblastn
+#PBS -N blastn
 #PBS -l select=1:ncpus=15:mem=50gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
