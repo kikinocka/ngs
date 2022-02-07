@@ -1,7 +1,7 @@
 #!/bin/bash
 
-workdir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
-fasta='Trinity_Mastigella_150316_renamed_nucl.fasta'
+workdir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/mei_trinity_NT/'
+fasta='mei.trinity.NTfilt.fasta'
 
 cd $workdir
 TransDecoder.LongOrfs -t $fasta
