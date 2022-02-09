@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/discoba_mlsb')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/sec13-MS/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/global_dereplicated_1f_representatives.fas'
+database = '/Users/kika/data/eukprot/eukprot_v2_proteins_renamed.faa'
 
 for accessions in files: 
 	print(accessions)
