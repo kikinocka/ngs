@@ -4,8 +4,8 @@ filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/NR_filt.py'
 
 datadir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
 diamond=$datadir'mei.trinity.NTfilt.dmnd.out'
-transcriptome=$datadir'mei_trinity_NT/mei_trinity.trinity.NTfilt.fasta'
-proteins=$datadir'Trinity_Mastigella_150316_renamed_nucl.fasta.transdecoder_dir/longest_orfs.pep'
+transcriptome=$datadir'mei_trinity_NT/mei.trinity.NTfilt.fasta'
+proteins=$datadir'mei_trinity_NT/mei.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
 coverage='50' #default: 50
 identity='70' #default: 75
 taxon='Amoebozoa'
