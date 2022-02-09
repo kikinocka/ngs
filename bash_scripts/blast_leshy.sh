@@ -10,7 +10,7 @@ outfmt=5
 eval=1e-05
 max_seqs=1
 max_hsps=1
-cpu=8
+cpu=7
 
 $program -task $task \
 	-query $query \
