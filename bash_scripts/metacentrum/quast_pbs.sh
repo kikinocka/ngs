@@ -34,7 +34,7 @@ quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --euk
 # done
 
 
-copy results to your folder
+#copy results to your folder
 # rm $f $bam
 rm $assemblies
 cp -r * $outdir

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 datadir='/mnt/mokosz/home/kika/workdir/'
-query=$datadir'pbei_aceE.fa'
-out=$datadir'pbei_aceE.blast.out'
+query=$datadir'Sec13-MS_hypothetical_proteins.fa'
+out=$datadir'ec13-MS_hypothetical_proteins.blast.xml'
 db='/opt/databases/eukprot/current/blast/eukprot'
 program=blastp
 task=blastp
