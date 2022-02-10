@@ -21,7 +21,7 @@ cp $datadir'RNAs/'* $SCRATCHDIR
 cd $SCRATCHDIR
 
 query='Tbruc427_DNA.bw2_mapped_vsearch.fa'
-db='tbruc_RNAs_tritryp.fa'
+db='RNAs_final.fa'
 out='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.out'
 max_seqs=1
 

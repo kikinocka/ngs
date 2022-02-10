@@ -3,8 +3,7 @@
 cd '/mnt/mokosz/home/kika/workdir/'
 query='Sec13-MS_hypothetical_proteins.hits.fa'
 out='Sec13-MS_hypothetical_proteins.hits.rev_blast.xml'
-db='Dp_PB-MI_190104_dedup_cut_l100-submission-with-gene_models.faa'
-# db='/opt/databases/eukprot/current/blast/eukprot'
+db='/opt/databases/eukprot/current/blast/eukprot'
 program=blastp
 task=blastp
 outfmt=5

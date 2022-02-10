@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/tRNAs-kinetoplastids/')
-infile = SeqIO.parse('tbru_tRNAs.fa', 'fasta')
-out_fasta = open('tbru_tRNAs_deduplicated.fa', 'w')
-out_names = open('tbru_tRNAs_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/tRNAs-kinetoplastids/427_RNAs/')
+infile = SeqIO.parse('tRNAs_all.fa', 'fasta')
+out_fasta = open('tRNAs_all_deduplicated.fa', 'w')
+out_names = open('tRNAs_all_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
