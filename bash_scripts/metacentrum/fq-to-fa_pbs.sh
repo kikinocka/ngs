@@ -15,11 +15,11 @@ datadir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/read_DB/'
 #copy files to scratch
 cp $datadir'2-T-brucei-cyto.fastq' $SCRATCHDIR
 
-fq='2-T-brucei-cyto.fastq'
-fa='Tbrucei-cyto.fa'
-
 #run on scratch
 cd $SCRATCHDIR
+
+fq='2-T-brucei-cyto.fastq'
+fa='Tbrucei-cyto.fa'
 
 fastq_to_fasta -n -i $fq -o $fa
 
