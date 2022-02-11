@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/microsporidia-not_filtered/')
+os.chdir('/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/SL_Euglenozoa/V9/global_dereplicated_1f_representatives.fas'
+database = '/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/read_DB/Tbrucei-cyto.fa'
 
 for accessions in files: 
 	print(accessions)
