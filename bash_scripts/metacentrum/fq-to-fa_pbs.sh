@@ -10,13 +10,13 @@ cat $PBS_NODEFILE
 #add module
 module add fastx-0.0.14
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/'
+datadir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/read_DB/'
 
 #copy files to scratch
-cp $datadir'BML_trimmed_2.fq' $SCRATCHDIR
+cp $datadir'2-T-brucei-cyto.fastq' $SCRATCHDIR
 
-fq='BML_trimmed_2.fq'
-fa='BML_trimmed_2.fa'
+fq='2-T-brucei-cyto.fastq'
+fa='Tbrucei-cyto.fa'
 
 #run on scratch
 cd $SCRATCHDIR
