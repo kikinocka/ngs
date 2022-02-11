@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add blast-plus/blast-plus-2.12.0-gcc-8.3.0-ohlv7t4
 
-datadir=' meta:/auto/brno3-cerit/nfs4/home/kika/tRNAs-kinetoplastids/'
+datadir='auto/brno3-cerit/nfs4/home/kika/tRNAs-kinetoplastids/'
 
 #copy files to scratch
 # cp $datadir'/'*.fa $SCRATCHDIR
