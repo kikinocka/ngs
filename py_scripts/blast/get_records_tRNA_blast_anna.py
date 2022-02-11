@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 
 os.chdir('/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/')
-blast_report_path='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.out'
-query_path='Tbruc427_DNA.bw2_mapped_vsearch.fa'
+blast_report_path='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.KP.out'
+query_path='Tbruc427_DNA.bw2_mapped_vsearch.KP.fa'
 subject_path='RNAs/RNAs_final.fa'
-outfolder='tRNAseq_results/'
+outfolder='tRNAseq_results-KP/'
 
 
 def parse_blast_result(blast_report_path, outfmt_opts=False, delimeter='\t'):
