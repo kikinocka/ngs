@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 import os
 from Bio import SeqIO
 
-os.chdir('/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/')
+os.chdir('/Users/kika/ownCloud/tRNAs-kinetoplastids/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/read_DB/Tbrucei-cyto.fa'
+database = '/Users/kika/Tbrucei-cyto.fa'
 
 for accessions in files: 
 	print(accessions)
