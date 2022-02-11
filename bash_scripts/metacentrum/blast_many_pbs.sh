@@ -14,15 +14,15 @@ datadir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/'
 
 #copy files to scratch
 # cp $datadir'/'*.fa $SCRATCHDIR
-cp $datadir'Tbruc427_DNA.bw2_mapped_vsearch.fa' $SCRATCHDIR
+cp $datadir'Tbruc427_DNA.bw2_mapped_vsearch.KP.fa' $SCRATCHDIR
 cp $datadir'RNAs/'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-query='Tbruc427_DNA.bw2_mapped_vsearch.fa'
+query='Tbruc427_DNA.bw2_mapped_vsearch.KP.fa'
 db='RNAs_final.fa'
-out='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.out'
+out='Tbruc427_DNA.bw2_mapped_vsearch.best_blast.KP.out'
 max_seqs=1
 
 blastn -query $query -db $db -out $out \
