@@ -12,14 +12,14 @@ module add vsearch/vsearch-2.14.1-intel-19.0.4-sglyhgb
 data_dir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/'
 
 #copy files to scratch
-cp $data_dir'bw2/Tbruc427_DNA.bw2_mapped.fq.gz' $SCRATCHDIR
+cp $data_dir'bw2/KP/Tbruc427_DNA.bw2_mapped.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 mapped='Tbruc427_DNA.bw2_mapped.fq.gz'
-output='Tbruc427_DNA.bw2_mapped_vsearch.fa'
+output='Tbruc427_DNA.bw2_mapped_vsearch.KP.fa'
 
 vsearch --derep_fulllength $mapped --output $output --sizeout
 
