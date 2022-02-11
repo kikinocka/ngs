@@ -13,11 +13,11 @@ module add samtools-1.11
 
 assembly_dir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids/'
 read_dir=$assembly_dir'reads/'
-mapping_dir=$assembly_dir'bw2/'
+mapping_dir=$assembly_dir'bw2/KP/'
 
 #copy files to scratch
 cp $assembly_dir'TriTrypDB-55_TbruceiLister427_Genome.fasta' $SCRATCHDIR
-cp $read_dir'T-brucei-cyto_trimmed-AN.fq.gz' $SCRATCHDIR
+cp $read_dir'T-brucei-cyto_trimmed.fq.gz' $SCRATCHDIR
 # cp $read_dir'P1-7_trimmed_2.fq.gz' $SCRATCHDIR
 
 
@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 base_name='Tbruc427_DNA.bw2'
 ref='TriTrypDB-55_TbruceiLister427_Genome.fasta'
-p1_1='T-brucei-cyto_trimmed-AN.fq.gz'
+p1_1='T-brucei-cyto_trimmed.fq.gz'
 # p1_2='P1-7_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
@@ -58,8 +58,8 @@ bowtie2-build --threads $PBS_NUM_PPN $ref $base_name
 bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 	-x $base_name \
 	-U $p1_1 \
-	--un-gz $unaligned \
 	--al-gz $mapped \
+	--un-gz $unaligned \
 	-S $samfile 2> $report
 
 # samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
