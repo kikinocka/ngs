@@ -19,7 +19,7 @@ $program -task $task \
 	-outfmt $outfmt \
 	-num_threads $cpu \
 	-evalue $eval \
-	-max_target_seqs $max_seqs \
+	# -max_target_seqs $max_seqs \
 	# -max_hsps $max_hsps
 	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 
