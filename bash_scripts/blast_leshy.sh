@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd '/mnt/mokosz/home/kika/workdir/'
-query='Sec13-MS_hypothetical_proteins.hits.fa'
-out='Sec13-MS_hypothetical_proteins.hits.rev_blast.xml'
+query='dehydrogenase_subunits.fa'
+out='dehydrogenase_subunits.blast.xml'
 db='/opt/databases/eukprot/current/blast/eukprot'
 program=blastp
 task=blastp
