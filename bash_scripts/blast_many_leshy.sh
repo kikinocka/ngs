@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
+cd '/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/'
 
 db='/opt/databases/nt_auto/current/blast/nt'
 program=blastn
