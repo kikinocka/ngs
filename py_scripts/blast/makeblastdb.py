@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/Gertraud/')
-files = [x for x in os.listdir() if x.endswith('Dp_PB-MI_190104_dedup_cut_l100-submission-with-gene_models.faa')]
+os.chdir('/Users/kika/data/eukprot/')
+files = [x for x in os.listdir() if x.endswith('EP00441_Pelagodinium_beii.fasta')]
 dbtype = 'prot'
 
 for file in files: 

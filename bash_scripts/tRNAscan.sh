@@ -2,7 +2,7 @@
 
 tRNAscan='/Users/kika/miniconda3/bin/tRNAscan-SE'
 
-cd '/Users/kika/ownCloud/tRNAs-kinetoplastids/'
+cd '/Users/kika/ownCloud/blasto_comparative/genomes/'
 
 # for assembly in atp6_contigs.fa ; do
 # 	echo $assembly
@@ -13,7 +13,7 @@ cd '/Users/kika/ownCloud/tRNAs-kinetoplastids/'
 # done
 
 
-assembly='TriTrypDB-55_TbruceiLister427_Genome.fasta'
+assembly='triat_scaffolds.fasta'
 table=${assembly%.fasta}.tRNAscan_table.out
 seq=${assembly%.fasta}.tRNAscan.fa
 structures=${assembly%.fasta}.tRNAscan_structures.out

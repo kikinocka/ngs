@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/dinoflagellates/blasts/used.fa'
-db = '/Users/kika/data/eukprot/EP00432_Prorocentrum_cordatum.fasta'
-out = '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/dinoflagellates/blasts/used_EP00432.blast.xml'
-evalue = 1
+query = '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/dinoflagellates/dehydrogenase_subunits.fa'
+db = '/Users/kika/data/eukprot/EP00451_Oxyrrhis_marina.fasta'
+out = '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/dinoflagellates/EP00451_dehydrogenase_subunits.blast.xml'
+evalue = 1e-05
 outfmt = 5
 hits = 1
 word_size = 3
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/dinoflagellates/blasts/used_EP00432.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/dinoflagellates/blasts/used_EP00432.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/dinoflagellates/EP00451_dehydrogenase_subunits.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/dinoflagellates/EP00451_dehydrogenase_subunits.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
