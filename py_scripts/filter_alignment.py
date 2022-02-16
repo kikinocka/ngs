@@ -53,7 +53,7 @@ def coverage_from_alignment(infile, fileformat):
 
 
 def filter_alignment(infile, threshold, coverage_d):
-	outfile = infile.split(".")[0] + "_passed.aln"
+	outfile = infile.split(".aln")[0] + ".filtered-{}.aln".format(int(threshold))
 	with open(outfile, "wt") as result:
 		for seq in SeqIO.parse(infile, "fasta"):
 			if "%aligned" in seq.name:
