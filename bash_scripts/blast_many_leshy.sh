@@ -20,7 +20,7 @@ for query in trinity_a*; do
 	-evalue $eval \
 	-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
 	-max_target_seqs $max_seqs \
-	-max_hsps $max_hsps
+	-max_hsps $max_hsps &
 done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
