@@ -9,7 +9,7 @@ files = os.listdir()
 threads = 7
 
 for file in files:
-	if file.endswith('.aln'):
+	if file.endswith('sec39.mafft.aln'):
 		print(file)
 		name = file.split('.mafft')[0]
 		hmm = name + '.hmm_profile'
