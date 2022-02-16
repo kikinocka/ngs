@@ -12,15 +12,15 @@ max_hsps=1
 cpu=4
 
 for query in trinity_a*; do
-	$program -task blastn\
-	-query $query \
-	-db $db \
-	-out ${query}.blast \
-	-num_threads $cpu \
-	-evalue $eval \
-	-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
-	-max_target_seqs $max_seqs \
-	-max_hsps $max_hsps &
+	$program -task blastn \
+		-query $query \
+		-db $db \
+		-out ${query}.blast \
+		-num_threads $cpu \
+		-evalue $eval \
+		-outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
+		-max_target_seqs $max_seqs \
+		-max_hsps $max_hsps &
 done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
