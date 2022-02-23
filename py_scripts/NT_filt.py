@@ -253,7 +253,7 @@ for i,filepath in enumerate(files):
 	#replacement = {"319938": "288004", "1317118": "1379903", "427920": "1983720"}
 	distribution = {goodgroupsrep: 0}
 	c = 0 #we need a process monitor
-	with open(file) as infile, \
+	with open(filepath) as infile, \
 	open(tmpblast, "w") as outfile,\
 	open(check, "w") as checkfile,\
 	open(filt, "w") as filtfile:
