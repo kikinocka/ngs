@@ -1,7 +1,7 @@
 #!/bin/bash
 
-workdir='/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/mei_trinity_NT/'
-fasta='mei.trinity.NTfilt.fasta'
+workdir='/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/mab_trinity_NT/'
+fasta='mab.trinity.NTfilt.fasta'
 
 cd $workdir
 TransDecoder.LongOrfs -t $fasta
