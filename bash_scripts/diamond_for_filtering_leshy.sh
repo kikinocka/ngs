@@ -1,10 +1,14 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/mastigella_eilhardi_MAST/'
+datadir='/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/'
+workdir='/tmp/kika/'
 
+cp $datadir'mab_trinity_NT/mab.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep' $workdir
+
+cd $workdir
 task=blastp
-query='mei_trinity_NT/mei.trinity.NTfilt.fasta.transdecoder_dir/longest_orfs.pep'
-out='mei.trinity.NTfilt.dmnd.out'
+query='longest_orfs.pep'
+out='mab.trinity.NTfilt.dmnd.out'
 db='/opt/databases/nr_auto/2021-02-15/diamond/nr.dmnd'
 taxify='/mnt/mokosz/home/kika/scripts/py_scripts/taxify_DMND_nr_gz.py'
 eval=1e-5
@@ -21,6 +25,9 @@ diamond $task \
 	--max-target-seqs $max_seqs \
 	--sensitive
 
-python2 $taxify -i $out 
+python2 $taxify -i $out
+
+rm $query
+mv -R * $datadir
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py DMND done
