@@ -28,6 +28,6 @@ diamond $task \
 python2 $taxify -i $out
 
 rm $query
-mv -R * $datadir
+mv * $datadir
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py DMND done
