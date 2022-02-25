@@ -17,8 +17,9 @@ cp $data_dir'arb-silva.de_2022-02-25_id1126815.fasta' $SCRATCHDIR
 cd $SCRATCHDIR
 
 fasta='arb-silva.de_2022-02-25_id1126815.fasta'
+prefix=out
 
-$mmseqs easy-linclust $fasta tmp --min-seq-id 0.95 -c 0.3 --cov-mode 1 --cluster-mode 2
+$mmseqs easy-linclust $fasta $prefix tmp --min-seq-id 0.95 -c 0.3 --cov-mode 1 --cluster-mode 2
 
 
 #copy files back
