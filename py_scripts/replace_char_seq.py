@@ -8,4 +8,4 @@ files = [x for x in os.listdir() if x.endswith('.fasta')]
 for file in files:
 	with open('{}_updated.fa'.format(file.split('.fasta')[0]), 'w') as out:
 		for seq in SeqIO.parse(file, 'fasta'):
-			out.write('>{}\n{}\n'.format(seq.description, (seq.seq).replace('.', '-').replace(' ', '')))
+			out.write('>{}\n{}\n'.format(seq.description, str(seq.seq).replace('.', '-').replace(' ', '')))
