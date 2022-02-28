@@ -65,7 +65,7 @@ done
 # echo 'Alignments merged'
 
 #copy files back
-rm $fa
+rm *.fa
 # rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir

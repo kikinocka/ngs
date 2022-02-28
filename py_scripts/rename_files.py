@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/ribosomal_proteins/amoebae/alns_updated/')
-files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/archamoebae/ribosomal_proteins/local_query_files/')
+files = [x for x in os.listdir() if x.endswith('.faa')]
 
 protein_dic = {'EHI020280' : 'S2', 'EHI146340' : 'S3', 'EHI050280' : 'S3a', 'EHI057850' : 'S4', 'EHI126110' : 'S5', 
 	'EHI000590' : 'S6', 'EHI067530' : 'S7', 'EHI009870' : 'S8e', 'EHI125780' : 'S9', 'EHI197030' : 'S10', 'EHI124850' : 'S11', 
@@ -20,9 +20,10 @@ protein_dic = {'EHI020280' : 'S2', 'EHI146340' : 'S3', 'EHI050280' : 'S3a', 'EHI
 	'EHI138770' : 'P2', 'EHI102940' : 'PO'}
 
 for file in files:
-	name = file.split('_')[0]
+	print(file)
+	name = file.split('.faa')[0]
 	if name in protein_dic.keys():
-		new = '{}.aln'.format(protein_dic[name])
+		new = '{}.faa'.format(protein_dic[name])
 		with open(new, 'w') as out:
 			for line in open(file):
 				out.write(line)
