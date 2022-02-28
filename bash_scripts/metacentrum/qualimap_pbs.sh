@@ -2,7 +2,7 @@
 #PBS -N qualimap
 #PBS -q default
 #PBS -l select=1:ncpus=50:mem=20gb:scratch_local=10gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
