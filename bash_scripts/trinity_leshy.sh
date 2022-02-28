@@ -20,6 +20,6 @@ Trinity --seqType fq --left $fwd1 --right $rev1 --max_memory 100G --CPU 20
 # Trinity --seqType fq --left $fwd1,$fwd2,$fwd3 --right $rev1,$rev2,$rev3 --max_memory 100G --CPU 15
 
 rm *fq.gz
-mv -r * $datadir
+# mv -r * $datadir
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py Trinity done

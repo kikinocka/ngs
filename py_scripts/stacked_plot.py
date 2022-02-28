@@ -35,14 +35,14 @@ import matplotlib.pyplot as plt
 # plt.savefig('otu_identities.pdf', dpi=300)
 
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/decontaminated/supergroups/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99_decontaminated/supergroups/')
 df = pd.read_csv('v9_supergroups.no_chimera.above99.no_prokaryota.tsv', sep='\t')
 # print(df)
 
 #SL_Euglenozoa
 colors = ['#000000', '#999999', '#CD950B', '#FFB90F', '#FFFF99', 
 	'#FAEBD7', '#CAB2D6', '#FB9A99', '#B2DF8A', '#009444',
-	'#1F78B4', '#C9C9C9', '#7FFFD4', '#A6CEE3', '#B3B3FF']
+	'#1F78B4', '#C9C9C9', '#7FFFD4', '#A6CEE3']
 
 # #oil sands
 # colors = ['#999999', '#000000', '#FFFF99', '#FAEBD7', 
