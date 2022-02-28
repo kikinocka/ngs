@@ -22,7 +22,7 @@ cp $mapping'jac.bw2_sorted.bam' $SCRATCHDIR
 cd $SCRATCHDIR
 
 bam='jac.bw2_sorted.bam'
-qualimap bamqc -nt $PBS_NUM_PPN -bam $bam -outdir $SCRATCHDIR -outformat pdf
+qualimap bamqc -nt $PBS_NUM_PPN -bam $bam --java-mem-size=20G -outdir $SCRATCHDIR -outformat pdf
 
 #copy files back
 rm $bam
