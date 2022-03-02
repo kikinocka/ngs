@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E3/ver6/')
+os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E1b/ver9b/')
 infile = SeqIO.parse('seqdump.fa', 'fasta')
 out_fasta = open('seqdump_deduplicated.fa', 'w')
 out_names = open('seqdump_dupl-names.txt', 'w')
