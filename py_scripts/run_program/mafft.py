@@ -5,27 +5,27 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E1b/ver9b/')
-files = [x for x in os.listdir() if x.endswith('seqdump.fa')]
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E1b/ver9b/')
+# files = [x for x in os.listdir() if x.endswith('seqdump.fa')]
 
-for file in files:
-	print(file)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
-	# 	mafft, file, out, log), shell=True)
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
+# for file in files:
+# 	print(file)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
+# 	# 	mafft, file, out, log), shell=True)
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
 
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-# existing = 'queries/SM/SM_proteins.updated.aln'
-# add = 'trees/SM/euglenozoans.fa'
-# out = 'trees/SM/ver3/sm.mafft.aln'
-# log = 'trees/SM/ver3/sm.mafft.log'
-# # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+#add to aligned sequences
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
+existing = 'queries/MTCs/trs65.aln'
+add = 'BLASTs/trs65.fa'
+out = 'BLASTs/trs65_eug-fun.mafft.aln'
+log = 'BLASTs/trs65_eug-fun.mafft.log'
+# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 
 # #merge alignments
