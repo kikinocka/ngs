@@ -2,7 +2,7 @@
 
 filt_script='/Users/kika/scripts/py_scripts/filter_alignment.py'
 
-cd '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E3/ver7/'
+cd '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E2/ver9/'
 threshold=50
 
 for fasta in *trimal*.aln ; do
