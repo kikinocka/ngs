@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/tom60/')
+os.chdir('/mnt/mokosz/home/kika/workdir/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
 db = SeqIO.parse('/mnt/mokosz/home/zoli/DMND/EukProt_v2_renamed.faa', 'fasta')
 
