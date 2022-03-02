@@ -13,7 +13,7 @@ cat $PBS_NODEFILE
 # module add mafft-7.453
 module add mafft-7.487 
 
-data_dir='/storage/brno3-cerit/home/kika/diplonema/pdh'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/pdh/ver9'
 
 #copy files to scratch
 cp $data_dir'/'*.fa $SCRATCHDIR
