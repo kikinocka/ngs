@@ -1,29 +1,29 @@
 #!/bin/sh
 
-# #align denovo
-# cd '/mnt/mokosz/home/kika/workdir/'
-
-# for f in *.fa ; do
-# 	echo $f
-# 	aln=${f%.fa}.mafft.aln
-# 	log=${f%.fa}.mafft.log
-# 	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
-# done
-
-# python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT done
-
-
-#add to aligned sequences
+#align denovo
 cd '/mnt/mokosz/home/kika/workdir/'
 
-existing='ciliates.mafft.aln'
-add='v9.fa'
-out='ciliates_v9.mafft.aln'
-log='ciliates_v9.mafft.log'
-# mafft --add ${add} --thread 10 --inputorder ${existing} > ${out} 2> ${log}
-mafft --addfragments ${add} --thread 10 --inputorder ${existing} > ${out} 2> ${log}
+for f in *.fa ; do
+	echo $f
+	aln=${f%.fa}.mafft.aln
+	log=${f%.fa}.mafft.log
+	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
+done
 
-python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT add done
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT done
+
+
+# #add to aligned sequences
+# cd '/mnt/mokosz/home/kika/workdir/'
+
+# existing='ciliates.mafft.aln'
+# add='v9.fa'
+# out='ciliates_v9.mafft.aln'
+# log='ciliates_v9.mafft.log'
+# # mafft --add ${add} --thread 10 --inputorder ${existing} > ${out} 2> ${log}
+# mafft --addfragments ${add} --thread 10 --inputorder ${existing} > ${out} 2> ${log}
+
+# python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT add done
 
 
 # #merge alignments
