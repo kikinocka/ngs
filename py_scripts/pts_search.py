@@ -12,7 +12,7 @@ pts2 = r'^M\w{0,20}(R|K)(L|V|I)\w{5}(H|K|Q|R)(L|A|I|V|F|Y)'
 
 # #mastigamoeba very relaxed
 # files = [x for x in os.listdir() if x.endswith('.fa')]
-# pts1 = r'(S|A|C|H|K|N|P|T|)(K|R|H|N|Q|S|)(L|I|M|F|A|V|Y|)'
+# pts1 = r'(S|A|C|H|K|N|P|T)(K|R|H|N|Q|S)(L|I|M|F|A|V|Y)'
 
 # #general
 # pts1 = r'(S|A|C)(K|R|H|Q)(L|M)'
