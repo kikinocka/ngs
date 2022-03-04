@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #align denovo
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/archam_trees/'
 
 for f in *.fa ; do
 	echo $f

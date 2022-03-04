@@ -42,4 +42,4 @@ $program -task $task \
 
 #copy files back
 rm $query
-cp -R * $datadir'10-blast-krona'
+cp -R * $datadir
