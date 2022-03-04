@@ -3,8 +3,8 @@ import os
 import re
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/predictions/')
-proteins = SeqIO.parse('repre.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/archamoebae/targeting/m_abducta/')
+proteins = SeqIO.parse('mab.fa', 'fasta')
 
 #kinetoplastids
 pts1 = r'(S|A|G|C|N|P)(R|H|K|N|Q)(L|I|V|F|A|M|Y)'
@@ -15,11 +15,13 @@ pts2 = r'^M\w{0,20}(R|K)(L|V|I)\w{5}(H|K|Q|R)(L|A|I|V|F|Y)'
 # pts1 = r'(S|A|C|H|K|N|P|T|)(K|R|H|N|Q|S|)(L|I|M|F|A|V|Y|)'
 
 # #general
-# pts1 = r'(S|A|C)(K|R|H|Q)(L|M)')
+# pts1 = r'(S|A|C)(K|R|H|Q)(L|M)'
 # pts2 = r'^\w{1,21}R(L|I|V|Q)\w{2}(L|I|V|Q|H)(L|S|G|A)\w{1}(H|Q)(L|A)'
 
-with open('repre.possibly_peroxisomal.fa', 'w') as out:
+with open('mab.possibly_peroxisomal.fa', 'w') as out:
 	for protein in proteins:
+		if str(protein.seq)[-1:] == '*':
+			protein.seq = str(protein.seq)[:-1]
 		if re.search(pts1, str(protein.seq)[-3:]):
 			out.write('>{} @PTS1:{}\n{}\n'.format(protein.description, protein.seq[-3:], protein.seq))
 		elif re.search(pts2, str(protein.seq)):
