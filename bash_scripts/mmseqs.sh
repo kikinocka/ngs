@@ -1,13 +1,13 @@
 #!/bin/bash
 
-datadir='/Users/kika/ownCloud/prototheca_HGT/'
-fasta=$datadir'pzop_trinity.fa'
-clustered=$datadir'pzop_trinity.clustered'
-seqid=0.95
+datadir='/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E1a/ver9-clustered/'
+fasta=$datadir'E1a.fa'
+clustered=$datadir'E1a.clustered.fa'
+seqid=0.7
 coverage=0.5
 mode=0
 
-mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid -c $coverage --cov-mode $mode
+mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid --cov-mode $mode
 
 
 # --min-seq-id
