@@ -12,11 +12,10 @@ cat $PBS_NODEFILE
 module add conda-modules-py37
 
 comp_script='/storage/brno2/home/kika/.conda/envs/metabinner_env/bin/scripts/gen_kmer.py'
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
-assembly_dir=$data_dir'2a-spades_default/'
+data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/metabinner/'
 
 #copy files to scratch
-cp $assembly_dir'scaffolds.fasta' $SCRATCHDIR
+cp $assembly_dir'scaffolds_len500.fa' $SCRATCHDIR
 
 
 #compute on scratch
@@ -24,7 +23,7 @@ cd $SCRATCHDIR
 
 conda activate /storage/brno2/home/kika/.conda/envs/metabinner_env
 
-assembly='scaffolds.fasta'
+assembly='scaffolds_len500.fa'
 min_len=500
 kmer=4
 
@@ -32,4 +31,4 @@ python $comp_script $assembly $min_len $kmer
 
 #copy files back
 rm $assembly
-cp -r * $data_dir'metabinner'
+cp -r * $data_dir
