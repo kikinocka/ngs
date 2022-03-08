@@ -24,7 +24,7 @@ cd $SCRATCHDIR
 conda activate /storage/brno2/home/kika/.conda/envs/metabinner_env
 
 assembly='scaffolds_len500.fa'
-min_len=500
+min_len=499
 kmer=4
 
 python $comp_script $assembly $min_len $kmer 
