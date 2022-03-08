@@ -12,14 +12,12 @@ cat $PBS_NODEFILE
 module add conda-modules-py37
 
 bin_script='/storage/brno2/home/kika/.conda/envs/metabinner_env/bin/run_metabinner.sh'
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
-assembly_dir=$data_dir'2a-spades_default/'
-out_dir=$data_dir'metabinner/'
+data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/metabinner/'
 
 #copy files to scratch
-cp $assembly_dir'scaffolds.fasta' $SCRATCHDIR
-cp $out_dir'coverage_profile.tsv' $SCRATCHDIR
-cp $out_dir'kmer_4_f500.csv' $SCRATCHDIR
+cp $data_dir'scaffolds_len500.fa' $SCRATCHDIR
+cp $data_dir'coverage_profile.tsv' $SCRATCHDIR
+cp $data_dir'kmer_4_f500.csv' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -27,7 +25,7 @@ cd $SCRATCHDIR
 conda activate /storage/brno2/home/kika/.conda/envs/metabinner_env
 
 metabinner_path=$(dirname $(which run_metabinner.sh))
-assembly='scaffolds.fasta'
+assembly='scaffolds_len500.fa'
 cov='coverage_profile.tsv'
 kmer='kmer_4_f500.csv'
 
@@ -36,4 +34,4 @@ $bin_script -a $SCRATCHDIR'/'$assembly -o $SCRATCHDIR -d $SCRATCHDIR'/'$cov -k $
 
 #copy files back
 rm $assembly $cov $kmer
-cp -r * $out_dir
+cp -r * $data_dir
