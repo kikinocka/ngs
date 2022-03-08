@@ -17,7 +17,7 @@ data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/
 #copy files to scratch
 cp $data_dir'scaffolds_len500.fa' $SCRATCHDIR
 cp $data_dir'coverage_profile.tsv' $SCRATCHDIR
-cp $data_dir'kmer_4_f500.csv' $SCRATCHDIR
+cp $data_dir'kmer_4_f499.csv' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -27,7 +27,7 @@ conda activate /storage/brno2/home/kika/.conda/envs/metabinner_env
 metabinner_path=$(dirname $(which run_metabinner.sh))
 assembly='scaffolds_len500.fa'
 cov='coverage_profile.tsv'
-kmer='kmer_4_f500.csv'
+kmer='kmer_4_f499.csv'
 
 $bin_script -a $SCRATCHDIR'/'$assembly -o $SCRATCHDIR -d $SCRATCHDIR'/'$cov -k $SCRATCHDIR'/'$kmer -p ${metabinner_path} -t $PBS_NUM_PPN
 
