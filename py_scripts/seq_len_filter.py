@@ -3,13 +3,13 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/storage/brno3-cerit/home/kika/databases/pr2db/4.14.0/')
-db = SeqIO.parse('pr2_version_4.14.0_SSU_UTAX.fasta', 'fasta')
+os.chdir('/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/')
+db = SeqIO.parse('2a-spades_default/scaffolds.fasta', 'fasta')
 
-with open('pr2_version_4.14.0_SSU_UTAX.longer400.fasta', 'w') as update:
+with open('metabinner/scaffolds_len500.fa', 'w') as out:
 	for seq in db:
 		print(seq.name)
-		if len(seq.seq) < 1000:
+		if len(seq.seq) < 500:
 			pass
 		else:
-			update.write('>{}\n{}\n'.format(seq.description, seq.seq))
+			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
