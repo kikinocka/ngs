@@ -15,7 +15,7 @@ comp_script='/storage/brno2/home/kika/.conda/envs/metabinner_env/bin/scripts/gen
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/metabinner/'
 
 #copy files to scratch
-cp $assembly_dir'scaffolds_len500.fa' $SCRATCHDIR
+cp $data_dir'scaffolds_len500.fa' $SCRATCHDIR
 
 
 #compute on scratch
