@@ -1,8 +1,8 @@
 #!/bin/sh
 #PBS -N metabinner-composition
 #PBS -q default
-#PBS -l select=1:ncpus=30:mem=40gb:scratch_local=10gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
