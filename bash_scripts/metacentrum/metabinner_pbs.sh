@@ -31,7 +31,7 @@ assembly='scaffolds.fasta'
 cov='coverage_profile.tsv'
 kmer='kmer_4_f500.csv'
 
-$bin_script -a $assembly -o $SCRATCHDIR -d $cov -k $kmer -p ${metabinner_path} -t $PBS_NUM_PPN
+$bin_script -a $assembly -o $SCRATCHDIR -d $SCRATCHDIR$cov -k $kmer -p ${metabinner_path} -t $PBS_NUM_PPN
 
 
 #copy files back
