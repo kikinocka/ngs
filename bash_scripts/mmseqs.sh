@@ -1,13 +1,14 @@
 #!/bin/bash
 
-datadir='/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E3/ver8-clustered/'
-fasta=$datadir'E3.fa'
-clustered=$datadir'E3_clstr60'
-seqid=0.6
+cd '/Users/kika/ownCloud/SL_Euglenozoa/V9/above99_decontaminated/stramenopiles/'
+
+fasta='STR_5480seqs_230711_core_blast_min700bp.No_Chimera.align_V5.lineage.fa'
+clustered='STR_5480seqs_230711_core_blast_min700bp.No_Chimera.align_V5.lineage.clstr'
+seqid=0.99
 coverage=0.5
 mode=0
 
-mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid --cov-mode $mode
+mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid -c $coverage --cov-mode $mode
 
 
 # --min-seq-id

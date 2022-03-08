@@ -2,13 +2,13 @@
 import os
 
 os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/')
-table = open('otu_table.V9DS_updated.no_chimera.tsv')
+table = open('filtration/v9.no_chimera.above99.no_prokaryota.tsv')
 
 groups = {}
-with open('orphans/malawimonadidae_counts.tsv', 'w') as counts, open('orphans/malawimonadidae.V9DS_updated.no_chimera.tsv', 'w') as out:
+with open('above99_decontaminated/stramenopiles/stramenopiles_counts.tsv', 'w') as counts, open('above99_decontaminated/stramenopiles/stramenopiles.V9DS_updated.no_chimera.tsv', 'w') as out:
 	for line in table:
 		taxonomy = line.split('\t')[22]
-		if 'Malawimonadidae' in taxonomy:
+		if 'Stramenopiles' in taxonomy:
 			out.write(line)
 			if taxonomy.split('|')[1] not in groups:
 				groups[taxonomy.split('|')[1]] = 1
