@@ -10,7 +10,6 @@ cat $PBS_NODEFILE
 
 #add module
 module add conda-modules-py37
-conda activate metabinner_env
 
 cov_script='/storage/brno2/home/kika/.conda/envs/metabinner_env/bin/scripts/gen_coverage_file.sh'
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/'
@@ -25,6 +24,9 @@ cp $read_dir'BML_trimmed_2.fastq.gz' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
+
+conda activate /storage/brno2/home/kika/.conda/envs/metabinner_env
+
 gzip -d *.gz
 
 assembly='scaffolds.fasta'
