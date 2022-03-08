@@ -1,9 +1,9 @@
 #!/bin/bash
 
-datadir='/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E1a/ver9-clustered/'
-fasta=$datadir'E1a.fa'
-clustered=$datadir'E1a.clustered.fa'
-seqid=0.7
+datadir='/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E3/ver8-clustered/'
+fasta=$datadir'E3.fa'
+clustered=$datadir'E3_clstr60'
+seqid=0.6
 coverage=0.5
 mode=0
 

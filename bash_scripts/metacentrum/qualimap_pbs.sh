@@ -9,7 +9,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module ad qualiMap-11_12-16
+module add qualiMap-11_12-16
 
 mapping='/storage/brno3-cerit/home/kika/p57/jaculum/bw2/'
 outdir='/storage/brno3-cerit/home/kika/p57/jaculum/'
