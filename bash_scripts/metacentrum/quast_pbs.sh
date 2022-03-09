@@ -35,6 +35,5 @@ done
 
 
 #copy results to your folder
-# rm $f $bam
-rm $assemblies
+rm *.fa
 cp -r * $outdir
