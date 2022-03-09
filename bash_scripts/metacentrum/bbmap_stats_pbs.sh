@@ -19,7 +19,7 @@ cp $data'/'*.fa $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-statswrapper.sh *.fa
+stats.sh *.fa
 
 #copy files back
 rm *.fa
