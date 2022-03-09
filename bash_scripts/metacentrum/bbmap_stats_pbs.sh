@@ -19,7 +19,10 @@ cp $data'/'*.fa $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-stats.sh *.fa
+out='bins_stats.out.txt'
+report='bins_stats.report.txt'
+
+statswrapper.sh *.fa format=3 > $out 2> $report
 
 #copy files back
 rm *.fa
