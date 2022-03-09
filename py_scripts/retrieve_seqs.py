@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E3/ver7/')
+os.chdir('/Users/kika/ownCloud/oil_sands/metagenomes/20200821_BML-P3B/metabinner/bins/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/E3/ver6/E3.fa'
+database = '/Users/kika/ownCloud/oil_sands/metagenomes/20200821_BML-P3B/metabinner/scaffolds_len500.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -20,6 +20,8 @@ for accessions in files:
 		for seq in db:
 			if seq.name in retrieve:
 				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				# pass
 			else:
-				# print(seq.description)
 				pass
+				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+
