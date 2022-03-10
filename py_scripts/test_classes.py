@@ -1,3 +1,4 @@
+# !/usr/bin/env python3
 class Whatever:
     att = 50
     coordinates = []
@@ -29,3 +30,5 @@ x = Whatever('test', 'blabla', 5)
 for i in list_of_coordinates:
     if i[0] == 'test':
         x.set_coordinates(i[1])
+print(x)
+print(dir(x))
