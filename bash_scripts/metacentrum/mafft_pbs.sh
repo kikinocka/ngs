@@ -10,8 +10,8 @@ cat $PBS_NODEFILE
 #add module
 # module add conda-modules-py37
 # conda activate mafft
-# module add mafft-7.453
-module add mafft-7.487 
+module add mafft-7.453
+# module add mafft-7.487 
 
 data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles'
 
