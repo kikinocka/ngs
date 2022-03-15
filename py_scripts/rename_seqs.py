@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/ribosomal_proteins/amoebae/alns_updated/')
+os.chdir('/Users/kika/ownCloud/archamoebae/replisome/amoebae/alns_updated/')
 files = [x for x in os.listdir() if x.endswith('.aln')]
 
-with open('ribosomal_proteins.fa', 'w') as out:
+with open('replisome.fa', 'w') as out:
 	for file in files:
 		print(file)
 		file_name = file.split('_')[0]

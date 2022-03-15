@@ -1,14 +1,14 @@
 #!/bin/bash
 
 mitofates='/mnt/mokosz/home/kika/MitoFates/MitoFates.pl'
-workdir='/mnt/mokosz/home/kika/workdir/'
-files=$workdir'*.fa'
+
+cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+
 m=metazoa
 p=plant
 f=fungi
 
-cd $workdir
-for file in $files; do
+for file in *.fa; do
 	echo $file
 	
 	out=${file%.*}'.mitofates_fungi.txt'

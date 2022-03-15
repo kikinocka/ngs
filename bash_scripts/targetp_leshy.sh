@@ -1,12 +1,11 @@
 #!/bin/bash
 
-workdir='/mnt/mokosz/home/kika/workdir/'
-files=$workdir'*.fa'
+cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+
 plant='pl'
 non_plant='non-pl'
 
-cd $workdir
-for file in $files; do
+for file in *.fa; do
 	echo $file
 	targetp -fasta $file -org $non_plant -format short
 done

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-workdir='/mnt/mokosz/home/kika/workdir/'
-files=$workdir'*.fa'
+cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+
 mit=1
 mro=2
 dict=5
@@ -18,8 +18,7 @@ stram=7
 # 8) Toxoplasma
 # 9) Trypanosomatida
 
-cd $workdir
-for file in $files; do
+for file in *.fa; do
 	echo $file
 	out=${file%.*}'.nommpred_mro.txt'
 	NommPred.py -i $file -o $out -l $mro --overwrite

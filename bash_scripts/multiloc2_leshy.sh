@@ -1,14 +1,14 @@
 #!/bin/bash
 
 multiloc='/opt/multiloc2/git/MultiLoc2/MultiLoc2/src/multiloc2_prediction.py'
-workdir='/mnt/mokosz/home/kika/workdir/'
-files=$workdir'*.fa'
+
+cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+
 a=animal
 p=plant
 f=fungal
 
-cd $workdir
-for file in $files; do
+for file in *.fa; do
 	echo $file
 	
 	out=${file%.*}'.ML2_fungal.txt'
