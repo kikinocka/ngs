@@ -13,10 +13,10 @@ cat $PBS_NODEFILE
 # module add mafft-7.453
 module add mafft-7.487 
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles/placement'
 
 #copy files to scratch
-cp $data_dir'/'*.fasta $SCRATCHDIR
+cp $data_dir'/'*.fa $SCRATCHDIR
 # cp $data_dir'outgroup.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -26,13 +26,13 @@ cd $SCRATCHDIR
 
 #align de-novo
 
-for file in *.fasta; do
+for file in *.fa; do
 	echo $file
 	aln=${file%.fa}.mafft.aln
 	log=${file%.fa}.mafft.log
 
-	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-	mafft --auto --inputorder ${file} > ${aln} 2> ${log}
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
 done
 
 # #add to aligned sequences
