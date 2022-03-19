@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N orthofinder
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=5gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=15gb:scratch_local=5gb
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
