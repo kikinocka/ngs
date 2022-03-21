@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/SL_Euglenozoa/V9/above99_decontaminated/stramenopiles/'
+cd '/Users/kika/ownCloud/membrane-trafficking/sec13-MS/sec16_eukprot/'
 
-fasta='STR_5480seqs_230711_core_blast_min700bp.No_Chimera.align_V5.lineage.aln'
-clustered='STR_5480seqs_230711_core_blast_min700bp.No_Chimera.align_V5.lineage.clstr'
+fasta='eukprot_sec16.hmm_hits.fa'
+clustered='eukprot_sec16.hmm_hits.clstr'
 seqid=0.99
 coverage=0.5
 mode=0
