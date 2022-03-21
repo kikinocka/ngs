@@ -8,7 +8,7 @@ orgn='eukprot'
 for profile in *.hmm_profile ; do
 	echo $profile
 	output=$orgn'_'${profile%.hmm_profile}.hmm_search.table
-	threads=10
+	threads=7
 	hmmsearch --tblout $output --cpu $threads $profile $db
 done
 
