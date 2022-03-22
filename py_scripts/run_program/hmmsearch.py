@@ -7,8 +7,8 @@ hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/GARP/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/Eutreptiella/NIES_MMETSP0039_clean.pep.fa.txt'
-orgn = 'eut'
+db = '/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/EGALL_6frames.fasta'
+orgn = 'eg'
 
 for file in files:
 	print(file)

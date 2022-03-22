@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99_decontaminated/stramenopiles/')
-files = [x for x in os.listdir() if x.endswith('v9.acc')]
-database = '/Users/kika/ownCloud/SL_Euglenozoa/V9/global_dereplicated_1f_representatives.fas'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/')
+files = [x for x in os.listdir() if x.endswith('eugl.acc')]
+database = '/Users/kika/ownCloud/membrane-trafficking/BLASTs/arfGAPs.fa'
 
 for accessions in files: 
 	print(accessions)
