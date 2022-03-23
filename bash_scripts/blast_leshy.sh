@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/tmp/kika/'
+
 query='eukprot_sec16.hmm_hits.fa'
 out='eukprot_sec16.hmm_hits.rev_blast.xml'
 # db='/opt/databases/eukprot/current/blast/eukprot'
