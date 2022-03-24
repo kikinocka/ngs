@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N SPAdes
 #PBS -l select=1:ncpus=50:ompthreads=50:mem=100gb:scratch_local=30gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,20 +10,27 @@ cat $PBS_NODEFILE
 #add modules
 module add spades-3.14.0
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1-7m_1-07G_L001-ds.67bbce8fcfb6439db0445956cac4f716/'
-reads=$datadir'reads/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
+reads=$datadir'1-reads/'
 
 #copy reads to scratch
-cp $reads'P1-7_trimmed_1.fq.gz' $reads'P1-7_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P1B_deep_trimmed_1.fq.gz' $reads'P1B_deep_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P1B_trimmed_1.fq.gz' $reads'P1B_trimmed_2.fq.gz' $SCRATCHDIR
 
-pe1_1='P1-7_trimmed_1.fq.gz'
-pe1_2='P1-7_trimmed_2.fq.gz'
 
 #compute on scratch
 cd $SCRATCHDIR
 
+1_fwd='P1B_deep_trimmed_1.fq.gz'
+1_rev='P1B_deep_trimmed_2.fq.gz'
+2_fwd='P1B_trimmed_1.fq.gz'
+2_rev='P1B_trimmed_2.fq.gz'
+
 #metagenome assembly
-metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -t $PBS_NUM_PPN -o spades
+metaspades.py -t $PBS_NUM_PPN \
+	--pe-1 1 $1_fwd --pe-2 1 $1_rev \
+	--pe-1 2 $2_fwd --pe-2 2 $2_rev \ \
+	-o $SCRATCHDIR
 
 # #metagenome specifying k-mers
 # metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o spades_kmers
@@ -37,5 +44,5 @@ metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -t $PBS_NUM_PPN -o spades
 # --pe2-m $pe2m --pe2-1 $pe21 --pe2-2 $pe22 --pe2-s $pe2u \
 
 #copy results back
-rm $pe1_1 $pe1_2
-cp -r * $datadir
+rm $1_fwd $1_rev $2_fwd $2_rev
+cp -r * $datadir'2-spades/'
