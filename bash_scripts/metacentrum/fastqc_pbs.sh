@@ -26,5 +26,5 @@ for file in *.gz; do
 done
 
 #copy files back
-rm $files
+rm *gz
 cp -r * $read_dir'/fastqc/'
