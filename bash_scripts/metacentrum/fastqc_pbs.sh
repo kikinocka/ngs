@@ -10,19 +10,17 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/tRNAs-kinetoplastids'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/1-reads'
 
 
 #copy data to scratch
-cp $read_dir'/'*AN.fq.gz $SCRATCHDIR
+cp $read_dir'/'*deep*gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-files='*.gz'
-
-for file in $files; do
+for file in *.gz; do
 	echo $file
 	fastqc -o $SCRATCHDIR $file
 done
