@@ -28,8 +28,8 @@ cd $SCRATCHDIR
 
 #metagenome assembly
 metaspades.py -t $PBS_NUM_PPN \
-	--pe-1 1 $1_fwd --pe-2 1 $1_rev \
-	--pe-1 2 $2_fwd --pe-2 2 $2_rev \ \
+	--pe-1 1 ${1_fwd} --pe-2 1 ${1_rev} \
+	--pe-1 2 ${2_fwd} --pe-2 2 ${2_rev} \
 	-o $SCRATCHDIR
 
 # #metagenome specifying k-mers
@@ -44,5 +44,5 @@ metaspades.py -t $PBS_NUM_PPN \
 # --pe2-m $pe2m --pe2-1 $pe21 --pe2-2 $pe22 --pe2-s $pe2u \
 
 #copy results back
-rm $1_fwd $1_rev $2_fwd $2_rev
+rm ${1_fwd} ${1_rev} ${2_fwd} ${2_rev}
 cp -r * $datadir'2-spades/'
