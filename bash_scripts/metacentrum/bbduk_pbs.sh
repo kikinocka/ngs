@@ -10,22 +10,22 @@ cat $PBS_NODEFILE
 module add bbmap-36.92
 
 
-raw_dir='/storage/brno3-cerit/home/kika/p57/jaculum/reads/'
+raw_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/1-reads/'
 # trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'1_1.fastq.gz' $SCRATCHDIR
-cp $raw_dir'1_2.fastq.gz' $SCRATCHDIR
+cp $raw_dir'P1B_deep_S1_L001_R1_001.fastq.gz' $SCRATCHDIR
+cp $raw_dir'P1B_deep_S1_L001_R2_001.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='jac'
-fw='1_1.fastq.gz'
-rv='1_2.fastq.gz'
+name='P1B_deep'
+fw='P1B_deep_S1_L001_R1_001.fastq.gz'
+rv='P1B_deep_S1_L001_R2_001.fastq.gz'
 # single='2-T-brucei-cyto.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
