@@ -14,23 +14,19 @@ datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.
 reads=$datadir'1-reads/'
 
 #copy reads to scratch
-cp $reads'P1B_deep_trimmed_1.fq.gz' $reads'P1B_deep_trimmed_2.fq.gz' $SCRATCHDIR
-cp $reads'P1B_trimmed_1.fq.gz' $reads'P1B_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P1B_all_trimmed_1.fq.gz' $reads'P1B_all_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd1='P1B_deep_trimmed_1.fq.gz'
-rev1='P1B_deep_trimmed_2.fq.gz'
-fwd2='P1B_trimmed_1.fq.gz'
-rev2='P1B_trimmed_2.fq.gz'
+fwd='P1B_all_trimmed_1.fq.gz'
+rev='P1B_all_trimmed_2.fq.gz'
 
 #metagenome assembly
 metaspades.py -t $PBS_NUM_PPN \
-	--pe1-1 $fwd1 --pe1-2 $rev1 \
-	--pe2-1 $fwd2 --pe2-2 $rev2 \
-	-o $SCRATCHDIR
+	-1 $fwd -2 $rev \
+	-o metaspades
 
 # #metagenome specifying k-mers
 # metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o spades_kmers
