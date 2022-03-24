@@ -21,15 +21,15 @@ cp $reads'P1B_trimmed_1.fq.gz' $reads'P1B_trimmed_2.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-1_fwd='P1B_deep_trimmed_1.fq.gz'
-1_rev='P1B_deep_trimmed_2.fq.gz'
-2_fwd='P1B_trimmed_1.fq.gz'
-2_rev='P1B_trimmed_2.fq.gz'
+fwd1='P1B_deep_trimmed_1.fq.gz'
+rev1='P1B_deep_trimmed_2.fq.gz'
+fwd2='P1B_trimmed_1.fq.gz'
+rev2='P1B_trimmed_2.fq.gz'
 
 #metagenome assembly
 metaspades.py -t $PBS_NUM_PPN \
-	--pe-1 1 ${1_fwd} --pe-2 1 ${1_rev} \
-	--pe-1 2 ${2_fwd} --pe-2 2 ${2_rev} \
+	--pe1-1 $fwd1 --pe1-2 $rev1 \
+	--pe2-1 $fwd2 --pe2-2 $rev2 \
 	-o $SCRATCHDIR
 
 # #metagenome specifying k-mers
@@ -44,5 +44,5 @@ metaspades.py -t $PBS_NUM_PPN \
 # --pe2-m $pe2m --pe2-1 $pe21 --pe2-2 $pe22 --pe2-s $pe2u \
 
 #copy results back
-rm ${1_fwd} ${1_rev} ${2_fwd} ${2_rev}
+rm *gz
 cp -r * $datadir'2-spades/'
