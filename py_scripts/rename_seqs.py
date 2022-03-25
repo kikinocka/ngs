@@ -16,7 +16,7 @@ from Bio import SeqIO
 # 				out.write('>{}__{}\n{}\n'.format(file_name, seq.name, str(seq.seq).replace('-', '')))
 
 os.chdir('/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_filtration-20220127/')
-assembly = SeqIO.parse('enan.trinity.NRfilt.faa')
+assembly = SeqIO.parse('enan.trinity.NRfilt.faa', 'fasta')
 
 with open('enan.trinity.NRfilt_renamed.faa') as out:
 	for seq in assembly:
