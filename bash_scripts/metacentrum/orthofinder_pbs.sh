@@ -13,7 +13,7 @@ module add orthofinder-2.0.0
 data='/storage/brno3-cerit/home/kika/archamoebae/'
 
 #copy files to scratch
-cp $data'prot_assemblies_filtration-20220127/'*.fa $SCRATCHDIR
+cp $data'prot_assemblies_filtration-20220127/'*.faa $SCRATCHDIR
 cp $data'refs/'*.faa $SCRATCHDIR
 
 
