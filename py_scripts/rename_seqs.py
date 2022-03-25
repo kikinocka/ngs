@@ -18,6 +18,6 @@ from Bio import SeqIO
 os.chdir('/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_filtration-20220127/')
 assembly = SeqIO.parse('enan.trinity.NRfilt.faa', 'fasta')
 
-with open('enan.trinity.NRfilt_renamed.faa') as out:
+with open('enan.trinity.NRfilt_renamed.faa', 'w') as out:
 	for seq in assembly:
 		out.write('>esp_{}\n{}\n'.format(seq.description, seq.seq))
