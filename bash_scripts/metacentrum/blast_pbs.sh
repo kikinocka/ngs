@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N blast
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=3gb
+#PBS -l select=1:ncpus=20:mem=30gb:scratch_local=3gb
 #PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 
 query='eukprot_sec16.hmm_hits.fa'
 out='eukprot_sec16.hmm_hits.rev_blast.xml'
-db='/storage/projects/BlastDB/nr'
+db='/storage/projects/BlastDB/refseq_protein'
 program=blastp
 task=blastp
 eval=1e-05
