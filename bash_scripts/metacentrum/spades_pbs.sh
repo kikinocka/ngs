@@ -10,18 +10,18 @@ cat $PBS_NODEFILE
 #add modules
 module add spades-3.14.0
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
 reads=$datadir'1-reads/'
 
 #copy reads to scratch
-cp $reads'P1B_all_trimmed_1.fq.gz' $reads'P1B_all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'P3S_all_trimmed_1.fq.gz' $reads'P3S_all_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd='P1B_all_trimmed_1.fq.gz'
-rev='P1B_all_trimmed_2.fq.gz'
+fwd='P3S_all_trimmed_1.fq.gz'
+rev='P3S_all_trimmed_2.fq.gz'
 
 #metagenome assembly
 metaspades.py -t $PBS_NUM_PPN \
