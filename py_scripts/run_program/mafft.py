@@ -19,11 +19,11 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 		mafft, file, out, log), shell=True)
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/ArfGAPs/Schlacht_etal_2013/ArfGAP_sequences/ag-smap-acap.mafft.aln'
-add = 'trees/ArfGAPs/ag-smap/euglenozoans.fa'
-out = 'trees/ArfGAPs/ag-smap-acap/ver2/ag-smap-acap.mafft.aln'
-log = 'trees/ArfGAPs/ag-smap-acap/ver2/ag-smap-acap.mafft.log'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/ag-smap-acap/')
+existing = 'ver2/ag-smap-acap.mafft.aln'
+add = 'add.fa'
+out = 'ver3/ag-smap-acap.mafft.aln'
+log = 'ver3/ag-smap-acap.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
