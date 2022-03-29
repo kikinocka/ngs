@@ -6,7 +6,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 # #align de-novo
-# os.chdir('/Users/kika/ownCloud/archamoebae/trees/LPLA/ver3/')
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/ArfGAPs/Schlacht_etal_2013/ArfGAP_sequences/')
 # files = [x for x in os.listdir() if x.endswith('.fa')]
 
 # for file in files:
@@ -20,10 +20,10 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/ArfGAPs/Shweta_alns/Supplementary_File_2.aln'
-add = 'trees/ArfGAPs/ag-smap/euglenozoans.fa'
-out = 'trees/ArfGAPs/ag-smap/ag-smap_mask.mafft.aln'
-log = 'trees/ArfGAPs/ag-smap/ag-smap_mask.mafft.log'
+existing = 'queries/ArfGAPs/trees/ArfGAPs/ag-smap/problematic.fa'
+add = 'trees/ArfGAPs/ag-smap/ver2/ag-smap.mafft.aln'
+out = 'trees/ArfGAPs/ag-smap/ver2/ag-smap.mafft.aln'
+log = 'trees/ArfGAPs/ag-smap/ver2/ag-smap.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
