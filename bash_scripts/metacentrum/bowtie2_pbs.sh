@@ -16,7 +16,7 @@ read_dir=$assembly_dir'transcriptome_reads/'
 mapping_dir=$assembly_dir'bw2_RNA_to_genome/'
 
 #copy files to scratch
-cp $assembly_dir'modryi_scaffolds_transc.fasta' $SCRATCHDIR
+cp $assembly_dir'triat_scaffolds.fasta' $SCRATCHDIR
 cp $read_dir'triat_trimmed_1.fq.gz' $SCRATCHDIR
 cp $read_dir'triat_trimmed_2.fq.gz' $SCRATCHDIR
 
@@ -25,7 +25,7 @@ cp $read_dir'triat_trimmed_2.fq.gz' $SCRATCHDIR
 cd $SCRATCHDIR
 
 base_name='triat.bw2'
-ref='modryi_scaffolds_transc.fasta'
+ref='triat_scaffolds.fasta'
 p1_1='triat_trimmed_1.fq.gz'
 p1_2='triat_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
