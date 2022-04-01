@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/proteomics/')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/Gertraud/dpap_transcripts.fa'
+database = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/p57_annotation_peptides.fasta'
 
 for accessions in files: 
 	print(accessions)

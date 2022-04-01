@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/p57/jaculum/'
-read_dir=$assembly_dir'reads/'
-mapping_dir=$assembly_dir'bw2/'
+assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/triatomae/'
+read_dir=$assembly_dir'transcriptome_reads/'
+mapping_dir=$assembly_dir'bw2_RNA_to_genome/'
 
 #copy files to scratch
 cp $assembly_dir'modryi_scaffolds_transc.fasta' $SCRATCHDIR
-cp $read_dir'jac_trimmed_1.fq.gz' $SCRATCHDIR
-cp $read_dir'jac_trimmed_2.fq.gz' $SCRATCHDIR
+cp $read_dir'triat_trimmed_1.fq.gz' $SCRATCHDIR
+cp $read_dir'triat_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='jac.bw2'
+base_name='triat.bw2'
 ref='modryi_scaffolds_transc.fasta'
-p1_1='jac_trimmed_1.fq.gz'
-p1_2='jac_trimmed_2.fq.gz'
+p1_1='triat_trimmed_1.fq.gz'
+p1_2='triat_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
 

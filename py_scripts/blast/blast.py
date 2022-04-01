@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Users/kika/ownCloud/membrane-trafficking/BLASTs/arfGAPs.fa'
-db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
-out = '/Users/kika/ownCloud/membrane-trafficking/BLASTs/arfGAPs.rev_Hsap.blast.xml'
-evalue = 1
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/p57_annotation_peptides.fasta'
+db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/triat_scaffolds.fasta'
+out = '/Users/kika/ownCloud/blasto_comparative/proteins/triat.blast_p57proteins.xml'
+evalue = 1e-02
 outfmt = 5
 hits = 1
 word_size = 3
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/BLASTs/arfGAPs.rev_Hsap.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/BLASTs/arfGAPs.rev_Hsap.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat.blast_p57proteins.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat.best_blast_p57proteins.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
