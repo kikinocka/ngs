@@ -2,8 +2,8 @@
 from Bio import SeqIO
 from collections import OrderedDict
 
-sequences = SeqIO.parse('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/bexlh_ins_nt.txt', 'fasta')
-table = open('/home/kika/MEGAsync/blasto_project/orthofinder/sg_ogs/jac_renamed/bexlh_ins_cu.tsv', 'w')
+sequences = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.fna', 'fasta')
+table = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_CU.tsv', 'w')
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 

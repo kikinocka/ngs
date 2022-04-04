@@ -10,18 +10,18 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/ciliates/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles/'
 
 #copy files to scratch
-cp $data'placement/ciliates_v9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
-cp $data'reference_tree/RAxML_bipartitions.ciliates3' $SCRATCHDIR
+cp $data'placement/stramenopiles_V9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'reference_tree/RAxML_bipartitions.stramenopiles3' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='ciliates_v9.trimal_gt-0.25_cons-50.aln'
-tree='RAxML_bipartitions.ciliates3'
+aln='stramenopiles_V9.trimal_gt-0.25_cons-50.aln'
+tree='RAxML_bipartitions.stramenopiles3'
 out='EPARUN'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN

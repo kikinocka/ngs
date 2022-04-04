@@ -6,9 +6,8 @@ from Bio.Blast import NCBIXML
 fasta = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/genomes/triat_scaffolds.fasta', 'fasta')
 nt_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.fna', 'w')
 aa_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.faa', 'w')
-gff_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.gff', 'w')
 err_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat.blast_p57proteins.xml')
+result_handle = open('/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs/triat.blast_p57proteins.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -174,13 +173,12 @@ for contig in fasta:
 					else:
 						seq_end = len(contig.seq)
 				nucleotides = contig.seq[seq_start:seq_end]
-				protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
-				nt_out.write('>{}_{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, nucleotides))
-				aa_out.write('>{}_{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, protein))
-				gff_out.write('{}\tBLAST\tgene\t{}\t{}\t.\t+\t.\tID={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-				gff_out.write('{}\tBLAST\tmRNA\t{}\t{}\t.\t+\t.\tID={};Parent={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-				gff_out.write('{}\tBLAST\texon\t{}\t{}\t.\t+\t.\tID={}.exon1;Parent={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-				gff_out.write('{}\tBLAST\tCDS\t{}\t{}\t.\t+\t.\tID=cds.{};Parent={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
+				if translation(nucleotides[-3:]) == 'B':
+					protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W') + '*'
+				else:
+					protein = translation(nucleotides).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
+				nt_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, nucleotides))
+				aa_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, protein))
 			else:
 				print(contig.name + '_____reverse')
 				reverse = contig.seq.reverse_complement()
@@ -242,18 +240,15 @@ for contig in fasta:
 					else:
 						seq_end = len(reverse)
 				nucleotides = reverse[seq_start:seq_end]
-				protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
-				nt_out.write('>{}_{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, nucleotides))
-				aa_out.write('>{}_{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, protein))
-				gff_out.write('{}\tBLAST\tgene\t{}\t{}\t.\t-\t.\tID={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-				gff_out.write('{}\tBLAST\tmRNA\t{}\t{}\t.\t-\t.\tID={};Parent={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-				gff_out.write('{}\tBLAST\texon\t{}\t{}\t.\t-\t.\tID={}.exon1;Parent={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-				gff_out.write('{}\tBLAST\tCDS\t{}\t{}\t.\t-\t.\tID=cds.{};Parent={}\n'.format(contig.name, seq_start+1, seq_end+1, ref_name, ref_name))
-			gff_out.write('###\n')
+				if translation(nucleotides[-3:]) == 'B':
+					protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W') + '*'
+				else:
+					protein = translation(nucleotides).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
+				nt_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, nucleotides))
+				aa_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, protein))
 		else:
 			pass
 
 nt_out.close()
 aa_out.close()
-gff_out.close()
 err_out.close()

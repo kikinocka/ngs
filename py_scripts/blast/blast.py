@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/p57_annotation_peptides.fasta'
+query = '/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.faa'
 db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/triat_scaffolds.fasta'
-out = '/Users/kika/ownCloud/blasto_comparative/proteins/triat.blast_p57proteins.xml'
+out = '/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.blast_genome.xml'
 evalue = 1e-02
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat.blast_p57proteins.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat.best_blast_p57proteins.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.blast_genome.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.best_blast_genome.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
