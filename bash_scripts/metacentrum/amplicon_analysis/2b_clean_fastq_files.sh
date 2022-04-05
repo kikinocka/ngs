@@ -37,16 +37,16 @@ FINAL_FASTA=${INPUT/.fastq/.fasta}
 LOG=${INPUT/.fastq/.log}
 
 # Get reads containing forward primer
-${CUTADAPT} --format=fastq --discard-untrimmed -g PRIMER_F=${PRIMER_F} -o ${TMP_FORWARD} ${INPUT} > ${LOG}
+${CUTADAPT} --discard-untrimmed -g PRIMER_F=${PRIMER_F} -o ${TMP_FORWARD} ${INPUT} > ${LOG}
 
 # Get reads containing reverse primer
-${CUTADAPT} --format=fastq --discard-untrimmed -a PRIMER_R=${PRIMER_R} -o ${TMP_REVERSE} ${TMP_FORWARD} >> ${LOG}
+${CUTADAPT} --discard-untrimmed -a PRIMER_R=${PRIMER_R} -o ${TMP_REVERSE} ${TMP_FORWARD} >> ${LOG}
 
 # Get reads containing anti-reverse primer (in 5' position)
-${CUTADAPT} --format=fastq --discard-untrimmed -g ANTI_PRIMER_R=${ANTI_PRIMER_R} -o ${TMP_ANTI_FORWARD} ${INPUT} >> ${LOG}
+${CUTADAPT} --discard-untrimmed -g ANTI_PRIMER_R=${ANTI_PRIMER_R} -o ${TMP_ANTI_FORWARD} ${INPUT} >> ${LOG}
 
 # Get reads containing anti-forward primer (in 3' position)
-${CUTADAPT} --format=fastq --discard-untrimmed -a ANTI_PRIMER_F=${ANTI_PRIMER_F} -o ${TMP_ANTI_REVERSE} ${TMP_ANTI_FORWARD} >> ${LOG}
+${CUTADAPT} --discard-untrimmed -a ANTI_PRIMER_F=${ANTI_PRIMER_F} -o ${TMP_ANTI_REVERSE} ${TMP_ANTI_FORWARD} >> ${LOG}
 
 # Convert fastq to fasta (reverse-complement the second file)
 (awk '(NR - 2) % 4 == 0' ${TMP_REVERSE}
