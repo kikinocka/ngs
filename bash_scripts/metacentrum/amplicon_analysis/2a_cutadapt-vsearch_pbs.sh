@@ -16,7 +16,7 @@ merged=$data'merged_pear'
 out=$data'trimmed_cutadapt'
 
 #copy files to scratch
-cp $merged/*.assembled.fastq $SCRATCHDIR
+cp $merged'/'*.assembled.fastq $SCRATCHDIR
 cp &scripts'2b_clean_fastq_files.sh' $SCRATCHDIR
 # cp $sl'hashing.py' $SCRATCHDIR
 
