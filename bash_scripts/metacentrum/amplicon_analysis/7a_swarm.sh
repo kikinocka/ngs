@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module add swarm-3.0.0
 
-data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+data='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment//'
 scripts='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/'
 
 #copy files to scratch
