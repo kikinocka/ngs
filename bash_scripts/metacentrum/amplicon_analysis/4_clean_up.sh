@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+data='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/'
 raw=$data'raw_reads/'
 merged=$data'merged_pear/'
 trimmed=$data'trimmed_cutadapt/'
