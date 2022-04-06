@@ -18,7 +18,7 @@ echo 'I am in: ' `pwd`
 for f in *.fastq ; do
 	echo 'Compressing: ' $f
     bzip2 -9 ${f}
-done &
+done
 
 # # clean
 # rm *.assembled.{log,fastq}

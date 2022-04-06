@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module add vsearch-1.4.4
 
-data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+data='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/'
 trimmed=$data'trimmed_cutadapt'
 
 #copy file to scratch
