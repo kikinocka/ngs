@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N cutadapt-vsearch
-#PBS -l select=1:ncpus=1:mem=150gb:scratch_local=500gb
+#PBS -l select=1:ncpus=1:mem=10gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
