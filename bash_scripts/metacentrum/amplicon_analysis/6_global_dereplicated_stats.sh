@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+data='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/'
 fasta=$data'global_dereplicated.fa'
 out=$data'global.stats.txt'
 
