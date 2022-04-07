@@ -37,6 +37,8 @@ ls -1 ./*.fas | cut -d '/' -f 2 | sort -d | uniq -d
 python ${SCRIPT} ./*.fas > ${OUTPUT} &
 # python ${SCRIPT} ./[1-9]*.fas > ${OUTPUT} &
 
+export CLEAN_SCRATCH=false
+
 
 #copy files back
 # rm *fas ${SCRIPT}
