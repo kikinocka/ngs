@@ -9,9 +9,9 @@ cat $PBS_NODEFILE
 
 module add python-3.6.2-gcc
 
-data='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/trimmed_cutadapt'
+data='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/trimmed_cutadapt'
 script_dir='/storage/brno2/home/kika/scripts/bash_scripts/metacentrum/amplicon_analysis/'
-out='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
+out='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/'
 
 #copy files to scratch
 cp $data'/'*.fas $SCRATCHDIR
