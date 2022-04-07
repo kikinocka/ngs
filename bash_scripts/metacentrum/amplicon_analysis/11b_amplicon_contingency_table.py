@@ -65,8 +65,12 @@ def main():
     all_amplicons, amplicons2samples, samples = fasta_parse()
 
     # Sort amplicons by decreasing abundance (and by amplicon name)
-    sorted_all_amplicons = sorted(all_amplicons.iteritems(),
+    #python3
+    sorted_all_amplicons = sorted(all_amplicons.items(),
                                   key=operator.itemgetter(1, 0))
+    #pyton2
+    # sorted_all_amplicons = sorted(all_amplicons.iteritems(),
+    #                               key=operator.itemgetter(1, 0))
     sorted_all_amplicons.reverse()
 
     # Print table header
