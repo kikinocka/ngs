@@ -30,6 +30,7 @@ SCRIPT='11b_amplicon_contingency_table.py'
 # fi
 
 
+#check for duplicated fasta
 ls -1 ./*.fas | cut -d '/' -f 2 | sort -d | uniq -d
 # ls -1 ./[1-9]*.fas | cut -d '/' -f 2 | sort -d | uniq -d
 
