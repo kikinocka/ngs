@@ -350,7 +350,7 @@ if os.path.exists(prefix + ".targetp.txt"):
 if os.path.exists(prefix + ".targetp2.txt"):
 	print("Found TargetP2 output")
 	targetp2 = open(prefix + ".targetp2.txt").read().split('\n') #PLANT + NONPLANT
-	possiblepredstargetp = {"mTP": "MT", "cTP": "PT", "luTP": "THYLAKOID", "SP": "SIGNAL", "noTP": "CYT"}
+	possiblepredstargetp = {"mTP": "MT", "cTP": "PT", "luTP": "THYLAKOID", "SEC": "SEC", "noTP": "CYT"}
 	for item in targetp2:
 		#NON-PLANT
 		#Name       Pred    noTP    SP      mTP     CS position
