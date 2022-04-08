@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/transcriptomes/')
-files = [x for x in os.listdir() if x.endswith('triat_trinity.fasta')]
-dbtype = 'nucl'
+os.chdir('/Users/kika/data/kinetoplastids/')
+files = [x for x in os.listdir() if x.endswith('TriTrypDB-56_TbruceiTREU927_AnnotatedProteins.fasta')]
+dbtype = 'prot'
 
 for file in files: 
 	print(file)
