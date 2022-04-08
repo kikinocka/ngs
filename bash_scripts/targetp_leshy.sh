@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 plant='pl'
 non_plant='non-pl'
