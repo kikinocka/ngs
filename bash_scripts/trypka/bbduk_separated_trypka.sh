@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bbduk='/home/kika/tools/bbmap/bbduk.sh'
-threads=40
+threads=30
 
 read_dir='/media/4TB1/blastocrithidia/reads/transcriptome/raw/'
 fw=$read_dir'Blastoc_spP57_1.fastq.gz'
