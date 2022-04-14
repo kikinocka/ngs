@@ -1,9 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-sequences = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.fna', 'fasta')
-table = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_CU.tsv', 'w')
+os.chdir('/Users/kika/ownCloud/blastocrithidia/proteomics/')
+sequences = SeqIO.parse('p57_peptides-genome_seqs.fa', 'fasta')
+table = open('p57_peptides-genome_seqs.codons.tsv', 'w')
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -34,7 +36,7 @@ for sequence in sequences:
 	codons = count_codons(sequence.seq)
 	for value in codons.values():
 		numbers.append(value)
-	table.write('{}_ins length {}'.format(sequence.description, len(sequence.seq)))
+	table.write('{}'.format(sequence.description))
 	for num in numbers:
 		table.write('\t' + str(num))
 	table.write('\n')

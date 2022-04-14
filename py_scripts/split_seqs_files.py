@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Users/kika/ownCloud/archamoebae/DNA_maintenance/replisome_amoebae/')
-seqs = SeqIO.parse('replisome.fa', 'fasta')
+os.chdir('/media/4TB1/blastocrithidia/new_3-UTR/contextmap/Bn_split_genome/')
+seqs = SeqIO.parse('/media/4TB1/blastocrithidia/genome_assembly/bnonstop_corrected_assembly.fasta', 'fasta')
 
 for seq in seqs:
-	with open('{}.faa'.format(seq.name), 'w') as result:
+	with open('{}.fa'.format(seq.name), 'w') as result:
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
