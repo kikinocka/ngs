@@ -2,16 +2,16 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/Users/kika/ownCloud/blastocrithidia/proteomics/p57_peptides.fasta'
+cmd = 'blastn'
+task = 'blastn'
+query = '/Users/kika/ownCloud/blastocrithidia/virus/p57_unq_tate.fasta'
 # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
 db = '/Users/kika/ownCloud/blastocrithidia/genome_assembly/blastdb/p57_polished.fa'
-out = '/Users/kika/ownCloud/blastocrithidia/proteomics/p57_peptides.blast_genome.xml'
+out = '/Users/kika/ownCloud/blastocrithidia/virus/tate_genome.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
-word_size = 3
+word_size = 4
 threads = 6
 
 print('running BLAST')
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blastocrithidia/proteomics/p57_peptides.blast_genome.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blastocrithidia/proteomics/p57_peptides.best_blast_genome.tsv', 'w')
+output = open('/Users/kika/ownCloud/blastocrithidia/virus/tate_genome.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blastocrithidia/virus/tate_genome.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
 	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

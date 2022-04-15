@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/p57_annotation_peptides.fasta'
+database = '/opt/databases/eukprot/current/EukProt_v2_renamed.faa'
 
 for accessions in files: 
 	print(accessions)
