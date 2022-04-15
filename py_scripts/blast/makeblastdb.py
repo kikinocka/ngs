@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/kinetoplastids/')
-files = [x for x in os.listdir() if x.endswith('TriTrypDB-56_TbruceiTREU927_AnnotatedProteins.fasta')]
+os.chdir('/Users/kika/data/eukprot/')
+files = [x for x in os.listdir() if x.endswith('EP00362_Geleiidae_sp_Unknown.fasta')]
 dbtype = 'prot'
 
 for file in files: 
