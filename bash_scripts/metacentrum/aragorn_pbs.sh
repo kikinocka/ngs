@@ -8,10 +8,10 @@
 cat $PBS_NODEFILE
 
 aragorn='/storage/brno3-cerit/home/kika/miniconda3/pkgs/aragorn-1.2.38-h779adbc_4/bin/aragorn'
-data_dir='/storage/brno3-cerit/home/kika/p57/'
+data_dir='/storage/brno3-cerit/home/kika/p57'
 
 #copy files to scratch
-cp $data_dir'GC'*'/'*.fna $SCRATCHDIR
+cp $data_dir'/'*.fna $SCRATCHDIR
 
 
 #compute on scratch
