@@ -3,16 +3,17 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99_decontaminated/stramenopiles/')
 # v9 = pd.read_csv('Lane26_18S_V9/otu_table.updated.tsv', sep='\t')
 # v4 = pd.read_csv('18S-V4-2018/otu_table.updated.tsv', sep='\t')
 # df = pd.concat([v4, v9])
-df = pd.read_csv('otu_table.V9DS_updated.tsv', sep='\t')
+df = pd.read_csv('ochrophyta.V9DS_updated.no_chimera.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3']] = df.lineage.str.split('|', 2, expand=True)
 
 #supergroups
 total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
+# print(total)
 # total = total[['L17May28BCR_S45', 'V9-BCR-May30-2018_S5', 'L17June4BCR_S53', 'V9-BCR-June04-2018_S7', 'L17June18BCR_S69', 
 # 	'V9-BCR-June18-2018_S32', 'L17July3BCR_S85', 'V9-BCR-July03-2018_S34', 'L17July16BCR_S100', 'V9-BCR-July16-2018_S36', 
 # 	'L20BCRAug2018_S158', 'V9-BCR-pIN-Aug20-2018_S55', 'L20BCRAug2718_S166', 'L22BCRinSept1018_S119', 'V9-BCR-pIN-Sept12-2018_S56', 
@@ -59,13 +60,14 @@ transformed = total.T
 # 	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
 # 	'#C9C9C9', '#7FFFD4', '#A6CEE3']
 
-#SL_Euglenozoa
-colors = ['#000000', '#605F5F', '#CD950B', '#FFB90F', '#FFFF99', '#FAEBD7', 
-	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
-	'#C9C9C9', '#BCDEB4', '#7FFFD4', '#A6CEE3']
+# #SL_Euglenozoa
+# colors = ['#000000', '#605F5F', '#CD950B', '#FFB90F', '#FFFF99', '#FAEBD7', 
+# 	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
+# 	'#C9C9C9', '#BCDEB4', '#7FFFD4', '#A6CEE3']
+colors = ['#CAB2D6']
 
-transformed = transformed[['No_hit', 'Eukaryota_X', 'Mantamonadidea', 'Ancyromonadida', 'Cryptista', 'Haptista', 'Stramenopiles', 
-	'Alveolata', 'Rhizaria', 'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Malawimonadidae', 'Metamonada', 'Discoba']]
+# transformed = transformed[['No_hit', 'Eukaryota_X', 'Mantamonadidea', 'Ancyromonadida', 'Cryptista', 'Haptista', 'Stramenopiles', 
+# 	'Alveolata', 'Rhizaria', 'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Malawimonadidae', 'Metamonada', 'Discoba']]
 
 # #metamonads
 # meta = df[df.rank3.isin(['Metamonada'])]
@@ -101,4 +103,4 @@ ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=4, frameon=False)
 # ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
 plt.tight_layout()
 # plt.show()
-plt.savefig('supergroups.pdf', dpi=300)
+plt.savefig('ochrophytes.pdf', dpi=300)

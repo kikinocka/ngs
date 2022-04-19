@@ -2,13 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/kika/ownCloud/SAGs/phylogenomics/')
-files = [x for x in os.listdir() if x.endswith('fas')]
+os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/tRNAs/ciliates/')
+files = [x for x in os.listdir() if x.endswith('aragorn.fa')]
 
-with open('D1_seqs.fa', 'w') as out:
+with open('stop-TCA-tRNAs.fa', 'w') as out:
 	for file in files:
 		print(file)
-		name = file.split('_')[0]
+		name = '{}_{}'.format(file.split('_')[0], file.split('_')[1])
+		c = 0
 		for seq in SeqIO.parse(file, 'fasta'):
-			if seq.name == 'D1Redo':
-				out.write('>{} {}\n{}\n'.format(name, seq.name, str(seq.seq).replace('-', '')))
+			if '(tca)' in seq.name:
+				c += 1
+				out.write('>{} {}\n{}\n'.format(name, seq.description, seq.seq))
+		print(c)

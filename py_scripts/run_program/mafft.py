@@ -13,10 +13,12 @@ for file in files:
 	print(file)
 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
 	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
-	# 	mafft, file, out, log), shell=True)
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
 		mafft, file, out, log), shell=True)
+	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+	# 	mafft, file, out, log), shell=True)
+	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(
+	# 	mafft, file, out, log), shell=True)
 
 # #add to aligned sequences
 # os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/ag-smap-acap/')
