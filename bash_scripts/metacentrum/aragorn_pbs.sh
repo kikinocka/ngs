@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N aragorn
 #PBS -l select=1:ncpus=1:mem=1gb:scratch_local=5gb
-#PBS -l walltime0=2:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
