@@ -24,7 +24,7 @@ plt.bar(x_axis - 0.2, mito, 0.2, yerr=mito_std, capsize=3, label='mito', color=c
 plt.bar(x_axis - 0.0, cyto, 0.2, yerr=cyto_std, capsize=3, label='cyto', color=colors[0][1])
 plt.bar(x_axis + 0.2, cell, 0.2, yerr=cell_std, capsize=3, label='cell', color=colors[0][2])
 plt.xticks(x_axis, proteins)
-plt.ylim([0,21000000])
+plt.ylim([0,850000])
 plt.legend(frameon=False)
 plt.title('E1')
 # plt.show()
