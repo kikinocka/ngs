@@ -2,16 +2,23 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/tRNAs/ciliates/')
+os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/tRNAs/ciliates/sequences/')
 files = [x for x in os.listdir() if x.endswith('aragorn.fa')]
+names = open('ciliates_names.txt')
 
-with open('Trp-tRNAs.fa', 'w') as out:
+nd = {}
+for line in names:
+	nd[line.split('\t')[0]] = line.strip().split('\t')[1]
+
+with open('Trp-tRNAs_renamed.fa', 'w') as out:
 	for file in files:
 		print(file)
-		name = '{}_{}'.format(file.split('_')[0], file.split('_')[1])
+		fname = '{}_{}'.format(file.split('_')[0], file.split('_')[1])
 		c = 0
-		for seq in SeqIO.parse(file, 'fasta'):
-			if 'Trp' in seq.name:
-				c += 1
-				out.write('>{} {}\n{}\n'.format(name, seq.description, seq.seq))
-		print(c)
+		if fname in nd.keys():
+			for seq in SeqIO.parse(file, 'fasta'):
+				if 'Trp' in seq.name:
+					c += 1
+					out.write('>{}__{}__{}\n{}\n'.format(nd[fname], fname, c, seq.seq))
+		else:
+			print('{} not in names'.format(fname))

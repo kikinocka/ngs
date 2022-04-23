@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/archam_trees/mge1/eukprot_search/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 db='/mnt/mokosz/home/zoli/DMND/EukProt_v2_renamed.faa'
 orgn='eukprot'
