@@ -7,7 +7,7 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
 os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/NMD/ciliates/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+files = [x for x in os.listdir() if x.endswith('upf3.fa')]
 
 for file in files:
 	print(file)
