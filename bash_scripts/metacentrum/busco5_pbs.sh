@@ -15,7 +15,7 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/triatomae'
+assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_filtration-20220127'
 
 #copy files to scratch
 cp $assembly_dir'/'*.faa $SCRATCHDIR
@@ -25,16 +25,16 @@ cp $assembly_dir'/'*.faa $SCRATCHDIR
 cd $SCRATCHDIR
 
 mode='prot'
-lineage='euglenozoa_odb10'
+lineage='eukaryota_odb10'
 
-# mkdir BUSCO_summaries_$lineage
+mkdir BUSCO_summaries_$lineage
 
 for fasta in *.faa; do
 	echo $fasta
 	base=${fasta}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	
-	# cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
+	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 done
 
 generate_plot.py -wd BUSCO_summaries_$lineage
