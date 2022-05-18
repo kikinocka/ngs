@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/18S_ciliate_tree/')
-trees = [x for x in os.listdir() if x.endswith('.tree')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/Atm1/')
+trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('ciliates_names.txt')
+names = open('atm1_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	# new = split_line[1]
-	new = split_line[0] + ' ' + split_line[1]
+	new = split_line[1]
+	# new = split_line[0] + ' ' + split_line[1]
 	name_dict[split_line[0]] = new
 
 # print(name_dict)
