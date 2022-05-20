@@ -26,7 +26,6 @@ aligner='mafft-linsi'
 tree='iqtree'
 
 singularity shell -B /afs,/software,/packages /software/phylomagnet/PhyloMagnet.sif <<END
-#add module
 module add phylomagnet-0.7
 
 nextflow run /software/phylomagnet/0.7/main.nf \
