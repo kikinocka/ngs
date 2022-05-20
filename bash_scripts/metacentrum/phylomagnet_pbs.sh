@@ -7,10 +7,6 @@
 
 cat $PBS_NODEFILE
 
-#add module
-singularity shell -B /afs,/software,/packages /software/phylomagnet/PhyloMagnet.sif <<END
-module add phylomagnet-0.7
-
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
 eggnog_dir='/storage/brno3-cerit/home/kika/databases/'
 
@@ -28,6 +24,10 @@ eggnog='eggnog_ogs.txt'
 lineage='Cryptophyceae,Intramacronucleata,family'
 aligner='mafft-linsi'
 tree='iqtree'
+
+singularity shell -B /afs,/software,/packages /software/phylomagnet/PhyloMagnet.sif <<END
+#add module
+module add phylomagnet-0.7
 
 nextflow run /software/phylomagnet/0.7/main.nf \
 	--reference_classes $eggnog\
