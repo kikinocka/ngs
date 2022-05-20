@@ -19,7 +19,7 @@ cp $eggnog_dir'eggnog_ogs.txt' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-reads='P3S_all_trimmed_'*'.fq.gz'
+reads='P3S_all_trimmed_*.fq.gz'
 eggnog='eggnog_ogs.txt'
 lineage='Cryptophyceae,Intramacronucleata,family'
 aligner='mafft-linsi'
