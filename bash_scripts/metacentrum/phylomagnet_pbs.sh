@@ -11,15 +11,15 @@ data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds
 eggnog_dir='/storage/brno3-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $data_dir'1-reads/P3S_all_trimmed_1.fq.gz' $SCRATCHDIR
-cp $data_dir'1-reads/P3S_all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $data_dir'1-reads/P3S_all_trimmed_combined.fq.gz' $SCRATCHDIR
+# cp $data_dir'1-reads/P3S_all_trimmed_2.fq.gz' $SCRATCHDIR
 cp $eggnog_dir'eggnog_ogs.txt' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-reads='P3S_all_trimmed_1.fq.gz,P3S_all_trimmed_2.fq.gz'
+reads='P3S_all_trimmed_combined.fq.gz'
 eggnog='eggnog_ogs.txt'
 lineage='Cryptophyceae,Intramacronucleata,family'
 aligner='mafft-linsi'
