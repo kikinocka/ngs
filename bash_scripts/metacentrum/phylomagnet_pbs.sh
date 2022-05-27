@@ -25,7 +25,7 @@ lineage='Cryptophyceae,Intramacronucleata,family'
 aligner='mafft-linsi'
 tree='iqtree'
 
-singularity shell -B /afs,/software,/packages /software/phylomagnet/PhyloMagnet.sif <<END
+singularity shell -B /afs,/software,/packages,$SCRATCHDIR /software/phylomagnet/PhyloMagnet.sif <<END
 module add phylomagnet-0.7
 
 nextflow run /software/phylomagnet/0.7/main.nf \

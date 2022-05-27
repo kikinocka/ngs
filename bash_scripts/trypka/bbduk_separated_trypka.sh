@@ -4,10 +4,10 @@ bbduk='/home/kika/tools/bbmap/bbduk.sh'
 threads=30
 
 read_dir='/media/4TB1/blastocrithidia/reads/transcriptome/raw/'
-fw=$read_dir'Blastoc_triat_1.fastq.gz'
-rv=$read_dir'Blastoc_triat_2.fastq.gz'
-trimdir='/media/4TB1/blastocrithidia/new_3-UTR/'
-name='triat'
+fw=$read_dir'p57_3-end_enriched_1.fastq.gz'
+rv=$read_dir'p57_3-end_enriched_2.fastq.gz'
+trimdir='/media/4TB1/blastocrithidia/new_3-UTR/20220523_trimmed_RNA_reads/'
+name='p57_3-end'
 trimmed_fw=$trimdir$name'_trimmed_1.fq.gz'
 trimmed_rv=$trimdir$name'_trimmed_2.fq.gz'
 report=$trimdir$name"_bbduk_report.txt"
