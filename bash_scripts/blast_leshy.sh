@@ -2,8 +2,8 @@
 
 cd '/tmp/kika/'
 
-query='v9.no_chimera.15-99.fa'
-out='v9.no_chimera.15-99.blast.xml'
+query='cestodes.fa'
+out='cestodes.blast.xml'
 # db='/opt/databases/eukprot/current/blast/eukprot'
 # db='/opt/databases/nr_auto/current/nr'
 db='/opt/databases/nt_auto/current/blast/nt'
