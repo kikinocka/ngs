@@ -7,3 +7,6 @@ fasta='/mnt/mokosz/home/kika/workdir/cestodes.fa'
 aln='/mnt/mokosz/home/kika/workdir/cestodes.silva.aln'
 
 $sina -i $fasta --intype fasta -o $aln --outtype fasta --ptdb $database
+
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py SINA done
