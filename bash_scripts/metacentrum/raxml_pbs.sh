@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=336:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles/reference_tree/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/heterolobosea/ver2/reference_tree/'
 
 #copy files to scratch
-cp $data'stramenopiles.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'heterolobosea.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='stramenopiles.trimal_gt-0.25_cons-50.aln'
-out='stramenopiles'
+aln='heterolobosea.trimal_gt-0.25_cons-50.aln'
+out='heterolobosea'
 
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N 100 -f d -s $aln -n $out\2 -T $PBS_NUM_PPN
