@@ -35,5 +35,6 @@ quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
 
 
 #copy results to your folder
-rm *.fa
+rm $assemblies
+# rm *.fa
 cp -r * $outdir
