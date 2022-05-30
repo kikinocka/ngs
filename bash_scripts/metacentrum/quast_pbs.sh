@@ -21,6 +21,7 @@ cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
 cd $SCRATCHDIR
 
 assemblies='scaffolds.fasta'
+min_contig=500
 
 quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
 # quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --glimmer --min-contig $min_contig --eukaryote $assemblies
