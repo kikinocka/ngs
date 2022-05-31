@@ -23,10 +23,10 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/ARFs/ScrollSaw_output_untrimmed_354seq.updated.aln'
-add = 'trees/ARFs/ver9/euglenozoans.fa'
-out = 'trees/ARFs/ver9/arfs.mafft.aln'
-log = 'trees/ARFs/ver9/arfs.mafft.log'
+existing = 'queries/SM/SM_proteins.updated.aln'
+add = 'trees/SM/ver4/euglenozoans.fa'
+out = 'trees/SM/ver4/sm.mafft.aln'
+log = 'trees/SM/ver4/sm.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
