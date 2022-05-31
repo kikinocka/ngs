@@ -5,30 +5,30 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/all_adaptors/ver4/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/all_adaptors/ver4/')
+# files = [x for x in os.listdir() if x.endswith('.fa')]
 
-for file in files:
-	print(file)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
-	# 	mafft, file, out, log), shell=True)
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
-	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(
-	# 	mafft, file, out, log), shell=True)
+# for file in files:
+# 	print(file)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
+# 	# 	mafft, file, out, log), shell=True)
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
+# 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(
+# 	# 	mafft, file, out, log), shell=True)
 
 
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99/heterolobosea/')
-# existing = 'heterolobosea.mafft.aln'
-# add = 'ver2/v9.fa'
-# out = 'ver2/placement/heterolobosea_v9.mafft.aln'
-# log = 'ver2/placement/heterolobosea_v9.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+#add to aligned sequences
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
+existing = 'queries/ARFs/ScrollSaw_output_untrimmed_354seq.updated.aln'
+add = 'trees/ARFs/ver9/euglenozoans.fa'
+out = 'trees/ARFs/ver9/arfs.mafft.aln'
+log = 'trees/ARFs/ver9/arfs.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 
 # #merge alignments
