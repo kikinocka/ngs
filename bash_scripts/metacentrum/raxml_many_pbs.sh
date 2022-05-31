@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -20,10 +20,11 @@ cp $data'/'*.aln $SCRATCHDIR
 cd $SCRATCHDIR
 
 for aln in *.aln; do
+	echo $aln
 	out=${aln%.trimal_gt-0.8.aln}
 
 	#proteins
-	raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f d -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 -s $aln -n $out
+	raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 -s $aln -n $out
 
 	# #18S
 	# raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
