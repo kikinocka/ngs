@@ -10,7 +10,7 @@ echo $HOSTNAME
 date
 
 ##run mrbayes program
-cd '/home/kristinaz/trafficking/all_adaptors'
+cd '/home/kristinaz/trafficking/all_adaptors/'
 
 
 for aln in *.nex; do
