@@ -10,15 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/tvag'
+datadir='/storage/brno3-cerit/home/kika/diplonema/pdh/ver10'
 
 #copy files to scratch
-cp $datadir'/'*.aln $SCRATCHDIR
+# cp $datadir'/'*.aln $SCRATCHDIR
+cp $datadir'/E1a.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='rabs.trimal_gt-0.8.aln'
+aln='E1a.trimal_gt-0.8.filtered-50.aln'
 # guide='guide_tbcs'
 # guide_tree=$guide'.treefile'
 bb=1000
