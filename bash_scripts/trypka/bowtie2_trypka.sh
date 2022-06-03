@@ -3,13 +3,13 @@
 # bw2_dir='/home/kika/miniconda3/pkgs/bowtie2-2.3.4.2-py36h2d50403_0/bin/'
 ref='/media/4TB1/blastocrithidia/genome_assembly/bnonstop_corrected_assembly.fasta'
 
-read_dir='/media/4TB1/blastocrithidia/new_3-UTR/20220523_trimmed_RNA_reads/'
-p1_1=$read_dir'p57_3-end_trimmed_1.fq.gz'
-p1_2=$read_dir'p57_3-end_trimmed_2.fq.gz'
+read_dir='/media/4TB1/blastocrithidia/new_3-UTR/20220603_trimmed_RNA_reads_mink5/'
+p1_1=$read_dir'p57_trimmed_1.fq.gz'
+p1_2=$read_dir'p57_trimmed_2.fq.gz'
 
 
-cd '/media/4TB1/blastocrithidia/new_3-UTR/20220523_bw2_mapping_genome/p57_3-end/'
-base_name='p57_3-end'
+cd '/media/4TB1/blastocrithidia/new_3-UTR/20220603_bw2_mapping_genome/p57/'
+base_name='p57'
 samfile=$base_name'.sam'
 report=$base_name'_report.txt'
 # unmapped_unpaired=$base_name'_unmapped_unpaired.fq'
