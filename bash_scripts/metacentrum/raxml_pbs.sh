@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/trafficking/SNARE/'
+data='/storage/brno3-cerit/home/kika/trafficking/TBCs/'
 
 #copy files to scratch
-cp $data'qa.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data'tbcs.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 #proteins
-aln='qa.trimal_gt-0.8.aln'
+aln='tbcs.trimal_gt-0.8.aln'
 out=${aln%.trimal_gt-0.8.aln}
 
 raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 -s $aln -n $out
@@ -37,4 +37,4 @@ raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 
 
 #copy files back
 rm $aln
-cp -R * $data
+cp -R * $data'RAxML'
