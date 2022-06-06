@@ -23,7 +23,7 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-existing = 'queries/TBCs/ks-ref/TBC_eukref_mafft_notryp.aln'
+existing = 'queries/TBCs/ks-ref/TBC_LECA_mafft_notryps.aln'
 add = 'trees/TBCs/euglenozoans.fa'
 out = 'trees/TBCs/tbcs.mafft.aln'
 log = 'trees/TBCs/tbcs.mafft.log'
