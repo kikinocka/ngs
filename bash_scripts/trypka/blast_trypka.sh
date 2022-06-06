@@ -1,7 +1,7 @@
 #!/bin/bash
-cd '/media/4TB1/blastocrithidia/new_3-UTR/20220523_trinity/blast_genome/'
+cd '/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/'
 
-query='/media/4TB1/blastocrithidia/new_3-UTR/20220523_trinity/Trinity.fasta'
+query='/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/Trinity.fasta'
 out='p57_transcriptome-genome.blast.xml'
 db='/media/4TB1/blastocrithidia/genome_assembly/blastdb/bnonstop_corrected_assembly.fasta'
 program=blastn
