@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N mrbayes-many
-#PBS -l nodes=1,walltime=96:00:00
+#PBS -l nodes=1:ppn=4,walltime=168:00:00
 #PBS -q default
 #PBS -M kika.zahonova@gmail.com
 #PBS -m ae
@@ -15,5 +15,5 @@ cd '/home/kristinaz/trafficking/arfs/'
 
 
 for aln in *.nex; do
-	mb -i $aln
+	mpirun -np 4 mb -i $aln
 done
