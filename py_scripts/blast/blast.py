@@ -50,7 +50,7 @@ for record in blast_records:
 		alen_slen = best_hit.align_length/record.alignments[0].length
 		if best_hit.frame[1] > 0:
 			# print(record.alignments[0].title)
-			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 				record.query, record.query_length, best_hit.frame[0],
 				record.alignments[0].hit_id, record.alignments[0].hit_def, best_hit.frame[1], 
 				record.alignments[0].length, 
@@ -58,7 +58,7 @@ for record in blast_records:
 				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_start, best_hit.sbjct_end, 
 				alen_qlen, alen_slen))
 		else:
-			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 				record.query, record.query_length, best_hit.frame[0],
 				record.alignments[0].hit_id, record.alignments[0].hit_def, best_hit.frame[1], 
 				record.alignments[0].length, 
@@ -73,13 +73,13 @@ for record in blast_records:
 				alen_qlen = hsp.align_length/record.query_length
 				alen_slen = hsp.align_length/aln.length
 				if hsp.frame[1] > 0:
-					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 						record.query, record.query_length, hsp.frame[0],
 						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], hsp.align_length, hsp.expect,
 						pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
 						hsp.sbjct_start, hsp.sbjct_end, alen_qlen, alen_slen))
 				else:
-					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 						record.query, record.query_length, hsp.frame[0],
 						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], hsp.align_length, hsp.expect, 
 						pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
