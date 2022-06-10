@@ -7,7 +7,7 @@ task = 'blastp'
 query = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/oxytricha.fa'
 # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
 db = '/Users/kika/data/eukprot/EP00359_Climacostomum_virens.fasta'
-out = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/EP00359_eRF1.blast.xml'
+out = '/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -30,14 +30,14 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/EP00359_eRF1.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/EP00359_eRF1.best_blast.tsv', 'w')
+output = open('/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.blast.tsv', 'w')
+out_best = open('/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.best_blast.tsv', 'w')
 
-output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
-	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
+output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
+	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
 	'alen_qlen', 'alen_slen'))
-out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'sseqid', 'sseqdef',
-	'slen', 'alen', 'evalue', 'frame', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
+out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
+	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
 	'alen_qlen', 'alen_slen'))
 
 for record in blast_records:
@@ -51,14 +51,18 @@ for record in blast_records:
 		if best_hit.frame[1] > 0:
 			# print(record.alignments[0].title)
 			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-				record.query, record.query_length, record.alignments[0].hit_id, record.alignments[0].hit_def, record.alignments[0].length, 
-				best_hit.align_length, best_hit.expect, best_hit.frame[1], pident, best_hit.bits, mismatches, 
+				record.query, record.query_length, best_hit.frame[0],
+				record.alignments[0].hit_id, record.alignments[0].hit_def, best_hit.frame[1], 
+				record.alignments[0].length, 
+				best_hit.align_length, best_hit.expect, pident, best_hit.bits, mismatches, 
 				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_start, best_hit.sbjct_end, 
 				alen_qlen, alen_slen))
 		else:
 			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-				record.query, record.query_length, record.alignments[0].hit_id, record.alignments[0].hit_def, record.alignments[0].length, 
-				best_hit.align_length, best_hit.expect, best_hit.frame[1], pident, best_hit.bits, mismatches, 
+				record.query, record.query_length, best_hit.frame[0],
+				record.alignments[0].hit_id, record.alignments[0].hit_def, best_hit.frame[1], 
+				record.alignments[0].length, 
+				best_hit.align_length, best_hit.expect, pident, best_hit.bits, mismatches, 
 				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_end, best_hit.sbjct_start, 
 				alen_qlen, alen_slen))
 		for aln in record.alignments:
@@ -70,13 +74,15 @@ for record in blast_records:
 				alen_slen = hsp.align_length/aln.length
 				if hsp.frame[1] > 0:
 					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-						record.query, record.query_length, aln.hit_id, aln.hit_def, aln.length, hsp.align_length, hsp.expect,
-						hsp.frame[1], pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
+						record.query, record.query_length, hsp.frame[0],
+						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], hsp.align_length, hsp.expect,
+						pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
 						hsp.sbjct_start, hsp.sbjct_end, alen_qlen, alen_slen))
 				else:
 					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-						record.query, record.query_length, aln.hit_id, aln.hit_def, aln.length, hsp.align_length, hsp.expect, 
-						hsp.frame[1], pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
+						record.query, record.query_length, hsp.frame[0],
+						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], hsp.align_length, hsp.expect, 
+						pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
 						hsp.sbjct_end, hsp.sbjct_start, alen_qlen, alen_slen))
 	except:
 		pass

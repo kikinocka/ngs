@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/Atm1/')
+os.chdir('/Users/kika/ownCloud/manuscripts/25_Proteromonas/trees/')
 trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('atm1_names.txt')
+names = open('names.txt')
 
 name_dict = {}
 for name in names:
