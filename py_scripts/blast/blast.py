@@ -2,11 +2,11 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/oxytricha.fa'
-# db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
-db = '/Users/kika/data/eukprot/EP00359_Climacostomum_virens.fasta'
+# cmd = 'blastp'
+# task = 'blastp'
+# query = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/oxytricha.fa'
+# # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
+# db = '/Users/kika/data/eukprot/EP00359_Climacostomum_virens.fasta'
 out = '/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.blast.xml'
 evalue = 1
 outfmt = 5
@@ -14,16 +14,16 @@ hits = 1
 word_size = 3
 threads = 6
 
-print('running BLAST')
-#query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
-	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-# -max_target_seqs {} hits, 
+# print('running BLAST')
+# #query - database
+# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
+# 	-num_threads {}'.format(
+# 		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# # -max_target_seqs {} hits, 
 
-# #query - subject
-# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# # #query - subject
+# # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# # 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 
 print('BLAST done')
 print('writing BLAST results to tables')
@@ -52,19 +52,15 @@ for record in blast_records:
 			# print(record.alignments[0].title)
 			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 				record.query, record.query_length, best_hit.frame[0],
-				record.alignments[0].hit_id, record.alignments[0].hit_def, best_hit.frame[1], 
-				record.alignments[0].length, 
-				best_hit.align_length, best_hit.expect, pident, best_hit.bits, mismatches, 
-				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_start, best_hit.sbjct_end, 
-				alen_qlen, alen_slen))
+				record.alignments[0].hit_id, record.alignments[0].hit_def, record.alignments[0].length, best_hit.frame[1], 
+				best_hit.align_length, best_hit.expect, pident, best_hit.bits, mismatches, best_hit.gaps, 
+				best_hit.query_start, best_hit.query_end, best_hit.sbjct_start, best_hit.sbjct_end, alen_qlen, alen_slen))
 		else:
 			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 				record.query, record.query_length, best_hit.frame[0],
-				record.alignments[0].hit_id, record.alignments[0].hit_def, best_hit.frame[1], 
-				record.alignments[0].length, 
-				best_hit.align_length, best_hit.expect, pident, best_hit.bits, mismatches, 
-				best_hit.gaps, best_hit.query_start, best_hit.query_end, best_hit.sbjct_end, best_hit.sbjct_start, 
-				alen_qlen, alen_slen))
+				record.alignments[0].hit_id, record.alignments[0].hit_def, record.alignments[0].length, best_hit.frame[1], 
+				best_hit.align_length, best_hit.expect, pident, best_hit.bits, mismatches, best_hit.gaps, 
+				best_hit.query_start, best_hit.query_end, best_hit.sbjct_end, best_hit.sbjct_start, alen_qlen, alen_slen))
 		for aln in record.alignments:
 			for hsp in aln.hsps:
 				# mismatches = hsp.align_length - (hsp.gaps + hsp.positives)
@@ -75,15 +71,15 @@ for record in blast_records:
 				if hsp.frame[1] > 0:
 					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 						record.query, record.query_length, hsp.frame[0],
-						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], hsp.align_length, hsp.expect,
-						pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
-						hsp.sbjct_start, hsp.sbjct_end, alen_qlen, alen_slen))
+						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], 
+						hsp.align_length, hsp.expect, pident, hsp.bits, mismatches, hsp.gaps, 
+						hsp.query_start, hsp.query_end, hsp.sbjct_start, hsp.sbjct_end, alen_qlen, alen_slen))
 				else:
 					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 						record.query, record.query_length, hsp.frame[0],
-						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], hsp.align_length, hsp.expect, 
-						pident, hsp.bits, mismatches, hsp.gaps, hsp.query_start, hsp.query_end, 
-						hsp.sbjct_end, hsp.sbjct_start, alen_qlen, alen_slen))
+						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], 
+						hsp.align_length, hsp.expect,  pident, hsp.bits, mismatches, hsp.gaps, 
+						hsp.query_start, hsp.query_end, hsp.sbjct_end, hsp.sbjct_start, alen_qlen, alen_slen))
 	except:
 		pass
 		output.write('{}\t{}\t***no hit found***\n'.format(record.query, record.query_length))
