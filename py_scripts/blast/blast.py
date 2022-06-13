@@ -2,11 +2,11 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-# cmd = 'blastp'
-# task = 'blastp'
-# query = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/oxytricha.fa'
-# # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
-# db = '/Users/kika/data/eukprot/EP00359_Climacostomum_virens.fasta'
+cmd = 'blastp'
+task = 'blastp'
+query = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/oxytricha.fa'
+# db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
+db = '/Users/kika/data/eukprot/EP00359_Climacostomum_virens.fasta'
 out = '/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.blast.xml'
 evalue = 1
 outfmt = 5
@@ -14,16 +14,16 @@ hits = 1
 word_size = 3
 threads = 6
 
-# print('running BLAST')
-# #query - database
-# subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
-# 	-num_threads {}'.format(
-# 		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-# # -max_target_seqs {} hits, 
+print('running BLAST')
+#query - database
+subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# -max_target_seqs {} hits, 
 
-# # #query - subject
-# # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
-# # 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
+# #query - subject
+# subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
+# 		cmd, query, subject, out, evalue, outfmt, word_size), shell=True)
 
 print('BLAST done')
 print('writing BLAST results to tables')
