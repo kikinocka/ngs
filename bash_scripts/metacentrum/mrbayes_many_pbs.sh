@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N mrbayes-many
-#PBS -l select=1:ncpus=4:mem=20gb:scratch_local=1gb:os=debian11
+#PBS -l select=1:ncpus=4:mem=100gb:scratch_local=1gb:os=debian11
 #PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
