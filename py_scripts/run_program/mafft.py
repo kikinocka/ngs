@@ -6,7 +6,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/all_adaptors/ver4/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/HOPS-CORVET/vps8-41/ver2/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
@@ -21,25 +21,25 @@ for file in files:
 
 
 # #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/ag-smap-acap/ver4/')
-# existing = 'ag-smap-acap.mafft.aln'
-# add = 'rh.fa'
-# out = 'ag-smap-acap2.mafft.aln'
-# log = 'ag-smap-acap2.mafft.log'
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/HOPS-CORVET/')
+# existing = 'HOPS_CORVET_T3.aln'
+# add = 'vps3-39/ver2/euglenozoans.fa'
+# out = 'vps3-39/ver2/vps3-39.mafft.aln'
+# log = 'vps3-39/ver2/vps3-39.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 
 # #merge alignments
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/ag-smap-acap/ver4/')
-# aln1 = 'arfgaps.aln'
-# aln2 = 'euglenozoans.mafft.aln'
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/HOPS-CORVET/')
+# aln1 = 'HOPS_CORVET_T3.aln'
+# aln2 = 'vps8-41/ver2/euglenozoans.mafft.aln'
 # # aln3 = 'preaxostyla_eukref.aln'
 # # fasta = 'otu.fa'
-# input = 'ag-smap-acap.in'
-# table = 'ag-smap-acap.table'
-# out = 'ag-smap-acap.mafft.aln'
-# log = 'ag-smap-acap.mafft.log'
+# input = 'vps8-41/ver2/vps8-41.in'
+# table = 'vps8-41/ver2/vps8-41.table'
+# out = 'vps8-41/ver2/vps8-41.mafft.aln'
+# log = 'vps8-41/ver2/vps8-41.mafft.log'
 # # subprocess.call('cat {} {} > {}'.format(aln1, fasta, input), shell=True)
 # subprocess.call('cat {} {} > {}'.format(aln1, aln2, input), shell=True)
 # print('Alignments concatenated\n\n')
