@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N mrbayes-many
-#PBS -q halmir16.metacentrum.cz
+#PBS -q halmir16@meta-pbs.metacentrum.cz
 #PBS -l select=1:ncpus=4:mem=100gb:scratch_local=1gb:os=debian11
 #PBS -l walltime=168:00:00
 #PBS -m ae
