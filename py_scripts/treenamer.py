@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/manuscripts/25_Proteromonas/trees/')
-trees = [x for x in os.listdir() if x.endswith('.treefile')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/SM/ver4/MrBayes/')
+trees = [x for x in os.listdir() if x.endswith('.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/SM/ver4/sm_names.txt')
 
 name_dict = {}
 for name in names:
@@ -17,9 +17,9 @@ for name in names:
 # print(name_dict)
 for tree in trees:
 	print(tree)
-	name = tree.split('.')[0]
+	name = tree.split('.tre')[0]
 	tree_line = open(tree).readline()
 	for key in name_dict:
 		tree_line = tree_line.replace(key, name_dict[key])
-	with open('{}_renamed.tree'.format(name), 'w') as result:
+	with open('{}_renamed.tre'.format(name), 'w') as result:
 		result.write(tree_line)
