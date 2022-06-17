@@ -1,22 +1,24 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+import os
 from bioservices.kegg import KEGG
 
-output = open('/home/kika/MEGAsync/Chlamydomonas/pathways/FASII/cre_acc.txt', 'w')
+os.chdir('/Users/kika/owncloud/archamoebae/quinones/')
 
 kegg = KEGG()
 # pathway = kegg.get('tbr03430')
-pathway = kegg.get('cre00061')
+pathway = kegg.get('ddi00130')
 dict_data = kegg.parse(pathway)
-print(dict_data)
+# print(dict_data)
 
 genes = {}
 for key in dict_data.keys():
 	if key == 'GENE':
 		genes = dict_data[key]
-# print(genes)
+print(genes)
 
-for key in genes.keys():
-	output.write(key.replace('_', '.').replace('LMJF', 'LmjF') + '\n')
+with open('ddi_genes.acc', 'w') as output:
+	for key in genes.keys():
+		output.write(key + '\n')
 
 
 
