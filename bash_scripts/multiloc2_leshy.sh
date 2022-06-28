@@ -8,11 +8,11 @@ a=animal
 p=plant
 f=fungal
 
-for file in *.fa; do
+for file in *.fas; do
 	echo $file
 	
-	# out=${file%.*}'.ML2_fungal.txt'
-	# python2 $multiloc -fasta=$file -origin=$f -predictor=LowRes -result=$out -output=simple
+	out=${file%.*}'.ML2_fungal.txt'
+	python2 $multiloc -fasta=$file -origin=$f -predictor=LowRes -result=$out -output=simple
 	
 	out=${file%.*}'.ML2_animal.txt'
 	python2 $multiloc -fasta=$file -origin=$a -predictor=LowRes -result=$out -output=simple
