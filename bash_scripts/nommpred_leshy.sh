@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 mit=1
 mro=2
@@ -18,16 +18,17 @@ stram=7
 # 8) Toxoplasma
 # 9) Trypanosomatida
 
-for file in *.fa; do
+for file in *.fas; do
 	echo $file
-	out=${file%.*}'.nommpred_mro.txt'
-	NommPred.py -i $file -o $out -l $mro --overwrite
 
-	out=${file%.*}'.nommpred_dict.txt'
-	NommPred.py -i $file -o $out -l $dict --overwrite
+	# out=${file%.*}'.nommpred_mro.txt'
+	# NommPred.py -i $file -o $out -l $mro --overwrite
 
-	# out=${file%.*}'.nommpred_mt.txt'
-	# NommPred.py -i $file -o $out -l $mit --overwrite
+	# out=${file%.*}'.nommpred_dict.txt'
+	# NommPred.py -i $file -o $out -l $dict --overwrite
+
+	out=${file%.*}'.nommpred_mt.txt'
+	NommPred.py -i $file -o $out -l $mit --overwrite
 
 	# out=${file%.*}'.nommpred_tryp.txt'
 	# NommPred.py -i $file -o $out -l $tryp --overwrite
