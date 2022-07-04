@@ -9,21 +9,21 @@ cat $PBS_NODEFILE
 
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
 metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
+database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/ MMETSP_uniclust50_MERC_profiles'
 # database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC'
-database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC'
 
 #copy files to scratch
-cp $data_dir'5-tiara/eukarya.fasta' $SCRATCHDIR
+cp $data_dir'4-tiara/eukarya_P3S_scaffolds.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-contigs='eukarya.fasta'
-out='euk_metaeuk'
+contigs='eukarya_P3S_scaffolds.fasta'
+out='euk_P3S_metaeuk'
 
 $metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out $SCRATCHDIR
 
 #copy files back
 rm $contigs
-cp -r * $data_dir'6-metaeuk/database/'
+cp -r * $data_dir'5-metaeuk/'
