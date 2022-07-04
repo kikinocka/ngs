@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 contigs='eukarya_P3S_scaffolds.fasta'
 out='euk_P3S_metaeuk'
 
-$metaeuk easy-predict $contigs $database $out $SCRATCHDIR --threads $PBS_NUM_PPN
+$metaeuk easy-predict $contigs $database $out $SCRATCHDIR
 
 #copy files back
 rm $contigs
