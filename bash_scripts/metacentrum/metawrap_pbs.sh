@@ -23,7 +23,7 @@ cd $SCRATCHDIR
 mkdir read_qc
 fwd='P2S_S1_L001_R1_001.fastq.gz'
 rev='P2S_S1_L001_R2_001.fastq.gz'
-metawrap read_qc -1 $fwd -2 $rev -t $PBS_NUM_PPN -o read_qc
+metawrap read_qc --skip-bmtagger  -t $PBS_NUM_PPN -1 $fwd -2 $rev -o read_qc
 
 
 #copy files back
