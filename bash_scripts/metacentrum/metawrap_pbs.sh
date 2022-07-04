@@ -9,6 +9,8 @@ cat $PBS_NODEFILE
 
 #add module
 module add metawrap-1.3
+module add fastQC-0.11.5
+module add trim_galore-0.6.2
 
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
 

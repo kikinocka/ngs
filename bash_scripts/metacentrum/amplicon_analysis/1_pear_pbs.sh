@@ -9,8 +9,8 @@ cat $PBS_NODEFILE
 #add module
 module add pear-0.9.11
 
-raw='//storage/brno3-cerit/home/kika/oil_sands/V4-sediment/raw_reads'
-merged='//storage/brno3-cerit/home/kika/oil_sands/V4-sediment/merged_pear/'
+raw='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/raw_reads'
+merged='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/merged_pear/'
 
 #copy files to scratch
 cp $raw'/'*.gz $SCRATCHDIR
