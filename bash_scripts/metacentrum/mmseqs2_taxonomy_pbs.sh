@@ -13,16 +13,16 @@ data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds
 
 #copy files to scratch
 cp $db_dir'/'* $SCRATCHDIR
-cp $data_dir'6-metaeuk/profiles/euk_metaeuk.fas' $SCRATCHDIR
+cp $data_dir'5-metaeuk/euk_P3S_metaeuk.fas' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 database='eukprotDB'
-query='euk_metaeuk.fas'
-queryDB='euk_metaeukDB'
-taxonomy='euk_metaeuk.tax'
+query='euk_P3S_metaeuk.fas'
+queryDB='euk_P3S_metaeukDB'
+taxonomy='euk_P3S_metaeuk.tax'
 taxres=$taxonomy'.tsv'
 report=$taxonomy'.html'
 
@@ -35,4 +35,4 @@ $mmseqs taxonomyreport $database $taxonomy $report --report-mode 1 --threads $PB
 
 #copy files back
 rm -r $query tmp eukprotDB*
-cp -r * $data_dir'7-mmseqs2'
+cp -r * $data_dir'6-mmseqs2'
