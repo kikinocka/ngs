@@ -9,6 +9,7 @@ cat $PBS_NODEFILE
 
 #add module
 module add metawrap-1.3
+module add bwa-0.7.17
 
 data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
 
@@ -26,5 +27,5 @@ metawrap binning -t $PBS_NUM_PPN -m 150 --metabat2 --maxbin2 --concoct -a $assem
 #reads have to be unzipped
 
 #copy files back
-rm *fq.gz $assembly
+rm *fastq $assembly
 cp -r * $data_dir'metawrap'
