@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 mmseqs='/storage/brno3-cerit/home/kika/miniconda3/bin/mmseqs'
 db_dir='/storage/brno3-cerit/home/kika/databases/eukprotDB'
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c/'
+data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
 
 #copy files to scratch
 cp $db_dir'/'* $SCRATCHDIR
