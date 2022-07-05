@@ -9,20 +9,20 @@ cat $PBS_NODEFILE
 
 mmseqs='/storage/brno3-cerit/home/kika/miniconda3/bin/mmseqs'
 db_dir='/storage/brno3-cerit/home/kika/databases/eukprotDB'
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
+data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3B_1-06D_L001-ds.435324be81dc4260a8e3e8dbb5ed960c/'
 
 #copy files to scratch
 cp $db_dir'/'* $SCRATCHDIR
-cp $data_dir'5-metaeuk/euk_P3S_metaeuk.fas' $SCRATCHDIR
+cp $data_dir'6-metaeuk/euk_P3B_metaeuk.fas' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 database='eukprotDB'
-query='euk_P3S_metaeuk.fas'
-queryDB='euk_P3S_metaeukDB'
-taxonomy='euk_P3S_metaeuk.tax'
+query='euk_P3B_metaeuk.fas'
+queryDB='euk_P3B_metaeukDB'
+taxonomy='euk_P3B_metaeuk.tax'
 taxres=$taxonomy'.tsv'
 report=$taxonomy'.html'
 
@@ -35,4 +35,4 @@ $mmseqs taxonomyreport $database $taxonomy $report --report-mode 1 --threads $PB
 
 #copy files back
 rm -r $query tmp eukprotDB*
-cp -r * $data_dir'6-mmseqs2'
+cp -r * $data_dir'7-mmseqs2'
