@@ -35,4 +35,4 @@ $mmseqs taxonomyreport $database $taxonomy $report --report-mode 1 --threads $PB
 
 #copy files back
 rm -r $query tmp eukprotDB*
-cp -r * $data_dir'7-mmseqs2'
+cp -r * $data_dir'6-mmseqs2'
