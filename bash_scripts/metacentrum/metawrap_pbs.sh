@@ -22,7 +22,7 @@ assembly='scaffolds.fasta'
 
 module add conda-modules-py37
 conda activate metawrap-env
-metawrap binning -t $PBS_NUM_PPN -m 150 --metabat1 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
+metawrap binning -t $PBS_NUM_PPN -m 150 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
 #reads have to be unzipped
 
 #copy files back
