@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles/placement'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/COPII/ver6'
 
 #copy files to scratch
 cp $data_dir'/'*fa $SCRATCHDIR
