@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/trafficking/ArfGAPs/ag-smap-acap/RAxML/'
+data='/storage/brno3-cerit/home/kika/trafficking/ArfGAPs/RAxML/'
 
 #copy files to scratch
-cp $data'ag-smap-acap.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data'arfgaps.coded.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 #proteins
-aln='ag-smap-acap.trimal_gt-0.8.aln'
+aln='arfgaps.coded.trimal_gt-0.8.aln'
 out=${aln%.trimal_gt-0.8.aln}
 
 raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 -s $aln -n $out
