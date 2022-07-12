@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/COPII/ver6'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/COPII/ver7'
 
 #copy files to scratch
 cp $data_dir'/'*fa $SCRATCHDIR
