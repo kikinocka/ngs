@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/ag-smap-acap/ver4/RAxML/')
-trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.arfgaps.coded')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/RAxML')
+trees = [x for x in os.listdir() if x.endswith('bipartitions.sec31')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/trees/ArfGAPs/ag-smap-acap/ver4/arfgaps_codes_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/sec31_codes_names.txt')
 
 name_dict = {}
 for name in names:
