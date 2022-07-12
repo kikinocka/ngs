@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N metawrap
-#PBS -l select=1:ncpus=20:mem=150gb:scratch_local=20gb
-#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=20:mem=150gb:scratch_local=50gb
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 

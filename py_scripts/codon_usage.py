@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/proteomics/')
-sequences = SeqIO.parse('p57_peptides-genome_seqs.fa', 'fasta')
-table = open('p57_peptides-genome_seqs.codons.tsv', 'w')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/RS/')
+sequences = SeqIO.parse('Brab_RS.fna', 'fasta')
+table = open('Brab_RS.codons.tsv', 'w')
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -24,7 +24,9 @@ table.write('\n')
 
 def count_codons(sequence):
 	for i in range(0, len(sequence)-2, 3):
-		if 'N' in sequence[i:i+3]:
+		if ('N' in sequence[i:i+3]) or ('W' in sequence[i:i+3]) or ('S' in sequence[i:i+3]) or ('M' in sequence[i:i+3]) or \
+		   ('K' in sequence[i:i+3]) or ('R' in sequence[i:i+3]) or ('Y' in sequence[i:i+3]) or ('B' in sequence[i:i+3]) or \
+		   ('D' in sequence[i:i+3]) or ('H' in sequence[i:i+3]) or ('V' in sequence[i:i+3]):
 			codons['ambig'] += 1
 		else:
 			codons[sequence[i:i+3]] += 1

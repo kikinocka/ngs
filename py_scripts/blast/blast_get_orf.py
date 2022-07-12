@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/diplonema/diplonemids_transcriptomes/1608_Trinity.fasta', 'fasta')
-nt_out = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.faa', 'w')
-err_out = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/membrane-trafficking/rhynchopus_humris_1608/RABs/1608_fwd.blast.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/genomes/raabei_scaffolds.fasta', 'fasta')
+nt_out = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.faa', 'w')
+err_out = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {

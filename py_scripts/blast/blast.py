@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Users/kika/ownCloud/blastocrithidia/genes/termination_factors/eRF1/oxytricha.fa'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/Users/kika/ownCloud/blasto_comparative/genes/RS/Bnon_RS.fa'
 # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
-db = '/Users/kika/data/eukprot/EP00359_Climacostomum_virens.fasta'
-out = '/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.blast.xml'
+db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/raabei_scaffolds.fasta'
+out = '/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.blast.tsv', 'w')
-out_best = open('/media/4TB1/blastocrithidia/new_3-UTR/20220603_trinity/blast_genome/p57_transcriptome-genome.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
