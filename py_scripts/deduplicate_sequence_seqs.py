@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/MenA/')
-infile = SeqIO.parse('seqdump.fa', 'fasta')
-out_fasta = open('seqdump_deduplicated.fa', 'w')
-out_names = open('seqdump_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/sec13-MS/wdr_tree/ver2/')
+infile = SeqIO.parse('wdr.fa', 'fasta')
+out_fasta = open('wdr_deduplicated.fa', 'w')
+out_names = open('wdr_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
