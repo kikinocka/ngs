@@ -29,8 +29,8 @@ conda activate metawrap-env
 
 #bin refinment
 metawrap bin_refinement -t $PBS_NUM_PPN -m 50 \
-	-c 70 -x 10 \
-	-o bin_refinement -A metabat2_bins -B maxbin2_bins -C concoct_bins
+	-c 50 -x 10 \
+	-o bin_refinement_50_10 -A metabat2_bins -B maxbin2_bins -C concoct_bins
 # -c INT	minimum % completion of bins [should be >50%] (default=70)
 # -x INT	maximum % contamination of bins that is acceptable (default=10)
 # -A STR	folder with metagenomic bins (files must have .fa or .fasta extension)
