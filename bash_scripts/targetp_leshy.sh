@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/mthfd/'
+cd '/mnt/mokosz/home/kika/fpgs/'
 
 plant='pl'
 non_plant='non-pl'
