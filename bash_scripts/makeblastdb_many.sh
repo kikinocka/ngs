@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/zoli/proj/Euglena_v2/databases/'
+cd '/mnt/mokosz/home/kika/eukprot_amoebozoa/'
 
-for file in *.fasta; do
+for file in *.fa; do
 	echo $file
-	makeblastdb -in $file -dbtype nucl -parse_seqids
+	makeblastdb -in $file -dbtype prot -parse_seqids
 	echo $file': BLASTable database done'
 done
