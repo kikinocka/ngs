@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
+data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/metawrap/'
 
 #copy files to scratch
 cp -r $data_dir'initial_binning/concoct_bins' $SCRATCHDIR
@@ -41,4 +41,4 @@ metawrap bin_refinement -t $PBS_NUM_PPN -m 50 \
 #copy files back
 # rm *fastq $assembly
 rm -r *bins
-cp -r * $data_dir'metawrap'
+cp -r * $data_dir
