@@ -3,9 +3,8 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/media/4TB1/blastocrithidia/new_3-UTR/contextmap/Bn_split_genome/')
-seqs = SeqIO.parse('/media/4TB1/blastocrithidia/genome_assembly/bnonstop_corrected_assembly.fasta', 'fasta')
+os.chdir('/Users/kika/ownCloud/archamoebae/import/HMMs-amoebozoa/')
 
-for seq in seqs:
+for seq in SeqIO.parse('acas.fa', 'fasta'):
 	with open('{}.fa'.format(seq.name), 'w') as result:
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
