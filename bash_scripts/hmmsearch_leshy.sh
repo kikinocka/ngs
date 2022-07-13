@@ -1,13 +1,13 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/mito_import_HMMs/'
 
-db='/mnt/mokosz/home/zoli/DMND/EukProt_v2_renamed.faa'
-orgn='eukprot'
+db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
+orgn='eukprot_amoebozoa'
 
-for profile in *.hmm_profile ; do
+for profile in *.hmm ; do
 	echo $profile
-	output=$orgn'_'${profile%.hmm_profile}.hmm_search.table
+	output=$orgn'_'${profile%.hmm}.hmm_search.table
 	threads=10
 	hmmsearch --tblout $output --cpu $threads $profile $db
 done
