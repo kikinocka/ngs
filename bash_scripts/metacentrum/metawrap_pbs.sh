@@ -11,7 +11,7 @@ data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds
 
 #copy files to scratch
 cp -r $data_dir'1-reads/'*fastq $SCRATCHDIR
-cp -r $data_dir'2-assembly/scaffolds.fasta' $SCRATCHDIR
+cp -r $data_dir'2-spades/scaffolds.fasta' $SCRATCHDIR
 cp -r $data_dir'metawrap/bin_refinement_50_10/metawrap_50_10_bins' $SCRATCHDIR
 
 
