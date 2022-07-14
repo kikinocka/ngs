@@ -18,7 +18,7 @@ cp $data_dir'/'*rep_seqs.fasta $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-for f in *fa ; do
+for f in *fasta ; do
 	aln=${f%.fasta}.mafft.aln
 	log=${f%.fasta}.mafft.log
 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
