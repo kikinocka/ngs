@@ -10,19 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module add mafft-7.453
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/wdr/ver2'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/wdr'
 
 #copy files to scratch
-cp $data_dir'/'*fa $SCRATCHDIR
+cp $data_dir'/'*rep_seqs.fasta $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
 for f in *fa ; do
-	aln=${f%.fa}.mafft.aln
-	log=${f%.fa}.mafft.log
-	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
-	mafft --thread $PBS_NUM_PPN --auto --inputorder ${f} > ${aln} 2> ${log}
+	aln=${f%.fasta}.mafft.aln
+	log=${f%.fasta}.mafft.log
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${f} > ${aln} 2> ${log}
 done
 
 
