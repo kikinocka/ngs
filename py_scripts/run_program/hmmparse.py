@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/NMD/ciliates/')
+os.chdir('/Users/kika/ownCloud/archamoebae/import/HMMs-amoebozoa/amoebozoa/')
 files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/Users/kika/data/eukprot/EP00360_Condylostoma_magnum.fasta', 'fasta')
+db = SeqIO.parse('/Users/kika/data/eukprot/amoebozoa.fa', 'fasta')
 
 seq_d = {}
 for seq in db:
@@ -27,26 +27,26 @@ for seq in db:
 multidomain = set()
 written = set() #move multidomain, written into the for loop to have domain-specific files
 for file in files:
-	if file.startswith('EP00360'):
-		print(file)
-		name = file.replace('.hmm_search.table', '.hmm_hits.fa')
-		with open(file) as infile:
-			for line in infile:
-				if not line.startswith('#'):
-					seqname = line.split()[0]
-					evalue = float(line.split()[4])
-					# if seqname in written:				
-					# 	pass
-					if evalue < 0.00001:
-						#don't forget to delete previously generated files
-						with open(name, 'a') as result:
-							result.write('>{} eval:{}\n{}\n'.format(seq_d[seqname][0], evalue, seq_d[seqname][1]))
-					# 	written.add(seqname)
-					# 	multidomain.add(seqname)
-					# elif seqname in multidomain: #several domains found in the same seq
-					# 	result.write('>{}\n{}\n'.format(seqname, seq_d[seqname]))
-					# 	written.add(seqname)
-					# else:
-					# 	multidomain.add(seqname)
+	# if file.startswith('EP00360'):
+	print(file)
+	name = file.replace('.hmm_search.table', '.hmm_hits.fa')
+	with open(file) as infile:
+		for line in infile:
+			if not line.startswith('#'):
+				seqname = line.split()[0]
+				evalue = float(line.split()[4])
+				# if seqname in written:				
+				# 	pass
+				if evalue < 0.0000000001:
+					#don't forget to delete previously generated files
+					with open(name, 'a') as result:
+						result.write('>{} eval:{}\n{}\n'.format(seq_d[seqname][0], evalue, seq_d[seqname][1]))
+				# 	written.add(seqname)
+				# 	multidomain.add(seqname)
+				# elif seqname in multidomain: #several domains found in the same seq
+				# 	result.write('>{}\n{}\n'.format(seqname, seq_d[seqname]))
+				# 	written.add(seqname)
+				# else:
+				# 	multidomain.add(seqname)
 
 

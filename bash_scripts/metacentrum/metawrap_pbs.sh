@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N metawrap
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l select=1:ncpus=16:mem=50gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -38,7 +38,7 @@ conda activate metawrap-env
 # # -C STR	another folder with metagenomic bins
 
 #visualization
-metawrap blobology -t 96 --bins metawrap_50_10_bins -a $assembly -o blobology_50_10 *fastq
+metawrap blobology -t $PBS_NUM_PPN --bins metawrap_50_10_bins -a $assembly -o blobology_50_10 *fastq
 
 
 #copy files back
