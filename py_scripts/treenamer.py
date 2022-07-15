@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/RAxML')
-trees = [x for x in os.listdir() if x.endswith('bipartitions.sar1')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/retromer-retriever/vps26-DSCR3/ver2/combined/')
+trees = [x for x in os.listdir() if x.endswith('RAxML_bootstrap.vps26')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/sar1_codes_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/retromer-retriever/vps26-DSCR3/ver2/vps26_names_codes.txt')
 
 name_dict = {}
 for name in names:
@@ -15,22 +15,22 @@ for name in names:
 	name_dict[split_line[0]] = new
 # print(name_dict)
 
-for tree in trees:
-	print(tree)
-	# name = tree.split('.tre')[0] + tree.split('.tre')[1]
-	name = tree
-	tree_line = open(tree).readline()
-	for key in name_dict:
-		tree_line = tree_line.replace(key, name_dict[key])
-	with open('{}_renamed.tre'.format(name), 'w') as result:
-		result.write(tree_line)
-
-
 # for tree in trees:
 # 	print(tree)
-# 	name = tree.split('.tre')[0]
+# 	# name = tree.split('.tre')[0] + tree.split('.tre')[1]
+# 	name = tree
+# 	tree_line = open(tree).readline()
+# 	for key in name_dict:
+# 		tree_line = tree_line.replace(key, name_dict[key])
 # 	with open('{}_renamed.tre'.format(name), 'w') as result:
-# 		for tree_line in open(tree):
-# 			for key in name_dict:
-# 				tree_line = tree_line.replace(key, name_dict[key])
-# 			result.write(tree_line)
+# 		result.write(tree_line)
+
+
+for tree in trees:
+	print(tree)
+	name = tree.split('.tre')[0]
+	with open('{}_renamed.tre'.format(name), 'w') as result:
+		for tree_line in open(tree):
+			for key in name_dict:
+				tree_line = tree_line.replace(key, name_dict[key])
+			result.write(tree_line)
