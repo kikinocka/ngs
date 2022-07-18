@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N metawrap
 #PBS -l select=1:ncpus=16:mem=50gb:scratch_local=50gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -12,7 +12,7 @@ data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds
 #copy files to scratch
 cp -r $data_dir'1-reads/'*fastq $SCRATCHDIR
 cp -r $data_dir'2-spades/scaffolds.fasta' $SCRATCHDIR
-cp -r $data_dir'metawrap/bin_refinement_50_10/metawrap_50_10_bins' $SCRATCHDIR
+cp -r $data_dir'metawrap/bin_refinement_70_10/metawrap_70_10_bins' $SCRATCHDIR
 
 
 #compute on scratch
@@ -38,10 +38,10 @@ conda activate metawrap-env
 # # -C STR	another folder with metagenomic bins
 
 #visualization
-metawrap blobology -t $PBS_NUM_PPN --bins metawrap_50_10_bins -a $assembly -o blobology_50_10 *fastq
+metawrap blobology -t $PBS_NUM_PPN --bins metawrap_70_10_bins -a $assembly -o blobology_70_10 *fastq
 
 
 #copy files back
 rm *fastq $assembly
-rm -r metawrap_50_10_bins
-cp -r * $data_dir
+rm -r metawrap_70_10_bins
+cp -r * $data_dir'metawrap'
