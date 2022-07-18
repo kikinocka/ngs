@@ -38,6 +38,7 @@ conda activate metawrap-env
 # # -C STR	another folder with metagenomic bins
 
 #visualization
+#70 GB memory, 5 CPU
 metawrap blobology -t $PBS_NUM_PPN --bins metawrap_70_10_bins -a $assembly -o blobology_70_10 *fastq
 
 
