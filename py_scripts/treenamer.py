@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/all_adaptors/ver4/combined/medium/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/combined/sec23/')
 trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/trees/all_adaptors/ver4/combined/medium_codes_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/combined/sec23_codes_names.txt')
 
 name_dict = {}
 for name in names:
@@ -28,7 +28,8 @@ for name in names:
 
 for tree in trees:
 	print(tree)
-	name = tree.split('.tre')[0]
+	# name = tree.split('.tre')[0]
+	name = tree.split('.tre')[0] + tree.split('.tre')[1]
 	with open('{}_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			for key in name_dict:

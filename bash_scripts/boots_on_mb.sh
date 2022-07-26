@@ -2,6 +2,6 @@
 
 placer='/Users/kika/ownCloud/lab_documents/Joel/lael_scripts/hmmer_tools/boots_on_mb_2.py'
 
-path='/Users/kika/ownCloud/membrane-trafficking/trees/all_adaptors/ver4/combined/medium/'
+path='/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/combined/sec23/'
 
 $placer $path
