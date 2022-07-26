@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/trafficking/TBCs/ver6/MrBayes/'
+data='/storage/brno3-cerit/home/kika/trafficking/COPII/ver7/MrBayes/'
 
 #copy files to scratch
-cp $data'tbcs.trimal_gt-0.8.nex' $SCRATCHDIR
+cp $data'sec24.coded.trimal_gt-0.8.nex' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 #proteins
-aln='tbcs.trimal_gt-0.8.nex'
+aln='sec24.coded.trimal_gt-0.8.nex'
 
 mpirun -n $PBS_NUM_PPN mb-mpi $aln
 
