@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/mnt/mokosz/home/kika/archam_trees/raxml'
+data='/mnt/mokosz/home/kika/archam_trees'
 tmp='/tmp/kika/'
 
 cp $data'/'*.aln $tmp
@@ -21,4 +21,4 @@ done
 
 cp * $data
 
-python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py RAxML done
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py RAxML-many done
