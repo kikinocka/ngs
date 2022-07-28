@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Users/kika/ownCloud/blasto_comparative/genes/RS/Bnon_RS.fa'
+query = '/Users/kika/ownCloud/membrane-trafficking/sec13-MS/synteny/TbSec13B_synteny.fa'
 # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
-db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/raabei_scaffolds.fasta'
-out = '/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.blast.xml'
+db = '/Users/kika/data/kinetoplastids/20210809/TriTrypDB-53_BsaltansLakeKonstanz_Genome.fasta'
+out = '/Users/kika/ownCloud/membrane-trafficking/sec13-MS/synteny/Bsal.TbSec13B_synt.blast.xml'
 evalue = 1
 outfmt = 5
 hits = 1
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/sec13-MS/synteny/Bsal.TbSec13B_synt.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/sec13-MS/synteny/Bsal.TbSec13B_synt.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

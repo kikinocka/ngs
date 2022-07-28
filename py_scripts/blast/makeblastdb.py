@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/owncloud/blasto_comparative/genomes/')
-files = [x for x in os.listdir() if x.endswith('raabei_scaffolds.fasta')]
+os.chdir('/Users/kika/data/kinetoplastids/20210809/')
+files = [x for x in os.listdir() if x.endswith('TriTrypDB-53_BsaltansLakeKonstanz_Genome.fasta')]
 dbtype = 'nucl'
 
 for file in files: 
