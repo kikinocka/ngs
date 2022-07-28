@@ -19,6 +19,6 @@ for aln in *.aln; do
 	# raxmlHPC-PTHREADS-AVX  -m GTRCAT -p 12345 -f b -t RAxML_bestTree.$out\1 -z RAxML_bootstrap.$out\2 -n $out\3 -T 1$PBS_NUM_PPN
 done
 
-cp * $data
+mv * $data
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py RAxML-many done
