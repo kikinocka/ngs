@@ -18,7 +18,7 @@ stram=7
 # 8) Toxoplasma
 # 9) Trypanosomatida
 
-for file in *.fas; do
+for file in *.fa; do
 	echo $file
 
 	# out=${file%.*}'.nommpred_mro.txt'

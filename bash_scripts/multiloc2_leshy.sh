@@ -8,7 +8,7 @@ a=animal
 p=plant
 f=fungal
 
-for file in *.fas; do
+for file in *.fa; do
 	echo $file
 	
 	out=${file%.*}'.ML2_fungal.txt'
