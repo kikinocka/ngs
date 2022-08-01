@@ -20,8 +20,8 @@ cp $datadir'wdr.trimal_gt-0.8.aln' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='wdr.trimal_gt-0.8.aln'
-# guide='guide_tbcs'
-# guide_tree=$guide'.treefile'
+guide='guide_wdr'
+guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
 
