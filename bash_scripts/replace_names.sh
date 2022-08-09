@@ -2,7 +2,7 @@
 
 replacer='/Users/kika/ownCloud/lab_documents/Joel/lael_scripts/name_replace/name_replace.pl'
 
-cd '/Users/kika/ownCloud/membrane-trafficking/sec13-MS/wdr_tree/ver4/'
+cd '/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/sar1-sarB/'
 
 for aln in *aln ; do
 	out=${aln%.mafft.aln}.CD.mafft.aln
