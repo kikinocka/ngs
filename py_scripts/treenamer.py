@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/sec13-MS/wdr_tree/ver4/combined/')
-trees = [x for x in os.listdir() if x.endswith('mb+raxml.tre')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/sar1-sarB/iqtree/')
+trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/sec13-MS/wdr_tree/ver4/wdr_codes_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/sar1-sarB/sar1-sarB_codes_acc.txt')
 
 name_dict = {}
 for name in names:
@@ -28,8 +28,8 @@ for name in names:
 
 for tree in trees:
 	print(tree)
-	# name = tree.split('.tre')[0]
-	name = tree.split('.tre')[0] + tree.split('.tre')[1]
+	name = tree.split('.tre')[0]
+	# name = tree.split('.tre')[0] + tree.split('.tre')[1]
 	with open('{}_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			for key in name_dict:
