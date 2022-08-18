@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/LPLA/ver4/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/sec24_large/RAxML/')
 inacc = open('delete.acc')
-infasta = SeqIO.parse('/Users/kika/ownCloud/archamoebae/trees/LPLA/ver3/lpla.fa', 'fasta')
+infasta = SeqIO.parse('/Users/kika/ownCloud/membrane-trafficking/trees/COPII/ver7/sec24_large/sec24.fa', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('lpla.fa', 'w') as result:
+with open('sec24.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
