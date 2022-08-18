@@ -13,14 +13,14 @@ module add mrbayes-3.2.7a
 data='/storage/brno3-cerit/home/kika/archamoebae/mrbayes/'
 
 #copy files to scratch
-cp $data'nifU.trimal_gt-0.8.nex' $SCRATCHDIR
+cp $data'apsk.trimal_gt-0.8.nex' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 #proteins
-aln='nifU.trimal_gt-0.8.nex'
+aln='apsk.trimal_gt-0.8.nex'
 
 mpirun -n $PBS_NUM_PPN mb-mpi $aln
 
