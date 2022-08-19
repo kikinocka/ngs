@@ -13,13 +13,13 @@ module add raxml-8.2.8
 data='/storage/brno3-cerit/home/kika/trafficking/wdr/ver8'
 
 #copy files to scratch
-cp $data'/'*.aln $SCRATCHDIR
+cp $data'/'*trimal_gt-0.8.aln $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for aln in *.aln; do
+for aln in *trimal_gt-0.8.aln; do
 	echo $aln
 	out=${aln%.trimal_gt-0.8.aln}
 

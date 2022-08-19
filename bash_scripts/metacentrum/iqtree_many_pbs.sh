@@ -13,12 +13,12 @@ module add iqtree-1.6.12
 data_dir='/storage/brno3-cerit/home/kika/trafficking/wdr/ver8'
 
 #copy files to scratch
-cp $data_dir'/'*.aln $SCRATCHDIR
+cp $data_dir'/'*trimal_gt-0.8.aln $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for f in *.aln ; do
+for f in *trimal_gt-0.8.aln ; do
 	echo ${f}
 	guide=guide_${f%.aln}
 	guide_tree=$guide'.treefile'
