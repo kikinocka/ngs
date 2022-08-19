@@ -33,4 +33,4 @@ iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $gu
 
 #copy files back
 rm $aln
-cp * $datadir'IQ-TREE'
+cp * $datadir
