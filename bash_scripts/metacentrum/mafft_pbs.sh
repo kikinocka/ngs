@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=30gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 # module add mafft-7.453
 module add mafft-7.487 
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/stramenopiles/placement'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/wdr/ver7'
 
 #copy files to scratch
 cp $data_dir'/'* $SCRATCHDIR
@@ -22,24 +22,25 @@ cp $data_dir'/'* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-# #align de-novo
-# for file in *.fasta ; do
-# 	echo $file
-# 	aln=${file%.fa}.mafft.aln
-# 	log=${file%.fa}.mafft.log
+#align de-novo
+for file in *.fa ; do
+	echo $file
+	aln=${file%.fa}.mafft.aln
+	log=${file%.fa}.mafft.log
 
-# 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-# 	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
-# done
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
+done
 
-#add to aligned sequences
-existing='STR_5480seqs_230711_core_blast_min700bp.No_Chimera.align_V5.lineage.aln'
-add='v9.fa'
-aln='stramenopiles_V9.mafft.aln'
-log='stramenopiles_V9.mafft.log'
 
-# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# #add to aligned sequences
+# existing='STR_5480seqs_230711_core_blast_min700bp.No_Chimera.align_V5.lineage.aln'
+# add='v9.fa'
+# aln='stramenopiles_V9.mafft.aln'
+# log='stramenopiles_V9.mafft.log'
+
+# # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
