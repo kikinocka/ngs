@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/archam_trees/'
+cd '/mnt/mokosz/home/kika/archam_trees/raxml/'
 
-aln='nifS.trimal_gt-0.8.aln'
+aln='shmt.CD.trimal_gt-0.8.aln'
 out=${aln%.trimal_gt-0.8.aln}
 
 #proteins
