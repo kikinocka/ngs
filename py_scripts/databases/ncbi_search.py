@@ -9,8 +9,8 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/cestodes/')
-acc = open('cestodes.blast_hits.acc')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/APSK/ver3//')
+acc = open('apsk.acc')
 
 ids = []
 for line in acc:
@@ -28,17 +28,18 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('cestodes.blast_hits.lineage', 'w') as out, open('cestodes.blast_hits.errors', 'w') as errors:
+with open('apsk.description', 'w') as out, open('apsk.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:
 			print(prot_id)
-			prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
+			prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
 			prot_record = SeqIO.read(prot, 'genbank')
-			# print(prot_record)
+			# print(prot_record.description)
 			# print(prot_record.seq)
-			tax = prot_record.annotations['taxonomy']
-			tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
+			description = prot_record.description
+			# tax = prot_record.annotations['taxonomy']
+			# tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
 			# orgn = prot_record.annotations['organism']
 			# orgn = str(orgn).replace(' ', '_')
 			# full = '{}_{}'.format(tax, orgn)
@@ -47,7 +48,8 @@ with open('cestodes.blast_hits.lineage', 'w') as out, open('cestodes.blast_hits.
 			# print(tax[-1:])
 			# print(full)
 			# out.write('{}\t{}\t{}\n'.format(prot_id, orgn, tax))
-			out.write('{}\t{}\n'.format(prot_id, tax))
+			# out.write('{}\t{}\n'.format(prot_id, tax))
+			out.write('{}\t{}\n'.format(prot_id, description))
 			# out.write('{}\t{}\n'.format(prot_id, full))
 			# out.write('>{}\n{}\n'.format(prot_id, prot_id.seq))
 		except:

@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/trafficking/wdr/ver6/'
+data='/storage/brno3-cerit/home/kika/trafficking/wdr/ver9/'
 
 #copy files to scratch
 cp $data'wdr.CD.trimal_gt-0.8.aln' $SCRATCHDIR
