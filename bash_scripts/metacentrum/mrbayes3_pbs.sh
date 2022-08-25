@@ -28,3 +28,4 @@ mpirun -n $PBS_NUM_PPN mb-mpi $aln
 #copy files back
 rm $aln
 cp -R * $data
+
