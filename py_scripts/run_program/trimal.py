@@ -3,13 +3,13 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/NifU/ver7/')
-files = [x for x in os.listdir() if x.endswith('CD.mafft.aln')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/SNAREs/')
+files = [x for x in os.listdir() if x.endswith('r.mafft.aln')]
 
 for file in files:
 	print(file)
-	file_name = file.split('.')[0] + '.' + file.split('.')[1]
-	# file_name = file.split('.')[0]
+	# file_name = file.split('.')[0] + '.' + file.split('.')[1]
+	file_name = file.split('.')[0]
 	aut = 'automated1'
 	gt = 0.8 #fraction of sequences with a gap allowed
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
