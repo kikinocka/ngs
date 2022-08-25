@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml-many
 #PBS -l select=1:ncpus=20:mem=1gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/trafficking/wdr/ver8'
+data='/storage/brno3-cerit/home/kika/trafficking/COPII/ver7'
 
 #copy files to scratch
 cp $data'/'*trimal_gt-0.8.aln $SCRATCHDIR
