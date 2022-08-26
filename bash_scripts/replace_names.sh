@@ -2,8 +2,8 @@
 
 replacer='/Users/kika/ownCloud/lab_documents/Joel/lael_scripts/name_replace/name_replace.pl'
 
-# cd '/Users/kika/ownCloud/membrane-trafficking/sec13-MS/wdr/tree/ver9/'
-cd '/Users/kika/ownCloud/archamoebae/trees/NifU/ver7/'
+cd '/Users/kika/ownCloud/membrane-trafficking/trees/HOPS-CORVET/RAxML/'
+# cd '/Users/kika/ownCloud/archamoebae/trees/NifU/ver7/'
 
 for aln in *.mafft.aln ; do
 	out=${aln%.mafft.aln}.CD.mafft.aln
