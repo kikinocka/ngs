@@ -1,12 +1,12 @@
 #!/bin/sh
 
 #align denovo
-cd '/mnt/mokosz/home/kika/archam_trees/'
+cd '/mnt/mokosz/home/kika/archam_trees/gcsL/ver5/'
 
-for f in *.fa ; do
+for f in *.fasta ; do
 	echo $f
-	aln=${f%.fa}.mafft.aln
-	log=${f%.fa}.mafft.log
+	aln=${f%.fasta}.mafft.aln
+	log=${f%.fasta}.mafft.log
 	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 done
 
