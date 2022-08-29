@@ -1,11 +1,11 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir'
+cd '/mnt/mokosz/home/kika/archam_final_assemblies'
 
 plant='pl'
 non_plant='non-pl'
 
-for file in *.fa; do
+for file in *; do
 	echo $file
 	targetp -fasta $file -org $non_plant -format short
 done
