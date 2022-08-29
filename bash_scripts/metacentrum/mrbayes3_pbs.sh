@@ -13,7 +13,8 @@ module add mrbayes-3.2.7a
 data='/storage/brno3-cerit/home/kika/trafficking/COPII/ver7/MrBayes/'
 
 #copy files to scratch
-cp $data'sec24.CD.trimal_gt-0.8.nex' $SCRATCHDIR
+cp $data'sec24.CD.trimal_gt-0.8.nex'* $SCRATCHDIR
+cp $data'sec24.mbLogFile.txt' $SCRATCHDIR
 
 
 #compute on scratch
