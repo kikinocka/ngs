@@ -9,8 +9,8 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/APSK/ver3//')
-acc = open('apsk.acc')
+os.chdir('/Users/kika/ownCloud/plastid_genomes/')
+acc = open('accessions.txt')
 
 ids = []
 for line in acc:
@@ -28,28 +28,35 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('apsk.description', 'w') as out, open('apsk.errors', 'w') as errors:
+with open('plastid_genomes2.fa', 'w') as out, open('plastid_genomes2.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:
 			print(prot_id)
-			prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
+			prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
 			prot_record = SeqIO.read(prot, 'genbank')
 			# print(prot_record.description)
 			# print(prot_record.seq)
-			description = prot_record.description
+			# description = prot_record.description
 			# tax = prot_record.annotations['taxonomy']
 			# tax = str(tax).replace('\'', '').replace('[', '').replace(']', '')#.replace(', ', '_')
-			# orgn = prot_record.annotations['organism']
+			orgn = prot_record.annotations['organism'].replace(' ', '_')
+			taxid = prot_record.features[0].qualifiers['db_xref'][0].split(':')[1]
 			# orgn = str(orgn).replace(' ', '_')
 			# full = '{}_{}'.format(tax, orgn)
+			cds = [x for x in prot_record.features if x.type == 'CDS']
+			for x in cds:
+				gene = x.qualifiers['gene'][0]
+				accession = x.qualifiers['protein_id'][0]
+				translation = x.qualifiers['translation'][0]
+				out.write('>{}__{}__{}__{}\n{}\n'.format(taxid, orgn, gene, accession, translation))
 			# print(orgn)
 			# print(tax)
 			# print(tax[-1:])
 			# print(full)
 			# out.write('{}\t{}\t{}\n'.format(prot_id, orgn, tax))
 			# out.write('{}\t{}\n'.format(prot_id, tax))
-			out.write('{}\t{}\n'.format(prot_id, description))
+			# out.write('{}\t{}\n'.format(prot_id, description))
 			# out.write('{}\t{}\n'.format(prot_id, full))
 			# out.write('>{}\n{}\n'.format(prot_id, prot_id.seq))
 		except:
