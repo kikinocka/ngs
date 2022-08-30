@@ -13,14 +13,14 @@ module add orthofinder-2.0.0
 data='/storage/brno3-cerit/home/kika/archamoebae/orthofinder'
 
 #copy files to scratch
-cp $data'/'* $SCRATCHDIR
+cp $data'/'*faa $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-orthofinder -f $SCRATCHDIR -t $PBS_NUM_PPN
+orthofinder -f $SCRATCHDIR -t $PBS_NUM_PPN -I 2.5
 
 #copy files back
-rm *.fa *.fasta
+rm *.faa
 cp -R * $data
