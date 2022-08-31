@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N karect
+#PBS -N spades
 #PBS -l nodes=1:ppn=80
 #PBS -l walltime=100:00:00
 #PBS -m ae
