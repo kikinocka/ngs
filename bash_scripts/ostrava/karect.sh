@@ -1,15 +1,15 @@
 #!/bin/bash
 #PBS -N karect
 #PBS -l nodes=1:ppn=10
-#PBS -l walltime=24:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
 
-cd '/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
-fwd='M09_trimmed_75_1.fq'
-rev='M09_trimmed_75_2.fq'
-log='Oob.karect_correct.txt'
+cd '/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
+fwd='4FEM_trimmed_75_1.fq'
+rev='4FEM_trimmed_75_2.fq'
+log='Bfr.karect_correct.txt'
 
 karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
 

@@ -19,7 +19,8 @@ cp $data'/'*faa $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-orthofinder -f $SCRATCHDIR -t $PBS_NUM_PPN -I 2.5
+orthofinder -f $SCRATCHDIR -t $PBS_NUM_PPN 
+#-I 2.5
 
 #copy files back
 rm *.faa

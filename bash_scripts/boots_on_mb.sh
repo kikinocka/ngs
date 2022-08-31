@@ -10,4 +10,4 @@ tree=$path'tbcs.trimal_gt-0.9.nex.con.tre'
 bootstrap=$path'tbcs.trimal_gt-0.9.RAxML_bootstrap.result'
 out=$path'tbcs.trimal_gt-0.9.nex.mb+raxml.tre'
 
-$placer $tree $bootstrap $path
+$placer $tree $bootstrap $out
