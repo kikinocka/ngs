@@ -268,4 +268,4 @@ if __name__=='__main__':
     raxml_output = os.path.join(temp_outdir, 'RAxML_bipartitions.' + outname)
 
     # Remove temporary directory.
-    shutil.rmtree(temp_outdir)
+    # shutil.rmtree(temp_outdir)
