@@ -1,14 +1,15 @@
 #PBS -d .
 #PBS -v PATH
-#PBS -l walltime=400:00:00,nodes=1:ppn=5
+#PBS -l walltime=400:00:00,nodes=1:ppn=10
 
 read_dir='/mnt/data/bojana/Genomic/Obscuromonas_oborniki/Obscuromonas_oborniki_trimmed/trimmed75/'
+out_dir='/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
 fwd=$read_dir'M09_trimmed_75_1.fq.gz'
 rev=$read_dir'M09_trimmed_75_2.fq.gz'
+log=$out_dir'o_oborniki.karect_correct.txt'
 
-cd '/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
-log='o_oborniki.karect_correct.txt'
-karect -correct -threads=12 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
+cd $out_dir
+karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
 
 # karect -align -threads=12 -matchtype=hamming \
 #       -inputfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/PNG74_trimmed_75_1.fq \
