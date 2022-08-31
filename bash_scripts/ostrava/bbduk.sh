@@ -19,7 +19,7 @@ trimmed_rev='triat_trimmed_75_2_fq.gz'
 report='triat_bbduk.txt'
 
 #illumina pair-end reads
-bbduk.sh overwrite=true \
+/home/users/kika/bbmap/bbduk.sh overwrite=true \
 	in1=$fwd in2=$rev \
 	out1=$trimmed_fwd out2=$trimmed_rev \
 	ref=$adapt \
