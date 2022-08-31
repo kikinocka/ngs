@@ -5,10 +5,10 @@
 #PBS -m ae
 #PBS -j oe
 
-cd '/mnt/data/kika/blastocrithidia/o_modryi/reads/'
-fwd='karect_triat_trimmed_75_1.fq'
-rev='karect_triat_trimmed_75_2.fq'
-report='karect_triat_trimmed_75.fastqc.txt'
+cd '/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
+fwd='triat_trimmed_75_1.fq'
+rev='triat_trimmed_75_2.fq'
+report='triat_trimmed_75.fastqc.txt'
 
-fastqc -o ./fastqc -t 5 *.fq 2> $report
-# fastqc -o ./fastqc -t 5 $fwd $rev 2> $report
+# fastqc -o ./fastqc -t 5 *.fq 2> $report
+fastqc -o ./fastqc -t 5 $fwd $rev 2> $report
