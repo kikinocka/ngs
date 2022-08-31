@@ -17,11 +17,11 @@ cd '/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
 trimmed_fwd='triat_trimmed_75_1_fq.gz'
 trimmed_rev='triat_trimmed_75_2_fq.gz'
 report='triat_bbduk.txt'
+len=75
 
 #illumina pair-end reads
 /home/users/kika/bbmap/bbduk.sh overwrite=true \
 	in1=$fwd in2=$rev \
 	out1=$trimmed_fwd out2=$trimmed_rev \
 	ref=$adapt \
-	len=75 \
 	qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 minlen=$len tpe tbo t=10 2> $report
