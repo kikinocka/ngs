@@ -267,5 +267,14 @@ if __name__=='__main__':
     '-n', outname, '-m', 'PROTGAMMALG4X', '-w', temp_outdir], cwd=os.getcwd()) 
     raxml_output = os.path.join(temp_outdir, 'RAxML_bipartitions.' + outname)
 
+    # Combine RAxML and MrBayes support values onto a single tree.
+    combine_supports(raxml_output, mrbayes_tree_newick2, output_tree)
+    assert os.path.isfile(output_tree), """Output file not created."""
+    print()
+    print()
+    print('Tree with combined branch supports written to:')
+    print(output_tree)
+    print()
+
     # Remove temporary directory.
-    # shutil.rmtree(temp_outdir)
+    shutil.rmtree(temp_outdir)
