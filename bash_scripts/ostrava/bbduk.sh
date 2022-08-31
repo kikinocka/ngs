@@ -14,8 +14,8 @@ adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
 
 cd '/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
-trimmed_fwd='triat_trimmed_75_1_fq.gz'
-trimmed_rev='triat_trimmed_75_2_fq.gz'
+trimmed_fwd='triat_trimmed_75_1.fq.gz'
+trimmed_rev='triat_trimmed_75_2.fq.gz'
 report='triat_bbduk.txt'
 len=75
 
