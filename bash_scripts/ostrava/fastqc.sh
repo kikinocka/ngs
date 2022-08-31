@@ -5,8 +5,8 @@
 #PBS -m ae
 #PBS -j oe
 
-cd '/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
-fwd='karect_M09_trimmed_75_1.fq'
-rev='karect_M09_trimmed_75_2.fq'
+cd '/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
+fwd='karect_4FEM_trimmed_75_1.fq'
+rev='karect_4FEM_trimmed_75_2.fq'
 
 fastqc -o ./fastqc -t 5 $fwd $rev
