@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver6/combined/')
-trees = [x for x in os.listdir() if x.endswith('result')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/ver14/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver6/tbcs_acc_codes.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/ver14/rabs_codes_names.txt')
 
 name_dict = {}
 for name in names:

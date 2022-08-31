@@ -6,17 +6,17 @@
 #PBS -j oe
 
 
-raw_dir='/mnt/data/kika/blastocrithidia/b_triatomae-OLD/genome/reads/'
-fwd=$raw_dir'Blastoc_triat_1.fastq.gz'
-rev=$raw_dir'Blastoc_triat_2.fastq.gz'
+raw_dir='/mnt/data/kika/blastocrithidia/o_modryi-OLD/genome/reads/'
+fwd=$raw_dir'Jaculum_1.fastq.gz'
+rev=$raw_dir'Jaculum_2.fastq.gz'
 
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
 
-cd '/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
-trimmed_fwd='triat_trimmed_75_1.fq.gz'
-trimmed_rev='triat_trimmed_75_2.fq.gz'
-report='triat_bbduk.txt'
+cd '/mnt/data/kika/blastocrithidia/o_modryi/reads/'
+trimmed_fwd='modryi_trimmed_75_1.fq.gz'
+trimmed_rev='modryi_trimmed_75_2.fq.gz'
+report='modryi_bbduk.txt'
 len=75
 
 #illumina pair-end reads
