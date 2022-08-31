@@ -5,10 +5,10 @@
 #PBS -m ae
 #PBS -j oe
 
-work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/spades_karect/'
-read_dir='/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
-fwd=$read_dir'karect_4FEM_trimmed_75_1.fq'
-rev=$read_dir'karect_4FEM_trimmed_75_2.fq'
+work_dir='/mnt/data/kika/blastocrithidia/b_triatomae/spades_karect/'
+read_dir='/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
+fwd=$read_dir'karect_triat_trimmed_75_1.fq'
+rev=$read_dir'karect_triat_trimmed_75_2.fq'
 
 cd $work_dir
 spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 -o $work_dir
