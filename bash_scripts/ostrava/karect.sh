@@ -9,7 +9,7 @@
 cd '/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
 fwd='M09_trimmed_75_1.fq'
 rev='M09_trimmed_75_2.fq'
-log='o_oborniki.karect_correct.txt'
+log='Oob.karect_correct.txt'
 
 karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
 
