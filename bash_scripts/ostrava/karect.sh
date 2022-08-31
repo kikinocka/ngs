@@ -6,13 +6,11 @@
 #PBS -j oe
 
 
-read_dir='/mnt/data/bojana/Genomic/Obscuromonas_oborniki/Obscuromonas_oborniki_trimmed/trimmed75/'
-out_dir='/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
-fwd=$read_dir'M09_trimmed_75_1.fq.gz'
-rev=$read_dir'M09_trimmed_75_2.fq.gz'
-log=$out_dir'o_oborniki.karect_correct.txt'
+cd '/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
+fwd='M09_trimmed_75_1.fq'
+rev='M09_trimmed_75_2.fq'
+log='o_oborniki.karect_correct.txt'
 
-cd $out_dir
 karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
 
 # karect -align -threads=10 -matchtype=hamming \
