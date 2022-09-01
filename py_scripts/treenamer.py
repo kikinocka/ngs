@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/ver14/combined/')
-trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/rabs2-4-14/ver2/RAxML/')
+trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.rabs2-4-14.CD')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/ver14/rabs_codes_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/rabs2-4-14/ver2/rabs2-4-14_acc_codes.txt')
 
 name_dict = {}
 for name in names:
