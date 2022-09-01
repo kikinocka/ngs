@@ -6,10 +6,10 @@
 #PBS -j oe
 
 
-cd '/mnt/data/kika/blastocrithidia/o_modryi/reads/'
-fwd='modryi_trimmed_75_1.fq'
-rev='modryi_trimmed_75_2.fq'
-log='Omo.karect_correct.txt'
+cd '/mnt/data/kika/blastocrithidia/b_spHR05/reads/'
+fwd='HR-05_trimmed_75_1.fq'
+rev='HR-05_trimmed_75_2.fq'
+log='Bsp.karect_correct.txt'
 
 karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
 
