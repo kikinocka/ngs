@@ -6,7 +6,7 @@
 #PBS -j oe
 
 
-assembly='/mnt/data/kika/blastocrithidia/b_frustrata/spades_karect/scaffolds.fasta'
-out='/mnt/data/kika/blastocrithidia/b_frustrata/quast/'
+assembly='/mnt/data/kika/blastocrithidia/b_spHR05/spades_karect/scaffolds.fasta'
+out='/mnt/data/kika/blastocrithidia/b_spHR05/spades_karect/quast/'
 
 quast.py -o $out -t 20 $assembly
