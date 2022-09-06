@@ -11,4 +11,5 @@ fwd=&read_dir'triat_trimmed_1.fq.gz'
 rev=&read_dir'triat_trimmed_2.fq.gz'
 
 cd $work_dir
+ulimit -n 4096
 spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 --careful -o $work_dir
