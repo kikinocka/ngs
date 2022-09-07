@@ -2,7 +2,7 @@
 
 placer='/Users/kika/scripts/py_scripts/boots_on_mb.py'
 
-cd '/Users/kika/ownCloud/archamoebae/trees/hydA/ver6/combined/'
+cd '/Users/kika/ownCloud/archamoebae/trees/hydA/ver7/combined/'
 # cd '/Users/kika/ownCloud/membrane-trafficking/trees/RABs/endocytic/ver4/combined/'
 # cd '/Users/kika/ownCloud/anaeramoeba/trees/TBCs/ver6/combined/'
 
