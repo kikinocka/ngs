@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/PFO/ver4/MrBayes/')
-trees = [x for x in os.listdir() if x.endswith('.tre')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/PFO/ver4/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/archamoebae/trees/PFO/ver4/pfo_codes_acc.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/PFO/ver4/pfo_codes_names.txt')
 
 name_dict = {}
 for name in names:
