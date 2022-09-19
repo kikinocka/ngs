@@ -424,7 +424,28 @@ if os.path.exists(prefix + ".cello.txt"):
 			pred = possiblepredscello[pred]
 			pred = float(item[14])
 			preds_d.at[name, "Cello"] = pred
-	
+
+
+if os.path.exists(prefix + ".deeploc.csv"):
+	print("Found DeepLoc2.0 output")
+	deeploc = open(prefix + ".deeploc.csv").read().split('\n')
+	score_idx = {'Cytoplasm': 3, "Endoplasmic reticulum": 9, "Extracellular": 5, 
+	"Plastid": 8, "Golgi apparatus": 11, "Mitochondrion": 7, "Nucleus": 4, 
+	"Lysosome/Vacuole": 10, "Peroxisome": 12, "Cell membrane": 6}
+	possiblepredsdl = {'Cytoplasm': "CYT", "Endoplasmic reticulum": "ER", "Extracellular": "SEC", 
+	"Plastid": "PT", "Golgi apparatus": "GOLGI", "Mitochondrion": "MT", "Nucleus": "NC", 
+	"Lysosome/Vacuole": "LYS/VAC", "Peroxisome": "PX", "Cell membrane": "SEC"}
+	for item in deeploc:
+		if len(item) > 0:
+			item = item.split(',')
+			if item[1] == "Localizations":
+				continue
+			name = item[0]
+			#pred = item[score_idx[item[1]]]
+			pred = float(item[7])
+			preds_d.at[name, "DeepLoc"] = pred
+
+
 print("preds_dictionary collected")
 preds_d.to_csv(path_or_buf='{}.scores.tsv'.format(prefix), float_format='%0.3f', sep="\t")
 

@@ -350,7 +350,7 @@ if os.path.exists(prefix + ".targetp.txt"):
 if os.path.exists(prefix + ".targetp2.txt"):
 	print("Found TargetP2 output")
 	targetp2 = open(prefix + ".targetp2.txt").read().split('\n') #PLANT + NONPLANT
-	possiblepredstargetp = {"mTP": "MT", "cTP": "PT", "luTP": "THYLAKOID", "SEC": "SEC", "noTP": "CYT"}
+	possiblepredstargetp = {"mTP": "MT", "cTP": "PT", "luTP": "THYLAKOID", "SP": "SEC", "noTP": "CYT"}
 	for item in targetp2:
 		#NON-PLANT
 		#Name       Pred    noTP    SP      mTP     CS position
@@ -399,7 +399,6 @@ if os.path.exists(prefix + ".pprowler.txt"):
 				quit()
 			preds_d.at[name, "PProwler"] = pred
 	
-
 if os.path.exists(prefix + ".cello.txt"):
 	print("Found Cello output")
 	cello = open(prefix + ".cello.txt").read().split('\n')
@@ -419,6 +418,29 @@ if os.path.exists(prefix + ".cello.txt"):
 			pred = item[-2]
 			pred = possiblepredscello[pred]
 			preds_d.at[name, "Cello"] = pred
+
+if os.path.exists(prefix + ".deeploc.csv"):
+	print("Found DeepLoc output")
+	deeploc = open(prefix + ".deeploc.csv").read().split('\n')
+	score_idx = {'Cytoplasm': 3, "Endoplasmic reticulum": 9, "Extracellular": 5, 
+	"Plastid": 8, "Golgi apparatus": 11, "Mitochondrion": 7, "Nucleus": 4, 
+	"Lysosome/Vacuole": 10, "Peroxisome": 12, "Cell membrane": 6}
+	possiblepredsdl = {'Cytoplasm': "CYT", "Endoplasmic reticulum": "ER", "Extracellular": "SEC", 
+	"Plastid": "PT", "Golgi apparatus": "GOLGI", "Mitochondrion": "MT", "Nucleus": "NC", 
+	"Lysosome/Vacuole": "LYS/VAC", "Peroxisome": "PX", "Cell membrane": "SEC"}
+	for item in deeploc:
+		if len(item) > 0:
+			item = item.split(',')
+			if item[1] == "Localizations":
+				continue
+			name = item[0]
+			if "|" in item[1]:
+				pred = "|".join([possiblepredsdl[x] for x in item[1].split("|")])
+			else:
+				pred = possiblepredsdl[item[1]]
+			#pred = score_idx[item[1]]
+			preds_d.at[name, "DeepLoc"] = pred
+
 	
 print("preds_dictionary collected")
 preds_d.to_csv(path_or_buf='{}.predictions.tsv'.format(prefix), float_format='%0.3f', sep="\t")
