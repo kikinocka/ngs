@@ -3,9 +3,9 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99/metamonads/')
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/RABs/endocytic/ver5/')
-files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
+# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99/metamonads/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/trees/ARFs/sar1-sarB/ver2/')
+files = [x for x in os.listdir() if x.endswith('CD.mafft.aln')]
 
 for file in files:
 	print(file)
