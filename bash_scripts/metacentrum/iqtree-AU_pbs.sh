@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add iqtree-1.6.12
+module add iqtree-2.2.0
 
 datadir='/storage/brno3-cerit/home/kika/trafficking/COPII/ver7/sec13_AU/'
 
@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 aln='sec13.trimal_gt-0.8.aln'
 trees='sec13_topologies.trees'
 
-iqtree -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN --test-weight --test-au --test 10000 -n 100 -s $aln --trees $trees
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN --test-weight --test-au --test 10000 -n 100 -s $aln --trees $trees
 
 #copy files back
 rm $aln
