@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Users/kika/ownCloud/archamoebae/import/HMMs-amoebozoa/')
+os.chdir('/Users/kika/ownCloud/angomonas_SNAREs/queries/')
 
-for seq in SeqIO.parse('acas.fa', 'fasta'):
+for seq in SeqIO.parse('qa.fa', 'fasta'):
 	with open('{}.fa'.format(seq.name), 'w') as result:
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
