@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N IQT
+#PBS -N IQT-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/wdr/ver8'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/angomonas'
 
 #copy files to scratch
 cp $data_dir'/'*trimal_gt-0.8.aln $SCRATCHDIR
@@ -34,4 +34,4 @@ done
 
 #copy files back
 rm *.aln
-cp * $data_dir'/IQ-TREE/'
+cp * $data_dir
