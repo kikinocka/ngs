@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/angomonas/eukaryotic/'
+datadir='/storage/brno3-cerit/home/kika/trafficking/angomonas/kinetoplastid/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
-cp $datadir'qb.CD.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'qc.CD.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='qb.CD.trimal_gt-0.8.aln'
+aln='qc.CD.trimal_gt-0.8.aln'
 guide='guide_qc.CD.trimal_gt-0.8'
 guide_tree=$guide'.treefile'
 bb=1000
