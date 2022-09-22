@@ -6,24 +6,30 @@
 #PBS -j oe
 
 
-cd '/mnt/data/kika/blastocrithidia/o_volfi/reads/'
-fwd='CC37A_trimmed_75_1.fq'
-rev='CC37A_trimmed_75_2.fq'
-log='Ovo.karect_correct.txt'
+cd '/mnt/data/kika/blastocrithidia/b_triatomae/'
+assembly='spades_all_careful/scaffolds.fasta'
+fwd='reads/triat_trimmed_1.fq'
+rev='reads/triat_trimmed_2.fq'
+fwd_kar='karect_eval/triat_trimmed_1_karect.fq'
+rev_kar='karect_eval/triat_trimmed_2_karect.fq'
+aln='karect_eval/Btr_aln.txt'
+eval='karect_eval/Btr_eval.txt'
+log_aln='karect_eval/Btr.karect_aln.txt'
+log_eval='karect_eval/Btr.karect_eval.txt'
 
-karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
+# karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fwd -inputfile=$rev 2> $log
 
-# karect -align -threads=10 -matchtype=hamming \
-#       -inputfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/PNG74_trimmed_75_1.fq \
-#       -inputfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/PNG74_trimmed_75_1.fq \
-#       -refgenomefile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_assembled/trimmed75/scaffolds.l500.fasta \
-#       -alignfile=O_eliasi_align.txt &> log_karect_align_o_eliasi.txt
+karect -align -threads=10 -matchtype=hamming \
+      -inputfile=$fwd \
+      -inputfile=$rev \
+      -refgenomefile=$assembly \
+      -alignfile=$aln 2> $log_aln
 
-# karect -eval -threads=10 -matchtype=hamming \
-#       -inputfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/PNG74_trimmed_75_1.fq \
-#       -inputfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/PNG74_trimmed_75_2.fq \
-#       -resultfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/karrect/karect_PNG74_trimmed_75_1.fq \
-#       -resultfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/karrect/karect_PNG74_trimmed_75_2.fq \
-#       -refgenomefile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_assembled/trimmed75/scaffolds.l500.fasta \
-#       -alignfile=/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_trimmed/trimmed75/O_eliasi_align.txt \
-#       -evalfile=O_eliasi_eval.txt
+karect -eval -threads=10 -matchtype=hamming \
+      -inputfile=$fwd \
+      -inputfile=$rev \
+      -resultfile=$fwd_kar \
+      -resultfile=$rev_kar \
+      -refgenomefile=$assembly \
+      -alignfile=$aln \
+      -evalfile=$eval 2> $log_eval
