@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/')
-trees = [x for x in os.listdir() if x.endswith('r.CD.trimal_gt-0.8.aln.treefile')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/RABs/endocytic/ver5/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/r_codes_acc.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/RABs/endocytic/ver5/endocytic_codes_names.txt')
 
 name_dict = {}
 for name in names:
@@ -28,8 +28,8 @@ for name in names:
 
 for tree in trees:
 	print(tree)
-	name = tree.split('.treefile')[0]
-	# name = tree.split('.tre')[0]
+	# name = tree.split('.treefile')[0]
+	name = tree.split('.tre')[0]
 	# name = tree.split('.tre')[0] + tree.split('.tre')[1]
 	with open('{}_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
