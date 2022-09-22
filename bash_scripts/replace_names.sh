@@ -2,7 +2,7 @@
 
 replacer='/Users/kika/ownCloud/lab_documents/Joel/lael_scripts/name_replace/name_replace.pl'
 
-cd '/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/kinetoplastid/'
+cd '/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/'
 # cd '/Users/kika/ownCloud/archamoebae/trees/NifU/ver7/'
 
 for aln in *.mafft.aln ; do
