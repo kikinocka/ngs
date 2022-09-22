@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/angomonas'
+data_dir='/storage/brno3-cerit/home/kika/trafficking/angomonas/kinetoplastid'
 
 #copy files to scratch
 cp $data_dir'/'*trimal_gt-0.8.aln $SCRATCHDIR
