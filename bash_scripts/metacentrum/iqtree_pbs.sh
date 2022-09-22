@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='meta:/auto/brno3-cerit/nfs4/home/kika/trafficking/angomonas/eukaryotic/'
+datadir='/storage/brno3-cerit/home/kika/trafficking/angomonas/eukaryotic/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
