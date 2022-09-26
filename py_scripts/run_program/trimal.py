@@ -4,15 +4,15 @@ import os
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
 # os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99/metamonads/')
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/')
-files = [x for x in os.listdir() if x.endswith('CD.mafft.aln')]
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/metamonads/MLSB/above99/ver2/')
+files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 
 for file in files:
 	print(file)
 	file_name = file.split('.')[0] + '.' + file.split('.')[1]
 	# file_name = file.split('.')[0]
 	aut = 'automated1'
-	gt = 0.8 #fraction of sequences with a gap allowed
+	gt = 0.25 #fraction of sequences with a gap allowed
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 

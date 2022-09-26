@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/kinetoplastid/')
-trees = [x for x in os.listdir() if x.endswith('qc.CD.trimal_gt-0.8.aln.treefile')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/HOPS-CORVET/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/angomonas_SNAREs/trees/kinetoplastid/qc_codes_acc.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/HOPS-CORVET/combined/vps3-39_codes_names.txt')
 
 name_dict = {}
 for name in names:
