@@ -2,8 +2,6 @@
 #PBS -N karect
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=02:00:00
-#PBS -m ae
-#PBS -j oe
 
 
 cd '/mnt/data/kika/blastocrithidia/b_triatomae/'
