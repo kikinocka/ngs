@@ -1,4 +1,6 @@
 #!/bin/bash
+#PBS -d .
+#PBS -v PATH
 #PBS -N karect
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=02:00:00
