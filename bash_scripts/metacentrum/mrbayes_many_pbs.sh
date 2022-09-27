@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/trafficking/wdr/ver8/MrBayes'
+data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/ARFs/ver10/MrBayes'
 
 #copy files to scratch
 cp $data'/'*.nex $SCRATCHDIR
