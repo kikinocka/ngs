@@ -10,18 +10,18 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/decontaminated/heterolobosea/ver2/'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/metamonada/above99/ver2/'
 
 #copy files to scratch
-cp $data'placement/heterolobosea_v9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
-cp $data'reference_tree/RAxML_bipartitions.heterolobosea3' $SCRATCHDIR
+cp $data'placement/metamonads_v9.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'reference_tree/RAxML_bipartitions.metamonads3' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='heterolobosea_v9.trimal_gt-0.25_cons-50.aln'
-tree='RAxML_bipartitions.heterolobosea3'
+aln='metamonads_v9.trimal_gt-0.25_cons-50.aln'
+tree='RAxML_bipartitions.metamonads3'
 out='EPARUN'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN
