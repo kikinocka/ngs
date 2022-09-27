@@ -20,7 +20,7 @@ log_eval='reads/karect_eval/Btr.karect_eval.txt'
 karect -align -threads=10 -matchtype=hamming \
       -inputfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/triat_trimmed_75_1.fq \
       -inputfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/triat_trimmed_75_2.fq \
-      -refgenomefile=/mnt/data/kika/blastocrithidia/b_triatomae/spades_75_karect/scaffolds.fasta \
+      -refgenomefile=/mnt/data/kika/blastocrithidia/b_triatomae/spades_75_karect/scaffolds.l500.fa \
       -alignfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr_aln.txt \
       2> /mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr.karect_aln.txt
 
@@ -29,7 +29,7 @@ karect -eval -threads=10 -matchtype=hamming \
       -inputfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/triat_trimmed_75_2.fq \
       -resultfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_triat_trimmed_75_1.fq \
       -resultfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_triat_trimmed_75_2.fq \
-      -refgenomefile=/mnt/data/kika/blastocrithidia/b_triatomae/spades_75_karect/scaffolds.fasta \
+      -refgenomefile=/mnt/data/kika/blastocrithidia/b_triatomae/spades_75_karect/scaffolds.l500.fa \
       -alignfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr_aln.txt \
       -evalfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr_eval.txt \ 
       2> /mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr.karect_eval.txt
