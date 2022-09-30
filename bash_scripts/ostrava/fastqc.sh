@@ -5,10 +5,10 @@
 #PBS -m ae
 #PBS -j oe
 
-cd '/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
-fwd='4FEM_trimmed_1.fq.gz'
-rev='4FEM_trimmed_2.fq.gz'
-report='bfru_trimmed.fastqc.txt'
+cd '/mnt/data/kika/blastocrithidia/b_spHR05/reads/'
+fwd='HR05_trimmed_1.fq.gz'
+rev='HR05_trimmed_2.fq.gz'
+report='bsp_trimmed.fastqc.txt'
 
 # fastqc -o ./fastqc -t 5 *.fq 2> $report
 fastqc -o ./fastqc -t 5 $fwd $rev 2> $report
