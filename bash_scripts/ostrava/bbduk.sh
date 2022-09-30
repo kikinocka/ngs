@@ -6,17 +6,17 @@
 #PBS -j oe
 
 
-raw_dir='/mnt/data/aalbanaz/Blastocrithidia_Obscuromonas/raw_reads/Obscuromonas_oborniki/'
-fwd=$raw_dir'M09_1.fastq.gz'
-rev=$raw_dir'M09_2.fastq.gz'
+raw_dir='/mnt/data/aalbanaz/Blastocrithidia_Obscuromonas/raw_reads/Obscuromonas_volfi/'
+fwd=$raw_dir'CC37A_1.fastq.gz'
+rev=$raw_dir'CC37A_2.fastq.gz'
 
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
 
-cd '/mnt/data/kika/blastocrithidia/o_oborniki/reads/'
-trimmed_fwd='M09_trimmed_1.fq.gz'
-trimmed_rev='M09_trimmed_2.fq.gz'
-report='oobo_bbduk.txt'
+cd '/mnt/data/kika/blastocrithidia/o_volfi/reads/'
+trimmed_fwd='CC37A_trimmed_1.fq.gz'
+trimmed_rev='CC37A_trimmed_2.fq.gz'
+report='ovol_bbduk.txt'
 len=75
 
 #illumina pair-end reads
