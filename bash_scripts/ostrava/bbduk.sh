@@ -6,17 +6,17 @@
 #PBS -j oe
 
 
-raw_dir='/mnt/data/kika/blastocrithidia/o_modryi-OLD/genome/reads/'
-fwd=$raw_dir'Jaculum_1.fastq.gz'
-rev=$raw_dir'Jaculum_2.fastq.gz'
+raw_dir='/mnt/data/aalbanaz/Blastocrithidia_Obscuromonas/raw_reads/Blastocrithidia_frustrata/'
+fwd=$raw_dir'4FEM_1.fastq.gz'
+rev=$raw_dir'4FEM_2.fastq.gz'
 
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
 
-cd '/mnt/data/kika/blastocrithidia/o_modryi/reads/'
-trimmed_fwd='modryi_trimmed_1.fq.gz'
-trimmed_rev='modryi_trimmed_2.fq.gz'
-report='modryi_bbduk.txt'
+cd '/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
+trimmed_fwd='4FEM_trimmed_1.fq.gz'
+trimmed_rev='4FEM_trimmed_2.fq.gz'
+report='bfru_bbduk.txt'
 len=75
 
 #illumina pair-end reads
