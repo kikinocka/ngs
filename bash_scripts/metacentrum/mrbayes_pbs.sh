@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/ArfGAPs/MrBayes/'
+data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/ArfGAPs/MrBayes'
 
 #copy files to scratch
-cp $data'arfgaps.CD.trimal_gt-0.8.nex' $SCRATCHDIR
+cp $data'/'* $SCRATCHDIR
 
 
 #compute on scratch
