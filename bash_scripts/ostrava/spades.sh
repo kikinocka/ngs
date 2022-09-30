@@ -5,7 +5,7 @@
 #PBS -m ae
 #PBS -j oe
 
-work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/all_careful/'
+work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/spades_all_careful/'
 read_dir='/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
 fwd=$read_dir'4FEM_trimmed_1.fq.gz'
 rev=$read_dir'4FEM_trimmed_2.fq.gz'
