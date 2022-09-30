@@ -6,7 +6,7 @@
 #PBS -j oe
 
 
-assembly='/mnt/data/kika/blastocrithidia/b_frustrata/spades_75_careful/scaffolds.fasta'
-out='/mnt/data/kika/blastocrithidia/b_frustrata/spades_75_careful/quast/scaffolds/'
+assembly='/mnt/data/bojana/Genomic/Obscuromonas_eliasi/Obscuromonas_eliasi_assembled/trimmed75_NOcareful/contigs.fasta'
+out='/mnt/data/kika/blastocrithidia/o_eliasi/quast/trimmed75_nocorrection/contigs/'
 
 quast.py -o $out -t 20 $assembly
