@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/trees/seh1/RAxML/')
-trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.seh1.CD')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/trees/seh1/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
 names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/trees/seh1/seh1_codes_names.txt')
