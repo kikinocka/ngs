@@ -11,5 +11,5 @@ fwd=$read_dir'HR05_trimmed_1.fq.gz'
 rev=$read_dir'HR05_trimmed_2.fq.gz'
 
 cd $work_dir
-# spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 --careful -o $work_dir
-spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 -o $work_dir
+spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 --careful -o $work_dir
+# spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 -o $work_dir
