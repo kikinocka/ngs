@@ -6,7 +6,7 @@
 #PBS -j oe
 
 
-raw_dir='/mnt/data/aalbanaz/Blastocrithidia_Obscuromonas/raw_reads/Obscuromonas_volfi/'
+raw_dir='/mnt/data/aalbanaz/Blastocrithidia_Obscuromonas/raw_reads/Obscuromonas_eliasi/'
 fwd=$raw_dir'PNG74_1.fastq.gz'
 rev=$raw_dir'PNG74_2.fastq.gz'
 
