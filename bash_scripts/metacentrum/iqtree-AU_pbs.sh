@@ -10,18 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-2.2.0
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/ver7/sec13_AU/ver4/'
+datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/ver7/sec13_AU/ver4'
 
 #copy files to scratch
-cp $datadir'sec13.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $datadir'sec13_topologies.trees' $SCRATCHDIR
+cp $datadir'/'* $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
+pref='sec13'
 aln='sec13.trimal_gt-0.8.aln'
 # trees='sec13_topologies.trees'
-pref='sec13'
 constr1='sec13.constr1'
 constr2='sec13.constr2'
 
