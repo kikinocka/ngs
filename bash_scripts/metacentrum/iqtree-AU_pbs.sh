@@ -20,9 +20,17 @@ cp $datadir'sec13_topologies.trees' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='sec13.trimal_gt-0.8.aln'
-trees='sec13_topologies.trees'
+# trees='sec13_topologies.trees'
+pref='sec13'
+constr1='sec13.constr1'
+constr2='sec13.constr2'
 
-iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN --test-weight --test-au --test 10000 -n 100 -s $aln --trees $trees
+# iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN --test-weight --test-au --test 10000 -n 100 -s $aln --trees $trees
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln --prefix $pref.unconstr
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -g $constr1 --prefix $pref.constr1
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -g $constr2 --prefix $pref.constr2
+cat *constr*.treefile > $pref.trees
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -z $pref.trees --test-weight --test-au --test 10000 -n 100
 
 #copy files back
 rm $aln
