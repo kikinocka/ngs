@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/archam_trees/raxml/'
 
-aln='hydA.trimal_gt-0.8.aln'
+aln='hydA_dom.CD.trimal_gt-0.8.aln'
 out=${aln%.trimal_gt-0.8.aln}
 
 #proteins
