@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-2.2.0
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/ver7/sec13_AU/ver5'
+datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/ver7/sec13_AU/ver6'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -29,8 +29,8 @@ iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln --prefix $pref.unconstr
 iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -g $constr1 --prefix $pref.constr1
 iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -g $constr2 --prefix $pref.constr2
 cat *constr*.treefile > $pref.trees
-iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -z $pref.trees --test-weight --test-au --test 10000 -n 0
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -s $aln -trees $pref.trees --test-weight --test-au --test 10000 -n 0
 
 #copy files back
-rm $aln
+# rm $aln
 cp * $datadir
