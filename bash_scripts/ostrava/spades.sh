@@ -5,10 +5,10 @@
 #PBS -m ae
 #PBS -j oe
 
-work_dir='/mnt/data/kika/blastocrithidia/o_volfi/spades_all_carefull/'
+work_dir='/mnt/data/kika/blastocrithidia/o_volfi/spades_75_careful/'
 read_dir='/mnt/data/kika/blastocrithidia/o_volfi/reads/'
-fwd=$read_dir'CC37A_trimmed_1.fq.gz'
-rev=$read_dir'CC37A_trimmed_2.fq.gz'
+fwd=$read_dir'CC37A_trimmed_75_1.fq'
+rev=$read_dir'CC37A_trimmed_75_2.fq'
 
 cd $work_dir
 spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 --careful -o $work_dir
