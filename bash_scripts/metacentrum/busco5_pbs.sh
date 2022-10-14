@@ -15,7 +15,7 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative'
+assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/genome_final'
 
 #copy files to scratch
 cp $assembly_dir'/'*.fasta $SCRATCHDIR
