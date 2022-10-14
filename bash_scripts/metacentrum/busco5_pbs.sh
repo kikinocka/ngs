@@ -26,9 +26,10 @@ cd $SCRATCHDIR
 
 mode='genome'
 
-mkdir BUSCO_summaries_$lineage
+# mkdir BUSCO_summaries_$lineage
+mkdir BUSCO_summaries
 
-for fasta in *.faa; do
+for fasta in *.fasta; do
 	echo $fasta
 	lineage='eukaryota_odb10'
 	base=${fasta}_$lineage
@@ -41,7 +42,8 @@ for fasta in *.faa; do
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 done
 
-generate_plot.py -wd BUSCO_summaries_$lineage
+# generate_plot.py -wd BUSCO_summaries_$lineage
+generate_plot.py -wd BUSCO_summaries
 
 
 #copy files back
