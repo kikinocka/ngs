@@ -6,7 +6,7 @@
 #PBS -j oe
 
 
-assembly='/mnt/data/kika/blastocrithidia/o_eliasi/genome_final/Oeliasi_FINAL.fasta'
+assembly='/mnt/data/kika/blastocrithidia/o_eliasi/genome_final/Oeliasi_gapClosed_Bojana.fasta'
 out='/mnt/data/kika/blastocrithidia/o_eliasi/genome_final/quast/'
 
 quast.py -o $out -t 20 $assembly
