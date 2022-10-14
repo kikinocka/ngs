@@ -1,9 +1,10 @@
 #!/bin/bash
+#PBS -d .
+#PBS -v PATH
 #PBS -N fastqc
 #PBS -l nodes=1:ppn=5
 #PBS -l walltime=02:00:00
-#PBS -m ae
-#PBS -j oe
+
 
 cd '/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
 fwd='4FEM_trimmed_75_1.fq'

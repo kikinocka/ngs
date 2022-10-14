@@ -1,9 +1,10 @@
 #!/bin/bash
+#PBS -d .
+#PBS -v PATH
 #PBS -N spades
 #PBS -l nodes=1:ppn=80
 #PBS -l walltime=100:00:00
-#PBS -m ae
-#PBS -j oe
+
 
 work_dir='/mnt/data/kika/blastocrithidia/o_eliasi/spades_all_careful/'
 read_dir='/mnt/data/kika/blastocrithidia/o_eliasi/reads/'

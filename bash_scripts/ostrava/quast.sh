@@ -1,9 +1,9 @@
 #!/bin/bash
+#PBS -d .
+#PBS -v PATH
 #PBS -N quast
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=02:00:00
-#PBS -m ae
-#PBS -j oe
 
 
 assembly='/mnt/data/kika/blastocrithidia/o_eliasi/genome_final/Oeliasi_gapClosed_Bojana.fasta'

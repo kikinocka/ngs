@@ -1,9 +1,9 @@
 #!/bin/bash
-#PBS -N bbduk
+#PBS -d .
+#PBS -v PATH
+#PBS -N karect
 #PBS -l nodes=1:ppn=10
-#PBS -l walltime=01:00:00
-#PBS -m ae
-#PBS -j oe
+#PBS -l walltime=02:00:00
 
 
 raw_dir='/mnt/data/aalbanaz/Blastocrithidia_Obscuromonas/raw_reads/Obscuromonas_eliasi/'
