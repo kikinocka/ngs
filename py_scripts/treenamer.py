@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ArfGAPs/ag-smap-acap/ver4/MrBayes2/')
-trees = [x for x in os.listdir() if x.endswith('con.tre')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/hydA/ver8/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ArfGAPs/ag-smap-acap/ver4/arfgaps_codes_acc.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/hydA/ver8/hydA_codes_names.txt')
 
 name_dict = {}
 for name in names:
