@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-2.2.0
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/ver7/sec13_AU/ver6'
+datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/sec13_AU/ver7'
 
 #copy files to scratch
 cp $datadir'/'* $SCRATCHDIR
@@ -23,13 +23,13 @@ aln='sec13.trimal_gt-0.8.aln'
 # trees='sec13_topologies.trees'
 constr1='sec13.constr1'
 constr2='sec13.constr2'
+ufb=1000
 
-# iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN --test-weight --test-au --test 10000 -n 100 -s $aln --trees $trees
-iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln --prefix $pref.unconstr
+iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln --prefix $pref.unconstr -B $ufb --boot-trees
 iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -g $constr1 --prefix $pref.constr1
 iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -g $constr2 --prefix $pref.constr2
-cat *constr*.treefile > $pref.trees
-iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln --trees $pref.trees --test-weight --test-au --test 10000 -n 0
+# cat *constr*.treefile > $pref.trees
+# iqtree2 -m LG4X -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln --trees $pref.trees --test-weight --test-au --test 10000 -n 0
 
 #copy files back
 # rm $aln
