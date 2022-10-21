@@ -14,6 +14,7 @@ datadir='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/sec13_AU/v
 
 #copy files to scratch
 cp $datadir'/sec13.trees' $SCRATCHDIR
+cp $datadir'/sec13.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
