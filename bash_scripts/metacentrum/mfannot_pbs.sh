@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/mito'
 
 #copy files to scratch
-cp $datadir'/'*.fasta $SCRATCHDIR
+cp $datadir'/mitochondrion_P2S_scaffolds.fasta' $SCRATCHDIR
 
 
 #compute on scratch
