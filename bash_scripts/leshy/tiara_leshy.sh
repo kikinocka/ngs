@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd '/mnt/mokosz/home/kika/workdir/'
-metagenome='P3S_scaffolds.fasta'
+metagenome='bml_meta.spades_def.fa'
 out='tiara.out'
-length=1000
+length=3000
 cpu=10
 
 tiara -i $metagenome -o $out -t $cpu -m $length --tf all --pr
