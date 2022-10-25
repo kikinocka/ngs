@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add raxml-8.2.8
 
-data='/storage/brno3-cerit/home/kika/trafficking/COPII/ver7'
+data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_COPII/hypothetical/ver2/raxml'
 
 #copy files to scratch
 cp $data'/'*trimal_gt-0.8.aln $SCRATCHDIR
