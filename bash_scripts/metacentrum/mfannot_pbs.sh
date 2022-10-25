@@ -24,7 +24,7 @@ for file in *.fasta ; do
 	echo $file
 	base=${file%_scaffolds.fasta}
 
-	singularity exec mfannot.sif mfannot --sqn --tbl --partial -o $base.out -l $base.log $file
+	singularity exec mfannot.sif mfannot --sqn --tbl --partial -o $base.mfannot.out -l $base.mfannot.log $file
 done
 
 #copy files back
