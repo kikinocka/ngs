@@ -6,7 +6,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from beeswarm import *
 
-os.chdir('/home/kika/MEGAsync/diplonema_mt/')
+os.chdir('/Users/kika/owncloud/diplonema/mt_gene_structure/')
 ypf1601 = csv.reader(open('1601/1601_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 ypf1604 = csv.reader(open('1604/1604_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
 ypf1608 = csv.reader(open('1608/1608_module_sizes_mod.tsv'), delimiter='\t', skipinitialspace=True)
@@ -61,7 +61,7 @@ for i in y:
 boxprops = dict(linestyle='-', linewidth=1, color='black')
 medianprops = dict(linestyle='-', linewidth=2.5, color='black')
 whiskerprops = dict(linestyle='--', color='black')
-bplot = beeswarm(data, method='swarm', positions=swarmpos, s=5, col='grey', alpha=0.3, zorder=10)
+# bplot = beeswarm(data, method='swarm', positions=swarmpos, s=5, col='grey', alpha=0.3, zorder=10)
 bplot = plt.boxplot(data, notch=True, patch_artist=True, showfliers=False, boxprops=boxprops, medianprops=medianprops, \
 	whiskerprops=whiskerprops)
 
