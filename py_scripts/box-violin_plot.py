@@ -5,10 +5,10 @@ import pandas as pd
 import matplotlib.pylab as plt
 
 os.chdir('/Users/kika/ownCloud/plastid_genomes/')
-df = pd.read_excel('genomes_genes.xlsx', sheet_name='genomes')
+df = pd.read_excel('genomes_genes.xlsx')
 # print(df)
 
-fig, ax = plt.subplots(figsize=(18, 16))
+fig, ax = plt.subplots(figsize=(9, 5))
 
 # sns.violinplot(x=df['higher taxon'], y=df['length'], width=1.75)
 sns.boxplot(x=df['higher taxon'], y=df['length'], \
