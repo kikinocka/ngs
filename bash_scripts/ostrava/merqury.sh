@@ -7,10 +7,9 @@
 
 merqury='/home/users/kika/miniconda3/share/merqury/'
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/'
-read_dir='/mnt/data/kika/blastocrithidia/b_frustrata/reads'
 contigs=$work_dir'spades_75_karect/contigs.fasta'
-fwd=$read_dir'/karect_4FEM_trimmed_75_1.fq'
-rev=$read_dir'/karect_4FEM_trimmed_75_2.fq'
+fwd=$work_dir'reads/karect_4FEM_trimmed_75_1.fq'
+rev=$work_dir'reads/karect_4FEM_trimmed_75_2.fq'
 base='Bfru_scaff.'
 out='karect_trimmed_75.merqury.out'
 
@@ -31,7 +30,7 @@ cd $work_dir'merqury/'
 # meryl k=$kmer count output ${rev%.fq}.meryl $rev 2>> $base'meryl_dbs.out'
 # #merge to one db
 # meryl union-sum output ${fwd%_1.fq}_both.meryl *.meryl 2>> $base'meryl_dbs.out'
-# mv $read_dir'/'*.meryl .
+# mv $workdir'reads/'*.meryl .
 
 #merqury analysis
-$merqury'merqury.sh' *_both.meryl $contigs $out 2 >> $base'merqury.out'
+$merqury'merqury.sh' *_both.meryl $contigs $out 2>> $base'merqury.out'
