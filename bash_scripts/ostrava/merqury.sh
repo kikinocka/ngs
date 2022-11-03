@@ -12,7 +12,7 @@ contigs=$work_dir'spades_75_karect/contigs.fasta'
 fwd=$read_dir'karect_4FEM_trimmed_75_1.fq'
 rev=$read_dir'karect_4FEM_trimmed_75_2.fq'
 out='Bfru_scaff.kat.out'
-report='Bfru_scaff.kat.log'
+base='Bfru_scaff.'
 
 
 cd $work_dir'merqury/'
@@ -26,5 +26,5 @@ k=17.5764
 
 #build meryl dbs
 for each karect$i.fq ; do
-    meryl k=$k count output karect$i.meryl karect$i.fq
+    meryl k=$k count output karect$i.meryl karect$i.fq 2> $base'meryl.log'
 done
