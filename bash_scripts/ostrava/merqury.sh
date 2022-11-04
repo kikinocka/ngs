@@ -26,11 +26,11 @@ cd $work_dir'merqury/'
 # kmer="$($kmer_tmp | awk '{print int($1+0.5)}')" 
 
 # #build meryl dbs
-# meryl k=$kmer count output ${fwd%.fq}.meryl $fwd 2> $base'meryl_dbs.out'
-# meryl k=$kmer count output ${rev%.fq}.meryl $rev 2>> $base'meryl_dbs.out'
+# meryl k=$kmer count output ${fwd%.fq}.meryl $fwd 2> $base'meryl_dbs.log'
+# meryl k=$kmer count output ${rev%.fq}.meryl $rev 2>> $base'meryl_dbs.log'
 # #merge to one db
-# meryl union-sum output ${fwd%_1.fq}_both.meryl *.meryl 2>> $base'meryl_dbs.out'
+# meryl union-sum output ${fwd%_1.fq}_both.meryl *.meryl 2>> $base'meryl_dbs.log'
 # mv $workdir'reads/'*.meryl .
 
 #merqury analysis
-$merqury'merqury.sh' *_both.meryl $contigs $out 2>> $base'merqury.out'
+$merqury'merqury.sh' *_both.meryl $contigs $out 2>> $base'merqury.log'
