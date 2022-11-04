@@ -7,11 +7,11 @@
 
 merqury='/home/users/kika/miniconda3/share/merqury/'
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/'
-contigs=$work_dir'spades_75_karect/contigs.fasta'
+contigs=$work_dir'scaff_gap/Bfru_scaff.platanus_rnd1_scaffold.fa'
 fwd=$work_dir'reads/karect_4FEM_trimmed_75_1.fq'
 rev=$work_dir'reads/karect_4FEM_trimmed_75_2.fq'
-base='Bfru_scaff.'
-out='karect_trimmed_75.merqury.out'
+base='Bfru_scaff.platanus_rnd1.'
+out='Bfru_scaff.platanus_rnd1.merqury.out'
 
 
 cd $work_dir'merqury/'
