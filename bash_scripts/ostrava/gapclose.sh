@@ -12,5 +12,6 @@ cd $work_dir
 scaffolds='Bfru.platanus_rnd1_scaffold.l500.fa'
 out='Bfru.platanus_rnd1_scaffold.l500.gapcloser.fa'
 config='config.file'
+log='Bfru.platanus_rnd1_scaffold.l500.gapcloser.log'
 
-$gapcloser -b $config -a $scaffolds -o $out -t 20
+$gapcloser -b $config -a $scaffolds -o $out -t 20 2> $log
