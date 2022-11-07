@@ -8,6 +8,7 @@
 ulimit -n 4096
 conda activate kat
 
+work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/kat/'
 read_dir='/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
 fwd=$read_dir'karect_4FEM_trimmed_75_1.fq'
 rev=$read_dir'karect_4FEM_trimmed_75_2.fq'
