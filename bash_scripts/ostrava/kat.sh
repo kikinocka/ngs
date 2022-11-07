@@ -24,7 +24,7 @@ kat hist -m 27 -t 10 -o $hist_prefix.hist $fwd $rev 2> $hist_prefix.hist.log
 
 #adjusting x-axis
 # kat plot spectra-hist -p pdf hist_m27.hist -x 250 -o kat-hist_m27.x250.hist
-kat plot spectra-hist -p pdf $hist_prefix.hist -x 250 -o $hist_prefix.x250.hist
+kat plot spectra-hist -p pdf $hist_prefix.hist -x 250 -o $hist_prefix.x250.hist 2> $hist_prefix.plot.log
 
 #k-mer spectra for assembly
 # kat comp -t 10 -m 27 -o comp_m27 -p pdf 'R1.fastq' assembly.fasta | tee comp_m27.log
