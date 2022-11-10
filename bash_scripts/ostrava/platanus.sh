@@ -12,7 +12,7 @@ cd $work_dir'scaff_gap/'
 read_dir='/mnt/data/kika/blastocrithidia/b_spHR05/reads/'
 fwd=$read_dir'karect_4FEM_trimmed_75_1.fq'
 rev=$read_dir'karect_4FEM_trimmed_75_2.fq'
-contigs='spades_75_karect/scaffolds.fasta'
+contigs=$work_dir'spades_75_karect/scaffolds.fasta'
 out='Braa.platanus_rnd1'
 report='Braa.platanus_rnd1.log'
 
