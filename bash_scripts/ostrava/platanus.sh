@@ -6,15 +6,15 @@
 #PBS -l walltime=02:00:00
 
 platanus='/home/users/kika/platanus'
-work_dir='/mnt/data/kika/blastocrithidia/b_spHR05/'
+work_dir='/mnt/data/kika/blastocrithidia/b_triatomae/'
 
 cd $work_dir'scaff_gap/'
-read_dir='/mnt/data/kika/blastocrithidia/b_spHR05/reads/'
-fwd=$read_dir'karect_HR-05_trimmed_75_1.fq'
-rev=$read_dir'karect_HR-05_trimmed_75_2.fq'
-contigs='Braa.platanus_rnd1_scaffold.l500.gapcloser.fa'
-out='Braa.platanus_rnd2'
-report='Braa.platanus_rnd2.log'
+read_dir='/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
+fwd=$read_dir'triat_trimmed_1.fq'
+rev=$read_dir'triat_trimmed_2.fq'
+contigs=$work_dir'spades_all_careful/scaffolds.fasta'
+out='Btri.platanus_rnd1'
+report='Btri.platanus_rnd1.log'
 
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
 
