@@ -12,9 +12,9 @@ cd $work_dir'scaff_gap/'
 read_dir='/mnt/data/kika/blastocrithidia/b_triatomae/reads/'
 fwd=$read_dir'triat_trimmed_1.fq'
 rev=$read_dir'triat_trimmed_2.fq'
-contigs=$work_dir'spades_all_careful/scaffolds.fasta'
-out='Btri.platanus_rnd1'
-report='Btri.platanus_rnd1.log'
+contigs='Btri.platanus_rnd1_scaffold.l500.gapcloser.fa'
+out='Btri.platanus_rnd2'
+report='Btri.platanus_rnd2.log'
 
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
 
