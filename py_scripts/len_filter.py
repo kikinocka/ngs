@@ -10,4 +10,4 @@ with open('Braa.platanus_rnd2_scaffold.l500.fa', 'w') as out:
 		if len(seq) >= 500:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 		else:
-			pass
+			print(seq.description)
