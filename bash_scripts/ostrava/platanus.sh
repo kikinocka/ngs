@@ -12,9 +12,9 @@ cd $work_dir'scaff_gap/'
 read_dir='/mnt/data/kika/blastocrithidia/b_spHR05/reads/'
 fwd=$read_dir'karect_HR-05_trimmed_75_1.fq'
 rev=$read_dir'karect_HR-05_trimmed_75_2.fq'
-contigs=$work_dir'spades_75_karect/scaffolds.fasta'
-out='Braa.platanus_rnd1'
-report='Braa.platanus_rnd1.log'
+contigs='Braa.platanus_rnd1_scaffold.l500.gapcloser.fa'
+out='Braa.platanus_rnd2'
+report='Braa.platanus_rnd2.log'
 
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
 
