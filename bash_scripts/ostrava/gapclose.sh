@@ -8,9 +8,9 @@
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/scaff_gap/'
 
 cd $work_dir
-scaffolds='Bfru.platanus_rnd1_scaffold.l500.fa'
-out='Bfru.platanus_rnd1_scaffold.l500.gapcloser.fa'
-config='config.file'
-log='Bfru.platanus_rnd1_scaffold.l500.gapcloser.log'
+scaffolds='Bfru.platanus_rnd2_scaffold.l500.fa'
+out='Bfru.platanus_rnd2_scaffold.l500.gapcloser.fa'
+config='Bfru.rnd2.config.file'
+log='Bfru.platanus_rnd2_scaffold.l500.gapcloser.log'
 
 GapCloser -b $config -a $scaffolds -o $out -t 20 2> $log
