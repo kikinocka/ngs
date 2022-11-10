@@ -6,7 +6,7 @@
 #PBS -l walltime=02:00:00
 
 
-assembly='/mnt/data/kika/blastocrithidia/o_eliasi/genome_final/Oeliasi_gapClosed_Bojana.fasta'
-out='/mnt/data/kika/blastocrithidia/o_eliasi/genome_final/quast/'
+assembly='/mnt/data/kika/blastocrithidia/b_triatomae/scaff_gap/Btri.platanus_rnd2_scaffold.l500.gapcloser.fa'
+out='/mnt/data/kika/blastocrithidia/b_triatomae/scaff_gap/quast/'
 
 quast.py -o $out -t 20 $assembly
