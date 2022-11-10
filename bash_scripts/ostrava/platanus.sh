@@ -3,7 +3,7 @@
 #PBS -v PATH
 #PBS -N platanus
 #PBS -l nodes=1:ppn=80
-#PBS -l walltime=100:00:00
+#PBS -l walltime=02:00:00
 
 platanus='/home/users/kika/platanus'
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/'
