@@ -5,12 +5,12 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=02:00:00
 
-work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/scaff_gap/'
+work_dir='/mnt/data/kika/blastocrithidia/b_spHR05/scaff_gap/'
 
 cd $work_dir
-scaffolds='Bfru.platanus_rnd2_scaffold.l500.fa'
-out='Bfru.platanus_rnd2_scaffold.l500.gapcloser.fa'
-config='Bfru.rnd2.config.file'
-log='Bfru.platanus_rnd2_scaffold.l500.gapcloser.log'
+scaffolds='Braa.platanus_rnd1_scaffold.l500.fa'
+config='Braa.rnd1.config.file'
+out='Braa.platanus_rnd1_scaffold.l500.gapcloser.fa'
+log='Braa.platanus_rnd1_scaffold.l500.gapcloser.log'
 
 GapCloser -b $config -a $scaffolds -o $out -t 20 2> $log
