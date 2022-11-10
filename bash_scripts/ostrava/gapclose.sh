@@ -3,7 +3,7 @@
 #PBS -v PATH
 #PBS -N gapclose
 #PBS -l nodes=1:ppn=20
-#PBS -l walltime=100:00:00
+#PBS -l walltime=02:00:00
 
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/scaff_gap/'
 

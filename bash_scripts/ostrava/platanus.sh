@@ -8,7 +8,7 @@
 platanus='/home/users/kika/platanus'
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/'
 read_dir='/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
-contigs=$work_dir'scaff_gap/Bfru.platanus_rnd1_scaffold.fa '
+contigs=$work_dir'Bfru.platanus_rnd1_scaffold.l500.gapcloser.fa'
 fwd=$read_dir'karect_4FEM_trimmed_75_1.fq'
 rev=$read_dir'karect_4FEM_trimmed_75_2.fq'
 out='Bfru.platanus_rnd2'
