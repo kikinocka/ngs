@@ -5,7 +5,6 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=100:00:00
 
-# gapcloser='/home/users/kika/gapcloser/Release/stLFR_GapCloser'
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/scaff_gap/'
 
 cd $work_dir

@@ -8,11 +8,11 @@
 platanus='/home/users/kika/platanus'
 work_dir='/mnt/data/kika/blastocrithidia/b_frustrata/'
 read_dir='/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
-contigs=$work_dir'spades_75_karect/contigs.fasta'
+contigs=$work_dir'scaff_gap/Bfru.platanus_rnd1_scaffold.fa '
 fwd=$read_dir'karect_4FEM_trimmed_75_1.fq'
 rev=$read_dir'karect_4FEM_trimmed_75_2.fq'
-out='Bfru_scaff.platanus_rnd1'
-report='Bfru_scaff.platanus_rnd1.log'
+out='Bfru.platanus_rnd2'
+report='Bfru.platanus_rnd2.log'
 
 cd $work_dir'scaff_gap/'
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
