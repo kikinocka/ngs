@@ -4,11 +4,11 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/BLASTs/nups.fa'
+query = '/Users/kika/ownCloud/archamoebae/Rho/amoebozoa.fa'
 # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
-db = '/Users/kika/data/kinetoplastids/TriTrypDB-56_TbruceiTREU927_AnnotatedProteins.fasta'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/BLASTs/nups.rev_Tbru.blast.xml'
-evalue = 1
+db = '/Users/kika/ownCloud/RAB_db/RABs_deduplicated.fa'
+out = '/Users/kika/ownCloud/archamoebae/Rho/amoebozoa.rev_RABdb.blast.xml'
+evalue = 1e-04
 outfmt = 5
 hits = 1
 word_size = 3
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/BLASTs/nups.rev_Tbru.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_COPII/BLASTs/nups.rev_Tbru.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/archamoebae/Rho/amoebozoa.rev_RABdb.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/archamoebae/Rho/amoebozoa.rev_RABdb.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/archam_trees/hydA/ver8/'
+cd '/mnt/mokosz/home/kika/archam_trees/rho/'
 
 for aln in *.aln ; do
 	echo $aln
