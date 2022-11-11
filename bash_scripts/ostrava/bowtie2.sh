@@ -13,7 +13,6 @@ p1_2=$work_dir'reads/karect_4FEM_trimmed_75_2.fq'
 base_name='Bfru.bw2'
 
 cd $work_dir'mapping/'
-cp $ref .
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
@@ -22,7 +21,7 @@ report=$base_name'.report.txt'
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
-bowtie2-build --threads 20 $ref $base_name
+bowtie2-build $ref $base_name
 
 #paired-end reads
 bowtie2 --very-sensitive -p 20 \
@@ -41,4 +40,3 @@ bowtie2 --very-sensitive -p 20 \
 samtools view -bS -@ 20 $samfile > $bamfile
 samtools sort -o $sorted -@ 20 $bamfile 
 samtools index -b $sorted
-# rm $ref
