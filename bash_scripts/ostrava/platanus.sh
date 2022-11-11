@@ -6,15 +6,15 @@
 #PBS -l walltime=02:00:00
 
 platanus='/home/users/kika/platanus'
-work_dir='/mnt/data/kika/blastocrithidia/o_eliasi/'
+work_dir='/mnt/data/kika/blastocrithidia/o_modryi/'
 
 cd $work_dir'scaff_gap/'
-read_dir='/mnt/data/kika/blastocrithidia/o_eliasi/reads/'
-fwd=$read_dir'karect_PNG74_trimmed_75_1.fq'
-rev=$read_dir'karect_PNG74_trimmed_75_2.fq'
-contigs='Oeli.platanus_rnd1_scaffold.l500.gapcloser.fa'
-out='Oeli.platanus_rnd2'
-report='Oeli.platanus_rnd2.log'
+read_dir='/mnt/data/kika/blastocrithidia/o_modryi/reads/'
+fwd=$read_dir'karect_modryi_trimmed_75_1.fq'
+rev=$read_dir'karect_modryi_trimmed_75_2.fq'
+contigs=$work_dir'spades_75_karect/contigs.fatsta'
+out='Oeli.platanus_rnd1'
+report='Oeli.platanus_rnd1.log'
 
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
 
