@@ -5,12 +5,12 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=600:00:00
 
-work_dir='/mnt/data/kika/blastocrithidia/o_eliasi/'
+work_dir='/mnt/data/kika/blastocrithidia/o_modryi/'
 
-ref=$work_dir'scaff_gap/Oeli.platanus_rnd2_scaffold.l500.gapcloser.fa'
-p1_1=$work_dir'reads/karect_PNG74_trimmed_75_1.fq'
-p1_2=$work_dir'reads/karect_PNG74_trimmed_75_2.fq'
-base_name='Oeli.bw2'
+ref=$work_dir'scaff_gap/Omod.platanus_rnd2_scaffold.l500.gapcloser.fa'
+p1_1=$work_dir'reads/karect_modryi_trimmed_75_1.fq'
+p1_2=$work_dir'reads/karect_modryi_trimmed_75_2.fq'
+base_name='Omod.bw2'
 
 cd $work_dir'mapping/'
 samfile=$base_name'.sam'
