@@ -12,10 +12,10 @@ cd $work_dir'scaff_gap/'
 read_dir='/mnt/data/kika/blastocrithidia/o_volfi/reads/'
 fwd=$read_dir'CC37A_trimmed_1.fq'
 rev=$read_dir'CC37A_trimmed_2.fq'
-contigs=$work_dir'spades_all_careful/contigs.fasta'
-# contigs='Oobo.platanus_rnd1_scaffold.l500.gapcloser.fa'
-out='Ovol.platanus_rnd1'
-report='Ovol.platanus_rnd1.log'
+# contigs=$work_dir'spades_all_careful/contigs.fasta'
+contigs='Ovol.platanus_rnd1_scaffold.l500.gapcloser.fa'
+out='Ovol.platanus_rnd2'
+report='Ovol.platanus_rnd2.log'
 
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
 
