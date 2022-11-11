@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
-infile = SeqIO.parse('pelomyxa_predicted_proteins_corr.to_annotate.fa', 'fasta')
-out_fasta = open('pelomyxa_predicted_proteins_corr.to_annotate_deduplicated.fa', 'w')
-out_names = open('pelomyxa_predicted_proteins_corr.to_annotate_names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/archamoebae/Rho/')
+infile = SeqIO.parse('dicty.fa', 'fasta')
+out_fasta = open('dicty_deduplicated.fa', 'w')
+out_names = open('dicty_names.txt', 'w')
 
 # names = []
 # with open('RABs_deduplicated.fa', 'w') as out:	
@@ -33,7 +33,7 @@ for sequence in infile:
 		seq_dict[sequence.name] = [sequence.description, sequence.seq]
 
 for key, value in seq_dict.items():
-	out_fasta.write('>{}\n{}\n'.format(key, value))
+	out_fasta.write('>{}\n{}\n'.format(value[0], value[1]))
 
 for key, value in multiplications.items():
     if len(value) > 1:
