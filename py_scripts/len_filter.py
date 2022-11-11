@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/mnt/data/kika/blastocrithidia/o_oborniki/scaff_gap/')
-genome = SeqIO.parse('Oobo.platanus_rnd1_scaffold.fa', 'fasta')
+genome = SeqIO.parse('Oobo.platanus_rnd2_scaffold.fa', 'fasta')
 
-with open('Oobo.platanus_rnd1_scaffold.l500.fa', 'w') as out:
+with open('Oobo.platanus_rnd2_scaffold.l500.fa', 'w') as out:
 	for seq in genome:
 		if len(seq) >= 500:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
