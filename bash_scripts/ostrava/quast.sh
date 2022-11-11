@@ -6,7 +6,7 @@
 #PBS -l walltime=02:00:00
 
 
-assembly='/mnt/data/kika/blastocrithidia/o_modryi/scaff_gap/Omod.platanus_rnd2_scaffold.l500.gapcloser.fa'
-out='/mnt/data/kika/blastocrithidia/o_modryi/scaff_gap/quast/'
+assembly='/mnt/data/kika/blastocrithidia/o_oborniki/scaff_gap/Oobo.platanus_rnd2_scaffold.l500.gapcloser.fa'
+out='/mnt/data/kika/blastocrithidia/o_oborniki/scaff_gap/quast/'
 
 quast.py -o $out -t 20 $assembly
