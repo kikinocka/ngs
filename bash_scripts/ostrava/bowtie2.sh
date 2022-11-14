@@ -8,8 +8,8 @@
 work_dir='/mnt/data/kika/blastocrithidia/o_volfi/'
 
 ref=$work_dir'scaff_gap/Ovol.platanus_rnd2_scaffold.l500.gapcloser.fa'
-p1_1=$work_dir'reads/karect_M09_trimmed_75_1.fq'
-p1_2=$work_dir'reads/karect_M09_trimmed_75_2.fq'
+p1_1=$work_dir'reads/CC37A_trimmed_1.fq'
+p1_2=$work_dir'reads/CC37A_trimmed_2.fq'
 base_name='Ovol.bw2'
 
 cd $work_dir'mapping/'
