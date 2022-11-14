@@ -33,13 +33,13 @@ for query in *.fa; do
 		-db $db \
 		-out $out \
 		-outfmt "6 qseqid staxids bitscore std" \
-		# 'qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore' = equivalent to 'std'
 		-num_threads $PBS_NUM_PPN \
 		-evalue $eval \
 		-max_target_seqs $max_seqs \
 		-max_hsps $max_hsps
 	echo ***BLAST done***
 done
+# 'qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore' = equivalent to 'std'
 
 #copy files back
 rm *.fa
