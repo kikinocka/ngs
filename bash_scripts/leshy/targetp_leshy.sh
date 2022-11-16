@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/archam_final_assemblies'
+cd '/mnt/mokosz/home/kika/rho-miro'
 
 plant='pl'
 non_plant='non-pl'
