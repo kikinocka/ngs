@@ -11,7 +11,7 @@ mapping_dir='mapping/'
 blob_dir='reports/'
 ncbi='/storage/brno3-cerit/home/kika/ncbi/'
 
-base='Oobo'
+base='Ovol'
 mkdir $blob_dir$base'_tables'
 mkdir $blob_dir$base'_images'
 
