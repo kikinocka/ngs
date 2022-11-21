@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd '/storage/brno3-cerit/home/kika/blasto_comparative/'
+cd '/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/'
 
-blob_dir='blobtools/reports/'
+blob_dir='reports/'
 blast_dir='blasts/'
 base='Bfru'
 table=$blob_dir$base'_tables/phylum.'$base'.blobDB.table.txt'
