@@ -12,8 +12,8 @@ blob_dir='reports/'
 ncbi='/storage/brno3-cerit/home/kika/ncbi/'
 
 base='Bfru'
-mkdir $blob_dir$base'tables'
-mkdir $blob_dir$base'images'
+mkdir $blob_dir$base'_tables'
+mkdir $blob_dir$base'_images'
 
 genome=$assembly_dir$base'.platanus_rnd2_scaffold.l500.gapcloser.fa'
 blast=$blast_dir$base'.platanus_rnd2_scaffold.l500.gapcloser.nt_1e-20.megablast'
@@ -41,10 +41,3 @@ blobtools plot -i $base'.blobDB.json' --out $blob_dir$base'_images' --rank 'supe
 # blobtools create -i $transcriptome -s $sam -t $taxified -o $base
 # blobtools view -i $base'.blobDB.json' --cov -o table
 # blobtools plot -i $base'.blobDB.json' -r $rank -o plot 
-
-#copy files back
-# rm $genome $blast $bam $tax_names $tax_nodes
-# cp -r * $blob_dir
-
-# rm $transcriptome $sam $dmnd $taxid
-# cp -r * $data_dir'blobtools/pelo_clean/' || export CLEAN_SCRATCH=false
