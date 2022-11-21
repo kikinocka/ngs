@@ -25,17 +25,17 @@ tax_names=$ncbi'names.dmp'
 echo 'Running BlobTools create'
 blobtools create -i $genome --nodes $tax_nodes --names $tax_names -t $blast -b $bam -o $blob_dir$base
 echo 'Running BlobTools View - Phylum'
-blobtools view -i $base'.blobDB.json' --out $blob_dir$base'_tables/phylum' --rank 'phylum'
+blobtools view -i $blob_dir$base'.blobDB.json' --out $blob_dir$base'_tables/phylum' --rank 'phylum'
 echo 'Running BlobTools View - Super Kingdom'
-blobtools view -i $base'.blobDB.json' --out $blob_dir$base'_tables/superkingdom' --rank 'superkingdom'
+blobtools view -i $blob_dir$base'.blobDB.json' --out $blob_dir$base'_tables/superkingdom' --rank 'superkingdom'
 echo 'Running BlobTools Plot PNG - Phylum'
-blobtools plot -i $base'.blobDB.json' --out $blob_dir$base'_images' --rank 'phylum' 
+blobtools plot -i $blob_dir$base'.blobDB.json' --out $blob_dir$base'_images' --rank 'phylum' 
 echo 'Running BlobTools Plot PNG - Super Kingdom'
-blobtools plot -i $base'.blobDB.json' --out $blob_dir$base'_images' --rank 'superkingdom' 
+blobtools plot -i $blob_dir$base'.blobDB.json' --out $blob_dir$base'_images' --rank 'superkingdom' 
 echo 'Running BlobTools Plot SVG - Phylum'
-blobtools plot -i $base'.blobDB.json' --out $blob_dir$base'_images' --rank 'phylum' --format 'svg'
+blobtools plot -i $blob_dir$base'.blobDB.json' --out $blob_dir$base'_images' --rank 'phylum' --format 'svg'
 echo 'Running BlobTools Plot SVG - Super Kingdom'
-blobtools plot -i $base'.blobDB.json' --out $blob_dir$base'_images' --rank 'superkingdom' --format 'svg'
+blobtools plot -i $blob_dir$base'.blobDB.json' --out $blob_dir$base'_images' --rank 'superkingdom' --format 'svg'
 
 # blobtools taxify -f $dmnd -m $taxid -s 1 -t 2
 # blobtools create -i $transcriptome -s $sam -t $taxified -o $base
