@@ -9,6 +9,7 @@ blast = open('blasts/{}.platanus_rnd2_scaffold.l500.gapcloser.nt_1e-20.megablast
 cont_table = open('reports/{}_contaminants/{}_contaminants.tsv'.format(base, base), 'w')
 cont_blast_table = open('reports/{}_contaminants/{}_contaminants_blast.tsv'.format(base, base), 'w')
 
+print('Getting contaminants IDs')
 contaminants = []
 for line in blob_table:
 	if line.startswith('##'):
@@ -21,6 +22,7 @@ for line in blob_table:
 		cont_table.write(line)
 		contaminants.add(line.split('\t')[0])
 
+print('Getting contaminants BLASTs')
 for line in blast:
 	for cont in contaminants:
 		if cont == line.split('\t')[0]:
