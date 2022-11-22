@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/reports/contaminants/')
+os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/assemblies/')
 files = [x for x in os.listdir() if x.endswith('ovol_mt.acc')]
 database = '/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/assemblies/Ovol.platanus_rnd2_scaffold.l500.gapcloser.fa'
 
