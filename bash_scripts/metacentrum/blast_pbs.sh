@@ -10,21 +10,21 @@ cat $PBS_NODEFILE
 #add module
 module add blast-plus/blast-plus-2.12.0-gcc-8.3.0-ohlv7t4
 
-datadir='/storage/brno3-cerit/home/kika/trafficking/sec16/'
+datadir='/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/reports/Bfru_contaminants/'
 
 #copy files to scratch
-cp $datadir'eukprot_sec16.hmm_hits_rest.fa' $SCRATCHDIR
+cp $datadir'Bfru_possible_cont.fa' $SCRATCHDIR
 
 
 #run on scratch
 cd $SCRATCHDIR
 
-query='eukprot_sec16.hmm_hits_rest.fa'
-out='eukprot_sec16.hmm_hits_rest.rev_blast.xml'
-db='/storage/projects/BlastDB/refseq_protein'
-program=blastp
-task=blastp
-eval=1e-05
+query='Bfru_possible_cont.fa'
+out='Bfru_possible_cont.nr_1e-20.blastx'
+db='/storage/projects/BlastDB/nr'
+program=blastx
+task=blastx
+eval=1e-20
 max_seqs=1
 max_hsps=1
 
@@ -32,7 +32,7 @@ $program -task $task \
 	-query $query \
 	-db $db \
 	-out $out \
-	-outfmt 5 \
+	-outfmt "6 qseqid staxids bitscore std" \
 	-num_threads $PBS_NUM_PPN \
 	-evalue $eval \
 	-max_target_seqs $max_seqs \
