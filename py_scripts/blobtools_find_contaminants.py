@@ -5,11 +5,11 @@ os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/')
 
 base = 'Braa'
 
-if os.path.exists('{}_contaminants/'.format(base)):
+if os.path.exists('reports/{}_contaminants/'.format(base)):
 	print('Folder {}_contaminants exists'.format(base))
 else:
 	print('Creating folder {}_contaminants'.format(base))
-	os.mkdir('{}_contaminants/')
+	os.mkdir('reports/{}_contaminants/'.format(base))
 
 
 blob_table = open('reports/{0}_tables/phylum.{0}.blobDB.table.txt'.format(base), 'r')
