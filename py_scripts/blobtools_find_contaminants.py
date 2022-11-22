@@ -20,7 +20,7 @@ for line in blob_table:
 		pass
 	else:
 		cont_table.write(line)
-		contaminants.add(line.split('\t')[0])
+		contaminants.append(line.split('\t')[0])
 
 print('Getting contaminants BLASTs')
 for line in blast:
