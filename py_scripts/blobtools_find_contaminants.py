@@ -27,5 +27,3 @@ for line in blast:
 	for cont in contaminants:
 		if cont == line.split('\t')[0]:
 			cont_blast_table.write(line)
-		else:
-			print(cont)
