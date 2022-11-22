@@ -31,8 +31,7 @@ for line in blob_table:
 		contaminants.append(line.split('\t')[0])
 
 print('Getting contaminants BLASTs')
-cont_blast_table.write('qseqid\tqlen\tstaxids\tbitscore\tqseqid\tsseqid\tpident\tlength\tmismatch\tgapopen \
-	\tqstart\tqend\tsstart\tsend\tevalue\tcoverage (H/B)\n')
+cont_blast_table.write('qseqid\tqlen\tstaxid\tbitscore\tqseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tcoverage (H/B)\n')
 for line in blast:
 	for cont in contaminants:
 		if cont == line.split('\t')[0]:

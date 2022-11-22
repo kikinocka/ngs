@@ -6,14 +6,10 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/genomes/blobtools/Bfru_contaminants/')
-taxids = ['6087', '1236908', '727', '96939', '34506', '50023', '291112', '7604', '29139', '665912', '326968', '6279', '35885', 
-	'9974', '47314', '2893471', '198719', '176307', '2500532', '34720', '138072', '2895796', '91411', '2689190', '413579', '313723', 
-	'486640', '684658', '2692755', '31234', '95602', '6465', '32391', '3735', '2760307', '2587847', '342614', '1077935', '2807096', 
-	'1402135', '307643', '717741', '1545044', '1826607', '93060', '2560053', '198431', '43057', '2589076', '2903900', '147645', 
-	'929562', '28014', '2067415', '37653', '1580596', '557760', '266', '34004']
+os.chdir('/Users/kika/ownCloud/blasto_comparative/genomes/blobtools/contaminants/')
+taxids = ['37003', '655863', '39947', '7048', '2681552', '672011', '1869985', '58919', '7757', '2029752', '4565', '44056', '1286976', '6941', '3055', '67593', '1841481', '280', '2897332', '446860', '879819', '2692235', '9606', '129105', '50954', '65070', '152500', '41117', '57975']
 
-with open('Bfru_cont.taxids.txt', 'w') as out, open('Bfru_cont.taxids.errors', 'w') as errors:
+with open('Ovol_cont.taxids.txt', 'w') as out:
 	for taxid in taxids:
 		try:
 			print(taxid)
@@ -21,4 +17,4 @@ with open('Bfru_cont.taxids.txt', 'w') as out, open('Bfru_cont.taxids.errors', '
 			orgn = Entrez.read(search)
 			out.write('{}\t{}\n'.format(taxid, orgn[0]['ScientificName']))
 		except:
-			errors.write('{}\n'.format(taxid))
+			out.write('{}\tNot found in NCBI taxonomy\n'.format(taxid))
