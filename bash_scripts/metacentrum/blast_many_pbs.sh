@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blastn-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=5gb
-#PBS -l walltime=196:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,24 +10,25 @@ cat $PBS_NODEFILE
 #add module
 module add blast-plus/blast-plus-2.12.0-gcc-8.3.0-ohlv7t4
 
-datadir='/storage/brno3-cerit/home/kika/blasto_comparative/blobtools'
+datadir='/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/reports/contaminants'
 
 #copy files to scratch
-cp $datadir'/'*.fa $SCRATCHDIR
+cp $datadir'/'*_possible_cont.fa $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-db='/storage/projects/BlastDB/nt'
-program=blastn
-task=megablast
-eval=1e-20
+db='/storage/projects/BlastDB/nr'
+program=blastx
+task=blastx
+# task=megablast
+eval=1e-10
 max_seqs=1
 max_hsps=1
 
 for query in *.fa; do
 	echo $query
-	out=${query%.fa}'.nt_1e-20.megablast'
+	out=${query%.fa}'.nr_'$eval'.'$program
 	$program -task $task \
 		-query $query \
 		-db $db \
