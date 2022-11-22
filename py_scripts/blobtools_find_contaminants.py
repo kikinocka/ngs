@@ -4,10 +4,10 @@ import os
 os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/')
 
 base = 'Bfru'
-blob_table = open('reports/{}_tables/phylum.{}.blobDB.table.txt'.format(base, base), 'r')
+blob_table = open('reports/{0}_tables/phylum.{0}.blobDB.table.txt'.format(base), 'r')
 blast = open('blasts/{}.platanus_rnd2_scaffold.l500.gapcloser.nt_1e-20.megablast'.format(base), 'r')
-cont_table = open('reports/{}_contaminants/{}_contaminants.tsv'.format(base, base), 'w')
-cont_blast_table = open('reports/{}_contaminants/{}_contaminants_blast.tsv'.format(base, base), 'w')
+cont_table = open('reports/{0}_contaminants/{0}_contaminants.tsv'.format(base), 'w')
+cont_blast_table = open('reports/{0}_contaminants/{0}_contaminants_blast.tsv'.format(base), 'w')
 
 print('Getting contaminants IDs')
 contaminants = []
