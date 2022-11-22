@@ -3,7 +3,7 @@ import os
 
 os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/')
 
-base = 'Btri'
+base = 'Oeli'
 
 if os.path.exists('reports/{}_contaminants/'.format(base)):
 	print('Folder {}_contaminants exists'.format(base))
