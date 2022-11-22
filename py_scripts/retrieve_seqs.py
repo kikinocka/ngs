@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/reports/contaminants/')
-files = [x for x in os.listdir() if x.endswith('Btri_possible_cont.acc')]
-database = '/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/assemblies/Btri.platanus_rnd2_scaffold.l500.gapcloser.fa'
+files = [x for x in os.listdir() if x.endswith('Oeli_possible_cont.acc')]
+database = '/storage/brno3-cerit/home/kika/blasto_comparative/blobtools/assemblies/Oeli.platanus_rnd2_scaffold.l500.gapcloser.fa'
 
 for accessions in files: 
 	print(accessions)
