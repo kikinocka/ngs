@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd '/mnt/mokosz/home/kika/workdir/'
-metagenome='BML_October2016.fasta'
+metagenome='MLSB_October2016.fasta'
 out='tiara.out'
 length=3000
 cpu=10
