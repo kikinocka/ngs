@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd '/mnt/mokosz/home/kika/workdir/'
-metagenome='BML_March2017_04.fasta'
+metagenome='P1-7_scaffolds.fasta'
 out='tiara.out'
 length=3000
 cpu=10
