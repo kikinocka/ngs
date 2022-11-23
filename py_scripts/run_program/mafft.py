@@ -6,8 +6,8 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/archamoebae/rho/')
-files = [x for x in os.listdir() if x.endswith('archamoebae.fa')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/Rho/ver3/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
