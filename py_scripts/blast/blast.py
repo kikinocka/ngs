@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/archamoebae/rho/ttra.fa'
+query = '/Users/kika/ownCloud/archamoebae/rho/archamoebae.fa'
 # db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/modryi_scaffolds_transc.fasta'
-db = '/Users/kika/data/eukprot/EP00030_Amastigomonas_sp_AF-17.fasta'
-out = '/Users/kika/ownCloud/archamoebae/rho/amast.fwd_Ttra.blast.xml'
+db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
+out = '/Users/kika/ownCloud/archamoebae/rho/archamoebae.rev_Hsap.blast.xml'
 evalue = 1e-04
 outfmt = 5
 hits = 1
@@ -30,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/archamoebae/rho/amast.fwd_Ttra.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/archamoebae/rho/amast.fwd_Ttra.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/archamoebae/rho/archamoebae.rev_Hsap.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/archamoebae/rho/archamoebae.rev_Hsap.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
