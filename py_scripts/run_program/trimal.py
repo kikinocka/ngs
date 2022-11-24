@@ -3,8 +3,9 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/Rho/ver6/')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/Rho/ver7_muscle/')
 files = [x for x in os.listdir() if x.endswith('mafft.aln')]
+# files = [x for x in os.listdir() if x.endswith('einsi.aln')]
 
 for file in files:
 	print(file)

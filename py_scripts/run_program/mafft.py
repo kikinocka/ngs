@@ -11,9 +11,15 @@ files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
 	print(file)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+	# #L-INS-i (proteins with one alignable domain)
+	# out = '{}.mafft.aln'.format(file.split('.fa')[0])
+	# log = '{}.mafft.log'.format(file.split('.fa')[0])
+	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+	# 	mafft, file, out, log), shell=True)
+	#E-INS-i (proteins with several functional domains)
+	out = '{}.einsi.aln'.format(file.split('.fa')[0])
+	log = '{}.einsi.log'.format(file.split('.fa')[0])
+	subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
 		mafft, file, out, log), shell=True)
 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
 	# 	mafft, file, out, log), shell=True)
