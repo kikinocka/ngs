@@ -6,7 +6,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/NadA/')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/NadE/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for file in files:
@@ -22,7 +22,7 @@ for file in files:
 	# log = '{}.einsi.log'.format(file.split('.fa')[0])
 	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
 	# 	mafft, file, out, log), shell=True)
-	
+
 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
 	# 	mafft, file, out, log), shell=True)
 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
