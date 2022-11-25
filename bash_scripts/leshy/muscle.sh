@@ -3,8 +3,8 @@
 cd '/mnt/mokosz/home/kika/archam_trees/nadA'
 
 for fasta in *.fa; do
-	aln=${f%.fa}.muscle.aln
-	log=${f%.fa}.muscle.log
+	aln=${fasta%.fa}.muscle.aln
+	log=${fasta%.fa}.muscle.log
 	muscle -align $fasta -output $aln 2> $log
 done
 
