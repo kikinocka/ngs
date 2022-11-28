@@ -27,6 +27,6 @@ for query in *.fa; do
 		-f "6 qseqid sseqid stitle sphylums staxids pident scovhsp qcovhsp length mismatch gapopen qstart qend sstart send evalue bitscore" \
 		--evalue $eval \
 		--max-target-seqs $max_seqs \
-		--max_hsps $max_hsps
+		--max-hsps $max_hsps
 	echo ***Diamond done***
 done
