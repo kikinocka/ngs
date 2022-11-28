@@ -24,7 +24,7 @@ for query in *.fa; do
 		--taxonmap $map\
 		--sensitive \
 		-p 20 \
-		-f "6 qseqid sseqid stitle sphylums staxids pident scovhsp qcovhsp length mismatch gapopen qstart qend sstart send evalue bitscore" \
+		-f 6 qseqid sseqid stitle sphylums staxids pident scovhsp qcovhsp length mismatch gapopen qstart qend sstart send evalue bitscore \
 		--evalue $eval \
 		--max-target-seqs $max_seqs \
 		--max-hsps $max_hsps
