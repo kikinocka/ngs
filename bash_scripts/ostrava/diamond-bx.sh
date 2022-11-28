@@ -16,7 +16,7 @@ max_hsps=1
 for query in *.fa; do
 	echo $query
 	out=${query%.fa}'.nr_'$eval'.diamond_'$program
-	diamond $program \
+	echo 'diamond $program \
 		-q $query \
 		-d $db \
 		-o $out \
@@ -25,6 +25,16 @@ for query in *.fa; do
 		-f "6 qseqid staxids bitscore std" \
 		--evalue $eval \
 		--max-target-seqs $max_seqs \
-		--max_hsps $max_hsps
-	echo ***Diamond done***
+		--max_hsps $max_hsps"'
+	# diamond $program \
+	# 	-q $query \
+	# 	-d $db \
+	# 	-o $out \
+	# 	--sensitive \
+	# 	-p 20 \
+	# 	-f "6 qseqid staxids bitscore std" \
+	# 	--evalue $eval \
+	# 	--max-target-seqs $max_seqs \
+	# 	--max_hsps $max_hsps
+	# echo ***Diamond done***
 done
