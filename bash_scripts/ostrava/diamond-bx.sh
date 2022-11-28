@@ -17,14 +17,14 @@ for query in *.fa; do
 	echo $query
 	out=${query%.fa}'.nr_'$eval'.diamond_'$program
 	diamond $program \
-		--sensitive \
 		-q $query \
 		-d $db \
 		-o $out \
+		--sensitive \
 		-p 20 \
 		-f "6 qseqid staxids bitscore std" \
 		--evalue $eval \
 		--max-target-seqs $max_seqs \
-		-max_hsps $max_hsps
+		--max_hsps $max_hsps
 	echo ***Diamond done***
 done
