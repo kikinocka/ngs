@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/triatomae/'
-read_dir=$assembly_dir'transcriptome_reads/'
-mapping_dir=$assembly_dir'bw2_RNA_to_genome/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/mapping/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/1-reads/'
+mapping_dir=$assembly_dir
 
 #copy files to scratch
-cp $assembly_dir'triat_scaffolds.fasta' $SCRATCHDIR
-cp $read_dir'triat_trimmed_1.fq.gz' $SCRATCHDIR
-cp $read_dir'triat_trimmed_2.fq.gz' $SCRATCHDIR
+cp $assembly_dir'microsporidia_mtDNA.fa' $SCRATCHDIR
+cp $read_dir'P1B_all_trimmed_1.fq.gz' $SCRATCHDIR
+cp $read_dir'P1B_all_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='triat.bw2'
-ref='triat_scaffolds.fasta'
-p1_1='triat_trimmed_1.fq.gz'
-p1_2='triat_trimmed_2.fq.gz'
+base_name='microsporidia_mtDNA.bw2'
+ref='microsporidia_mtDNA.fa'
+p1_1='P1B_all_trimmed_1.fq.gz'
+p1_2='P1B_all_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
 
