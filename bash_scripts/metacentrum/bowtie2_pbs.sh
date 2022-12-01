@@ -16,7 +16,7 @@ read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds
 mapping_dir=$assembly_dir
 
 #copy files to scratch
-cp $assembly_dir'microsporidia_mtDNA.fa' $SCRATCHDIR
+cp $assembly_dir'microsporidia_mtDNA2.fa' $SCRATCHDIR
 cp $read_dir'P1B_all_trimmed_1.fq.gz' $SCRATCHDIR
 cp $read_dir'P1B_all_trimmed_2.fq.gz' $SCRATCHDIR
 
@@ -24,8 +24,8 @@ cp $read_dir'P1B_all_trimmed_2.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='microsporidia_mtDNA.bw2'
-ref='microsporidia_mtDNA.fa'
+base_name='microsporidia_mtDNA2.bw2'
+ref='microsporidia_mtDNA2.fa'
 p1_1='P1B_all_trimmed_1.fq.gz'
 p1_2='P1B_all_trimmed_2.fq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
