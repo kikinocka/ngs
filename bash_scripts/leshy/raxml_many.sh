@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data='/mnt/mokosz/home/kika/archam_trees'
+data='/mnt/mokosz/home/kika/archam_trees/raxml'
 tmp='/tmp/kika/'
 
 cp $data'/as.CD.trimal_gt-0.8.aln' $tmp
