@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/rho-miro'
+cd '/mnt/mokosz/home/kika/cresol-NAD/'
 
 plant='pl'
 non_plant='non-pl'
