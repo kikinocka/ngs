@@ -3,7 +3,7 @@
 data='/mnt/mokosz/home/kika/archam_trees/raxml'
 tmp='/tmp/kika/'
 
-cp $data'/as.CD.trimal_gt-0.8.aln' $tmp
+cp $data'/'*.aln $tmp
 cd $tmp
 
 for aln in *.aln; do
