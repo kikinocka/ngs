@@ -14,7 +14,7 @@ eval=1e-10
 max_seqs=1
 max_hsps=1
 
-for query in Oobo*.fa; do
+for query in Ovol*.fa; do
 	echo $query
 	out=${query%.fa}'.nr_'$eval'.diamond_'$program
 	diamond $program \
