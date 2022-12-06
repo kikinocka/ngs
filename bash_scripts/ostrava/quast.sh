@@ -5,8 +5,9 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=02:00:00
 
+cd '/mnt/data/kika/blastocrithidia/final_assemblies/'
 
-assembly='/mnt/data/kika/blastocrithidia/o_volfi/scaff_gap/Ovol.platanus_rnd2_scaffold.l500.gapcloser.fa'
-out='/mnt/data/kika/blastocrithidia/o_volfi/scaff_gap/quast/'
-
-quast.py -o $out -t 20 $assembly
+for assembly in *.fa; do
+	out='quast/'${assembly%.fa}
+	quast.py -o $out -t 20 $assembly
+done
