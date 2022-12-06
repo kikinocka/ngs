@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/mnt/data/kika/blastocrithidia/contaminations/')
 files = [x for x in os.listdir() if x.endswith('Braa_contaminants.acc')]
-database = '/mnt/data/kika/blastocrithidia/b_raabei/scaff_gap/Braa.platanus_rnd2_scaffold.l500.gapcloser.fa'
+database = '/mnt/data/kika/blastocrithidia/b_spHR05/scaff_gap/Braa.platanus_rnd2_scaffold.l500.gapcloser.fa'
 
 for accessions in files: 
 	print(accessions)
