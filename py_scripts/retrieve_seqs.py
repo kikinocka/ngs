@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/data/kika/blastocrithidia/contaminations/')
-files = [x for x in os.listdir() if x.endswith('Ovol_contaminants.acc')]
-database = '/mnt/data/kika/blastocrithidia/o_volfi/scaff_gap/Ovol.platanus_rnd2_scaffold.l500.gapcloser.fa'
+os.chdir('/mnt/data/kika/blastocrithidia/blobtools/contaminants/')
+files = [x for x in os.listdir() if x.endswith('Bfru_contaminants.acc')]
+database = '/mnt/data/kika/blastocrithidia/b_frustrata/scaff_gap/Bfru.platanus_rnd2_scaffold.l500.gapcloser.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -19,9 +19,9 @@ for accessions in files:
 		# print(retrieve)
 		for seq in db:
 			if seq.name.split(';')[0] in retrieve:
-				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
-				pass
-			else:
-				# pass
 				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				# pass
+			else:
+				pass
+				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 

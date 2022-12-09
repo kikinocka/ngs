@@ -5,16 +5,16 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=100:00:00
 
-cd '/mnt/data/kika/blastocrithidia/possible_cont/'
+cd '/mnt/data/kika/blastocrithidia/blobtools/contaminants/'
 
 db='/mnt/data/diamond_nr/nr.dmnd'
 map='/mnt/data/diamond_nr/prot.accession2taxid.FULL'
 program=blastx
 eval=1e-10
-max_seqs=1
+max_seqs=20
 max_hsps=1
 
-for query in Ovol*.fa; do
+for query in *.fa; do
 	echo $query
 	out=${query%.fa}'.nr_'$eval'.diamond_'$program
 	diamond $program \
@@ -27,6 +27,6 @@ for query in Ovol*.fa; do
 		-f 6 qseqid sseqid stitle sphylums staxids pident scovhsp qcovhsp length mismatch gapopen qstart qend sstart send evalue bitscore \
 		--evalue $eval \
 		--max-target-seqs $max_seqs \
-		--max-hsps $max_hsps
+		# --max-hsps $max_hsps
 	echo ***Diamond done***
 done
