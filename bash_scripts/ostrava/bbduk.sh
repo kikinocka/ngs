@@ -8,12 +8,12 @@
 bbduk='/home/users/kika/bbmap/bbduk.sh'
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
-cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_frustrata/reads/'
-fwd='4FEM_1.fastq.gz'
-rev='4FEM_2.fastq.gz'
-trimmed_fwd='bfru_trimmed_1.fq.gz'
-trimmed_rev='bfru_trimmed_2.fq.gz'
-report='bfru_bbduk.txt'
+cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_spHR05/reads/'
+fwd='HR-04_1.fastq.gz'
+rev='HR-04_2.fastq.gz'
+trimmed_fwd='braa_trimmed_1.fq.gz'
+trimmed_rev='braa_trimmed_2.fq.gz'
+report='braa_bbduk.txt'
 len=50
 
 #illumina pair-end reads
