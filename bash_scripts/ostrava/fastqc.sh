@@ -6,10 +6,10 @@
 #PBS -l walltime=02:00:00
 
 
-cd '/mnt/data/kika/blastocrithidia/b_frustrata/reads/'
-fwd='4FEM_trimmed_75_1.fq'
-rev='4FEM_trimmed_75_2.fq'
+cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_frustrata/reads/'
+# fwd='4FEM_trimmed_75_1.fq'
+# rev='4FEM_trimmed_75_2.fq'
 report='bfru_trimmed.fastqc.txt'
 
-# fastqc -o ./fastqc -t 5 *.fq 2> $report
+fastqc -o ./fastqc -t 5 *.fq 2> $report
 fastqc -o ./fastqc -t 5 $fwd $rev 2> $report
