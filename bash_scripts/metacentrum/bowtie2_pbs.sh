@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/mapping/'
-read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/1-reads/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/mtDNA_mapping/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/1-reads/'
 mapping_dir=$assembly_dir
 
 #copy files to scratch
-cp $assembly_dir'microsporidia_mtDNA4.fa' $SCRATCHDIR
-cp $read_dir'P1B_all_trimmed_1.fq.gz' $SCRATCHDIR
-cp $read_dir'P1B_all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $assembly_dir'reclinomonas_mtDNA.fa' $SCRATCHDIR
+cp $read_dir'BML_trimmed_1.fastq.gz' $SCRATCHDIR
+cp $read_dir'BML_trimmed_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='microsporidia_mtDNA4.bw2'
-ref='microsporidia_mtDNA4.fa'
-p1_1='P1B_all_trimmed_1.fq.gz'
-p1_2='P1B_all_trimmed_2.fq.gz'
+base_name='reclinomonas_mtDNA.bw2'
+ref='reclinomonas_mtDNA.fa'
+p1_1='BML_trimmed_1.fastq.gz'
+p1_2='BML_trimmed_2.fastq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
 
@@ -62,8 +62,8 @@ bowtie2 --very-sensitive -p $PBS_NUM_PPN \
 # 	--un-gz $unaligned \
 # 	-S $samfile 2> $report
 
-# samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
-samtools view -bS -@ $PBS_NUM_PPN $samfile > $bamfile
+samtools view -bS -F 4 $samfile > $bamfile -@ $PBS_NUM_PPN #writes only mapped reads to bamfile
+# samtools view -bS -@ $PBS_NUM_PPN $samfile > $bamfile
 samtools sort -o $sorted -@ $PBS_NUM_PPN $bamfile 
 samtools index -b $sorted
 
