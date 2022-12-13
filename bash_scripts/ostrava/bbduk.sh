@@ -8,12 +8,12 @@
 bbduk='/home/users/kika/bbmap/bbduk.sh'
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
-cd '/mnt/data/kika/blastocrithidia/transcriptomes/o_eliasi/reads/'
-fwd='PNG74_1.fastq.gz'
-rev='PNG74_2.fastq.gz'
-trimmed_fwd='oeli_trimmed_1.fq.gz'
-trimmed_rev='oeli_trimmed_2.fq.gz'
-report='oeli_bbduk.txt'
+cd '/mnt/data/kika/blastocrithidia/transcriptomes/o_oborniki/reads/'
+fwd='M09_1.fastq.gz'
+rev='M09_2.fastq.gz'
+trimmed_fwd='oobo_trimmed_1.fq.gz'
+trimmed_rev='oobo_trimmed_2.fq.gz'
+report='oobo_bbduk.txt'
 len=50
 
 #illumina pair-end reads
