@@ -8,8 +8,8 @@
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
 cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_triatomae/reads/'
-fwd=$raw_dir'Blastoc_triat_1.fastq.gz'
-rev=$raw_dir'Blastoc_triat_2.fastq.gz'
+fwd='Blastoc_triat_1.fastq.gz'
+rev='Blastoc_triat_2.fastq.gz'
 trimmed_fwd='triat_trimmed_1.fq.gz'
 trimmed_rev='triat_trimmed_2.fq.gz'
 report='btri_bbduk.txt'
