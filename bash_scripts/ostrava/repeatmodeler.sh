@@ -7,7 +7,7 @@
 
 bash /home/users/kika/dfam-tetools.sh
 
-cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/'
+cd '/home/users/kika/blastocrithidia/final_assemblies/'
 genome='Bfru_genome_final.fa'
 name=${genome%_final.fa}
 
