@@ -15,7 +15,7 @@ name=${genome%_final.fa}
 BuildDatabase -name $name $genome
 
 #Run RepeatModeler
-RepeatModeler -database $name -pa 10 -LTRStruct
+RepeatModeler -database $name -threads 10 -LTRStruct
 
 # #How many consensus sequences have been predicted?
 # grep -c '>' $name'-families.fa' > 
