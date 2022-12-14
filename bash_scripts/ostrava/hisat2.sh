@@ -6,12 +6,12 @@
 #PBS -l walltime=50:00:00
 
 
-cd '/mnt/data/kika/blastocrithidia/transcriptomes/o_oborniki/'
+cd '/mnt/data/kika/blastocrithidia/transcriptomes/o_volfi/'
 
-genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Oobo_genome_final.fa'
-fw='reads/oobo_trimmed_1.fq.gz'
-rv='reads/oobo_trimmed_1.fq.gz'
-index='oobo_ht2'
+genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Ovol_genome_final.fa'
+fw='reads/ovol_trimmed_1.fq.gz'
+rv='reads/ovol_trimmed_1.fq.gz'
+index='ovol_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
