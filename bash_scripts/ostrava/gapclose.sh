@@ -14,3 +14,5 @@ out='Ovol.platanus_rnd2_scaffold.l500.gapcloser.fa'
 log='Ovol.platanus_rnd2_scaffold.l500.gapcloser.log'
 
 GapCloser -b $config -a $scaffolds -o $out -t 20 2> $log
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: GapCloser done

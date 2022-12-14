@@ -19,6 +19,8 @@ report='Ovol.platanus_rnd2.log'
 
 $platanus scaffold -o $out -c $contigs -IP1 $fwd $rev -t 40 2> $report
 
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: platanus done
+
 
 # -o STR                             : prefix of output file (default out, length <= 200)
 # -c FILE1 [FILE2 ...]               : contig_file (fasta format)

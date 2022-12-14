@@ -14,3 +14,5 @@ rev=$read_dir'PNG74_trimmed_2.fq.gz'
 cd $work_dir
 spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 --careful -o $work_dir
 # spades.py --pe1-1 $fwd --pe1-2 $rev -t 40 -o $work_dir
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: SPAdes done

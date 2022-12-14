@@ -30,3 +30,5 @@ for query in *_possible_cont2.fa; do
 		# --max-hsps $max_hsps
 	echo ***Diamond done***
 done
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: Diamond done

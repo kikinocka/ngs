@@ -40,3 +40,5 @@ bowtie2 --very-sensitive -p 20 \
 samtools view -bS -@ 20 $samfile > $bamfile
 samtools sort -o $sorted -@ 20 $bamfile 
 samtools index -b $sorted
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: bowtie2 done

@@ -23,3 +23,5 @@ $bbduk overwrite=true \
 	ref=$adapt \
 	minlen=$len \
 	qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=10 2> $report
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: bbduk done

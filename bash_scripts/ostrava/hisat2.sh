@@ -27,4 +27,4 @@ samtools view -bS $sam > $bam -@ 20
 samtools sort -o $sorted -@ 20 $bam 
 samtools index $sorted
 
-python3 /home/users/kika/scripts/py_scripts/slackbot.py OSTRAVA: hisat2 done
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: hisat2 done

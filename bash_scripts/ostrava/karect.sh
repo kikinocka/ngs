@@ -35,3 +35,5 @@ karect -eval -threads=10 -matchtype=hamming \
       -alignfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr_aln.txt \
       -evalfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr_eval.txt \ 
       2> /mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr.karect_eval.txt
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: karect done

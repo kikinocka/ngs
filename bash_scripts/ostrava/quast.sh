@@ -11,3 +11,5 @@ for assembly in *.fa; do
 	out='quast/'${assembly%.fa}
 	quast.py -o $out -t 20 $assembly
 done
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: QUAST done

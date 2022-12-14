@@ -13,3 +13,5 @@ report='ovol_trimmed.fastqc.txt'
 
 fastqc -o ./fastqc -t 5 *.gz 2> $report
 fastqc -o ./fastqc -t 5 $fwd $rev 2> $report
+
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: FASTQC done
