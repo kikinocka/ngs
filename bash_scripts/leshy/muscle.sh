@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/archam_trees/nadA'
+cd '/mnt/mokosz/home/kika/workdir'
 
 for fasta in *.fa; do
 	aln=${fasta%.fa}.muscle.aln
