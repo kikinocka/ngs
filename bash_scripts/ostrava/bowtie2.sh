@@ -36,8 +36,8 @@ bowtie2 --very-sensitive -p 20 \
 	#--no-unal \ #writes only mapped reads to sam file
 
 
-# samtools view -bS -F 4 $samfile > $bamfile -@ 20 #writes only mapped reads to bamfile
-samtools view -bS -@ 20 $samfile > $bamfile
+samtools view -bS -F 4 $samfile > $bamfile -@ 20 #writes only mapped reads to bamfile
+# samtools view -bS -@ 20 $samfile > $bamfile
 samtools sort -o $sorted -@ 20 $bamfile 
 samtools index -b $sorted
 
