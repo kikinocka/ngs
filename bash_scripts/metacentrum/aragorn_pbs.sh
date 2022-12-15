@@ -8,17 +8,16 @@
 cat $PBS_NODEFILE
 
 aragorn='/storage/brno3-cerit/home/kika/miniconda3/pkgs/aragorn-1.2.38-h779adbc_4/bin/aragorn'
-data_dir='/storage/brno3-cerit/home/kika/p57'
+data_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes'
 
 #copy files to scratch
-cp $data_dir'/'*.fna $SCRATCHDIR
-# cp $data_dir'GC'*'/'*.fna $SCRATCHDIR
+cp $data_dir'/'*.fa $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fna ; do
+for genome in *.fa ; do
 	#no secondary structures
 	fout=${genome%.fna}.aragorn.fa
 	$aragorn -t -fo -o $fout $genome
@@ -30,5 +29,5 @@ done
 
 
 #copy files back
-rm *fna
+rm *fa
 cp * $data_dir
