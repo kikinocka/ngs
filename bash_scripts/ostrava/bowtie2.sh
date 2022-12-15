@@ -8,8 +8,8 @@
 work_dir='/mnt/data/kika/blastocrithidia/'
 
 ref=$work_dir'bw2/tRNA_contigs.fa'
-p1_1=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_1.fq'
-p1_2=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_2.fq'
+p1_1=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_1.fq.gz'
+p1_2=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_2.fq.gz'
 base_name='tRNA_contigs.bw2'
 
 cd $work_dir'bw2/'
