@@ -29,5 +29,5 @@ done
 
 
 #copy files back
-rm *fa
+rm *masked.fa
 cp * $data_dir
