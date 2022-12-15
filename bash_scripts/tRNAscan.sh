@@ -13,9 +13,13 @@ cd '/Users/kika/ownCloud/blasto_comparative/genomes/'
 # done
 
 
-assembly='modryi_scaffolds_transc.fasta'
-table=${assembly%.fasta}.tRNAscan_table.out
-seq=${assembly%.fasta}.tRNAscan.fa
-structures=${assembly%.fasta}.tRNAscan_structures.out
+for genome in *_masked.fa ; do
+	echo $genome
 
-$tRNAscan --thread 7 -o $table -a $seq -f $structures ${assembly}
+	table=${genome%.fa}.tRNAscan_table.tsv
+	seq=${genome%.fa}.tRNAscan.fa
+	structures=${genome%.fa}.tRNAscan_structures.txt
+
+	$tRNAscan --thread 7 -o $table -a $seq -f $structures ${genome}
+
+done

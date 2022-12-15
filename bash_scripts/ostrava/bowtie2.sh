@@ -5,14 +5,14 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=600:00:00
 
-work_dir='/mnt/data/kika/blastocrithidia/o_volfi/'
+work_dir='/mnt/data/kika/blastocrithidia/'
 
-ref=$work_dir'scaff_gap/Ovol.platanus_rnd2_scaffold.l500.gapcloser.fa'
-p1_1=$work_dir'reads/CC37A_trimmed_1.fq'
-p1_2=$work_dir'reads/CC37A_trimmed_2.fq'
-base_name='Ovol.bw2'
+ref=$work_dir'bw2/tRNA_contigs.fa'
+p1_1=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_1.fq'
+p1_2=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_2.fq'
+base_name='tRNA_contigs.bw2'
 
-cd $work_dir'mapping/'
+cd $work_dir'bw2/'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'

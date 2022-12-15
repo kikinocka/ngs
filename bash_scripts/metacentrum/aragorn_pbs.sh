@@ -19,11 +19,11 @@ cd $SCRATCHDIR
 
 for genome in *.fa ; do
 	#no secondary structures
-	fout=${genome%.fna}.aragorn.fa
+	fout=${genome%.fa}.aragorn.fa
 	$aragorn -t -fo -o $fout $genome
 	
 	#with secondary structures
-	sout=${genome%.fna}.aragorn_structures.txt
+	sout=${genome%.fa}.aragorn_structures.txt
 	$aragorn -t -o $sout $genome
 done
 
