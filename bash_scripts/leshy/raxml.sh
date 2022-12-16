@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/archam_trees/raxml/'
 
-aln='aat.CD.trimal_gt-0.8.CD.aln'
+aln='aat.trimal_gt-0.8.CD.aln'
 out=${aln%.trimal_gt-0.8.CD.aln}
 
 #proteins
