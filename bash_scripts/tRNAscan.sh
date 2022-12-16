@@ -13,7 +13,7 @@ cd '/Users/kika/ownCloud/blasto_comparative/genomes/'
 # done
 
 
-for genome in Btri_genome_final_masked.fa ; do
+for genome in Oeli_genome_final_masked.fa ; do
 	echo $genome
 
 	table=${genome%.fa}.tRNAscan_table.tsv
