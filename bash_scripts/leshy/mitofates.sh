@@ -2,7 +2,7 @@
 
 mitofates='/mnt/mokosz/home/kika/MitoFates/MitoFates.pl'
 
-cd '/mnt/mokosz/home/kika/ribosomal_proteins/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 m=metazoa
 p=plant
