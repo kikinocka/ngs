@@ -8,7 +8,7 @@
 
 cd '/mnt/data/kika/blastocrithidia/transcriptomes/o_volfi/'
 
-genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Ovol_genome_final.fa'
+genome='/home/users/kika/blastocrithidia/final_assemblies/Ovol_genome_final_masked.fa'
 fw='reads/ovol_trimmed_1.fq.gz'
 rv='reads/ovol_trimmed_1.fq.gz'
 index='ovol_ht2'
@@ -21,14 +21,15 @@ sorted=$index'_sorted.bam'
 
 hisat2-build -p 20 $genome $index
 hisat2 --very-sensitive -p 20 \
-	--dta \
+	--dta --secondary \
 	-x $index \
 	-1 $fw \
 	-2 $rv \
 	--un-gz $unmapped_unpaired \
 	--un-conc-gz $unmapped_paired \
 	-S $sam 2> $report
-#--dta 	reports alignments tailored for transcript assemblers
+#--dta 			reports alignments tailored for transcript assemblers
+#--secondary	reports secondary alignments
 
 # samtools view -bS -F 4 $sam > $bam -@ 20 #writes only mapped reads to bamfile
 samtools view -bS $sam > $bam -@ 20
