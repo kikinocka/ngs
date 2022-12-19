@@ -10,7 +10,7 @@ cd '/mnt/data/kika/blastocrithidia/transcriptomes/o_volfi/'
 
 genome='/home/users/kika/blastocrithidia/final_assemblies/Ovol_genome_final_masked.fa'
 fw='reads/ovol_trimmed_1.fq.gz'
-rv='reads/ovol_trimmed_1.fq.gz'
+rv='reads/ovol_trimmed_2.fq.gz'
 index='ovol_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
