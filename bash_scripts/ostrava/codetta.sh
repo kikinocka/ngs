@@ -5,7 +5,7 @@
 #PBS -l nodes=1:ppn=1
 #PBS -l walltime=50:00:00
 
-cd '/home/users/kika/blastocrithidia/final_assemblies'
+cd '/home/users/kika/blastocrithidia/final_assemblies/'
 
 codetta_dir='/home/users/kika/codetta/'
 codetta=$codetta_dir'codetta.py'
