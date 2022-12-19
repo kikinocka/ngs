@@ -4,7 +4,7 @@ tRNAscan='/Users/kika/miniconda3/bin/tRNAscan-SE'
 
 cd '/Users/kika/ownCloud/blasto_comparative/genomes/'
 
-for genome in Oobo_genome_final_masked.fa ; do
+for genome in *.fa ; do
 	echo $genome
 
 	table=${genome%.fa}.tRNAscan_table.tsv

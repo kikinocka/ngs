@@ -1,15 +1,8 @@
 #!/bin/bash
-#PBS -d .
-#PBS -v PATH
-#PBS -N codetta
-#PBS -l nodes=1:ppn=1
-#PBS -l walltime=50:00:00
 
-cd '/home/users/kika/blastocrithidia/final_assemblies/'
+codetta='/Users/kika/programs/codetta/codetta.py'
 
-codetta_dir='/home/users/kika/codetta/'
-codetta=$codetta_dir'codetta.py'
+cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/'
+genome='Btri_genome_final_masked.fa'
 
 python3 $codetta $genome
-
-python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: codetta done
