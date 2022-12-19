@@ -3,7 +3,7 @@
 bash /home/users/kika/dfam-tetools.sh
 
 cd '/home/users/kika/blastocrithidia/final_assemblies/'
-genome='Bfru_genome_final.fa'
+genome='Ovol_genome_final.fa'
 name=${genome%_final.fa}
 
 #Generate the RepeatModeler sequence database

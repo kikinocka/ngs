@@ -20,7 +20,15 @@ bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
 hisat2-build -p 20 $genome $index
-hisat2 -p 20 -x $index -1 $fw -2 $rv --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
+hisat2 --very-sensitive -p 20 \
+	--dta \
+	-x $index \
+	-1 $fw \
+	-2 $rv \
+	--un-gz $unmapped_unpaired \
+	--un-conc-gz $unmapped_paired \
+	-S $sam 2> $report
+#--dta 	reports alignments tailored for transcript assemblers
 
 # samtools view -bS -F 4 $sam > $bam -@ 20 #writes only mapped reads to bamfile
 samtools view -bS $sam > $bam -@ 20
