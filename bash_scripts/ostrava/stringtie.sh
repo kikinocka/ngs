@@ -8,6 +8,6 @@
 
 cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_raabei/'
 
+stringtie='/home/users/kika/stringtie/stringtie'
 
-
-stringtie -v -o Wcollosoma_stringTie.gtf Wcol_af_correction.hisat2_sorted.bam -A gene_abundance_estimation.out.tsv -p 30
+$stringtie -v -o Wcollosoma_stringTie.gtf Wcol_af_correction.hisat2_sorted.bam -A gene_abundance_estimation.out.tsv -p 30

@@ -2,8 +2,8 @@
 #PBS -d .
 #PBS -v PATH
 #PBS -N hisat2
-#PBS -l nodes=1:ppn=20
-#PBS -l walltime=50:00:00
+#PBS -l nodes=1:ppn=80
+#PBS -l walltime=999:00:00
 
 
 cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_spHR05/'
@@ -20,7 +20,7 @@ bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
 hisat2-build -p 20 $genome $index
-hisat2 --very-sensitive -p 20 \
+hisat2 --very-sensitive -p 50 \
 	--dta --secondary \
 	-x $index \
 	-1 $fw \
