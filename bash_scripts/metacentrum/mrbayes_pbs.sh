@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/archamoebae/mrbayes/'
+data='/storage/brno3-cerit/home/kika/kinetoplastids/IDH/'
 
 #copy files to scratch
-cp $data'aat.CD.trimal_gt-0.8.nex' $SCRATCHDIR
+cp $data'IDHs.linsi.automated1.CD.nex' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 #proteins
-aln='aat.CD.trimal_gt-0.8.nex'
+aln='IDHs.linsi.automated1.CD.nex'
 
 mpirun -n $PBS_NUM_PPN mb-mpi $aln
 
