@@ -9,12 +9,12 @@
 cd '/mnt/data/kika/blastocrithidia/'
 
 stringtie='/home/users/kika/stringtie/stringtie'
-bam='transcriptomes/o_oborniki/hisat2/oobo_ht2_sorted.bam'
-gtf='transcriptomes/o_oborniki/stringtie/Oobo_ST.gtf'
-gff='transcriptomes/o_oborniki/stringtie/Oobo_ST.gff'
-gff_transcripts='transcriptomes/o_oborniki/stringtie/Oobo_ST_transcripts.gff'
-out='transcriptomes/o_oborniki/stringtie/Oobo_ST.fa'
-genome='genomes/final_assemblies/Oobo_genome_final_masked.fa'
+bam='transcriptomes/o_volfi/hisat2/ovol_ht2_sorted.bam'
+gtf='transcriptomes/o_volfi/stringtie/Ovol_ST.gtf'
+gff='transcriptomes/o_volfi/stringtie/Ovol_ST.gff'
+gff_transcripts='transcriptomes/o_volfi/stringtie/Ovol_ST_transcripts.gff'
+out='transcriptomes/o_volfi/stringtie/Ovol_ST.fa'
+genome='genomes/final_assemblies/Ovol_genome_final_masked.fa'
 
 $stringtie -v -o $gtf $bam -m 50 -p 30
 #-m 	minimum assembled transcript length (default: 200)
