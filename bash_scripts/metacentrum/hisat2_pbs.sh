@@ -12,21 +12,21 @@ module add hisat2-2.0.5
 module add samtools-1.3.1
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-reads='/storage/brno3-cerit/home/kika/blasto_comparative/frustrata/transcriptome_reads/'
-outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/bfru/'
+reads='/storage/brno3-cerit/home/kika/blasto_comparative/triatomae/transcriptome_reads/'
+outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/btri/'
 
 #copy files to scratch
-cp $genome_dir'Bfru_genome_final_masked.fa' $SCRATCHDIR
-cp $reads'bfru_trimmed_1.fq.gz' $reads'bfru_trimmed_2.fq.gz' $SCRATCHDIR
+cp $genome_dir'Btri_genome_final_masked.fa' $SCRATCHDIR
+cp $reads'btri_trimmed_1.fq.gz' $reads'btri_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Bfru_genome_final_masked.fa'
-fw='bfru_trimmed_1.fq.gz'
-rv='bfru_trimmed_2.fq.gz'
-index='bfru_ht2'
+genome='Btri_genome_final_masked.fa'
+fw='btri_trimmed_1.fq.gz'
+rv='btri_trimmed_2.fq.gz'
+index='btri_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
