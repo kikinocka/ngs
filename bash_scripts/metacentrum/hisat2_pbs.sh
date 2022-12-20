@@ -12,21 +12,21 @@ module add hisat2-2.0.5
 module add samtools-1.3.1
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-reads='/storage/brno3-cerit/home/kika/blasto_comparative/oborniki/transcriptome_reads/'
-outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/oobo/'
+reads='/storage/brno3-cerit/home/kika/blasto_comparative/volfi/transcriptome_reads/'
+outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/ovol/'
 
 #copy files to scratch
-cp $genome_dir'Oobo_genome_final_masked.fa' $SCRATCHDIR
-cp $reads'oobo_trimmed_1.fq.gz' $reads'oobo_trimmed_2.fq.gz' $SCRATCHDIR
+cp $genome_dir'Ovol_genome_final_masked.fa' $SCRATCHDIR
+cp $reads'ovol_trimmed_1.fq.gz' $reads'ovol_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Oobo_genome_final_masked.fa'
-fw='oobo_trimmed_1.fq.gz'
-rv='oobo_trimmed_2.fq.gz'
-index='oobo_ht2'
+genome='Ovol_genome_final_masked.fa'
+fw='ovol_trimmed_1.fq.gz'
+rv='ovol_trimmed_2.fq.gz'
+index='ovol_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
