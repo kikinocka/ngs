@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/AAT/ver6/RAxML/')
-trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.aat.CD')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/AAT/ver6/MrBayes/')
+trees = [x for x in os.listdir() if x.endswith('.con.tre')]
 
 #file in format Acc. number \t name of organism \n
 names = open('/Users/kika/ownCloud/archamoebae/trees/AAT/ver6/aat_codes_names.txt')
