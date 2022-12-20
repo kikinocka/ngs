@@ -12,21 +12,21 @@ module add hisat2-2.0.5
 module add samtools-1.3.1
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-reads='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_reads/'
-outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/'
+reads='/storage/brno3-cerit/home/kika/blasto_comparative/eliasi/transcriptome_reads/'
+outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/oeli/'
 
 #copy files to scratch
-cp $genome_dir'Braa_genome_final_masked.fa' $SCRATCHDIR
-cp $reads'braa_trimmed_1.fq.gz' $reads'braa_trimmed_2.fq.gz' $SCRATCHDIR
+cp $genome_dir'Oeli_genome_final_masked.fa' $SCRATCHDIR
+cp $reads'oeli_trimmed_1.fq.gz' $reads'oeli_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Braa_genome_final_masked.fa'
-fw='braa_trimmed_1.fq.gz'
-rv='braa_trimmed_2.fq.gz'
-index='braa_ht2'
+genome='Oeli_genome_final_masked.fa'
+fw='oeli_trimmed_1.fq.gz'
+rv='oeli_trimmed_2.fq.gz'
+index='oeli_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'

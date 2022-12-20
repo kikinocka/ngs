@@ -12,7 +12,7 @@ stringtie='/home/users/kika/stringtie/stringtie'
 bam='transcriptomes/b_triatomae/hisat2/btri_ht2_sorted.bam'
 gtf='transcriptomes/b_triatomae/stringtie/Btri_ST.gtf'
 gff='transcriptomes/b_triatomae/stringtie/Btri_ST.gff'
-gff_transcript='transcriptomes/b_triatomae/stringtie/Btri_ST_transcripts.gff'
+gff_transcripts='transcriptomes/b_triatomae/stringtie/Btri_ST_transcripts.gff'
 out='transcriptomes/b_triatomae/stringtie/Btri_ST.fa'
 genome='genomes/final_assemblies/Btri_genome_final_masked.fa'
 
@@ -21,6 +21,6 @@ $stringtie -v -o $gtf $bam -m 50 -p 30
 
 gffread $gtf -o $gff
 grep 'transcript' $gff > $gff_transcripts
-bedtools getfasta -fi $genome -bed $gff_transcripts -fo $out -name
+bedtools getfasta -fi $genome -bed $gff_transcripts -fo $out
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: StringTie done
