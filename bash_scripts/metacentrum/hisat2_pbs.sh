@@ -44,7 +44,7 @@ hisat2 -p $PBS_NUM_PPN -x $index \
 	-S $sam 2> $report
 
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
-samtools sort -o $sorted -@ PBS_NUM_PPN $bam 
+samtools sort -o $sorted -@ $PBS_NUM_PPN $bam 
 samtools index $sorted
 
 #copy files back
