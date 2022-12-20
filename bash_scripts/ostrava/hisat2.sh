@@ -6,12 +6,12 @@
 #PBS -l walltime=50:00:00
 
 
-cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_frustrata/'
+cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_raabei/'
 
-genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Bfru_genome_final_masked.fa'
-fw='reads/bfru_trimmed_1.fq.gz'
-rv='reads/bfru_trimmed_2.fq.gz'
-index='bfru_ht2'
+genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Braa_genome_final_masked.fa'
+fw='reads/braa_trimmed_1.fq.gz'
+rv='reads/braa_trimmed_2.fq.gz'
+index='braa_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
