@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -d .
 #PBS -v PATH
-#PBS -N hisat2
+#PBS -N strigtie
 #PBS -l nodes=1:ppn=50
 #PBS -l walltime=100:00:00
 
@@ -17,6 +17,6 @@ genome='genomes/final_assemblies/Bfru_genome_final_masked.fa'
 $stringtie -v -o $gtf $bam -m 50 -p 30
 #-m 	minimum assembled transcript length (default: 200)
 
-bedtools getfasta -fi $genome -bed $gtf -fo $out -name
+bedtools getfasta -fi $genome -bed $gff -fo $out -name
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: StringTie done
