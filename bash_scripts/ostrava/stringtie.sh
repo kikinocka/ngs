@@ -9,12 +9,12 @@
 cd '/mnt/data/kika/blastocrithidia/'
 
 stringtie='/home/users/kika/stringtie/stringtie'
-bam='transcriptomes/b_triatomae/hisat2/btri_ht2_sorted.bam'
-gtf='transcriptomes/b_triatomae/stringtie/Btri_ST.gtf'
-gff='transcriptomes/b_triatomae/stringtie/Btri_ST.gff'
-gff_transcripts='transcriptomes/b_triatomae/stringtie/Btri_ST_transcripts.gff'
-out='transcriptomes/b_triatomae/stringtie/Btri_ST.fa'
-genome='genomes/final_assemblies/Btri_genome_final_masked.fa'
+bam='transcriptomes/b_spHR05/hisat2/braa_ht2_sorted.bam'
+gtf='transcriptomes/b_spHR05/stringtie/Braa_ST.gtf'
+gff='transcriptomes/b_spHR05/stringtie/Braa_ST.gff'
+gff_transcripts='transcriptomes/b_spHR05/stringtie/Braa_ST_transcripts.gff'
+out='transcriptomes/b_spHR05/stringtie/Braa_ST.fa'
+genome='genomes/final_assemblies/Braa_genome_final_masked.fa'
 
 $stringtie -v -o $gtf $bam -m 50 -p 30
 #-m 	minimum assembled transcript length (default: 200)
