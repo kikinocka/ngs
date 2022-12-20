@@ -11,22 +11,22 @@ cat $PBS_NODEFILE
 module add hisat2-2.0.5
 module add samtools-1.3.1
 
-genome_dir='/storage/brno3-cerit/home/kika/pelomyxa/genome_assembly/'
-reads='/storage/brno3-cerit/home/kika/pelomyxa/mapping/bowtie2/RNA_to_transcriptome_clean/'
-outdir='/storage/brno3-cerit/home/kika/pelomyxa/mapping/hisat2_trans-clean_genome-corr/'
+genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
+reads='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_reads/'
+outdir='/storage/brno3-cerit/home/kika/blasto_comparative/braa/'
 
 #copy files to scratch
-cp $genome_dir'pelomyxa_final_corr_genome.fa' $SCRATCHDIR
-cp $reads'pelo_bw2_mapped.1.fq.gz' $reads'pelo_bw2_mapped.2.fq.gz' $SCRATCHDIR
+cp $genome_dir'Braa_genome_final_masked.fa' $SCRATCHDIR
+cp $reads'braa_trimmed_1.fq.gz' $reads'braa_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='pelomyxa_final_corr_genome.fa'
-fw='pelo_bw2_mapped.1.fq.gz'
-rv='pelo_bw2_mapped.2.fq.gz'
-index='pelomyxa_final_corr_ht2'
+genome='Braa_genome_final_masked.fa'
+fw='braa_trimmed_1.fq.gz'
+rv='braa_trimmed_2.fq.gz'
+index='braa_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
@@ -35,7 +35,13 @@ bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
 hisat2-build -p $PBS_NUM_PPN $genome $index
-hisat2 -p $PBS_NUM_PPN -x $index -1 $fw -2 $rv --un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
+hisat2 -p $PBS_NUM_PPN -x $index \
+	--dta --secondary \
+	-1 $fw \
+	-2 $rv \
+	--un-gz $unmapped_unpaired \
+	--un-conc-gz $unmapped_paired \
+	-S $sam 2> $report
 
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ PBS_NUM_PPN $bam 
