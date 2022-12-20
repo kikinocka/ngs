@@ -9,9 +9,9 @@
 cd '/mnt/data/kika/blastocrithidia/'
 
 stringtie='/home/users/kika/stringtie/stringtie'
-bam='transcriptomes/b_spHR05/hisat2/bfru_ht2_sorted.bam'
-gtf='transcriptomes/b_spHR05/stringtie/Bfru_ST.gtf'
-out='transcriptomes/b_spHR05/stringtie/Bfru_ST.fa'
+bam='transcriptomes/b_frustrata/hisat2/bfru_ht2_sorted.bam'
+gtf='transcriptomes/b_frustrata/stringtie/Bfru_ST.gtf'
+out='transcriptomes/b_frustrata/stringtie/Bfru_ST.fa'
 genome='genomes/final_assemblies/Bfru_genome_final_masked.fa'
 
 $stringtie -v -o $gtf $bam -m 50 -p 30
