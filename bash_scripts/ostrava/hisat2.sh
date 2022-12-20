@@ -6,7 +6,7 @@
 #PBS -l walltime=50:00:00
 
 
-cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_raabei/'
+cd '/mnt/data/kika/blastocrithidia/transcriptomes/b_spHR05/'
 
 genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Braa_genome_final_masked.fa'
 fw='reads/braa_trimmed_1.fq.gz'
