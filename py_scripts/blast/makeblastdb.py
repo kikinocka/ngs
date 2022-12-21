@@ -2,11 +2,11 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/eukprot/')
-files = [x for x in os.listdir() if x.startswith('EP00030')]
-dbtype = 'prot'
+os.chdir('/Users/kika/ownCloud/blasto_comparative/genomes/')
+files = [x for x in os.listdir() if x.endswith('_masked.fa')]
+dbtype = 'nucl'
 
 for file in files: 
 	print(file)
-	fname = file.split('.faa')[0]
+	fname = file.split('.fa')[0]
 	subprocess.call('makeblastdb -in {} -dbtype {} -parse_seqids'.format(file, dbtype), shell=True)
