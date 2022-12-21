@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/kinetoplastids/IDH/'
+data='/storage/brno3-cerit/home/kika/kinetoplastids/IDH'
 
 #copy files to scratch
-cp $data'IDHs.linsi.automated1.CD.nex' $SCRATCHDIR
+cp $data'/'* $SCRATCHDIR
 
 
 #compute on scratch
