@@ -2,17 +2,17 @@
 #PBS -d .
 #PBS -v PATH
 #PBS -N bowtie2
-#PBS -l nodes=1:ppn=20
+#PBS -l nodes=1:ppn=80
 #PBS -l walltime=600:00:00
 
-work_dir='/mnt/data/kika/blastocrithidia/'
+work_dir='/mnt/data/kika/blastocrithidia/genomes/'
 
-ref=$work_dir'bw2/tRNA_contigs.fa'
-p1_1=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_1.fq.gz'
-p1_2=$work_dir'genomes/b_spHR05/reads/HR05_trimmed_2.fq.gz'
-base_name='tRNA_contigs.bw2'
+ref=$work_dir'final_assemblies/Braa_genome_final_masked.fa'
+p1_1=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_1.fq'
+p1_2=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_2.fq'
+base_name='Braa_bw2'
 
-cd $work_dir'bw2/'
+cd $work_dir'bowtie2/final/'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
@@ -24,7 +24,7 @@ sorted=$base_name'_sorted.bam'
 bowtie2-build $ref $base_name
 
 #paired-end reads
-bowtie2 --very-sensitive -p 20 \
+bowtie2 --very-sensitive -p 50 \
 	-x $base_name \
 	-1 $p1_1 \
 	-2 $p1_2 \
@@ -36,9 +36,9 @@ bowtie2 --very-sensitive -p 20 \
 	#--no-unal \ #writes only mapped reads to sam file
 
 
-samtools view -bS -F 4 $samfile > $bamfile -@ 20 #writes only mapped reads to bamfile
-# samtools view -bS -@ 20 $samfile > $bamfile
-samtools sort -o $sorted -@ 20 $bamfile 
+# samtools view -bS -F 4 $samfile > $bamfile -@ 50 #writes only mapped reads to bamfile
+samtools view -bS -@ 20 $samfile > $bamfile
+samtools sort -o $sorted -@ 50 $bamfile 
 samtools index -b $sorted
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: bowtie2 done
