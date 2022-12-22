@@ -7,12 +7,12 @@
 
 work_dir='/mnt/data/kika/blastocrithidia/genomes/'
 
-ref=$work_dir'final_assemblies/Braa_genome_final_masked.fa'
-p1_1=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_1.fq'
-p1_2=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_2.fq'
-base_name='Braa_bw2'
+ref=$work_dir'final_assemblies/Bfru_genome_final_masked.fa'
+p1_1=$work_dir'b_frustrata/reads/karect_4FEM_trimmed_75_1.fq'
+p1_2=$work_dir'b_frustrata/reads/karect_4FEM_trimmed_75_2.fq'
+base_name='Bfru_bw2'
 
-cd $work_dir'b_spHR05/bowtie2/final/'
+cd $work_dir'b_frustrata/bowtie2/final/'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
