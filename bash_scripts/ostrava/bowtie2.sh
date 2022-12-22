@@ -7,12 +7,12 @@
 
 work_dir='/mnt/data/kika/blastocrithidia/genomes/'
 
-ref=$work_dir'final_assemblies/Oeli_genome_final_masked.fa'
-p1_1=$work_dir'o_eliasi/reads/karect_PNG74_trimmed_75_1.fq'
-p1_2=$work_dir'o_eliasi/reads/karect_PNG74_trimmed_75_2.fq'
-base_name='Oeli_bw2'
+ref=$work_dir'final_assemblies/Omod_genome_final_masked.fa'
+p1_1=$work_dir'o_modryi/reads/karect_modryi_trimmed_75_1.fq'
+p1_2=$work_dir'o_modryi/reads/karect_modryi_trimmed_75_2.fq'
+base_name='Omod_bw2'
 
-cd $work_dir'o_eliasi/bowtie2/final/'
+cd $work_dir'o_modryi/bowtie2/final/'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
