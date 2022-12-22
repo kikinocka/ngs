@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/genomes/triat_scaffolds.fasta', 'fasta')
-nt_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.faa', 'w')
-err_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/triat_proteins.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs/triat.blast_p57proteins.xml')
+fasta = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/genomes/Braa_genome_final_masked.fa', 'fasta')
+nt_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/Braa_proteins.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/Braa_proteins.faa', 'w')
+err_out = open('/Users/kika/ownCloud/blasto_comparative/proteins/Braa_proteins.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/blasto_comparative/proteins/Braa_genome.fwd_Bnon.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
@@ -113,6 +113,7 @@ for contig in fasta:
 			ref_start = value[5]-1
 			ref_end = value[6]
 			ref_dif = ref_length - ref_end
+			contig.seq = contig.seq.upper()
 			if frame in [1, 2, 3]:
 				print(contig.name + '_____forward')
 				seq_start = value[0]-1
@@ -177,8 +178,8 @@ for contig in fasta:
 					protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W') + '*'
 				else:
 					protein = translation(nucleotides).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
-				nt_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, nucleotides))
-				aa_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, protein))
+				nt_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, nucleotides))
+				aa_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, protein))
 			else:
 				print(contig.name + '_____reverse')
 				reverse = contig.seq.reverse_complement()
@@ -244,8 +245,8 @@ for contig in fasta:
 					protein = translation(nucleotides[:-3]).replace('B', 'E').replace('Z', 'E').replace('J', 'W') + '*'
 				else:
 					protein = translation(nucleotides).replace('B', 'E').replace('Z', 'E').replace('J', 'W')
-				nt_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, nucleotides))
-				aa_out.write('>{} {}\n{}\n'.format(contig.name, ref_name, protein))
+				nt_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, nucleotides))
+				aa_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, protein))
 		else:
 			pass
 
