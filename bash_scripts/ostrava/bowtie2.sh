@@ -12,7 +12,7 @@ p1_1=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_1.fq'
 p1_2=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_2.fq'
 base_name='Braa_bw2'
 
-cd $work_dir'bowtie2/final/'
+cd $work_dir'b_spHR05/bowtie2/final/'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
