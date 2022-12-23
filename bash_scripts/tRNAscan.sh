@@ -2,9 +2,9 @@
 
 tRNAscan='/Users/kika/miniconda3/bin/tRNAscan-SE'
 
-cd '/Users/kika/ownCloud/blasto_comparative/genomes/'
+cd '/Users/kika/ownCloud/blastocrithidia/genome_assembly/'
 
-for genome in *.fa ; do
+for genome in p57_polished.fa ; do
 	echo $genome
 
 	table=${genome%.fa}.tRNAscan_table.tsv

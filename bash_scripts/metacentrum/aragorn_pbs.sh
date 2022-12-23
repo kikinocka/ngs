@@ -8,10 +8,10 @@
 cat $PBS_NODEFILE
 
 aragorn='/storage/brno3-cerit/home/kika/miniconda3/pkgs/aragorn-1.2.38-h779adbc_4/bin/aragorn'
-data_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes'
+data_dir='/storage/brno3-cerit/home/kika/p57/genome'
 
 #copy files to scratch
-cp $data_dir'/Ovol_genome_final_masked.fa' $SCRATCHDIR
+cp $data_dir'/'*.fa $SCRATCHDIR
 
 
 #compute on scratch
