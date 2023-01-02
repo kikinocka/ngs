@@ -5,7 +5,7 @@
 #PBS -l nodes=1:ppn=20
 #PBS -l walltime=02:00:00
 
-cd '/mnt/data/kika/blastocrithidia/final_assemblies/'
+cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/'
 
 for assembly in *corrected.fa; do
 	out='quast/'${assembly%.fa}
