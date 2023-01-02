@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/IDH/tree/ver2/combined/')
-trees = [x for x in os.listdir() if x.endswith('+iqtree.tre')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/AAT/ver7/MrBayes/')
+trees = [x for x in os.listdir() if x.endswith('con.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/kinetoplastids/IDH/tree/ver2/IDHs_codes_names.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/AAT/ver7/aat_codes_names.txt')
 
 name_dict = {}
 for name in names:

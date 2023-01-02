@@ -1,8 +1,8 @@
 #!/bin/sh
 
-genome='/Users/kika/ownCloud/pelomyxa_schiedti/genome_assembly/pelomyxa_final_corr_genome.fa'
-gff='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_prediction_final_corr.gff3'
-output='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_predicted_proteins_corr.fa'
+genome='/Users/kika/ownCloud/blastocrithidia/ncbi_submission/LWC14.fsa'
+gff='/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/bnon_synteny2.gff'
+output='/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/bnon_synteny2.fa'
 
 bedtools getfasta -fi $genome -bed $gff -fo $output -name -s
 

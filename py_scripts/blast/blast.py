@@ -2,15 +2,15 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/bnonstop_predicted_proteins.fasta'
+cmd = 'blastn'
+task = 'blastn'
+query = '/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/bnon_synteny.fa'
 db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/Braa_genome_final_masked.fa'
-out = '/Users/kika/ownCloud/blasto_comparative/proteins/Braa_genome.fwd_Bnon.blast.xml'
+out = '/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/Braa_genome.fwd_Bnon_synteny.blast.xml'
 evalue = 1e-04
 outfmt = 5
 hits = 1
-word_size = 3
+word_size = 8
 threads = 6
 
 print('running BLAST')
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blasto_comparative/proteins/Braa_genome.fwd_Bnon.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blasto_comparative/proteins/Braa_genome.fwd_Bnon.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/Braa_genome.fwd_Bnon_synteny.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/Braa_genome.fwd_Bnon_synteny.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
