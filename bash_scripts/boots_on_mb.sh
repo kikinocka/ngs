@@ -2,10 +2,10 @@
 
 placer='/Users/kika/scripts/py_scripts/boots_on_mb.py'
 
-cd '/Users/kika/ownCloud/kinetoplastids/IDH/tree/ver2/combined/'
+cd '/Users/kika/ownCloud/archamoebae/trees/AAT/ver7/combined'
 
-tree=$path'IDHs.linsi.automated1.CD.nex.con.tre'
-bootstrap=$path'automated1-strict_MFP_madd_guide_tree_stdBoots.boottrees'
-out=$path'IDHs.CD.mb+raxml.tre'
+tree=$path'aat.CD.trimal_gt-0.8.nex.con.tre'
+bootstrap=$path'RAxML_bootstrap.aat.CD'
+out=$path'aat.CD.mb+raxml.tre'
 
 $placer $tree $bootstrap $out

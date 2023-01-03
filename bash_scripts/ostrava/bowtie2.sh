@@ -7,12 +7,12 @@
 
 work_dir='/mnt/data/kika/blastocrithidia/genomes/'
 
-ref=$work_dir'final_assemblies/Ovol_genome_final_masked.fa'
-p1_1=$work_dir'o_volfi/reads/CC37A_trimmed_1.fq'
-p1_2=$work_dir'o_volfi/reads/CC37A_trimmed_2.fq'
-base_name='Ovol_bw2'
+ref=$work_dir'final_assemblies/Braa_genome_final_corrected_masked.fa'
+p1_1=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_1.fq'
+p1_2=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_2.fq'
+base_name='Braa_cor_bw2'
 
-cd $work_dir'o_volfi/bowtie2/final/'
+cd $work_dir'b_spHR05/bowtie2/final_corrected/'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
