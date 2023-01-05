@@ -13,12 +13,12 @@ module add samtools-1.3.1
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
 reads='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_reads/'
-outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/final_corrected'
+outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/final_corrected2/'
 
 #copy files to scratch
 cp $genome_dir'Braa_genome_final_corrected2_masked.fa' $SCRATCHDIR
 cp $reads'braa_trimmed_1.fq.gz' $reads'braa_trimmed_2.fq.gz' $SCRATCHDIR
-cp $outdir'/'* $SCRATCHDIR
+# cp $outdir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
