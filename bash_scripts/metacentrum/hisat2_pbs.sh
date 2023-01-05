@@ -16,17 +16,17 @@ reads='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_
 outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/final_corrected'
 
 #copy files to scratch
-cp $genome_dir'Braa_genome_final_corrected_masked.fa' $SCRATCHDIR
+cp $genome_dir'Braa_genome_final_corrected2_masked.fa' $SCRATCHDIR
 cp $reads'braa_trimmed_1.fq.gz' $reads'braa_trimmed_2.fq.gz' $SCRATCHDIR
 cp $outdir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Braa_genome_final_corrected_masked.fa'
+genome='Braa_genome_final_corrected2_masked.fa'
 fw='braa_trimmed_1.fq.gz'
 rv='braa_trimmed_2.fq.gz'
-index='braa_cor_ht2'
+index='braa_cor2_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
