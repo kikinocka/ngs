@@ -34,14 +34,14 @@ report=$index'_report.txt'
 bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
 
-# hisat2-build -p $PBS_NUM_PPN $genome $index
-# hisat2 -p $PBS_NUM_PPN -x $index \
-# 	--dta --secondary \
-# 	-1 $fw \
-# 	-2 $rv \
-# 	--un-gz $unmapped_unpaired \
-# 	--un-conc-gz $unmapped_paired \
-# 	-S $sam 2> $report
+hisat2-build -p $PBS_NUM_PPN $genome $index
+hisat2 -p $PBS_NUM_PPN -x $index \
+	--dta --secondary \
+	-1 $fw \
+	-2 $rv \
+	--un-gz $unmapped_unpaired \
+	--un-conc-gz $unmapped_paired \
+	-S $sam 2> $report
 
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ $PBS_NUM_PPN $bam 
