@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add trinity-2.9.1
+module add trinity-2.11.0
 
 datadir='/storage/brno3-cerit/home/kika/prototheca/wickerhamii/'
 bam=$datadir'mapping/hisat2/pwic_ht2_sorted.bam'
