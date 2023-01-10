@@ -10,10 +10,11 @@ cat $PBS_NODEFILE
 #add module
 module add orthofinder-2.0.0
 
-data='/storage/brno3-cerit/home/kika/archamoebae/orthofinder'
+data='/storage/brno3-cerit/home/kika/anaeramoeba/tbcs'
 
 #copy files to scratch
-cp $data'/'*faa $SCRATCHDIR
+cp $data'/'*fa $SCRATCHDIR
+cp $data'/refs/'*fa $SCRATCHDIR
 
 
 #compute on scratch
@@ -23,5 +24,5 @@ orthofinder -f $SCRATCHDIR -t $PBS_NUM_PPN
 #-I 2.5
 
 #copy files back
-rm *.faa
+rm *.fa
 cp -R * $data
