@@ -13,7 +13,7 @@ module add mrbayes-3.2.7a
 data='/storage/brno3-cerit/home/kika/archamoebae/mrbayes'
 
 #copy files to scratch
-cp $data'/ak.'* $SCRATCHDIR
+cp $data'/ak.CD.'* $SCRATCHDIR
 
 
 #compute on scratch
