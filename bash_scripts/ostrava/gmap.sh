@@ -13,8 +13,5 @@ species='braa'
 
 gmap_build -D . -d $species'_gmap' $genome
 gmap -D . -d $species'_gmap' -B 4 -t 20 -f gff3_match_cdna Trinity.fasta > Trinity_gmap.gff3
-gmap -D . -d $species'_gmap' -B 4 -t 20 -f samse Trinity.fasta > Trinity_gmap.sam
-samtools sort -o Trinity_gmap.bam -@ 20 Trinity_gmap.sam
-samtools index -b Trinity_gmap.bam
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: gmap done
