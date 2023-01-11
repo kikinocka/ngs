@@ -172,6 +172,21 @@ if os.path.exists(prefix + ".nommpred_dict.txt"):
 			pred = possiblepredsnommpred[pred]
 			preds_d.at[name, "NommPred Dicty"] = pred
 
+if os.path.exists(prefix + ".nommpred_mt.txt"):
+	print("Found NommPred-Mito output")
+	nommpred_mro = open(prefix + ".nommpred_mt.txt").read().split('\n')
+	possiblepredsnommpred = {'Other': 'CYT', 'Mt': 'MT'}
+	for item in nommpred_mro:
+		#Identifier	Class
+		#[0]		[1]
+		
+		if not item.startswith('Seq_Name') and len(item) != 0:
+			item = item.split('\t')
+			name = item[0].split(" ")[0]
+			pred = item[1]
+			pred = possiblepredsnommpred[pred]
+			preds_d.at[name, "NommPred Mito"] = pred
+
 if os.path.exists(prefix + ".ML2_animalHI.txt"):
 	print("Found MultiLoc2-animal output")
 	ML2ANIM = open(prefix + ".ML2_animalHI.txt").read().split('\n')
