@@ -12,7 +12,7 @@ module add cufflinks-2.2.1
 
 gffread='/storage/brno3-cerit/home/kika/miniconda3/pkgs/gffread-0.12.7-h9a82719_0/bin/gffread'
 bam_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/ovol'
-out_dir='/storage/brno3-cerit/home/kika/blasto_comparative/cufflinks/'
+out_dir='/storage/brno3-cerit/home/kika/blasto_comparative/cufflinks/ovol/'
 
 #copy files to scratch
 cp $bam_dir'/'*_sorted.bam $SCRATCHDIR
