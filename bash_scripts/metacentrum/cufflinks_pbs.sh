@@ -11,8 +11,8 @@ cat $PBS_NODEFILE
 module add cufflinks-2.2.1
 
 gffread='/storage/brno3-cerit/home/kika/miniconda3/pkgs/gffread-0.12.7-h9a82719_0/bin/gffread'
-bam_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/bfru'
-out_dir='/storage/brno3-cerit/home/kika/blasto_comparative/cufflinks/bfru/'
+bam_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/btri'
+out_dir='/storage/brno3-cerit/home/kika/blasto_comparative/cufflinks/btri/'
 
 #copy files to scratch
 cp $bam_dir'/'*_sorted.bam $SCRATCHDIR
@@ -21,7 +21,7 @@ cp $bam_dir'/'*_sorted.bam $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-species='Bfru'
+species='Btri'
 cufflinks -p $PBS_NUM_PPN -o . *_sorted.bam
 $gffread transcripts.gtf -o $species'_transcripts_cufflinks.gff'
 
