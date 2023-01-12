@@ -36,6 +36,7 @@ sorted=$index'_sorted.bam'
 
 hisat2-build -p $PBS_NUM_PPN $genome $index
 hisat2 -p $PBS_NUM_PPN -x $index \
+	--very-sensitive \
 	--dta --secondary \
 	-1 $fw \
 	-2 $rv \

@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/AAT/ver2/')
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/GCS-L/ver5/')
 inacc = open('delete.acc')
-infasta = SeqIO.parse('/Users/kika/ownCloud/archamoebae/trees/AAT/ver2/aat.fa', 'fasta')
+infasta = SeqIO.parse('/Users/kika/ownCloud/archamoebae/trees/GCS-L/ver5/gcsl_reconstructeddataset.fasta', 'fasta')
 
 omitted = []
 for line in inacc:
 	omitted.append(line.strip())
 
 c = 0
-with open('aat_reduced.fa', 'w') as result:
+with open('gcsL_reduced.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
