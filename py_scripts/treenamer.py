@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/IDH/tree/idh1-2/iqtree/')
-trees = [x for x in os.listdir() if x.endswith('.treefile')]
+os.chdir('/Users/kika/ownCloud/kinetoplastids/IDH/tree/idh1-2/combined/')
+trees = [x for x in os.listdir() if x.endswith('+iqtree.tre')]
 
 #file in format Acc. number \t name of organism \n
 names = open('/Users/kika/ownCloud/kinetoplastids/IDH/tree/idh1-2/IDH1-2_codes_names.txt')
