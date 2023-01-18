@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/data/kinetoplastids/')
-infile = SeqIO.parse('TriTrypDB-54_BsaltansLakeKonstanz_Genome.fasta', 'fasta')
-output = open('TriTrypDB-54_BsaltansLakeKonstanz_Genome.translated.fa', 'w')
-error = open('TriTrypDB-54_BsaltansLakeKonstanz_Genome.errors.fa', 'w')
+os.chdir('/Users/kika/owncloud/blasto_comparative/viruses/')
+infile = SeqIO.parse('BtriTLV_nt.fa', 'fasta')
+output = open('BtriTLV_aa.fa', 'w')
+error = open('BtriTLV_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/data/kinetoplastids/20230110/')
-infile = SeqIO.parse('TriTrypDB-61_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
-out = open('TriTrypDB-61_TbruceiTREU927.start_codons.txt', 'w')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/mito/')
+infile = SeqIO.parse('M94286.1_genes.fa', 'fasta')
+out = open('M94286.1_genes.start_codons.txt', 'w')
 
 # #stops
 # taa = 0
