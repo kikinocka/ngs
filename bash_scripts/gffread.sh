@@ -1,7 +1,11 @@
 #!/bin/sh
 
-genome='/Users/kika/ownCloud/pelomyxa_schiedti/genome_assembly/pelomyxa_final_corr_genome.fa'
-gff='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_prediction_final_corr.gff3'
-proteins='/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/pelomyxa_predicted_proteins_corr.fa'
+genome='/Users/kika/ownCloud/blastocrithidia/ncbi_submission/LWC14.fsa'
+gff='/Users/kika/ownCloud/blastocrithidia/genes/tRNAs/FINAL/tRNAs.gff'
+proteins='/Users/kika/ownCloud/blastocrithidia/genes/tRNAs/FINAL/tRNAs.fa'
 
-gffread $gff -g $genome -y $proteins
+gffread $gff -g $genome -w $proteins 
+ 
+ # -w    write a fasta file with spliced exons for each transcript
+ # -x    write a fasta file with spliced CDS for each GFF transcript
+ # -y    write a protein fasta file with the translation of CDS for each record
