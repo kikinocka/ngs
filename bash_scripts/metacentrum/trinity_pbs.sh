@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add trinity-2.11.0
 
-read_dir='/storage/brno3-cerit/home/kika/blasto_comparative/eliasi/transcriptome_reads/'
+read_dir='/storage/brno3-cerit/home/kika/blasto_comparative/oborniki/transcriptome_reads/'
 out_dir='/storage/brno3-cerit/home/kika/blasto_comparative/trinity/'
 
 #copy files to scratch
@@ -20,8 +20,8 @@ cp $read_dir'/'*trimmed_*.fq.gz $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-fw='oeli_trimmed_1.fq.gz'
-rv='oeli_trimmed_2.fq.gz'
+fw='oobo_trimmed_1.fq.gz'
+rv='oobo_trimmed_2.fq.gz'
 
 Trinity --seqType fq --left $fw --right $rv --max_memory 100G --CPU $PBS_NUM_PPN
 
