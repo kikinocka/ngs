@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/owncloud/blasto_comparative/viruses/')
-infile = SeqIO.parse('BtriTLV_nt.fa', 'fasta')
-output = open('BtriTLV_aa.fa', 'w')
-error = open('BtriTLV_errors.fa', 'w')
+os.chdir('/Users/kika/owncloud/kinetoplastids/AOX/')
+infile = SeqIO.parse('frd_nt.fa', 'fasta')
+output = open('frd_aa.fa', 'w')
+error = open('frd_errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
