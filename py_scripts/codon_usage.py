@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/viruses/')
-sequences = SeqIO.parse('BtriTLV_nt.fa', 'fasta')
-table = open('BtriTLV_nt.codons.tsv', 'w')
+sequences = SeqIO.parse('BtriTLV_cds.fa', 'fasta')
+table = open('BtriTLV_cds.codons.tsv', 'w')
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
