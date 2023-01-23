@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/proteromonas/peroxisome/peroxins/amoebae_stramenopiles/pex11_tree/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/AOX/tree/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
