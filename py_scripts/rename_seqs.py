@@ -2,22 +2,19 @@
 import os
 from Bio import SeqIO
 
-# os.chdir('/Users/kika/ownCloud/archamoebae/replisome/amoebae/alns_updated/')
-# files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
+proteins = SeqIO.parse('bnonstop_predicted_proteins.fasta', 'fasta')
+table = open('bnonstop_func_annot.tsv')
 
-# with open('replisome.fa', 'w') as out:
-# 	for file in files:
-# 		print(file)
-# 		file_name = file.split('_')[0]
-# 		for seq in SeqIO.parse(file, 'fasta'):
-# 			if 'Homo' in seq.name or 'Dictyostelium' in seq.name:
-# 				pass
-# 			else:
-# 				out.write('>{}__{}\n{}\n'.format(file_name, seq.name, str(seq.seq).replace('-', '')))
+annotation = {}
+for line in table:
+	accession = line.split('\t')[0].split(' ')[0]
+	try:
+		annot = ' | ' + line.split('\t')[3].split('|')[4].split('=')[1].strip() + ' | homolog of ' + line.split('\t')[3].split('|')[2].split('=')[1].strip()
+	except:
+		annot = ' | hypothetical protein'
+	annotation[accession] = annot
 
-os.chdir('/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_filtration-20220127/')
-assembly = SeqIO.parse('rvac.trinity.NRfilt.faa', 'fasta')
-
-with open('rvac.trinity.NRfilt_renamed.faa', 'w') as out:
-	for seq in assembly:
-		out.write('>rva_{}\n{}\n'.format(seq.description, seq.seq))
+with open('bnonstop_proteins_annotated.fa', 'w') as out:
+	for seq in proteins:		
+		out.write('>{}{}\n{}\n'.format(seq.name, annotation[seq.name], seq.seq))

@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/proteromonas/peroxisome/peroxins/amoebae_stramenopiles/pex11_tree/ver2/')
+os.chdir('/Users/kika/ownCloud/proteromonas/peroxisome/peroxins/amoebae_stramenopiles/pex11_tree/ver3/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
@@ -12,7 +12,7 @@ for file in files:
 	# file_name = file.split('.')[0] + '.' + file.split('.')[1]
 	file_name = file.split('.')[0]
 	aut = 'automated1'
-	gt = 0.8 #fraction of sequences with a gap allowed
+	gt = 0.75 #fraction of sequences with a gap allowed
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 
