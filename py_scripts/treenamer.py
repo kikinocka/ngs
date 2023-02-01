@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/IDH/tree/hgt/ver2/')
-trees = [x for x in os.listdir() if x.endswith('LINSI_automated1_guided-tree_UF_alrt-sh.treefile')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/transporters/ver2/RAxML/')
+trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.transporters.CD')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/kinetoplastids/IDH/tree/hgt/idh_acc_names.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/transporters/ver2/transporters_codes_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	# new = split_line[1]
-	new = split_line[0] + ' ' + split_line[1]
+	new = split_line[1]
+	# new = split_line[0] + ' ' + split_line[1]
 	name_dict[split_line[0]] = new
 # print(name_dict)
 
