@@ -2,7 +2,7 @@
 
 replacer='/Users/kika/ownCloud/lab_documents/Joel/lael_scripts/name_replace/name_replace.pl'
 
-cd '/Users/kika/ownCloud/archamoebae/trees/GCS-L/ver8/'
+cd '/Users/kika/ownCloud/archamoebae/trees/transporters/ver2/'
 
 for aln in *.aln ; do
 	out=${aln%.aln}.CD.aln
