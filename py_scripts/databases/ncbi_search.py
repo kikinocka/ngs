@@ -9,8 +9,8 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/IDH/tree/hgt/')
-acc = open('accessions.txt')
+os.chdir('/Users/kika/ownCloud/proteromonas/flagellar/')
+acc = open('paper.txt')
 
 ids = []
 for line in acc:
@@ -28,7 +28,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('idh.txt', 'w') as out, open('idh.errors', 'w') as errors:
+with open('paper_lineage.txt', 'w') as out, open('paper.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:
@@ -49,7 +49,7 @@ with open('idh.txt', 'w') as out, open('idh.errors', 'w') as errors:
 			# print(tax[0])
 			# print(full)
 			# out.write('{}\t{}\t{}\n'.format(prot_id, orgn, tax))
-			out.write('{}\t{}\n'.format(prot_id, tax[0]))
+			out.write('{}\t{}\n'.format(prot_id, tax))
 			# out.write('{}\t{}\n'.format(prot_id, description))
 			# out.write('{}\t{}\n'.format(prot_id, full))
 			# out.write('>{}\n{}\n'.format(prot_id, prot_id.seq))

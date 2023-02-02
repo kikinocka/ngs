@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module add maker-2.28
+module add maker-2.31.10
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/maker'
