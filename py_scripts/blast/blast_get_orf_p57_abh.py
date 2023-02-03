@@ -9,6 +9,21 @@ nt_outfile = '/Users/kika/ownCloud/blasto_comparative/proteins/Braa_proteins.fna
 aa_outfile = '/Users/kika/ownCloud/blasto_comparative/proteins/Braa_proteins.faa'
 errorfile = '/Users/kika/ownCloud/blasto_comparative/proteins/Braa_proteins.errors.txt'
 
+
+def overlaps(moduleA, moduleB):
+	startA = moduleA[0]
+	endA = moduleA[1]
+	startB = moduleB[0]
+	endB = moduleB[1]
+	if startA <= startB <= endA or startA <= endB <= endA:
+		overlap = True
+	elif startB <= startA <= endB or startB <= endA <= endB:
+		overlap = True
+	else:
+		overlap = False
+	return overlap
+
+
 def translation(sequence):
     gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -125,7 +140,7 @@ with open(blastfile) as result_handle,\
 		ref_dif = ref_length - ref_end
 		contig.seq = contig.seq.upper()
 		if frame in [1, 2, 3]:
-			print(contig.name + '_____forward')
+			#print(contig.name + '_____forward')
 			seq_start = value[0]-1
 			seq_end = value[1]
 			if ref_start == 1:
@@ -200,7 +215,7 @@ with open(blastfile) as result_handle,\
 			#nt_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, nucleotides))
 			#aa_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, protein))
 		else:
-			print(contig.name + '_____reverse')
+			#print(contig.name + '_____reverse')
 			reverse = contig.seq.reverse_complement()
 			seq_start = len(reverse) - value[1]
 			seq_end = len(reverse) - value[0] + 1
@@ -275,9 +290,37 @@ with open(blastfile) as result_handle,\
 
 			#nt_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, nucleotides))
 			#aa_out.write('>{}:{}-{} {}\n{}\n'.format(contig.name, seq_start, seq_end, ref_name, protein))
+
+	#dictionary of scaffold: [(start, end, seq), ...]
+	unique_loci = {}
+	banned = set()
+
 	for seq in seq_d:
-		i = seq_d[seq]
-		contig, seq_start, seq_end, ref_name, nucleotides, protein = i["contig"], i["seq_start"], i["seq_end"], i["ref_name"], seq, i["protein"]
+		item = seq_d[seq]
+		contig, seq_start, seq_end, ref_name, nucleotides, protein = item["contig"], item["seq_start"], item["seq_end"], item["ref_name"], seq, item["protein"]
+		if contig in unique_loci:
+			overlap = [x for x in unique_loci[contig] if overlaps([seq_start, seq_end], [x[0], x[1]])]
+			if overlap == []:
+				unique_loci[contig].append((seq_start, seq_end, nucleotides))
+			else:
+				print("Sequence duplicate", len(overlap), contig, seq_start, seq_end)
+				for locus in overlap:
+					if nucleotides in locus[2]:
+						#this is a subset of the sequence stored, skip adding to loci and store in "banned"
+						banned.add((contig, seq_start, seq_end))
+					else:
+						#the stored sequence is probably shorter, add to "banned" and store a new locus
+						unique_loci[contig].append((seq_start, seq_end, nucleotides))
+						banned.add((contig, locus[0], locus[1]))
+		else:
+			unique_loci[contig] = [(seq_start, seq_end, nucleotides)]
+
+	print(banned)
+	for seq in seq_d:
+		item = seq_d[seq]
+		contig, seq_start, seq_end, ref_name, nucleotides, protein = item["contig"], item["seq_start"], item["seq_end"], item["ref_name"], seq, item["protein"]
+		if (contig, seq_start, seq_end) in banned:
+			continue
 		nt_out.write('>{}:{}-{} {}\n{}\n'.format(contig, seq_start, seq_end, ref_name, nucleotides))
 		aa_out.write('>{}:{}-{} {}\n{}\n'.format(contig, seq_start, seq_end, ref_name, protein))
 
