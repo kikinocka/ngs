@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/')
-lookup = open('eukprot.lookup', 'r')
+os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/maker/')
+gff = open('Omod_genome_final_masked.all.gff')
 
-with open('eukprot.taxidmapping', 'w') as out:
-	for line in lookup:
-		accession = line.split('\t')[1]
-		taxid = accession.split('|')[-1]
-		out.write('{}\t{}\n'.format(accession, taxid))
+with open('Omod_genome_final_masked.all_upd.gff', 'w') as out:
+	for line in gff:
+		if '_AED' not it line:
+			out.write(line)
+		else:
+			aed = float(line.split('\t')[-1].split(';')[3].split('=')[1])
+			if aed > 0.25:
+				pass
+			else:
+				out.write(line)
