@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
-#PBS -l select=1:ncpus=20:mem=1gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=10:mem=1gb:scratch_local=1gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -23,7 +23,7 @@ cd $SCRATCHDIR
 aln='transporters.CD.trimal_gt-0.8.aln'
 out=${aln%.trimal_gt-0.8.aln}
 
-raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 -s $aln -n $out --blopt nr_safe
+raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N 100 -p 12345 -s $aln -n $out
 
 
 # #18S
