@@ -5,8 +5,8 @@ cd '/mnt/mokosz/home/kika/workdir/'
 
 for f in *.fa ; do
 	echo $f
-	aln=${f%.fasta}.mafft.aln
-	log=${f%.fasta}.mafft.log
+	aln=${f%.fa}.mafft.aln
+	log=${f%.fa}.mafft.log
 	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 done
 

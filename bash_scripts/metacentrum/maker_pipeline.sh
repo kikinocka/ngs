@@ -35,7 +35,6 @@ gff3_merge -d Omod_genome_final_masked.maker.output/Omod_genome_final_masked_mas
 #Check amount of genes with introns (>1 exon)
 grep -i "mrna-1:2" Omod_genome_final_masked.all.gff
 
-
 #Check AED of predictions
 export LC_ALL=C
 
