@@ -3,7 +3,7 @@
 #align denovo
 cd '/mnt/mokosz/home/kika/workdir/'
 
-for f in *.fasta ; do
+for f in *.fa ; do
 	echo $f
 	aln=${f%.fasta}.mafft.aln
 	log=${f%.fasta}.mafft.log
