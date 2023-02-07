@@ -8,8 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-# module add iqtree-1.6.12
-module add iqtree-2.2.0
+module add iqtree-1.6.12
 
 datadir='/storage/brno3-cerit/home/kika/kinetoplastids/AOX/ver2/'
 
@@ -29,8 +28,8 @@ nm=5000
 # iqtree -m TEST -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 # iqtree -m GTR+G -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
-iqtree2 -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
-iqtree2 -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree #-wsr
+iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -pre $guide
+iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s $aln -ft $guide_tree #-wsr
 
 #copy files back
 rm $aln
