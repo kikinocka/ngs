@@ -10,7 +10,26 @@ cat $PBS_NODEFILE
 #add module
 module add maker-2.31.10
 
-genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
+# #FIRST RUN
+# genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
+# datadir='/storage/brno3-cerit/home/kika/blasto_comparative/maker'
+
+# #copy files to scratch
+# cp $genome_dir'Omod_genome_final_masked.fa' $SCRATCHDIR
+# cp $datadir'/'* $SCRATCHDIR
+
+# #run on scratch
+# cd $SCRATCHDIR
+
+# mpirun -np $PBS_NUM_PPN maker
+
+# #copy files back
+# rm *.fa busco*fasta *ctl
+# cp -R * $datadir
+
+
+#SECOND RUN
+me_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/maker'
 
 #copy files to scratch
@@ -23,5 +42,6 @@ cd $SCRATCHDIR
 mpirun -np $PBS_NUM_PPN maker
 
 #copy files back
-rm *.fa busco*fasta *ctl
+rm 'Omod_genome_final_masked.fa'
 cp -R * $datadir
+
