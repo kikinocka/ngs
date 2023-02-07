@@ -3,15 +3,21 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/bordor/')
-alignments = [x for x in os.listdir() if x.endswith('.fas')]
+#circular plot
+import matplotlib.pyplot as plt
 
-with open('EU1718_gordon.fa', 'w') as out:
-	for aln in alignments:
-		print(aln)
-		name = aln.split('_')[0]
-		for seq in SeqIO.parse(aln, 'fasta'):
-			out.write('>{}_{}\n{}\n'.format(seq.name, name, seq.seq))
+fig, ax = plt.subplots(1, 1, subplot_kw=dict(polar=True))
+plt.show()
+
+# os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/EU1718/bordor/')
+# alignments = [x for x in os.listdir() if x.endswith('.fas')]
+
+# with open('EU1718_gordon.fa', 'w') as out:
+# 	for aln in alignments:
+# 		print(aln)
+# 		name = aln.split('_')[0]
+# 		for seq in SeqIO.parse(aln, 'fasta'):
+# 			out.write('>{}_{}\n{}\n'.format(seq.name, name, seq.seq))
 
 
 

@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Users/kika/ownCloud/proteromonas/flagellar/amoebae/')
+os.chdir('/Users/kika/ownCloud/proteromonas/flagellar/amoebae_stramenopiles/')
 
-for seq in SeqIO.parse('sequence.fasta', 'fasta'):
+for seq in SeqIO.parse('blasto_not-found.fa', 'fasta'):
 	with open('{}.fa'.format(seq.name), 'w') as result:
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
