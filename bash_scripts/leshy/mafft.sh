@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #align denovo
-cd '/mnt/mokosz/home/kika/archam_trees/gcsL/ver5/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 for f in *.fasta ; do
 	echo $f
