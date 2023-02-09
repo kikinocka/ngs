@@ -68,7 +68,7 @@ hmm-assembler.pl Omod_train1 . > Omod_train1_snap_r00.hmm
 	#finally uses those captured segments to produce the HMM that is added to maker_opts.ctl file
 
 
-#Modify options in maker_opts.ctl for SNAP training with HMMs
+#Modify options in maker_opts.ctl for SNAP training with HMM
 est2genome=0
 protein2genome=0
 snaphmm=Omod_train1_snap_r00.hmm
@@ -81,4 +81,36 @@ qsub maker_pbs.sh
 #Get the GFF with the annotation
 gff3_merge -d Omod_genome_final_masked.maker.output/Omod_genome_final_masked_master_datastore_index.log
 	#this will overwritte Omod_genome_final_masked.all.gff, so first renamed to Omod_genome_final_masked.all1.gff
+
+
+#Re-run the SNAP training steps to get a new .hmm file
+mkdir SNAP_training01
+mv Omod_genome_final_masked.maker.output SNAP_training01
+mv Omod_genome_final_masked.all.gff SNAP_training01
+cd SNAP_training01
+
+maker2zff -n Omod_genome_final_masked.all.gff
+fathom -categorize 1000 genome.ann genome.dna
+fathom -export 1000 -plus uni.ann uni.dna
+forge export.ann export.dna
+hmm-assembler.pl Omod_train2 . > ../Omod_train1_snap_r01.hmm
+
+
+#Modify options in maker_opts.ctl for SNAP training with new HMM
+snaphmm=Omod_train1_snap_r01.hmm
+
+
+#run MAKER in SCRATCHDIR
+qsub maker_pbs.sh
+
+
+
+
+
+
+
+
+
+
+
 

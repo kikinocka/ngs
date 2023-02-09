@@ -22,7 +22,7 @@ datadir='/storage/brno3-cerit/home/kika/blasto_comparative/maker'
 
 #copy files to scratch
 cp $genome_dir'Omod_genome_final_masked.fa' $SCRATCHDIR
-cp $datadir'/'* $SCRATCHDIR
+cp -r $datadir'/'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
