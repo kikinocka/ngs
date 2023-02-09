@@ -77,3 +77,8 @@ snaphmm=Omod_train1_snap_r00.hmm
 #run MAKER in SCRATCHDIR
 qsub maker_pbs.sh
 
+
+#Get the GFF with the annotation
+gff3_merge -d Omod_genome_final_masked.maker.output/Omod_genome_final_masked_master_datastore_index.log
+	#this will overwritte Omod_genome_final_masked.all.gff, so first renamed to Omod_genome_final_masked.all1.gff
+
