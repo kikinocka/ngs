@@ -9,7 +9,7 @@
 cd '/mnt/data/kika/blastocrithidia/b_nonstop/'
 
 query='bnonstop_predicted_proteins.fasta'
-out='bnonstop_predicted_proteins.blast.tsv'
+out='bnonstop_predicted_proteins.fwd_refs.tsv'
 db='/mnt/data/kika/kineto_refs/blastDB/kinetoplastid_refs.TriTrypDB-61.fa'
 program=blastp
 task=blastp
