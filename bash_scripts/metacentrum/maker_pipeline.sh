@@ -64,14 +64,14 @@ fathom -export 1000 -plus uni.ann uni.dna
 	#capture the CDS and the protein sequence of each model. Creates export.aa export.ann export.dna export.tx
 forge export.ann export.dna
 	#Creates UTR3 and UTR5 files, as well start, stop, polyA, intron, donor, transitions, etc
-hmm-assembler.pl Omod_train1 . > Omod_train1_snap_r00.hmm
+hmm-assembler.pl Omod . > Omod_snap_r00.hmm
 	#finally uses those captured segments to produce the HMM that is added to maker_opts.ctl file
 
 
 #Modify options in maker_opts.ctl for SNAP training with HMM
 est2genome=0
 protein2genome=0
-snaphmm=Omod_train1_snap_r00.hmm
+snaphmm=Omod_snap_r00.hmm
 
 
 #run MAKER in SCRATCHDIR
@@ -93,17 +93,46 @@ maker2zff -n Omod_genome_final_masked.all.gff
 fathom -categorize 1000 genome.ann genome.dna
 fathom -export 1000 -plus uni.ann uni.dna
 forge export.ann export.dna
-hmm-assembler.pl Omod_train2 . > ../Omod_train1_snap_r01.hmm
+hmm-assembler.pl Omod . > ../Omod_snap_r01.hmm
 
 
 #Modify options in maker_opts.ctl for SNAP training with new HMM
-snaphmm=Omod_train1_snap_r01.hmm
+snaphmm=Omod_snap_r01.hmm
 
 
 #run MAKER in SCRATCHDIR
 qsub maker_pbs.sh
 
 
+#Get the GFF with the annotation
+gff3_merge -d Omod_genome_final_masked.maker.output/Omod_genome_final_masked_master_datastore_index.log
+
+
+#Re-run the SNAP training steps to get a new .hmm file
+mkdir SNAP_training02
+mv Omod_genome_final_masked.maker.output SNAP_training02
+mv Omod_genome_final_masked.all.gff SNAP_training02
+cd SNAP_Training02
+
+maker2zff -n Omod_genome_final_masked.all.gff
+fathom -categorize 1000 genome.ann genome.dna
+fathom -export 1000 -plus uni.ann uni.dna
+forge export.ann export.dna
+hmm-assembler.pl Omod . > ../Omod_snap_r02.hmm
+
+
+
+#Modify following line in the maker_opts.ctl file
+genome=Omod_genome_final_masked.fa
+protein=busco-eugl_plus_swissprot-tryps.fasta
+est=Omod_cufflinks.fa #set of ESTs or assembled mRNA-seq in fasta format
+model_org=all #select a model organism for RepBase masking in RepeatMasker
+rmlib=Omod-families.fa #provide an organism specific repeat library in fasta format for RepeatMasker
+snaphmm=Omod_snap_r02.hmm
+augustus_species=leishmania_tarentolae
+trna=1 #find tRNAs with tRNAscan, 1 = yes, 0 = no
+snoscan_rrna=Omod_rRNA.fasta #rRNA file to have Snoscan find snoRNAs. Specify a FASTA file containing rRNAs that will be used by snoscan to annotate snoRNAs.
+other_gff=Omod_rRNA.gff3 #extra features to pass-through to final MAKER generated GFF3 file
 
 
 

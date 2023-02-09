@@ -26,9 +26,12 @@ cp -r $datadir'/'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
+mkdir $SCRATCHDIR/augustus_configs
+cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
+export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 mpirun -np $PBS_NUM_PPN maker
 
 #copy files back
-rm 'Omod_genome_final_masked.fa' busco*fasta
+rm -r 'Omod_genome_final_masked.fa' busco*fasta augustus_configs
 cp -R * $datadir
