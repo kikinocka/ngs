@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd '/mnt/data/kika/kineto_refs/'
+cd '/mnt/data/kika/references/'
 
-for file in *.fa; do
+for file in *.fasta; do
 	echo $file
 	makeblastdb -in $file -dbtype prot -parse_seqids
 	echo $file': BLASTable database done'
