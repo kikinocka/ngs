@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/transporters/ver3/combined/')
-trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/transporters/ver4/RAxML/')
+trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.transporters.CD')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/archamoebae/trees/transporters/ver3/transporters_codes_names.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/transporters/ver4/transporters_codes_names.txt')
 
 name_dict = {}
 for name in names:
