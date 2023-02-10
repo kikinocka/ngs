@@ -2,7 +2,7 @@
 #PBS -N InterProScan
 #PBS -q default
 #PBS -l select=1:ncpus=10:mem=5gb:scratch_local=50gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,11 +14,11 @@ module add interproscan-5.55-88.0
 datadir='/storage/brno3-cerit/home/kika/p57/predicted_proteins/'
 
 #copy files to scratch
-cp $datadir'bnon_nohit.fa' $SCRATCHDIR
+cp $datadir'bnonstop_predicted_proteins.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-input='bnon_nohit.fa'
+input='bnonstop_predicted_proteins.fasta'
 out='bnon_nohit.interpro'
 
 interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $input -b $out -appl Pfam -goterms --pathways -iprlookup
