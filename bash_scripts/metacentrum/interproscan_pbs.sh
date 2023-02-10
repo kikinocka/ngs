@@ -9,19 +9,20 @@
 cat $PBS_NODEFILE
 
 #add module
-module add interproscan-5.20-59.0
+module add interproscan-5.55-88.0
 
 datadir='/storage/brno3-cerit/home/kika/pelomyxa/predicted_proteins_transdecoder/'
 
 #copy files to scratch
-cp $datadir'pelo.mit_predicted.fa' $SCRATCHDIR
+cp $datadir'bnon_nohit.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-input='pelo.mit_predicted.fa'
-out='pelo.mit_predicted.interpro'
+input='bnon_nohit.fa'
+out='bnon_nohit.interpro.out'
 
-interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -i $input -b $out -appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther -goterms --pathways -iprlookup
+interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $input -b $out -appl Pfam -goterms --pathways -iprlookup
+# -appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther 
 
 #copy files back
 rm $input
