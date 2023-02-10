@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
-data='/storage/brno3-cerit/home/kika/archamoebae/raxml/'
+data='/storage/brno3-cerit/home/kika/archamoebae/raxml/ver4/'
 
 #copy files to scratch
 cp $data'transporters.CD.trimal_gt-0.8.aln' $SCRATCHDIR
