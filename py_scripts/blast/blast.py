@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/mnt/data/kika/blastocrithidia/b_nonstop/bnonstop_predicted_proteins.fasta'
-db = '/mnt/data/kika/kineto_refs/blastDB/kinetoplastid_refs.TriTrypDB-61.fa'
-out = '/mnt/data/kika/blastocrithidia/b_nonstop/bnonstop_predicted_proteins.fwd_refs.blast.xml'
+query = '/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_tryps.fa'
+db = '/mnt/data/kika/references/uniprot_sprot.fasta'
+out = '/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_uniprot.blast.xml'
 evalue = 1e-20
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/mnt/data/kika/blastocrithidia/b_nonstop/bnonstop_predicted_proteins.fwd_refs.blast.tsv', 'w')
-out_best = open('/mnt/data/kika/blastocrithidia/b_nonstop/bnonstop_predicted_proteins.fwd_refs.best_blast.tsv', 'w')
+output = open('/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_uniprot.blast.tsv', 'w')
+out_best = open('/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_uniprot.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
