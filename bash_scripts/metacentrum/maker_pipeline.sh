@@ -130,9 +130,9 @@ model_org=all #select a model organism for RepBase masking in RepeatMasker
 rmlib=Omod-families.fa #provide an organism specific repeat library in fasta format for RepeatMasker
 snaphmm=Omod_snap_r02.hmm
 augustus_species=leishmania_tarentolae
-trna=1 #find tRNAs with tRNAscan, 1 = yes, 0 = no
-snoscan_rrna=Omod_rRNA.fasta #rRNA file to have Snoscan find snoRNAs. Specify a FASTA file containing rRNAs that will be used by snoscan to annotate snoRNAs.
-other_gff=Omod_rRNA.gff3 #extra features to pass-through to final MAKER generated GFF3 file
+trna=0 #find tRNAs with tRNAscan, 1 = yes, 0 = no
+snoscan_rrna=Omod_rRNAs.fa #rRNA file to have Snoscan find snoRNAs. Specify a FASTA file containing rRNAs that will be used by snoscan to annotate snoRNAs.
+other_gff=Omod_rRNAs.gff3,Omod_tRNAs.gff3 #extra features to pass-through to final MAKER generated GFF3 file
 
 
 

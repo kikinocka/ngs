@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N maker
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=5gb
-#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -18,10 +18,14 @@ module add repeatmasker
 
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
+repeat_dir='/storage/brno3-cerit/home/kika/blasto_comparative/genome_repeats/'
+rna_dir='/storage/brno3-cerit/home/kika/blasto_comparative/RNAs/'
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/maker'
 
 #copy files to scratch
 cp $genome_dir'Omod_genome_final_masked.fa' $SCRATCHDIR
+cp $repeat_dir'Omod_genome-families.fa' $SCRATCHDIR
+cp $rna_dir'Omod_'* $SCRATCHDIR
 cp -r $datadir'/'* $SCRATCHDIR
 
 #run on scratch
@@ -33,5 +37,5 @@ export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 mpirun -np $PBS_NUM_PPN maker
 
 #copy files back
-rm -r 'Omod_genome_final_masked.fa' busco*fasta augustus_configs
+rm -r 'Omod_genome_final_masked.fa' 'Omod_genome-families.fa' *_RNAs.* busco*fasta augustus_configs
 cp -R * $datadir
