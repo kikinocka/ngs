@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/AOX/tree/ver2/')
-infile = SeqIO.parse('aox.fa', 'fasta')
-out_fasta = open('aox_deduplicated.fa', 'w')
-out_names = open('aox_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/Gln-tRNA/manual_alns/')
+infile = SeqIO.parse('uar=stop.mafft.fa', 'fasta')
+out_fasta = open('uar=stop.mafft_deduplicated.fa', 'w')
+out_names = open('uar=stop.mafft_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

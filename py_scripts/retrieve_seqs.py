@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
+os.chdir('/Users/kika/ownCloud/proteromonas/flagellar/amoebae_stramenopiles/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/bnonstop_predicted_proteins.fasta'
+database = '/Users/kika/ownCloud/proteromonas/flagellar/amoebae_blastocystis/queries/queries.fa'
 
 for accessions in files: 
 	print(accessions)
 	fname = accessions.split('.acc')[0]
 	retrieve = set()
 
-	with open('{}.fa'.format(fname), 'w') as out:
+	with open('{}.faa'.format(fname), 'w') as out:
 		db = SeqIO.parse(database, 'fasta')
 
 		for line in open(accessions):
