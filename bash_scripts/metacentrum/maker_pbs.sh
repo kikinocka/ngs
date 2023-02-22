@@ -8,13 +8,11 @@
 cat $PBS_NODEFILE
 
 #add modules
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add maker-2.31.10
 module add augustus-3.4.0
-module add exonerate-2.2.0
 module load genemark-4.68
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add snap-korf/2021-11-04-gcc-10.2.1-5kjikze
-module add repeatmasker
 
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
@@ -33,8 +31,9 @@ cd $SCRATCHDIR
 mkdir $SCRATCHDIR/augustus_configs
 cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
-
-mpirun -np $PBS_NUM_PPN maker
+ 
+mkdir tmp
+mpirun maker -TMP $SCRATCHDIR/tmp
 
 #copy files back
 rm -r 'Omod_genome_final_masked.fa' 'Omod_genome-families.fa' *_RNAs.* busco*fasta augustus_configs
