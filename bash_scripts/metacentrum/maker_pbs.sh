@@ -16,12 +16,14 @@ module add snap-korf/2021-11-04-gcc-10.2.1-5kjikze
 
 
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
+transcriptome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/cufflinks/omod/'
 repeat_dir='/storage/brno3-cerit/home/kika/blasto_comparative/genome_repeats/'
 rna_dir='/storage/brno3-cerit/home/kika/blasto_comparative/RNAs/'
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/maker'
 
 #copy files to scratch
 cp $genome_dir'Omod_genome_final_masked.fa' $SCRATCHDIR
+cp $transcriptome_dir'Omod_cufflinks.fa' $SCRATCHDIR
 cp $repeat_dir'Omod_genome-families.fa' $SCRATCHDIR
 cp $rna_dir'Omod_'* $SCRATCHDIR
 cp -r $datadir'/'* $SCRATCHDIR
@@ -36,5 +38,5 @@ mkdir tmp
 mpirun -np $PBS_NUM_PPN maker -TMP $SCRATCHDIR/tmp
 
 #copy files back
-rm -r 'Omod_genome_final_masked.fa' 'Omod_genome-families.fa' *_RNAs.* busco*fasta augustus_configs
+rm -r 'Omod_genome_final_masked.fa' 'Omod_cufflinks.fa' 'Omod_genome-families.fa' *_RNAs.* busco*fasta augustus_configs
 cp -R * $datadir

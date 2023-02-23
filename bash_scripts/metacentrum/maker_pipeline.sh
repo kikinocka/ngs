@@ -50,7 +50,7 @@ grep AED Omod_genome_final_masked.all.gff | cut -f1,9 | sed 's/;/\t/g' | cut -f1
 maker2zff -x 0.25 -l 50 Omod_genome_final_masked.all.gff 
 	#– produced empty genome.ann and genome.dna files
 remove_AED.py
-	#AED > 0.25 removed manually by 
+	#AED > 0.25 removed manually 
 	#then no filtering used, proceeded with next command using Omod_genome_final_masked.all_upd.gff file
 maker2zff -n Omod_genome_final_masked.all_upd.gff
 	#creates genome.ann (the ZFF format file) and genome.dna (a FASTA file the coordinates can be referenced against). These will be used to train SNAP.)
@@ -132,7 +132,8 @@ snaphmm=Omod_snap_r02.hmm
 augustus_species=leishmania_tarentolae
 trna=0 #find tRNAs with tRNAscan, 1 = yes, 0 = no
 snoscan_rrna=Omod_rRNAs.fa #rRNA file to have Snoscan find snoRNAs. Specify a FASTA file containing rRNAs that will be used by snoscan to annotate snoRNAs.
-other_gff=Omod_rRNAs.gff3,Omod_tRNAs.gff3 #extra features to pass-through to final MAKER generated GFF3 file
+other_gff=Omod_rRNAs.gff3 #extra features to pass-through to final MAKER generated GFF3 file
+other_gff=Omod_tRNAs.gff3
 
 
 
