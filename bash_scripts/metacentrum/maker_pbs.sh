@@ -33,7 +33,7 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
  
 mkdir tmp
-mpirun maker -TMP $SCRATCHDIR/tmp
+mpirun -np $PBS_NUM_PPN maker -TMP $SCRATCHDIR/tmp
 
 #copy files back
 rm -r 'Omod_genome_final_masked.fa' 'Omod_genome-families.fa' *_RNAs.* busco*fasta augustus_configs
