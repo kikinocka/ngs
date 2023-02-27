@@ -2,23 +2,23 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_tryps.fa'
-db = '/mnt/data/kika/references/uniprot_sprot.fasta'
-out = '/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_uniprot.blast.xml'
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/missing.fa'
+db = '/Users/kika/data/kinetoplastids/Spodlipaevi_CER4_sorted_renamed.masked.fasta'
+out = '/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/spod.fwd_missing.blast.xml'
 evalue = 1e-05
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 10
+threads = 6
 
 print('running BLAST')
 #query - database
 subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
-	-max_target_seqs {} -num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, hits, threads), shell=True)
-#   
+	-num_threads {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+#-max_target_seqs {} hits, 
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_uniprot.blast.tsv', 'w')
-out_best = open('/mnt/data/kika/blastocrithidia/b_nonstop/bnon_nohit.fwd_uniprot.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/spod.fwd_missing.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/spod.fwd_missing.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

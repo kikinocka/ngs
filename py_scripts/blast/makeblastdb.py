@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/genomes/')
-files = [x for x in os.listdir() if x.endswith('_masked.fa')]
+os.chdir('/Users/kika/data/kinetoplastids/')
+files = [x for x in os.listdir() if x.endswith('Spodlipaevi_CER4_sorted_renamed.masked.fasta')]
 dbtype = 'nucl'
 
 for file in files: 

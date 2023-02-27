@@ -3,11 +3,11 @@
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-fasta = SeqIO.parse('/Users/kika/ownCloud/blasto_comparative/genomes/raabei_scaffolds.fasta', 'fasta')
-nt_out = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.fna', 'w')
-aa_out = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.faa', 'w')
-err_out = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.errors.txt', 'w')
-result_handle = open('/Users/kika/ownCloud/blasto_comparative/genes/RS/Brab_RS.blast.xml')
+fasta = SeqIO.parse('/Users/kika/data/kinetoplastids/Spodlipaevi_CER4_sorted_renamed.masked.fasta', 'fasta')
+nt_out = open('/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/spod.fwd_missing.fna', 'w')
+aa_out = open('/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/spod.fwd_missing.faa', 'w')
+err_out = open('/Users/kika/ownCloud/blasto_comparative/genes/spod.fwd_missing.errors.txt', 'w')
+result_handle = open('/Users/kika/ownCloud/kinetoplastids/ETC/BLASTs/spod.fwd_missing.blast.xml')
 blast_records = NCBIXML.parse(result_handle)
 
 gencode = {
