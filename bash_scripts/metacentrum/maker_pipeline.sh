@@ -121,7 +121,6 @@ forge export.ann export.dna
 hmm-assembler.pl Omod . > ../Omod_snap_r02.hmm
 
 
-
 #Modify following line in the maker_opts.ctl file
 genome=Omod_genome_final_masked.fa
 protein=busco-eugl_plus_swissprot-tryps.fasta
@@ -136,11 +135,10 @@ other_gff=Omod_rRNAs.gff3 #extra features to pass-through to final MAKER generat
 other_gff=Omod_tRNAs.gff3
 
 
+#run MAKER in SCRATCHDIR
+qsub maker_pbs.sh
 
 
-
-
-
-
-
-
+#Collect GFF and FASTA
+gff3_merge -n -d Omod_genome_final_masked.maker.output/Omod_genome_final_masked_master_datastore_index.log
+fasta_merge -d Omod_genome_final_masked.maker.output/Omod_genome_final_masked_master_datastore_index.log

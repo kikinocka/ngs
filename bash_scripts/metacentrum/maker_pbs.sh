@@ -38,6 +38,6 @@ mkdir tmp
 mpirun -np $PBS_NUM_PPN maker -TMP $SCRATCHDIR/tmp
 
 #copy files back
-rm -r 'Omod_genome_final_masked.fa' 'Omod_cufflinks.fa' 'Omod_genome-families.fa' *_RNAs.* busco*fasta augustus_configs
+rm -r 'Omod_genome_final_masked.fa' 'Omod_cufflinks.fa' 'Omod_genome-families.fa' *RNAs.* busco*fasta augustus_configs
 # cp -R * $datadir
 rsync -a --ignore-existing ./ $datadir/
