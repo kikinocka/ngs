@@ -53,13 +53,13 @@ for fasta in *.fa; do
 	mode='genome'
 	
 	lineage='eukaryota_odb10'
-	base=${fasta}_$lineage
+	base=${fa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 
 	lineage='euglenozoa_odb10'
-	base=${fasta}_$lineage
+	base=${fa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
