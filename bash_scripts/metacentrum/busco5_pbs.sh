@@ -21,8 +21,8 @@ maker='/storage/brno3-cerit/home/kika/blasto_comparative/maker/'
 
 #copy files to scratch
 cp $assembly_dir'Omod_genome_final_masked.fa' $SCRATCHDIR
-cp $companion'Omod_companion.fasta'
-cp $maker'Omod_maker.fasta'
+cp $companion'Omod_companion.fasta' $SCRATCHDIR
+cp $maker'Omod_maker.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
