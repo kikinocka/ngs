@@ -2,12 +2,12 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/data/kika/blastocrithidia/o_volfi/scaff_gap/')
-genome = SeqIO.parse('Ovol.platanus_rnd2_scaffold.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/archamoebae/rhizomastix_vacuolata/trinity-filt2/')
+genome = SeqIO.parse('rvac.trinity.fasta', 'fasta')
 
-with open('Ovol.platanus_rnd2_scaffold.l500.fa', 'w') as out:
+with open('rvac.trinity_forNCBI.l200.fa', 'w') as out:
 	for seq in genome:
-		if len(seq) >= 500:
+		if len(seq) >= 200:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 		else:
 			print(seq.description)
