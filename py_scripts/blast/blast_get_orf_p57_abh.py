@@ -1,11 +1,12 @@
+#!/usr/bin/env python3
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
 #homedir = '/Users/morpholino/Downloads/blasto/'
 #homedir = '/Volumes/zoliq data/Downloads/blasto/'
-homedir = '/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-blastdir = '/storage/brno3-cerit/home/kika/blasto_comparative/blasts_xml/'
-resultdir = './'
+homedir = '/Users/kika/ownCloud/blasto_comparative/genomes/'
+blastdir = '/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs/'
+resultdir = '/Users/kika/ownCloud/blasto_comparative/proteins/'
 
 genome = 'Btri' 
 #Braa -> Braa_genome_final_corrected2_masked.fa
