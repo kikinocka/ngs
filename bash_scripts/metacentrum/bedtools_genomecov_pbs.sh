@@ -16,20 +16,20 @@ mapping_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/btri/'
 
 
 #copy files to scratch
-cp $assembly_dir'Btri_genome_final_masked.fa' $SCRATCHDIR
-cp $mapping_dir'btri_ht2_sorted.bam' $SCRATCHDIR
+cp $assembly_dir'Bfru_genome_final_masked.fa' $SCRATCHDIR
+cp $mapping_dir'bfru_ht2_sorted.bam' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Btri_genome_final_masked.fa'
-bamfile='btri_ht2_sorted.bam'
-out='btri_gencov.tsv'
+genome='Bfru_genome_final_masked.fa'
+bamfile='bfru_ht2_sorted.bam'
+out='bfru_gencov.tsv'
 
 bedtools genomecov -bga -split -ibam $bamfile -g $genome > $out
 
 
 #copy files back
 rm $genome $bamfile
-cp -r * $mapping_dir
+cp -r * '/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/genome_cov/'
