@@ -12,7 +12,7 @@ source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load bedtools
 
 assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-mapping_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/'
+mapping_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/final_corrected2/'
 
 
 #copy files to scratch
