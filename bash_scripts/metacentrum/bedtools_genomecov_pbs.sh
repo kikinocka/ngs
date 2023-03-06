@@ -25,7 +25,7 @@ cd $SCRATCHDIR
 
 genome='Btri_genome_final_masked.fa'
 bamfile='btri_ht2_sorted.bam'
-out='btri_genomecoverage.tsv'
+out='btri_gencov.tsv'
 
 bedtools genomecov -bga -split -ibam $bamfile -g $genome > $out
 
