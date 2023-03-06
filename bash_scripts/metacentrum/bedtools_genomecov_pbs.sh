@@ -17,7 +17,7 @@ mapping_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/btri/'
 
 #copy files to scratch
 cp $assembly_dir'Btri_genome_final_masked.fa' $SCRATCHDIR
-cp $read_dir'btri_ht2_sorted.bam' $SCRATCHDIR
+cp $mapping_dir'btri_ht2_sorted.bam' $SCRATCHDIR
 
 
 #compute on scratch
