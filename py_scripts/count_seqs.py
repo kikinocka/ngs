@@ -16,3 +16,16 @@ for aln in alignments:
 with open('taxa_counts.txt', 'w') as out:
 	for key, value in counts.items():
 		out.write('{}\t{}\n'.format(key, value))
+
+
+# #COUNT HEADERS
+# file = SeqIO.parse('/Users/kika/ownCloud/Gln-tRNA/stop-tRNAs/stop-CTA-tRNAs.fa', 'fasta')
+
+# names = {}
+# for seq in file:
+# 	if seq.name not in names:
+# 		names[seq.name] = 1
+# 	else:
+# 		names[seq.name] += 1
+
+# print(names)
