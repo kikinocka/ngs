@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N mrbayes-many
 #PBS -l select=1:ncpus=4:mem=3gb:scratch_local=1gb:os=debian11
-#PBS -l walltime=168:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/archamoebae/mrbayes'
+data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/all_coats/ver5/mrbayes'
 
 #copy files to scratch
-cp $data'/gcsL.CD.trimal_gt-0.8.nex'* $SCRATCHDIR
+cp $data'/'*.nex $SCRATCHDIR
 
 
 #compute on scratch
