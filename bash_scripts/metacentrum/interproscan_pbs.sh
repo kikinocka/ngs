@@ -2,7 +2,7 @@
 #PBS -N InterProScan
 #PBS -q default
 #PBS -l select=1:ncpus=10:mem=5gb:scratch_local=50gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,7 +14,8 @@ module add interproscan-5.55-88.0
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_obscuro'
 
 #copy files to scratch
-cp $datadir'/'*.faa $SCRATCHDIR
+# cp $datadir'/'*.faa $SCRATCHDIR
+cp $datadir'/Oeli_companion.l30.faa' $SCRATCHDIR
 
 
 #compute on scratch
