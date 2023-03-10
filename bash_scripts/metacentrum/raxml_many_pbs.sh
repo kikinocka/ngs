@@ -8,7 +8,8 @@
 cat $PBS_NODEFILE
 
 #add module
-module add raxml-8.2.8
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
 data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/Dsl1/raxml'
 

@@ -16,11 +16,9 @@ conda activate busco
 # busco --list-datasets
 
 assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_obscuro'
-busco_dir='/storage/brno3-cerit/home/kika/blasto_comparative/BUSCO_summaries/'
 
 #copy files to scratch
 cp $assembly_dir'/'*.faa $SCRATCHDIR
-cp $busco_dir'/'*.txt $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -28,7 +26,6 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries_$lineage
 mkdir BUSCO_summaries
-mv *.txt BUSCO_summaries
 
 for fasta in *.faa; do
 	echo $fasta
@@ -69,4 +66,4 @@ generate_plot.py -wd BUSCO_summaries
 
 #copy files back
 rm *.faa
-cp -r BUSCO_summaries/* $busco_dir
+cp -r * $assembly_dir
