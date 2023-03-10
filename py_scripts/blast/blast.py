@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/sr-beta.fa'
-db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/sr-beta.rev_Hsap.blast.xml'
+query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/trapp-i.fa'
+db = '/Users/kika/data/fungi/GCF_000146045.2_R64_protein.faa'
+out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/trapp-i.rev_Scer.blast.xml'
 evalue = 1e-05
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/sr-beta.rev_Hsap.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/sr-beta.rev_Hsap.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/trapp-i.rev_Scer.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/trapp-i.rev_Scer.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
