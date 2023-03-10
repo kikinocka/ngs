@@ -11,19 +11,22 @@ cat $PBS_NODEFILE
 #add module
 module add interproscan-5.55-88.0
 
-datadir='/storage/brno3-cerit/home/kika/p57/predicted_proteins/'
+datadir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_obscuro'
 
 #copy files to scratch
-cp $datadir'bnonstop_predicted_proteins.fasta' $SCRATCHDIR
+cp $datadir'/'*.faa $SCRATCHDIR
+
 
 #compute on scratch
 cd $SCRATCHDIR
-input='bnonstop_predicted_proteins.fasta'
-out='bnon_nohit.interpro'
 
-interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $input -b $out -appl Pfam -goterms --pathways -iprlookup
-# -appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther 
+for fasta in *.faa; do
+	echo $fasta
+	out=${fasta%.faa}.interpro
+	interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $fasta -b $out -appl Pfam -goterms --pathways -iprlookup
+	# -appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther 
+done
 
 #copy files back
-rm $input
+rm *.faa
 cp -r * $datadir
