@@ -13,7 +13,7 @@ module add mrbayes-3.2.7a
 data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/all_coats/ver5/mrbayes'
 
 #copy files to scratch
-cp $data'/'*.nex $SCRATCHDIR
+cp $data'/'* $SCRATCHDIR
 
 
 #compute on scratch
