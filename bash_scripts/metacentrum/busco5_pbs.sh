@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_obscuro'
 
 #copy files to scratch
-cp $assembly_dir'/'*.faa $SCRATCHDIR
+cp $assembly_dir'/Ovol_companion.l30.faa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR

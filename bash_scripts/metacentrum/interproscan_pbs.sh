@@ -15,7 +15,7 @@ datadir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_obscuro'
 
 #copy files to scratch
 # cp $datadir'/'*.faa $SCRATCHDIR
-cp $datadir'/Oeli_companion.l30.faa' $SCRATCHDIR
+cp $datadir'/Ovol_companion.l30.faa' $SCRATCHDIR
 
 
 #compute on scratch
