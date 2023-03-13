@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/retromer-retriever/vps26/ver3/mrbayes/'
+data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/retromer-retriever/vps26/ver3/mrbayes'
 
 #copy files to scratch
-cp $data'vps26.CD.trimal_gt-0.8.nex'* $SCRATCHDIR
+cp $data'/'* $SCRATCHDIR
 
 
 #compute on scratch
