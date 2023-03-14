@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
-table = open('bnonstop_predicted_proteins.interpro_dedupl.tsv')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/companion/')
+table = open('Ovol_companion.l30.interpro_sorted.tsv')
 
 dedupl = {}
 for line in table:
@@ -13,9 +13,13 @@ for line in table:
 	if protein not in dedupl:
 		dedupl[protein] = [(pfam, desc, eval)]
 	else:
-		dedupl[protein].append((pfam, desc, eval))
+		# print(dedupl[protein][0][0])
+		if pfam == dedupl[protein][0][0]:
+			pass
+		else:
+			dedupl[protein].append((pfam, desc, eval))
 
-with open('bnonstop_predicted_proteins.interpro_dedupl_merged.tsv', 'w') as out:
+with open('Ovol_companion.l30.interpro_sorted_merged.tsv', 'w') as out:
 	for key, value in dedupl.items():
 		out.write('{}\t'.format(key))
 		# print(key)
