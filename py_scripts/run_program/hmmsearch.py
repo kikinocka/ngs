@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/archamoebae/rho/HMM/')
+os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/pdhX/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/archamoebae/entamoeba_histolytica/AmoebaDB-53_EhistolyticaHM1IMSS_AnnotatedProteins.fasta'
-orgn = 'ehis_prot'
+db = '/Users/kika/ownCloud/diplonema/seq_data/diplonemids_transcriptomes/translations/1621_translated.fa'
+orgn = '1621'
 
 for file in files:
 	print(file)
