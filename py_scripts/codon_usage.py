@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/viruses/')
-sequences = SeqIO.parse('BtriTLV_cds.fa', 'fasta')
-table = open('BtriTLV_cds.codons.tsv', 'w')
+os.chdir('/Users/kika/data/ciliates/')
+sequences = SeqIO.parse('GCA_905183005.1_Paramecium_pentaurelia_V1_cds_from_genomic.fna', 'fasta')
+table = open('GCA_905183005.codons.tsv', 'w')
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -33,7 +33,7 @@ def count_codons(sequence):
 	return codons
 
 for sequence in sequences:
-	print(sequence.description)
+	print(sequence.name)
 	numbers = []
 	codons = count_codons(sequence.seq)
 	for value in codons.values():
