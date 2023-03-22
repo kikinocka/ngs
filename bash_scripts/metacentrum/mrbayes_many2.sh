@@ -8,12 +8,13 @@
 cat $PBS_NODEFILE
 
 #add module
-module add mrbayes-3.2.7a
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module add mrbayes
 
 data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/Dsl1/mrbayes'
 
 #copy files to scratch
-cp $data'/'* $SCRATCHDIR
+cp $data'/rint1'* $SCRATCHDIR
 
 
 #compute on scratch
