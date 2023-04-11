@@ -4,7 +4,7 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/pdhX/')
+os.chdir('/Users/kika/ownCloud/diplonema/ETC/IF1/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.startswith('hyp')]
 threads = 7

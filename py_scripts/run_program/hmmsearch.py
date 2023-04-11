@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/pdhX/')
+os.chdir('/Users/kika/ownCloud/diplonema/ETC/IF1/')
 files = [x for x in os.listdir() if x.endswith('.hmm_profile')]
 
-db = '/Users/kika/ownCloud/diplonema/seq_data/diplonemids_transcriptomes/translations/1621_translated.fa'
-orgn = '1621'
+db = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/Gertraud/Dp_PB-MI_190104_dedup_cut_l100-submission-with-gene_models.faa'
+orgn = 'dpap_prot'
 
 for file in files:
 	print(file)
