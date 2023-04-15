@@ -17,7 +17,7 @@ db_dir='/storage/projects/BlastDB/'
 
 #copy files to scratch
 cp $datadir'check_cont.fa' $SCRATCHDIR
-cp $db_dir'nt' $SCRATCHDIR
+cp $db_dir'nt'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
