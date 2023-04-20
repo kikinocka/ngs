@@ -1,0 +1,1 @@
+^M[RHKFL].{0,1}[RKHST].{1,10}[STRK]
