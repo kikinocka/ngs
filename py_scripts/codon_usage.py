@@ -4,8 +4,7 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 os.chdir('/Users/kika/data/ciliates/')
-sequences = SeqIO.parse('GCA_905183005.1_Paramecium_pentaurelia_V1_cds_from_genomic.fna', 'fasta')
-table = open('GCA_905183005.codons.tsv', 'w')
+files = [x for x in os.listdir() if x.endswith('.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -17,11 +16,6 @@ codons = OrderedDict([
 		('GTG', 0), ('GTA', 0), ('GTT', 0), ('GTC', 0), ('TGG', 0), ('TAT', 0), ('TAC', 0), ('TGA', 0), ('TAG', 0), 
 		('TAA', 0),	('ambig', 0)])
 
-table.write('\tAla\t\t\t\tCys\t\tAsp\t\tGlu\t\tPhe\t\tGly\t\t\t\tHis\t\tIle\t\t\tLys\t\tLeu\t\t\t\t\t\tMet\tAsn\t\tPro\t\t\t\tGln\t\tArg\t\t\t\t\t\tSer\t\t\t\t\t\tThr\t\t\t\tVal\t\t\t\tTrp\tTyr\t\tEnd\n')
-for key in codons.keys():
-	table.write('\t' + key)
-table.write('\n')
-
 def count_codons(sequence):
 	for i in range(0, len(sequence)-2, 3):
 		if ('N' in sequence[i:i+3]) or ('W' in sequence[i:i+3]) or ('S' in sequence[i:i+3]) or ('M' in sequence[i:i+3]) or \
@@ -32,15 +26,23 @@ def count_codons(sequence):
 			codons[sequence[i:i+3]] += 1
 	return codons
 
-for sequence in sequences:
-	print(sequence.name)
-	numbers = []
-	codons = count_codons(sequence.seq)
-	for value in codons.values():
-		numbers.append(value)
-	table.write('{}'.format(sequence.description))
-	for num in numbers:
-		table.write('\t' + str(num))
-	table.write('\n')
-	codons = OrderedDict([(key, 0) for key in codons])
-table.close()
+for file in files:
+	print(file)
+	table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
+	with open(table, 'w') as result:
+		result.write('\tAla\t\t\t\tCys\t\tAsp\t\tGlu\t\tPhe\t\tGly\t\t\t\tHis\t\tIle\t\t\tLys\t\tLeu\t\t\t\t\t\tMet\tAsn\t\tPro\t\t\t\tGln\t\tArg\t\t\t\t\t\tSer\t\t\t\t\t\tThr\t\t\t\tVal\t\t\t\tTrp\tTyr\tSTOP\n')
+		for key in codons.keys():
+			result.write('\t' + key)
+		result.write('\n')
+
+		for sequence in SeqIO.parse(file, 'fasta'):
+			# print(sequence.name)
+			numbers = []
+			codons = count_codons(sequence.seq)
+			for value in codons.values():
+				numbers.append(value)
+			result.write('{}'.format(sequence.description))
+			for num in numbers:
+				result.write('\t' + str(num))
+			result.write('\n')
+			codons = OrderedDict([(key, 0) for key in codons])

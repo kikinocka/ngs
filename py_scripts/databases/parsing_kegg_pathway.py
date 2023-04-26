@@ -2,23 +2,23 @@
 import os
 from bioservices.kegg import KEGG
 
-os.chdir('/Users/kika/owncloud/archamoebae/quinones/')
+os.chdir('/Users/kika/owncloud/Euglena_gracilis/compartments_markers/')
 
 kegg = KEGG()
 # pathway = kegg.get('tbr03430')
-pathway = kegg.get('ddi00130')
+pathway = kegg.get('hsa00510')
 dict_data = kegg.parse(pathway)
-# print(dict_data)
+print(dict_data)
 
-genes = {}
-for key in dict_data.keys():
-	if key == 'GENE':
-		genes = dict_data[key]
-print(genes)
+# genes = {}
+# for key in dict_data.keys():
+# 	if key == 'GENE':
+# 		genes = dict_data[key]
+# print(genes)
 
-with open('ddi_genes.acc', 'w') as output:
-	for key in genes.keys():
-		output.write(key + '\n')
+# with open('ddi_genes.acc', 'w') as output:
+# 	for key in genes.keys():
+# 		output.write(key + '\n')
 
 
 
