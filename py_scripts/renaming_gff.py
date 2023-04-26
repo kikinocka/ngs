@@ -2,9 +2,9 @@
 import os
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/companion/Omod/')
-gff = open('test.gff')
+gff = open('scaffold.out.gff3')
 accfile = open('accessions_conversion.txt')
-out = 'test_out.gff'
+out = 'Omod_proteins.gff'
 
 accessions = {}
 for line in accfile:
@@ -14,5 +14,5 @@ for line in accfile:
 with open(out, 'w') as result:
 	for line in gff:
 		for key in accessions:
-			line.replace(key, accessions[key])
+			line = line.replace(key, accessions[key])
 		result.write(line)
