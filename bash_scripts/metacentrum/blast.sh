@@ -27,7 +27,7 @@ out='otus_blast.fwd_ncbi-nt.tsv'
 db='nt'
 program=blastn
 task=blastn
-eval=1e-10
+eval=1e-05
 max_seqs=1
 max_hsps=1
 
