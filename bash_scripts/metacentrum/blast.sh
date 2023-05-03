@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N blast
-#PBS -l select=1:ncpus=20:mem=40gb:scratch_local=3gb
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=3gb
 #PBS -l walltime=196:00:00
 #PBS -m ae
 #PBS -j oe
