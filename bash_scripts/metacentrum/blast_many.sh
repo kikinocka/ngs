@@ -48,5 +48,5 @@ done
 # 'qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore' = equivalent to 'std'
 
 #copy files back
-rm *.fa
+rm *.fa $db
 cp * $datadir
