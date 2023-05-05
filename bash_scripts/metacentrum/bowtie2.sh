@@ -16,7 +16,7 @@ read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/201610_BML/'
 mapping_dir=$assembly_dir
 
 #copy files to scratch
-cp $assembly_dir'cryptomonas_ptDNA.fa' $SCRATCHDIR
+cp $assembly_dir'cryptomonas2_ptDNA.fa' $SCRATCHDIR
 cp $read_dir'BML_October2016_trimmed_F.fastq.gz' $SCRATCHDIR
 cp $read_dir'BML_October2016_trimmed_R.fastq.gz' $SCRATCHDIR
 
@@ -24,8 +24,8 @@ cp $read_dir'BML_October2016_trimmed_R.fastq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='cryptomonas_ptDNA.bw2'
-ref='cryptomonas_ptDNA.fa'
+base_name='cryptomonas2_ptDNA.bw2'
+ref='cryptomonas2_ptDNA.fa'
 p1_1='BML_October2016_trimmed_F.fastq.gz'
 p1_2='BML_October2016_trimmed_R.fastq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
