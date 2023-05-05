@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N blastn-many
+#PBS -N blast-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=5gb
 #PBS -l walltime=196:00:00
 #PBS -m ae

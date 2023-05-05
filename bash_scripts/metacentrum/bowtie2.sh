@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 module add bowtie2-2.4.2
 module add samtools-1.11
 
-assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/mtDNA_mapping/'
-read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/20200821_BML-P3B/1-reads/'
+assembly_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/201610_BML/ptDNA_mapping/'
+read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/201610_BML/'
 mapping_dir=$assembly_dir
 
 #copy files to scratch
-cp $assembly_dir'reclinomonas_mtDNA.fa' $SCRATCHDIR
-cp $read_dir'BML_trimmed_1.fastq.gz' $SCRATCHDIR
-cp $read_dir'BML_trimmed_2.fastq.gz' $SCRATCHDIR
+cp $assembly_dir'cryptomonas_ptDNA.fa' $SCRATCHDIR
+cp $read_dir'BML_October2016_trimmed_F.fastq.gz' $SCRATCHDIR
+cp $read_dir'BML_October2016_trimmed_R.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='reclinomonas_mtDNA.bw2'
-ref='reclinomonas_mtDNA.fa'
-p1_1='BML_trimmed_1.fastq.gz'
-p1_2='BML_trimmed_2.fastq.gz'
+base_name='cryptomonas_ptDNA.bw2'
+ref='cryptomonas_ptDNA.fa'
+p1_1='BML_October2016_trimmed_F.fastq.gz'
+p1_2='BML_October2016_trimmed_R.fastq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
 # r2='EU2_r2_unpaired_2.fq.gz'
 
