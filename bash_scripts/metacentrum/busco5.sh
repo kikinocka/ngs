@@ -15,29 +15,31 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_obscuro'
+assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_blasto'
 
 #copy files to scratch
-cp $assembly_dir'/Ovol_companion.l30.faa' $SCRATCHDIR
+cp $assembly_dir'/'*_added_bedcov.faa $SCRATCHDIR
+cp $assembly_dir'/'*_proteins.faa_eu*/short_summary.* $SCRATCHDIR
+
 
 #compute on scratch
 cd $SCRATCHDIR
 
-
 # mkdir BUSCO_summaries_$lineage
 mkdir BUSCO_summaries
+mv short_summary.* BUSCO_summaries
 
-for fasta in *.faa; do
+for fasta in *_added_bedcov.faa; do
 	echo $fasta
 	mode='proteins'
 	lineage='eukaryota_odb10'
-	base=${fasta%.fasta}_$lineage
+	base=${fasta%.faa}
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 
 	lineage='euglenozoa_odb10'
-	base=${fasta%.fasta}_$lineage
+	base=${fasta%.faa}
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries_$lineage
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
