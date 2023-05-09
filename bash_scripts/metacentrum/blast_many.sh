@@ -8,14 +8,15 @@
 cat $PBS_NODEFILE
 
 #add module
-module add blast-plus/blast-plus-2.12.0-gcc-8.3.0-ohlv7t4
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load blast
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018'
 db_dir='/storage/projects/BlastDB/'
 
 
 #copy files to scratch
-cp $datadir'/check_cont2.fa' $SCRATCHDIR
+cp $datadir'/check_cont.fa' $SCRATCHDIR
 cp $db_dir'nt'* $SCRATCHDIR
 
 #run on scratch
@@ -32,7 +33,7 @@ max_hsps=1
 for query in *.fa; do
 	echo $query
 	# out=${query%.fa}'.nr_'$eval'.'$program
-	out='check_cont2.fwd_ncbi-nt.tsv'
+	out='check_cont.fwd_ncbi-nt.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
@@ -48,5 +49,5 @@ done
 # 'qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore' = equivalent to 'std'
 
 #copy files back
-rm *.fa $db
+rm *.fa nt*
 cp * $datadir
