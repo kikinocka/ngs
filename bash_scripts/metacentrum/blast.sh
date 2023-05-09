@@ -11,19 +11,19 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load blast
 
-datadir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/V4-sediment/'
 db_dir='/storage/projects/BlastDB/'
 
 
 #copy files to scratch
-cp $datadir'otus_blast.fa' $SCRATCHDIR
+cp $datadir'check_cont.fa' $SCRATCHDIR
 cp $db_dir'nt'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-query='otus_blast.fa'
-out='otus_blast.fwd_ncbi-nt.tsv'
+query='check_cont.fa'
+out='check_cont.fwd_ncbi-nt.tsv'
 db='nt'
 program=blastn
 task=blastn

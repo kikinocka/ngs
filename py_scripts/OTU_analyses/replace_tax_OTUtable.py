@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/')
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/18S-V4-2018/')
 table = open('otu_table.no_chimera.tsv')
 
 with open('otu_table.no_chimera.updated.tsv', 'w') as out:
@@ -11,6 +11,8 @@ with open('otu_table.no_chimera.updated.tsv', 'w') as out:
 		elif 'Pygsuia' in line:
 			line = line.replace('Obazoa|Obazoa_X', 'Obazoa|Breviatea')
 			line = line.replace('Obazoa_X', 'Breviatea_')
+		elif 'Colponemida' in line:
+			line = line.replace('Protalveolata', 'Alveolata')
 		elif 'Fabomonas' in line or 'Planomonas' in line or 'Nutomonas' in line:
 			line = line.replace('Obazoa', 'Ancyromonadida')
 		elif 'Picozoa' in line:
