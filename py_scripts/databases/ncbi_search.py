@@ -9,8 +9,8 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/')
-acc = open('check_tax2.acc')
+os.chdir('/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/')
+acc = open('check_tax.acc')
 
 ids = []
 for line in acc:
@@ -28,7 +28,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('check_tax2.txt', 'w') as out, open('check_tax2.errors', 'w') as errors:
+with open('check_tax.txt', 'w') as out, open('check_tax.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:

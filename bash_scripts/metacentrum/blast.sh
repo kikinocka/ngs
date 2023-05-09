@@ -44,5 +44,5 @@ $program -task $task \
 	# -outfmt 5 \
 
 #copy files back
-rm $query
+rm $query nt*
 cp -R * $datadir
