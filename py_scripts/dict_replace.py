@@ -3,15 +3,15 @@ import os
 import pandas as pd
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/companion/')
-gff = open('Omod/scaffold.out.gff3')
-excel = pd.read_excel('Omod_annotations.xlsx', header=None, usecols=("A:B"))
+gff = open('Ovol/scaffold.out.gff3')
+excel = pd.read_excel('Ovol_annotations.xlsx', header=None, usecols=("A:B"))
 
 acc_dict ={}
 for index, row in excel.iterrows():
 	acc_dict[row[1].split('.')[0]] = row[0]
 # print(acc_dict)
 
-with open('Omod_companion.gff3', 'w') as out:
+with open('Ovol_companion.gff3', 'w') as out:
 	for line in gff:
 		if line.startswith('#'):
 			out.write(line)
@@ -24,10 +24,16 @@ with open('Omod_companion.gff3', 'w') as out:
 			old = str()
 			try:	
 				if line.split('\t')[2] == 'gene':
-					# print('found gene: ', line.split('\t')[8].split('=')[1].split(';')[0])
 					old = line.split('\t')[8].split('=')[1].split(';')[0]
 				elif line.split('\t')[2] == 'pseudogene':
-					# print('found pseudogene')
+					old = line.split('\t')[8].split('=')[1].split(':')[0]
+				elif line.split('\t')[2] == 'tRNA':
+					old = line.split('\t')[8].split('=')[1].split(':')[0]
+				elif line.split('\t')[2] == 'rRNA':
+					old = line.split('\t')[8].split('=')[1].split(':')[0]
+				elif line.split('\t')[2] == 'snRNA':
+					old = line.split('\t')[8].split('=')[1].split(':')[0]
+				elif line.split('\t')[2] == 'snoRNA':
 					old = line.split('\t')[8].split('=')[1].split(':')[0]
 				else:
 					# print('found else')
