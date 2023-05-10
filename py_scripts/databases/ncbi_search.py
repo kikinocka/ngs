@@ -9,7 +9,7 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/')
+# os.chdir('/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/')
 acc = open('check_tax.acc')
 
 ids = []
