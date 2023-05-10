@@ -8,8 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
-module load python
+module add python36-modules-gcc
 
 datadir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/'
 scriptdir='/storage/brno2/home/kika/scripts/py_scripts/databases/'
