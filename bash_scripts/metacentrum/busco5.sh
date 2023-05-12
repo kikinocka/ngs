@@ -31,7 +31,7 @@ cd $SCRATCHDIR
 mkdir BUSCO_summaries
 mv short_summary.* BUSCO_summaries
 
-for fasta in *_added_bedcov.faa; do
+for fasta in *.faa; do
 	echo $fasta
 	mode='proteins'
 	lineage='eukaryota_odb10'
