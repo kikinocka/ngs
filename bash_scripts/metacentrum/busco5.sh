@@ -18,8 +18,10 @@ conda activate busco
 assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_blasto'
 
 #copy files to scratch
-cp $assembly_dir'/'*_added_bedcov.faa $SCRATCHDIR
+cp $assembly_dir'/'*_final.faa $SCRATCHDIR
 cp $assembly_dir'/'*_proteins.faa_eu*/short_summary.* $SCRATCHDIR
+cp $assembly_dir'/'*_bedcov*/short_summary* $SCRATCHDIR
+cp $assembly_dir'/bnon_proteins_annotated.faa_eu'*/short_summary.* $SCRATCHDIR
 
 
 #compute on scratch

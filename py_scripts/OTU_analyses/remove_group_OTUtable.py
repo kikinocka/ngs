@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/Lane26_18S_V9/above9/')
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/V4-sediment/above99/')
 
 #to remove Metazoa
 table = open('Obazoa.tsv')
