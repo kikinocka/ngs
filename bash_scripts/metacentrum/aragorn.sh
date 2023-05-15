@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-aragorn='/storage/brno3-cerit/home/kika/miniconda3/pkgs/aragorn-1.2.38-h779adbc_4/bin/aragorn'
+aragorn='/storage/brno3-cerit/home/kika/miniconda3/bin/aragorn'
 data_dir='/storage/brno3-cerit/home/kika/amoebophrya/'
 
 #copy files to scratch
