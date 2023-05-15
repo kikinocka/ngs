@@ -8,8 +8,7 @@
 cat $PBS_NODEFILE
 
 #add modules
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
-module load fastQC
+module add fastQC-0.11.5
 
 read_dir='/storage/brno3-cerit/home/kika/amoebophrya/reads'
 
