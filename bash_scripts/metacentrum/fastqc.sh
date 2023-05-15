@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/1-reads'
+read_dir='/storage/brno3-cerit/home/kika/amoebophrya/reads'
 
 
 #copy data to scratch
-cp $read_dir'/'*deep*gz $SCRATCHDIR
+cp $read_dir'/'*trimmed* $SCRATCHDIR
 
 
 #compute on scratch
