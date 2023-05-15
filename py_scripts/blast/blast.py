@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/mnt/data/kika/blastocrithidia/proteins/Bfru_proteins_final.faa'
+query = '/mnt/data/kika/blastocrithidia/proteins/Braa_proteins_final.faa'
 db = '/mnt/data/kika/references/kinetoplastids/kinetoplastid_refs.TriTrypDB-61.fa'
-out = '/mnt/data/kika/blastocrithidia/proteins/bfru_proteins.fwd_tryps.blast.xml'
+out = '/mnt/data/kika/blastocrithidia/proteins/braa_proteins.fwd_tryps.blast.xml'
 evalue = 1e-20
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/mnt/data/kika/blastocrithidia/proteins/bfru_proteins.fwd_tryps.blast.tsv', 'w')
-out_best = open('/mnt/data/kika/blastocrithidia/proteins/bfru_proteins.fwd_tryps.best_blast.tsv', 'w')
+output = open('/mnt/data/kika/blastocrithidia/proteins/braa_proteins.fwd_tryps.blast.tsv', 'w')
+out_best = open('/mnt/data/kika/blastocrithidia/proteins/braa_proteins.fwd_tryps.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
