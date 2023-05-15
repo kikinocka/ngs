@@ -8,25 +8,31 @@
 cat $PBS_NODEFILE
 
 #add modules
-module add spades-3.14.0
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load spades
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/'
-reads=$datadir'1-reads/'
+datadir='/storage/brno3-cerit/home/kika/amoebophrya/'
+reads=$datadir'reads/'
 
 #copy reads to scratch
-cp $reads'P3S_all_trimmed_1.fq.gz' $reads'P3S_all_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'SRR1610334_trimmed_1.fq.gz' $reads'SRR1610334_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd='P3S_all_trimmed_1.fq.gz'
-rev='P3S_all_trimmed_2.fq.gz'
+fwd='SRR1610334_trimmed_1.fq.gz'
+rev='SRR1610334_trimmed_2.fq.gz'
 
-#metagenome assembly
-metaspades.py -t $PBS_NUM_PPN \
+#spades assembly
+spades.py -t $PBS_NUM_PPN \
 	-1 $fwd -2 $rev \
-	-o metaspades
+	-o spades
+
+# #metagenome assembly
+# metaspades.py -t $PBS_NUM_PPN \
+# 	-1 $fwd -2 $rev \
+# 	-o metaspades
 
 # #metagenome specifying k-mers
 # metaspades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 -k 21,33,55,77,99,111  -t $PBS_NUM_PPN -o spades_kmers
@@ -41,4 +47,4 @@ metaspades.py -t $PBS_NUM_PPN \
 
 #copy results back
 rm *gz
-cp -r * $datadir'2-spades/'
+cp -r * $datadir
