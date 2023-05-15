@@ -3,17 +3,20 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/above99_decontaminated/stramenopiles/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
 # v9 = pd.read_csv('Lane26_18S_V9/otu_table.updated.tsv', sep='\t')
 # v4 = pd.read_csv('18S-V4-2018/otu_table.updated.tsv', sep='\t')
 # df = pd.concat([v4, v9])
-df = pd.read_csv('ochrophyta.V9DS_updated.no_chimera.tsv', sep='\t')
+df = pd.read_csv('Stramenopiles.tsv', sep='\t')
+df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5']] = df.taxonomy.str.split('|', 4, expand=True)
+# print(df['rank3'])
 
-df[['rank1', 'rank2', 'rank3']] = df.lineage.str.split('|', 2, expand=True)
-
-#supergroups
+#SUPERGROUPS
 total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
-# print(total)
+
+# #SMALLER GROUPS
+# total = df.groupby(['rank3']).sum().filter(regex='\d+_.*', axis=1)
+
 # total = total[['L17May28BCR_S45', 'V9-BCR-May30-2018_S5', 'L17June4BCR_S53', 'V9-BCR-June04-2018_S7', 'L17June18BCR_S69', 
 # 	'V9-BCR-June18-2018_S32', 'L17July3BCR_S85', 'V9-BCR-July03-2018_S34', 'L17July16BCR_S100', 'V9-BCR-July16-2018_S36', 
 # 	'L20BCRAug2018_S158', 'V9-BCR-pIN-Aug20-2018_S55', 'L20BCRAug2718_S166', 'L22BCRinSept1018_S119', 'V9-BCR-pIN-Sept12-2018_S56', 
@@ -42,10 +45,19 @@ total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
 # 	'V9-SWIP-Sept13-2018_S66', 'V9-SWIP-Sept24-2018_S57', 'L22SWIPNov62018_S179', 'V9-SWIP-Nov06-2018_S76', 'L22SWIPNov192018_S180', 
 # 	'V9-SWIP-Nov14-2018_S78', 'V9-SWIP-Nov17-2018_S80', 'L22WIPSept42010_S169', 'V9-WIP-Sept04-2010_S1', 'L22WIPNov232010_S170', 
 # 	'V9-WIP-Nov23-2010_S3']]
-total = total[['1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', '5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', '9_GCTTAC', 
-	'10_GCGATT', '11_TCAAGT', '12_AGGCCT', '13_CGTGAT', '14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC']]
+# print(total)
+
+#change to percentages
+total = (100 * total / total.sum()).round(2)
+
+total = total[['14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC',
+	'1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', 
+	'5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', 
+	'11_TCAAGT', '12_AGGCCT', '13_CGTGAT',
+	'9_GCTTAC', '10_GCGATT']]
 # total = total.filter(regex='.*MLSB.*', axis=1)
 # total = total.drop(total.filter(regex='.*SWIP.*').columns, axis=1)
+
 transformed = total.T
 # print(transformed)
 # print(transformed.columns)
@@ -53,40 +65,27 @@ transformed = total.T
 # print(transformed.size)
 # transformed = transformed.drop('V9-Oct10-2018-P3S_S72', axis=0)
 
-# transformed = transformed[['No_hit', 'Eukaryota_X', 'Cryptista', 'Haptista', 'Stramenopiles', 'Alveolata', 'Rhizaria',
-# 	'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Metamonada', 'Discoba']]
+#SL_Euglenozoa
+transformed = transformed[['No_hit', 'Eukaryota_X', 
+	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
+	'Haptista', 'Cryptista', 'Archaeplastida', 
+	'Amoebozoa', 'Obazoa', 'CRuMs', 
+	'Metamonada', 'Discoba', 
+	'Malawimonadidae', 'Ancyromonadida']]
 
-# colors = ['#999999', '#000000', '#FFFF99', '#FAEBD7', 
-# 	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
-# 	'#C9C9C9', '#7FFFD4', '#A6CEE3']
+colors = ['#000000', '#A7A7A7', 
+	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 
+	'#FAEBD7', '#FFFF99', '#009444', 
+	'#1F78B4', '#C9C9C9', '#CD950B',
+	'#7FFFD4', '#A6CEE3', 
+	'#BCDEB4', '#FFD9C6']
 
-# #SL_Euglenozoa
-# colors = ['#000000', '#605F5F', '#CD950B', '#FFB90F', '#FFFF99', '#FAEBD7', 
-# 	'#CAB2D6', '#FB9A99', '#B2DF8A', '#009444', '#1F78B4',
-# 	'#C9C9C9', '#BCDEB4', '#7FFFD4', '#A6CEE3']
-colors = ['#CAB2D6']
-
-# transformed = transformed[['No_hit', 'Eukaryota_X', 'Mantamonadidea', 'Ancyromonadida', 'Cryptista', 'Haptista', 'Stramenopiles', 
-# 	'Alveolata', 'Rhizaria', 'Archaeplastida', 'Amoebozoa', 'Obazoa', 'Malawimonadidae', 'Metamonada', 'Discoba']]
-
-# #metamonads
-# meta = df[df.rank3.isin(['Metamonada'])]
-# meta['species'] = meta.lineage.apply(lambda x: x.split('Metamonada_X|')[1])
-# grouped = meta.groupby(['species']).sum().filter(regex='V9.*', axis=1)
-# transformed = grouped.T
-# # print(transformed)
-
-# colors = [
-# 	'#c7cceb', '#9099d8', '#4655bf', '#2a3372', 
-# 	'#4c4c4c', 
-# 	'#e5fff6', '#cbffed', '#b2ffe5', '#7fffd4', '#65cca9', '#4c997f', '#326654', '#19332a',
-# 	'#7f7f7f', 
-# 	'#fdf3f5', '#f9d1d8', '#f5afbb', '#f18d9e', '#c0707e', '#90545e', '#301c1f', 
-# 	'#8a8119', '#e6d72a']
 
 ax = transformed.plot(kind='barh', stacked=True, color=colors, width=0.5, align='center')
+# ax = transformed.plot(kind='barh', stacked=True, width=0.5, align='center')
 # , figsize=(7,10)
-ax.set_xlabel('OTU abundances', fontsize=5)
+# ax.set_xlabel('OTU abundances', fontsize=5)
+ax.set_xlabel('OTU abundances [%]', fontsize=5)
 ax.set_ylabel('sample', fontsize=5)
 plt.xticks(fontsize=4)
 plt.yticks(fontsize=4)
@@ -103,4 +102,6 @@ ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=4, frameon=False)
 # ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
 plt.tight_layout()
 # plt.show()
-plt.savefig('ochrophytes.pdf', dpi=300)
+# plt.savefig('supergroups/supergroups_counts.pdf', dpi=300)
+plt.savefig('supergroups/supergroups_percentages.pdf', dpi=300)
+# plt.savefig('stramenopiles_percentages.pdf', dpi=300)
