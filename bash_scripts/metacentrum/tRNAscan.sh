@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N aragorn
+#PBS -N tRNAscan
 #PBS -l select=1:ncpus=10:mem=1gb:scratch_local=5gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-aragorn='/storage/brno3-cerit/home/kika/miniconda3/bin/tRNAscan-SE'
+tRNAscan='/storage/brno3-cerit/home/kika/miniconda3/bin/tRNAscan-SE'
 data_dir='/storage/brno3-cerit/home/kika/amoebophrya/'
 
 #copy files to scratch
