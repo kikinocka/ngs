@@ -14,7 +14,7 @@ read_dir='/storage/brno3-cerit/home/kika/amoebophrya/reads'
 
 
 #copy data to scratch
-cp $read_dir'/'*trimmed* $SCRATCHDIR
+cp $read_dir'/'*.gz $SCRATCHDIR
 
 
 #compute on scratch
