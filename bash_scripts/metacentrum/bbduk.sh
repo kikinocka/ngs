@@ -7,25 +7,26 @@
 
 cat $PBS_NODEFILE
 
-module add bbmap-36.92
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load bbmap
 
 
-raw_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P3S_1-02B_L001-ds.971c07c67a83443891de04bf749cee0b/1-reads/'
+raw_dir='/storage/brno3-cerit/home/kika/amoebophrya/reads/'
 # trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'P3S_deep_S1_L001_R1_001.fastq.gz' $SCRATCHDIR
-cp $raw_dir'P3S_deep_S1_L001_R2_001.fastq.gz' $SCRATCHDIR
+cp $raw_dir'SRR1610334_1.fastq.gz' $SCRATCHDIR
+cp $raw_dir'SRR1610334_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='P3S_deep'
-fw='P3S_deep_S1_L001_R1_001.fastq.gz'
-rv='P3S_deep_S1_L001_R2_001.fastq.gz'
+name='SRR1610334'
+fw='SRR1610334_1.fastq.gz'
+rv='SRR1610334_2.fastq.gz'
 # single='2-T-brucei-cyto.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
