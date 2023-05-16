@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/data/giardia/')
-files = [x for x in os.listdir() if x.endswith('.fasta')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
+files = [x for x in os.listdir() if x.endswith('Omod_CDS.companion.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -23,12 +23,13 @@ def count_codons(sequence):
 		   ('D' in sequence[i:i+3]) or ('H' in sequence[i:i+3]) or ('V' in sequence[i:i+3]):
 			codons['ambig'] += 1
 		else:
-			codons[sequence[i:i+3]] += 1
+			codons[sequence[i:i+3].upper()] += 1
 	return codons
 
 for file in files:
 	print(file)
-	table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
+	# table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
+	table = file.split('.')[0] + '.' + file.split('.')[1] + '.codons.tsv'
 	with open(table, 'w') as result:
 		result.write('\tAla\t\t\t\tCys\t\tAsp\t\tGlu\t\tPhe\t\tGly\t\t\t\tHis\t\tIle\t\t\tLys\t\tLeu\t\t\t\t\t\tMet\tAsn\t\tPro\t\t\t\tGln\t\tArg\t\t\t\t\t\tSer\t\t\t\t\t\tThr\t\t\t\tVal\t\t\t\tTrp\tTyr\t\tSTOP\n')
 		for key in codons.keys():
@@ -38,10 +39,13 @@ for file in files:
 		for sequence in SeqIO.parse(file, 'fasta'):
 			# print(sequence.name)
 			numbers = []
+
 			# #full sequence
 			# codons = count_codons(sequence.seq)
+
 			#sequence without stop codon
 			codons = count_codons(sequence.seq[:-3])
+
 			for value in codons.values():
 				numbers.append(value)
 			result.write('{}'.format(sequence.description))

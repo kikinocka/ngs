@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 
-os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('.fna')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
+files = [x for x in os.listdir() if x.endswith('Omod_CDS.companion.fna')]
 
 
 
@@ -16,9 +16,12 @@ for file in files:
 	tga = 0
 	ambig = {}
 	
-	out = file.split('_')[0] + '_' + file.split('_')[1] + '.stops.tsv'
+	# out = file.split('_')[0] + '_' + file.split('_')[1] + '.stops.tsv'
+	out = file.split('.')[0] + '.' + file.split('.')[1] + '.stops.tsv'
+
 	with open(out, 'w') as result:
 		for seq in SeqIO.parse(file, 'fasta'):
+			seq.seq = seq.seq.upper()
 			if seq.seq[-3:] == 'TAA':
 				taa += 1
 			elif seq.seq[-3:] == 'TAG':

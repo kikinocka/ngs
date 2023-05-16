@@ -1,10 +1,10 @@
 #!/bin/sh
 
-genome='/Users/kika/ownCloud/blastocrithidia/ncbi_submission/LWC14.fsa'
-gff='/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/bnon_synteny2.gff'
-output='/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/bnon_synteny2.fa'
+genome='/Users/kika/ownCloud/blasto_comparative/genomes/final/Omod_genome_final_masked.fa'
+gff='/Users/kika/ownCloud/blasto_comparative/proteins/Omod_CDS.companion.gff3'
+output='/Users/kika/ownCloud/blasto_comparative/proteins/Omod_CDS.companion.fna'
 
-bedtools getfasta -fi $genome -bed $gff -fo $output -name -s
+bedtools getfasta -fi $genome -bed $gff -fo $output -name -s -fullHeader
 
 # -fi		Input FASTA file
 # -fo		Output file (opt., default is STDOUT
