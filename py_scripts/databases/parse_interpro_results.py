@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/companion/')
-table = open('Ovol_companion.l30.interpro_sorted.tsv')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs_annotation/')
+table = open('btri_proteins_final.interpro_sorted.tsv')
 
 dedupl = {}
 for line in table:
@@ -19,7 +19,7 @@ for line in table:
 		else:
 			dedupl[protein].append((pfam, desc, eval))
 
-with open('Ovol_companion.l30.interpro_sorted_merged.tsv', 'w') as out:
+with open('btri_proteins_final.interpro_sorted_merged.tsv', 'w') as out:
 	for key, value in dedupl.items():
 		out.write('{}\t'.format(key))
 		# print(key)
