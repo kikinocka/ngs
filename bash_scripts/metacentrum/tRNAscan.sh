@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N tRNAscan
 #PBS -l select=1:ncpus=10:mem=1gb:scratch_local=5gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
