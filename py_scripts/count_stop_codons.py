@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 
 os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('MMETSP0209_clean.longest_orfs.cds-3end_complete.fna')]
+files = [x for x in os.listdir() if x.endswith('MMETSP0213_clean.longest_orfs.cds-3end_complete.fna')]
 
 
 
