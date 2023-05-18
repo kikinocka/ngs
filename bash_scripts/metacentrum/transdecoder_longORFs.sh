@@ -14,14 +14,14 @@ module load transdecoder
 data_dir='/storage/brno3-cerit/home/kika/ciliates/'
 
 #copy files to scratch
-cp $data_dir'MMETSP1395_clean.fasta' $SCRATCHDIR
+cp $data_dir'MMETSP1397_clean.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-transcriptome='MMETSP1395_clean.fasta'
-TransDecoder.LongOrfs -t $transcriptome --genetic_code Euplotid
+transcriptome='MMETSP1397_clean.fasta'
+TransDecoder.LongOrfs -t $transcriptome #--genetic_code Euplotid
 
 #copy files back
 rm $transcriptome
