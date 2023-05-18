@@ -4,7 +4,7 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('MMETSP0205_clean.longest_orfs.cds-3end_complete.fna')]
+files = [x for x in os.listdir() if x.endswith('MMETSP0206_clean.longest_orfs.cds-3end_complete.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
@@ -28,7 +28,8 @@ def count_codons(sequence):
 
 for file in files:
 	print(file)
-	table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
+	table = file.split('.fna')[0] + '.codons.tsv'
+	# table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
 	# table = file.split('.')[0] + '.' + file.split('.')[1] + '.codons.tsv'
 	with open(table, 'w') as result:
 		result.write('\tAla\t\t\t\tCys\t\tAsp\t\tGlu\t\tPhe\t\tGly\t\t\t\tHis\t\tIle\t\t\tLys\t\tLeu\t\t\t\t\t\tMet\tAsn\t\tPro\t\t\t\tGln\t\tArg\t\t\t\t\t\tSer\t\t\t\t\t\tThr\t\t\t\tVal\t\t\t\tTrp\tTyr\t\tSTOP\n')

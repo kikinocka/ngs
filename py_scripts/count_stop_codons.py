@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 
 os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('MMETSP0205_clean.longest_orfs.cds-3end_complete.fna')]
+files = [x for x in os.listdir() if x.endswith('MMETSP0206_clean.longest_orfs.cds-3end_complete.fna')]
 
 
 
@@ -16,7 +16,8 @@ for file in files:
 	tga = 0
 	ambig = {}
 	
-	out = file.split('_')[0] + '_' + file.split('_')[1] + '.stops.tsv'
+	out = file.split('.fna')[0] '.stops.tsv'
+	# out = file.split('_')[0] + '_' + file.split('_')[1] + '.stops.tsv'
 	# out = file.split('.')[0] + '.' + file.split('.')[1] + '.stops.tsv'
 
 	with open(out, 'w') as result:

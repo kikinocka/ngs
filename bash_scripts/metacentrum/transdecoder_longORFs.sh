@@ -21,7 +21,7 @@ cp $data_dir'MMETSP0208_clean.fasta' $SCRATCHDIR
 cd $SCRATCHDIR
 
 transcriptome='MMETSP0208_clean.fasta'
-TransDecoder.LongOrfs -t $transcriptome #--genetic_code Euplotid
+TransDecoder.LongOrfs -t $transcriptome --genetic_code Tetrahymena
 
 #copy files back
 rm $transcriptome
