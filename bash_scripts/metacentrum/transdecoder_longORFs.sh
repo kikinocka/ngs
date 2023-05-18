@@ -8,18 +8,20 @@
 cat $PBS_NODEFILE
 
 #add module
-module add transdecoder-3.0.1
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load transdecoder
 
-data_dir='/storage/brno3-cerit/home/kika/diplonemids/trafficking/'
+data_dir='/storage/brno3-cerit/home/kika/ciliates/'
 
 #copy files to scratch
-cp $data_dir'rhRABs.fwd_hits.fa' $SCRATCHDIR
+cp $data_dir'MMETSP0125_clean.fasta' $SCRATCHDIR
 
-transcriptome='rhRABs.fwd_hits.fa'
 
 #compute on scratch
 cd $SCRATCHDIR
-TransDecoder.LongOrfs -t $transcriptome
+
+transcriptome='MMETSP0125_clean.fasta'
+TransDecoder.LongOrfs -t $transcriptome --genetic_code Tetrahymena
 
 #copy files back
 rm $transcriptome
