@@ -14,13 +14,13 @@ module load transdecoder
 data_dir='/storage/brno3-cerit/home/kika/ciliates/'
 
 #copy files to scratch
-cp $data_dir'MMETSP0216_clean.fasta' $SCRATCHDIR
+cp $data_dir'GABU01.1.fna' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-transcriptome='MMETSP0216_clean.fasta'
+transcriptome='GABU01.1.fna'
 TransDecoder.LongOrfs -t $transcriptome #--genetic_code Tetrahymena
 
 #copy files back
