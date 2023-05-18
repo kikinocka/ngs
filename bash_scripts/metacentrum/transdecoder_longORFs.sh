@@ -21,7 +21,7 @@ cp $data_dir'GABU01.1.fna' $SCRATCHDIR
 cd $SCRATCHDIR
 
 transcriptome='GABU01.1.fna'
-TransDecoder.LongOrfs -t $transcriptome #--genetic_code Tetrahymena
+TransDecoder.LongOrfs -t $transcriptome --genetic_code Tetrahymena
 
 #copy files back
 rm $transcriptome
