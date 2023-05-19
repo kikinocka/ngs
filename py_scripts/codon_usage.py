@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('MMETSP0449_clean.longest_orfs.cds-3end_complete.fna')]
+os.chdir('/Users/kika/data/ciliates/rest/')
+files = [x for x in os.listdir() if x.endswith('.cds-3end_complete.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 

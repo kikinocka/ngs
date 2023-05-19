@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 
-os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('MMETSP0449_clean.longest_orfs.cds-3end_complete.fna')]
+os.chdir('/Users/kika/data/ciliates/rest/')
+files = [x for x in os.listdir() if x.endswith('.fna')]
 
 
 
