@@ -14,7 +14,7 @@ module load trimmomatic
 
 slap_mapper='/storage/brno2/home/kika/tools/SLaPMapper/SLaPMapper.pl'
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-read_dir='/storage/brno3-cerit/home/kika/blasto_comparative/triatomae/transcriptome_reads/'
+read_dir='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_reads/'
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/slapmapper/braa/'
 
 
