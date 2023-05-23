@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/owncloud/kinetoplastids/AOX/')
-infile = SeqIO.parse('frd_nt.fa', 'fasta')
-output = open('frd_aa.fa', 'w')
-error = open('frd_errors.fa', 'w')
+os.chdir('/mnt/data/kika/blastocrithidia/genomes/final_assemblies/')
+infile = SeqIO.parse('Bfru_genome_final_masked.fa', 'fasta')
+output = open('translated/Bfru_genome_final_masked.translated.fa', 'w')
+error = open('translated/Bfru_genome_final_masked.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
