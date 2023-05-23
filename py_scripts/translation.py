@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/mnt/data/kika/blastocrithidia/genomes/final_assemblies/')
-infile = SeqIO.parse('Bfru_genome_final_masked.fa', 'fasta')
-output = open('translated/Bfru_genome_final_masked.translated.fa', 'w')
-error = open('translated/Bfru_genome_final_masked.errors.fa', 'w')
+infile = SeqIO.parse('Braa_genome_final_corrected2_masked.fa', 'fasta')
+output = open('translated/Braa_genome_final_corrected2_masked.translated.fa', 'w')
+error = open('translated/Braa_genome_final_corrected2_masked.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
