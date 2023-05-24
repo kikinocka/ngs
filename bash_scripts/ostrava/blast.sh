@@ -5,14 +5,14 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd ''
+cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/translated/'
 
 db='/mnt/data/kika/references/kinetoplastids/for_annotator/reference.fa'
 program=blastp
 task=blastp
 eval=1e-03
-max_seqs=1
-max_hsps=1
+# max_seqs=1
+# max_hsps=1
 
 for query in *.fa; do
 	echo $query
