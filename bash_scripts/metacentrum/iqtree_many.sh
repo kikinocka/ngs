@@ -26,11 +26,11 @@ for f in *.aln ; do
 	bb=1000
 	nm=5000
 	
-	# iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -s ${f}
-	# iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f}
+	# iqtree2 -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -s ${f}
+	# iqtree2 -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${f}
 
-	iqtree -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
-	iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -B $bb -quiet -s ${f} -ft $guide_tree #-wsr
+	iqtree2 -m LG+F+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s ${f} -pre $guide
+	iqtree2 -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -B $bb -quiet -s ${f} -ft $guide_tree #-wsr
 done
 
 #copy files back
