@@ -17,7 +17,7 @@ eval=1e-03
 for query in *.fa; do
 	echo $query
 	# out=${query%.fa}'.nr_'$eval'.'$program
-	out=${query%.fa}'.tsv'
+	out=${query%.fa}'.ref_'$eval'.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
