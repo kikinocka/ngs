@@ -43,23 +43,23 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 
 #merge alignments
-os.chdir('/Users/kika/ownCloud/ciliates/codon_usage/subgroups/')
-aln1 = '1A.aln'
-aln2 = '1C.aln'
-aln3 = '2A.aln'
-aln4 = '2B.aln'
-aln5 = '2C.aln'
-aln6 = '2D.aln'
-# fasta = 'otu.fa'
-input = 'ciliates_eRF1.mafft_merge.in'
-table = 'ciliates_eRF1.mafft_merge.table'
-out = 'ciliates_eRF1.mafft_merge.aln'
-log = 'ciliates_eRF1.mafft_merge.log'
-# subprocess.call('cat {} {} > {}'.format(aln1, fasta, input), shell=True)
-subprocess.call('cat {} {} {} {} {} {} > {}'.format(aln1, aln2, aln3, aln4, aln5, aln6, input), shell=True)
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/SUM-K/trees/adaptors_medium/')
+aln1 = '/Users/kika/ownCloud/membrane-trafficking/queries/adaptors-coats/medium.mafft.aln'
+# aln2 = '1C.aln'
+# aln3 = '2A.aln'
+# aln4 = '2B.aln'
+# aln5 = '2C.aln'
+# aln6 = '2D.aln'
+fasta = 'sumk_medium.fa'
+input = 'medium.mafft.in'
+table = 'medium.mafft.table'
+out = 'medium.mafft.aln'
+log = 'medium.mafft.log'
+subprocess.call('cat {} {} > {}'.format(aln1, fasta, input), shell=True)
+# subprocess.call('cat {} {} {} {} {} {} > {}'.format(aln1, aln2, aln3, aln4, aln5, aln6, input), shell=True)
 print('Alignments concatenated\n\n')
-# subprocess.call('ruby {} {} > {}'.format(maketable, aln1, table), shell=True)
-subprocess.call('ruby {} {} {} {} {} {} {} > {}'.format(maketable, aln1, aln2, aln3, aln4, aln5, aln6, table), shell=True)
+subprocess.call('ruby {} {} > {}'.format(maketable, aln1, table), shell=True)
+# subprocess.call('ruby {} {} {} {} {} {} {} > {}'.format(maketable, aln1, aln2, aln3, aln4, aln5, aln6, table), shell=True)
 print('Table prepared\n\n')
 # subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)
 subprocess.call('{} --thread 7 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)

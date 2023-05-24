@@ -3,14 +3,14 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/ciliates/eRF1/tree/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/SUM-K/trees/adaptors_beta/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
 for file in files:
 	print(file)
-	file_name = file.split('.')[0] + '.' + file.split('.')[1]
-	# file_name = file.split('.')[0]
+	# file_name = file.split('.')[0] + '.' + file.split('.')[1]
+	file_name = file.split('.')[0]
 	aut = 'automated1'
 	gt = 0.8 #fraction of sequences with a gap allowed
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
