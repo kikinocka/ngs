@@ -22,8 +22,8 @@ gencode = {
     'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
     'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
     'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
-    'TAC':'Y', 'TAT':'Y', 'TAA':'X', 'TAG':'X',
-    'TGC':'C', 'TGT':'C', 'TGA':'X', 'TGG':'W'}
+    'TAC':'Y', 'TAT':'Y', 'TAA':'E', 'TAG':'E',
+    'TGC':'C', 'TGT':'C', 'TGA':'W', 'TGG':'W'}
 
 def translation(sequence):
     cut_seq = []
