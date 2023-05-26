@@ -7,17 +7,17 @@
 
 cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/translated/'
 
-db='/mnt/data/kika/references/kinetoplastids/for_annotator/reference.fa'
+query='/mnt/data/kika/references/kinetoplastids/for_annotator/reference.fa'
 program=blastp
 task=blastp
 eval=1e-03
 # max_seqs=1
 # max_hsps=1
 
-for query in *.fa; do
+for db in *.fa; do
 	echo $query
 	# out=${query%.fa}'.nr_'$eval'.'$program
-	out=${query%.fa}'.ref_'$eval'.tsv'
+	out=${db%.fa}'.ref_'$eval'.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
