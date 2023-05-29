@@ -1,7 +1,7 @@
 #!/bin/bash
 
 workdir='/mnt/mokosz/home/kika/eukDB/'
-fasta='Euglena_gracilis.GDJR01.fna'
+fasta='Eutreptiella_gymnastica.fna'
 
 cd $workdir
 TransDecoder.LongOrfs -t $fasta
