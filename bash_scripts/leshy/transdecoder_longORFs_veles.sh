@@ -1,7 +1,7 @@
 #!/bin/bash
 
-workdir='/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/mab_trinity_NT/'
-fasta='mab.trinity.NTfilt.fasta'
+workdir='/mnt/mokosz/home/kika/eukDB/'
+fasta='Euglena_gracilis.GDJR01.fna'
 
 cd $workdir
 TransDecoder.LongOrfs -t $fasta
