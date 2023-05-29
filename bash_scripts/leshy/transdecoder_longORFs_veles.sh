@@ -1,7 +1,7 @@
 #!/bin/bash
 
 workdir='/mnt/mokosz/home/kika/eukDB/'
-fasta='Eutreptiella_gymnastica.fna'
+fasta='Microheliella_maris.fna'
 
 cd $workdir
 TransDecoder.LongOrfs -t $fasta
