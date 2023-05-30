@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N blast-many2
+#PBS -N blast-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
 #PBS -l walltime=196:00:00
 #PBS -m ae
@@ -16,7 +16,7 @@ db_dir='/storage/projects/BlastDB/'
 
 
 #copy files to scratch
-cp $datadir'/check_cont2.fa' $SCRATCHDIR
+cp $datadir'/check_cont6.fa' $SCRATCHDIR
 cp $db_dir'nt'* $SCRATCHDIR
 
 #run on scratch
@@ -33,19 +33,19 @@ max_hsps=1
 for query in *.fa; do
 	echo $query
 	# out=${query%.fa}'.nr_'$eval'.'$program
-	out='check_cont2.fwd_ncbi-nt.tsv'
+	out='check_cont6.fwd_ncbi-nt.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
 		-out $out \
-		-outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore ppos" \
+		-outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore ppos' \
 		-num_threads $PBS_NUM_PPN \
 		-evalue $eval \
 		-max_target_seqs $max_seqs \
 		-max_hsps $max_hsps
 	echo ***BLAST done***
 done
-# -outfmt "6 qseqid staxids bitscore std" \
+# -outfmt '6 qseqid staxids bitscore std' \
 # 'qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore' = equivalent to 'std'
 
 #copy files back
