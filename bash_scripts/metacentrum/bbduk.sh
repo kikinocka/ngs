@@ -11,47 +11,47 @@ source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load bbmap
 
 
-raw_dir='/storage/brno3-cerit/home/kika/amoebophrya/reads/'
+raw_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/reads/'
 # trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'SRR1610334_1.fastq.gz' $SCRATCHDIR
-cp $raw_dir'SRR1610334_2.fastq.gz' $SCRATCHDIR
+cp $raw_dir'all_reads.fq.gz' $SCRATCHDIR
+# cp $raw_dir'SRR1610334_2.fastq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='SRR1610334'
-fw='SRR1610334_1.fastq.gz'
-rv='SRR1610334_2.fastq.gz'
-# single='2-T-brucei-cyto.fastq.gz'
-trimmed_fw=$name'_trimmed_1.fq.gz'
-trimmed_rv=$name'_trimmed_2.fq.gz'
-# trimmed='T-brucei-cyto_trimmed-AN.fq.gz'
+name='condy'
+# fw='SRR1610334_1.fastq.gz'
+# rv='SRR1610334_2.fastq.gz'
+# trimmed_fw=$name'_trimmed_1.fq.gz'
+# trimmed_rv=$name'_trimmed_2.fq.gz'
+single='all_reads.fq.gz'
+trimmed='all_reads_trimmed.fq.gz'
 report=$name'_bbduk_report.txt'
 
-#illumina pair-end reads
-bbduk.sh overwrite=true \
-	in1=$fw in2=$rv \
-	out1=$trimmed_fw out2=$trimmed_rv \
-	ref=$adapt \
-	qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
-
-# #illumina single reads
+# #illumina pair-end reads
 # bbduk.sh overwrite=true \
-# 	in=$single \
-# 	out=$trimmed \
+# 	in1=$fw in2=$rv \
+# 	out1=$trimmed_fw out2=$trimmed_rv \
 # 	ref=$adapt \
-# 	ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN qtrim=rl trimq=20 2> $report
-# 	# qtrim=rl trimq=20 ktrim=r t=$PBS_NUM_PPN 2> $report
+# 	qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
+
+#illumina single reads
+bbduk.sh overwrite=true \
+	in=$single \
+	out=$trimmed \
+	ref=$adapt \
+	ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN qtrim=rl trimq=20 2> $report
+	# qtrim=rl trimq=20 ktrim=r t=$PBS_NUM_PPN 2> $report
 
 # #454 reads
 # bbduk.sh in=$fw out=$trimmed_fw ref=$adapt k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> $report
 
 #copy files back
-rm $fw $rv $adapt
-# rm $single $adapt
+# rm $fw $rv $adapt
+rm $single $adapt
 cp -r * $raw_dir
