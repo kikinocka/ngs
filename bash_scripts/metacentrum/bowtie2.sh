@@ -24,8 +24,8 @@ cp $read_dir'all_reads_trimmed.fq.gz' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-base_name='GCA_001499635.1_Condy_MAC_genomic.fna'
-ref='condy'
+base_name='condy'
+ref='GCA_001499635.1_Condy_MAC_genomic.fna'
 p1_1='all_reads_trimmed.fq.gz'
 # p1_2='BML_October2016_trimmed_R.fastq.gz'
 # r1='EU2_r1_unpaired_1.fq.gz'
