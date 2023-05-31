@@ -8,9 +8,8 @@
 cat $PBS_NODEFILE
 
 #add module
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
-module load bowtie2
-module load samtools
+module add bowtie2-2.4.2
+module add samtools-1.11
 
 assembly_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
 read_dir=$assembly_dir'reads/'

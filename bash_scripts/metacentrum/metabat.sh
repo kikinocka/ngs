@@ -15,12 +15,17 @@ data_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
 
 #copy data to scratch
 cp $data_dir'GCA_001499635.1_Condy_MAC_genomic.fna' $SCRATCHDIR
-cp $data_dir'all_reads_trimmed.fq.gz' $SCRATCHDIR
+cp $data_dir'mapping/condy_sorted.bam' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
+genome='GCA_001499635.1_Condy_MAC_genomic.fna'
+bamfile='condy_sorted.bam'
+min_contig=1500
+
+metabat -t $PBS_NUM_PPN -m $min_contig $genome $bamfile
 
 #copy files back
-rm 
-cp -r * $data_dir
+rm $genome $bamfile
+cp -r * $data_dir'metabat'
