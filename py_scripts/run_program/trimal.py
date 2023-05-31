@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/SUM-K/trees/tspoon/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/SUM-K/trees/rabs/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
