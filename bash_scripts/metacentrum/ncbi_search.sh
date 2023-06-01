@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N ncbi_search
 #PBS -l select=1:ncpus=1:mem=10gb:scratch_local=3gb
-#PBS -l walltime=48:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add python36-modules-gcc
 
-datadir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/'
+datadir='/storage/brno3-cerit/home/kika/oil_sands/18S-V4-2018/'
 scriptdir='/storage/brno2/home/kika/scripts/py_scripts/databases/'
 
 
