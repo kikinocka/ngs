@@ -22,9 +22,11 @@ cp $data_dir'mapping/condy_sorted.bam' $SCRATCHDIR
 cd $SCRATCHDIR
 genome='GCA_001499635.1_Condy_MAC_genomic.fna'
 bamfile='condy_sorted.bam'
+depth='condy_depth.txt'
 min_contig=1500
 
-metabat -t $PBS_NUM_PPN -m $min_contig $genome $bamfile
+jgi_summarize_bam_contig_depths --outputDepth $depth $bamfile
+metabat -t $PBS_NUM_PPN -m $min_contig -i $genome -a $depth -o $SCRATCHDIR
 
 #copy files back
 rm $genome $bamfile
