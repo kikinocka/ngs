@@ -7,8 +7,7 @@
 
 cat $PBS_NODEFILE
 
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
-module load metabat
+module load metabat/2.15-gcc-10.2.1-2nf5o7t
 
 
 data_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
@@ -26,7 +25,7 @@ depth='condy_depth.txt'
 min_contig=1500
 
 jgi_summarize_bam_contig_depths --outputDepth $depth $bamfile
-metabat -t $PBS_NUM_PPN -m $min_contig -i $genome -a $depth -o $SCRATCHDIR
+metabat1 -t $PBS_NUM_PPN -m $min_contig -i $genome -a $depth -o $SCRATCHDIR
 
 #copy files back
 rm $genome $bamfile
