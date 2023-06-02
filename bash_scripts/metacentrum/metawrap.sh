@@ -1,47 +1,45 @@
 #!/bin/bash
 #PBS -N metawrap
-#PBS -l select=1:ncpus=8:mem=70gb:scratch_local=50gb
-#PBS -l walltime=96:00:00
+#PBS -l select=1:ncpus=20:mem=70gb:scratch_local=50gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P2S_1-01A_L001-ds.9f42a90caf694c0ab5686f0e22e79319/'
+data_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
 
 #copy files to scratch
-cp -r $data_dir'1-reads/'*fastq $SCRATCHDIR
-cp -r $data_dir'2-spades/scaffolds.fasta' $SCRATCHDIR
-cp -r $data_dir'metawrap/bin_refinement_70_10/metawrap_70_10_bins' $SCRATCHDIR
+cp $data_dir'GCA_001499635.1_Condy_MAC_genomic.fna' $SCRATCHDIR
+cp $data_dir'reads/all_reads_trimmed.fq' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-assembly='scaffolds.fasta'
-
 module add conda-modules-py37
 conda activate metawrap-env
 
-# #initial binning
-# metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
-# #reads have to be unzipped
+assembly='GCA_001499635.1_Condy_MAC_genomic.fna'
 
-# #bin refinment
-# metawrap bin_refinement -t $PBS_NUM_PPN -m 50 \
-# 	-c 50 -x 10 \
-# 	-o bin_refinement_50_10 -A metabat2_bins -B maxbin2_bins -C concoct_bins
-# # -c INT	minimum % completion of bins [should be >50%] (default=70)
-# # -x INT	maximum % contamination of bins that is acceptable (default=10)
-# # -A STR	folder with metagenomic bins (files must have .fa or .fasta extension)
-# # -B STR	another folder with metagenomic bins
-# # -C STR	another folder with metagenomic bins
+#initial binning
+metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fq
+#reads have to be unzipped
+
+#bin refinment
+metawrap bin_refinement -t $PBS_NUM_PPN -m 50 \
+	-c 70 -x 10 \
+	-o bin_refinement -A initial_binning/metabat2_bins -B initial_binning/maxbin2_bins -C initial_binning/concoct_bins
+# -c INT	minimum % completion of bins [should be >50%] (default=70)
+# -x INT	maximum % contamination of bins that is acceptable (default=10)
+# -A STR	folder with metagenomic bins (files must have .fa or .fasta extension)
+# -B STR	another folder with metagenomic bins
+# -C STR	another folder with metagenomic bins
 
 #visualization, 70 GB memory, 8 CPUs
-metawrap blobology -t $PBS_NUM_PPN --bins metawrap_70_10_bins -a $assembly -o blobology_70_10 *fastq
+metawrap blobology -t $PBS_NUM_PPN --bins bin_refinement/metawrap_bins -a $assembly -o blobology *fq
 
 
 #copy files back
-rm *fastq $assembly
-rm -r metawrap_70_10_bins
+rm *fq $assembly
 cp -r * $data_dir'metawrap'
