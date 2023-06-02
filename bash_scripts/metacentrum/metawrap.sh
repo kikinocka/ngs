@@ -12,7 +12,7 @@ data_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
 #copy files to scratch
 cp $data_dir'GCA_001499635.1_Condy_MAC_genomic.fna' $SCRATCHDIR
 cp $data_dir'reads/all_reads_trimmed.fastq' $SCRATCHDIR
-cp -r $data_dir'bin_refinement' $SCRATCHDIR
+cp -r $data_dir'metawrap/bin_refinement' $SCRATCHDIR
 
 
 #compute on scratch
@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 module add conda-modules-py37
 conda activate metawrap-env
 
-# assembly='GCA_001499635.1_Condy_MAC_genomic.fna'
+assembly='GCA_001499635.1_Condy_MAC_genomic.fna'
 
 # # #initial binning PE reads
 # # metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
