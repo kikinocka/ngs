@@ -40,7 +40,7 @@ assembly='GCA_001499635.1_Condy_MAC_genomic.fna'
 # # -C STR	another folder with metagenomic bins
 
 #visualization, 70 GB memory, 8 CPUs
-metawrap blobology -t $PBS_NUM_PPN --interleaved --bins bin_refinement/metawrap_70_10_bins -a $assembly -o blobology *fastq
+metawrap blobology -t $PBS_NUM_PPN --bins bin_refinement/metawrap_70_10_bins -a $assembly -o blobology *fastq
 #_70_10 is always added to the name of metawrap bins (depending on -c and -x from previous step)
 
 

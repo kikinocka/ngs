@@ -23,7 +23,7 @@ genome='GCA_001499635.1_Condy_MAC_genomic.fna'
 bamfile='condy_sorted.bam'
 depth='condy_depth.txt'
 min_contig=1500
-min_samples=3
+min_samples=1
 
 jgi_summarize_bam_contig_depths --outputDepth $depth $bamfile
 metabat1 -t $PBS_NUM_PPN -m $min_contig --minSamples $min_samples -i $genome -a $depth -o $SCRATCHDIR
