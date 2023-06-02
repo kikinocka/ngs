@@ -26,7 +26,7 @@ min_contig=1500
 min_samples=3
 
 jgi_summarize_bam_contig_depths --outputDepth $depth $bamfile
-metabat1 -t $PBS_NUM_PPN -m $min_contig -i --minSamples $min_samples $genome -a $depth -o $SCRATCHDIR
+metabat1 -t $PBS_NUM_PPN -m $min_contig --minSamples $min_samples -i $genome -a $depth -o $SCRATCHDIR
 
 #copy files back
 rm $genome $bamfile
