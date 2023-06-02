@@ -22,8 +22,10 @@ conda activate metawrap-env
 
 assembly='GCA_001499635.1_Condy_MAC_genomic.fna'
 
-#initial binning
-metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
+# #initial binning PE reads
+# metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
+#initial binning interleaved reads
+metawrap binning -t $PBS_NUM_PPN -m 50 --interleaved --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
 #reads have to be unzipped and with fastq extension
 
 #bin refinment
