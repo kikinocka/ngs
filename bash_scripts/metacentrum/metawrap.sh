@@ -11,7 +11,7 @@ data_dir='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
 
 #copy files to scratch
 cp $data_dir'GCA_001499635.1_Condy_MAC_genomic.fna' $SCRATCHDIR
-cp $data_dir'reads/all_reads_trimmed.fq' $SCRATCHDIR
+cp $data_dir'reads/all_reads_trimmed.fastq' $SCRATCHDIR
 
 
 #compute on scratch
@@ -23,8 +23,8 @@ conda activate metawrap-env
 assembly='GCA_001499635.1_Condy_MAC_genomic.fna'
 
 #initial binning
-metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fq
-#reads have to be unzipped
+metawrap binning -t $PBS_NUM_PPN -m 50 --metabat2 --maxbin2 --concoct -a $assembly -o initial_binning *fastq
+#reads have to be unzipped and with fastq extension
 
 #bin refinment
 metawrap bin_refinement -t $PBS_NUM_PPN -m 50 \
@@ -37,9 +37,9 @@ metawrap bin_refinement -t $PBS_NUM_PPN -m 50 \
 # -C STR	another folder with metagenomic bins
 
 #visualization, 70 GB memory, 8 CPUs
-metawrap blobology -t $PBS_NUM_PPN --bins bin_refinement/metawrap_bins -a $assembly -o blobology *fq
+metawrap blobology -t $PBS_NUM_PPN --bins bin_refinement/metawrap_bins -a $assembly -o blobology *fastq
 
 
 #copy files back
-rm *fq $assembly
+rm *fastq $assembly
 cp -r * $data_dir'metawrap'
