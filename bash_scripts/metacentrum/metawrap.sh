@@ -45,5 +45,5 @@ metawrap blobology -t $PBS_NUM_PPN --interleaved --bins bin_refinement/metawrap_
 
 
 #copy files back
-rm *fastq $assembly
+rm -r *fastq $assembly bin_refinement
 cp -r * $data_dir'metawrap'
