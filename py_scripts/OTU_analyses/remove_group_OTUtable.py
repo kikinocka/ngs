@@ -1,24 +1,14 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/18S-V4-2018/above99/')
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/V4-sediment/')
+table = open('otu_table.no_chimera.updated.only_euks.above99.tsv')
 
-#to remove Metazoa
-table = open('Obazoa.tsv')
-with open('Obazoa.no_Metazoa.tsv', 'w') as out:
+unwanted = ['Embryophyceae', 'Metazoa']
+
+with open('otu_table.no_chimera.updated.only_euks.above99.no_Metazoa_Embryophyceae.tsv', 'w') as out:
 	for line in table:
-		if 'Metazoa' in line:
-		# if 'Embryophyceae' in line:
-			pass
-		else:
-			out.write(line)
-
-
-#to remove Embryophyceae
-table = open('Archaeplastida.tsv')
-with open('Archaeplastida.no_Embryophyceae.tsv', 'w') as out:
-	for line in table:
-		if 'Embryophyceae' in line:
+		if 'Embryophycea' in line or 'Metazoa' in line:
 			pass
 		else:
 			out.write(line)

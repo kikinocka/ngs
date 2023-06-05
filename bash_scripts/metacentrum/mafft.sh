@@ -11,10 +11,10 @@ cat $PBS_NODEFILE
 # module add mafft-7.453
 module add mafft-7.487 
 
-data_dir='/storage/brno3-cerit/home/kika/archamoebae'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/pno/ver2'
 
 #copy files to scratch
-cp $data_dir'/'*fasta $SCRATCHDIR
+cp $data_dir'/'*fa $SCRATCHDIR
 # cp $data_dir'outgroup.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -25,8 +25,8 @@ cd $SCRATCHDIR
 #align de-novo
 for file in *.fasta ; do
 	echo $file
-	aln=${file%.fasta}.mafft.aln
-	log=${file%.fasta}.mafft.log
+	aln=${file%.fa}.mafft.aln
+	log=${file%.fa}.mafft.log
 
 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
 	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
@@ -64,7 +64,7 @@ done
 # echo 'Alignments merged'
 
 #copy files back
-# rm *.fasta
-rm $existing $add
+rm *.fa
+# rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir
