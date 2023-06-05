@@ -23,7 +23,7 @@ cp $data_dir'/'*fa $SCRATCHDIR
 cd $SCRATCHDIR
 
 #align de-novo
-for file in *.fasta ; do
+for file in *.fa ; do
 	echo $file
 	aln=${file%.fa}.mafft.aln
 	log=${file%.fa}.mafft.log
