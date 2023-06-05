@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N prokka
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,19 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module add conda-modules-py37
 
-data='/storage/brno3-cerit/home/kika/oil_sands/metagenome/prokka/'
+data='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
 
 #copy files to scratch
-cp $data'bml_meta.spades_def.fa' $SCRATCHDIR
+cp $data'metawrap/bin_refinement/metawrap_70_10_bins/bin.1.fa' $SCRATCHDIR
 
-genome='bml_meta.spades_def.fa'
 
 #compute on scratch
 cd $SCRATCHDIR
 conda activate prokka 
 
-prokka $genome --cpus $PBS_NUM_PPN
+genome='bin.1.fa'
+prokka --addgenes --addmrna --cpus $PBS_NUM_PPN --outdir $SCRATCHDIR $genome 
 
 #copy files back
 rm $genome
-cp -r * $data
+cp -r * $data'prokka/'

@@ -3,11 +3,17 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
-# v9 = pd.read_csv('Lane26_18S_V9/otu_table.updated.tsv', sep='\t')
-# v4 = pd.read_csv('18S-V4-2018/otu_table.updated.tsv', sep='\t')
-# df = pd.concat([v4, v9])
-df = pd.read_csv('Stramenopiles.tsv', sep='\t')
+os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/')
+
+#several OTU tables
+v9 = pd.read_csv('Lane26_18S_V9/otu_table.no_chimera.updated.only_euks.above99.tsv', sep='\t')
+v4 = pd.read_csv('18S-V4-2018/otu_table.no_chimera.updated.only_euks.above99.tsv', sep='\t')
+v4_sed = pd.read_csv('V4-sediment/otu_table.no_chimera.updated.only_euks.above99.tsv', sep='\t')
+df = pd.concat([v4, v4_sed, v9])
+
+#one OTU table
+# df = pd.read_csv('otu_table.no_chimera.updated.only_euks.above99.tsv', sep='\t')
+
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5']] = df.taxonomy.str.split('|', 4, expand=True)
 # print(df['rank3'])
 
@@ -17,6 +23,10 @@ total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
 # #SMALLER GROUPS
 # total = df.groupby(['rank3']).sum().filter(regex='\d+_.*', axis=1)
 
+#change to percentages
+total = (100 * total / total.sum()).round(2)
+
+#oil_sands
 # total = total[['L17May28BCR_S45', 'V9-BCR-May30-2018_S5', 'L17June4BCR_S53', 'V9-BCR-June04-2018_S7', 'L17June18BCR_S69', 
 # 	'V9-BCR-June18-2018_S32', 'L17July3BCR_S85', 'V9-BCR-July03-2018_S34', 'L17July16BCR_S100', 'V9-BCR-July16-2018_S36', 
 # 	'L20BCRAug2018_S158', 'V9-BCR-pIN-Aug20-2018_S55', 'L20BCRAug2718_S166', 'L22BCRinSept1018_S119', 'V9-BCR-pIN-Sept12-2018_S56', 
@@ -47,9 +57,7 @@ total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
 # 	'V9-WIP-Nov23-2010_S3']]
 # print(total)
 
-#change to percentages
-total = (100 * total / total.sum()).round(2)
-
+#SL_Euglenozoa
 total = total[['14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC',
 	'1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', 
 	'5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', 

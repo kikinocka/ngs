@@ -21,6 +21,8 @@ with open('otu_table.V9DS.no_chimera.2+samples.only_euks.updated.tsv', 'w') as o
 			line = line.replace('Obazoa', 'Ancyromonadida')
 		elif 'Picozoa' in line:
 			line = line.replace('Cryptista', 'Archaeplastida')
+		elif 'Hacrobia' in line:
+			line = line.replace('Hacrobia', 'Cryptista')
 		elif 'Telonemia' in line:
 			line = line.replace('Haptista', 'Telonemia')
 		elif 'Mantamonas' in line:
