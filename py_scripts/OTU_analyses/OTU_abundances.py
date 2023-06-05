@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/')
 
-out_perc = open('supergroups/otu_percentages.above9.no_Metazoa_Embryophyceae.tsv', 'w')
+out_perc = open('supergroups/otu_counts.above9.no_Metazoa_Embryophyceae.tsv', 'w')
 #several OTU tables
 v9 = pd.read_csv('Lane26_18S_V9/otu_table.no_chimera.updated.only_euks.above9.no_Metazoa_Embryophyceae.tsv', sep='\t')
 v4 = pd.read_csv('18S-V4-2018/otu_table.no_chimera.updated.only_euks.above9.no_Metazoa_Embryophyceae.tsv', sep='\t')
@@ -28,8 +28,8 @@ total = df.groupby(['rank2']).sum().filter(regex='.*_S\d+', axis=1)
 # #SMALLER GROUPS
 # total = df.groupby(['rank3']).sum().filter(regex='\d+_.*', axis=1)
 
-#change to percentages
-total = (100 * total / total.sum()).round(2)
+# #change to percentages
+# total = (100 * total / total.sum()).round(2)
 
 #oil_sands
 total = total[['L16Feb12P10m_S209', 'V9-Feb12-2018-P1-0m_S9', 'V9-Feb12-2018-P1-2m_S10', 'L16Feb12P14m_S211', 
