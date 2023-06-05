@@ -5,15 +5,16 @@ import matplotlib.pyplot as plt
 
 os.chdir('/Users/kika/ownCloud/oil_sands/amplicons/')
 
+out_perc = open('supergroups/otu_percentages.above9.no_Metazoa_Embryophyceae.tsv', 'w')
 #several OTU tables
-v9 = pd.read_csv('Lane26_18S_V9/otu_table.no_chimera.updated.only_euks.above99.no_Metazoa_Embryophyceae.tsv', sep='\t')
-v4 = pd.read_csv('18S-V4-2018/otu_table.no_chimera.updated.only_euks.above99.no_Metazoa_Embryophyceae.tsv', sep='\t')
-v4_sed = pd.read_csv('V4-sediment/otu_table.no_chimera.updated.only_euks.above99.no_Metazoa_Embryophyceae.tsv', sep='\t')
+v9 = pd.read_csv('Lane26_18S_V9/otu_table.no_chimera.updated.only_euks.above9.no_Metazoa_Embryophyceae.tsv', sep='\t')
+v4 = pd.read_csv('18S-V4-2018/otu_table.no_chimera.updated.only_euks.above9.no_Metazoa_Embryophyceae.tsv', sep='\t')
+v4_sed = pd.read_csv('V4-sediment/otu_table.no_chimera.updated.only_euks.above9.no_Metazoa_Embryophyceae.tsv', sep='\t')
 df = pd.concat([v4, v4_sed, v9])
-print(df)
+# print(df)
 
 #one OTU table
-# df = pd.read_csv('otu_table.no_chimera.updated.only_euks.above99.tsv', sep='\t')
+# df = pd.read_csv('otu_table.no_chimera.updated.only_euks.above9.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5']] = df.taxonomy.str.split('|', 4, expand=True)
 # print(df['rank3'])
@@ -61,37 +62,37 @@ total = total[['L16Feb12P10m_S209', 'V9-Feb12-2018-P1-0m_S9', 'V9-Feb12-2018-P1-
 	'V9-SWIP-Nov17-2018_S80']]
 # print(total)
 
-# #SL_Euglenozoa
-# total = total[['14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC',
-# 	'1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', 
-# 	'5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', 
-# 	'11_TCAAGT', '12_AGGCCT', '13_CGTGAT',
-# 	'9_GCTTAC', '10_GCGATT']]
+# # #SL_Euglenozoa
+# # total = total[['14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC',
+# # 	'1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', 
+# # 	'5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', 
+# # 	'11_TCAAGT', '12_AGGCCT', '13_CGTGAT',
+# # 	'9_GCTTAC', '10_GCGATT']]
 
-# total = total.filter(regex='.*MLSB.*', axis=1)
-# total = total.drop(total.filter(regex='.*SWIP.*').columns, axis=1)
+# # total = total.filter(regex='.*MLSB.*', axis=1)
+# # total = total.drop(total.filter(regex='.*SWIP.*').columns, axis=1)
 
 transformed = total.T
-# print(transformed)
-# print(transformed.columns)
-# print(transformed.index)
-# print(transformed.size)
-# transformed = transformed.drop('V9-Oct10-2018-P3S_S72', axis=0)
+# # print(transformed)
+# # print(transformed.columns)
+# # print(transformed.index)
+# # print(transformed.size)
+# # transformed = transformed.drop('V9-Oct10-2018-P3S_S72', axis=0)
 
-# #SL_Euglenozoa
-# transformed = transformed[['No_hit', 'Eukaryota_X', 
-# 	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
-# 	'Haptista', 'Cryptista', 'Archaeplastida', 
-# 	'Amoebozoa', 'Obazoa', 'CRuMs', 
-# 	'Metamonada', 'Discoba', 
-# 	'Malawimonadidae', 'Ancyromonadida']]
+# # #SL_Euglenozoa
+# # transformed = transformed[['No_hit', 'Eukaryota_X', 
+# # 	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
+# # 	'Haptista', 'Cryptista', 'Archaeplastida', 
+# # 	'Amoebozoa', 'Obazoa', 'CRuMs', 
+# # 	'Metamonada', 'Discoba', 
+# # 	'Malawimonadidae', 'Ancyromonadida']]
 
-# colors = ['#000000', '#A7A7A7', 
-# 	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 
-# 	'#FAEBD7', '#FFFF99', '#009444', 
-# 	'#1F78B4', '#C9C9C9', '#CD950B',
-# 	'#7FFFD4', '#A6CEE3', 
-# 	'#BCDEB4', '#FFD9C6']
+# # colors = ['#000000', '#A7A7A7', 
+# # 	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 
+# # 	'#FAEBD7', '#FFFF99', '#009444', 
+# # 	'#1F78B4', '#C9C9C9', '#CD950B',
+# # 	'#7FFFD4', '#A6CEE3', 
+# # 	'#BCDEB4', '#FFD9C6']
 
 
 #oil_sands
@@ -100,34 +101,36 @@ transformed = transformed[['Eukaryota_X',
 	'Haptista', 'Cryptista', 'Archaeplastida', 
 	'Amoebozoa', 'Obazoa',
 	'Metamonada', 'Discoba']]
+transformed.to_csv(out_perc, sep='\t')
+print(transformed)
 
-colors = ['#A7A7A7', 
-	'#CAB2D6', '#FB9A99', '#B2DF8A', 
-	'#FAEBD7', '#FFFF99', '#009444', 
-	'#1F78B4', '#C9C9C9',
-	'#7FFFD4', '#A6CEE3']
+# colors = ['#A7A7A7', 
+# 	'#CAB2D6', '#FB9A99', '#B2DF8A', 
+# 	'#FAEBD7', '#FFFF99', '#009444', 
+# 	'#1F78B4', '#C9C9C9',
+# 	'#7FFFD4', '#A6CEE3']
 
 
-ax = transformed.plot(kind='barh', stacked=True, color=colors, width=0.5, align='center', figsize=(7,10))
-# ax = transformed.plot(kind='barh', stacked=True, width=0.5, align='center')
-# 
-# ax.set_xlabel('OTU abundances', fontsize=5)
-ax.set_xlabel('OTU abundances [%]', fontsize=5)
-ax.set_ylabel('sample', fontsize=5)
-plt.xticks(fontsize=4)
-plt.yticks(fontsize=4)
-ax.xaxis.set_tick_params(width=0.5)
-ax.yaxis.set_tick_params(width=0.5)
-ax.xaxis.grid(True, which='major', linestyle='-', linewidth=0.25)
-ax.invert_yaxis()
-ax.set_axisbelow(True)
-ax.spines['right'].set_visible(False)
-ax.spines['left'].set_linewidth(0.6)
-ax.spines['top'].set_visible(False)
-ax.spines['bottom'].set_linewidth(0.6)
-ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=4, frameon=False)
-# ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
-plt.tight_layout()
-# plt.show()
-# plt.savefig('supergroups/supergroups_counts.above99.no_Metazoa_Embryophyceae.pdf', dpi=300)
-plt.savefig('supergroups/supergroups_percentages.above99.no_Metazoa_Embryophyceae.pdf', dpi=300)
+# ax = transformed.plot(kind='barh', stacked=True, color=colors, width=0.5, align='center', figsize=(7,10))
+# # ax = transformed.plot(kind='barh', stacked=True, width=0.5, align='center')
+# # 
+# # ax.set_xlabel('OTU abundances', fontsize=5)
+# ax.set_xlabel('OTU abundances [%]', fontsize=5)
+# ax.set_ylabel('sample', fontsize=5)
+# plt.xticks(fontsize=4)
+# plt.yticks(fontsize=4)
+# ax.xaxis.set_tick_params(width=0.5)
+# ax.yaxis.set_tick_params(width=0.5)
+# ax.xaxis.grid(True, which='major', linestyle='-', linewidth=0.25)
+# ax.invert_yaxis()
+# ax.set_axisbelow(True)
+# ax.spines['right'].set_visible(False)
+# ax.spines['left'].set_linewidth(0.6)
+# ax.spines['top'].set_visible(False)
+# ax.spines['bottom'].set_linewidth(0.6)
+# ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=4, frameon=False)
+# # ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
+# plt.tight_layout()
+# # plt.show()
+# # plt.savefig('supergroups/supergroups_counts.above9.no_Metazoa_Embryophyceae.pdf', dpi=300)
+# plt.savefig('supergroups/supergroups_percentages.above9.no_Metazoa_Embryophyceae.pdf', dpi=300)
