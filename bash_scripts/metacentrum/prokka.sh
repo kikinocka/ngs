@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 conda activate prokka 
 
 genome='bin.1.fa'
-prokka --addgenes --addmrna --cpus $PBS_NUM_PPN --outdir $SCRATCHDIR $genome 
+prokka --addgenes --addmrna --cpus $PBS_NUM_PPN $genome 
 
 #copy files back
 rm $genome
