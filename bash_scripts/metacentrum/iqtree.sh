@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add iqtree-1.6.12
 
-datadir='/storage/brno3-cerit/home/kika/diplonema/pno/ver3/'
+datadir='/storage/brno3-cerit/home/kika/diplonema/pno/ver4/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
