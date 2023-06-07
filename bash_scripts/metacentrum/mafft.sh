@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 # module add mafft-7.453
 module add mafft-7.487 
 
-data_dir='/storage/brno3-cerit/home/kika/diplonema/pno/ver4'
+data_dir='/storage/brno3-cerit/home/kika/diplonema/isopropanol_dehydrogenase'
 
 #copy files to scratch
 cp $data_dir'/'*fa $SCRATCHDIR
