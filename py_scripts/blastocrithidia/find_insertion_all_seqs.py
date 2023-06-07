@@ -6,10 +6,10 @@ from collections import OrderedDict, defaultdict
 
 os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/aa-tRNA-synthetases/20210123-check/mafft/')
 files = os.listdir()
-ins_results = open('ins.txt', 'w')
-del_results = open('del.txt', 'w')
-len_results = open('prot_len.txt', 'w')
-errors = open('errors.txt', 'w')
+ins_results = open('ins.test.txt', 'w')
+del_results = open('del.test.txt', 'w')
+len_results = open('prot_len.test.txt', 'w')
+errors = open('errors.test.txt', 'w')
 
 def find_insertion(aln_file):
 	aln = AlignIO.read(aln_file, 'fasta')
