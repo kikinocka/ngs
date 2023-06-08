@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/companion/Omod/')
-gff = open('scaffold.out.gff3')
-accfile = open('accessions_conversion.txt')
-out = 'Omod_proteins.gff'
+os.chdir('/Users/kika/ownCloud/blastocrithidia/transcriptome_assembly/')
+gff = open('p57_cufflinks.gtf')
+accfile = open('full_scaffold_names.txt')
+out = 'p57_cufflinks.renamed.gtf'
 
 accessions = {}
 for line in accfile:
