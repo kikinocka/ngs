@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=70gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -28,8 +28,8 @@ for file in *.fa ; do
 	aln=${file%.fa}.mafft.aln
 	log=${file%.fa}.mafft.log
 
-	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	mafft --auto --inputorder ${file} > ${aln} 2> ${log}
 done
 
 
