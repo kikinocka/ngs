@@ -3,8 +3,8 @@
 cd '/mnt/mokosz/home/kika/workdir'
 
 for fasta in *.fa; do
-	aln=${fasta%.fa}.muscle.aln
-	log=${fasta%.fa}.muscle.log
+	aln=${fasta%.fa}.muscle_super5.aln
+	log=${fasta%.fa}.muscle_super5.log
 	muscle -super5 $fasta -output $aln 2> $log
 done
 
