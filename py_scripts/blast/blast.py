@@ -4,14 +4,14 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/mnt/data/kika/blastocrithidia/proteins/btri_nohit.fa'
-db = '/mnt/data/kika/references/uniprot_sprot.fasta'
-out = '/mnt/data/kika/blastocrithidia/proteins/btri_nohit.fwd_uniprot.blast.xml'
+query = '/Users/kika/ownCloud/amoebophrya/eRF1/input.fa'
+db = '/Users/kika/ownCloud/amoebophrya/proteins/Amoebophrya_AT5.2.faa'
+out = '/Users/kika/ownCloud/amoebophrya/eRF1/AT5.2.fwd_eRF1.blast.xml'
 evalue = 1e-05
 outfmt = 5
 hits = 1
 word_size = 3
-threads = 10
+threads = 6
 
 print('running BLAST')
 #query - database
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/mnt/data/kika/blastocrithidia/proteins/btri_nohit.fwd_uniprot.blast.tsv', 'w')
-out_best = open('/mnt/data/kika/blastocrithidia/proteins/btri_nohit.fwd_uniprot.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/amoebophrya/eRF1/AT5.2.fwd_eRF1.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/amoebophrya/eRF1/AT5.2.fwd_eRF1.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
