@@ -27,7 +27,7 @@ guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
 
-iqtree2 -m TEST -madd -madd C10,C20,C30,C40,C50,C60,LG4M,LG4X,LG+F+G,LG+C10+F+G,LG+C20+F+G,LG+C30+F+G,LG+C40+F+G,LG+C60+F+G \
+iqtree2 -m TEST -madd C10,C20,C30,C40,C50,C60,LG4M,LG4X,LG+F+G,LG+C10+F+G,LG+C20+F+G,LG+C30+F+G,LG+C40+F+G,LG+C60+F+G \
 	-B $bb --nmax $nm -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln
 
 # iqtree -m TEST -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
