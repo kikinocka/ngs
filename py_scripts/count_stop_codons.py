@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 
-os.chdir('/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/Gertraud/')
-files = [x for x in os.listdir() if x.endswith('.fna')]
+os.chdir('/Users/kika/data/ciliates/')
+files = [x for x in os.listdir() if x.endswith('CDS.fasta')]
 
 
 
@@ -24,20 +24,12 @@ for file in files:
 		for seq in SeqIO.parse(file, 'fasta'):
 			seq.seq = seq.seq.upper()
 			if seq.seq[-3:] == 'TAA':
-				print(seq.description)
-				print(seq.seq[-3:])
 				taa += 1
 			elif seq.seq[-3:] == 'TAG':
-				print(seq.description)
-				print(seq.seq[-3:])
 				tag += 1
 			elif seq.seq[-3:] == 'TGA':
-				print(seq.description)
-				print(seq.seq[-3:])
 				tga += 1
 			else:
-				print(seq.description)
-				print(seq.seq[-3:])
 				if seq.seq[-3:] not in ambig:
 					ambig[seq.seq[-3:]] = 1
 				else:

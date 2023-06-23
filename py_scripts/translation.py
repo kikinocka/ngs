@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/data/kika/blastocrithidia/genomes/final_assemblies/')
-infile = SeqIO.parse('Bfru_genome_final_masked.fa', 'fasta')
-output = open('translated/Bfru_genome_final_masked.translated.fa', 'w')
-error = open('translated/Bfru_genome_final_masked.errors.fa', 'w')
+os.chdir('/Users/kika/')
+infile = SeqIO.parse('bnon.fna', 'fasta')
+output = open('bnon.translated.fa', 'w')
+error = open('bnon.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
