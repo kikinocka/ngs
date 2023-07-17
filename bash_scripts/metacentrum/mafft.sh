@@ -13,7 +13,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa'
 
 #copy files to scratch
 cp $data_dir'/'*fa $SCRATCHDIR
@@ -21,8 +21,8 @@ cp $data_dir'/'*fa $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
 
-# #compute on scratch
-# cd $SCRATCHDIR
+#compute on scratch
+cd $SCRATCHDIR
 
 # #align de-novo
 # for file in *.fa ; do
