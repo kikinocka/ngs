@@ -16,7 +16,7 @@ module load mafft
 data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa'
 
 #copy files to scratch
-cp $data_dir'/'*fa $SCRATCHDIR
+cp $data_dir'/'* $SCRATCHDIR
 # cp $data_dir'outgroup.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
