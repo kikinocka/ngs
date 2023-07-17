@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=70gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -67,7 +67,7 @@ mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2>
 # echo 'Alignments merged'
 
 #copy files back
-rm *.fa
-# rm $existing $add
+# rm *.fa
+rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir
