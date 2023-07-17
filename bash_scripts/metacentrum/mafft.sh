@@ -16,7 +16,7 @@ module load mafft
 data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa'
 
 #copy files to scratch
-cp $data_dir'/'* $SCRATCHDIR
+cp $data_dir'/'*fa $SCRATCHDIR
 # cp $data_dir'outgroup.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -24,26 +24,26 @@ cp $data_dir'/'* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-# #align de-novo
-# for file in *.fa ; do
-# 	echo $file
-# 	aln=${file%.fa}.mafft_linsi.aln
-# 	log=${file%.fa}.mafft_linsi.log
+#align de-novo
+for file in *.fa ; do
+	echo $file
+	aln=${file%.fa}.mafft.aln
+	log=${file%.fa}.mafft.log
 
-# 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-# 	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
-# done
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --auto --inputorder ${file} > ${aln} 2> ${log}
+done
 
 
-#add to aligned sequences
-existing='euglenozoa.mafft.aln'
-add='V9.fa'
-aln='euglenozoa_V9.mafft.aln'
-log='euglenozoa_V9.mafft.log'
+# #add to aligned sequences
+# existing='euglenozoa.mafft.aln'
+# add='V9.fa'
+# aln='euglenozoa_V9.mafft.aln'
+# log='euglenozoa_V9.mafft.log'
 
-mafft --version 2> $log
-# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# mafft --version 2> $log
+# # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
@@ -67,7 +67,7 @@ mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2>
 # echo 'Alignments merged'
 
 #copy files back
-# rm *.fa
-rm $existing $add
+rm *.fa
+# rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir
