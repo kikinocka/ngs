@@ -41,7 +41,7 @@ add='V9.fa'
 aln='euglenozoa_V9.mafft.aln'
 log='euglenozoa_V9.mafft.log'
 
-mafft --version 2> log
+mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
