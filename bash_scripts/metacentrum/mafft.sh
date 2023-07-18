@@ -13,26 +13,26 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/v9'
 
 #copy files to scratch
-cp $data_dir'euglenozoa.mafft.aln' $SCRATCHDIR
-cp $data_dir'V9.mafft.aln' $SCRATCHDIR
+cp $data_dir'/'*fa $SCRATCHDIR
+# cp $data_dir'V9.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-# #align de-novo
-# for file in *.fa ; do
-# 	echo $file
-# 	aln=${file%.fa}.mafft.aln
-# 	log=${file%.fa}.mafft.log
+#align de-novo
+for file in *.fa ; do
+	echo $file
+	aln=${file%.fa}.mafft.aln
+	log=${file%.fa}.mafft.log
 
-# 	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-# 	mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
-# done
+	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
+done
 
 
 # #add to aligned sequences
@@ -46,25 +46,25 @@ cd $SCRATCHDIR
 # mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
 
-#merge alignments and fasta files
-# maketable='/software/mafft/7.487/core/makemergetable.rb'
-aln1='euglenozoa.mafft.aln'
-# fasta='outgroup.fa'
-aln2='V9.mafft.aln'
-input='euglenozoa_V9.in'
-table='euglenozoa_V9.table'
-out='euglenozoa_V9.mafft_merge.aln'
-log='euglenozoa_V9.mafft_merge.log'
+# #merge alignments and fasta files
+# # maketable='/software/mafft/7.487/core/makemergetable.rb'
+# aln1='euglenozoa.mafft.aln'
+# # fasta='outgroup.fa'
+# aln2='V9.mafft.aln'
+# input='euglenozoa_V9.in'
+# table='euglenozoa_V9.table'
+# out='euglenozoa_V9.mafft_merge.aln'
+# log='euglenozoa_V9.mafft_merge.log'
 
-cat $aln1 $aln2 > $input
-# cat $aln1 $fasta > $input
-echo 'Alignments concatenated'
-makemergetable.rb $aln1 $aln2 > $table
-# ruby $makemergetable $aln1 > $table
-echo 'Table prepared'
-# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
-mafft --thread $PBS_NUM_PPN --merge $table $input > $out 2> $log
-echo 'Alignments merged'
+# cat $aln1 $aln2 > $input
+# # cat $aln1 $fasta > $input
+# echo 'Alignments concatenated'
+# makemergetable.rb $aln1 $aln2 > $table
+# # ruby $makemergetable $aln1 > $table
+# echo 'Table prepared'
+# # mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
+# mafft --thread $PBS_NUM_PPN --merge $table $input > $out 2> $log
+# echo 'Alignments merged'
 
 #copy files back
 # rm *.fa
