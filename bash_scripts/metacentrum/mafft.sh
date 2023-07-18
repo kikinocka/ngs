@@ -50,7 +50,7 @@ cd $SCRATCHDIR
 # maketable='/software/mafft/7.487/core/makemergetable.rb'
 aln1='euglenozoa.mafft.aln'
 # fasta='outgroup.fa'
-aln2='v9.mafft.aln'
+aln2='V9.mafft.aln'
 input='euglenozoa_V9.in'
 table='euglenozoa_V9.table'
 out='euglenozoa_V9.mafft_merge.aln'
