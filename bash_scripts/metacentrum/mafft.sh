@@ -13,11 +13,11 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/heterolobosea'
 
 #copy files to scratch
-cp $data_dir'euglenozoa.mafft.aln' $SCRATCHDIR
-cp $data_dir'v9/v9_0.mafft.aln' $SCRATCHDIR
+cp $data_dir'/'* $SCRATCHDIR
+# cp $data_dir'v9/v9_0.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
 
@@ -35,39 +35,39 @@ cd $SCRATCHDIR
 # done
 
 
-# #add to aligned sequences
-# existing='euglenozoa.mafft.aln'
-# add='V9.fa'
-# aln='euglenozoa_V9.mafft.aln'
-# log='euglenozoa_V9.mafft.log'
+#add to aligned sequences
+existing='heterolobosea.mafft.aln'
+add='V9.fa'
+aln='heterolobosea_V9.mafft.aln'
+log='heterolobosea_V9.mafft.log'
 
-# mafft --version 2> $log
-# # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+mafft --version 2> $log
+# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
 
-#merge alignments and fasta files
-# maketable='/software/mafft/7.487/core/makemergetable.rb'
-aln1='euglenozoa.mafft.aln'
-# fasta='outgroup.fa'
-aln2='v9_0.mafft.aln'
-input='euglenozoa_V9_0.in'
-table='euglenozoa_V9_0.table'
-out='euglenozoa_V9_0.mafft_merge.aln'
-log='euglenozoa_V9_0.mafft_merge.log'
+# #merge alignments and fasta files
+# # maketable='/software/mafft/7.487/core/makemergetable.rb'
+# aln1='euglenozoa.mafft.aln'
+# # fasta='outgroup.fa'
+# aln2='v9_0.mafft.aln'
+# input='euglenozoa_V9_0.in'
+# table='euglenozoa_V9_0.table'
+# out='euglenozoa_V9_0.mafft_merge.aln'
+# log='euglenozoa_V9_0.mafft_merge.log'
 
-cat $aln1 $aln2 > $input
-# cat $aln1 $fasta > $input
-echo 'Alignments concatenated'
-makemergetable.rb $aln1 $aln2 > $table
-# ruby $makemergetable $aln1 > $table
-echo 'Table prepared'
-# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
-mafft --thread $PBS_NUM_PPN --merge $table $input > $out 2> $log
-echo 'Alignments merged'
+# cat $aln1 $aln2 > $input
+# # cat $aln1 $fasta > $input
+# echo 'Alignments concatenated'
+# makemergetable.rb $aln1 $aln2 > $table
+# # ruby $makemergetable $aln1 > $table
+# echo 'Table prepared'
+# # mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --merge $table $input > $out 2> $log
+# mafft --thread $PBS_NUM_PPN --merge $table $input > $out 2> $log
+# echo 'Alignments merged'
 
 #copy files back
 # rm *.fa
-# rm $existing $add
-rm $aln1 $aln2
-cp * $data_dir'help_alns/'
+rm $existing $add
+# rm $aln1 $aln2
+cp * $data_dir
