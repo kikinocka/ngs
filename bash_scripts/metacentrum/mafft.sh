@@ -13,10 +13,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/heterolobosea'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/v9'
 
 #copy files to scratch
-cp $data_dir'/'* $SCRATCHDIR
+cp $data_dir'/'*.fa $SCRATCHDIR
 # cp $data_dir'v9/v9_0.mafft.aln' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -24,26 +24,26 @@ cp $data_dir'/'* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-# #align de-novo
-# for file in *.fa ; do
-# 	echo $file
-# 	aln=${file%.fa}.mafft.aln
-# 	log=${file%.fa}.mafft.log
+#align de-novo
+for file in *.fa ; do
+	echo $file
+	aln=${file%.fa}.mafft.aln
+	log=${file%.fa}.mafft.log
 
-# 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-# 	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
-# done
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
+done
 
 
-#add to aligned sequences
-existing='heterolobosea.mafft.aln'
-add='V9.fa'
-aln='heterolobosea_V9.mafft.aln'
-log='heterolobosea_V9.mafft.log'
+# #add to aligned sequences
+# existing='heterolobosea.mafft.aln'
+# add='V9.fa'
+# aln='heterolobosea_V9.mafft.aln'
+# log='heterolobosea_V9.mafft.log'
 
-mafft --version 2> $log
-# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# mafft --version 2> $log
+# # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
@@ -67,7 +67,7 @@ mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2>
 # echo 'Alignments merged'
 
 #copy files back
-# rm *.fa
-rm $existing $add
+rm *.fa
+# rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir

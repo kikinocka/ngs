@@ -25,7 +25,7 @@ cd $SCRATCHDIR
 
 aln='heterolobosea_V9.trimal_gt-0.25_cons-50.aln'
 tree='RAxML_bipartitions.heterolobosea3'
-out='EPARUN'
+out='EPARUN_heterolobosea'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN
 
