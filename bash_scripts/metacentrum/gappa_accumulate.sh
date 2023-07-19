@@ -18,7 +18,7 @@ cp $data'RAxML_portableTree.EPARUN.jplace' $SCRATCHDIR
 cd $SCRATCHDIR
 
 jplace='RAxML_portableTree.EPARUN.jplace'
-prefix=${jplace%.jplace}.accumulated.jplace
+prefix=${jplace%.jplace}.accumulated
 log=${jplace%.jplace}.accumulated.log
 threshold=0.8
 
