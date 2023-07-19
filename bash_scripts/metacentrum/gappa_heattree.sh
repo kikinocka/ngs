@@ -19,11 +19,11 @@ cd $SCRATCHDIR
 
 for file in *.jplace ; do
 	echo $file
-	log=${jplace%.jplace}.heattree.log
+	prefix=${file%.jplace}
+	log=${file%.jplace}.heattree.log
 
-	$gappa examine heat-tree --jplace-path $file --file-prefix $prefix \
-		--write-nexus-tree --write-svg-tree --svg-tree-shape rectangular --svg-tree-type phylogram \
-		--threads $PBS_NUM_PPN --log-file $log
+	$gappa examine heat-tree --jplace-path $file --file-prefix $prefix --log-file $log --threads $PBS_NUM_PPN \
+		--write-nexus-tree --write-svg-tree --svg-tree-shape rectangular --svg-tree-type phylogram
 done
 
 #copy files back
