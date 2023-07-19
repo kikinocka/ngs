@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N gappa
+#PBS -N gappa_accumulate
 #PBS -l select=1:ncpus=20:mem=5gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -18,10 +18,11 @@ cp $data'RAxML_portableTree.EPARUN.jplace' $SCRATCHDIR
 cd $SCRATCHDIR
 
 jplace='RAxML_portableTree.EPARUN.jplace'
-log='gappa.log'
+prefix=${jplace%.jplace}.accumulated.jplace
+log=${jplace%.jplace}.accumulated.log
 threshold=0.8
 
-$gappa edit accumulate --jplace-path $jplace --threshold $threshold --threads $PBS_NUM_PPN --log-file $log
+$gappa edit accumulate --jplace-path $jplace --threshold $threshold --file-prefix $prefix --threads $PBS_NUM_PPN --log-file $log
 
 
 #copy files back
