@@ -17,7 +17,7 @@ data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/
 
 #copy files to scratch
 cp $data_dir'euglenozoa.mafft.aln' $SCRATCHDIR
-cp $data_dir'v9/1000/v9_0.fa' $SCRATCHDIR
+cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
 
@@ -37,9 +37,9 @@ cd $SCRATCHDIR
 
 #add to aligned sequences
 existing='euglenozoa.mafft.aln'
-add='v9_0.fa'
-aln='euglenozoa_v9_0.mafft.aln'
-log='euglenozoa_v9_0.mafft.log'
+add='V9.fa'
+aln='euglenozoa_V9.mafft_add.aln'
+log='euglenozoa_V9.mafft_add.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
