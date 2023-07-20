@@ -19,7 +19,7 @@ cd $SCRATCHDIR
 
 for file in *.jplace ; do
 	echo $file
-	prefix=${file%.jplace}
+	prefix=${file%jplace}
 	log=${file%.jplace}.lwr-hist.log
 
 	$gappa examine lwr-histogram --jplace-path $file --file-prefix $prefix --log-file $log --num-lwrs 3 --threads $PBS_NUM_PPN
