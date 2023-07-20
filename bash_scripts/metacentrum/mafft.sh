@@ -43,7 +43,7 @@ log='euglenozoa_V9.mafft_add.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-mafft --addfragments $add --keeplength --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
