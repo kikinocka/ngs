@@ -3,9 +3,9 @@ import os
 import pandas as pd
 
 
-os.chdir('/mnt/mokosz/home/kika/allDB/bacteria/rest/')
+os.chdir('/mnt/mokosz/home/kika/allDB/bacteria/all/')
 table = pd.read_excel('metamonada.xlsx', sheet_name='bacteria')
-errors = open('errors.txt')
+errors = open('errors.txt', 'w')
 
 for index, row in table.iterrows():
 	fname = row[4]

@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N gappa_edlp
+#PBS -N gappa_edpl
 #PBS -l select=1:ncpus=20:mem=5gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -19,8 +19,8 @@ cd $SCRATCHDIR
 
 for file in *.jplace ; do
 	echo $file
-	prefix=${file%.jplace}
-	log=${file%.jplace}.edlp.log
+	prefix=${file%jplace}
+	log=${file%.jplace}.edpl.log
 
 	$gappa examine edpl --jplace-path $file --file-prefix $prefix --log-file $log --threads $PBS_NUM_PPN
 		
