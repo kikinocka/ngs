@@ -12,19 +12,22 @@ data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/heterolobosea/p
 
 #copy files to scratch
 cp $data'RAxML_portableTree.EPARUN.jplace' $SCRATCHDIR
+cp $data'heterolobosea_tax.txt' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 jplace='RAxML_portableTree.EPARUN.jplace'
+taxonomy='heterolobosea_tax.txt'
 prefix=${jplace%.jplace}.assigned
 log=${jplace%.jplace}.assigned.log
 threshold=0.8
 
-$gappa examine assign --jplace-path $jplace --distribution-ratio $threshold --file-prefix $prefix --threads $PBS_NUM_PPN --log-file $log
+$gappa examine assign --jplace-path $jplace --distribution-ratio --taxon-file $taxonomy \
+	$threshold --file-prefix $prefix --threads $PBS_NUM_PPN --log-file $log
 
 
 #copy files back
-rm $jplace
+rm $jplace $taxonomy
 cp -R * $data
