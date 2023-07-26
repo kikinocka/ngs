@@ -16,7 +16,7 @@ module load mafft
 data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/all_euks/'
 
 #copy files to scratch
-cp $data_dir'mahe2017_dataset.aln.aln' $SCRATCHDIR
+cp $data_dir'mahe2017_dataset.aln' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -36,7 +36,7 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='mahe2017_dataset.aln.aln'
+existing='mahe2017_dataset.aln'
 add='V9.fa'
 aln='all_euks.mafft_add.aln'
 log='all_euks.mafft_add.log'
