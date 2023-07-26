@@ -13,10 +13,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/euglenozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/all_euks/'
 
 #copy files to scratch
-cp $data_dir'euglenozoa.mafft.aln' $SCRATCHDIR
+cp $data_dir'mahe2017_dataset.aln.aln' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='euglenozoa.mafft.aln'
+existing='mahe2017_dataset.aln.aln'
 add='V9.fa'
-aln='euglenozoa_V9.mafft_add.aln'
-log='euglenozoa_V9.mafft_add.log'
+aln='all_euks.mafft_add.aln'
+log='all_euks.mafft_add.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
