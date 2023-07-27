@@ -19,7 +19,7 @@ for index, row in table.iterrows():
 
 for file in proteins:
 	print(file)
-	with open('renamed/errors.txt', 'w') as errors and open('renamed/seq_dict.tsv') as seqdict:
+	with open('renamed/errors.txt', 'w') as errors and open('renamed/seq_dict.tsv', 'a') as seqdict:
 		c = 0
 		seqdict.write('original ID\treplaced ID\n')
 		if file in prot_dict.keys():
