@@ -3,8 +3,8 @@ import os
 import pandas as pd
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/allDB/eukaryotes/')
-table = pd.read_excel('database.xlsx', sheet_name='eukaryotes')
+os.chdir('/mnt/mokosz/home/kika/allDB/archaea/')
+table = pd.read_excel('database.xlsx', sheet_name='archaea')
 proteins = [x for x in os.listdir() if x.endswith('.faa')]
 
 
@@ -17,7 +17,7 @@ for index, row in table.iterrows():
 
 for file in proteins:
 	print(file)
-	with open('renamed/errors.txt', 'w') as errors, open('renamed/seq_dict.tsv', 'a') as seqdict:
+	with open('renamed/errors.txt', 'w') as errors, open('renamed/arc.seq_dict.tsv', 'a') as seqdict:
 		c = 0
 		seqdict.write('original ID\treplaced ID\n')
 		if file in prot_dict.keys():
