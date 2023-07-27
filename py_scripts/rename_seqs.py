@@ -21,7 +21,6 @@ for file in proteins:
 	print(file)
 	with open('renamed/errors.txt', 'w') as errors:
 		c = 0
-		seqdict.write('original ID\treplaced ID\n')
 		if file in prot_dict.keys():
 			with open('renamed/{}'.format(file), 'w') as out:
 				for seq in SeqIO.parse(file, 'fasta'):
