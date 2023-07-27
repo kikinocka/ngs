@@ -19,14 +19,13 @@ for index, row in table.iterrows():
 
 for file in proteins:
 	print(file)
-	with open('renamed/errors.txt', 'w') as errors, open('renamed/seq_dict.tsv', 'a') as seqdict:
+	with open('renamed/errors.txt', 'w') as errors:
 		c = 0
 		seqdict.write('original ID\treplaced ID\n')
 		if file in prot_dict.keys():
 			with open('renamed/{}'.format(file), 'w') as out:
 				for seq in SeqIO.parse(file, 'fasta'):
 					c += 1
-					out.write('>{}_{}\n{}\n'.format(prot_dict[file], c, seq.seq))
-					seqdict.write('{}\t{}_{}\n'.format(seq.description, prot_dict[file], c))
+					out.write('>{}_{} {}\n{}\n'.format(prot_dict[file], c, seq.description, seq.seq))
 		else:
 			errors.write('{}: Not found\n'.format(file))
