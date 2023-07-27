@@ -16,9 +16,11 @@ for index, row in table.iterrows():
 	prot_dict[fname] = pname
 
 for file in proteins:
+	c = 0
 	if file in prot_dict.keys():
 		with open('renamed/{}'.format(file), 'w') as out:
 			for seq in SeqIO.parse(file, 'fasta'):
-				out.write('>{}\n{}\n'.format(prot_dict[file], seq.seq))
+				c += 1
+				out.write('>{}_{}\n{}\n'.format(prot_dict[file], c, seq.seq))
 	else:
 		print('{}: Not found\n'.format(file))
