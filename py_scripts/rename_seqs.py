@@ -2,19 +2,22 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
-proteins = SeqIO.parse('bnonstop_predicted_proteins.fasta', 'fasta')
-table = open('bnonstop_func_annot.tsv')
+os.chdir('/mnt/mokosz/home/kika/allDB/eukaryotes/')
+table = pd.read_excel('database.xlsx', sheet_name='eukaryotes')
+proteins = [x for x in os.listdir() if x.endswith('.faa')]
 
-annotation = {}
-for line in table:
-	accession = line.split('\t')[0].split(' ')[0]
-	try:
-		annot = ' | ' + line.split('\t')[3].split('|')[4].split('=')[1].strip() + ' | homolog of ' + line.split('\t')[3].split('|')[2].split('=')[1].strip()
-	except:
-		annot = ' | hypothetical protein'
-	annotation[accession] = annot
 
-with open('bnonstop_proteins_annotated.fa', 'w') as out:
-	for seq in proteins:		
-		out.write('>{}{}\n{}\n'.format(seq.name, annotation[seq.name], seq.seq))
+prot_dict = {}
+for index, row in table.iterrows():
+	fname = row[4]
+	pname = row[6]
+	print(fname)
+	prot_dict[fname] = pname
+
+for file in proteins:
+	if file in prot_dict.keys():
+		with open('renamed/{}'.format(file), 'w') as out:
+			for seq in SeqIO.parse(file, 'fasta'):
+				out.write('>{}\n{}\n'.format(prot_dict[file], seq.seq))
+	else:
+		print('{}: Not found\n'.format(file))
