@@ -12,15 +12,19 @@ prot_dict = {}
 for index, row in table.iterrows():
 	fname = row[4]
 	pname = row[6]
-	print(fname)
-	prot_dict[fname] = pname
+	if fname == '-':
+		pass
+	else:
+		prot_dict[fname] = pname
 
 for file in proteins:
-	c = 0
-	if file in prot_dict.keys():
-		with open('renamed/{}'.format(file), 'w') as out:
-			for seq in SeqIO.parse(file, 'fasta'):
-				c += 1
-				out.write('>{}_{}\n{}\n'.format(prot_dict[file], c, seq.seq))
-	else:
-		print('{}: Not found\n'.format(file))
+	print(file)
+	with open('renamed/errors.txt', 'w') as errors:
+		c = 0
+		if file in prot_dict.keys():
+			with open('renamed/{}'.format(file), 'w') as out:
+				for seq in SeqIO.parse(file, 'fasta'):
+					c += 1
+					out.write('>{}_{}\n{}\n'.format(prot_dict[file], c, seq.seq))
+		else:
+			errors.write('{}: Not found\n'.format(file))
