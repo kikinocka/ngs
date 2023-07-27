@@ -10,12 +10,10 @@ proteins = [x for x in os.listdir() if x.endswith('.faa')]
 
 prot_dict = {}
 for index, row in table.iterrows():
-	fname = row[4]
-	pname = row[6]
-	if fname == '-':
+	if row[4] == '-':
 		pass
 	else:
-		prot_dict[fname] = pname
+		prot_dict[row[4]] = row[6]
 
 for file in proteins:
 	print(file)
