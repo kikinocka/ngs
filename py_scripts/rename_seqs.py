@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import pandas as pd
 from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/allDB/eukaryotes/')
