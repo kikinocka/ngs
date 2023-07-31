@@ -13,10 +13,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/all_euks/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/metamonads/'
 
 #copy files to scratch
-cp $data_dir'mahe2017_dataset.aln' $SCRATCHDIR
+cp $data_dir'metamonads.mafft.aln' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'ciliates_outgroup_V9_above99.in' $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='mahe2017_dataset.aln'
+existing='metamonads.mafft.aln'
 add='V9.fa'
-aln='all_euks.mafft_add.aln'
-log='all_euks.mafft_add.log'
+aln='metamonads_V9.mafft.aln'
+log='metamonads_V9.mafft.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
@@ -67,7 +67,7 @@ mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $exist
 # echo 'Alignments merged'
 
 #copy files back
-rm *.fa
-# rm $existing $add
+# rm *.fa
+rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir

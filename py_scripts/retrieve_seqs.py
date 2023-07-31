@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/all_euks/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/metamonads/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
 database = '/Users/kika/ownCloud/SL_Euglenozoa/V9/global_dereplicated_1f_representatives.fas'
 
