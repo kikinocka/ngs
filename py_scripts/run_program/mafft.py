@@ -38,8 +38,8 @@ existing = 'old/above99/ciliates/ciliates.mafft.aln'
 add = 'ciliates/sequence.fasta'
 out = 'ciliates/ciliates.mafft.aln'
 log = 'ciliates/ciliates.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 
 # #merge alignments

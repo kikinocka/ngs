@@ -38,6 +38,9 @@ for row in rows:
 	row = row[1:]
 	combz = zip(headers, row)
 	combd = dict(combz)
+	# print(combd)
+	print(fname)
+	# print(row)
 
 	for key, value in combd.items():
 		if os.path.isdir('OGs/{}'.format(fname)) == True:
@@ -48,4 +51,4 @@ for row in rows:
 			pass
 		else:
 			with open('OGs/{}/{}.txt'.format(fname, key), 'w') as out:
-				out.write('{}\n'.format(value.replace(',', '\n')))	
+				out.write('{}\n'.format(value.replace(' ', '').replace(',', '\n')))

@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/ownCloud/archamoebae/Rho/')
-infile = SeqIO.parse('dicty.fa', 'fasta')
-out_fasta = open('dicty_deduplicated.fa', 'w')
-out_names = open('dicty_names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/ciliates/')
+infile = SeqIO.parse('CILIOPHORAupdate_2023_alignment(2).fas', 'fasta')
+out_fasta = open('CILIOPHORAupdate_2023_alignment(2)_deduplicated.fa', 'w')
+out_names = open('CILIOPHORAupdate_2023_alignment(2)_names.txt', 'w')
 
 # names = []
 # with open('RABs_deduplicated.fa', 'w') as out:	
