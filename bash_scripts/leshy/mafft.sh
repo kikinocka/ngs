@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #align denovo
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_fasta/'
 
 for f in *.fa ; do
 	echo $f
@@ -9,6 +9,8 @@ for f in *.fa ; do
 	log=${f%.fa}.mafft.log
 	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 done
+
+mv *mafft* ../OGs_mafft/
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT done
 
