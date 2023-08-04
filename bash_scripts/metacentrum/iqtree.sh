@@ -12,7 +12,7 @@ module add iqtree-1.6.12
 # source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 # module load iqtree
 
-datadir='/storage/brno3-cerit/home/kika/p57/amastins/ver2'
+datadir='/storage/brno3-cerit/home/kika/p57/amastins/ver2/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
