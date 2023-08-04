@@ -41,5 +41,3 @@ with open('taxa_counts.txt', 'w') as out:
 # 	for file in files:
 # 		count += len(open(file).readlines())
 # 	print(count)
-
-
