@@ -39,8 +39,11 @@ min_length='6'
 
 
 while read line; do
-	echo $line
+	# echo $line
+	mkdir $line
+	cd $line
 	$slap_mapper -g $genome -l $fwd -r $rev -a $gff -i $line -s $min_length
+	cd ..
 done < $kmers
 
 # $slap_mapper -g $genome -l $fwd -r $rev -a $gff -i $SL -s $min_length
