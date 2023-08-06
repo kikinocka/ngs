@@ -22,7 +22,7 @@ datadir='/storage/brno3-cerit/home/kika/blasto_comparative/slapmapper/kmers/btri
 cp $genome_dir'Btri_genome_final_masked.fa' $SCRATCHDIR
 cp $read_dir'btri_trimmed_1.fq.gz' $SCRATCHDIR
 cp $read_dir'btri_trimmed_2.fq.gz' $SCRATCHDIR
-cp $datadir'btri_kmers.txt' $SCRATCHDIR
+# cp $datadir'btri_kmers.txt' $SCRATCHDIR
 
 
 #run on scratch
@@ -32,21 +32,22 @@ touch 'btri_empty.gff'
 genome='Btri_genome_final_masked.fa'
 fwd='btri_trimmed_1.fq.gz'
 rev='btri_trimmed_1.fq.gz'
-kmers='btri_kmers.txt'
+# kmers='btri_kmers.txt'
 gff='btri_empty.gff'
 # SL='AACGCATTTTTTGTTACAGTTTCTGTACTTTATTG' #blastocrithidia
+SL='AGTTTCTGTACTTTATTG' #btri
 min_length='6'
 
 
-while read line; do
-	# echo $line
-	mkdir $line
-	cd $line
-	$slap_mapper -g $genome -l $fwd -r $rev -a $gff -i $line -s $min_length
-	cd ..
-done < $kmers
+# while read line; do
+# 	# echo $line
+# 	mkdir $line
+# 	cd $line
+# 	$slap_mapper -g $genome -l $fwd -r $rev -a $gff -i $line -s $min_length
+# 	cd ..
+# done < $kmers
 
-# $slap_mapper -g $genome -l $fwd -r $rev -a $gff -i $SL -s $min_length
+$slap_mapper -g $genome -l $fwd -r $rev -a $gff -i $SL -s $min_length
 
 #copy files back
 rm *.fa *fq.gz
