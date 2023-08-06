@@ -14,28 +14,29 @@ module load trimmomatic
 
 slap_mapper='/storage/brno2/home/kika/tools/SLaPMapper/SLaPMapper.pl'
 genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-read_dir='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_reads/'
-datadir='/storage/brno3-cerit/home/kika/blasto_comparative/slapmapper/consensus/braa/'
+read_dir='/storage/brno3-cerit/home/kika/blasto_comparative/frustrata/transcriptome_reads/'
+datadir='/storage/brno3-cerit/home/kika/blasto_comparative/slapmapper/consensus/bfru/'
 
 
 #copy files to scratch
-cp $genome_dir'Braa_genome_final_corrected2_masked.fa' $SCRATCHDIR || exit 1
-cp $read_dir'braa_trimmed_1.fq.gz' $SCRATCHDIR || exit 2
-cp $read_dir'braa_trimmed_2.fq.gz' $SCRATCHDIR || exit 3
+cp $genome_dir'Bfru_genome_final_masked.fa' $SCRATCHDIR || exit 1
+cp $read_dir'bfru_trimmed_1.fq.gz' $SCRATCHDIR || exit 2
+cp $read_dir'bfru_trimmed_2.fq.gz' $SCRATCHDIR || exit 3
 # cp $datadir'btri_kmers.txt' $SCRATCHDIR
 
 
 #run on scratch
 cd $SCRATCHDIR
-touch 'braa_empty.gff'
+touch 'bfru_empty.gff'
 
-genome='Braa_genome_final_corrected2_masked.fa'
-fwd='braa_trimmed_1.fq.gz'
-rev='braa_trimmed_1.fq.gz'
+genome='Bfru_genome_final_masked.fa'
+fwd='bfru_trimmed_1.fq.gz'
+rev='bfru_trimmed_1.fq.gz'
 # kmers='btri_kmers.txt'
-gff='braa_empty.gff'
+gff='bfru_empty.gff'
 # SL='AACGCATTTTTTGTTACAGTTTCTGTACTTTATTG' #blastocrithidia
-SL='AGTTTCTGTACTTTATTG' #braa
+SL='TACAGTTTCTGTACTTTATTG' #bfru
+# SL='AGTTTCTGTACTTTATTG' #btri, braa
 min_length='6'
 
 
