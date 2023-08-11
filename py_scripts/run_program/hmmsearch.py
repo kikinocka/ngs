@@ -36,9 +36,9 @@ for db in dbs:
 
 		os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/{}'.format(name))
 		# subprocess.call('cd {}'.format(name), shell=True)
-		subprocess.call('pwd', shell=True)
+		# subprocess.call('pwd', shell=True)
 	# 	out = orgn + '.' + name + '.hmmsearch.tsv'
-	# 	subprocess.call('hmmsearch --tblout {} --cpu 10 {} {}'.format(out, file, db), shell=True)
+		subprocess.call('hmmsearch --tblout {} --cpu 10 {} {}'.format(out, file, db), shell=True)
 		# subprocess.call('cd ..', shell=True)
 		os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/')
 
