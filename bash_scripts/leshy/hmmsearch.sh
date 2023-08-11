@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/mito_import_HMMs/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
 
 db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
@@ -11,11 +11,11 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 		echo $profile
 		folder='${profile%.hmm}'
 		mkdir $folder
-		cd folder
+		cd hmmsearch/folder
 		output=${db%.faa}'.'${profile%.hmm}.hmmsearch.table
 		threads=10
 		hmmsearch --tblout $output --cpu $threads $profile $db
-		cd ..
+		cd ../..
 	done
 done
 
