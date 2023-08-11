@@ -34,10 +34,10 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/')
-existing = 'SL_Euglenozoa/V9/metamonads/metamonads.mafft.aln'
-add = 'oil_sands/amplicons/Lane26_18S_V9/mlsb_metamonads/V9.fa'
-out = 'oil_sands/amplicons/Lane26_18S_V9/mlsb_metamonads/metamonads.mafft.aln'
-log = 'oil_sands/amplicons/Lane26_18S_V9/mlsb_metamonads/metamonads.mafft.log'
+existing = 'SL_Euglenozoa/V9/euglenozoa/euglenozoa.mafft.aln'
+add = 'oil_sands/amplicons/Lane26_18S_V9/euglenozoa/V9.fa'
+out = 'oil_sands/amplicons/Lane26_18S_V9/euglenozoa/euglenozoa_V9.mafft.aln'
+log = 'oil_sands/amplicons/Lane26_18S_V9/euglenozoa/euglenozoa_V9.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
