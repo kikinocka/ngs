@@ -10,12 +10,16 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 	for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 		echo $profile
 		folder=${profile%.hmm}
-		mkdir ./hmmsearch/$folder
-		cd ./hmmsearch/$folder
-		output=${db%.faa}'.'${profile%.hmm}.hmmsearch.table
-		threads=10
-		hmmsearch --tblout $output --cpu $threads $profile $db
-		cd ../..
+		mkdir /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
+		cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
+		output=$db | cut -d / -f8
+		output=$output'.'${profile%.hmm}.hmmsearch.tsv
+		echo $output
+		#output=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
+		# output=$orgn'_'${profile%.hmm}.hmmsearch.tsv
+		# threads=10
+		# hmmsearch --tblout $output --cpu $threads $profile $db
+		# cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/
 		sleep 5
 	done
 done
