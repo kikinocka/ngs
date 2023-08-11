@@ -40,5 +40,5 @@ for db in dbs:
 	# 	out = orgn + '.' + name + '.hmmsearch.tsv'
 	# 	subprocess.call('hmmsearch --tblout {} --cpu 10 {} {}'.format(out, file, db), shell=True)
 		# subprocess.call('cd ..', shell=True)
-		os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/'
+		os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/')
 
