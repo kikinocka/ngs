@@ -23,10 +23,10 @@ dbs = [x for x in os.listdir('/mnt/mokosz/home/kika/allDB/renamed/') if x.endswi
 
 os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/')
 for db in dbs:
-	print(db)
-	# orgn = db.split('.faa')[0]
-	# for file in files:
-	# 	print(file)
+	# print(db)
+	orgn = db.split('.faa')[0]
+	for file in files:
+		print(file)
 	# 	name = file.split('.hmm')[0]
 
 	# 	if os.path.isdir('{}'.format(name)) == True:
