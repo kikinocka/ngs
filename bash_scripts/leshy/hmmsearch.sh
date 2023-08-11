@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
 
 db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
@@ -14,7 +14,7 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 		cd ./hmmsearch/$folder
 		output=${db%.faa}'.'${profile%.hmm}.hmmsearch.table
 		threads=10
-		echo hmmsearch --tblout $output --cpu $threads $profile $db
+		hmmsearch --tblout $output --cpu $threads $profile $db
 		cd ../..
 		sleep 5
 	done
