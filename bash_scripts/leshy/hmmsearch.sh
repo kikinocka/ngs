@@ -14,7 +14,7 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 		cd ./hmmsearch/$folder
 		output=${db%.faa}'.'${profile%.hmm}.hmmsearch.table
 		threads=10
-		hmmsearch --tblout $output --cpu $threads $profile $db
+		echo 'hmmsearch --tblout $output --cpu $threads $profile $db'
 		cd ../..
 	done
 done
