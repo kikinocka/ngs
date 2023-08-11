@@ -10,8 +10,8 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 	for profile in *.hmm ; do
 		echo $profile
 		folder=${profile%.hmm}
-		mkdir $folder
-		cd hmmsearch/folder
+		mkdir ./hmmsearch/$folder
+		cd ./hmmsearch/$folder
 		output=${db%.faa}'.'${profile%.hmm}.hmmsearch.table
 		threads=10
 		hmmsearch --tblout $output --cpu $threads $profile $db
