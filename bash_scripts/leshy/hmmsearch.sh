@@ -8,15 +8,14 @@ threads=10
 
 for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 	echo $profile
-	folder=$profile | cut -d / -f8
+	folder=$profile | cut -d / -f 8
 	folder=${profile%.hmm}
 	echo $folder
 	for  db in /mnt/mokosz/home/kika/allDB/renamed/*.faa; do
 		echo $db
-		
 		# mkdir /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		# cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
-		output=$db | cut -d '/' -f8
+		output=$db | cut -d / -f 8
 		echo $output
 		output=$output'.'${profile%.hmm}.hmmsearch.tsv
 		echo $output
