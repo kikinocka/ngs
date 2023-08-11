@@ -29,10 +29,10 @@ for db in dbs:
 		print(file)
 		name = file.split('.hmm')[0]
 
-		if os.path.isdir('{}'.format(name) == True:
+		if os.path.isdir('{}'.format(name)) == True:
 			pass
 		else:
-			os.mkdir('{}'.format(name)
+			os.mkdir('{}'.format(name))
 
 		subprocess.call('cd {}'.format(name), shell=True)
 		out = orgn + '.' + name + '.hmmsearch.tsv'
