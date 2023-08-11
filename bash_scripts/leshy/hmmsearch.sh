@@ -1,13 +1,13 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
+# cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
 
 db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
 
 for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 	echo $db
-	for profile in *.hmm ; do
+	for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 		echo $profile
 		folder=${profile%.hmm}
 		mkdir ./hmmsearch/$folder
