@@ -5,6 +5,7 @@ cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
 db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
 threads=10
+eval=1e-10
 
 for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 	echo $profile
@@ -22,7 +23,7 @@ for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 		# echo $output
 		# output=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
 		# output=$orgn'_'${profile%.hmm}.hmmsearch.tsv
-		hmmsearch --tblout $output --cpu $threads $profile $db
+		hmmsearch --tblout $output --cpu $threads --incE $eval $profile $db
 		# cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/
 		sleep 5
 		echo
