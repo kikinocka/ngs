@@ -27,11 +27,14 @@ for db in dbs:
 	orgn = db.split('.faa')[0]
 	for file in files:
 		print(file)
-		if os.path.isdir('{}'.format(file.split('.hmm')[0])) == True:
+		name = file.split('.hmm')[0]
+
+		if os.path.isdir('{}'.format(name) == True:
 			pass
 		else:
-			os.mkdir('{}'.format(file.split('.hmm')[0]))
-			
-		name = file.split('.hmm')[0]
+			os.mkdir('{}'.format(name)
+
+		subprocess.call('cd {}'.format(name), shell=True)
 		out = orgn + '.' + name + '.hmmsearch.tsv'
 		subprocess.call('hmmsearch --tblout {} --cpu 10 {} {}'.format(out, file, db), shell=True)
+		subprocess.call('cd ..', shell=True)
