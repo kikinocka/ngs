@@ -9,7 +9,7 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 	echo $db
 	for profile in *.hmm ; do
 		echo $profile
-		folder='${profile%.hmm}'
+		folder=${profile%.hmm}
 		mkdir $folder
 		cd hmmsearch/folder
 		output=${db%.faa}'.'${profile%.hmm}.hmmsearch.table
