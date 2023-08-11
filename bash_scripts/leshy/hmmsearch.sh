@@ -6,13 +6,14 @@ db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
 threads=10
 
-for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
-	echo $db
-	for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
-		echo $profile
-		folder=$profile | cut -d / -f8
-		folder=${profile%.hmm}
-		echo $folder
+for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
+	echo $profile
+	folder=$profile | cut -d / -f8
+	folder=${profile%.hmm}
+	echo $folder
+	for  db in /mnt/mokosz/home/kika/allDB/renamed/*.faa; do
+		echo $db
+		
 		# mkdir /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		# cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		output=$db | cut -d / -f8
