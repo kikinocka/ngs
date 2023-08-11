@@ -17,6 +17,7 @@ for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 		# mkdir /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		# cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		output=$db | cut -d / -f8
+		echo $output
 		output=$output'.'${profile%.hmm}.hmmsearch.tsv
 		echo $output
 		# output=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
