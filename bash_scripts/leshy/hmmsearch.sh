@@ -16,6 +16,7 @@ for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 		threads=10
 		echo 'hmmsearch --tblout $output --cpu $threads $profile $db'
 		cd ../..
+		sleep 5
 	done
 done
 
