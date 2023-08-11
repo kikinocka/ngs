@@ -23,7 +23,7 @@ for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 		# echo $output
 		# output=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
 		# output=$orgn'_'${profile%.hmm}.hmmsearch.tsv
-		hmmsearch --tblout $output --cpu $threads --incE $eval $profile $db
+		hmmsearch --tblout $output --cpu $threads -E $eval $profile $db
 		# cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/
 		sleep 5
 		echo
