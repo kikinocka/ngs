@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 gappa='/storage/brno3-cerit/home/kika/miniconda3/bin/gappa'
-data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/metamonads/placement'
+data='/storage/brno3-cerit/home/kika/oil_sands/Lane26_18S_V9/euglenozoa/placement'
 
 #copy files to scratch
 cp $data'/'*.jplace $SCRATCHDIR
