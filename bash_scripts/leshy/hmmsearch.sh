@@ -4,7 +4,7 @@ cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
 
 db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
-threads=10
+threads=15
 eval=1e-10
 
 for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
