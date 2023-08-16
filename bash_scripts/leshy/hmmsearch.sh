@@ -12,12 +12,12 @@ for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 	folder=`echo $profile | cut -d / -f 8`
 	folder=${folder%.hmm}
 	# echo $folder
-	for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa; do
+	for db in /mnt/mokosz/home/kika/allDB/renamed/*.fa; do
 		echo $db
-		mkdir /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
+		# mkdir /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		cd /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/hmmsearch/$folder
 		output=`echo $db | cut -d / -f 8`
-		output=${output%.faa}
+		output=${output%.fa}
 		# echo $output
 		output=$output'.'${folder}.hmmsearch.tsv
 		# echo $output
