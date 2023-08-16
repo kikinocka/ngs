@@ -17,11 +17,11 @@ for index, row in table.iterrows():
 
 for file in proteins:
 	print(file)
-	with open('errors.txt', 'w') as errors, open('aenigm.seq_dict.tsv', 'w') as seqdict:
+	with open('renamed/errors.txt', 'w') as errors, open('renamed/aenigm.seq_dict.tsv', 'w') as seqdict:
 		c = 0
 		seqdict.write('original ID\treplaced ID\n')
 		if file in prot_dict.keys():
-			with open('{}'.format(file), 'w') as out:
+			with open('renamed/{}'.format(file), 'w') as out:
 				for seq in SeqIO.parse(file, 'fasta'):
 					c += 1
 					out.write('>{}_{}\n{}\n'.format(prot_dict[file], c, seq.seq))
