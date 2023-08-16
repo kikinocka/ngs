@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N tRNAscan
 #PBS -l select=1:ncpus=10:mem=1gb:scratch_local=5gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -24,7 +24,7 @@ for genome in *.fa ; do
 	seq=${genome%.fa}.tRNAscan.fa
 	structures=${genome%.fa}.tRNAscan_structures.txt
 
-	$tRNAscan --thread $PBS_NUM_PPN --mt -o $table -a $seq -f $structures ${genome}
+	$tRNAscan --thread $PBS_NUM_PPN -O -o $table -a $seq -f $structures ${genome}
 done
 
 

@@ -29,18 +29,6 @@ for genome in *.fa ; do
 	$aragorn -t -o $sout $genome
 done
 
-for genome in *.fa ; do
-	echo $genome
-	
-	#no secondary structures
-	fout=${genome%.fa}.aragorn_mtRNA.fa
-	$aragorn -mt -fo -o $fout $genome
-	
-	#with secondary structures
-	sout=${genome%.fa}.aragorn_structures_mtRNA.txt
-	$aragorn -mt -o $sout $genome
-done
-
 
 #copy files back
 rm *.fa
