@@ -23,7 +23,7 @@ cd $SCRATCHDIR
 for fasta in *.faa; do
 	echo $fasta
 	out=${fasta%.faa}.interpro
-	interproscan.sh -dp -f TSV -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $fasta -b $out -appl Pfam -goterms --pathways -iprlookup
+	interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $fasta -b $out -appl Pfam -goterms --pathways -iprlookup
 	#-f TSV,GFF3
 	#-appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther 
 done
