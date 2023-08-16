@@ -8,10 +8,10 @@
 cat $PBS_NODEFILE
 
 tRNAscan='/storage/brno3-cerit/home/kika/miniconda3/bin/tRNAscan-SE'
-data_dir='/storage/brno3-cerit/home/kika/p57/mtDNA'
+data_dir='/storage/brno3-cerit/home/kika/p57/mtDNA/'
 
 #copy files to scratch
-cp $data_dir'/'*.fa $SCRATCHDIR
+cp $data_dir'Bnon_mtDNA.fa' $SCRATCHDIR
 
 
 #compute on scratch
