@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/'
 
-db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
+# db='/mnt/mokosz/home/kika/eukprot_amoebozoa/amoebozoa.fa'
 # orgn='eukprot_amoebozoa'
 threads=15
 eval=1e-10
