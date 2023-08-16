@@ -1,35 +1,47 @@
 #!/bin/bash
 #PBS -N aragorn
 #PBS -l select=1:ncpus=1:mem=1gb:scratch_local=5gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
 aragorn='/storage/brno3-cerit/home/kika/miniconda3/bin/aragorn'
-data_dir='/storage/brno3-cerit/home/kika/amoebophrya'
+data_dir='/storage/brno3-cerit/home/kika/p57/mtDNA'
 
 #copy files to scratch
-cp $data_dir'/'*.fna $SCRATCHDIR
+cp $data_dir'/'*.fa $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fna ; do
+for genome in *.fa ; do
 	echo $genome
 	
 	#no secondary structures
-	fout=${genome%.fna}.aragorn.fa
+	fout=${genome%.fa}.aragorn_tRNA.fa
 	$aragorn -t -fo -o $fout $genome
 	
 	#with secondary structures
-	sout=${genome%.fna}.aragorn_structures.txt
+	sout=${genome%.fa}.aragorn_structures_tRNA.txt
 	$aragorn -t -o $sout $genome
+done
+
+for genome in *.fa ; do
+	echo $genome
+	
+	#no secondary structures
+	fout=${genome%.fa}.aragorn_mtRNA.fa
+	$aragorn -mt -fo -o $fout $genome
+	
+	#with secondary structures
+	sout=${genome%.fa}.aragorn_structures_mtRNA.txt
+	$aragorn -mt -o $sout $genome
 done
 
 
 #copy files back
-rm *.fna
+rm *.fa
 cp * $data_dir
