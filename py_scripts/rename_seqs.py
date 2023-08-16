@@ -13,13 +13,13 @@ for index, row in table.iterrows():
 	if row[4] == '-':
 		pass
 	else:
-		prot_dict[row[4]] = row[5]
+		prot_dict[row[4]] = row[6]
 
 for file in proteins:
 	print(file)
 	with open('renamed/errors.txt', 'w') as errors, open('renamed/aenigm.seq_dict.tsv', 'w') as seqdict:
 		c = 0
-		seqdict.write('original ID\treplaced ID\n')
+		# seqdict.write('original ID\treplaced ID\n')
 		if file in prot_dict.keys():
 			with open('renamed/{}'.format(file), 'w') as out:
 				for seq in SeqIO.parse(file, 'fasta'):
