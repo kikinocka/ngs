@@ -35,7 +35,7 @@ for file in files:
 			if not line.startswith('#'):
 				seqname = line.split()[0]
 				evalue = float(line.split()[4])
-				# if seqname in written:				
+				# if seqname in written:
 				# 	pass
 				if evalue < 0.0000000001:
 					#don't forget to delete previously generated files
