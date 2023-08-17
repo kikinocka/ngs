@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/archamoebae/import/HMMs-amoebozoa/amoebozoa/')
-files = [x for x in os.listdir() if x.endswith('.hmm_search.table')]
-db = SeqIO.parse('/Users/kika/data/eukprot/amoebozoa.fa', 'fasta')
+os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/markers_check/')
+files = [x for x in os.listdir() if x.endswith('.hmmsearch.tsv')]
+db = SeqIO.parse('/mnt/mokosz/home/kika/allDB/renamed/all.fa', 'fasta')
 
 seq_d = {}
 for seq in db:
@@ -29,7 +29,7 @@ written = set() #move multidomain, written into the for loop to have domain-spec
 for file in files:
 	# if file.startswith('EP00360'):
 	print(file)
-	name = file.replace('.hmm_search.table', '.hmm_hits.fa')
+	name = file.replace('.hmmsearch.tsv', '.hmm_hits.fa')
 	with open(file) as infile:
 		for line in infile:
 			if not line.startswith('#'):

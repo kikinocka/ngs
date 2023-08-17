@@ -13,6 +13,7 @@ for profile in *.hmm ; do
 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 done
 
+
 # #several profiles and several databases
 # for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
 # 	echo $profile
