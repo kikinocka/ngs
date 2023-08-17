@@ -3,12 +3,12 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/data/ciliates/')
-files = [x for x in os.listdir() if x.endswith('CDS.fasta')]
+os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/editing/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 codons = OrderedDict([
-		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAG', 0), 
-		('GAA', 0), ('TTT', 0), ('TTC', 0), ('GGG', 0), ('GGA', 0), ('GGT', 0), ('GGC', 0), ('CAT', 0), ('CAC', 0), 
+		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAA', 0), 
+		('GAG', 0), ('TTT', 0), ('TTC', 0), ('GGG', 0), ('GGA', 0), ('GGT', 0), ('GGC', 0), ('CAT', 0), ('CAC', 0), 
 		('ATA', 0), ('ATT', 0), ('ATC', 0), ('AAG', 0), ('AAA', 0), ('TTG', 0), ('TTA', 0), ('CTG', 0), ('CTA', 0), 
 		('CTT', 0), ('CTC', 0), ('ATG', 0), ('AAT', 0), ('AAC', 0), ('CCG', 0), ('CCA', 0), ('CCT', 0), ('CCC', 0), 
 		('CAG', 0), ('CAA', 0), ('AGG', 0), ('AGA', 0), ('CGG', 0), ('CGA', 0), ('CGT', 0), ('CGC', 0), ('AGT', 0), 
@@ -28,7 +28,7 @@ def count_codons(sequence):
 
 for file in files:
 	print(file)
-	table = file.split('.fna')[0] + '.codons.tsv'
+	table = file.split('.fa')[0] + '.codons.tsv'
 	# table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
 	# table = file.split('.')[0] + '.' + file.split('.')[1] + '.codons.tsv'
 	with open(table, 'w') as result:
@@ -41,10 +41,10 @@ for file in files:
 			# print(sequence.name)
 			numbers = []
 
-			# #full sequence
+			# #sequence without stops
 			# codons = count_codons(sequence.seq)
 
-			#sequence without stop codon
+			#sequence containing stops
 			codons = count_codons(sequence.seq[:-3])
 
 			for value in codons.values():
