@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/hmmsearch/')
+hmmsearch = '/mnt/mokosz/home/kika/metamonads_ancestral/hmmsearch/'
 
-for subdir in os.walk():
+for subdir in os.walk(hmmsearch):
 	print(os.path.join(subdir))
 # files = [x for x in os.listdir() if x.endswith('.hmmsearch.tsv')]
 
