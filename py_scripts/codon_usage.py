@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/editing/')
+os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/mtDNA/tryps/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 codons = OrderedDict([

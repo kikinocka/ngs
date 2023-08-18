@@ -7,7 +7,7 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
 os.chdir('/Users/kika/ownCloud/metamonada/markers_check/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+files = [x for x in os.listdir() if x.endswith('q2001168.hmm_hits.fa')]
 
 for file in files:
 	print(file)

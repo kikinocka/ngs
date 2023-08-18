@@ -11,22 +11,22 @@ aragorn='/storage/brno3-cerit/home/kika/miniconda3/bin/aragorn'
 data_dir='/storage/brno3-cerit/home/kika/p57/mtDNA'
 
 #copy files to scratch
-cp $data_dir'/Bnon_mtDNA.fa' $SCRATCHDIR
+cp $data_dir'/maxi_and_minicircles.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fa ; do
+for genome in *.fasta ; do
 	echo $genome
 	
 	#no secondary structures
-	fout=${genome%.fa}.aragorn_mtDNA.fa
-	$aragorn -mt -fo -o $fout $genome
+	fout=${genome%.fasta}.aragorn_tRNA.fa
+	$aragorn -t -fo -o $fout $genome
 	
-	# #with secondary structures
-	# sout=${genome%.fa}.aragorn_structures.txt
-	# $aragorn -t -o $sout $genome
+	#with secondary structures
+	sout=${genome%.fasta}.aragorn_structures_tRNA.txt
+	$aragorn -t -o $sout $genome
 done
 
 
