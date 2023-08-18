@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/mtDNA/tryps/')
+os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/editing/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 codons = OrderedDict([
@@ -41,11 +41,11 @@ for file in files:
 			# print(sequence.name)
 			numbers = []
 
-			# #sequence without stops
-			# codons = count_codons(sequence.seq)
+			#sequence without stops
+			codons = count_codons(sequence.seq)
 
-			#sequence containing stops
-			codons = count_codons(sequence.seq[:-3])
+			# #sequence containing stops
+			# codons = count_codons(sequence.seq[:-3])
 
 			for value in codons.values():
 				numbers.append(value)

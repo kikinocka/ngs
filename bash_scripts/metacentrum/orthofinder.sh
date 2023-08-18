@@ -8,13 +8,14 @@
 cat $PBS_NODEFILE
 
 #add module
-module add orthofinder-2.0.0
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load orthofinder
 
-data='/storage/brno3-cerit/home/kika/anaeramoeba/tbcs'
+data='/storage/brno3-cerit/home/kika/blasto_comparative/'
 
 #copy files to scratch
-cp $data'/'*.fa $SCRATCHDIR
-cp $data'/refs/'*.fa $SCRATCHDIR
+cp $data'orthofinder/'* $SCRATCHDIR
+cp $data'proteins_blasto/'*.faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -24,5 +25,5 @@ orthofinder -f $SCRATCHDIR -t $PBS_NUM_PPN
 #-I 2.5
 
 #copy files back
-rm *.fa
-cp -R * $data
+rm *.fa *.faa *.fasta
+cp -R * $data'orthofinder/'
