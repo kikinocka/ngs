@@ -21,12 +21,12 @@ for genome in *.fasta ; do
 	echo $genome
 	
 	#no secondary structures
-	fout=${genome%.fasta}.aragorn_tRNA.fa
-	$aragorn -t -fo -o $fout $genome
+	fout=${genome%.fasta}.aragorn_mtRNA.fa
+	$aragorn -mt -fo -o $fout $genome
 	
 	#with secondary structures
-	sout=${genome%.fasta}.aragorn_structures_tRNA.txt
-	$aragorn -t -o $sout $genome
+	sout=${genome%.fasta}.aragorn_structures_mtRNA.txt
+	$aragorn -mt -o $sout $genome
 done
 
 
