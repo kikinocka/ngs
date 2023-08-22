@@ -13,7 +13,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='meta:/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/amoebozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/amoebozoa/'
 
 #copy files to scratch
 cp $data_dir'Amoebozoa_provizorni.fas' $SCRATCHDIR
