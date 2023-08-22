@@ -25,7 +25,7 @@ cd $SCRATCHDIR
 
 aln='ciliates_V9.trimal_gt-0.25_cons-50.aln'
 tree='RAxML_bipartitions.ciliates3'
-out='EPARUN_euglenozoa'
+out='EPARUN_ciliates'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN
 

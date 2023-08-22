@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 gappa='/storage/brno3-cerit/home/kika/miniconda3/bin/gappa'
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/ciliates/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/ciliates/placement/'
 
 #copy files to scratch
 cp $data'RAxML_portableTree.EPARUN_ciliates.jplace' $SCRATCHDIR
