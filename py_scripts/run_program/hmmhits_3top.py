@@ -2,11 +2,11 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/hmm_hits/')
+os.chdir('/Users/kika/ownCloud/metamonada/OGs/')
 files = [x for x in os.listdir() if x.endswith('hmm_hits.fa')]
 
-eval_dict = {}
 for file in files:
+	eval_dict = {}
 	print(file)
 	for seq in SeqIO.parse(file, 'fasta'):
 		orgn = seq.name.split('_')[0]
