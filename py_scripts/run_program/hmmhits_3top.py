@@ -13,9 +13,9 @@ for file in files:
 		eval = float(seq.description.split(' ')[1].split(':')[1])
 		
 		if orgn not in eval_dict:
-			eval_dict[orgn]	= [[eval, seq.description, seq.seq]]
+			eval_dict[orgn]	= [[eval, seq.description, str(seq.seq).replace('*', '')]]
 		else:
-			eval_dict[orgn].append([eval, seq.description, seq.seq])
+			eval_dict[orgn].append([eval, seq.description, str(seq.seq).replace('*', '')])
 
 	with open('{}.reduced.fa'.format(file.split('.fa')[0]), 'w') as out:
 		for key, value in eval_dict.items():
