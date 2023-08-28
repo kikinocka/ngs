@@ -1,13 +1,13 @@
 #!/bin/sh
 
 #align denovo
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_fasta/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta/'
 
 for f in *.fa ; do
 	echo $f
 	aln=${f%.fa}.mafft.aln
 	log=${f%.fa}.mafft.log
-	mafft --thread 10 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
+	mafft --thread 15 --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
 done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py MAFFT done
