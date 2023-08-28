@@ -8,11 +8,7 @@ hits = [x for x in os.listdir() if x.endswith('reduced.fa')]
 
 
 for og in ogs:
-	# print(file)
-	# os.chdir('/Users/kika/ownCloud/metamonada/OGs/')
 	for hit in hits:
-		# print(file)
-		# print(hit)
 		if og.split('_')[0] == hit.split('.')[0]:
 			print(og)
 			print(hit)
