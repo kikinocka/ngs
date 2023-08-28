@@ -22,9 +22,9 @@ orgns = {'Carplike' : 'E-me-Fo-Apal', 'BLNAU' : 'E-me-Pr-Bnau', 'Carpediemonas' 
 # 		prot_dict[row[4]] = row[6]
 
 c = 0
-for file in proteins:
-	print(file)
-	with open('errors.txt', 'w') as errors, open('OGs.seq_dict.tsv', 'w') as seqdict:
+with open('errors.txt', 'w') as errors, open('OGs.seq_dict.tsv', 'w') as seqdict:
+	for file in proteins:
+		print(file)
 		seqdict.write('original ID\treplaced ID\n')
 		with open('{}_renamed.fa'.format(file.split('.')[0]), 'w') as out:
 			for key in orgns.keys():
