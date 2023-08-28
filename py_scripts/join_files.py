@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/metamonada/OGs/')
+os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/hmm_hits/')
 ogs = [x for x in os.listdir() if x.endswith('renamed.fa')]
 hits = [x for x in os.listdir() if x.endswith('reduced.fa')]
 
