@@ -1,8 +1,8 @@
 #!/bin/sh
 
-genome='/Users/kika/ownCloud/ciiates/Condylostoma_bacterium.GFF_FASTA/Condylostoma_bacterial_bin.1.fa_assembly.fa'
-gff='/Users/kika/ownCloud/ciiates/Condylostoma_bacterium.GFF_FASTA/KBase_derived_Condylostoma_bacterium.gff'
-output='/Users/kika/ownCloud/ciiates/Condylostoma_bacterium.GFF_FASTA/Condylostoma_bacterial_bin.prokka.faa'
+genome='/Users/kika/ownCloud/blasto_comparative/genomes/Oeli_genome_final.fa'
+gff='/Users/kika/ownCloud/blasto_comparative/proteins/Oeli_companion.gff3'
+output='/Users/kika/ownCloud/blasto_comparative/proteins/Oeli_companion.fna'
 
 bedtools getfasta -fi $genome -bed $gff -fo $output -name -s -fullHeader
 
