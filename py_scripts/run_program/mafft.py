@@ -5,41 +5,41 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/apusomonads/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/apusomonads/')
+# files = [x for x in os.listdir() if x.endswith('.fa')]
 
-for file in files:
-	print(file)
-	#L-INS-i (proteins with one alignable domain)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
+# for file in files:
+# 	print(file)
+# 	#L-INS-i (proteins with one alignable domain)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
 
-# 	# #E-INS-i (proteins with several functional domains)
-# 	# out = '{}.einsi.aln'.format(file.split('.fa')[0])
-# 	# log = '{}.einsi.log'.format(file.split('.fa')[0])
-# 	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-# 	# 	mafft, file, out, log), shell=True)
+# # 	# #E-INS-i (proteins with several functional domains)
+# # 	# out = '{}.einsi.aln'.format(file.split('.fa')[0])
+# # 	# log = '{}.einsi.log'.format(file.split('.fa')[0])
+# # 	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# # 	# 	mafft, file, out, log), shell=True)
 
-# 	# #tRNAs
-# 	# out = '{}.mafft.aln'.format(file.split('.fa')[0])
-# 	# log = '{}.mafft.log'.format(file.split('.fa')[0])
-# 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
-# 	# 	mafft, file, out, log), shell=True)
+# # 	# #tRNAs
+# # 	# out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# # 	# log = '{}.mafft.log'.format(file.split('.fa')[0])
+# # 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
+# # 	# 	mafft, file, out, log), shell=True)
 	
-# 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
+# # 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
 
 
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/')
-# existing = 'SL_Euglenozoa/V9/euglenozoa/euglenozoa.mafft.aln'
-# add = 'oil_sands/amplicons/Lane26_18S_V9/euglenozoa/V9.fa'
-# out = 'oil_sands/amplicons/Lane26_18S_V9/euglenozoa/euglenozoa_V9.mafft.aln'
-# log = 'oil_sands/amplicons/Lane26_18S_V9/euglenozoa/euglenozoa_V9.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# # subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+#add to aligned sequences
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/amoebozoa')
+existing = 'amoebozoa.aln'
+add = 'iodinectes.fa'
+out = 'amoebozoa.mafft.aln'
+log = 'amoebozoa.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 
 
 # #merge alignments
