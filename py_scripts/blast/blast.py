@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Users/kika/ownCloud/mantamonas/dmc1/dmc1.fa'
-db = '/Users/kika/ownCloud/mantamonas/db/Msphyraenae.faa'
-out = '/Users/kika/ownCloud/mantamonas/dmc1/dmc1_mantamonas.blast.xml'
-evalue = 1e-05
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol.fa'
+db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/Ovol_genome_final_masked.fa'
+out = '/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol_genome.blast.xml'
+evalue = 1e-10
 outfmt = 5
 hits = 1
 word_size = 3
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/mantamonas/dmc1/dmc1_mantamonas.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/mantamonas/dmc1/dmc1_mantamonas.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol_genome.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol_genome.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
