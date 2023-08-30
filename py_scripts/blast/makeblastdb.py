@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/amoebophrya/proteins/')
+os.chdir('/Users/kika/ownCloud/mantamonas/')
 files = [x for x in os.listdir() if x.endswith('.faa')]
 dbtype = 'prot'
 

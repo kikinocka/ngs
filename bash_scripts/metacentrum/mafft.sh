@@ -13,10 +13,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/amoebozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apusomonads/'
 
 #copy files to scratch
-cp $data_dir'Amoebozoa_provizorni.fas' $SCRATCHDIR
+cp $data_dir'apusomonads.mafft.aln' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'amoebozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'amoebozoa_outgroup_V9_above99.in' $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='Amoebozoa_provizorni.fas'
+existing='apusomonads.mafft.aln'
 add='V9.fa'
-aln='amoebozoa_V9.mafft.aln'
-log='amoebozoa_V9.mafft.log'
+aln='apusomonads_V9.mafft.aln'
+log='apusomonads_V9.mafft.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log

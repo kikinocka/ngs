@@ -1,8 +1,8 @@
 #!/bin/sh
 
-genome='/Users/kika/ownCloud/blasto_comparative/genomes/Oeli_genome_final.fa'
-gff='/Users/kika/ownCloud/blasto_comparative/proteins/Oeli_companion.gff3'
-output='/Users/kika/ownCloud/blasto_comparative/proteins/Oeli_companion.fna'
+genome='/Users/kika/ownCloud/blasto_comparative/genomes/FINAL/Ovol_genome_final_masked.fa'
+gff='/Users/kika/ownCloud/blasto_comparative/proteins/Ovol_companion.gff3'
+output='/Users/kika/ownCloud/blasto_comparative/proteins/Ovol_companion.fna'
 
 bedtools getfasta -fi $genome -bed $gff -fo $output -name -s -fullHeader
 

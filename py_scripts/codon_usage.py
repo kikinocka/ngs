@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/mtDNA/codon_usage/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
+files = [x for x in os.listdir() if x.endswith('CDS_cdseq.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAA', 0), 
@@ -17,18 +17,19 @@ codons = OrderedDict([
 		('TGA', 0),	('ambig', 0)])
 
 def count_codons(sequence):
+	sequence = sequence.upper()
 	for i in range(0, len(sequence)-2, 3):
 		if ('N' in sequence[i:i+3]) or ('W' in sequence[i:i+3]) or ('S' in sequence[i:i+3]) or ('M' in sequence[i:i+3]) or \
 		   ('K' in sequence[i:i+3]) or ('R' in sequence[i:i+3]) or ('Y' in sequence[i:i+3]) or ('B' in sequence[i:i+3]) or \
 		   ('D' in sequence[i:i+3]) or ('H' in sequence[i:i+3]) or ('V' in sequence[i:i+3]):
 			codons['ambig'] += 1
 		else:
-			codons[sequence[i:i+3].upper()] += 1
+			codons[sequence[i:i+3]] += 1
 	return codons
 
 for file in files:
 	print(file)
-	table = file.split('.fa')[0] + '.codons.tsv'
+	table = file.split('.fna')[0] + '.codons.tsv'
 	# table = file.split('_')[0] + '_' + file.split('_')[1] + '.codons.tsv'
 	# table = file.split('.')[0] + '.' + file.split('.')[1] + '.codons.tsv'
 	with open(table, 'w') as result:
@@ -41,11 +42,11 @@ for file in files:
 			# print(sequence.name)
 			numbers = []
 
-			#sequence without stops
-			codons = count_codons(sequence.seq)
+			# #sequence without stops
+			# codons = count_codons(sequence.seq)
 
-			# #sequence containing stops
-			# codons = count_codons(sequence.seq[:-3])
+			#sequence containing stops
+			codons = count_codons(sequence.seq[:-3])
 
 			for value in codons.values():
 				numbers.append(value)
