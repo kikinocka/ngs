@@ -1,9 +1,9 @@
 #!/bin/sh
 
 cdseq='/Users/kika/programs/cdseq/cdseq'
-genome='/Users/kika/ownCloud/blasto_comparative/genomes/FINAL/Ovol_genome_final_masked.fa'
-gff='/Users/kika/ownCloud/blasto_comparative/proteins/gff_modified_forCDS/Ovol_companion.modified.gff3'
-output='/Users/kika/ownCloud/blasto_comparative/proteins/Ovol_companion.CDS_cdseq.fna'
+genome='/Users/kika/ownCloud/blasto_comparative/genomes/FINAL/Omod_genome_final_masked.fa'
+gff='/Users/kika/ownCloud/blasto_comparative/proteins/gff_modified_forCDS/Omod_companion.modified.gff3'
+output='/Users/kika/ownCloud/blasto_comparative/proteins/Omod_companion.CDS_cdseq.fna'
 
 $cdseq $genome $gff > $output
 # usage: cdseq [-h] [-t] [-e] [-i] [-c] [-m] [--tag tag] [-n] [-l] [--introns] [--truncate_introns int_length] [--print_arg_info] genome annotation
