@@ -4,7 +4,7 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
-files = [x for x in os.listdir() if x.endswith('Omod_companion.CDS_cdseq.fna')]
+files = [x for x in os.listdir() if x.endswith('Oobo_companion.CDS_cdseq.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAA', 0), 
@@ -42,11 +42,12 @@ for file in files:
 			# print(sequence.name)
 			numbers = []
 
-			# #sequence without stops
-			# codons = count_codons(sequence.seq)
-
-			#sequence containing stops
-			codons = count_codons(sequence.seq[:-3])
+			if sequence.seq[-3:] in ['TAA', 'TAG', 'TGA']:
+				#sequence containing stops
+				codons = count_codons(sequence.seq[:-3])
+			else:
+				#sequence without stops
+				codons = count_codons(sequence.seq)
 
 			for value in codons.values():
 				numbers.append(value)
