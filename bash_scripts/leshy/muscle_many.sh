@@ -10,7 +10,7 @@ while read -r sample
 do
 	if [ ! -e $ALNDIR/${sample/fa/muscle.aln} ]; then
 		touch $ALNDIR/${sample/fa/muscle.aln}
-	    muscle5.1 -super5 $HOMEDIR/$sample -output $ALNDIR/${sample/fa/muscle.aln} -threads 15
+	    muscle -super5 $HOMEDIR/$sample -output $ALNDIR/${sample/fa/muscle.aln} -threads 15
     fi
 done < $HOMEDIR'/large.txt' #last item must end with a newline!
 
