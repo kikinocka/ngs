@@ -35,7 +35,7 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 #add to aligned sequences
 os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/amoebozoa')
 existing = 'amoebozoa.aln'
-add = 'iodinectes.fa'
+add = 'outgroup.fa'
 out = 'amoebozoa.mafft.aln'
 log = 'amoebozoa.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
