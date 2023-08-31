@@ -12,7 +12,7 @@ do
 		touch $ALNDIR/${sample/fa/muscle.aln}
 	    muscle5.1 -super5 $HOMEDIR/$sample -output $ALNDIR/${sample/fa/muscle.aln} -threads 15
     fi
-done < 'large.txt' #last item must end with a newline!
+done < $HOMEDIR'/large.txt' #last item must end with a newline!
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py muscle5 done
 
