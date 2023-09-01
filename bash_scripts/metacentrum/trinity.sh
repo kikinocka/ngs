@@ -25,7 +25,7 @@ cd $SCRATCHDIR
 fw='all_trimmed_1.fq.gz'
 rv='all_trimmed_2.fq.gz'
 
-Trinity --seqType fq --left $fw --right $rv --max_memory 100G --CPU $PBS_NUM_PPN
+Trinity --seqType fq --left $fw --right $rv --JM 100G --CPU $PBS_NUM_PPN
 
 
 #copy files back
