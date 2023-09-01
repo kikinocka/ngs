@@ -24,7 +24,7 @@ cp $raw_dir'all_2.fastq.gz' $SCRATCHDIR
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='condy'
+name='all'
 fw='all_1.fastq.gz'
 rv='all_2.fastq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
