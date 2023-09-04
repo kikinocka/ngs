@@ -31,5 +31,5 @@ done
 
 
 #copy files back
-rm *.fa
+rm *.fna
 cp * $data_dir
