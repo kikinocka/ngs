@@ -11,22 +11,22 @@ source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load bbmap
 
 
-raw_dir='/storage/brno3-cerit/home/kika/UGA_decoding/nyctotherus/reads/'
+raw_dir='/storage/brno3-cerit/home/kika/UGA_decoding/condy_sp/reads/'
 # trim_dir='/storage/brno3-cerit/home/kika/archamoebae/rhizomastix_libera/trimmed_reads/'
 
 #copy data to scratch
 cp '/storage/brno2/home/kika/tools/bbmap/resources/adapters.fa' $SCRATCHDIR
-cp $raw_dir'all_1.fastq.gz' $SCRATCHDIR
-cp $raw_dir'all_2.fastq.gz' $SCRATCHDIR
+cp $raw_dir'CRR626406_f1.fq.gz' $SCRATCHDIR
+cp $raw_dir'CRR626406_r2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-name='all'
-fw='all_1.fastq.gz'
-rv='all_2.fastq.gz'
+name='condy'
+fw='CRR626406_f1.fq.gz'
+rv='CRR626406_r2.fq.gz'
 trimmed_fw=$name'_trimmed_1.fq.gz'
 trimmed_rv=$name'_trimmed_2.fq.gz'
 # single='all_reads.fq.gz'
