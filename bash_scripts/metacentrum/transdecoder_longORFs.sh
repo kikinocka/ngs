@@ -11,16 +11,16 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load transdecoder
 
-data_dir='/storage/brno3-cerit/home/kika/ciliates/'
+data_dir='/storage/brno3-cerit/home/kika/UGA_decoding/nyctotherus/trinity/'
 
 #copy files to scratch
-cp $data_dir'MMETSP1397_clean.fasta' $SCRATCHDIR
+cp $data_dir'Trinity.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-transcriptome='MMETSP1397_clean.fasta'
+transcriptome='Trinity.fasta'
 TransDecoder.LongOrfs -t $transcriptome #--genetic_code Euplotid
 
 #copy files back
