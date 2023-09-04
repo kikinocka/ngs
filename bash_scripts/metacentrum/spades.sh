@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N SPAdes
 #PBS -l select=1:ncpus=50:ompthreads=50:mem=150gb:scratch_local=30gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load spades
 
-datadir='/storage/brno3-cerit/home/kika/amoebophrya/'
+datadir='/storage/brno3-cerit/home/kika/UGA_decoding/condy_sp/'
 reads=$datadir'reads/'
 
 #copy reads to scratch
-cp $reads'SRR1610334_trimmed_1.fq.gz' $reads'SRR1610334_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'condy_trimmed_1.fq.gz' $reads'condy_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd='SRR1610334_trimmed_1.fq.gz'
-rev='SRR1610334_trimmed_2.fq.gz'
+fwd='condy_trimmed_1.fq.gz'
+rev='condy_trimmed_2.fq.gz'
 
-#spades assembly
-spades.py -t $PBS_NUM_PPN \
-	-1 $fwd -2 $rev \
-	-o spades
+# #spades assembly
+# spades.py -t $PBS_NUM_PPN \
+# 	-1 $fwd -2 $rev \
+# 	-o spades
 
 # #metagenome assembly
 # metaspades.py -t $PBS_NUM_PPN \
@@ -39,6 +39,9 @@ spades.py -t $PBS_NUM_PPN \
 
 # #using reference genome
 # spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted
+
+#single-cell specifying k-mers
+spades.py --sc -1 $pe1_1 -2 $pe1_2 -k 61,71,77,81,99,111  -t $PBS_NUM_PPN -o spades
 
 # #single-cell using several libraries
 # spades.py --sc --careful -t $PBS_NUM_PPN -o out \
