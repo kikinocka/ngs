@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
-files = [x for x in os.listdir() if x.endswith('Oobo_companion.CDS_cdseq.fna')]
+os.chdir('/Users/kika/ownCloud/UGA_recoding/nyctotherus/')
+files = [x for x in os.listdir() if x.endswith('complete.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAA', 0), 

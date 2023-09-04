@@ -2,11 +2,11 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/mantamonas/')
-files = [x for x in os.listdir() if x.endswith('.faa')]
-dbtype = 'prot'
+os.chdir('/Users/kika/ownCloud/UGA_recoding/nyctotherus/')
+files = [x for x in os.listdir() if x.endswith('.fasta')]
+dbtype = 'nucl'
 
 for file in files: 
 	print(file)
-	fname = file.split('.faa')[0]
+	# fname = file.split('.faa')[0]
 	subprocess.call('makeblastdb -in {} -dbtype {} -parse_seqids'.format(file, dbtype), shell=True)

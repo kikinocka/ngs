@@ -8,26 +8,26 @@
 cat $PBS_NODEFILE
 
 tRNAscan='/storage/brno3-cerit/home/kika/miniconda3/bin/tRNAscan-SE'
-data_dir='/storage/brno3-cerit/home/kika/p57/mtDNA'
+data_dir='/storage/brno3-cerit/home/kika/UGA_decoding/uronychia'
 
 #copy files to scratch
-cp $data_dir'/'*.fasta $SCRATCHDIR
+cp $data_dir'/'*.fna $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fasta ; do
+for genome in *.fna ; do
 	echo $genome
 
-	table=${genome%.fasta}.tRNAscan_table.tsv
-	seq=${genome%.fasta}.tRNAscan.fa
-	structures=${genome%.fasta}.tRNAscan_structures.txt
+	table=${genome%.fna}.tRNAscan_table.tsv
+	seq=${genome%.fna}.tRNAscan.fa
+	structures=${genome%.fna}.tRNAscan_structures.txt
 
 	$tRNAscan --thread $PBS_NUM_PPN -O -o $table -a $seq -f $structures ${genome}
 done
 
 
 #copy files back
-rm *.fasta
+rm *.fna
 cp * $data_dir

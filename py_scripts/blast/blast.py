@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol.fa'
-db = '/Users/kika/ownCloud/blasto_comparative/genomes/blast_db/Ovol_genome_final_masked.fa'
-out = '/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol_genome.blast.xml'
+query = '/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Tthe_query.fa'
+db = '/Users/kika/ownCloud/UGA_recoding/nyctotherus/db/Trinity.fasta'
+out = '/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Nova_selB.blast_transc.xml'
 evalue = 1e-10
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol_genome.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blasto_comparative/proteins/obscuro_with_stops/ovol_genome.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Nova_selB.blast_transc.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Nova_selB.best_blast_transc.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
