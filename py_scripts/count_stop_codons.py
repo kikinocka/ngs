@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 
 
-os.chdir('/Users/kika/ownCloud/UGA_recoding/nyctotherus/')
-files = [x for x in os.listdir() if x.endswith('complete.fna')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs+bedcov/')
+files = [x for x in os.listdir() if x.endswith('.fna')]
 
 
 

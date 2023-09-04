@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/breviates/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/SL_Euglenozoa/V9/global_dereplicated_1f_representatives.fas'
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
+files = [x for x in os.listdir() if x.endswith('ovol_problematic.acc')]
+database = '/Users/kika/ownCloud/blasto_comparative/proteins/Ovol_companion.CDS_cdseq_all.fna'
 
 for accessions in files: 
 	print(accessions)
@@ -18,7 +18,7 @@ for accessions in files:
 			retrieve.add(line[:-1])
 		# print(retrieve)
 		for seq in db:
-			if seq.name.split(';')[0] in retrieve:
+			if seq.name.split('.')[0] in retrieve:
 				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 				# pass
 			else:

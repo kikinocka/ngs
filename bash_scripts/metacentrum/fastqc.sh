@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add modules
 module add fastQC-0.11.5
 
-read_dir='/storage/brno3-cerit/home/kika/UGA_decoding/condy_sp/reads'
+read_dir='/storage/brno3-cerit/home/kika/UGA_decoding/peritromus/reads'
 
 
 #copy data to scratch
