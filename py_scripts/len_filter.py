@@ -2,12 +2,12 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/companion/')
-genome = SeqIO.parse('Ovol_companion.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
+genome = SeqIO.parse('Oeli_companion.CDS_cdseq_OK.fna', 'fasta')
 
-with open('Ovol_companion.l30.faa', 'w') as out:
+with open('Oeli_companion.CDS_cdseq_OK_l30.fna', 'w') as out:
 	for seq in genome:
-		if len(seq) >= 30:
+		if len(seq) >= 90:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 		else:
 			print(seq.description)

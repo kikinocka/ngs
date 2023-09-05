@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N SPAdes
 #PBS -l select=1:ncpus=30:ompthreads=30:mem=150gb:scratch_local=30gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,18 +11,18 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load spades
 
-datadir='/storage/brno3-cerit/home/kika/UGA_decoding/condy_sp/'
+datadir='/storage/brno3-cerit/home/kika/UGA_decoding/peritromus/'
 reads=$datadir'reads/'
 
 #copy reads to scratch
-cp $reads'condy_trimmed_1.fq.gz' $reads'condy_trimmed_2.fq.gz' $SCRATCHDIR
+cp $reads'pkah_trimmed_1.fq.gz' $reads'pkah_trimmed_2.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fwd='condy_trimmed_1.fq.gz'
-rev='condy_trimmed_2.fq.gz'
+fwd='pkah_trimmed_1.fq.gz'
+rev='pkah_trimmed_2.fq.gz'
 
 # #spades assembly
 # spades.py -t $PBS_NUM_PPN \

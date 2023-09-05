@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/diplonema/pyruvate_metabolism/PDH/aceE/')
-infile = SeqIO.parse('aceE_nucl.fa', 'fasta')
-outfile = open('aceE_gc.tsv', 'w')
+os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
+infile = SeqIO.parse('bnon.CDS_cdseq.fna', 'fasta')
+outfile = open('bnon.CDS_cdseq.GC_content.tsv', 'w')
 
 outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('seq', 'seq length [# nt]', 'A [# nt]', 
 	'T [# nt]', 'C [# nt]', 'G [# nt]', 'ambiguous [# nt]', 'GC content [%]', 'AT content [%]'))
@@ -27,10 +27,15 @@ def calculator(sequence):
 	return A, T, C, G, ambiguous, GC_content, AT_content
 
 for sequence in infile:
-	seq = sequence.seq.upper()
-	name = sequence.description
-	print(name)
-	outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(name, len(seq), calculator(seq)[0], 
+
+	#not to count stops in GC content
+	if sequence.seq[-3:] in ['TAA', 'TAG', 'TGA']:
+		seq = sequence.seq[:-3].upper()
+	else:
+		seq = sequence.seq.upper()
+
+	print(sequence.name)
+	outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(sequence.description, len(seq), calculator(seq)[0], 
 		calculator(seq)[1], calculator(seq)[2], calculator(seq)[3], calculator(seq)[4], calculator(seq)[5], 
 		calculator(seq)[6]))
 outfile.close()
