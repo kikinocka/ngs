@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N SPAdes
-#PBS -l select=1:ncpus=50:ompthreads=50:mem=150gb:scratch_local=30gb
+#PBS -l select=1:ncpus=30:ompthreads=30:mem=150gb:scratch_local=30gb
 #PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
@@ -41,7 +41,7 @@ rev='condy_trimmed_2.fq.gz'
 # spades.py --pe1-1 $pe1_1 --pe1-2 $pe1_2 --trusted-contigs $cbom --careful -t $PBS_NUM_PPN -o spades_cbom_trusted
 
 #single-cell specifying k-mers
-spades.py --sc -1 $pe1_1 -2 $pe1_2 -k 61,71,77,81,99,111  -t $PBS_NUM_PPN -o spades
+spades.py --sc -1 $fwd -2 $rev -k 61,71,77,81,99,111  -t $PBS_NUM_PPN -o spades
 
 # #single-cell using several libraries
 # spades.py --sc --careful -t $PBS_NUM_PPN -o out \
