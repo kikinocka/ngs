@@ -13,13 +13,13 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/amoebozoa/'
+data_dir='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/acanthocephala/'
 
 #copy files to scratch
-cp $data_dir'amoebozoa.mafft.aln' $SCRATCHDIR
+cp $data_dir'acanthocephala.mafft.aln' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
-# cp $data_dir'amoebozoa_outgroup_V9_above99.table' $SCRATCHDIR
-# cp $data_dir'amoebozoa_outgroup_V9_above99.in' $SCRATCHDIR
+# cp $data_dir'acanthocephala_outgroup_V9_above99.table' $SCRATCHDIR
+# cp $data_dir'acanthocephala_outgroup_V9_above99.in' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='amoebozoa.mafft.aln'
+existing='acanthocephala.mafft.aln'
 add='V9.fa'
-aln='amoebozoa_V9.mafft.aln'
-log='amoebozoa_V9.mafft.log'
+aln='acanthocephala_V9.mafft.aln'
+log='acanthocephala_V9.mafft.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
