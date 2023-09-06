@@ -2,7 +2,7 @@
 
 quast='/Users/kika/miniconda3/bin/quast.py'
 
-cd '/Users/kika/ownCloud/amoebophrya/'
+cd '/Users/kika/ownCloud/UGA_recoding/condylostoma_sp/'
 assembly='scaffolds.fasta'
 output='quast/'
 

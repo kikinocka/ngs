@@ -8,28 +8,28 @@
 cat $PBS_NODEFILE
 
 aragorn='/storage/brno3-cerit/home/kika/miniconda3/bin/aragorn'
-data_dir='/storage/brno3-cerit/home/kika/UGA_decoding/uronychia'
+data_dir='/storage/brno3-cerit/home/kika/UGA_decoding/condy_sp/'
 
 #copy files to scratch
-cp $data_dir'/'*.fna $SCRATCHDIR
+cp $data_dir'spades/scaffolds.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fna ; do
+for genome in *.fasta ; do
 	echo $genome
 	
 	#no secondary structures
-	fout=${genome%.fna}.aragorn_mtRNA.fa
-	$aragorn -mt -fo -o $fout $genome
+	fout=${genome%.fasta}.aragorn_mtRNA.fa
+	$aragorn -fo -o $fout $genome
 	
 	#with secondary structures
-	sout=${genome%.fna}.aragorn_structures_mtRNA.txt
-	$aragorn -mt -o $sout $genome
+	sout=${genome%.fasta}.aragorn_structures_mtRNA.txt
+	$aragorn -o $sout $genome
 done
 
 
 #copy files back
-rm *.fna
+rm *.fasta
 cp * $data_dir
