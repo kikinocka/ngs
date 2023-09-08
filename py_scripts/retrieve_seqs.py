@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
-files = [x for x in os.listdir() if x.endswith('ovol_problematic.acc')]
-database = '/Users/kika/ownCloud/blasto_comparative/proteins/Ovol_companion.CDS_cdseq_all.fna'
+os.chdir('/Users/kika/ownCloud/blasto_comparative/no_stop_proteins/')
+files = [x for x in os.listdir() if x.endswith('.acc')]
+database = '/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs+bedcov/Btri_proteins-final.faa'
 
 for accessions in files: 
 	print(accessions)
