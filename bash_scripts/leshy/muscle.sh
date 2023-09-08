@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta/'
 
-for fasta in q2004590.og_hmm.fa; do
+for fasta in *.fa; do
 	echo $fasta
 	aln=${fasta%.fa}.muscle.aln
 	log=${fasta%.fa}.muscle.log
