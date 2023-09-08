@@ -8,16 +8,16 @@
 cat $PBS_NODEFILE
 
 gappa='/storage/brno3-cerit/home/kika/miniconda3/bin/gappa'
-data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/acanthocephala/placement/'
+data='/storage/brno3-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/mesozoa/placement/'
 
 #copy files to scratch
-cp $data'RAxML_portableTree.EPARUN_acanthocephala.jplace' $SCRATCHDIR
+cp $data'RAxML_portableTree.EPARUN_mesozoa.jplace' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-jplace='RAxML_portableTree.EPARUN_acanthocephala.jplace'
+jplace='RAxML_portableTree.EPARUN_mesozoa.jplace'
 prefix=${jplace%.jplace}.
 log=${jplace%.jplace}.accumulated.log
 threshold=0.8
