@@ -2,19 +2,16 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/home/kika/ownCloud/blastocrithidia/seqfire/apicomplexans/')
-files = sorted(os.listdir())
-out = open('aln_len.tsv', 'w')
+os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal/')
+files = [x for x in os.listdir() if x.endswith('.aln')]
+out = 'aln_len.tsv', 'w'
 
 # #number of sequences
 # print(len(alignment))
 
-
-for file in files:
-	if file.endswith('.aln'):
+with open(out, 'w') as result:
+	for file in files:
 		name = file.split('.')[0]
 		aln = AlignIO.read(file, 'fasta')
 		#number of positions
-		out.write('{}\t{}\n'.format(name, aln.get_alignment_length()))
-
-out.close()
+		result.write('{}\t{}\n'.format(name, aln.get_alignment_length()))
