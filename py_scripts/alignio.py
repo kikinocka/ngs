@@ -11,6 +11,7 @@ out = 'aln_len.tsv', 'w'
 
 with open(out, 'w') as result:
 	for file in files:
+		print(file)
 		name = file.split('.')[0]
 		aln = AlignIO.read(file, 'fasta')
 		#number of positions
