@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 for fasta in *.fa; do
 	echo $fasta
