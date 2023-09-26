@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/Dsl1/rint1-tip20/combined/')
-trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/APSK/ver3/combined//')
+trees = [x for x in os.listdir() if x.endswith('apsk')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/Dsl1/rint1-tip20/rint1_codes_names.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/APSK/ver3/apsk_names_codes_raxml.txt')
 
 name_dict = {}
 for name in names:
@@ -28,8 +28,8 @@ for name in names:
 
 for tree in trees:
 	print(tree)
-	name = tree.split('.treefile')[0]
-	# name = tree.split('.tre')[0]
+	# name = tree.split('.treefile')[0]
+	name = tree.split('.tre')[0]
 	# name = tree.split('.tre')[0] + tree.split('.tre')[1]
 	with open('{}_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):

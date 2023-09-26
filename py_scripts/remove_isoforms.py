@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+#courtesy of github.com/morpholino
+
 import sys
 from Bio import SeqIO
 import re
