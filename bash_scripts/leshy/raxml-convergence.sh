@@ -6,7 +6,7 @@ for bs in RAxML_bootstrap.*; do
 	echo $bs
 	out=$bs'.conv.txt'
 
-	raxmlHPC-PTHREADS-AVX -m GTRCAT -p 12345 -z $bs -I autoMRE_IGN -n $out -T 10
+	raxmlHPC-PTHREADS-AVX -m PROTGAMMALG4XF -p 12345 -z $bs -I autoMRE_IGN -n $out -T 10
 done
 
 mv *.conv.txt ./convergence
