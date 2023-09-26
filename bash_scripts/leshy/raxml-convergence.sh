@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /mnt/mokosz/home/kika/archam_trees/raxml/
+cd /mnt/mokosz/home/kika/archam_trees/raxml/not_converged/
 
 for bs in RAxML_bootstrap.*; do
 	echo $bs
