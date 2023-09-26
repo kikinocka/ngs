@@ -12,7 +12,7 @@ else:
 	outfile = '.'.join(infile.split('.')[:-1]) + '-best-isoforms.fasta'
 
 print(f'parsing sequences from {infile} to {outfile}')
-isoformRe = re.compile(r'(.*)_i(\d+)$')
+isoformRe = re.compile(r'(.*)_i(\d+).*$')
 
 isoforms = {}
 
