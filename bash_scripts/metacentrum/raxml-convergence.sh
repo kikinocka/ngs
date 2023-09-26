@@ -24,7 +24,7 @@ for bs in RAxML_bootstrap.*; do
 	echo $aln
 
 	out=$bs'.conv.txt'
-	raxmlHPC-PTHREADS -m GTRCAT -p 12345 -z $bs -I autoMRE_IGN -n $out -T $PBS_NUM_PPN
+	raxmlHPC-PTHREADS -m PROTGAMMALG4XF -p 12345 -z $bs -I autoMRE_IGN -n $out -T $PBS_NUM_PPN
 done
 
 #copy files back
