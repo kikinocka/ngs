@@ -11,7 +11,7 @@ for aln in *.aln; do
 	out=${aln%.trimal_gt-0.8.aln}
 
 	#proteins
-	raxmlHPC-PTHREADS-AVX  -m PROTGAMMALG4XF -f a -T 10 -x 123 -N 100 -p 12345 -s $aln -n $out
+	raxmlHPC-PTHREADS-AVX  -m PROTGAMMALG4XF -f a -T 10 -x 123 -N autoMRE_IGN -p 12345 -s $aln -n $out
 
 	# #18S
 	# raxmlHPC-PTHREADS-AVX  -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
@@ -20,5 +20,3 @@ for aln in *.aln; do
 done
 
 mv * $data
-
-python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py RAxML-many done
