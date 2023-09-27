@@ -3,7 +3,7 @@
 data='/mnt/mokosz/home/kika/archam_trees/raxml'
 tmp='/tmp/kika/'
 
-cp $data'/'*.aln $tmp
+cp $data'/transporters.CD.trimal_gt-0.8.aln' $tmp
 cd $tmp
 
 for aln in *.aln; do
@@ -20,3 +20,5 @@ for aln in *.aln; do
 done
 
 mv * $data
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py RAxML many done

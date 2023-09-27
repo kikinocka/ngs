@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/archamoebae/trees/APSK/ver3/combined//')
-trees = [x for x in os.listdir() if x.endswith('apsk')]
+os.chdir('/Users/kika/ownCloud/archamoebae/trees/AS/ver2/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/archamoebae/trees/APSK/ver3/apsk_names_codes_raxml.txt')
+names = open('/Users/kika/ownCloud/archamoebae/trees/AS/ver2/as_codes_names.txt')
 
 name_dict = {}
 for name in names:
