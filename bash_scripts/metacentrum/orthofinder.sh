@@ -14,7 +14,7 @@ module load orthofinder
 data='/storage/brno3-cerit/home/kika/blasto_comparative/'
 
 #copy files to scratch
-cp $data'orthofinder/'* $SCRATCHDIR
+cp $data'orthofinder/'*.fa* $SCRATCHDIR
 cp $data'proteins_blasto/'*.faa $SCRATCHDIR
 
 
