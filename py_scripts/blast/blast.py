@@ -2,11 +2,11 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Tthe_query.fa'
-db = '/Users/kika/ownCloud/UGA_recoding/nyctotherus/db/Trinity.fasta'
-out = '/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Nova_selB.blast_transc.xml'
+cmd = 'blastp'
+task = 'blastp'
+query = '/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Tb_queries.fa'
+db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
+out = '/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Bnon.cyt_deam.blast.xml'
 evalue = 1e-10
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Nova_selB.blast_transc.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/UGA_recoding/nyctotherus/selB/Nova_selB.best_blast_transc.tsv', 'w')
+output = open('/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Bnon.cyt_deam.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Bnon.cyt_deam.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

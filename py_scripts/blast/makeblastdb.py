@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/UGA_recoding/nyctotherus/')
-files = [x for x in os.listdir() if x.endswith('.fasta')]
-dbtype = 'nucl'
+os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
+files = [x for x in os.listdir() if x.endswith('annotated.fa')]
+dbtype = 'prot'
 
 for file in files: 
 	print(file)

@@ -2,20 +2,21 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Dcko/ownCloud/SAGs/phylogenomics/concatenated/ver2/')
-alignments = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/tRNAs/')
+files = [x for x in os.listdir() if x.endswith('Lmaj_tRNAs_FINAL.fa')]
 
-counts = dict()
-for aln in alignments:
-	for seq in SeqIO.parse(aln, 'fasta'):
+for file in files:
+	print(file)
+	counts = dict()
+	for seq in SeqIO.parse(file, 'fasta'):
 		if seq.name not in counts:
 			counts[seq.name] = 1
 		else:
 			counts[seq.name] += 1
 
-with open('taxa_counts.txt', 'w') as out:
-	for key, value in counts.items():
-		out.write('{}\t{}\n'.format(key, value))
+	with open('{}.tRNAs_counts.txt'.format(file.split('_')[0]), 'w') as out:
+		for key, value in counts.items():
+			out.write('{}\t{}\n'.format(key, value))
 
 
 # #COUNT HEADERS
