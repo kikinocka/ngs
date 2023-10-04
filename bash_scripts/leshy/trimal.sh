@@ -25,6 +25,6 @@ do
 		touch $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln}
 		trimal -in $HOMEDIR/$sample -out $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln} -gt 0.5 -cons 50 -fasta
     fi
-done < $HOMEDIR'/large.txt' #last item must end with a newline!
+done < $HOMEDIR'/trimal_missing.txt' #last item must end with a newline!
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py trimAl done
