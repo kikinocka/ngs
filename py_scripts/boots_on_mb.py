@@ -36,7 +36,11 @@ def reformat_combined_supports(tree_string):
             boot = supcomb[-3:].lstrip('0')
             if boot == '':
                 boot = '0'
-            prob = str(int(supcomb[:-3])/100)
+            try:
+                prob = str(int(supcomb[:-3])/100)
+            except ValueError:
+                print("ValueError on support string", supcomb)
+                prob = str(0)
 
             supcomb2 = prob + '/' + boot
 
