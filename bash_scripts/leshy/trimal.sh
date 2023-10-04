@@ -20,10 +20,10 @@ ALNDIR='/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_gt-0.5_con
 
 while read -r sample
 do
-	if [ ! -e $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln} ]; then
-		touch $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln}
-		trimal -in $HOMEDIR/$sample -out $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln} -gt 0.5 -cons 50 -fasta
-    fi
+	# if [ ! -e $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln} ]; then
+	# 	touch $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln}
+	trimal -in $HOMEDIR/$sample -out $ALNDIR/${sample/muscle.aln/trimal_gt-0.5_cons-50.aln} -gt 0.5 -cons 50 -fasta
+    # fi
 done < $HOMEDIR'/trimal_missing.txt' #last item must end with a newline!
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py trimAl done
