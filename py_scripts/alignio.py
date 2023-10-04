@@ -19,5 +19,5 @@ with open(out, 'w') as result:
 			#number of positions
 			result.write('{}\t{}\n'.format(name, aln.get_alignment_length()))
 		except:
-			with open('trimal_errors.txt', 'w') as errors:
+			with open('trimal_errors.txt', 'a') as errors:
 				errors.write('{}\n'.name)
