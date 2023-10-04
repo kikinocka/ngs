@@ -14,5 +14,10 @@ with open(out, 'w') as result:
 		print(file)
 		name = file.split('.')[0]
 		aln = AlignIO.read(file, 'fasta')
-		#number of positions
-		result.write('{}\t{}\n'.format(name, aln.get_alignment_length()))
+			
+		try:
+			#number of positions
+			result.write('{}\t{}\n'.format(name, aln.get_alignment_length()))
+		except ValueErorr:
+			with open('trimal_errors.txt', 'a') as errors:
+				errors.write('{}\n'.format(name))
