@@ -1,8 +1,8 @@
 #!/bin/bash
 #name prefetch_wrapper
 
-HOMEDIR='/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta'
-ALNDIR='/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_muscle'
+HOMEDIR='/mnt/mokosz/home/kika/workdir'
+ALNDIR='/mnt/mokosz/home/kika/workdir'
 
 #cd $HOMEDIR
 
@@ -12,7 +12,7 @@ do
 		touch $ALNDIR/${sample/fa/muscle.aln}
 	    muscle -super5 $HOMEDIR/$sample -output $ALNDIR/${sample/fa/muscle.aln} -threads 15
     fi
-done < $HOMEDIR'/large.txt' #last item must end with a newline!
+done < $HOMEDIR'/blasto_OGs.txt' #last item must end with a newline!
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py muscle5 done
 
