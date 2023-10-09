@@ -21,15 +21,13 @@ ALNDIR='/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_iqtree'
 
 while read -r sample
 do
-	bb=1000
-	nm=5000
 	if [ ! -e $ALNDIR/guide_${sample%.aln} ]; then
 		touch $ALNDIR/guide_${sample%.aln}
 		iqtree2 -m LG+G4 -T AUTO --threads-max 15 --quiet --safe -s $HOMEDIR/$sample --prefix $ALNDIR/guide_${sample%.aln}
     fi
     if [ ! -e $ALNDIR/guide_${sample%.aln}.treefile ]; then
 		touch $ALNDIR/guide_${sample%.aln}.treefile
-		iqtree2 -m LG+C20+G4 -T AUTO --threads-max 15 -B $bb --nmax $nm --quiet --safe -s $HOMEDIR/$sample --tree-freq $ALNDIR/guide_${sample%.aln}.treefile
+		iqtree2 -m LG+C20+G4 -T AUTO --threads-max 15 -B 1000 --nmax 5000 --quiet --safe -s $HOMEDIR/$sample --tree-freq $ALNDIR/guide_${sample%.aln}.treefile
 done < $HOMEDIR'/at1_to_iqt.txt' #last item must end with a newline!
 
 
