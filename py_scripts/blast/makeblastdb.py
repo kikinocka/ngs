@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
-files = [x for x in os.listdir() if x.endswith('annotated.fa')]
+os.chdir('/Users/kika/data/eukprot_v3/')
+files = [x for x in os.listdir() if x.endswith('EP00964_Phaeocystis_antarctica.fasta')]
 dbtype = 'prot'
 
 for file in files: 

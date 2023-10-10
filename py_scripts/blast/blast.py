@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Tb_queries.fa'
-db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
-out = '/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Bnon.cyt_deam.blast.xml'
-evalue = 1e-10
+query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/tom1.fa'
+db = '/Users/kika/data/eukprot_v3/EP00964_Phaeocystis_antarctica.fasta'
+out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/BLASTs/phaeocystis_eukprot.blast.xml'
+evalue = 1e-5
 outfmt = 5
 hits = 1
 word_size = 3
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Bnon.cyt_deam.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blastocrithidia/genes/c_deaminase/p57/Bnon.cyt_deam.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/BLASTs/phaeocystis_eukprot.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/BLASTs/phaeocystis_eukprot.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
