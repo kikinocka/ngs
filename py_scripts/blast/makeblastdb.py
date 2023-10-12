@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/eukprot_v3/')
-files = [x for x in os.listdir() if x.endswith('EP00964_Phaeocystis_antarctica.fasta')]
+os.chdir('/Users/kika/data/kinetoplastids/adeanei/')
+files = [x for x in os.listdir() if x.endswith('proteins.fasta')]
 dbtype = 'prot'
 
 for file in files: 
