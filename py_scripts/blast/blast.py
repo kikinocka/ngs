@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/adean_acc.fa'
-db = '/Users/kika/data/kinetoplastids/adeanei/proteins.fasta'
-out = '/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/adean.ncbi_acc.blast.xml'
+query = '/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri_acc.fa'
+db = '/Users/kika/data/kinetoplastids/adeanei/Ca_Kinetoplastibacterium_crithidii.faa'
+out = '/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri.ncbi_acc.blast.xml'
 evalue = 1e-5
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/adean.ncbi_acc.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/adean.ncbi_acc.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri.ncbi_acc.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri.ncbi_acc.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
@@ -47,7 +47,7 @@ for record in blast_records:
 		pident = (best_hit.gaps+best_hit.identities)/best_hit.align_length*100
 		alen_qlen = best_hit.align_length/record.query_length
 		alen_slen = best_hit.align_length/record.alignments[0].length
-		if best_hit.frame[1] > 0:
+		if best_hit.frame[1] >= 0:
 			# print(record.alignments[0].title)
 			out_best.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 				record.query, record.query_length, best_hit.frame[0],
@@ -67,7 +67,7 @@ for record in blast_records:
 				pident = (hsp.gaps+hsp.identities)/hsp.align_length*100
 				alen_qlen = hsp.align_length/record.query_length
 				alen_slen = hsp.align_length/aln.length
-				if hsp.frame[1] > 0:
+				if hsp.frame[1] >= 0:
 					output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
 						record.query, record.query_length, hsp.frame[0],
 						aln.hit_id, aln.hit_def, aln.length, hsp.frame[1], 

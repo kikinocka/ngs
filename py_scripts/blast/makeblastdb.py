@@ -3,7 +3,7 @@ import os
 import subprocess
 
 os.chdir('/Users/kika/data/kinetoplastids/adeanei/')
-files = [x for x in os.listdir() if x.endswith('proteins.fasta')]
+files = [x for x in os.listdir() if x.endswith('Ca_Kinetoplastibacterium_crithidii.faa')]
 dbtype = 'prot'
 
 for file in files: 
