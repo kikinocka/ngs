@@ -11,10 +11,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load orthofinder
 
-data='/storage/brno3-cerit/home/kika/kinetoplastids/orthofinder/'
+data='/storage/brno3-cerit/home/kika/kinetoplastids/orthofinder'
 
 #copy files to scratch
-cp $data'orthofinder/'*.fa* $SCRATCHDIR
+cp $data'/'*.fa* $SCRATCHDIR
 
 
 #compute on scratch
