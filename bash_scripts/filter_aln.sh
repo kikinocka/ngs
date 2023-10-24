@@ -2,7 +2,7 @@
 
 filt_script='/Users/kika/scripts/py_scripts/filter_alignment.py'
 
-cd '/Users/kika/ownCloud/kinetoplastids/AOX/tree/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_automated1/'
 threshold=50
 
 for fasta in *trimal*.aln ; do
