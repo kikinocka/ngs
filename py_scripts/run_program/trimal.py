@@ -3,8 +3,8 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/orthofinder_Oct02/blasto-specific/OGs_muscle/')
-files = [x for x in os.listdir() if x.endswith('.muscle.aln')]
+os.chdir('/Users/kika/ownCloud/kinetoplastids/PFR/')
+files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
 for file in files:
@@ -13,7 +13,7 @@ for file in files:
 	file_name = file.split('.')[0]
 	aut = 'automated1'
 	gappyout = 'gappyout'
-	gt = 0.5 #fraction of sequences with a gap allowed
+	gt = 0.8 #fraction of sequences with a gap allowed
 	cons = 5 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 
