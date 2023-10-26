@@ -20,6 +20,7 @@ bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
 
+eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 conda activate bowtie2
 
 bowtie2-build $ref $base_name
