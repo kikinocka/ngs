@@ -7,10 +7,7 @@
 
 cat $PBS_NODEFILE
 
-#add module
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
-module load muscle
-
+muscle='/storage/brno3-cerit/home/kika/miniconda3/bin/muscle'
 datadir='/storage/brno3-cerit/home/kika/blasto_comparative/orthofinder/all_species/'
 
 #copy files to scratch
@@ -25,10 +22,10 @@ for fasta in *.fa; do
 	log=${fasta%.fa}.muscle.log
 
 	# #short alns
-	# muscle -threads $PBS_NUM_PPN -align $fasta -output $aln 2> $log
+	# $muscle -threads $PBS_NUM_PPN -align $fasta -output $aln 2> $log
 	
 	#long alns
-	muscle -threads $PBS_NUM_PPN -super5 $fasta -output $aln 2> $log
+	$muscle -threads $PBS_NUM_PPN -super5 $fasta -output $aln 2> $log
 done
 
 #copy files back
