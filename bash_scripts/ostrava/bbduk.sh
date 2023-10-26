@@ -11,9 +11,9 @@ adapt='/home/users/kika/bbmap/resources/adapters.fa'
 cd '/home/users/kika/bnon_pfr_ko/reads/'
 fwd='P57_PF16_1.fastq.gz'
 rev='P57_PF16_2.fastq.gz'
-trimmed_fwd='bnon_PF16_KO_trimmed_1.fq.gz'
-trimmed_rev='bnon_PF16_KO_trimmed_2.fq.gz'
-report='ovol_bbduk.txt'
+trimmed_fwd='bnon_PF16_KO.trimmed_1.fq.gz'
+trimmed_rev='bnon_PF16_KO.trimmed_2.fq.gz'
+report='bnon_PF16_KO.bbduk.txt'
 # len=50
 
 #illumina pair-end reads
