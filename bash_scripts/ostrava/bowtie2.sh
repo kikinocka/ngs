@@ -5,14 +5,12 @@
 #PBS -l nodes=1:ppn=80
 #PBS -l walltime=600:00:00
 
-work_dir='/mnt/data/kika/blastocrithidia/genomes/'
+cd '/home/users/kika/bnon_pfr_ko/'
 
-ref=$work_dir'final_assemblies/Braa_genome_final_corrected2_masked.fa'
-p1_1=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_1.fq'
-p1_2=$work_dir'b_spHR05/reads/karect_HR-05_trimmed_75_2.fq'
-base_name='Braa_cor2_bw2'
-
-cd $work_dir'b_spHR05/bowtie2/final_corrected2/'
+ref='p57_polished.fa'
+p1_1='reads/bnon_PF16_KO.trimmed_1.fq.gz'
+p1_2='reads/bnon_PF16_KO.trimmed_2.fq.gz'
+base_name='bnon_PF16_KO'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
@@ -20,6 +18,9 @@ unmapped_paired=$base_name'_unmapped_paired.fq.gz'
 report=$base_name'.report.txt'
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
+
+
+conda activate bowtie2
 
 bowtie2-build $ref $base_name
 
@@ -40,5 +41,8 @@ bowtie2 --very-sensitive -p 50 \
 samtools view -bS -@ 20 $samfile > $bamfile
 samtools sort -o $sorted -@ 50 $bamfile 
 samtools index -b $sorted
+
+conda deactivate
+
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: bowtie2 done
