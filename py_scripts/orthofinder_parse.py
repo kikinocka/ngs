@@ -18,7 +18,7 @@ import pandas as pd
 # 			out.write('{}\t{}\n'.format(key, i))
 
 
-os.chdir('/storage/brno3-cerit/home/kika/blasto_comparative/orthofinder/all_species/')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/orthofinder_Oct02/all_species/')
 table = pd.read_table('all_species_OGs.tsv')
 headers = list(table.columns)[1:]
 # headers = [item.replace('Ch. caulleryi', 'Chilomastixcau').replace('Ch. cuspidata', 'Chilomastixcus') for item in headers]
