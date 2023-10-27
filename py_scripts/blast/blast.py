@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri_acc.fa'
-db = '/Users/kika/data/kinetoplastids/adeanei/Ca_Kinetoplastibacterium_crithidii.faa'
-out = '/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri.ncbi_acc.blast.xml'
+query = '/Users/kika/ownCloud/blastocrithidia/genes/PF16/pf16.fa'
+db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
+out = '/Users/kika/ownCloud/blastocrithidia/genes/PF16/bnon.fwd_pf16.blast.xml'
 evalue = 1e-5
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri.ncbi_acc.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/kinetoplastids/Angomonas_LOPIT-DC/kcri.ncbi_acc.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blastocrithidia/genes/PF16/bnon.fwd_pf16.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blastocrithidia/genes/PF16/bnon.fwd_pf16.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
