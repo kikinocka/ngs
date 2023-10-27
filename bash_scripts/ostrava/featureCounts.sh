@@ -7,7 +7,7 @@
 
 cd '/home/users/kika/bnon_pfr_ko/'
 annotation='bnon_proteins_annotated.gff3'
-bamfile='bnon_PF16_KO.bw2_sorted.bam'
+bamfile='bw2_mapping/bnon_PF16_KO.bw2_sorted.bam'
 output='bnon_PF16_KO.featureCounts.txt'
 
 featureCounts -p -O -T n -a $annotation -o $output $bamfile
