@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/home/users/kika/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/home/users/kika/amoebae/resources/local_db_files/TCS.faa'
+database = '/home/users/kika/amoebae_kap3/resources/local_db_files/TCS.faa'
 
 for accessions in files: 
 	print(accessions)
