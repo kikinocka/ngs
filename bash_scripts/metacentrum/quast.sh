@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add quast-4.6.3
 
-datadir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
-outdir=$datadir'3-quast/'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/angomonas/'
+# outdir=$datadir'3-quast/'
 
 #copy files to scratch
-cp $datadir'2-spades/scaffolds.fasta' $SCRATCHDIR
+cp $datadir'TriTrypDB-65_AdeanaiCavalhoATCCPRA-265_Genome.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-assemblies='scaffolds.fasta'
+assemblies='TriTrypDB-65_AdeanaiCavalhoATCCPRA-265_Genome.fasta'
 min_contig=500
 
 quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
@@ -38,4 +38,5 @@ quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
 #copy results to your folder
 rm $assemblies
 # rm *.fa
-cp -r * $outdir
+# cp -r * $outdir
+cp -r * $datadir
