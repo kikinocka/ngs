@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -12,11 +12,11 @@ module add iqtree-1.6.12
 # source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 # module load iqtree
 
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/PFR'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/PFR/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
-cp $datadir'/'* $SCRATCHDIR
+cp $datadir'pfr.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -35,7 +35,7 @@ nm=5000
 # iqtree -m TEST -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 # iqtree -m GTR+G -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
-# iqtree -m LG+G4 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -safe -s $aln -pre $guide
+iqtree -m LG+G4 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -safe -s $aln -pre $guide
 iqtree -m LG+C20+G4 -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -safe -s $aln -ft $guide_tree #-wsr
 
 #copy files back
