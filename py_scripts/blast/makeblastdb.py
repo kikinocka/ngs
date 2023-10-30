@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/kinetoplastids/adeanei/')
-files = [x for x in os.listdir() if x.endswith('Ca_Kinetoplastibacterium_crithidii.faa')]
+os.chdir('/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/representative_Ogar/')
+files = [x for x in os.listdir() if x.endswith('dpap_transcripts_ed-minus_bac.transdecoder.fa')]
 dbtype = 'prot'
 
 for file in files: 
