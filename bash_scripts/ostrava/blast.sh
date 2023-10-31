@@ -7,7 +7,7 @@
 
 cd '/home/users/kika/kap3/'
 
-query='kap3_hits.fa'
+# query='kap3_hits.fa'
 db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
