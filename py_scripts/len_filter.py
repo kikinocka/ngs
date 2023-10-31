@@ -2,12 +2,12 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
-genome = SeqIO.parse('Oeli_companion.CDS_cdseq_OK.fna', 'fasta')
+os.chdir('/Users/kika/ownCloud/archamoebae/')
+genome = SeqIO.parse('rhizomastix_libera_reassembly-IND8-VAV/rhizomastix_reassembly.trinity.fa', 'fasta')
 
-with open('Oeli_companion.CDS_cdseq_OK_l30.fna', 'w') as out:
+with open('ncbi_submission/rlib.trinity_forNCBI.l200.fa', 'w') as out:
 	for seq in genome:
-		if len(seq) >= 90:
+		if len(seq) >= 200:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 		else:
 			print(seq.description)

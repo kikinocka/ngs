@@ -5,19 +5,20 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/translated/'
+cd '/home/users/kika/kap3/'
 
-query='/mnt/data/kika/references/kinetoplastids/for_annotator/reference.fa'
+query='kap3_hits.fa'
+db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
-eval=1e-03
-# max_seqs=1
-# max_hsps=1
+eval=1e-04
+max_seqs=1
+max_hsps=1
 
-for db in *.fa; do
+for query in *.fa; do
 	echo $query
-	# out=${query%.fa}'.nr_'$eval'.'$program
-	out=${db%.fa}'.ref_'$eval'.tsv'
+	out=${query%.fa}'.nr_'$eval'.'$program'.tsv'
+	# out=${db%.fa}'.ref_'$eval'.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
@@ -25,8 +26,8 @@ for db in *.fa; do
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
 		-num_threads 10 \
 		-evalue $eval \
-		#-max_target_seqs $max_seqs \
-		#-max_hsps $max_hsps
+		-max_target_seqs $max_seqs \
+		-max_hsps $max_hsps
 	echo ***BLAST done***
 done
 
