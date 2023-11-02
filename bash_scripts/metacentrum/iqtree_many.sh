@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
