@@ -14,16 +14,16 @@ data_dir='/storage/brno3-cerit/home/kika/metamonads/'
 
 #copy files to scratch
 # cp $data_dir'/'*.aln $SCRATCHDIR
-cp 'q2007199.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007206.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007271.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007340.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007348.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007542.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007729.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007731.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007751.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp 'q2007820.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007199.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007206.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007271.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007340.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007348.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007542.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007729.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007731.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007751.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007820.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
