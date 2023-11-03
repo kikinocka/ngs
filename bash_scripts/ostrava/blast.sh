@@ -7,6 +7,8 @@
 
 cd '/home/users/kika/kap3/'
 
+# eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
+conda activate /home/users/bio/anaconda3/
 # query='kap3_hits.fa'
 db='/mnt/data/blastdbs/nr'
 program=blastp
@@ -30,5 +32,7 @@ for query in *.fa; do
 		-max_hsps $max_hsps
 	echo ***BLAST done***
 done
+
+conda deactivate
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: BLAST done

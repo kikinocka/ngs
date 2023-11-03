@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/users/kika/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/home/users/kika/amoebae_kap3/resources/local_db_files/TCS.faa'
+os.chdir('/Users/kika/ownCloud/archamoebae/ncbi_submission/')
+files = [x for x in os.listdir() if x.endswith('mab_to_remove2.txt')]
+database = 'mabd.trinity_forNCBI.l200_trimmed.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -19,9 +19,9 @@ for accessions in files:
 		# print(retrieve)
 		for seq in db:
 			if seq.name.split('.')[0] in retrieve:
-				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
-				# pass
-			else:
-				pass
 				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				pass
+			else:
+				# pass
+				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 
