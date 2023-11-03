@@ -7,7 +7,7 @@
 
 cd '/home/users/kika/kap3/'
 
-# eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
+eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 # query='kap3_hits.fa'
 db='/mnt/data/blastdbs/nr'
