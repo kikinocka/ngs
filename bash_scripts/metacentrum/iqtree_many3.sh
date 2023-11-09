@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many3
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -43,7 +43,7 @@ for f in *.aln ; do
 	# iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f} -ft $guide_tree #-wsr
 
 
-	iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 5000 -quiet -safe -s ${f} -pre ${f%.aln}
+	iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 10000 -quiet -safe -s ${f} -pre ${f%.aln}
 
 done
 
