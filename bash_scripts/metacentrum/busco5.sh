@@ -15,10 +15,10 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/archamoebae/prot_assemblies_filtration-20220127/if_removed'
+assembly_dir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_blasto'
 
 #copy files to scratch
-cp $assembly_dir'/'*.fasta $SCRATCHDIR
+cp $assembly_dir'/'*.faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,23 +26,24 @@ cd $SCRATCHDIR
 
 mkdir BUSCO_summaries
 
-for fasta in *.fasta; do
+for fasta in *.faa; do
 	echo $fasta
 	mode='proteins'
+	
 	lineage='eukaryota_odb10'
 	base=${fasta%.fastaa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 
-	# lineage='euglenozoa_odb10'
-	# base=${fasta%.fasta}_$lineage
-	# busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
-	# cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
+	lineage='euglenozoa_odb10'
+	base=${fasta%.fasta}_$lineage
+	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
+	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 done
 
 generate_plot.py -wd BUSCO_summaries
 
 
 #copy files back
-rm *.fastaa
+rm *.faa
 cp -r * $assembly_dir
