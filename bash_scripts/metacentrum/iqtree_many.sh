@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,16 +14,14 @@ data_dir='/storage/brno3-cerit/home/kika/metamonads/'
 
 #copy files to scratch
 # cp $data_dir'/'*.aln $SCRATCHDIR
-cp $data_dir'q2011222.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2012767.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2019047.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2011452.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2012772.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2019130.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2011616.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2012784.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2019144.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-cp $data_dir'q2011627.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2007348.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2009078.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2009173.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2011721.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2011742.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2012707.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2019788.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $data_dir'q2019794.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
@@ -43,7 +41,7 @@ for f in *.aln ; do
 	# iqtree -m LG+C20+F+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -quiet -s ${f} -ft $guide_tree #-wsr
 
 
-	iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 5000 -quiet -safe -s ${f} -pre ${f%.aln}
+	iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 10000 -quiet -safe -s ${f} -pre ${f%.aln}
 
 done
 
