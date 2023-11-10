@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_gt-0.8/'
 
-for aln in q2001042.og_hmm.trimal_gt-0.8.filtered-50.aln ; do
+for aln in *.aln ; do
 	echo $aln
 	guide=guide_${aln%.aln}
 	guide_tree=$guide'.treefile'
