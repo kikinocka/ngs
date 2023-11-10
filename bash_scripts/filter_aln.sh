@@ -1,8 +1,8 @@
 #!/bin/bash
 
-filt_script='/mnt/mokosz/home/kika/scripts/py_scripts/filter_alignment.py'
+filt_script='/Users/kika/scripts/py_scripts/filter_alignment.py'
 
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_gt-0.8/'
+cd '/Users/kika/ownCloud/metamonada/OGs/iqtree/cpn60/ver2/'
 threshold=50
 
 for fasta in *trimal*.aln ; do
