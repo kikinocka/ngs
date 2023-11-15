@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/markers_check/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/markers_check/tom40/rnd2/'
 threads=15
 eval=1e-10
 
