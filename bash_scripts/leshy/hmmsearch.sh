@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # cd '/mnt/mokosz/home/kika/metamonads_ancestral/markers_check/'
-# threads=10
-# eval=1e-10
+threads=10
+eval=1e-10
 
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/renamed/all.fa'
