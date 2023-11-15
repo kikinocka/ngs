@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 os.chdir('/Users/kika/ownCloud/manuscripts/33_oil_sands-mtDNA/graphs/')
-out_perc = open('V4_enviro_perc.tsv', 'w')
+out_perc = open('V4_sediments_counts.tsv', 'w')
 
 # #several OTU tables
 # v9 = pd.read_csv('V9_all.tsv', sep='\t')
@@ -15,7 +15,7 @@ out_perc = open('V4_enviro_perc.tsv', 'w')
 # # print(df)
 
 #one OTU table
-df = pd.read_csv('V4_enviro.tsv', sep='\t')
+df = pd.read_csv('V4_sediments.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.split('|', 5, expand=True)
 # print(df['rank3'])
@@ -30,10 +30,10 @@ total = df.groupby(['rank2']).sum().filter(regex='.*-.*\d+', axis=1)
 # total = df.groupby(['rank5']).sum().filter(regex='\d+_.*', axis=1)
 
 #change to percentages
-total = (100 * total / total.sum()).round(2)
+# total = (100 * total / total.sum()).round(2)
 
 #oil_sands
-total = total[['BML_P1-Feb12', 'BML_P1-Jul23', 'BML_P2-Jul23', 'BML_P3-Jul23', 'BML_P1-Aug13', 'BML_P2-Aug13', 'BML_P3-Aug13', 'BML_P1-Sep10', 'BML_P2-Sep10', 'BML_P3-Sep10', 'BML_P1-Oct09', 'BML_P2-Oct09', 'BML_P3-Oct09', 'SWIP-Aug15', 'SWIP-Aug27', 'SWIP-Sep10', 'SWIP-Nov06', 'SWIP-Nov19', 'MLSB-May28', 'MLSB-Jun04', 'MLSB-Jun11', 'MLSB-Jun18', 'MLSB-Jul03', 'MLSB-Jul16', 'MLSB-Aug15', 'MLSB-Aug27', 'MLSB-Sep10', 'MLSB-Sep24', 'MLSB-Oct09', 'MLSB-Nov06', 'MLSB-Nov19', 'BCR-May28', 'BCR-Jun04', 'BCR-Jun18', 'BCR-Jul03', 'BCR-Jul16', 'BCR-Aug20', 'BCR-Aug27', 'BCR-Sep10', 'BCR-Oct01']]
+total = total[['P1-Mar02 (201-202_S88)', 'P1-Mar02 (203-204_S89)', 'P3-Mar02 (43-44_S82)', 'P3-Mar02 (45-46_S83)', 'P3-Mar02 (49-50_S85)']]
 # # print(total)
 
 # #SL_Euglenozoa
