@@ -44,9 +44,11 @@ with open('kap3.reverse_blast.txt', 'w') as out, open('kap3.reverse_blast.errors
 			# full = '{}_{}'.format(tax, orgn)
 
 			# print(orgn)
+			# print(description)
 			# print(tax)
 			# print(tax[0])
 			# print(full)
+
 			# out.write('{}\t{}\t{}\n'.format(prot_id, orgn, tax))
 			# out.write('{}\t{}\n'.format(prot_id, tax[0]))
 			out.write('{}\t{}\n'.format(prot_id, description))
