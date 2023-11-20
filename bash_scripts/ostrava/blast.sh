@@ -10,7 +10,7 @@ cd '/home/users/kika/kap3/'
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 # query='kap3_hits.fa'
-db='/mnt/data/blastdbs/nr'
+db='/mnt/data/kika/references/human.GCF_000001405.40_GRCh38.p14_protein.faa'
 program=blastp
 task=blastp
 eval=1e-04
@@ -19,7 +19,7 @@ max_hsps=1
 
 for query in *.fa; do
 	echo $query
-	out=${query%.fa}'.nr_'$eval'.'$program'.tsv'
+	out=${query%.fa}'.hsap_'$eval'.'$program'.tsv'
 	# out=${db%.fa}'.ref_'$eval'.tsv'
 	$program -task $task \
 		-query $query \
