@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/')
-files = [x for x in os.listdir() if x.endswith('dbre.acc')]
-database = '/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/Dysnectes.faa'
+files = [x for x in os.listdir() if x.endswith('ssal.acc')]
+database = '/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/Spironucleus.faa'
 
 for accessions in files: 
 	print(accessions)
