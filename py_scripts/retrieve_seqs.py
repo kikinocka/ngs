@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/')
-files = [x for x in os.listdir() if x.endswith('gmur.acc')]
-database = '/mnt/mokosz/home/kika/allDB/eukaryotes/Giardia_muris.faa'
+files = [x for x in os.listdir() if x.endswith('ppyr.acc')]
+database = '/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/Paratrimastix.faa'
 
 for accessions in files: 
 	print(accessions)
