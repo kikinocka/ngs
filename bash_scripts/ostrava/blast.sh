@@ -10,7 +10,7 @@ cd '/mnt/data/kika/blastocrithidia/proteins/ms/'
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 # query='kap3_hits.fa'
-db='/mnt/data/kika/blastocrithidia/proteins/blastdbs/Braa_proteins-final.faa'
+db='/mnt/data/kika/blastocrithidia/proteins/blastdbs/Btri_proteins-final.faa'
 program=blastp
 task=blastp
 eval=1e-04
@@ -19,7 +19,7 @@ max_hsps=1
 
 for query in *.fa; do
 	echo $query
-	out=${query%_proteins_annotated.fa}'.Braa_'$eval'.'$program'.tsv'
+	out=${query%_proteins_annotated.fa}'.Btri_'$eval'.'$program'.tsv'
 	# out=${db%.fa}'.ref_'$eval'.tsv'
 	$program -task $task \
 		-query $query \
