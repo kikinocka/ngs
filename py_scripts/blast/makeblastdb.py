@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/representative_Ogar/')
-files = [x for x in os.listdir() if x.endswith('dpap_transcripts_ed-minus_bac.transdecoder.fa')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs+bedcov/blastable_dbs/')
+files = [x for x in os.listdir() if x.endswith('.faa')]
 dbtype = 'prot'
 
 for file in files: 

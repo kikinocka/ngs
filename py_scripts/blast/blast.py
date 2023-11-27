@@ -4,9 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/eupelagonemids/eupelago_hits.fa'
-db = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/representative_Ogar/dpap_transcripts_ed-minus_bac.transdecoder.fa'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/eupelagonemids/eupelago_hits.dpap_blast.xml'
+query = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/bnon_proteins_annotated.fa'
+db = '/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs+bedcov/blastable_dbs/Bfru_proteins-final.faa'
+# db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
+out = '/Users/kika/ownCloud/blasto_comparative/mass-spec/Bnon_Bfru.blast.xml'
 evalue = 1e-5
 outfmt = 5
 hits = 1
@@ -16,9 +17,9 @@ threads = 6
 print('running BLAST')
 #query - database
 subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
-	-num_threads {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-#-max_target_seqs {} hits, 
+	-num_threads {} -max_target_seqs {}'.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads, hits), shell=True)
+
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -29,8 +30,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/eupelagonemids/eupelago_hits.dpap_blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/eupelagonemids/eupelago_hits.dpap_best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/mass-spec/Bnon_Bfru.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/mass-spec/Bnon_Bfru.blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
