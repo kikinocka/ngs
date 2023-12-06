@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
-data='/storage/brno3-cerit/home/kika/blasto_comparative/18S/'
+data='/storage/brno3-cerit/home/kika/blasto_comparative/18S/ver2/'
 
 #copy files to scratch
 cp $data'18S_dataset4trim.aln' $SCRATCHDIR
@@ -31,8 +31,8 @@ cd $SCRATCHDIR
 aln='18S_dataset4trim.aln'
 out=${aln%_dataset4trim.aln}
 
-raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
-raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N 100 -f d -s $aln -n $out\2 -T $PBS_NUM_PPN
+raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN -o Bsal
+raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N autoMRE_IGN -f d -s $aln -n $out\2 -T $PBS_NUM_PPN -o Bsal
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -f b -t RAxML_bestTree.$out\1 -z RAxML_bootstrap.$out\2 -n $out\3 -T $PBS_NUM_PPN
 
 
