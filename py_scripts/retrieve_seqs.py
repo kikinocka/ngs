@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/')
-files = [x for x in os.listdir() if x.endswith('ppyr.acc')]
-database = '/mnt/mokosz/home/kika/metamonads_ancestral/metamonads_assemblies/Paratrimastix.faa'
+os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin_tree/')
+files = [x for x in os.listdir() if x.endswith('.acc')]
+database = '/Users/kika/data/proteins.Auran1_FilteredModels3.fasta'
 
 for accessions in files: 
 	print(accessions)
