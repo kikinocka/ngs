@@ -35,4 +35,4 @@ done
 
 conda deactivate
 
-python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: BLAST done
+python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: BLAST2 done
