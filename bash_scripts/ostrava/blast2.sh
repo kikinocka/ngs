@@ -9,7 +9,8 @@ cd '/home/users/kika/kinesins/'
 
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
-# query='kap3_hits.fa'
+
+query='ift88_hits.fa'
 db='/mnt/data/kika/references/human.GCF_000001405.40_GRCh38.p14_protein.faa'
 program=blastp
 task=blastp
