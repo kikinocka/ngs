@@ -10,7 +10,7 @@ Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
 os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/')
-acc = open('kin2A.reverse_blast_hsap.acc')
+acc = open('ift88.reverse_blast_nr.acc')
 
 ids = []
 for line in acc:
@@ -28,7 +28,7 @@ for line in acc:
 # 		out.write('>{} {}\n{}\n'.format(prot_id[:-1], prot_record.description, prot_record.seq))
 
 
-with open('kin2A.reverse_blast_hsap.txt', 'w') as out, open('kin2A.reverse_blast_hsap.errors', 'w') as errors:
+with open('ift88.reverse_blast_nr.txt', 'w') as out, open('ift88.reverse_blast_nr.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:
