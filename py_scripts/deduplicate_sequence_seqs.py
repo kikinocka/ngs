@@ -4,9 +4,9 @@ from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
 os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin_tree/')
-infile = SeqIO.parse('kinesins.fa', 'fasta')
-out_fasta = open('kinesins_deduplicated.fa', 'w')
-out_names = open('kinesins_dupl-names.txt', 'w')
+infile = SeqIO.parse('kin.fa', 'fasta')
+out_fasta = open('kin_deduplicated.fa', 'w')
+out_names = open('kin_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()

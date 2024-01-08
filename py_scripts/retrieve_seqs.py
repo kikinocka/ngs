@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin_tree/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/data/proteins.Auran1_FilteredModels3.fasta'
+files = [x for x in os.listdir() if x.endswith('kin2a.acc')]
+database = '/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin2A_hits.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -18,7 +18,7 @@ for accessions in files:
 			retrieve.add(line[:-1])
 		# print(retrieve)
 		for seq in db:
-			if seq.name.split('-')[0] in retrieve:
+			if seq.name in retrieve:
 				# print(seq.name)
 				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 				# pass
