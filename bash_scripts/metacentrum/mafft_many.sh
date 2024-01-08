@@ -8,9 +8,11 @@
 cat $PBS_NODEFILE
 
 #add module
-module add mafft-7.453
+# module add mafft-7.453
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load mafft
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/wdr/ver8'
+data_dir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins'
 
 #copy files to scratch
 cp $data_dir'/'*.fa $SCRATCHDIR
