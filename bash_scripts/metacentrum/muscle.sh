@@ -1,17 +1,17 @@
 #!/bin/bash
 #PBS -N muscle
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
 muscle='/storage/brno3-cerit/home/kika/miniconda3/bin/muscle'
-datadir='/storage/brno3-cerit/home/kika/blasto_comparative/orthofinder/all_species/'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins'
 
 #copy files to scratch
-cp $datadir'OGs_fasta/more/'*.fa $SCRATCHDIR
+cp $datadir'/'*.fa $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -30,4 +30,4 @@ done
 
 #copy files back
 rm *.fa
-cp * $datadir'OGs_muscle'
+cp * $datadir
