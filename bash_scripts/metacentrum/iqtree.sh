@@ -8,26 +8,26 @@
 cat $PBS_NODEFILE
 
 #add module
-module add iqtree-1.6.12
-# source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
-# module load iqtree
+# module add iqtree-1.6.12
+source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
+module load iqtree
 
-datadir='/storage/brno3-cerit/home/kika/metamonads/cpn60/ver3/'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
-cp $datadir'q2001042_reduced.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
+cp $datadir'kinesins.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='q2001042_reduced.trimal_gt-0.8.filtered-50.aln'
-guide='guide_q2001042'
+aln='kinesins.trimal_gt-0.8.aln'
+guide='guide_kinesins'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=10000
 
-# iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
-# iqtree2 -m LG+C20+G4 -T AUTO --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree
+iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+iqtree2 -m LG+C20+G4 -T AUTO --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree
 
 # iqtree2 -m TEST -madd C10,C20,C30,C40,C50,C60,LG4M,LG4X,LG+F+G,LG+C10+G,LG+C20+G,LG+C30+G,LG+C40+G,LG+C60+G \
 # 	-T AUTO --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln
@@ -35,8 +35,8 @@ nm=10000
 # iqtree -m TEST -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 # iqtree -m GTR+G -bb $bb -nm $nm -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln
 
-iqtree -m LG+G4 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -safe -s $aln -pre $guide
-iqtree -m LG+C20+G4 -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -safe -s $aln -ft $guide_tree #-wsr
+# iqtree -m LG+G4 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -safe -s $aln -pre $guide
+# iqtree -m LG+C20+G4 -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -safe -s $aln -ft $guide_tree #-wsr
 
 # iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -safe -s $aln -pre ${aln%.aln}
 
