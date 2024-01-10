@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 muscle='/storage/brno3-cerit/home/kika/miniconda3/bin/muscle'
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins/ver2'
 
 #copy files to scratch
 cp $datadir'/'*.fa $SCRATCHDIR
