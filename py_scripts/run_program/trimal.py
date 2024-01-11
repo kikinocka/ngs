@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin_tree/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin_tree/ver2/')
 files = [x for x in os.listdir() if x.endswith('.muscle.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
@@ -17,8 +17,8 @@ for file in files:
 	cons = 5 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 
-	output = '{}.trimal_{}.aln'.format(file_name, aut)
-	os.system('{} -in {} -out {} -{} -fasta'.format(trimal, file, output, aut))
+	# output = '{}.trimal_{}.aln'.format(file_name, aut)
+	# os.system('{} -in {} -out {} -{} -fasta'.format(trimal, file, output, aut))
 	
 	output = '{}.trimal_gt-{}.aln'.format(file_name, gt)
 	os.system('{} -in {} -out {} -gt {} -fasta'.format(trimal, file, output, gt))

@@ -12,12 +12,11 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load iqtree
 
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins/'
+datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins/ver2/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
 cp $datadir'kinesins.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $datadir'guide_kinesins.'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -27,7 +26,7 @@ guide_tree=$guide'.treefile'
 bb=1000
 nm=10000
 
-# iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 iqtree2 -m LG+C20+G4 -T 15 --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree
 
 # iqtree2 -m TEST -madd C10,C20,C30,C40,C50,C60,LG4M,LG4X,LG+F+G,LG+C10+G,LG+C20+G,LG+C30+G,LG+C40+G,LG+C60+G \
