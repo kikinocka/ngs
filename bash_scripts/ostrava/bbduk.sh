@@ -8,12 +8,12 @@
 bbduk='/home/users/kika/bbmap/bbduk.sh'
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
-cd '/home/users/kika/bnon_pfr_ko/reads/'
-fwd='P57_PF16_1.fastq.gz'
-rev='P57_PF16_2.fastq.gz'
-trimmed_fwd='bnon_PF16_KO.trimmed_1.fq.gz'
-trimmed_rev='bnon_PF16_KO.trimmed_2.fq.gz'
-report='bnon_PF16_KO.bbduk.txt'
+cd '/home/users/kika/bnon_KOs/catalase/reads/'
+fwd='NG-A0876_CatHRIGRp57_DNA_200_libLAC3250_1.fastq.gz'
+rev='NG-A0876_CatHRIGRp57_DNA_200_libLAC3250_2.fastq.gz'
+trimmed_fwd='cat_KO.trimmed_1.fq.gz'
+trimmed_rev='cat_KO.trimmed_2.fq.gz'
+report='cat_KO.bbduk.txt'
 # len=50
 
 #illumina pair-end reads
