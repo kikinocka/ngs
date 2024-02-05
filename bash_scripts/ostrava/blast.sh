@@ -5,21 +5,21 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd '/home/users/kika/kinesins/'
+cd '/home/users/kika/workdir/'
 
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 # query='kap3_hits.fa'
-db='/mnt/data/blastdbs/nr'
-program=blastp
-task=blastp
+db='/mnt/data/blastdbs/nt'
+program=blastn
+task=blastn
 eval=1e-04
 max_seqs=1
 max_hsps=1
 
 for query in *.fa; do
 	echo $query
-	out=${query%.fa}'.nr_'$eval'.'$program'.tsv'
+	out=${query%.fa}'.nt_'$eval'.'$program'.tsv'
 	# out=${db%.fa}'.ref_'$eval'.tsv'
 	$program -task $task \
 		-query $query \
