@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/zoli/proj/Euglena_v2/hisat2_mapping/'
+cd '/mnt/mokosz/home/kika/egracilis/EG_AK_ht2/'
 
-genome='/mnt/mokosz/home/zoli/proj/Euglena_v2/genome.fasta'
+genome='/mnt/mokosz/home/zoli/proj/Euglena_Ania/E.gracilis_genome_Ania.fasta'
 
 fw1='/mnt/mokosz/home/zoli/proj/Euglena_v2/reads/SRR2094880_trimmed_1.fq.gz'
 fw2='/mnt/mokosz/home/zoli/proj/Euglena_v2/reads/SRR2094886_trimmed_1.fq.gz'
@@ -46,21 +46,23 @@ rv18='/mnt/mokosz/home/zoli/proj/Euglena_v2/reads/SRR3195327_trimmed_2.fq.gz'
 rv19='/mnt/mokosz/home/zoli/proj/Euglena_v2/reads/SRR3195334_trimmed_2.fq.gz'
 rv20='/mnt/mokosz/home/zoli/proj/Euglena_v2/reads/SRR3195340_trimmed_2.fq.gz'
 
-index='egr_ht2'
+index='EG_AK_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
-report=$index'_report.txt'
-bam=$index'_unsorted.bam'
-sorted=$index'_sorted.bam'
+report=$index'.report.txt'
+bam=$index'.unsorted.bam'
+sorted=$index'.sorted.bam'
 
-hisat2-build -p 15 $genome $index
+hisat2-build -p 20 $genome $index
 hisat2 -p 15 -x $index \
 	-1 $fw1,$fw2,$fw3,$fw4,$fw5,$fw6,$fw7,$fw8,$fw9,$fw10,$fw11,$fw12,$fw13,$fw14,$fw15,$fw16,$fw17,$fw18,$fw19,$fw20 \
 	-2 $rv1,$rv2,$rv3,$rv4,$rv5,$rv6,$rv7,$rv8,$rv9,$rv10,$rv11,$rv12,$rv13,$rv14,$rv15,$rv16,$rv17,$rv18,$rv19,$rv20 \
  	--un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
 
-samtools view -bS $sam > $bam -@ 15
-samtools sort -o $sorted -@ 15 $bam 
+samtools view -bS $sam > $bam -@ 20
+samtools sort -o $sorted -@ 20 $bam 
 samtools index $sorted
 
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py Hisat2 done
