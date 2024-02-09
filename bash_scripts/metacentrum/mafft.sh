@@ -16,7 +16,7 @@ module load mafft
 data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/dinoflagellates/'
 
 #copy files to scratch
-cp $data_dir'dinoflagellates.fa' $SCRATCHDIR
+cp $data_dir'dinoflagellates.mafft.aln' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
