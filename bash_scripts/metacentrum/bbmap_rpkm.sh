@@ -10,21 +10,23 @@ cat $PBS_NODEFILE
 #add module
 module add bbmap-36.92
 
-data='/storage/brno3-cerit/home/kika/egracilis/'
+assembly_dir='/storage/brno12-cerit/home/kika/p57/predicted_proteins/'
+read_dir='/storage/brno12-cerit/home/kika/p57/hisat2/'
 
 #copy files to scratch
-cp $data'GEFR01.1.fsa_nt' $SCRATCHDIR
-cp $data'light_trimmed_1.fq.gz' $SCRATCHDIR
-cp $data'light_trimmed_2.fq.gz' $SCRATCHDIR
+cp $assembly_dir'bnon.CDS_cdseq.fna' $SCRATCHDIR
+cp $read_dir'p57_trimmed_1.fq.gz' $SCRATCHDIR
+cp $read_dir'p57_trimmed_2.fq.gz' $SCRATCHDIR
 
-assembly='GEFR01.1.fsa_nt'
-fw='light_trimmed_1.fq.gz'
-rv='light_trimmed_2.fq.gz'
+assembly='bnon.CDS_cdseq.fna'
+fw='p57_trimmed_1.fq.gz'
+rv='p57_trimmed_2.fq.gz'
 # all='el_reads_new.fa'
 
-sam='eg_light_bbmap_rna.sam'
-rpkm='eg_light_bbmap.rpkm'
-report='eg_light_bbmap.report'
+base=${assembly%fna}
+sam=$base'sam'
+rpkm=$base'rpkm_bbmap.txt'
+report=$base'report_bbmap.txt'
 
 
 #compute on scratch
@@ -39,4 +41,4 @@ bbmap.sh in=$fw in2=$rv out=$sam ref=$assembly rpkm=$rpkm threads=$PBS_NUM_PPN 2
 #copy files back
 rm $assembly $fw $rv
 # rm $assembly $all
-cp -r * $data
+cp -r * $read_dir
