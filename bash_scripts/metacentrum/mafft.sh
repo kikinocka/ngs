@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=70gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -16,7 +16,7 @@ module load mafft
 data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/dinoflagellates/'
 
 #copy files to scratch
-cp $data_dir'dinos_ref.fa' $SCRATCHDIR
+cp $data_dir'dinoflagellates.fa' $SCRATCHDIR
 cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
@@ -36,10 +36,10 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='dinos_ref.mafft.aln'
+existing='dinoflagellates.mafft.aln'
 add='V9.fa'
-aln='dinos_V9.mafft.aln'
-log='dinos_V9.mafft.log'
+aln='dinoflagellates_V9.mafft.aln'
+log='dinoflagellates_V9.mafft.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
