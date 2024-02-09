@@ -17,33 +17,33 @@ data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/dinoflagel
 
 #copy files to scratch
 cp $data_dir'dinos_ref.fa' $SCRATCHDIR
-# cp $data_dir'V9.fa' $SCRATCHDIR
+cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-#align de-novo
-for file in *.fa ; do
-	echo $file
-	aln=${file%.fa}.mafft.aln
-	log=${file%.fa}.mafft.log
+# #align de-novo
+# for file in *.fa ; do
+# 	echo $file
+# 	aln=${file%.fa}.mafft.aln
+# 	log=${file%.fa}.mafft.log
 
-	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
-done
+# 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+# 	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
+# done
 
 
-# #add to aligned sequences
-# existing='mesozoa.mafft.aln'
-# add='V9.fa'
-# aln='mesozoa_V9.mafft.aln'
-# log='mesozoa_V9.mafft.log'
+#add to aligned sequences
+existing='dinos_ref.mafft.aln'
+add='V9.fa'
+aln='dinos_V9.mafft.aln'
+log='dinos_V9.mafft.log'
 
-# mafft --version 2> $log
-# # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
+mafft --version 2> $log
+# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
