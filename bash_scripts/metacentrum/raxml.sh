@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
 #PBS -l select=1:ncpus=20:mem=2gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,10 +11,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
-data='/storage/brno3-cerit/home/kika/blasto_comparative/18S/ver2/'
+data='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/dinoflagellates/ref_tree/'
 
 #copy files to scratch
-cp $data'18S_dataset4trim.aln' $SCRATCHDIR
+cp $data'dinoflagellates.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
@@ -28,11 +28,12 @@ cd $SCRATCHDIR
 
 
 #18S
-aln='18S_dataset4trim.aln'
-out=${aln%_dataset4trim.aln}
+aln='dinoflagellates.trimal_gt-0.25_cons-50.aln'
+out=${aln%.trimal_gt-0.25_cons-50.aln}
 
-raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN -o Bsal
-raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N autoMRE_IGN -f d -s $aln -n $out\2 -T $PBS_NUM_PPN -o Bsal
+raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
+raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N 100 -f d -s $aln -n $out\2 -T $PBS_NUM_PPN
+# raxmlHPC-PTHREADS -m GTRCAT -p 12345 -b 12345 -N autoMRE_IGN -f d -s $aln -n $out\2 -T $PBS_NUM_PPN
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -f b -t RAxML_bestTree.$out\1 -z RAxML_bootstrap.$out\2 -n $out\3 -T $PBS_NUM_PPN
 
 
