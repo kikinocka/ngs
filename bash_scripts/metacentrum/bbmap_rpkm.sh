@@ -23,7 +23,7 @@ fw='p57_trimmed_1.fq.gz'
 rv='p57_trimmed_2.fq.gz'
 # all='el_reads_new.fa'
 
-base=${assembly%fna}
+base=${assembly%fna}ht2.
 sam=$base'sam'
 rpkm=$base'rpkm_bbmap.txt'
 report=$base'report_bbmap.txt'
