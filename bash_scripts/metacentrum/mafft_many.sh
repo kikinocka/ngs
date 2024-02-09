@@ -23,8 +23,8 @@ cd $SCRATCHDIR
 for f in *fa ; do
 	aln=${f%.fa}.mafft.aln
 	log=${f%.fa}.mafft.log
-	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
-	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${f} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${f} > ${aln} 2> ${log}
+	mafft --thread $PBS_NUM_PPN --auto --inputorder ${f} > ${aln} 2> ${log}
 done
 
 
