@@ -3,8 +3,8 @@ import os
 import re
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/metabolism/')
-proteins = SeqIO.parse('refs.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/blastocrithidia/genes/')
+proteins = SeqIO.parse('candidates.fa', 'fasta')
 
 #kinetoplastids - from Fred
 pts1 = r'(S|A|G|C|N|P)(R|H|K|S|N|Q)(L|I|V|F|A|M|Y)'
@@ -23,7 +23,7 @@ mito = r'^M(R|H|K|F|L)\w{0,1}(R|H|K|S|T)\w{1,10}(S|T|R|K)'
 # pts1 = r'(S|A|C)(K|R|H|Q)(L|M)'
 # pts2 = r'^\w{1,21}R(L|I|V|Q)\w{2}(L|I|V|Q|H)(L|S|G|A)\w{1}(H|Q)(L|A)'
 
-with open('refs.possibly_peroxisomal.Fred.fa', 'w') as out:
+with open('candidates.possibly_peroxisomal.Fred.fa', 'w') as out:
 	for protein in proteins:
 		if str(protein.seq)[-1:] == '*':
 			protein.seq = str(protein.seq)[:-1]
