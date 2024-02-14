@@ -7,8 +7,8 @@ non_plant='non-pl'
 
 for file in *.fa; do
 	echo $file
-	# targetp -fasta $file -org $non_plant -format short
-	targetp -fasta $file -org $plant -format short
+	targetp -fasta $file -org $non_plant -format short
+	# targetp -fasta $file -org $plant -format short
 done
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py TargetP done
