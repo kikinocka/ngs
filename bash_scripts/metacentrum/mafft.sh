@@ -67,7 +67,7 @@ mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $exist
 # echo 'Alignments merged'
 
 #copy files back
-rm *.fa
-# rm $existing $add
+# rm *.fa
+rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir
