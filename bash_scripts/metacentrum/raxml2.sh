@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N raxml
+#PBS -N raxml2
 #PBS -l select=1:ncpus=20:mem=2gb:scratch_local=1gb
 #PBS -l walltime=168:00:00
 #PBS -m ae
