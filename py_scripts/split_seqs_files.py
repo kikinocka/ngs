@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/patchy_jotnarlogs/')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/ribosomal_proteins/')
 
-for seq in SeqIO.parse('queries.fa', 'fasta'):
-	with open('{}.faa'.format(seq.name), 'w') as result:
+for seq in SeqIO.parse('mito.fa', 'fasta'):
+	with open('queries/{}.faa'.format(seq.name), 'w') as result:
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
