@@ -24,8 +24,8 @@ cp $data'ref_tree/RAxML_bipartitions.metamonads3' $SCRATCHDIR
 cd $SCRATCHDIR
 
 aln='metamonads_V9.trimal_gt-0.25_cons-50.aln'
-tree='RAxML_bipartitions.metamonads33'
-out='EPARUN_mesozoa'
+tree='RAxML_bipartitions.metamonads3'
+out='EPARUN_metamonads'
 
 raxmlHPC-PTHREADS -f v -G 0.2 -m GTRCAT -n $out -s $aln -t $tree -T $PBS_NUM_PPN
 
