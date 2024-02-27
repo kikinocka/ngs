@@ -2,8 +2,8 @@
 
 quast='/Users/kika/miniconda3/bin/quast.py'
 
-cd '/Users/kika/ownCloud/oil_sands/metagenomes/20210222_BML-P3S/2-spades/'
-assembly='P3S_scaffolds.fasta'
-output='/Users/kika/ownCloud/oil_sands/metagenomes/20210222_BML-P3S/3-quast'
+cd '/Users/kika/ownCloud/blastocrithidia/genome_assembly/'
+assembly='p57_polished.fa'
+output='quast/p57_polished2/'
 
 python $quast --eukaryote -o $output -t 6 $assembly

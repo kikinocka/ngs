@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin_tree/')
-files = [x for x in os.listdir() if x.endswith('kin2a.acc')]
-database = '/Users/kika/ownCloud/kinetoplastids/kinesins/kinesins/kin2A_hits.fa'
+os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/')
+files = [x for x in os.listdir() if x.endswith('oeli_less30.acc')]
+database = '/Users/kika/ownCloud/blasto_comparative/proteins/CDS_problematic/Oeli_proteins_annotated.CDS_OK.fa'
 
 for accessions in files: 
 	print(accessions)
-	fname = accessions.split('.acc')[0]
+	fname = accessions.split('_less30.acc')[0]
 	retrieve = set()
 
-	with open('{}.fa'.format(fname), 'w') as out:
+	with open('{}_proteins_annotated.CDS_OK_l30.fa'.format(fname), 'w') as out:
 		db = SeqIO.parse(database, 'fasta')
 		# print(db)
 		for line in open(accessions):
@@ -20,9 +20,9 @@ for accessions in files:
 		for seq in db:
 			if seq.name in retrieve:
 				# print(seq.name)
-				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
-				# pass
-			else:
-				pass
 				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				pass
+			else:
+				# pass
+				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 
