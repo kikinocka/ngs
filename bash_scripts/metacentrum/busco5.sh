@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/blasto_comparative/proteins_FINAL'
 
 #copy files to scratch
-cp $assembly_dir'/'*.faa $SCRATCHDIR
+cp $assembly_dir'/O'*.faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -31,12 +31,12 @@ for fasta in *.faa; do
 	mode='proteins'
 	
 	lineage='eukaryota_odb10'
-	base=${fasta%.faa}_$lineage
+	base=${fasta%.faa}
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 
 	lineage='euglenozoa_odb10'
-	base=${fasta%.faa}_$lineage
+	base=${fasta%.faa}
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 done
