@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/FINAL/')
 files = [x for x in os.listdir() if x.startswith('oeli')]
-database = '/Users/kika/ownCloud/blasto_comparative/proteins/Oeli_companion.CDS_cdseq_all.fna'
+database = '/Users/kika/ownCloud/blasto_comparative/proteins/gff_modified_forCDS/Oeli_companion.modified2.fna'
 
 for accessions in files: 
 	print(accessions)
