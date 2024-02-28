@@ -24,7 +24,7 @@ cp $assembly_dir'/'*.faa $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-# mkdir BUSCO_summaries
+mkdir BUSCO_summaries
 
 for fasta in *.faa; do
 	echo $fasta
@@ -41,7 +41,7 @@ for fasta in *.faa; do
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 done
 
-# generate_plot.py -wd BUSCO_summaries
+generate_plot.py -wd BUSCO_summaries
 
 
 #copy files back
