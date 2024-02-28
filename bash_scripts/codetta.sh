@@ -1,9 +1,8 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/blasto_comparative/codetta/'
+cd '/Users/kika/ownCloud/blasto_comparative/genomes/codetta/'
 
-genome='/Users/kika/ownCloud/blasto_comparative/genomes/Bfru_genome_final_masked.fa'
-codetta_dir='/Users/kika/programs/codetta/'
-codetta=$codetta_dir'codetta.py'
+codetta='/Users/kika/programs/codetta/codetta.py'
+genome='/Users/kika/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa'
 
 python3 $codetta $genome

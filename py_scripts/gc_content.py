@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
-infile = SeqIO.parse('bnon.CDS_cdseq.fna', 'fasta')
-outfile = open('bnon.CDS_cdseq.GC_content.tsv', 'w')
+infile = SeqIO.parse('bnon.no_mtDNA.CDS_cdseq.fna', 'fasta')
+outfile = open('bnon.no_mtDNA.CDS_cdseq.GC_content.tsv', 'w')
 
 outfile.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('seq', 'seq length [# nt]', 'A [# nt]', 
 	'T [# nt]', 'C [# nt]', 'G [# nt]', 'ambiguous [# nt]', 'GC content [%]', 'AT content [%]'))

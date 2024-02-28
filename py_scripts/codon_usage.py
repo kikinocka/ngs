@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import OrderedDict
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/ribosomal_proteins/')
-files = [x for x in os.listdir() if x.startswith('ovol_mito.fa')]
+os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/')
+files = [x for x in os.listdir() if x.endswith('bnon.no_mtDNA.CDS_cdseq.fna')]
 
 codons = OrderedDict([
 		('GCG', 0), ('GCA', 0), ('GCT', 0), ('GCC', 0), ('TGT', 0), ('TGC', 0), ('GAT', 0), ('GAC', 0), ('GAA', 0), 
@@ -46,7 +46,7 @@ for file in files:
 				#sequence containing stops
 				codons = count_codons(sequence.seq[:-3])
 			else:
-				#sequence without stops
+				sequence without stops
 				codons = count_codons(sequence.seq)
 
 			for value in codons.values():
