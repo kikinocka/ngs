@@ -15,11 +15,10 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno3-cerit/home/kika/p57/predicted_proteins/'
+assembly_dir='/storage/brno12-cerit/home/kika/blasto_comparative/proteins_FINAL'
 
 #copy files to scratch
-# cp $assembly_dir'/'*.faa $SCRATCHDIR
-cp $assembly_dir'bnon_proteins_annotated.no_mtDNA.fa' $SCRATCHDIR
+cp $assembly_dir'/'*.faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -27,17 +26,17 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fa; do
+for fasta in *.faa; do
 	echo $fasta
 	mode='proteins'
 	
 	lineage='eukaryota_odb10'
-	base=${fasta%.fa}_$lineage
+	base=${fasta%.faa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 
 	lineage='euglenozoa_odb10'
-	base=${fasta%.fa}_$lineage
+	base=${fasta%.faa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	cp $base'/short_summary.specific.'$lineage'.'$base'.txt' BUSCO_summaries
 done
@@ -46,5 +45,5 @@ done
 
 
 #copy files back
-rm *.fa
+rm *.faa
 cp -r * $assembly_dir
