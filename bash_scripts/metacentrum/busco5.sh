@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/blasto_comparative/final_genomes'
 
 #copy files to scratch
-cp $assembly_dir'/*'*.fa $SCRATCHDIR
+cp $assembly_dir'/O'*.fa $SCRATCHDIR
 
 
 #compute on scratch
