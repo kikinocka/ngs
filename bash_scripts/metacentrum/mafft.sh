@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N mafft
-#PBS -l select=1:ncpus=20:mem=70gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=1gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -13,37 +13,37 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/dinoflagellates/'
+data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apicomplexans/'
 
 #copy files to scratch
-cp $data_dir'dinoflagellates.mafft.aln' $SCRATCHDIR
-cp $data_dir'V9.fa' $SCRATCHDIR
+cp $data_dir'apicomplexans.fa' $SCRATCHDIR
+# cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-# #align de-novo
-# for file in *.fa ; do
-# 	echo $file
-# 	aln=${file%.fa}.mafft.aln
-# 	log=${file%.fa}.mafft.log
+#align de-novo
+for file in *.fa ; do
+	echo $file
+	aln=${file%.fa}.mafft.aln
+	log=${file%.fa}.mafft.log
 
-# 	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-# 	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
-# done
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
+done
 
 
-#add to aligned sequences
-existing='dinoflagellates.mafft.aln'
-add='V9.fa'
-aln='dinoflagellates_V9.mafft.aln'
-log='dinoflagellates_V9.mafft.log'
+# #add to aligned sequences
+# existing='dinoflagellates.mafft.aln'
+# add='V9.fa'
+# aln='dinoflagellates_V9.mafft.aln'
+# log='dinoflagellates_V9.mafft.log'
 
-mafft --version 2> $log
-# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
+# mafft --version 2> $log
+# # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
@@ -67,7 +67,7 @@ mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $exist
 # echo 'Alignments merged'
 
 #copy files back
-# rm *.fa
-rm $existing $add
+rm *.fa
+# rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir
