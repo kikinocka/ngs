@@ -11,23 +11,23 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load blast
 
-datadir='/storage/brno12-cerit/home/kika/p57/predicted_proteins/'
+datadir='/storage/brno12-cerit/home/kika/p57/predicted_proteins/blast_transcriptome/'
 # db_dir='/storage/projects/BlastDB/'
-db_dir='/storage/brno12-cerit/home/kika/p57/transcriptome/blastdb'
+db_dir='/storage/brno12-cerit/home/kika/p57/predicted_proteins/blastDB'
 
 
 #copy files to scratch
-cp $datadir'bnon_proteins_annotated.no_mtDNA.fa' $SCRATCHDIR
+cp $datadir'transcript_hits.fa' $SCRATCHDIR
 cp $db_dir'/'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-query='bnon_proteins_annotated.no_mtDNA.fa'
-out='bnon_proteins.transcriptome.tsv'
-db='p57_GG_trinity.fasta'
-program=tblastn
-task=tblastn
+query='transcript_hits.fa'
+out='bnon_transcripts.rev_proteins.tsv'
+db='bnon_proteins_annotated.no_mtDNA.fa'
+program=blastx
+task=blastx
 eval=1e-05
 max_seqs=1
 max_hsps=1
@@ -45,5 +45,5 @@ $program -task $task \
 	# -outfmt 5 \
 
 #copy files back
-rm $query p57_GG_trinity.fasta.n*
+rm $query bnon_proteins_annotated.no_mtDNA.fa.p*
 cp -R * $datadir

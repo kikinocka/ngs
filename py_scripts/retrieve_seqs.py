@@ -2,16 +2,16 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blasto_comparative/proteins/FINAL/')
-files = [x for x in os.listdir() if x.startswith('oeli')]
-database = '/Users/kika/ownCloud/blasto_comparative/proteins/gff_modified_forCDS/Oeli_companion.modified2.fna'
+os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blast_transcriptome/')
+files = [x for x in os.listdir() if x.endswith('.acc')]
+database = '/Users/kika/ownCloud/blastocrithidia/transcriptome_assembly/trinity/p57_GG_trinity.fasta'
 
 for accessions in files: 
 	print(accessions)
 	fname = accessions.split('.acc')[0]
 	retrieve = set()
 
-	with open('{}_proteins_annotated.CDS_OK.fna'.format(fname), 'w') as out:
+	with open('{}.fa'.format(fname), 'w') as out:
 		db = SeqIO.parse(database, 'fasta')
 		# print(db)
 		for line in open(accessions):
