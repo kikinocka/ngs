@@ -10,27 +10,27 @@ cat $PBS_NODEFILE
 #add module
 module add bbmap-36.92
 
-assembly_dir='/storage/brno12-cerit/home/kika/p57/predicted_proteins/'
+assembly_dir='/storage/brno12-cerit/home/kika/p57/transcriptome/'
 read_dir='/storage/brno12-cerit/home/kika/p57/hisat2/'
 
 #copy files to scratch
-cp $assembly_dir'bnon.CDS_cdseq.fna' $SCRATCHDIR
+cp $assembly_dir'p57_GG_trinity.fasta' $SCRATCHDIR
 cp $read_dir'p57_trimmed_1.fq.gz' $SCRATCHDIR
 cp $read_dir'p57_trimmed_2.fq.gz' $SCRATCHDIR
-
-assembly='bnon.CDS_cdseq.fna'
-fw='p57_trimmed_1.fq.gz'
-rv='p57_trimmed_2.fq.gz'
-# all='el_reads_new.fa'
-
-base=${assembly%fna}ht2.
-sam=$base'sam'
-rpkm=$base'rpkm_bbmap.txt'
-report=$base'report_bbmap.txt'
 
 
 #compute on scratch
 cd $SCRATCHDIR
+assembly='p57_GG_trinity.fasta'
+fw='p57_trimmed_1.fq.gz'
+rv='p57_trimmed_2.fq.gz'
+# all='el_reads_new.fa'
+
+base=${assembly%fasta}ht2.
+sam=$base'sam'
+rpkm=$base'rpkm_bbmap.txt'
+report=$base'report_bbmap.txt'
+
 #separate read files
 bbmap.sh in=$fw in2=$rv out=$sam ref=$assembly rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
