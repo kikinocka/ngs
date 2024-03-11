@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blast
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=3gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,22 +11,23 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load blast
 
-datadir='/storage/brno12-cerit/home/kika/oil_sands/metagenomes/'
-db_dir='/storage/projects/BlastDB/'
+datadir='/storage/brno12-cerit/home/kika/p57/predicted_proteins/'
+# db_dir='/storage/projects/BlastDB/'
+db_dir='/storage/brno12-cerit/home/kika/p57/transcriptome/blastdb'
 
 
 #copy files to scratch
-cp $datadir'metagenomes.fa' $SCRATCHDIR
-cp $db_dir'nt'* $SCRATCHDIR
+cp $datadir'bnon_proteins_annotated.no_mtDNA.fa' $SCRATCHDIR
+cp $db_dir'/'* $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-query='metagenomes.fa'
-out='metagenomes.nt_ncbi-nt.tsv'
-db='nt'
-program=blastn
-task=blastn
+query='bnon_proteins_annotated.no_mtDNA.fa'
+out='bnon_proteins.transcriptome.tsv'
+db='p57_GG_trinity.fasta'
+program=tblastn
+task=tblastn
 eval=1e-05
 max_seqs=1
 max_hsps=1
@@ -44,5 +45,5 @@ $program -task $task \
 	# -outfmt 5 \
 
 #copy files back
-rm $query nt*
+rm $query p57_GG_trinity.fasta.n*
 cp -R * $datadir
