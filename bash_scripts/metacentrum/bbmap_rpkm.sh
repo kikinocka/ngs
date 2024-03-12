@@ -28,7 +28,7 @@ rv='p57_trimmed_2.fq.gz'
 
 base=${assembly%fasta}ht2.
 sam=$base'sam'
-rpkm=$base'rpkm_bbmap.txt'
+rpkm=$base'rpkm_bbmap.tsv'
 report=$base'report_bbmap.txt'
 
 #separate read files
