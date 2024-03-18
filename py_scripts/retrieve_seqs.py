@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blast_transcriptome/')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/count_software/all_Blastos_expansions/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/blastocrithidia/transcriptome_assembly/trinity/p57_GG_trinity.fasta'
+database = '/Users/kika/ownCloud/blasto_comparative/proteins/FINAL/Btri_proteins-final.faa'
 
 for accessions in files: 
 	print(accessions)
@@ -18,7 +18,7 @@ for accessions in files:
 			retrieve.add(line[:-1])
 		# print(retrieve)
 		for seq in db:
-			if seq.name.split('.')[0] in retrieve:
+			if seq.name in retrieve:
 				# print(seq.name)
 				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 				# pass

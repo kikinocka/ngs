@@ -16,7 +16,7 @@ module load mafft
 data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apicomplexans/'
 
 #copy files to scratch
-cp $data_dir'apicomplexans.fa' $SCRATCHDIR
+cp $data_dir'apicomplexans.18S_extracted.fa' $SCRATCHDIR
 # cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
@@ -30,8 +30,8 @@ for file in *.fa ; do
 	aln=${file%.fa}.mafft.aln
 	log=${file%.fa}.mafft.log
 
-	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-	mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
+	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
 done
 
 
