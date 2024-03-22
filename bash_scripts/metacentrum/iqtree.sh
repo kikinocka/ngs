@@ -12,15 +12,15 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/ver2/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
-cp $datadir'kinesins.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'kinesins.muscle.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='kinesins.trimal_gt-0.8.aln'
+aln='kinesins.muscle.trimal_gt-0.8.aln'
 guide='guide_kinesins'
 guide_tree=$guide'.treefile'
 bb=1000
