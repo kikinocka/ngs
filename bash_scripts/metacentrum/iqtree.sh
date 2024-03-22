@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -12,7 +12,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load iqtree
 
-datadir='/storage/brno3-cerit/home/kika/kinetoplastids/kinesins/ver2/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR

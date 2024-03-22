@@ -4,10 +4,10 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/bnon_proteins_annotated.fa'
-db = '/Users/kika/ownCloud/blasto_comparative/proteins/BLASTs+bedcov/blastable_dbs/Bfru_proteins-final.faa'
+query = '/Users/kika/ownCloud/kinetoplastids/kinesins/KAP3/kbia_kap3.fa'
+db = '/Users/kika/ownCloud/metamonada/assemblies_od_petra/renamed/blastDB/Trimastix.faa'
 # db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
-out = '/Users/kika/ownCloud/blasto_comparative/mass-spec/Bnon_Bfru.blast.xml'
+out = '/Users/kika/ownCloud/kinetoplastids/kinesins/KAP3/tmar.fwd_kbia.blast.xml'
 evalue = 1e-5
 outfmt = 5
 hits = 1
@@ -17,9 +17,10 @@ threads = 6
 print('running BLAST')
 #query - database
 subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
-	-num_threads {} -max_target_seqs {}'.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, threads, hits), shell=True)
-
+	-num_threads {} '.format(
+		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
+# -max_target_seqs {}
+# , hits
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -30,8 +31,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/blasto_comparative/mass-spec/Bnon_Bfru.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/blasto_comparative/mass-spec/Bnon_Bfru.blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/kinetoplastids/kinesins/KAP3/tmar.fwd_kbia.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/kinetoplastids/kinesins/KAP3/tmar.fwd_kbia.blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
