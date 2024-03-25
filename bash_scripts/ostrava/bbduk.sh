@@ -8,20 +8,25 @@
 bbduk='/home/users/kika/bbmap/bbduk.sh'
 adapt='/home/users/kika/bbmap/resources/adapters.fa'
 
-cd '/home/users/kika/bnon_KOs/catalase/reads/'
-fwd='NG-A0876_CatHRIGRp57_DNA_200_libLAC3250_1.fastq.gz'
-rev='NG-A0876_CatHRIGRp57_DNA_200_libLAC3250_2.fastq.gz'
-trimmed_fwd='cat_KO.trimmed_1.fq.gz'
-trimmed_rev='cat_KO.trimmed_2.fq.gz'
-report='cat_KO.bbduk.txt'
-# len=50
+cd '/home/users/kika/schizosaccharomyces_japonicus/reads/'
 
-#illumina pair-end reads
-$bbduk overwrite=true \
-	in1=$fwd in2=$rev \
-	out1=$trimmed_fwd out2=$trimmed_rev \
-	ref=$adapt \
-	qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=10 2> $report
-# minlen=$len \
+for file in *_1.fastq.gz ; do 
+	name=${file%_R*.fastq.gz}
+	fw=$name'_1.fastq.gz'
+	rv=$name'_2.fastq.gz'
+	trimmed_fw=$name'_trimmed_1.fq.gz'
+	trimmed_rv=$name'_trimmed_2.fq.gz'
+	report=$name'.bbduk_report.txt'
 
-python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: bbduk done
+	#illumina reads
+	$bbduk overwrite=true \
+		in1=$fw in2=$rv \
+		out1=$trimmed_fw out2=$trimmed_rv \
+		ref=$adapt \
+		usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=10 2> $report
+
+	echo $name 'trimmed'
+
+done
+
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py OSU: bbduk done
