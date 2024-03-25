@@ -11,12 +11,13 @@ adapt='/home/users/kika/bbmap/resources/adapters.fa'
 cd '/home/users/kika/schizosaccharomyces_japonicus/reads/'
 
 for file in *_1.fastq.gz ; do 
-	name=${file%_R*.fastq.gz}
+	name=${file%_*.fastq.gz}
 	fw=$name'_1.fastq.gz'
 	rv=$name'_2.fastq.gz'
-	trimmed_fw=$name'_trimmed_1.fq.gz'
-	trimmed_rv=$name'_trimmed_2.fq.gz'
-	report=$name'.bbduk_report.txt'
+	trimmed_name=${file%_R*.fastq.gz}
+	trimmed_fw=$trimed_name'_trimmed_1.fq.gz'
+	trimmed_rv=$trimed_name'_trimmed_2.fq.gz'
+	report=$name'_bbduk_report.txt'
 
 	#illumina reads
 	$bbduk overwrite=true \
