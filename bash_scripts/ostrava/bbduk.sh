@@ -17,7 +17,7 @@ for file in *_1.fastq.gz ; do
 	trimmed_name=${file%_R*.fastq.gz}
 	trimmed_fw=$trimed_name'_trimmed_1.fq.gz'
 	trimmed_rv=$trimed_name'_trimmed_2.fq.gz'
-	report=$name'_bbduk_report.txt'
+	report=$trimmed_name'_bbduk_report.txt'
 
 	#illumina reads
 	$bbduk overwrite=true \
