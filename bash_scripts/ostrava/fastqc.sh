@@ -6,12 +6,15 @@
 #PBS -l walltime=02:00:00
 
 
-cd '/home/users/kika/bnon_pfr_ko/reads/'
-# fwd='4FEM_trimmed_75_1.fq'
-# rev='4FEM_trimmed_75_2.fq'
-report='bnon_PF16_KO.fastqc.txt'
+read_dir='/home/users/kika/schizosaccharomyces_japonicus/reads/'
+out_dir=$read_dir'fastqc/'
 
-fastqc -o ./fastqc -t 5 *.gz 2> $report
-# fastqc -o ./fastqc -t 5 $fwd $rev 2> $report
+cd $read_dir
+
+for reads in *.gz ; do
+	echo 'running FastQC on ' $reads
+	fastqc -t 5 -o $out_dir $reads
+done
+
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: FASTQC done

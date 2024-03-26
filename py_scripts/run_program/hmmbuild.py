@@ -4,14 +4,14 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/metamonada/OGs/iqtree/markers/tom40/')
-files = [x for x in os.listdir() if x.endswith('muscle.aln')]
+os.chdir('/Users/kika/ownCloud/schizosaccharomyces_japonicus/vir_supergr/')
+files = [x for x in os.listdir() if x.endswith('.aln')]
 # files = [x for x in os.listdir() if x.startswith('hyp')]
 threads = 7
 
 for file in files:
 	print(file)
-	name = file.split('.muscle.aln')[0]
+	name = file.split('_master.aln')[0]
 	hmm = name + '.hmm'
 	summary = name + '.hmmbuild.log'
 	subprocess.call('{} -n {} -o {} --amino --cpu {} {} {}'.format(hmmbuild, name, summary, threads, hmm, file), 
