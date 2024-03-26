@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/metamonada/assemblies_od_petra/renamed/')
-files = [x for x in os.listdir() if x.endswith('Dysnectes.faa')]
-dbtype = 'prot'
+os.chdir('/Users/kika/data/stramenopiles/')
+files = [x for x in os.listdir() if x.endswith('MAST-3A-sp1.fasta')]
+dbtype = 'nucl'
 
 for file in files: 
 	print(file)
