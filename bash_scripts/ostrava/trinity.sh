@@ -15,5 +15,5 @@ fw=$read_dir'NG-A0875_Donna_1_trimmed_1.fq.gz'
 rv=$read_dir'NG-A0875_Donna_1_trimmed_2.fq.gz'
 
 
-Trinity --seqType fq --left $fw --right $rv --output $out_dir --max_memory 100G --CPU 30
+Trinity --seqType fq --left $fw --right $rv --output $out_dir --CPU 30
 
