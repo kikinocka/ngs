@@ -26,7 +26,7 @@ fw='NG-A0875_Donna_1_trimmed_1.fq.gz'
 rv='NG-A0875_Donna_1_trimmed_2.fq.gz'
 out='donna1_trinity'
 
-Trinity --seqType fq --left $fw --right $rv --output $out --max_memory 100G --CPU $PBS_NUM_PPN
+Trinity --seqType fq --left $fw --right $rv --output $out --JM 100G --CPU $PBS_NUM_PPN
 
 
 #copy files back
