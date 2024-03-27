@@ -18,7 +18,7 @@ rv=$read_dir'NG-A0875_Donna_1_trimmed_2.fq.gz'
 eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 conda activate trinity
 
-Trinity --seqType fq --left $fw --right $rv --output $out_dir --CPU 30
+Trinity --seqType fq --left $fw --right $rv --output $out_dir --max_memory 50 --CPU 30
 
 conda deactivate
 
