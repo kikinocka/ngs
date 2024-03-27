@@ -4,8 +4,8 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/schizosaccharomyces_japonicus/vir_supergr/')
-files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/schizosaccharomyces_japonicus/vir_supergr/alns')
+files = [x for x in os.listdir() if x.endswith('.trimal_gt-0.8.aln')]
 # files = [x for x in os.listdir() if x.startswith('hyp')]
 threads = 7
 
