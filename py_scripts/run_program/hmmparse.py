@@ -8,7 +8,7 @@ db = SeqIO.parse('/home/users/kika/schizosaccharomyces_japonicus/donna1.Trinity_
 
 seq_d = {}
 for seq in db:
-	seq_d[seq.name] = (seq.description, seq.seq)
+	seq_d[seq.name] = (seq.name, seq.seq)
 
 # #get first hit only
 # for file in files:
