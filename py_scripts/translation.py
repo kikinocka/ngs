@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/')
-infile = SeqIO.parse('bnon.fna', 'fasta')
-output = open('bnon.translated.fa', 'w')
-error = open('bnon.errors.fa', 'w')
+os.chdir('/home/users/kika/schizosaccharomyces_japonicus/')
+infile = SeqIO.parse('donna1_trinity/donna1.Trinity.fasta', 'fasta')
+output = open('donna1.Trinity_translated.fa', 'w')
+error = open('donna1.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
