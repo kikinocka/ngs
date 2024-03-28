@@ -12,7 +12,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/ver5/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/ver6/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
