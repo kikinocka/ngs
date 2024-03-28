@@ -4,8 +4,8 @@ from Bio import SeqIO
 
 os.chdir('/home/users/kika/schizosaccharomyces_japonicus/hmms/')
 # files = [x for x in os.listdir() if x.endswith('.hmmsearch.tsv')]
-files = [x for x in os.listdir() if x.startswith('donna5_Superclade0')]
-db = SeqIO.parse('/home/users/kika/schizosaccharomyces_japonicus/donna5.Trinity_translated.fa', 'fasta')
+files = [x for x in os.listdir() if x.startswith('donna6_Superclade0')]
+db = SeqIO.parse('/home/users/kika/schizosaccharomyces_japonicus/donna6.Trinity_translated.fa', 'fasta')
 
 seq_d = {}
 for seq in db:
