@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/home/users/kika/schizosaccharomyces_japonicus/')
-infile = SeqIO.parse('donna2_trinity/donna2.Trinity.fasta', 'fasta')
-output = open('donna2.Trinity_translated.fa', 'w')
-error = open('donna2.errors.fa', 'w')
+infile = SeqIO.parse('donna3_trinity/donna3.Trinity.fasta', 'fasta')
+output = open('donna3.Trinity_translated.fa', 'w')
+error = open('donna3.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
