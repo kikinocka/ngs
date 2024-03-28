@@ -52,12 +52,12 @@ for sequence in infile:
     if ambiguous == True:
         error.write('>{}\n{}\n'.format(name, seq))
     else:    
-        output.write('>{}_1 {}\n{}\n'.format(name, description, translation(seq)))
-        output.write('>{}_2 {}\n{}\n'.format(name, description, translation(seq[1:])))
-        output.write('>{}_3 {}\n{}\n'.format(name, description, translation(seq[2:])))
-        output.write('>{}_4 {}\n{}\n'.format(name, description, translation(seq.reverse_complement())))
-        output.write('>{}_5 {}\n{}\n'.format(name, description, translation(seq.reverse_complement()[1:])))
-        output.write('>{}_6 {}\n{}\n'.format(name, description, translation(seq.reverse_complement()[2:])))
+        output.write('>{}_1 {}\n{}\n'.format(name, desc, translation(seq)))
+        output.write('>{}_2 {}\n{}\n'.format(name, desc, translation(seq[1:])))
+        output.write('>{}_3 {}\n{}\n'.format(name, desc, translation(seq[2:])))
+        output.write('>{}_4 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement())))
+        output.write('>{}_5 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement()[1:])))
+        output.write('>{}_6 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement()[2:])))
     if i%100 == 0:
         print(i)
 output.close()
