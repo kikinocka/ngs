@@ -1,13 +1,13 @@
 #!/bin/bash
 #PBS -d .
 #PBS -v PATH
-#PBS -N Trinity
+#PBS -N hmmsearch
 #PBS -l nodes=1:ppn=15
 #PBS -l walltime=100:00:00
 
 cd '/home/users/kika/schizosaccharomyces_japonicus/hmms/'
 threads=15
-eval=1e-10
+eval=1e-05
 
 #several profiles and one database
 db='/home/users/kika/schizosaccharomyces_japonicus/donna1.Trinity_translated.fa'
