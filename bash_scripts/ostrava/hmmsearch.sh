@@ -5,7 +5,7 @@
 #PBS -l nodes=1:ppn=15
 #PBS -l walltime=100:00:00
 
-cd '/home/users/kika/schizosaccharomyces_japonicus/hmms'
+cd '/home/users/kika/schizosaccharomyces_japonicus/hmms/'
 threads=15
 eval=1e-10
 
