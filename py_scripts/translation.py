@@ -3,9 +3,9 @@ import os
 from Bio import SeqIO
 
 os.chdir('/home/users/kika/schizosaccharomyces_japonicus/')
-infile = SeqIO.parse('donna3_trinity/donna3.Trinity.fasta', 'fasta')
-output = open('donna3.Trinity_translated.fa', 'w')
-error = open('donna3.errors.fa', 'w')
+infile = SeqIO.parse('donna1_trinity/donna1.Trinity.fasta', 'fasta')
+output = open('donna1.Trinity_translated.fa', 'w')
+error = open('donna1.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -41,7 +41,8 @@ def translation(sequence):
 i = 0
 for sequence in infile:
     i += 1
-    name = sequence.description
+    name = sequence.name
+    desc = sequence.description
     seq = sequence.seq.upper()
     ambiguous = False
     print(name)
@@ -51,12 +52,12 @@ for sequence in infile:
     if ambiguous == True:
         error.write('>{}\n{}\n'.format(name, seq))
     else:    
-        output.write('>{}_1\n{}\n'.format(name, translation(seq)))
-        output.write('>{}_2\n{}\n'.format(name, translation(seq[1:])))
-        output.write('>{}_3\n{}\n'.format(name, translation(seq[2:])))
-        output.write('>{}_4\n{}\n'.format(name, translation(seq.reverse_complement())))
-        output.write('>{}_5\n{}\n'.format(name, translation(seq.reverse_complement()[1:])))
-        output.write('>{}_6\n{}\n'.format(name, translation(seq.reverse_complement()[2:])))
+        output.write('>{}_1 {}\n{}\n'.format(name, description, translation(seq)))
+        output.write('>{}_2 {}\n{}\n'.format(name, description, translation(seq[1:])))
+        output.write('>{}_3 {}\n{}\n'.format(name, description, translation(seq[2:])))
+        output.write('>{}_4 {}\n{}\n'.format(name, description, translation(seq.reverse_complement())))
+        output.write('>{}_5 {}\n{}\n'.format(name, description, translation(seq.reverse_complement()[1:])))
+        output.write('>{}_6 {}\n{}\n'.format(name, description, translation(seq.reverse_complement()[2:])))
     if i%100 == 0:
         print(i)
 output.close()
