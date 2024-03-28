@@ -10,8 +10,8 @@ threads=15
 eval=1e-05
 
 #several profiles and one database
-db='/home/users/kika/schizosaccharomyces_japonicus/donna7.Trinity_translated.fa'
-orgn='donna7'
+db='/home/users/kika/schizosaccharomyces_japonicus/donna8.Trinity_translated.fa'
+orgn='donna8'
 
 for profile in *.hmm ; do
 	out=$orgn'_'${profile%.trimal_gt-0.8.aln.hmm}.hmmsearch.tsv
