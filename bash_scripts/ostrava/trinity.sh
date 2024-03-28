@@ -9,10 +9,10 @@
 cd '/home/users/kika/schizosaccharomyces_japonicus/'
 
 read_dir='reads/'
-out_dir='donna4_trinity'
+out_dir='donna5_trinity'
 
-fw=$read_dir'NG-A0875_Donna_4_trimmed_1.fq.gz'
-rv=$read_dir'NG-A0875_Donna_4_trimmed_2.fq.gz'
+fw=$read_dir'NG-A0875_Donna_5_trimmed_1.fq.gz'
+rv=$read_dir'NG-A0875_Donna_5_trimmed_2.fq.gz'
 
 
 eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
@@ -22,9 +22,9 @@ Trinity --seqType fq --left $fw --right $rv --output $out_dir --max_memory 50G -
 
 conda deactivate
 
-mv donna4_trinity.Trinity.fasta donna4.Trinity.fasta
-mv donna4_trinity.Trinity.fasta.gene_trans_map donna4.Trinity.fasta.gene_trans_map
-mv donna4.Trinity.fasta* $out_dir
+mv donna5_trinity.Trinity.fasta donna5.Trinity.fasta
+mv donna5_trinity.Trinity.fasta.gene_trans_map donna5.Trinity.fasta.gene_trans_map
+mv donna5.Trinity.fasta* $out_dir
 
 
 python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: Trinity done
