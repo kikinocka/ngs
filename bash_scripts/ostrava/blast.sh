@@ -1,6 +1,5 @@
 #!/bin/bash
 #PBS -d .
-#PBS -v PATH
 #PBS -N blast
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
@@ -13,21 +12,21 @@ conda activate /home/users/bio/anaconda3/
 db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
-eval=1e-05
+evalue=1e-05
 max_seqs=1
 max_hsps=1
 
 for query in *.fa; do
 	echo $query
-	out=${query%.fa}'.nr_'$eval'.'$program'.tsv'
-	# out=${db%.fa}'.ref_'$eval'.tsv'
+	out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
+	# out=${db%.fa}'.ref_'$evalue'.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
 		-out $out \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
 		-num_threads 10 \
-		-evalue $eval \
+		-evalue $evalue \
 	echo ***BLAST done***
 done
 		# -max_target_seqs $max_seqs \
