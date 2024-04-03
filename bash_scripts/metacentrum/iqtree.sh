@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/ver7b/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/kinesins/kin2/ver6b/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
