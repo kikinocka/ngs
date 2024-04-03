@@ -36,4 +36,4 @@ iqtree2 -m LG+C20+G -T 15 --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --tr
 
 #copy files back
 rm $aln $constr1 $boottrees
-cp * $datadir
+cp * $datadir'au_test'
