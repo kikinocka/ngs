@@ -7,15 +7,15 @@
 
 cd '/home/users/kika/schizosaccharomyces_japonicus/hmms/'
 threads=15
-eval=1e-05
+evalue=1e-05
 
 #several profiles and one database
-db='/home/users/kika/schizosaccharomyces_japonicus/donna8.Trinity_translated.fa'
-orgn='donna8'
+db='/home/users/kika/schizosaccharomyces_japonicus/control/ovol_translated.fa'
+orgn='ovol'
 
 for profile in *.hmm ; do
 	out=$orgn'_'${profile%.trimal_gt-0.8.aln.hmm}.hmmsearch.tsv
-	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+	hmmsearch --tblout $out --cpu $threads -E $evalue $profile $db
 done
 
 
