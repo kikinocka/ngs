@@ -9,7 +9,7 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/schizosaccharomyces_japonicus/vir_supergr/')
+os.chdir('/Users/kika/ownCloud/schizosaccharomyces_japonicus/control/')
 acc = open('hmm_hits.acc')
 
 ids = []
