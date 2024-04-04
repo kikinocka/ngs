@@ -2,10 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/users/kika/schizosaccharomyces_japonicus/hmms/')
-# files = [x for x in os.listdir() if x.endswith('.hmmsearch.tsv')]
-files = [x for x in os.listdir() if x.startswith('donna8_Superclade0')]
-db = SeqIO.parse('/home/users/kika/schizosaccharomyces_japonicus/donna8.Trinity_translated.fa', 'fasta')
+os.chdir('/home/users/kika/schizosaccharomyces_japonicus/control/')
+files = [x for x in os.listdir() if x.endswith('.hmmsearch.tsv')]
+db = SeqIO.parse('/home/users/kika/schizosaccharomyces_japonicus/control/ovol_translated.fa', 'fasta')
 
 seq_d = {}
 for seq in db:
