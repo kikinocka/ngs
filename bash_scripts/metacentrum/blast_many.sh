@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load blast-plus
 
-datadir='/storage/brno12-cerit/home/kika/schizosaccharomyces_japonicus'
+datadir='/storage/brno12-cerit/home/kika/schizosaccharomyces_japonicus/control'
 db_dir='/storage/projects/BlastDB/'
 
 
