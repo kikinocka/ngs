@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/users/kika/schizosaccharomyces_japonicus/')
-infile = SeqIO.parse('donna8_trinity/donna8.Trinity.fasta', 'fasta')
-output = open('donna8.Trinity_translated.fa', 'w')
-error = open('donna8.errors.fa', 'w')
+os.chdir('/home/users/kika/schizosaccharomyces_japonicus/control/')
+infile = SeqIO.parse('77_Obscuromonas_CC37A_contigs.fasta', 'fasta')
+output = open('ovol_translated.fa', 'w')
+error = open('ovol.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
