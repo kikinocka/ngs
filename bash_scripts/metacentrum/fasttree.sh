@@ -15,7 +15,7 @@ module load fasttree
 data_dir='/storage/brno12-cerit/home/kika/metamonads/fasttree/not_filtered'
 
 #copy files to scratch
-cp $data_dir'/q2003245'*.aln $SCRATCHDIR
+cp $data_dir'/q2003432'*.aln $SCRATCHDIR
 
 
 #compute on scratch
