@@ -10,19 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module add conda-modules-py37
 
-data='/storage/brno3-cerit/home/kika/ciliates/condylostoma/'
+data='/storage/brno3-cerit/home/kika/chloroflexi/'
 
 #copy files to scratch
-cp $data'metawrap/bin_refinement/metawrap_70_10_bins/bin.1.fa' $SCRATCHDIR
+cp $data'Chloroflexi_genome_scaffolds.fa' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 conda activate prokka 
 
-genome='bin.1.fa'
+genome='Chloroflexi_genome_scaffolds.fa'
 prokka --addgenes --addmrna --cpus $PBS_NUM_PPN $genome 
 
 #copy files back
 rm $genome
-cp -r * $data'prokka/'
+cp -r * $data
