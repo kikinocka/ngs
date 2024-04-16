@@ -13,7 +13,6 @@ eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 fasta='Omod_genome_final_masked.fa'
 base_name=${fasta%_genome_final_masked.fa}
 # bam='duplicatesRemoved_w_read_groups_indelRealigner.bam'
-# bed='*.regions.bed'
 
 #1st get the largest 100 scaffolds, their length and format it
 export LC_ALL=C
@@ -33,6 +32,7 @@ conda activate mosdepth
 
 mosdepth $base_name $bam --fast-mode --by 1000 --no-per-base -t 40
 gunzip *.regions.bed.gz
+bed='*.regions.bed'
 
 cat $bed | datamash --full median 4 | cut -f1,5
 cat $bed | datamash --full mean 4 | cut -f1,5
