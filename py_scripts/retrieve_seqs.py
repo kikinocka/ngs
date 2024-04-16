@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/TbCAPs/')
+os.chdir('/Users/kika/ownCloud/oilsands/metagenomes/ncbi_submission/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/Gertraud/dpap_predicted_proteins.fa'
+database = '/Users/kika/ownCloud/oilsands/metagenomes/ncbi_submission/P3S_NCBI.l200.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -18,12 +18,12 @@ for accessions in files:
 			retrieve.add(line[:-1])
 		# print(retrieve)
 		for seq in db:
-			if seq.name in retrieve:
+			if seq.name.split(';')[0] in retrieve:
 				# print(seq.name)
-				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
-				# pass
+				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				pass
 			else:
 				# print(seq.name)
-				pass
-				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				# pass
+				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 

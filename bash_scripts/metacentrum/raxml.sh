@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
 #PBS -l select=1:ncpus=20:mem=2gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,10 +11,10 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
-data='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apicomplexans/ref_tree/'
+data='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/myxozoa/ref_tree/'
 
 #copy files to scratch
-cp $data'apicomplexans.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
+cp $data'myxozoa.trimal_gt-0.25_cons-50.aln' $SCRATCHDIR
 
 
 #compute on scratch
@@ -28,7 +28,7 @@ cd $SCRATCHDIR
 
 
 #18S
-aln='apicomplexans.trimal_gt-0.25_cons-50.aln'
+aln='myxozoa.trimal_gt-0.25_cons-50.aln'
 out=${aln%.trimal_gt-0.25_cons-50.aln}
 
 raxmlHPC-PTHREADS -m GTRCAT -p 12345 -N 3 -s $aln -n $out\1 -T $PBS_NUM_PPN
