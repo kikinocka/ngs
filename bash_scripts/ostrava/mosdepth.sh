@@ -12,7 +12,7 @@ eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 
 fasta='Omod_genome_final_masked.fa'
 base_name=${fasta%_genome_final_masked.fa}
-# bam='duplicatesRemoved_w_read_groups_indelRealigner.bam'
+bam='/mnt/data/kika/blastocrithidia/genomes/o_modryi/bowtie2/final/Omod_bw2_sorted.dupl_removed.read_groups.IndelRealigner.bam'
 
 #1st get the largest 100 scaffolds, their length and format it
 export LC_ALL=C
@@ -29,8 +29,9 @@ seqkit fx2tab --length --name --header-line $fasta | sort -g -r -k2 | head -100 
 #using this bam because it has duplications removed
 
 conda activate mosdepth
-
 mosdepth $base_name $bam --fast-mode --by 1000 --no-per-base -t 40
+conda deactivate
+
 gunzip *.regions.bed.gz
 bed='*.regions.bed'
 
@@ -43,8 +44,6 @@ cat $bed | datamash --full mean 4 | cut -f1,5
 # calculated the median of these windowed depth-means (m), i.e., a median-of-means (Mm), for each chromosome.
 # only for the 100 largest.
 # this is simply the median of that observed (already calculated) means
-###example:
-#grep "Wcollosoma_618_length_159051" Wcollosoma.regions.bed | datamash --full median 4 | cut -f1,5
 
 cut -f1 $base_name'.scaffolds_length.tsv' | sed -e 's/^/grep "/g' -e 's/$/" *.regions.bed | datamash --full median 4 | cut -f1,5/g' > $base_name'.get_median_mean_100_largest_scaf.sh' ;
  sh $base_name'.get_median_mean_100_largest_scaf.sh' | sed 's/_length.*\t/\t/g' | sed '1i\scaff\tmean_cov' > $base_name'.median_coverage_scaffolds.tsv'
