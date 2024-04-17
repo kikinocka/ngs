@@ -12,10 +12,11 @@ source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load fasttree
 
 
-data_dir='/storage/brno12-cerit/home/kika/metamonads/fasttree/not_filtered'
+data_dir='/storage/brno12-cerit/home/kika/metamonads/fasttree/not_filtered/'
 
 #copy files to scratch
-cp $data_dir'/q2003432'*.aln $SCRATCHDIR
+cp $data_dir'q2000758.og_hmm.trimal_at1.aln' $SCRATCHDIR
+cp $data_dir'q2004737.og_hmm.trimal_at1.aln' $SCRATCHDIR
 
 
 #compute on scratch
