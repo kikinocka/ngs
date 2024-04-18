@@ -46,7 +46,7 @@ cat $bed | datamash --full mean 4 | cut -f1,5
 # this is simply the median of that observed (already calculated) means
 
 cut -f1 $base_name'.scaffolds_length.tsv' | sed -e 's/^/grep "/g' -e 's/$/" *.regions.bed | datamash --full median 4 | cut -f1,5/g' > $base_name'.get_median_mean_100_largest_scaf.sh' ;
- sh $base_name'.get_median_mean_100_largest_scaf.sh' | sed 's/_length.*\t/\t/g' | sed '1i\scaff\tmean_cov' > $base_name'.median_coverage_scaffolds.tsv'
+sh $base_name'.get_median_mean_100_largest_scaf.sh' | sed 's/_length.*\t/\t/g' | sed '1i\scaff\tmean_cov' > $base_name'.median_coverage_scaffolds.tsv'
 
 paste $base_name'.scaffolds_length.tsv' $base_name'.median_coverage_scaffolds.tsv' > $base_name'.scaffolds_length_cov.tsv'
 

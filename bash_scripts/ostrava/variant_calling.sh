@@ -5,11 +5,11 @@
 #PBS -l nodes=1:ppn=40
 #PBS -l walltime=100:00:00
 
-base='Omod'
+base='Oeli'
 genome_dir='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/'
 genome=$genome_dir$base'_genome_final_masked.fa'
 genome_dict=$genome_dir$base'_genome_final_masked.dict'
-bam_dir='/mnt/data/kika/blastocrithidia/genomes/o_modryi/bowtie2/final/'
+bam_dir='/mnt/data/kika/blastocrithidia/genomes/o_eliasi/bowtie2/final/'
 sorted_bam=$bam_dir$base'_bw2_sorted.bam'
 removed_dupl_bam=$bam_dir$base'_bw2_sorted.dupl_removed.bam'
 removed_dupl_log=$bam_dir$base'_bw2_sorted.dupl_removed_log.txt'
