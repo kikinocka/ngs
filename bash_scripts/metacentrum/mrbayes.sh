@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno3-cerit/home/kika/trafficking/diplonemids_all/retromer-retriever/vps26/ver3/mrbayes'
+data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf/mrbayes'
 
 #copy files to scratch
 cp $data'/'* $SCRATCHDIR
@@ -19,7 +19,7 @@ cp $data'/'* $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='vps26.CD.trimal_gt-0.8.nex'
+aln='arfs_reduced.CD.trimal_gt-0.8.nex'
 
 mpirun -n $PBS_NUM_PPN mb-mpi $aln
 
