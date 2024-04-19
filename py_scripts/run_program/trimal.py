@@ -3,8 +3,8 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ArfGEFs/')
-files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ARFs/ph-arf/')
+files = [x for x in os.listdir() if x.endswith('reduced.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
 for file in files:
