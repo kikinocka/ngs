@@ -6,9 +6,9 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 # #align de-novo
-# os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/aaRS/')
-# # files = [x for x in os.listdir() if x.endswith('.fa')]
-# files = [x for x in os.listdir() if x.startswith('kineto')]
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver7/')
+# files = [x for x in os.listdir() if x.endswith('.fa')]
+# # files = [x for x in os.listdir() if x.startswith('kineto')]
 
 # for file in files:
 # 	print(file)
@@ -33,36 +33,32 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
 
 
-#add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/')
-existing = 'ver5/medium.mafft.aln'
-add = 'ver7/diplo_AP5M.fa'
-out = 'ver7/medium.mafft.aln'
-log = 'ver7/medium.mafft.log'
-subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
-# 	shell=True)
+# #add to aligned sequences
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/')
+# existing = 'medium_nodiplo_noeugl.mafft.aln'
+# add = 'ver7/diplo_AP5M.fa'
+# out = 'ver8/medium.mafft.aln'
+# log = 'ver8/medium.mafft.log'
+# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# # subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
+# # 	shell=True)
 	
 
-# #merge alignments
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/SUM-K/trees/ARFs/')
-# aln1 = '/Users/kika/ownCloud/membrane-trafficking/queries/ARFs/ScrollSaw_output_untrimmed_338seq.updated.aln'
-# # aln2 = '1C.aln'
-# # aln3 = '2A.aln'
-# # aln4 = '2B.aln'
-# # aln5 = '2C.aln'
-# # aln6 = '2D.aln'
+#merge alignments
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver8/')
+aln1 = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver5/medium.mafft.aln'
+aln2 = 'diplo_AP5M.mafft.aln'
 # fasta = 'arfs.fa'
-# input = 'arfs.mafft.in'
-# table = 'arfs.mafft.table'
-# out = 'arfs.mafft.aln'
-# log = 'arfs.mafft.log'
+input = 'medium.mafft.in'
+table = 'medium.mafft.table'
+out = 'medium.mafft.aln'
+log = 'medium.mafft.log'
 # subprocess.call('cat {} {} > {}'.format(aln1, fasta, input), shell=True)
-# # subprocess.call('cat {} {} {} {} {} {} > {}'.format(aln1, aln2, aln3, aln4, aln5, aln6, input), shell=True)
-# print('Alignments concatenated\n\n')
-# subprocess.call('ruby {} {} > {}'.format(maketable, aln1, table), shell=True)
-# # subprocess.call('ruby {} {} {} {} {} {} {} > {}'.format(maketable, aln1, aln2, aln3, aln4, aln5, aln6, table), shell=True)
-# print('Table prepared\n\n')
-# # subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)
-# subprocess.call('{} --thread 7 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)
-# print('Alignments merged')
+subprocess.call('cat {} {} > {}'.format(aln1, aln2, input), shell=True)
+print('Alignments concatenated\n\n')
+subprocess.call('ruby {} {} > {}'.format(maketable, aln1, table), shell=True)
+# subprocess.call('ruby {} {} {} {} {} {} {} > {}'.format(maketable, aln1, aln2, aln3, aln4, aln5, aln6, table), shell=True)
+print('Table prepared\n\n')
+# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)
+subprocess.call('{} --thread 7 --merge {} {} > {} 2> {}'.format(mafft, table, input, out, log), shell=True)
+print('Alignments merged')

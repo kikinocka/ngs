@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/all_coats/ver7/'
+datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/all_coats/ver8/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
