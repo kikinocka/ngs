@@ -34,14 +34,14 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/fungi_microsporidia/')
-existing = 'microsporidia_alignDeepSea.aln'
-add = 'V9.fa'
-out = 'microsporidia_V9.mafft.aln'
-log = 'microsporidia_V9.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
-	shell=True)
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/')
+existing = 'ver5/medium.mafft.aln'
+add = 'ver7/diplo_AP5M.fa'
+out = 'ver7/medium.mafft.aln'
+log = 'ver7/medium.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
+# 	shell=True)
 	
 
 # #merge alignments
