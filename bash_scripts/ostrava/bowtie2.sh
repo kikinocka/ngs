@@ -5,12 +5,12 @@
 #PBS -l nodes=1:ppn=80
 #PBS -l walltime=600:00:00
 
-cd '/home/users/kika/bnon_KOs/catalase/'
+cd '/mnt/data/kika/blastocrithidia/b_nonstop/'
 
-ref='/home/users/kika/bnon_KOs/p57_polished.fa'
-p1_1='reads/cat_KO.trimmed_1.fq.gz'
-p1_2='reads/cat_KO.trimmed_2.fq.gz'
-base_name='bw2_mapping/cat_KO.bw2'
+ref='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/p57_polished.fa'
+p1_1='genome_reads/p57_trimmed_1.fq.gz'
+p1_2='genome_reads/p57_trimmed_2.fq.gz'
+base_name='bowtie2/bnon_bw2'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
