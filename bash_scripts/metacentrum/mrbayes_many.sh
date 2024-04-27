@@ -21,7 +21,7 @@ cd $SCRATCHDIR
 
 for aln in *.nex; do
 	echo $aln
-	mpirun -np 4 mb -i $aln
+	mpirun -np $PBS_NUM_PPN mb -i $aln
 done
 
 
