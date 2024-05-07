@@ -5,7 +5,7 @@ from Bio.Blast import NCBIXML
 cmd = 'blastx'
 task = 'blastx'
 query = '/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fa'
-db = '/mnt/data/kika/blastocrithidia/b_nonstop/blastdb/p57_polished.fa'
+db = '/mnt/data/kika/blastocrithidia/proteins/blastdbs/bnon_proteins_annotated.fa'
 # db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
 out = '/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bnon.blast.xml'
 evalue = 1e-5
