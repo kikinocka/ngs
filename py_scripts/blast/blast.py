@@ -5,9 +5,9 @@ from Bio.Blast import NCBIXML
 cmd = 'blastx'
 task = 'blastx'
 query = '/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fa'
-db = '/mnt/data/kika/blastocrithidia/proteins/blastdbs/bnon_proteins_annotated.fa'
+db = '/mnt/data/kika/blastocrithidia/proteins/blastdbs/Bfru_proteins-final.faa'
 # db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
-out = '/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bnon.blast.xml'
+out = '/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bfru.blast.xml'
 evalue = 1e-5
 outfmt = 5
 hits = 1
@@ -29,8 +29,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bnon.blast.tsv', 'w')
-out_best = open('/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bnon.best_blast.tsv', 'w')
+output = open('/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bfru.blast.tsv', 'w')
+out_best = open('/mnt/data/kika/blastocrithidia/b_ex_lygus/GBHO01.fwd_bfru.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
