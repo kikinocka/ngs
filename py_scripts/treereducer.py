@@ -56,15 +56,3 @@ for inacc in inacc_files:
 					else:
 						pass
 
-
-
-
-
-
-
-
-
-
-
-
-
