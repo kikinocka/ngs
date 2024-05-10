@@ -6,7 +6,7 @@ os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta/')
 # inacc = open('arfs.mb+raxml_renamed.tre')
 # infasta = SeqIO.parse('arfs.mafft.aln', 'fasta')
 inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
-infasta_files = [x for x in os.listdir() if x.endswith('.fa')]
+infasta_files = [x for x in os.listdir() if x.endswith('.og_hmm.fa')]
 inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
 
 # omitted = []
@@ -49,7 +49,9 @@ for inacc in inacc_files:
 
 	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
 		for infasta in infasta_files:
+			# print(infasta)
 			if fname in infasta:
+				# print(fname)
 				for seq in SeqIO.parse(infasta, 'fasta'):
 					if seq.description in accessions:
 						result.write('>{}\n{}\n'.format(seq.description, seq.seq))
