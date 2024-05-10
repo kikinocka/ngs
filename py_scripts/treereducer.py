@@ -2,11 +2,12 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/fasttree/test/')
+os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta/')
 # inacc = open('arfs.mb+raxml_renamed.tre')
 # infasta = SeqIO.parse('arfs.mafft.aln', 'fasta')
 inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 infasta_files = [x for x in os.listdir() if x.endswith('.fa')]
+inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
 
 # omitted = []
 # for line in inacc:
@@ -26,6 +27,7 @@ infasta_files = [x for x in os.listdir() if x.endswith('.fa')]
 
 
 omitted = []
+accessions = []
 for inacc in inacc_files:
 	fname = inacc.split('.')[0]
 	print(inacc)
@@ -36,11 +38,33 @@ for inacc in inacc_files:
 			omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
 	# print(omitted)
 
+	for inaln in inaln_files:
+		if fname in inaln:
+			for seq in SeqIO.parse(inaln, 'fasta'):
+				if seq.description in omitted:
+					pass
+				else:
+					accessions.append(seq.description)
+	# print(accessions)
+
 	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
 		for infasta in infasta_files:
 			if fname in infasta:
 				for seq in SeqIO.parse(infasta, 'fasta'):
-					if seq.description in omitted:
-						pass
-					else:
+					if seq.description in accessions:
 						result.write('>{}\n{}\n'.format(seq.description, seq.seq))
+					else:
+						pass
+
+
+
+
+
+
+
+
+
+
+
+
+
