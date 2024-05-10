@@ -3,16 +3,22 @@ import os
 import re
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/pelomyxa_schiedti/pasa-evm/')
-proteins = SeqIO.parse('pelomyxa_predicted_proteins_corr.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/tbCAPs/')
+proteins = SeqIO.parse('diplo_TbCAP80.fa', 'fasta')
 
-#beta-barrel
-motif = r'[KRHSTNQ]\w{1}G[AC]\w{1}[LIVFMWY]\w{1}[LIVFMWY]'
+# #beta-barrel
+# motif = r'[KRHSTNQ]\w{1}G[AC]\w{1}[LIVFMWY]\w{1}[LIVFMWY]'
 
-with open('pelo.beta-barrel.fa', 'w') as out:
+#clathrin-binding
+# motif = r'L[LI][DEN][LF][DE]')
+# motif = r'L[V/I/L/F/W/Y/M][N/Q/S/T][V/I/L/F/W/Y/M][DE]')
+# motif = r'PWDLW'
+motif = r'LLDLL'
+
+with open('diplo_TbCAP80.clathrin-binding.fa', 'w') as out:
 	for protein in proteins:
 		if re.search(motif, str(protein.seq)):
 			match = re.search(motif, str(protein.seq))
 			out.write('>{}__motif:{}\n{}\n'.format(protein.description, match.group(), protein.seq))
 		else:
-			print(protein.description, '_____no beta-barrel signal')
+			print(protein.description, '_____no signal')
