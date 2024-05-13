@@ -56,6 +56,6 @@ for inacc in inacc_files:
 					if seq.description in accessions:
 						result.write('>{}\n{}\n'.format(seq.description, seq.seq))
 					else:
-						# print(seq.description)
 						pass
+						# print(seq.description)
 
