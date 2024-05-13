@@ -26,9 +26,9 @@ inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
 # print(c)
 
 
-omitted = []
-accessions = []
 for inacc in inacc_files:
+	omitted = []
+	accessions = []
 	fname = inacc.split('.')[0]
 	print(inacc)
 	# print(fname)
@@ -36,21 +36,21 @@ for inacc in inacc_files:
 		if 'color=#ff0000' in line:
 			# print(line.split('[')[0].replace('\'', '').replace('\t', ''))
 			omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
-	# print(omitted)
+	# print(len(omitted))
 
 	for inaln in inaln_files:
-		if fname in inaln:
+		if fname[:-1] in inaln:
 			for seq in SeqIO.parse(inaln, 'fasta'):
 				if seq.description in omitted:
 					pass
 				else:
 					accessions.append(seq.description)
-	# print(accessions)
+	# print(len(accessions))
 
 	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
 		for infasta in infasta_files:
 			# print(infasta)
-			if fname in infasta:
+			if fname[:-1] in infasta:
 				# print(fname)
 				for seq in SeqIO.parse(infasta, 'fasta'):
 					if seq.description in accessions:
