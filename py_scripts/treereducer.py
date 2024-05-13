@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_fasta/')
+os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/fasttree/test/test2/')
 # inacc = open('arfs.mb+raxml_renamed.tre')
 # infasta = SeqIO.parse('arfs.mafft.aln', 'fasta')
 inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]

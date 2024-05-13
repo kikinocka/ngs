@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/apusomonads/')
-infile = SeqIO.parse('apusomonads.fa', 'fasta')
-out_fasta = open('apusomonads_deduplicated.fa', 'w')
-out_names = open('apusomonads_names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/fasttree/test/test2/')
+infile = SeqIO.parse('q2001815.og_hmm.final.fa', 'fasta')
+out_fasta = open('q2001815.og_hmm.final_deduplicated.fa', 'w')
+out_names = open('q2001815.og_hmm.final_names.txt', 'w')
 
 # names = []
 # with open('RABs_deduplicated.fa', 'w') as out:	
