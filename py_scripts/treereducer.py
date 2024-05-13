@@ -39,7 +39,7 @@ for inacc in inacc_files:
 	# print(omitted)
 
 	for inaln in inaln_files:
-		if fname in inaln:
+		if fname[:-1] in inaln:
 			for seq in SeqIO.parse(inaln, 'fasta'):
 				if seq.description in omitted:
 					pass
@@ -50,11 +50,11 @@ for inacc in inacc_files:
 	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
 		for infasta in infasta_files:
 			# print(infasta)
-			if fname in infasta:
+			if fname[:-1] in infasta:
 				# print(fname)
 				for seq in SeqIO.parse(infasta, 'fasta'):
 					if seq.description in accessions:
 						result.write('>{}\n{}\n'.format(seq.description, seq.seq))
 					else:
-						pass
+						print(seq.description)
 
