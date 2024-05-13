@@ -57,4 +57,5 @@ for inacc in inacc_files:
 						result.write('>{}\n{}\n'.format(seq.description, seq.seq))
 					else:
 						# print(seq.description)
+						pass
 
