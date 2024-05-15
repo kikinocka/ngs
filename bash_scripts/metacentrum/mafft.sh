@@ -29,8 +29,8 @@ for file in *.fa ; do
 	aln=${file%.fa}.mafft.aln
 	log=${file%.fa}.mafft.log
 
-	mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
-	# mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
+	# mafft --thread $PBS_NUM_PPN --localpair --maxiterate 1000 --inputorder ${file} > ${aln} 2> ${log}
+	mafft --thread $PBS_NUM_PPN --auto --inputorder ${file} > ${aln} 2> ${log}
 done
 
 
