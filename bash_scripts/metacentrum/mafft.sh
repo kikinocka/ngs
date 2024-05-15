@@ -15,8 +15,8 @@ module load mafft
 data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apicomplexans/'
 
 #copy files to scratch
-cp $data_dir'apicomplexa.fa' $SCRATCHDIR
-cp $data_dir'ver1/apicomplexans.18S_extracted.mafft.aln' $SCRATCHDIR
+cp $data_dir'apicomplexa.mafft.aln' $SCRATCHDIR
+cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
 
@@ -35,14 +35,14 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='apicomplexans.18S_extracted.mafft.aln'
-add='apicomplexa.fa'
-aln='apicomplexans_added.mafft.aln'
-log='apicomplexans_added.mafft.log'
+existing='apicomplexa.mafft.aln'
+add='V9.fa'
+aln='apicomplexans_V9.mafft.aln'
+log='apicomplexans_V9.mafft.log'
 
 mafft --version 2> $log
-mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
-# mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
+# mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
+mafft --addfragments $add --thread $PBS_NUM_PPN --inputorder --keeplength $existing > $aln 2> $log
 
 
 # #merge alignments and fasta files
