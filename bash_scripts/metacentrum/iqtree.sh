@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf/ver2/iqtree/'
+datadir='/storage/brno12-cerit/home/kika/blasto_comparative/catalase/'
 
 #copy files to scratch
 # cp $datadir'/'*.aln $SCRATCHDIR
-cp $datadir'arfs_reduced.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'catalase.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='arfs_reduced.trimal_gt-0.8.aln'
-guide='guide_arfs_reduced'
+aln='catalase.trimal_gt-0.8.aln'
+guide='guide_catalase'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
