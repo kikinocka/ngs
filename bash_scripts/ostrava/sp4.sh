@@ -16,7 +16,7 @@ conda activate sp4
 
 cd $workdir
 selenoprofiles -o $workdir -t $genome -s $spp -p eukarya -log $log -ncpus 20 \
-	-output_fasta -output_five_prime -five_prime_length -output_three_prime -three_prime_length -output_gff
+	-output_fasta -output_five_prime -output_three_prime -output_gff_file
 
 conda deactivate
 
