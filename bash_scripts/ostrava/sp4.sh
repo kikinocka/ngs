@@ -14,6 +14,7 @@ log=$workdir$spp'_sp4.log'
 eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 conda activate sp4
 
+cd $workdir
 selenoprofiles -o $workdir -t $genome -s $spp -p eukarya -log $log -ncpus 20 \
 	-output_fasta -output_five_prime -five_prime_length -output_three_prime -three_prime_length -output_gff
 
