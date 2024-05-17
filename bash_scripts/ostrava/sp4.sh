@@ -6,8 +6,8 @@
 #PBS -l walltime=600:00:00
 
 workdir='/mnt/data/kika/blastocrithidia/genomes/selenoproteins/'
-genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Oobo_genome_final_masked.fa'
-spp='oobo'
+genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Ovol_genome_final_masked.fa'
+spp='ovol'
 log=$workdir$spp'_sp4.log'
 
 
