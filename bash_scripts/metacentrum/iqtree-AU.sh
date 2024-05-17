@@ -53,5 +53,5 @@ iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --
 
 
 #copy files back
-rm $aln $constr* $ufb_trees
+# rm $aln $constr* $ufb_trees
 cp * $datadir'au_test/'
