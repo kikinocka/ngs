@@ -6,8 +6,8 @@
 #PBS -l walltime=600:00:00
 
 workdir='/mnt/data/kika/blastocrithidia/genomes/selenoproteins/'
-genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Oeli_genome_final_masked.fa'
-spp='oeli'
+genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Omod_genome_final_masked.fa'
+spp='omod'
 log=$workdir$spp'_sp4.log'
 
 
@@ -16,7 +16,7 @@ conda activate sp4
 
 cd $workdir
 selenoprofiles -o $workdir -t $genome -s $spp -p eukarya -log $log -ncpus 20 \
-	-output_fasta -output_five_prime -output_three_prime -output_gff
+	-output_fasta -output_gff
 
 conda deactivate
 
