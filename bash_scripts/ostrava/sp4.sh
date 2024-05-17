@@ -6,8 +6,8 @@
 #PBS -l walltime=600:00:00
 
 workdir='/mnt/data/kika/blastocrithidia/genomes/selenoproteins/'
-genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/Ovol_genome_final_masked.fa'
-spp='ovol'
+genome='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/p57_polished.fa'
+spp='bnon'
 log=$workdir$spp'_sp4.log'
 
 
@@ -15,7 +15,7 @@ eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 conda activate sp4
 
 cd $workdir
-selenoprofiles -o $workdir -t $genome -s $spp -p eukarya -log $log -ncpus 20 \
+selenoprofiles -o $workdir -t $genome -s $spp -p eukarya -log $log -ncpus 20 -genetic_code 31 \
 	-output_fasta -output_gff
 
 conda deactivate
