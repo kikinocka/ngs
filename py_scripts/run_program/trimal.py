@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import os
 
-# trimal = '/Users/kika/miniconda3/bin/trimal'
+trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_muscle_FINAL/')
-files = [x for x in os.listdir() if x.endswith('.muscle.aln')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/catalase/')
+files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
 for file in files:
@@ -17,8 +17,8 @@ for file in files:
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 
-	output = '{}.trimal_{}.aln'.format(file_name, aut)
-	os.system('{} -in {} -out {} -{} -fasta'.format(trimal, file, output, aut))
+	# output = '{}.trimal_{}.aln'.format(file_name, aut)
+	# os.system('{} -in {} -out {} -{} -fasta'.format(trimal, file, output, aut))
 	
 	output = '{}.trimal_gt-{}.aln'.format(file_name, gt)
 	os.system('{} -in {} -out {} -gt {} -fasta'.format(trimal, file, output, gt))

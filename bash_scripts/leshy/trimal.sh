@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#align denovo
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_muscle/'
+cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_muscle_FINAL/'
 
 for f in *.muscle.aln ; do
 	echo $f
