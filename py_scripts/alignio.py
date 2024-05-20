@@ -2,8 +2,8 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_gt-0.8/')
-files = [x for x in os.listdir() if x.endswith('filtered-50.aln')]
+os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_muscle_FINAL/')
+files = [x for x in os.listdir() if x.endswith('.muscle.aln')]
 out = 'trimal_gt-0.8_filt_len.tsv'
 
 # #number of sequences
