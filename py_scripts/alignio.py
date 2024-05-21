@@ -4,7 +4,7 @@ from Bio import AlignIO
 
 os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_FINAL/')
 files = [x for x in os.listdir() if x.endswith('.trimal_at1.aln')]
-ut = 'trimal_at1_len.tsv'
+out = 'trimal_at1_len.tsv'
 
 # #number of sequences
 # print(len(alignment))
