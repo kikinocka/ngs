@@ -31,13 +31,9 @@ cd $SCRATCHDIR
 
 for f in *.aln ; do
 	echo ${f}
-	guide=guide_${f%.aln}
-	guide_tree=$guide'.treefile'
 	bb=1000
 	nm=5000
-	
-	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --tree-freq $guide_tree --boot-trees
-
+	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees
 done
 
 #copy files back
