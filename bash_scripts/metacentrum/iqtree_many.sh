@@ -1,30 +1,29 @@
 #!/bin/bash
-#PBS -N IQT-many
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -N IQT-many1
+#PBS -l select=1:ncpus=15:mem=5gb:scratch_local=10gb
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
 #add module
-# module add iqtree-1.6.12
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/RNAi'
+data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
-cp $data_dir'/'*.aln $SCRATCHDIR
-# cp $data_dir'q2007348.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2009078.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2009173.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2011721.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2011742.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2012707.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2019788.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-# cp $data_dir'q2019794.og_hmm.trimal_gt-0.8.filtered-50.aln' $SCRATCHDIR
-
+# cp $data_dir'/'*.aln $SCRATCHDIR
+cp $data_dir'q2000150.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000182.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000284.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000288.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000295.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000333.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000334.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000361.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000378.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2000389.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -44,9 +43,8 @@ for f in *.aln ; do
 
 	# iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 10000 -quiet -safe -s ${f} -pre ${f%.aln}
 
-	iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s ${f} --prefix $guide
-	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --tree-freq $guide_tree
-
+	# iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s ${f} --prefix $guide
+	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --tree-freq $guide_tree --boot-trees
 done
 
 #copy files back
