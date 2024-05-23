@@ -20,9 +20,9 @@ cd $SCRATCHDIR
 for genome in *.fa ; do
 	echo $genome
 
-	table=${genome%.fasta}.tRNAscan_table.tsv
-	seq=${genome%.fasta}.tRNAscan.fa
-	structures=${genome%.fasta}.tRNAscan_structures.txt
+	table=${genome%.fa}.tRNAscan_table.tsv
+	seq=${genome%.fa}.tRNAscan.fa
+	structures=${genome%.fa}.tRNAscan_structures.txt
 
 	# #eukaryotic tRNAs
 	# $tRNAscan --thread $PBS_NUM_PPN -E -o $table -a $seq -f $structures ${genome}
