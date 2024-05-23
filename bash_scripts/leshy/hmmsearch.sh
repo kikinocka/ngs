@@ -19,13 +19,11 @@ profile=$workdir'archaea_eRF1.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
-	echo $orgn
-	out=$orgn'_eRF1.hmmsearch.tsv'
-	echo $out
-	# hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+	out=$orgn'.eRF1_hmmsearch.tsv'
+	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 done
 
-# mv *tsv $workdir
+mv *tsv $workdir
 
 # #several profiles and several databases
 # for profile in /mnt/mokosz/home/kika/metamonads_ancestral/OGs_hmm/*.hmm ; do
