@@ -24,12 +24,12 @@ for genome in *.fa ; do
 	fout=${genome%.fa}.aragorn.fa
 	$aragorn -fo -o $fout $genome
 	
-	#with secondary structures
-	sout=${genome%.fa}.aragorn_structures.txt
-	$aragorn -o $sout $genome
+	# #with secondary structures
+	# sout=${genome%.fa}.aragorn_structures.txt
+	# $aragorn -o $sout $genome
 done
 
 
 #copy files back
-rm *.fa
+rm *genome.fa
 cp * $data_dir
