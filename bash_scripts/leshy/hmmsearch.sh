@@ -49,4 +49,4 @@ mv *tsv $workdir
 # 	done
 # done
 
-# python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py HMMsearch done
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py HMMsearch done
