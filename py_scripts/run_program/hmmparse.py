@@ -29,7 +29,7 @@ written = set() #move multidomain, written into the for loop to have domain-spec
 for file in files:
 	# if file.startswith('EP00360'):
 	print(file)
-	name = file.replace('.hmmsearch.tsv', '.hmm_hits.fa')
+	name = file.replace('hmmsearch.tsv', 'hmm_hits.fa')
 	with open(file) as infile:
 		for line in infile:
 			if not line.startswith('#'):
