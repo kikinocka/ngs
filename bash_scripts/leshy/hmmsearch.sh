@@ -20,7 +20,7 @@ profile=$workdir'archaea_eRF1.hmm'
 for db in *.faa ; do
 	orgn=${db%.faa}
 	echo $orgn
-	# out=$orgn'_'${profile%.hmm}.hmmsearch.tsv
+	out=$orgn'_'${profile%.hmm}.hmmsearch.tsv
 	echo $out
 	# hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 done
