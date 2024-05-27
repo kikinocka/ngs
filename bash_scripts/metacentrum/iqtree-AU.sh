@@ -14,11 +14,11 @@ datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf
 
 #copy files to scratch
 cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln.treefile' $SCRATCHDIR
+cp $datadir'raxml/RAxML_bipartitions.arfs_reduced.renamed.tre' $SCRATCHDIR
+cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln.ufboot' $SCRATCHDIR
 cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln.ufboot' $SCRATCHDIR
 cp $datadir'au_test/arfs_reduced.constr1' $SCRATCHDIR
 cp $datadir'au_test/arfs_reduced.constr2' $SCRATCHDIR
-
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -41,17 +41,18 @@ cd $SCRATCHDIR
 pref='arfs_reduced'
 aln='arfs_reduced.trimal_gt-0.8.aln'
 ufb_trees='arfs_reduced.trimal_gt-0.8.aln.ufboot'
-ml_tree='arfs_reduced.trimal_gt-0.8.aln.treefile'
+iqt_tree='arfs_reduced.trimal_gt-0.8.aln.treefile'
+rax_tree='RAxML_bipartitions.arfs_reduced.renamed.tre'
 constr1='arfs_reduced.constr1'
 constr2='arfs_reduced.constr2'
 ufb=1000
 
 iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln -g $constr1 --prefix $pref.constr1
 iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln -g $constr2 --prefix $pref.constr2
-cat $ml_tree $pref.constr*.treefile $ufb_trees > $pref.trees
+cat $rax_tree $iqt_tree $pref.constr*.treefile $ufb_trees > $pref.trees
 iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --trees $pref.trees --test-weight --test-au --test 10000 -n 0
 
 
 #copy files back
-# rm $aln $constr* $ufb_trees
+rm $aln $constr1 $constr2 $rax_tree $iqt_tree $ufb_trees
 cp * $datadir'au_test/'
