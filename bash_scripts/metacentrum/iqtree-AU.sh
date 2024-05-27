@@ -15,7 +15,7 @@ datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf
 #copy files to scratch
 cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln' $SCRATCHDIR
 cp $datadir'raxml/RAxML_bipartitions.arfs_reduced.renamed.tre' $SCRATCHDIR
-cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln.ufboot' $SCRATCHDIR
+cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln.treefile' $SCRATCHDIR
 cp $datadir'iqtree/arfs_reduced.trimal_gt-0.8.aln.ufboot' $SCRATCHDIR
 cp $datadir'au_test/arfs_reduced.constr1' $SCRATCHDIR
 cp $datadir'au_test/arfs_reduced.constr2' $SCRATCHDIR
