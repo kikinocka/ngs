@@ -14,16 +14,16 @@ data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
 # cp $data_dir'/'*.aln $SCRATCHDIR
-cp $data_dir'q2001206.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001208.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001211.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001214.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001227.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001230.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001231.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001232.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001233.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001250.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001299.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001303.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001336.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001337.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001338.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001340.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001343.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001344.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001345.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001347.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
