@@ -3,8 +3,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/manuscripts/33_oil_sands-mtDNA/graphs/')
-out_perc = open('V4_sediments_counts.tsv', 'w')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
+# out_perc = open('Rhizaria.tsv', 'w')
 
 # #several OTU tables
 # v9 = pd.read_csv('V9_all.tsv', sep='\t')
@@ -15,7 +15,7 @@ out_perc = open('V4_sediments_counts.tsv', 'w')
 # # print(df)
 
 #one OTU table
-df = pd.read_csv('V4_sediments.tsv', sep='\t')
+df = pd.read_csv('Rhizaria.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.split('|', 5, expand=True)
 # print(df['rank3'])
@@ -23,25 +23,26 @@ df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.spl
 #SUPERGROUPS
 # #SL_Euglenozoa
 # total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
-#oil_sands
-total = df.groupby(['rank2']).sum().filter(regex='.*-.*\d+', axis=1)
+# #oil_sands
+# total = df.groupby(['rank2']).sum().filter(regex='.*-.*\d+', axis=1)
 
-# #SMALLER GROUPS
-# total = df.groupby(['rank5']).sum().filter(regex='\d+_.*', axis=1)
+#SMALLER GROUPS
+total = df.groupby(['rank3']).sum().filter(regex='\d+_.*', axis=1)
 
 #change to percentages
-# total = (100 * total / total.sum()).round(2)
+total = (100 * total / total.sum()).round(2)
 
-#oil_sands
-total = total[['P1-Mar02 (201-202_S88)', 'P1-Mar02 (203-204_S89)', 'P3-Mar02 (43-44_S82)', 'P3-Mar02 (45-46_S83)', 'P3-Mar02 (49-50_S85)']]
-# # print(total)
+# #oil_sands
+# total = total[['P1-Mar02 (201-202_S88)', 'P1-Mar02 (203-204_S89)', 'P3-Mar02 (43-44_S82)', 'P3-Mar02 (45-46_S83)', 'P3-Mar02 (49-50_S85)']]
 
-# #SL_Euglenozoa
-# total = total[['14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC',
-# 	'1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', 
-# 	'5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', 
-# 	'11_TCAAGT', '12_AGGCCT', '13_CGTGAT',
-# 	'9_GCTTAC', '10_GCGATT']]
+#SL_Euglenozoa
+total = total[['14_TGGTCA', '15_GTAGCC', '16_CTGATC', '17_ATTGGC',
+	'1_CACTGT', '2_GATCTG', '3_GAACGA', '4_TACAAG', 
+	'5_TACGGA', '6_ACATCG', '7_CCGCAT', '8_GCAGTA', 
+	'11_TCAAGT', '12_AGGCCT', '13_CGTGAT',
+	'9_GCTTAC', '10_GCGATT']]
+
+# print(total)
 
 # # total = total.filter(regex='.*MLSB.*', axis=1)
 # # total = total.drop(total.filter(regex='.*SWIP.*').columns, axis=1)
@@ -69,27 +70,27 @@ transformed = total.T
 # 	'#BCDEB4', '#FFD9C6']
 
 
-#oil_sands
-transformed = transformed[['No_hit', 'Eukaryota_X', 
-	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
-	'Haptista', 'Cryptista', 'Archaeplastida', 
-	'Amoebozoa', 'Obazoa',
-	'Metamonada', 'Discoba',
-	'Ancyromonadida']]
+# #oil_sands
+# transformed = transformed[['No_hit', 'Eukaryota_X', 
+# 	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
+# 	'Haptista', 'Cryptista', 'Archaeplastida', 
+# 	'Amoebozoa', 'Obazoa',
+# 	'Metamonada', 'Discoba',
+# 	'Ancyromonadida']]
 
 
-colors = ['#000000', '#A7A7A7', 
-	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 
-	'#FAEBD7', '#FFFF99', '#009444', 
-	'#1F78B4', '#C9C9C9',
-	'#7FFFD4', '#A6CEE3',
-	'#FFD9C6']
+# colors = ['#000000', '#A7A7A7', 
+# 	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 
+# 	'#FAEBD7', '#FFFF99', '#009444', 
+# 	'#1F78B4', '#C9C9C9',
+# 	'#7FFFD4', '#A6CEE3',
+# 	'#FFD9C6']
 
-transformed.to_csv(out_perc, sep='\t')
+# transformed.to_csv(out_perc, sep='\t')
 # # print(transformed)
 
-ax = transformed.plot(kind='barh', stacked=True, width=0.5, align='center', figsize=(7,10), color=colors)
-#  
+ax = transformed.plot(kind='barh', stacked=True, width=0.5, align='center')
+# , figsize=(7,10) , color=colors
 # 
 # ax.set_xlabel('OTU abundances', fontsize=5)
 ax.set_xlabel('OTU abundances [%]', fontsize=10)
@@ -108,6 +109,6 @@ ax.spines['bottom'].set_linewidth(0.6)
 ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=9, frameon=False)
 # ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
 plt.tight_layout()
-plt.show()
+# plt.show()
 # plt.savefig('discoba_counts.pdf', dpi=300)
-# plt.savefig('V9_sediments_perc.pdf', dpi=300)
+plt.savefig('rhizaria_percentages_new.pdf', dpi=300)
