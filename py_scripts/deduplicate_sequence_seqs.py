@@ -3,20 +3,21 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/fasttree/test/test2/')
-infile = SeqIO.parse('q2001815.og_hmm.final.fa', 'fasta')
-out_fasta = open('q2001815.og_hmm.final_deduplicated.fa', 'w')
-out_names = open('q2001815.og_hmm.final_dupl-names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/apusomonads+breviates/')
+infile = SeqIO.parse('apus+brev.fa', 'fasta')
+out_fasta = open('apus+brev_deduplicated.fa', 'w')
+out_names = open('apus+brev_dupl-names.txt', 'w')
 
 multiplications = defaultdict(list)
 seq_dict = OrderedDict()
-for sequence in infile:
-	multiplications[sequence.seq].append(sequence.description)
-	if sequence.seq not in seq_dict:
+for seq in infile:
+	sequence = seq.seq.upper()
+	multiplications[sequence].append(seq.description)
+	if sequence not in seq_dict:
 		# # #rename full header only with name (acc, till the first space)
-		# seq_dict[sequence.seq] = sequence.name 
+		# seq_dict[sequence] = seq.name 
 		#keep full header			
-		seq_dict[sequence.seq] = sequence.description
+		seq_dict[sequence] = seq.description
 
 for key, value in seq_dict.items():
 	out_fasta.write('>{}\n{}\n'.format(value, key))

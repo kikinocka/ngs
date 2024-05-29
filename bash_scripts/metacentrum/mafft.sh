@@ -12,11 +12,11 @@ cat $PBS_NODEFILE
 # module add mafft-7.487 
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apicomplexans/'
+data_dir='/storage/brno12-cerit/home/kika/sl_euglenozoa/v9/V9_DeepSea/apus+brev/'
 
 #copy files to scratch
-cp $data_dir'apicomplexa.mafft.aln' $SCRATCHDIR
-cp $data_dir'V9.fa' $SCRATCHDIR
+cp $data_dir'apus+brev.mafft.aln' $SCRATCHDIR
+cp $data_dir'a+b_V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
 
@@ -35,10 +35,10 @@ cd $SCRATCHDIR
 
 
 #add to aligned sequences
-existing='apicomplexa.mafft.aln'
-add='V9.fa'
-aln='apicomplexans_V9.mafft.aln'
-log='apicomplexans_V9.mafft.log'
+existing='apus+brev.mafft.aln'
+add='a+b_V9.fa'
+aln='apus+brev_V9.mafft.aln'
+log='apus+brev_V9.mafft.log'
 
 mafft --version 2> $log
 # mafft --add $add --thread $PBS_NUM_PPN --inputorder $existing > $aln 2> $log
