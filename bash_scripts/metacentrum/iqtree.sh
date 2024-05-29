@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf/ver3/iqtree'
+datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf/ver3/'
 
 #copy files to scratch
-cp $datadir'/'*.aln $SCRATCHDIR
+cp $datadir'arfs_reduced.CD.trimal_gt-0.8.aln' $SCRATCHDIR
 # cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='arfs_reduced.trimal_gt-0.8.aln'
-guide='guide_arfs_reduced'
+aln='arfs_reduced.CD.trimal_gt-0.8.aln'
+guide='guide_arfs_reduced.CD'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
@@ -41,4 +41,4 @@ iqtree2 -m LG+C20+G4 -T 15 --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet 
 
 #copy files back
 rm $aln
-cp * $datadir
+cp * $datadir'iqtree/'
