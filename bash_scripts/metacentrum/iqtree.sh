@@ -1,30 +1,30 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
 #add module
-module load iqtree
+module load iqtree-2.2.0
 
-datadir='/storage/brno12-cerit/home/kika/blasto_comparative/catalase'
+datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf/ver3/iqtree'
 
 #copy files to scratch
-# cp $datadir'/'*.aln $SCRATCHDIR
-cp $datadir'/'* $SCRATCHDIR
+cp $datadir'/'*.aln $SCRATCHDIR
+# cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='catalase.trimal_gt-0.8.aln'
-guide='guide_catalase'
+aln='arfs_reduced.trimal_gt-0.8.aln'
+guide='guide_arfs_reduced'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
 
-# iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 iqtree2 -m LG+C20+G4 -T 15 --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 
 # iqtree2 -m TEST -madd C10,C20,C30,C40,C50,C60,LG4M,LG4X,LG+F+G,LG+C10+G,LG+C20+G,LG+C30+G,LG+C40+G,LG+C60+G \

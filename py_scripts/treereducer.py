@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ARFs/ph-arf/')
-inacc = open('ver2/ph-arf_marked2.tre')
-infasta = SeqIO.parse('ver1/arfs_reduced.fa', 'fasta')
+inacc = open('ver3/ph-arf_marked.tre')
+infasta = SeqIO.parse('ver2/arfs_reduced.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 # infasta_files = [x for x in os.listdir() if x.endswith('.og_hmm.fa')]
 # inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
@@ -16,7 +16,7 @@ for line in inacc:
 		omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
 
 c = 0
-with open('arfs_reduced2.fa', 'w') as result:
+with open('ver3/arfs_reduced.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
