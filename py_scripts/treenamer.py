@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ARFs/ph-arf/ver4/iqtree/')
-trees = [x for x in os.listdir() if x.endswith('ufboot')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ARFs/ph-arf/ver4/raxml/')
+trees = [x for x in os.listdir() if x.endswith('RAxML_bipartitions.arfs_reduced.CD')]
 
 #file in format Acc. number \t name of organism \n
 names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ARFs/ph-arf/ver4/arfs_reduced.codes_names.txt')
