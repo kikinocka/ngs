@@ -43,11 +43,11 @@ rax_tree='RAxML_bipartitions.arfs_reduced.renamed.tre'
 iqt_tree='arfs_reduced.trimal_gt-0.8.aln_renamed.tre'
 ufb_trees='arfs_reduced.trimal_gt-0.8.aln_renamed.ufboot'
 
-for constr in arfs_reduced.constr*tre ; do 
-	echo $constr
-	name=${constr%.tre}
-	iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln -g $constr --prefix $name
-done
+# for constr in arfs_reduced.constr*tre ; do 
+# 	echo $constr
+# 	name=${constr%.tre}
+# 	iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln -g $constr --prefix $name
+# done
 cat $rax_tree $iqt_tree $pref.constr*.treefile $ufb_trees > $pref.trees
 iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --trees $pref.trees --test-weight --test-au --test 10000 -n 0
 
