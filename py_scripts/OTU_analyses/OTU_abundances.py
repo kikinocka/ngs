@@ -15,7 +15,7 @@ os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
 # # print(df)
 
 #one OTU table
-df = pd.read_csv('Rhizaria.tsv', sep='\t')
+df = pd.read_csv('Amoebozoa.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.split('|', 5, expand=True)
 # print(df['rank3'])
@@ -27,7 +27,7 @@ df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.spl
 # total = df.groupby(['rank2']).sum().filter(regex='.*-.*\d+', axis=1)
 
 #SMALLER GROUPS
-total = df.groupby(['rank3']).sum().filter(regex='\d+_.*', axis=1)
+total = df.groupby(['rank4']).sum().filter(regex='\d+_.*', axis=1)
 
 #change to percentages
 total = (100 * total / total.sum()).round(2)
@@ -111,4 +111,4 @@ ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=9, frameon=False)
 plt.tight_layout()
 # plt.show()
 # plt.savefig('discoba_counts.pdf', dpi=300)
-plt.savefig('rhizaria_percentages_new.pdf', dpi=300)
+plt.savefig('amoebozoa_percentages_new.pdf', dpi=300)
