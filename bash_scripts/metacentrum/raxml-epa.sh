@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N raxml-epa
-#PBS -l select=1:ncpus=20:mem=5gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
