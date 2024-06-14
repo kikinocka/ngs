@@ -34,11 +34,11 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/apusomonads+breviates/')
-existing = 'apus+brev.mafft.aln'
-add = 'a+b_V9.fa'
-out = 'apus+brev_V9.mafft.aln'
-log = 'apus+brev_V9.mafft.log'
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/metazoa_myxozoa/')
+existing = 'ref_aln/myxozoa_final.mafft.aln'
+add = 'V9.fa'
+out = 'myxozoa_V9.mafft.aln'
+log = 'myxozoa_V9.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
 	shell=True)
