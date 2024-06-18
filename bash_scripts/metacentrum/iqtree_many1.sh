@@ -13,16 +13,16 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
-cp $data_dir'q2001206.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001208.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001211.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001214.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001227.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001230.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001231.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001232.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001233.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001250.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002198.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002203.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002209.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002212.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002217.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002220.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002221.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002225.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002260.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2002261.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
