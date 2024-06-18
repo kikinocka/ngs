@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/home/users/kika/schizosaccharomyces_japonicus/control/')
-infile = SeqIO.parse('77_Obscuromonas_CC37A_contigs.fasta', 'fasta')
-output = open('ovol_translated.fa', 'w')
-error = open('ovol.errors.fa', 'w')
+os.chdir('/Users/kika/data/stramenopiles/')
+infile = SeqIO.parse('platysulcus_tardus.fa', 'fasta')
+output = open('platysulcus_tardus_translated.fa', 'w')
+error = open('platysulcus_tardus.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
