@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/data/stramenopiles/')
-infile = SeqIO.parse('platysulcus_tardus.fa', 'fasta')
-output = open('platysulcus_tardus_translated.fa', 'w')
-error = open('platysulcus_tardus.errors.fa', 'w')
+os.chdir('/Users/kika/data/hemimastigophora/')
+infile = SeqIO.parse('Spironema_transcriptome.fa', 'fasta')
+output = open('Spironema_transcriptome_translated.fa', 'w')
+error = open('Spironema_transcriptome.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
