@@ -6,15 +6,18 @@ jplacef = [x for x in os.listdir() if x.endswith('.accumulated.jplace')]
 
 
 for jplace in jplacef:
-	place_dict = {}
-	for line in open(jplace):
-		line = line.replace(' ', '')
-		if line.startswith('['):
-			placement = line.replace('[', '').split(',')[0]
-			if placement not in place_dict:
-				place_dict[placement] = 1
+	with open('{}info.txt'.format(jplace[:-6]), 'w') as result:
+		place_dict = {}
+		for line in open(jplace):
+			line = line.replace(' ', '')
+			if line.startswith('['):
+				placement = line.replace('[', '').split(',')[0]
+				if placement not in place_dict:
+					place_dict[placement] = 1
+				else:
+					place_dict[placement] += 1
 			else:
-				place_dict[placement] += 1
-		else:
-			pass
-	print(place_dict)
+				pass
+
+		result.write('min\t{}\n'.format(min(place_dict.values())))
+		result.write('max\t{}\n'.format(max(place_dict.values())))
