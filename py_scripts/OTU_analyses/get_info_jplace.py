@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/metazoa_myxozoa/placement/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/ichthyosporea/placement/')
 jplacef = [x for x in os.listdir() if x.endswith('.accumulated.jplace')]
 
 
@@ -21,3 +21,6 @@ for jplace in jplacef:
 
 		result.write('min\t{}\n'.format(min(place_dict.values())))
 		result.write('max\t{}\n'.format(max(place_dict.values())))
+		result.write('\n')
+		for key, value in place_dict.items():
+			result.write('{}\t{}\n'.format(key, value))
