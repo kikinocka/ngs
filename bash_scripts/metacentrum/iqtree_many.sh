@@ -8,7 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
-module load iqtree
+module load iqtree-2.2.0
 
 data_dir='/storage/brno12-cerit/home/kika/trafficking/mantamonas/arfs'
 
