@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/stramenopiles/')
-files = [x for x in os.listdir() if x.endswith('MAST-3A-sp1.fasta')]
+os.chdir('/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/')
+files = [x for x in os.listdir() if x.endswith('GEFR01.1.fsa_nt')]
 dbtype = 'nucl'
 
 for file in files: 
