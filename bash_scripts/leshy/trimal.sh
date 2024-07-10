@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_muscle_FINAL/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 for f in *.muscle.aln ; do
 	echo $f

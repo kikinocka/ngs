@@ -2,21 +2,21 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/ARFs/ph-arf/')
-inacc = open('ver3/ph-arf_marked.tre')
-infasta = SeqIO.parse('ver2/arfs_reduced.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/')
+inacc = open('iqtree/trees/q2001042.og_hmm.final.trimal_gt-0.8.aln.treefile')
+infasta = SeqIO.parse('pink/q2001042.og_hmm.final.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 # infasta_files = [x for x in os.listdir() if x.endswith('.og_hmm.fa')]
 # inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
 
 omitted = []
 for line in inacc:
-	if 'color=' in line:
+	if 'color=#ff00ff' in line:
 		# print(line.split('[')[0].replace('\'', '').replace('\t', ''))
 		omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
 
 c = 0
-with open('ver3/arfs_reduced.fa', 'w') as result:
+with open('pink/q2001042_red.og_hmm.final.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
