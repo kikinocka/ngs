@@ -2,7 +2,7 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads_ancestral/OGs+HMMhits_trimal_FINAL/')
+os.chdir('/mnt/mokosz/home/kika/workdir/')
 files = [x for x in os.listdir() if x.endswith('.trimal_at1.aln')]
 out = 'trimal_at1_len.tsv'
 
