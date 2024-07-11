@@ -3,8 +3,8 @@ import os
 from Bio import AlignIO
 
 os.chdir('/mnt/mokosz/home/kika/workdir/')
-files = [x for x in os.listdir() if x.endswith('.muscle.aln')]
-out = 'muscle_len.tsv'
+files = [x for x in os.listdir() if x.endswith('.trimal_gt-0.8.aln')]
+out = 'trimal_gt-0.8_len.tsv'
 
 # #number of sequences
 # print(len(alignment))
