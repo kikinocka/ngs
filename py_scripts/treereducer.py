@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/')
-inacc = open('iqtree/trees/q2001042.og_hmm.final.trimal_gt-0.8.aln.treefile')
-infasta = SeqIO.parse('pink/q2001042.og_hmm.final.fa', 'fasta')
+inacc = open('iqtree/trees/q2001214.og_hmm.final.trimal_gt-0.8.aln.treefile')
+infasta = SeqIO.parse('pink/q2001214.og_hmm.final.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 # infasta_files = [x for x in os.listdir() if x.endswith('.og_hmm.fa')]
 # inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
@@ -16,7 +16,7 @@ for line in inacc:
 		omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
 
 c = 0
-with open('pink/q2001042_red.og_hmm.final.fa', 'w') as result:
+with open('pink/q2001214_red.og_hmm.final.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
