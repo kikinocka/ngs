@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many2
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=10gb
-#PBS -l walltime=336:00:00
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -13,16 +13,11 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
-cp $data_dir'q2003686.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2003700.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2003713.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2003753.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2004747.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2005249.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2005615.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2005676.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001191.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
+cp $data_dir'q2001348.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001360.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
+cp $data_dir'q2001382.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 cp $data_dir'q2005791.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2011616.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
