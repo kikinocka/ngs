@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/data/hemimastigophora/')
-infile = SeqIO.parse('Spironema_transcriptome.fa', 'fasta')
-output = open('Spironema_transcriptome_translated.fa', 'w')
-error = open('Spironema_transcriptome.errors.fa', 'w')
+os.chdir('/Users/kika/data/kinetoplastids/v68/')
+infile = SeqIO.parse('TriTrypDB-68_LpyrrhocorisH10_Genome.fasta', 'fasta')
+output = open('Lpyr_translated.fa', 'w')
+error = open('Lpyr_transcriptome.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/ichthyosporea/placement/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/apicomplexans/placement/')
 jplacef = [x for x in os.listdir() if x.endswith('.accumulated.jplace')]
 
 

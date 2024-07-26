@@ -4,12 +4,12 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/TbCAPs/')
-files = [x for x in os.listdir() if x.endswith('.hmm')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/Tb927.11.2020-2030/rnd2/')
+files = [x for x in os.listdir() if x.endswith('2020.hmm')]
 
-db = '/Users/kika/ownCloud/diplonema/seq_data/diplonemids_transcriptomes/translations/1621_translated.fa'
-orgn = '1621'
-evalue = 1e-05
+db = '/Users/kika/data/kinetoplastids/v68/Baya_translated.fa'
+orgn = 'Baya'
+evalue = 1e-03
 
 for file in files:
 	print(file)
