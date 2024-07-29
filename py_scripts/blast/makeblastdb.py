@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/')
-files = [x for x in os.listdir() if x.endswith('GEFR01.1.fsa_nt')]
-dbtype = 'nucl'
+os.chdir('/Users/kika/data/amoebozoa/')
+files = [x for x in os.listdir() if x.endswith('fasta')]
+dbtype = 'prot'
 
 for file in files: 
 	print(file)
