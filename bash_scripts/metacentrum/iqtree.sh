@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/mantamonas/rabs/ver3/'
+datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/SNARE/Qa/ver9/'
 
 #copy files to scratch
-cp $datadir'rabs.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'qa.trimal_gt-0.8.aln' $SCRATCHDIR
 # cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='rabs.trimal_gt-0.8.aln'
-guide='guide_rabs'
+aln='qa.trimal_gt-0.8.aln'
+guide='guide_qa'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000

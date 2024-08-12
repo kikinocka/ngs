@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/amoebozoa/')
+os.chdir('/Users/kika/data/kinetoplastids/ver68/')
 files = [x for x in os.listdir() if x.endswith('fasta')]
 dbtype = 'prot'
 
