@@ -11,16 +11,16 @@ cat $PBS_NODEFILE
 # module add parallel
 module add mrbayes-3.2.7a
 
-data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/ARFs/ph-arf/ver2/mrbayes'
+data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/SNARE/'
 
 #copy files to scratch
-cp $data'/'* $SCRATCHDIR
+cp $data'qa.CD.trimal_gt-0.8.nex' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='arfs_reduced.CD.trimal_gt-0.8.nex'
+aln='qa.CD.trimal_gt-0.8.nex'
 
 # ls $aln | parallel -j $PBS_NUM_PPN 'echo Start > {}.log && date >> {}.log && mb {} | \
 # 	tee -a {}.log && echo End: >> {}.log && date >> {}.log'
