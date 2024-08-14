@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/SNARE/Qa/ver9/'
+datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/RABs/ver15/'
 
 #copy files to scratch
-cp $datadir'qa.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'rabs.trimal_gt-0.8.aln' $SCRATCHDIR
 # cp $datadir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='qa.trimal_gt-0.8.aln'
-guide='guide_qa'
+aln='rabs.trimal_gt-0.8.aln'
+guide='guide_rabs'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
