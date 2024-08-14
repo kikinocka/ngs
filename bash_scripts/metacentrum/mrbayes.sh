@@ -11,10 +11,10 @@ cat $PBS_NODEFILE
 # module add parallel
 module add mrbayes-3.2.7a
 
-data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/SNARE/'
+data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/SNARE'
 
 #copy files to scratch
-cp $data'qa.CD.trimal_gt-0.8.nex' $SCRATCHDIR
+cp $data'/'qa.* $SCRATCHDIR
 
 
 #compute on scratch
