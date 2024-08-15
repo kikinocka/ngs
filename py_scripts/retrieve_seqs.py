@@ -2,13 +2,13 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/oilsands/metagenomes/ncbi_submission/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/oilsands/metagenomes/ncbi_submission/P3S_NCBI.l200.fa'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/TBCs/')
+files = [x for x in os.listdir() if x.endswith('.in')]
+database = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/representative_Ogar/dpap_transcripts_ed-minus_bac.fa'
 
 for accessions in files: 
 	print(accessions)
-	fname = accessions.split('.acc')[0]
+	fname = accessions.split('.in')[0]
 	retrieve = set()
 
 	with open('{}.fa'.format(fname), 'w') as out:
@@ -18,12 +18,12 @@ for accessions in files:
 			retrieve.add(line[:-1])
 		# print(retrieve)
 		for seq in db:
-			if seq.name.split(';')[0] in retrieve:
+			if seq.name in retrieve:
+				# print(seq.name)
+				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				# pass
+			else:
 				# print(seq.name)
 				# out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 				pass
-			else:
-				# print(seq.name)
-				# pass
-				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 
