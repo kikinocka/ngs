@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module add mrbayes-3.2.7a
 
-data='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/ver5'
+data='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/ver5/mrbayes'
 
 #copy files to scratch
 cp $data'/'* $SCRATCHDIR
