@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 # module load iqtree-2.2.0
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/ver5/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/ver5/iqtree/'
 
 #copy files to scratch
 cp $datadir'aox.CD.trimal_gt-0.8.aln' $SCRATCHDIR
