@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/SNAREs/')
-files = [x for x in os.listdir() if x.endswith('qa1.hmm_profile')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/TRAPP-II/')
+files = [x for x in os.listdir() if x.endswith('trs130_noeuglenozoa.hmm_profile')]
 
-db = '/Users/kika/ownCloud/Euglena_longa/EL_RNAseq/el_merged_translated.fasta'
-orgn = 'elon'
+db = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/representative_Ogar/dpap_transcripts_ed-minus_bac.transdecoder.fa'
+orgn = 'dpap_tran'
 evalue = 1e-03
 
 for file in files:
