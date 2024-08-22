@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many9
 #PBS -l select=1:ncpus=15:mem=10gb:scratch_local=10gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,9 +14,6 @@ data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
 cp $data_dir'q2019499.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2019788.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2019794.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2019808.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
