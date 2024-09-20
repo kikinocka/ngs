@@ -45,8 +45,8 @@ for inacc in inacc_files:
 					pass
 				else:
 					accessions.append(seq.description.replace('eval_', 'eval-'))
-	print(len(accessions))
-	print(accessions)
+	# print(len(accessions))
+	# print(accessions)
 
 	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
 		for infasta in infasta_files:
@@ -55,9 +55,9 @@ for inacc in inacc_files:
 				# print(fname)
 				for seq in SeqIO.parse(infasta, 'fasta'):
 					if seq.description in accessions:
-						print(seq.description)
-			# 			result.write('>{}\n{}\n'.format(seq.description, seq.seq))
-			# 		else:
-			# 			pass
-			# 			# print(seq.description)
+						# print(seq.description)
+						result.write('>{}\n{}\n'.format(seq.description, seq.seq))
+					else:
+						pass
+						# print(seq.description)
 
