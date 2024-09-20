@@ -47,15 +47,15 @@ for inacc in inacc_files:
 					accessions.append(seq.description)
 	print(len(accessions))
 
-	# with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
-	# 	for infasta in infasta_files:
-	# 		# print(infasta)
-	# 		if fname in infasta:
-	# 			# print(fname)
-	# 			for seq in SeqIO.parse(infasta, 'fasta'):
-	# 				if seq.description in accessions:
-	# 					result.write('>{}\n{}\n'.format(seq.description, seq.seq))
-	# 				else:
-	# 					pass
-	# 					# print(seq.description)
+	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
+		for infasta in infasta_files:
+			# print(infasta)
+			# if fname in infasta:
+			# 	# print(fname)
+			# 	for seq in SeqIO.parse(infasta, 'fasta'):
+			# 		if seq.description in accessions:
+			# 			result.write('>{}\n{}\n'.format(seq.description, seq.seq))
+			# 		else:
+			# 			pass
+			# 			# print(seq.description)
 
