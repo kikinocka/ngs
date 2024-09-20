@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
-data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/RABs/ver15/raxml'
+data='/storage/brno12-cerit/home/kika/trafficking/mantamonas/rabs/ver3/raxml'
 
 #copy files to scratch
 cp $data'/'*.aln $SCRATCHDIR
@@ -26,6 +26,7 @@ for aln in *.aln; do
 	#proteins
 	out=${aln%.trimal_gt-0.8.aln}
 	raxmlHPC-PTHREADS -m PROTGAMMALG4XF -f a -T $PBS_NUM_PPN -x 123 -N autoMRE_IGN -p 12345 -s $aln -n $out
+	
 
 	# #18S
 	# out=${aln%.trimal_gt-0.25_cons-50.aln}
