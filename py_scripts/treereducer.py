@@ -35,7 +35,7 @@ for inacc in inacc_files:
 	for line in open(inacc):
 		if 'color=#ff0000' in line:
 			# print(line.split('[')[0].replace('\'', '').replace('\t', ''))
-			omitted.append(line.split('[')[0].replace('\'', '').replace('\t', '').replace('eval_', 'eval-'))
+			omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
 	# print(len(omitted))
 
 	for inaln in inaln_files:
@@ -44,7 +44,7 @@ for inacc in inacc_files:
 				if seq.description in omitted:
 					pass
 				else:
-					accessions.append(seq.description)
+					accessions.append(seq.description.replace('eval_', 'eval-'))
 	print(len(accessions))
 	print(accessions)
 
