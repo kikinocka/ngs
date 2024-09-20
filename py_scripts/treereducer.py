@@ -46,10 +46,11 @@ for inacc in inacc_files:
 				else:
 					accessions.append(seq.description)
 	print(len(accessions))
+	print(accessions)
 
 	with open('{}.og_hmm.final.fa'.format(fname), 'w') as result:
 		for infasta in infasta_files:
-			print(infasta)
+			# print(infasta)
 			if fname in infasta:
 				# print(fname)
 				for seq in SeqIO.parse(infasta, 'fasta'):
