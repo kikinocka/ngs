@@ -5,43 +5,43 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-#align de-novo
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/TRAPP-II/')
-files = [x for x in os.listdir() if x.endswith('euglenozoa.fa')]
-# files = [x for x in os.listdir() if x.startswith('kineto')]
+# #align de-novo
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/TRAPP-II/')
+# files = [x for x in os.listdir() if x.endswith('euglenozoa.fa')]
+# # files = [x for x in os.listdir() if x.startswith('kineto')]
 
-for file in files:
-	print(file)
-	#L-INS-i (proteins with one alignable domain)
-	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	log = '{}.mafft.log'.format(file.split('.fa')[0])
-	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-		mafft, file, out, log), shell=True)
+# for file in files:
+# 	print(file)
+# 	#L-INS-i (proteins with one alignable domain)
+# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 		mafft, file, out, log), shell=True)
 
-	# #E-INS-i (proteins with several functional domains)
-	# out = '{}.einsi.aln'.format(file.split('.fa')[0])
-	# log = '{}.einsi.log'.format(file.split('.fa')[0])
-	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-	# 	mafft, file, out, log), shell=True)
+# 	# #E-INS-i (proteins with several functional domains)
+# 	# out = '{}.einsi.aln'.format(file.split('.fa')[0])
+# 	# log = '{}.einsi.log'.format(file.split('.fa')[0])
+# 	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+# 	# 	mafft, file, out, log), shell=True)
 
-	# #tRNAs
-	# out = '{}.mafft.aln'.format(file.split('.fa')[0])
-	# log = '{}.mafft.log'.format(file.split('.fa')[0])
-	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
-	# 	mafft, file, out, log), shell=True)
+# 	# #tRNAs
+# 	# out = '{}.mafft.aln'.format(file.split('.fa')[0])
+# 	# log = '{}.mafft.log'.format(file.split('.fa')[0])
+# 	# subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --op 10 --ep 0 --inputorder {} > {} 2> {}'.format(
+# 	# 	mafft, file, out, log), shell=True)
 	
-	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
+# 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
 
 
-# #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-# existing = 'queries/SNAREs/S17.Qa.6.afa'
-# add = 'diplonemids_all/trees/SNAREs/qa_euglenozoans.fa'
-# out = 'diplonemids_all/trees/SNAREs/qa.mafft.aln'
-# log = 'diplonemids_all/trees/SNAREs/qa.mafft.log'
-# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# # subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
-# # 	shell=True)
+#add to aligned sequences
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
+existing = 'queries/RABs/rabs2-4-14_noeuglenozoa.mafft.aln'
+add = 'diplonemids_all/mantamonas/RABs/2-4-14/msph.fa'
+out = 'diplonemids_all/mantamonas/RABs/2-4-14/ver3/2-4-14.mafft.aln'
+log = 'diplonemids_all/mantamonas/RABs/2-4-14/ver3/2-4-14.mafft.log'
+subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
+# 	shell=True)
 	
 
 # #merge alignments
