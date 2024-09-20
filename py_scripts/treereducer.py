@@ -36,7 +36,7 @@ for inacc in inacc_files:
 		if 'color=#ff0000' in line:
 			# print(line.split('[')[0].replace('\'', '').replace('\t', ''))
 			omitted.append(line.split('[')[0].replace('\'', '').replace('\t', ''))
-	# print(len(omitted))
+	print(len(omitted))
 
 	for inaln in inaln_files:
 		if fname in inaln:
