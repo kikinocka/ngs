@@ -51,9 +51,10 @@ for inacc in inacc_files:
 		for infasta in infasta_files:
 			print(infasta)
 			if fname in infasta:
-				print(fname)
-			# 	for seq in SeqIO.parse(infasta, 'fasta'):
-			# 		if seq.description in accessions:
+				# print(fname)
+				for seq in SeqIO.parse(infasta, 'fasta'):
+					if seq.description in accessions:
+						print(seq.description)
 			# 			result.write('>{}\n{}\n'.format(seq.description, seq.seq))
 			# 		else:
 			# 			pass
