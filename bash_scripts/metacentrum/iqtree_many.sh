@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-data_dir='/storage/brno12-cerit/home/kika/trafficking/mantamonas/rabs'
+data_dir='/storage/brno12-cerit/home/kika/trafficking/mantamonas/rabs/endocytic/ver3'
 
 #copy files to scratch
 cp $data_dir'/'*.aln $SCRATCHDIR
@@ -33,8 +33,8 @@ for f in *.aln ; do
 
 	# iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 10000 -quiet -safe -s ${f} -pre ${f%.aln}
 
-	iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s ${f} --prefix $guide
-	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees --tree-freq $guide_tree 
+	# iqtree2 -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s ${f} --prefix $guide
+	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees --tree-freq $guide_tree -keep-ident
 done
 
 #copy files back
