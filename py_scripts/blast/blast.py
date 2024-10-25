@@ -4,7 +4,7 @@ from Bio.Blast import NCBIXML
 
 cmd = 'blastp'
 task = 'blastp'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/tbcs.fa'
+query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/heterotrophs.fa'
 db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
 # db = '/Users/kika/data/fungi/GCF_000146045.2_R64_protein.faa'
 # db = '/Users/kika/data/amoebozoa/AmoebaDB-68_DdiscoideumAX4_AnnotatedProteins.fasta'
@@ -12,7 +12,7 @@ db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
 # db = '/Users/kika/data/kinetoplastids/ver68/TriTrypDB-68_TbruceiTREU927_AnnotatedProteins.fasta'
 # db = '/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/GEFR01.1.fsa_nt'
 # db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/tbcs.rev_Hsap.blast.xml'
+out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/heterotrophs.rev_Hsap.blast.xml'
 evalue = 1e-5
 outfmt = 5
 hits = 1
@@ -34,8 +34,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/tbcs.rev_Hsap.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/tbcs.rev_Hsap.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/heterotrophs.rev_Hsap.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/BLASTs/heterotrophs.rev_Hsap.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
