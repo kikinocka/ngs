@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 # module add parallel
 module add mrbayes-3.2.7a
 
-data='/storage/brno12-cerit/home/kika/trafficking/mantamonas/arfs/mrbayes'
+data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/mantamonas/arfs/ver2/mrbayes'
 
 #copy files to scratch
 cp $data'/'* $SCRATCHDIR

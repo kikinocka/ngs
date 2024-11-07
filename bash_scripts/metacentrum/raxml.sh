@@ -1,7 +1,7 @@
 #!/bin/sh
 #PBS -N raxml
 #PBS -l select=1:ncpus=20:mem=10gb:scratch_local=1gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module add raxml/8.2.12-gcc-10.2.1-nu7c3k5
 
-data='/storage/brno12-cerit/home/kika/trafficking/mantamonas/arfs/raxml/'
+data='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/mantamonas/arfs/ver2/raxml/'
 
 #copy files to scratch
 cp $data'arfs.CD.trimal_gt-0.8.aln' $SCRATCHDIR
