@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 for f in *.aln ; do
 	echo ${f}
 	bb=1000
-	nm=20000
+	nm=30000
 	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees
 done
 
