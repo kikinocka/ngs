@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_ESCRTs/vhs_gat_tree/'
+datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_all/mantamonas/arfs/ver2/'
 
 #copy files to scratch
-cp $datadir'vhs_gat_proteins.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'arfs.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='vhs_gat_proteins.trimal_gt-0.8.aln'
-guide='guide_vhs_gat'
+aln='arfs.trimal_gt-0.8.aln'
+guide='guide_arfs'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
