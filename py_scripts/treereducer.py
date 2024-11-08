@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/mantamonas/ARFs/v1/iqtree')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/mantamonas/ARFs/ver1/iqtree/')
 inacc = open('arfs.trimal_gt-0.8.aln.marked.treefile')
 infasta = SeqIO.parse('arfs.mafft.aln', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
