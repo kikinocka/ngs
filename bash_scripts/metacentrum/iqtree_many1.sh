@@ -13,7 +13,9 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
-cp $data_dir'q2000523.og_hmm.final.trimal_gt-0.8.aln'* $SCRATCHDIR
+cp $data_dir'q2001260.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001654.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'q2001815.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
@@ -22,7 +24,7 @@ cd $SCRATCHDIR
 for f in *.aln ; do
 	echo ${f}
 	bb=1000
-	nm=10000
+	nm=15000
 	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees
 done
 
