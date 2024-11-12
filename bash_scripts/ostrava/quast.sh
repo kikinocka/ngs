@@ -7,7 +7,7 @@
 
 cd '/mnt/data/kika/blastocrithidia/genomes/final_assemblies/'
 
-for assembly in *corrected.fa; do
+for assembly in *no_mtDNA.fa; do
 	out='quast/'${assembly%.fa}
 	quast.py -o $out -t 20 $assembly
 done
