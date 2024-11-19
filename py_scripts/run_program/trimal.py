@@ -3,14 +3,14 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver3/')
-files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver4/')
+files = [x for x in os.listdir() if x.endswith('mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
 for file in files:
 	print(file)
 	# file_name = file.split('.')[0] + '.' + file.split('.')[1]
-	file_name = file.split('.aln')[0]
+	file_name = file.split('.mafft.aln')[0]
 	aut = 'automated1'
 	gappyout = 'gappyout'
 	gt = 0.8 #fraction of sequences with a gap allowed
