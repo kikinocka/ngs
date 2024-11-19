@@ -13,11 +13,11 @@ module load iqtree-2.2.0
 datadir='/storage/brno12-cerit/home/kika/trafficking/diplonemids_ESCRTs/escrt0/backbone/ver4/'
 
 #copy files to scratch
-cp $datadir'amorphea.mafft.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'amorphea.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='amorphea.mafft.trimal_gt-0.8.aln'
+aln='amorphea.trimal_gt-0.8.aln'
 guide='guide_amorphea'
 guide_tree=$guide'.treefile'
 bb=1000
