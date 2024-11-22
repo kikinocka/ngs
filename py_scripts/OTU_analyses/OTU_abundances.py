@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/site_specific/')
 # out_perc = open('Rhizaria.tsv', 'w')
 
 # #several OTU tables
@@ -15,19 +15,19 @@ os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
 # # print(df)
 
 #one OTU table
-df = pd.read_csv('Amoebozoa.tsv', sep='\t')
+df = pd.read_csv('otu_table.957m.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.split('|', 5, expand=True)
 # print(df['rank3'])
 
 #SUPERGROUPS
-# #SL_Euglenozoa
-# total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
+#SL_Euglenozoa
+total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
 # #oil_sands
 # total = df.groupby(['rank2']).sum().filter(regex='.*-.*\d+', axis=1)
 
-#SMALLER GROUPS
-total = df.groupby(['rank4']).sum().filter(regex='\d+_.*', axis=1)
+# #SMALLER GROUPS
+# total = df.groupby(['rank4']).sum().filter(regex='\d+_.*', axis=1)
 
 #change to percentages
 total = (100 * total / total.sum()).round(2)
@@ -55,12 +55,12 @@ transformed = total.T
 # # transformed = transformed.drop('V9-Oct10-2018-P3S_S72', axis=0)
 
 # #SL_Euglenozoa
-# transformed = transformed[['No_hit', 'Eukaryota_X', 
-# 	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
-# 	'Haptista', 'Cryptista', 'Archaeplastida', 
-# 	'Amoebozoa', 'Obazoa', 'CRuMs', 
-# 	'Metamonada', 'Discoba', 
-# 	'Malawimonadidae', 'Ancyromonadida']]
+transformed = transformed[['No_hit', 'Eukaryota_X', 
+	'Telonemia', 'Stramenopiles', 'Alveolata', 'Rhizaria', 
+	'Haptista', 'Cryptista', 'Archaeplastida', 
+	'Amoebozoa', 'Obazoa', 'CRuMs', 
+	'Metamonada', 'Discoba', 
+	'Malawimonadidae', 'Ancyromonadida']]
 
 # colors = ['#000000', '#A7A7A7', 
 # 	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 
@@ -110,5 +110,5 @@ ax.legend(bbox_to_anchor=(1, 1), loc=2, fontsize=9, frameon=False)
 # ax.legend(bbox_to_anchor=(1, 1), loc='best', fontsize=4, facecolor='white', edgecolor='white', framealpha=1, frameon=True)
 plt.tight_layout()
 # plt.show()
-# plt.savefig('discoba_counts.pdf', dpi=300)
-plt.savefig('amoebozoa_percentages_new.pdf', dpi=300)
+# plt.savefig('957m_counts.pdf', dpi=300)
+plt.savefig('957m_percentages.pdf', dpi=300)
