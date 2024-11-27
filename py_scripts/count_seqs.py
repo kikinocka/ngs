@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/blasto_comparative/tRNAs/')
-files = [x for x in os.listdir() if x.endswith('Lmaj_tRNAs_FINAL.fa')]
+files = [x for x in os.listdir() if x.endswith('tRNAs_FINAL.fa')]
 
 for file in files:
 	print(file)
@@ -14,7 +14,7 @@ for file in files:
 		else:
 			counts[seq.name] += 1
 
-	with open('{}.tRNAs_counts.txt'.format(file.split('_')[0]), 'w') as out:
+	with open('{}.tRNAs_counts.tsv'.format(file.split('.fa')[0]), 'w') as out:
 		for key, value in counts.items():
 			out.write('{}\t{}\n'.format(key, value))
 
