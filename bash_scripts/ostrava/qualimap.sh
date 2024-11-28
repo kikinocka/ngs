@@ -6,7 +6,7 @@
 #PBS -l walltime=100:00:00
 
 
-name='Oobo'
+name='Ovol'
 bam='/mnt/data/kika/blastocrithidia/genomes/final_bw2/'$name'_bw2_sorted.bam'
 outdir='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/qualimap/'
 
