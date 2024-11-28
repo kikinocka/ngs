@@ -6,8 +6,8 @@
 #PBS -l walltime=100:00:00
 
 
-name='Braa'
-bam='/mnt/data/kika/blastocrithidia/genomes/final_bw2/'$name'_cor2_bw2_sorted.bam'
+name='Oeli'
+bam='/mnt/data/kika/blastocrithidia/genomes/final_bw2/'$name'_bw2_sorted.bam'
 outdir='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/qualimap/'
 
 qualimap bamqc -bam $bam -nt 20 -outdir $outdir -outformat pdf
