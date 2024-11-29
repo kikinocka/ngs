@@ -13,12 +13,12 @@ module load iqtree-2.2.0
 datadir='/storage/brno12-cerit/home/kika/kinetoplastids/tbKIN/kin2/ver8/'
 
 #copy files to scratch
-cp $datadir'amorphea.CD.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'kinesins.trimal_gt-0.8.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='amorphea.CD.trimal_gt-0.8.aln'
-guide='guide_amorphea.CD'
+aln='kinesins.trimal_gt-0.8.aln'
+guide='guide_kinesins'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
