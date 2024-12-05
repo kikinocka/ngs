@@ -11,8 +11,8 @@ f=fungi
 for file in *.fa; do
 	echo $file
 	
-	out=${file%.*}'.mitofates_fungi.txt'
-	perl $mitofates $file $f > $out
+	# out=${file%.*}'.mitofates_fungi.txt'
+	# perl $mitofates $file $f > $out
 	
 	out=${file%.*}'.mitofates_metazoa.txt'
 	perl $mitofates $file $m > $out
