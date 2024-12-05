@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver10/iqtree_bs/')
-trees = [x for x in os.listdir() if x.endswith('aln.treefile')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver10/combined/')
+trees = [x for x in os.listdir() if x.endswith('.tre')]
 
 #file in format Acc. number \t name of organism \n
 names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver10/amorphea.codes_names.txt')
