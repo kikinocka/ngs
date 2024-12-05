@@ -2,13 +2,13 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/metamonada/assemblies/parabasalid_transcriptomes/')
+os.chdir('/Users/kika/ownCloud/metamonada/MRO_proteins/spironucleus/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/metamonada/assemblies/parabasalid_transcriptomes/Ph_RNAseq_ALL2_aa.fa'
+database = '/Users/kika/ownCloud/metamonada/assemblies/original_naming/Spironucleus_salmonicida.fas'
 
 for accessions in files: 
 	print(accessions)
-	fname = accessions.split('.in')[0]
+	fname = accessions.split('.acc')[0]
 	retrieve = set()
 
 	with open('{}.fa'.format(fname), 'w') as out:
