@@ -10,18 +10,21 @@ cat $PBS_NODEFILE
 #add module
 module add conda-modules-py37
 
-data='/storage/brno3-cerit/home/kika/chloroflexi/'
+data='/storage/brno12-cerit/home/kika/kinetoplastids/strigomonadinae/'
 
 #copy files to scratch
-cp $data'Chloroflexi_genome_scaffolds.fa' $SCRATCHDIR
+cp $data'K_sorsogonicus_MF08_02_endosymbiont_seprated.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 conda activate prokka 
 
-genome='Chloroflexi_genome_scaffolds.fa'
-prokka --addgenes --addmrna --cpus $PBS_NUM_PPN $genome 
+for genome in *.fasta; do
+	echo $genome
+	prokka --addgenes --addmrna --cpus $PBS_NUM_PPN $genome 
+done
+
 
 #copy files back
 rm $genome
