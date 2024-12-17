@@ -6,8 +6,8 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/PABP/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/eRF3/')
+files = [x for x in os.listdir() if x.endswith('eRF3_yeasts.fa')]
 # files = [x for x in os.listdir() if x.startswith('kineto')]
 
 for file in files:

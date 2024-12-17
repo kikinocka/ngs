@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/storage/brno3-cerit/home/kika/oil_sands/metagenome/reads/')
+os.chdir('/Users/kika/blasto_reads/')
 
-infile = SeqIO.parse('BML_trimmed_1.fq', 'fastq')
-output = open('BML_trimmed_1.fa', 'w')
+infile = SeqIO.parse('HR-05_2.fastq', 'fastq')
+output = open('HR-05_2.fasta', 'w')
 
 for sequence in infile:
 	seq = sequence.seq

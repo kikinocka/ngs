@@ -2,30 +2,30 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/tom1_final_dataset.fa'
-db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
+cmd = 'blastn'
+task = 'blastn'
+query = '/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/braa_tRNA-UAA.fa'
+db = '/Users/kika/blasto_reads/braa_all.fa'
 # db = '/Users/kika/data/fungi/GCF_000146045.2_R64_protein.faa'
 # db = '/Users/kika/data/amoebozoa/AmoebaDB-68_DdiscoideumAX4_AnnotatedProteins.fasta'
 # db = '/Users/kika/data/Naegleria_gruberi/Ngru_proteins.faa'
 # db = '/Users/kika/data/kinetoplastids/ver68/TriTrypDB-68_TbruceiTREU927_AnnotatedProteins.fasta'
 # db = '/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/GEFR01.1.fsa_nt'
 # db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
-out = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/BLASTs/tom1_final_dataset.rev_Hsap.blast.xml'
-evalue = 1e-3
+out = '/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/braa_tRNA-UAA.reads.blast.xml'
+evalue = 1e-20
 outfmt = 5
 hits = 1
-word_size = 3
+word_size = 11
 threads = 6
 
 print('running BLAST')
 #query - database
-subprocess.call('{} -task {} -query {} -db {} -out {} -evalue {} -outfmt {} -word_size {} \
+subprocess.call('{} -task {} -query {} -db {} -out {} -outfmt {} -word_size {} \
 	-num_threads {} '.format(
-		cmd, task, query, db, out, evalue, outfmt, word_size, threads), shell=True)
-#-max_target_seqs {}
-#, hits
+		cmd, task, query, db, out, outfmt, word_size, threads), shell=True)
+#-evalue {} -max_target_seqs {}
+#evalue, , hits
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -36,8 +36,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/BLASTs/tom1_final_dataset.rev_Hsap.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/BLASTs/tom1_final_dataset.rev_Hsap.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/braa_tRNA-UAA.reads.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/braa_tRNA-UAA.reads.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 

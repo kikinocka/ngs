@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/manuscripts/Blastocrithidia_genetic_code_figured/eRF1/')
+os.chdir('/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-db = '/Users/kika/data/eukprot/EP00394_Amoebophrya_sp_ex-Karlodinium-veneficum.fasta'
+db = '/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/braa_tRNA-UAA.fa'
 
 for file in files: 
 	print(file)

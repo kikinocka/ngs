@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/metamonada/MRO_proteins/spironucleus/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
-database = '/Users/kika/ownCloud/metamonada/assemblies/original_naming/Spironucleus_salmonicida.fas'
+os.chdir('/Users/kika/ownCloud/blasto_comparative/tRNAs/BLAST/')
+files = [x for x in os.listdir() if x.endswith('rev.acc')]
+database = '/Users/kika/blasto_reads/braa_all.fa'
 
 for accessions in files: 
 	print(accessions)
@@ -18,9 +18,10 @@ for accessions in files:
 			retrieve.add(line[:-1])
 		# print(retrieve)
 		for seq in db:
+			# print(seq)
 			if seq.name in retrieve:
 				# print(seq.name)
-				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+				out.write('>{}\n{}\n'.format(seq.description, seq.seq.reverse_complement()))
 				# pass
 			else:
 				# print(seq.name)
