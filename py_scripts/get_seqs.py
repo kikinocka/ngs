@@ -37,3 +37,14 @@ with open('Gln-tRNAs_renamed.fa', 'w') as out:
 # 					out.write('>{}__{}__{}{}\n{}\n'.format(nd[fname], fname, seq.name.split('(')[1].split(')')[0], c, seq.seq))
 # 		else:
 # 			print('{} not in names'.format(fname))
+
+# os.chdir('/Users/kika/ownCloud/blasto_comparative/divergence/fisher_BO_alns_only/')
+# files = [x for x in os.listdir() if x.endswith('CDS.fasta')]
+
+# with open('Blasexly_CDS.fa', 'w') as out:
+# 	for file in files:
+# 		for seq in SeqIO.parse(file, 'fasta'):
+# 			if seq.name == 'Blasexly':
+# 				out.write('>{}__{}\n{}\n'.format(file.split('_')[0], seq.name, seq.seq))
+# 			else:
+# 				pass
