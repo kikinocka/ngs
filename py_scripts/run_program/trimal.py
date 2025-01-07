@@ -3,14 +3,14 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/tbKINs/kinesins/kin2_tree/ver8/')
-files = [x for x in os.listdir() if x.endswith('mafft.aln')]
+os.chdir('/Users/kika/ownCloud/kinetoplastids/tbKINs/kinesins/kin2_tree/ver9/')
+files = [x for x in os.listdir() if x.endswith('muscle.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
 for file in files:
 	print(file)
 	# file_name = file.split('.')[0] + '.' + file.split('.')[1]
-	file_name = file.split('.mafft.aln')[0]
+	file_name = file.split('.muscle.aln')[0]
 	aut = 'automated1'
 	gappyout = 'gappyout'
 	gt = 0.8 #fraction of sequences with a gap allowed
