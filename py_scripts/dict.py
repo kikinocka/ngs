@@ -20,7 +20,7 @@ infile = open('orig.txt')
 Morigins = {}
 Eorigins = {}
 Noorigin = {}
-with open('oxymonadida.tsv', 'w') as result:
+with open('oxymonads.tsv', 'w') as result:
 	for line in infile:
 		if line.strip() == '-':
 			if line.strip() not in Noorigin:
