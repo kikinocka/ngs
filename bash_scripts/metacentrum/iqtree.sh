@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/tbKIN/kin2/ver9/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/tbKIN/kin2/ver10/'
 
 #copy files to scratch
 cp $datadir'kinesins.trimal_gt-0.8.aln' $SCRATCHDIR
