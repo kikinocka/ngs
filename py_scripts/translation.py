@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/data/kinetoplastids/v68/')
-infile = SeqIO.parse('TriTrypDB-68_LpyrrhocorisH10_Genome.fasta', 'fasta')
-output = open('Lpyr_translated.fa', 'w')
-error = open('Lpyr_transcriptome.errors.fa', 'w')
+os.chdir('/Users/kika/data/fungi/')
+infile = SeqIO.parse('Phycomyces.GCF_001638985.1_Phybl2_genomic.fna', 'fasta')
+output = open('Phycomyces.GCF_001638985.1_Phybl2_genomic_translated.fa', 'w')
+error = open('Phycomyces.GCF_001638985.1_Phybl2_genomic_transcriptome.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

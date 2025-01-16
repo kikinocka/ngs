@@ -6,9 +6,9 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/blasto_comparative/genes/eRF3/')
-files = [x for x in os.listdir() if x.endswith('eRF3_yeasts.fa')]
-# files = [x for x in os.listdir() if x.startswith('kineto')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/HMMs/RABs/')
+files = [x for x in os.listdir() if x.endswith('B.fa')]
+# files = [x for x in os.listdir() if x.startswith('euglenozoans')]
 
 for file in files:
 	print(file)
@@ -34,25 +34,25 @@ for file in files:
 
 
 # #add to aligned sequences
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/')
-# existing = 'queries/RABs/endocytic_noeuglenozoa.mafft.aln'
-# add = 'diplonemids_all/mantamonas/RABs/endocytic/msph.fa'
-# out = 'diplonemids_all/mantamonas/RABs/endocytic/ver3/endocytic.mafft.aln'
-# log = 'diplonemids_all/mantamonas/RABs/endocytic/ver3/endocytic.mafft.log'
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/')
+# existing = 'CLC_holozoa.aln'
+# add = 'CLC_holomycota.fa'
+# out = 'CLC_opisthokonta.mafft.aln'
+# log = 'CLC_opisthokonta.mafft.log'
 # subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # # subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
 # # 	shell=True)
 	
 
 # #merge alignments
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver8/')
-# aln1 = '/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver5/medium.mafft.aln'
-# aln2 = 'diplo_AP5M.mafft.aln'
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/')
+# aln1 = 'CLCa_holozoa.aln'
+# aln2 = 'CLCb_holozoa.aln'
 # # fasta = 'arfs.fa'
-# input = 'medium.mafft.in'
-# table = 'medium.mafft.table'
-# out = 'medium.mafft.aln'
-# log = 'medium.mafft.log'
+# input = 'CLC.mafft.in'
+# table = 'CLC.mafft.table'
+# out = 'CLC.mafft.aln'
+# log = 'CLC.mafft.log'
 # # subprocess.call('cat {} {} > {}'.format(aln1, fasta, input), shell=True)
 # subprocess.call('cat {} {} > {}'.format(aln1, aln2, input), shell=True)
 # print('Alignments concatenated\n\n')

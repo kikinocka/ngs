@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver10/combined/')
-trees = [x for x in os.listdir() if x.endswith('.tre')]
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver8/combined/')
+trees = [x for x in os.listdir() if x.endswith('+raxml.tre')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_ESCRTs/ESCRT-0/tree/backbone/ver10/amorphea.codes_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/trees/all_adaptors/ver8/medium_codes_names.txt')
 
 name_dict = {}
 for name in names:
