@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #align denovo
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/metamonads/mro_proteins/mro_fasta/'
 
 for f in *.fa ; do
 	echo $f
