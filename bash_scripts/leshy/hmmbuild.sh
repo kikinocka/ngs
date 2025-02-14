@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads_ancestral/OGs_mafft/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_mafft/'
 
 threads=10
 
@@ -12,6 +12,6 @@ for msa in *.aln ; do
 	hmmbuild -n $name -o $summary --amino --cpu $threads $hmm $msa
 done
 
-mv *hmm* ../OGs_hmm/
+mv *hmm* ../MRO_hmm/
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py HMMbuild done
