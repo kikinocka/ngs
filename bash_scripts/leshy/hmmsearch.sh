@@ -28,7 +28,7 @@ eval=1e-10
 #several profiles and several databases
 for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_hmm/*.hmm ; do
 	echo $profile
-	folder=`echo $profile | cut -d / -f 8`
+	folder=`echo $profile | cut -d / -f 9`
 	folder=${folder%.hmm}
 	echo $folder
 	
