@@ -26,7 +26,7 @@ eval=1e-10
 # mv *tsv $workdir
 
 #several profiles and several databases
-for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_hmm/*.hmm ; do
+for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/1-MRO_hmm/*.hmm ; do
 	echo $profile
 	folder=`echo $profile | cut -d / -f 9`
 	folder=${folder%.hmm}
@@ -34,7 +34,7 @@ for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_hmm/*.hmm ; do
 	for db in /mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/*.faa ; do
 		echo $db
 		# mkdir /mnt/mokosz/home/kika/metamonads/MRO_proteins/hmmsearch_metamonads/$folder
-		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/hmmsearch_metamonads/$folder
+		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/1-hmmsearch_metamonads/$folder
 		output=`echo $db | cut -d / -f 9`
 		output=${output%.faa}
 		# echo $output
@@ -43,7 +43,7 @@ for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_hmm/*.hmm ; do
 		# output=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
 		# output=$orgn'_'${profile%.hmm}.hmmsearch.tsv
 		hmmsearch --tblout $output --cpu $threads -E $eval $profile $db
-		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_hmm/
+		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/1-MRO_hmm/
 		# sleep 5
 		echo
 	done
