@@ -5,7 +5,7 @@ from Bio import SeqIO
 
 os.chdir('/Users/kika/ownCloud/metamonada/assemblies/renamed/')
 table = pd.read_excel('database.xlsx', sheet_name='eukaryotes')
-proteins = [x for x in os.listdir() if x.endswith('.faa')]
+proteins = [x for x in os.listdir() if x.endswith('muris.faa')]
 
 prot_dict = {}
 for index, row in table.iterrows():
@@ -18,7 +18,7 @@ for index, row in table.iterrows():
 			pass
 # print(prot_dict)
 
-with open('errors.txt', 'w') as errors, open('metamonads_in_OGs.seq_dict.tsv', 'w') as seqdict:
+with open('errors.txt', 'w') as errors, open('Giardia_muris.seq_dict.tsv', 'w') as seqdict:
 	seqdict.write('original ID\treplaced ID\n')
 	for file in proteins:
 			c = 0
