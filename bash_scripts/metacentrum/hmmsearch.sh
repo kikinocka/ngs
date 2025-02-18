@@ -14,7 +14,7 @@ hmm_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs'
 db_dir='/storage/brno12-cerit/home/kika/databases/all'
 
 #copy files to scratch
-cp $hmms_dir'/'*.hmm $SCRATCHDIR
+cp $hmm_dir'/'*.hmm $SCRATCHDIR
 cp $db_dir'/'*.faa $SCRATCHDIR
 
 
