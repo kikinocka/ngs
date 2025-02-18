@@ -10,12 +10,12 @@ cat $PBS_NODEFILE
 #add module
 module add hmmer
 
-hmms='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs'
-db='/storage/brno12-cerit/home/kika/databases/all'
+hmm_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs'
+db_dir='/storage/brno12-cerit/home/kika/databases/all'
 
 #copy files to scratch
-cp $hmms'/'*.hmm $SCRATCHDIR
-cp $db'/'*.faa $SCRATCHDIR
+cp $hmms_dir'/'*.hmm $SCRATCHDIR
+cp $db_dir'/'*.faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -25,15 +25,16 @@ mkdir hmms databases
 mv *hmm hmms
 mv *faa databases
 
+eval=1e-10
 for profile in hmms/*.hmm ; do
 	echo $profile
 	for db in databases/*.faa ; do
 		echo $db
 		orgn=`echo ${db%.faa} | cut -d / -f 2`
-		prot=${profile%.hmm} | cut -d / -f 2
+		prot=`echo ${profile%.hmm} | cut -d / -f 2`
 		output=$orgn'.'$prot'.hmmsearch.tsv'
 		echo $output
-		hmmsearch --tblout $output --cpu $threads -E $eval $profile $db
+		hmmsearch --tblout $output --cpu $PBS_NUM_PPN -E $eval $profile $db
 		cd hmms/
 		# sleep 5
 		echo
@@ -41,5 +42,5 @@ for profile in hmms/*.hmm ; do
 done
 
 #copy files back
-rm *.hmm 
-cp *tsv $data_dir
+rm -r hmms databases
+cp *tsv $hmm_dir
