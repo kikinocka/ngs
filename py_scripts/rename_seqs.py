@@ -17,7 +17,7 @@ for line in db:
 for file in hits:
 	print(file)
 	with open('{}.upd.fa'.format(file.split('.fa')[0]), 'w') as out:
-		for seq in SeqIO.parse(file):
+		for seq in SeqIO.parse(file, 'fasta'):
 			out.write('>{}\n{}\n'.format(db_dict[seq.name], seq.seq))
 
 # table = pd.read_excel('database.xlsx', sheet_name='eukaryotes')
