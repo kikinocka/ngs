@@ -18,7 +18,10 @@ for file in hits:
 	print(file)
 	with open('{}.upd.fa'.format(file.split('.fa')[0]), 'w') as out:
 		for seq in SeqIO.parse(file, 'fasta'):
-			out.write('>{}\n{}\n'.format(db_dict[seq.name], seq.seq))
+			if seq.name in db_dict.keys():
+				out.write('>{}\n{}\n'.format(db_dict[seq.name], seq.seq))
+			else:
+				out.write('>{}\n{}\n'.format(seq.name, seq.seq))
 
 # table = pd.read_excel('database.xlsx', sheet_name='eukaryotes')
 # proteins = [x for x in os.listdir() if x.endswith('muris.faa')]
