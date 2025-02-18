@@ -4,7 +4,7 @@ import os
 from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/workdir/')
-hits = [x for x in os.listdir() if x.endswith('.fa')]
+hits = [x for x in os.listdir() if x.endswith('.hmm_hits.fa')]
 db = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict.tsv')
 
 db_dict = {}
