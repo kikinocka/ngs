@@ -27,3 +27,7 @@ with open(out, 'w') as result:
 		pos_2 = seq.seq[421]
 		pos_3 = seq.seq[432]
 		result.write('{}\t{}\t{}\t{}\n'.format(seq.name, pos_1, pos_2, pos_3))
+
+# CHC
+# LYSK [1766]
+# LEFK [1861]
