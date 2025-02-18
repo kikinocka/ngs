@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/hmmsearch_metamonads/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/1-hmmsearch_metamonads/')
 files = [x for x in os.listdir() if x.endswith('hmmsearch.tsv')]
 db = SeqIO.parse('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all_metamonads.faa', 'fasta')
 
