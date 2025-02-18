@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N mafft
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=40gb:scratch_local=1gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -12,10 +12,10 @@ cat $PBS_NODEFILE
 # module add mafft-7.487 
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/'
 
 #copy files to scratch
-cp $data_dir'/'*fa $SCRATCHDIR
+cp $data_dir'CAD2214941-CAD2214943-CAD2221469.fa' $SCRATCHDIR
 # cp $data_dir'apicomplexa.mafft.aln' $SCRATCHDIR
 # cp $data_dir'V9.fa' $SCRATCHDIR
 # cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
@@ -67,7 +67,7 @@ done
 # echo 'Alignments merged'
 
 #copy files back
-# rm *.fa
-rm $existing $add
+rm *.fa
+# rm $existing $add
 # rm $aln1 $aln2
 cp * $data_dir
