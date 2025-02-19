@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/allDB/renamed/'
+cd '/mnt/mokosz/home/kika/allDB/renamed/blastdbs/'
 
 # db='/opt/databases/nt_auto/current/blast/nt'
 query='/mnt/mokosz/home/kika/workdir/Adea_EAP.fasta'
