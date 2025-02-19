@@ -39,4 +39,4 @@ for db in *faa ; do
 done
 
 
-python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
+# python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
