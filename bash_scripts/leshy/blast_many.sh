@@ -26,10 +26,11 @@ cpu=8
 
 #many queries, one databases
 for query in *.fa ; do
+	echo $query
 	$program -task $task \
 		-query $query \
 		-db $db \
-		-out ${query}.fwd_blast.tsv \
+		-out ${query%.fa}.fwd_blast.tsv \
 		-num_threads $cpu \
 		-evalue $eval \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
