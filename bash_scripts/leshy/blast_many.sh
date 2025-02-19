@@ -3,7 +3,7 @@
 cd '/mnt/mokosz/home/kika/workdir/'
 
 db='/mnt/mokosz/home/kika/allDB/all.faa'
-query='/mnt/mokosz/home/kika/workdir/Adea_EAP.fasta'
+# query='/mnt/mokosz/home/kika/workdir/Adea_EAP.fasta'
 program=blastp
 task=blastp
 # outfmt=5
@@ -12,30 +12,30 @@ max_seqs=1000
 max_hsps=1
 cpu=8
 
-#one query, one database
-$program -task $task \
-	-query $query \
-	-db $db \
-	-out all_EAP.fwd_blast.tsv \
-	-num_threads $cpu \
-	-evalue $eval \
-	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
-	-max_target_seqs $max_seqs \
-	# -max_hsps $max_hsps
+# #one query, one database
+# $program -task $task \
+# 	-query $query \
+# 	-db $db \
+# 	-out all_EAP.fwd_blast.tsv \
+# 	-num_threads $cpu \
+# 	-evalue $eval \
+# 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
+# 	-max_target_seqs $max_seqs \
+# 	# -max_hsps $max_hsps
 
 
-# #many queries, one databases
-# for query in trinity_a*; do
-# 	$program -task $task \
-# 		-query $query \
-# 		-db $db \
-# 		-out ${query}.blast \
-# 		-num_threads $cpu \
-# 		-evalue $eval \
-# 		-outfmt '6 qseqid staxids bitscore sseqid qcovs pident' \
-# 		-max_target_seqs $max_seqs \
-# 		-max_hsps $max_hsps &
-# done
+#many queries, one databases
+for query in *.fa ; do
+	$program -task $task \
+		-query $query \
+		-db $db \
+		-out ${query}.fwd_blast.tsv \
+		-num_threads $cpu \
+		-evalue $eval \
+		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
+		-max_target_seqs $max_seqs &
+		# -max_hsps $max_hsps &
+done
 
 # #one query, many databases
 # for db in *faa ; do
