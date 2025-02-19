@@ -35,8 +35,8 @@ for db in *faa ; do
 		-out ${db%.faa}.EAP.fwd_blast.tsv \
 		-num_threads $cpu \
 		-evalue $eval \
-		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
+		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
 done
 
 
-# python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
