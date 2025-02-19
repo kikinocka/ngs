@@ -20,4 +20,4 @@ files = [x for x in os.listdir() if x.endswith('_renamed.faa')]
 
 for file in files:
 	print(file)
-	os.rename(file, file.split('_')[0]+'.faa')
+	os.rename(file, file.split('_renamed.faa')[0]+'.faa')
