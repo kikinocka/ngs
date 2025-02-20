@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/metamonada/MRO_proteins/fasta/updated/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/EAPs/hmmsearch/rnd2/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 # infile = SeqIO.parse('three.fa', 'fasta')
 # out_fasta = open('three_deduplicated.fa', 'w')
@@ -20,7 +20,7 @@ for infile in files:
 		sequence = seq.seq.upper()
 		multiplications[sequence].append(seq.description)
 		if sequence not in seq_dict:
-			# # #rename full header only with name (acc, till the first space)
+			# #rename full header only with name
 			# seq_dict[sequence] = seq.name 
 			#keep full header			
 			seq_dict[sequence] = seq.description

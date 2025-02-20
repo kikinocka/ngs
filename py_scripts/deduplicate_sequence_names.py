@@ -4,10 +4,10 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/mnt/mokosz/home/kika/allDB/')
-infile = SeqIO.parse('all.faa', 'fasta')
-out_fasta = open('all_deduplicated.fa', 'w')
-out_names = open('all_names.txt', 'w')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/EAPs/hmmsearch/rnd2/')
+infile = SeqIO.parse('CAD2216821.fa', 'fasta')
+out_fasta = open('CAD2216821_deduplicated.fa', 'w')
+out_names = open('CAD2216821_dupl-names.txt', 'w')
 
 # names = []
 # with open('RABs_deduplicated.fa', 'w') as out:	
