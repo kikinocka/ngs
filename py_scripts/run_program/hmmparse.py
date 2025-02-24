@@ -4,7 +4,7 @@ from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/workdir/')
 files = [x for x in os.listdir() if x.endswith('hmmsearch.tsv')]
-db = SeqIO.parse('/mnt/mokosz/home/kika/workdir/all.faa', 'fasta')
+db = SeqIO.parse('/mnt/mokosz/home/kika/allDB/all.faa', 'fasta')
 
 seq_d = {}
 for seq in db:
