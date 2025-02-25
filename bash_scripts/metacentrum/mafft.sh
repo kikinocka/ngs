@@ -12,7 +12,7 @@ cat $PBS_NODEFILE
 # module add mafft-7.487 
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/hmmsearch/rnd2'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees'
 
 #copy files to scratch
 cp $data_dir'/'*fa $SCRATCHDIR
