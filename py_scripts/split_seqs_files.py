@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/His_degradation/')
 
-for seq in SeqIO.parse('Adea_EAP.fasta', 'fasta'):
-	with open('{}.fa'.format(seq.name.split('__')[0]), 'w') as result:
+for seq in SeqIO.parse('Tcru_His_deg.fa', 'fasta'):
+	with open('{}.faa'.format(seq.name.split('-')[0]), 'w') as result:
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
