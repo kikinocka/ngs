@@ -4,11 +4,11 @@ from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmmsearch/')
 files = [x for x in os.listdir() if x.endswith('hmmsearch.tsv')]
-# db = SeqIO.parse('/mnt/mokosz/home/kika/allDB/all.faa', 'fasta')
+db = SeqIO.parse('/mnt/mokosz/home/kika/allDB/renamed/no_metamonads/all.faa', 'fasta')
 
-# seq_d = {}
-# for seq in db:
-# 	seq_d[seq.name] = (seq.name, seq.seq)
+seq_d = {}
+for seq in db:
+	seq_d[seq.name] = (seq.name, seq.seq)
 
 # #get first hit only
 # for file in files:
