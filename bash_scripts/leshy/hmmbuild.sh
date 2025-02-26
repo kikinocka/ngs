@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/MRO_mafft/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/2-MRO_mafft/'
 
 threads=10
 
