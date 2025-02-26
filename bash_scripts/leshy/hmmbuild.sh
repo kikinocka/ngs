@@ -12,6 +12,4 @@ for msa in *.aln ; do
 	hmmbuild -n $name -o $summary --amino --cpu $threads $hmm $msa
 done
 
-mv *hmm* ../2-MRO_hmm/
-
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py HMMbuild done
