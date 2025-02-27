@@ -22,7 +22,7 @@ for query in *.fa; do
 		-out $out \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
 		-num_threads $cpu \
-		-evalue $evalue
+		-evalue $eval
 	echo ***BLAST done***
 done
 # -max_target_seqs $max_seqs \
