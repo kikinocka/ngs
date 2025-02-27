@@ -1,31 +1,31 @@
 #!/bin/bash
 
-cd '/tmp/kika/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/1-blast/'
 
-query='v9.no_chimera.2-14.fa'
-out='v9.no_chimera.2-14.blast.xml'
 # db='/opt/databases/eukprot/current/blast/eukprot'
 # db='/opt/databases/nr_auto/current/nr'
-db='/opt/databases/nt_auto/current/blast/nt'
-program=blastn
-task=blastn
+db='/mnt/mokosz/home/kika/allDB/all.faa'
+program=blastp
+task=blastp
 outfmt=5
 eval=1e-05
 max_seqs=1
 max_hsps=1
 cpu=8
 
-$program -task $task \
-	-query $query \
-	-db $db \
-	-out $out \
-	-outfmt $outfmt \
-	-num_threads $cpu \
-	-evalue $eval \
-	-max_target_seqs $max_seqs \
-	-max_hsps $max_hsps
-	# -outfmt "6 qseqid staxids bitscore sseqid qcovs pident" \
-
-mv $out '/mnt/mokosz/home/kika/workdir/'
+for query in *.fa; do
+	echo $query
+	out=${query%.fa}'.fwd_blast.tsv'
+	$program -task $task \
+		-query $query \
+		-db $db \
+		-out $out \
+		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
+		-num_threads $cpu \
+		-evalue $evalue
+	echo ***BLAST done***
+done
+# -max_target_seqs $max_seqs \
+# -max_hsps $max_hsps
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
