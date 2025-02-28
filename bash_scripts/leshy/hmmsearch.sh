@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmmsearch/'
 threads=15
-eval=1e-10
+eval=1e-05
 
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
