@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/constrained/')
 trees = [x for x in os.listdir() if x.endswith('CHC_opisthokonta.man_trimmed.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
