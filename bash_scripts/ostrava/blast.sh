@@ -29,10 +29,10 @@ for query in *.fa; do
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
 		-num_threads 10 \
 		-evalue $evalue \
+		-max_target_seqs $max_seqs \
+		-max_hsps $max_hsps
 	echo ***BLAST done***
 done
-		# -max_target_seqs $max_seqs \
-		# -max_hsps $max_hsps
 
 conda deactivate
 
