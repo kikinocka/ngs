@@ -4,12 +4,14 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd '/home/users/kika/schizosaccharomyces_japonicus/hmms/'
+cd '/home/users/kika/angomonas_EAPs/'
 
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
+
 # query='kap3_hits.fa'
-db='/mnt/data/blastdbs/nr'
+db='/home/users/kika/references/Angomonas_deanei.faa'
+# db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
 evalue=1e-05

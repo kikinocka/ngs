@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/mnt/mokosz/home/kika/workdir/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver2/')
 trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
+names = open('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver3/CHC_opisthokonta.codes_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
 	new = split_line[1]
 	# new = split_line[0] + ' ' + split_line[1]
-	name_dict[new] = split_line[0]
+	name_dict[split_line[0]] = new
 # print(name_dict)
 
 # for tree in trees:
