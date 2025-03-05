@@ -20,7 +20,8 @@ max_hsps=1
 
 for query in *.fa; do
 	echo $query
-	out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
+	# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
+	out=${query%.fa}'.Adea_'$evalue'.'$program'.tsv'
 	# out=${db%.fa}'.ref_'$evalue'.tsv'
 	$program -task $task \
 		-query $query \
