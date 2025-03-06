@@ -32,7 +32,7 @@ for infile in files:
 		 open('{}_dupl-names.txt'.format(infile.split('.fa')[0]), 'w') as out_names:
 		multiplications = defaultdict(list)
 		seq_dict = OrderedDict()
-		for sequence in SeqIO.parse(infile):
+		for sequence in SeqIO.parse(infile, 'fasta'):
 			multiplications[sequence.name].append(sequence.description)
 			if sequence.name not in seq_dict:
 				seq_dict[sequence.name] = [sequence.description, sequence.seq]
