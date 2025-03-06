@@ -24,6 +24,7 @@ for aln in *.aln ; do
 	echo $aln
 	out=${aln%.aln}.fasttree.treefile
 	fasttree $aln > $out
+	echo ''
 done
 
 #copy files back
