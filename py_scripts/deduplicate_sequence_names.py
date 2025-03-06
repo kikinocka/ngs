@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_fasta/')
-files = [x for x in os.listdir() if x.endswith('.fa')]
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmm_hits/')
+files = [x for x in os.listdir() if x.endswith('reduced.fa')]
 
 for infile in files:
 	print(infile)
