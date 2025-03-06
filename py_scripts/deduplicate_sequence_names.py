@@ -27,7 +27,7 @@ files = [x for x in os.listdir() if x.endswith('.fa')]
 # 			print('{} changed to {}'.format(seq.name, new_name))
 
 for infile in files:
-	print(file)
+	print(infile)
 	with open('{}_deduplicated.fa'.format(file.split('.fa')[0]), 'w') as out_fasta, \
 		 open('{}_dupl-names.txt'.format(file.split('.fa')[0]), 'w') as out_names:
 		multiplications = defaultdict(list)
