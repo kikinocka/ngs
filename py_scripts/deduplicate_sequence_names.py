@@ -28,8 +28,8 @@ files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for infile in files:
 	print(infile)
-	with open('{}_deduplicated.fa'.format(file.split('.fa')[0]), 'w') as out_fasta, \
-		 open('{}_dupl-names.txt'.format(file.split('.fa')[0]), 'w') as out_names:
+	with open('{}_deduplicated.fa'.format(infile.split('.fa')[0]), 'w') as out_fasta, \
+		 open('{}_dupl-names.txt'.format(infile.split('.fa')[0]), 'w') as out_names:
 		multiplications = defaultdict(list)
 		seq_dict = OrderedDict()
 		for sequence in infile:
