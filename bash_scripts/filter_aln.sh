@@ -2,7 +2,7 @@
 
 filt_script='/Users/kika/scripts/py_scripts/filter_alignment.py'
 
-cd '/Users/kika/ownCloud/metamonada/OGs/iqtree/cpn60/ver2/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_trimal_gt-0.8/'
 threshold=50
 
 for fasta in *trimal*.aln ; do
