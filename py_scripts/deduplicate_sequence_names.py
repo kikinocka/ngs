@@ -11,7 +11,7 @@ files = [x for x in os.listdir() if x.endswith('.fa')]
 # out_names = open('CAD2216821_dupl-names.txt', 'w')
 
 # names = []
-# with open('RABs_deduplicated.fa', 'w') as out:	
+# with open('RABs_deduplicated.fa', 'w') as out:
 # 	for seq in infile:
 # 		if seq.name.lower() not in names:
 # 			names.append(seq.name.lower())
@@ -41,8 +41,8 @@ for infile in files:
 			out_fasta.write('>{}\n{}\n'.format(value[0], value[1]))
 
 		for key, value in multiplications.items():
-    		if len(value) > 1:
-        		out_names.write('{}\n'.format(str(value)))
+			if len(value) > 1:
+				out_names.write('{}\n'.format(str(value)))
 
 out_fasta.close()
 out_names.close()
