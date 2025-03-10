@@ -25,7 +25,7 @@ cpu=8
 
 
 #many queries, one database
-for query in *.fasta ; do
+for query in *.fa ; do
 	echo $query
 	$program -task $task \
 		-query $query \
