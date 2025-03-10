@@ -24,8 +24,8 @@ cpu=8
 # 	# -max_hsps $max_hsps
 
 
-#many queries, one databases
-for query in *.fa ; do
+#many queries, one database
+for query in *.fasta ; do
 	echo $query
 	$program -task $task \
 		-query $query \
