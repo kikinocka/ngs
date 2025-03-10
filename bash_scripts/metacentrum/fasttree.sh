@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N FastTree
 #PBS -l select=1:ncpus=1:mem=20gb:scratch_local=1gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -23,7 +23,8 @@ cd $SCRATCHDIR
 for aln in *.aln ; do
 	echo $aln
 	out=${aln%.aln}.fasttree.treefile
-	fasttree $aln > $out
+	log=${aln%.aln}.fasttree.log
+	fasttree -log $log -out $out $aln
 	echo ''
 done
 
