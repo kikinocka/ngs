@@ -14,7 +14,7 @@ db='/home/users/kika/references/Angomonas_deanei.faa'
 # db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
-evalue=0.01
+evalue=1e-05
 max_seqs=1
 max_hsps=1
 
