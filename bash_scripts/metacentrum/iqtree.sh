@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/trafficking/clathrin/ver3/'
+datadir='/storage/brno12-cerit/home/kika/trafficking/clathrin/ver4/'
 
 #copy files to scratch
-cp $datadir'CHC_opisthokonta.man_trim.renamed.aln' $SCRATCHDIR
+cp $datadir'CHC_opisthokonta.man_trim.CD.aln' $SCRATCHDIR
 cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='CHC_opisthokonta.man_trim.renamed.aln'
+aln='CHC_opisthokonta.man_trim.CD.aln'
 guide='guide_CHC_opist'
 guide_tree=$guide'.treefile'
 constr='spp_constr.tre'
