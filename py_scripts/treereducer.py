@@ -2,29 +2,29 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/diplonemids_all/mantamonas/ARFs/ver1/iqtree/')
-inacc = open('arfs.trimal_gt-0.8.aln.marked.treefile')
-infasta = SeqIO.parse('arfs.mafft.aln', 'fasta')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/LOPIT-DC/EAPs/trees/ver3/')
+inacc = open('CAD2219389.trimal_gt-0.8_marked.treefile')
+infasta = SeqIO.parse('CAD2219389.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 # inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
 # infasta_files = [x for x in os.listdir() if x.endswith('.og_hmm.fa')]
 
 omitted = []
 for line in inacc:
-	if 'color=#0000ff' in line:
+	if 'color=#ff0000' in line:
 		# print(line.split('[')[0].replace('\'', '').replace('\t', '').replace('eval_', 'eval-'))
 		omitted.append(line.split('[')[0].replace('\'', '').replace('\t', '').replace('eval_', 'eval-'))
 
 c = 0
-with open('arfs_reduced.fa', 'w') as result:
+with open('CAD2219389_reduced.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
-			# print('{} in omitted list'.format(seq.description))
-			result.write('>{}\n{}\n'.format(seq.description, str(seq.seq).replace('-','')))
-		else:
-			# result.write('>{}\n{}\n'.format(seq.description, seq.seq))
 			print('{} in omitted list'.format(seq.description))
+			# result.write('>{}\n{}\n'.format(seq.description, str(seq.seq).replace('-','')))
+		else:
+			result.write('>{}\n{}\n'.format(seq.description, seq.seq))
+			# print('{} in omitted list'.format(seq.description))
 print(c)
 
 
