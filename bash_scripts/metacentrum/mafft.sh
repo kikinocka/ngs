@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -12,7 +12,7 @@ cat $PBS_NODEFILE
 # module add mafft-7.487 
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees/ver4'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees/ver5'
 
 #copy files to scratch
 cp $data_dir'/'*'.fa' $SCRATCHDIR
