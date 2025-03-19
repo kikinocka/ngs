@@ -2,8 +2,8 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/LOPIT-DC/EAPs/trees/ver3/')
-inacc = open('CAD2219389.trimal_gt-0.8_marked.treefile')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/LOPIT-DC/EAPs/trees/ver5/')
+inacc = open('CAD2219389.trimal_gt-0.8.marked.treefile')
 infasta = SeqIO.parse('CAD2219389.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 # inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
