@@ -8,26 +8,23 @@
 cat $PBS_NODEFILE
 
 #add module
-module add iqtree-1.6.12
+module load iqtree
 
-data_dir='/storage/brno3-cerit/home/kika/trafficking/AP1S'
+data_dir='/storage/brno12-cerit/home/kika/trafficking/clathrin/ver4/'
 
 #copy files to scratch
-cp $data_dir'/'*.aln $SCRATCHDIR
-cp $data_dir'/'*.constr1 $SCRATCHDIR
+cp $data_dir'tree/CHC_opisthokonta.man_trim.CD.aln' $SCRATCHDIR
+cp $data_dir'asr/CHC_opisthokonta.man_trim.CD.rooted.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-constr1='AP1S.constr1'
-for f in *.aln ; do
-	guide=guide_${f%.aln}
-	guide_tree=$guide'.treefile'
-	bb=1000
-	nm=5000
-	iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -s ${f} -g $constr1 -asr
-done
+aln='CHC_opisthokonta.man_trim.CD.aln'
+tree='CHC_opisthokonta.man_trim.CD.rooted.treefile'
+
+iqtree -m LG+C60+G -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -te $tree -asr
+
 
 #copy files back
-rm *.aln
+rm *.aln *rooted.treefile
 cp * $data_dir
