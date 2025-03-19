@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees/ver6'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees/ver7'
 
 #copy files to scratch
 cp $data_dir'/'*trimal_gt-0.8.aln $SCRATCHDIR
