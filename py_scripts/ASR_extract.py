@@ -20,16 +20,12 @@ with open(states, 'r') as infile:
 			for item in line.split('\t')[3:]:
 				aa_dict[count] = item.split('_')[1]
 				count += 1
-# print(aa_dict)
+#print(aa_dict)
 
 with open(states, 'r') as infile, open(ASR1, 'w') as out1, open(ASR2, 'w') as out2:
 	for line in infile:
 		line = line.strip()
-		if line.startswith('Node\tSite'):
-			for item in line.split('\t')[3:]:
-				count = 0
-				aa_dict[count] = item.split('_')[1]
-		elif line.split('\t')[0] == 'Node{}'.format(node):
+		if line.split('\t')[0] == 'Node{}'.format(node):
 			aa =  line.split('\t')[2]
 			primary += aa
 			probabilities = line.split('\t')[3:]

@@ -8,11 +8,9 @@
 cat $PBS_NODEFILE
 
 #add module
-# module add mafft-7.453
-# module add mafft-7.487 
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees/ver7'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/angomonas/EAPs/trees/ver8'
 
 #copy files to scratch
 cp $data_dir'/'*'.fa' $SCRATCHDIR
