@@ -10,12 +10,19 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
+data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/iqtree/'
 
 #copy files to scratch
-cp $data_dir'q2002266.og_hmm.final.trimal_gt-0.8.aln'* $SCRATCHDIR
-cp $data_dir'q2002923.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2002933.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'IscA.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'IscFP.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'IscS.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'IscU.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
+cp $data_dir'Jac1.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'M20.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'ME.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
+cp $data_dir'Mge1.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'MPP.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'NifU.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
@@ -24,7 +31,7 @@ cd $SCRATCHDIR
 for f in *.aln ; do
 	echo ${f}
 	bb=1000
-	nm=20000
+	nm=10000
 	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees -keep-ident
 done
 

@@ -10,18 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
+data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/iqtree/'
 
 #copy files to scratch
-cp $data_dir'q2001017.og_hmm.final.trimal_gt-0.8.aln'* $SCRATCHDIR
-cp $data_dir'q2001232.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001260.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001276.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001337.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001351.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001400.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001403.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001446.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'SCSa.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'SCSb.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'SHMT.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Tim44.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Trx.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'TrxR.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
