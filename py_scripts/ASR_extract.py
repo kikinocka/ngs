@@ -12,7 +12,7 @@ secondary = ''
 position = ''
 aa_dict = {}
 
-with open(states, 'r') as infile:
+with open(states, 'r') as infile, open(ASR1, 'w') as out1, open(ASR2, 'w') as out2:
 	for line in infile:
 		line = line.strip()
 		if line.startswith('Node\tSite'):
@@ -20,18 +20,13 @@ with open(states, 'r') as infile:
 			for item in line.split('\t')[3:]:
 				aa_dict[count] = item.split('_')[1]
 				count += 1
-#print(aa_dict)
-
-with open(states, 'r') as infile, open(ASR1, 'w') as out1, open(ASR2, 'w') as out2:
-	for line in infile:
-		line = line.strip()
-		if line.split('\t')[0] == 'Node{}'.format(node):
-			aa =  line.split('\t')[2]
+		elif line.startswith('Node{}'.format(node)):
+			aa = line.split('\t')[2]
 			primary += aa
 			probabilities = line.split('\t')[3:]
 			largest_two = heapq.nlargest(2, probabilities)
 			if float(largest_two[0]) >= 0.8:
-				aa =  line.split('\t')[2]
+				aa = line.split('\t')[2]
 			else:
 				position = probabilities.index(largest_two[1])
 				aa = aa_dict[position]
