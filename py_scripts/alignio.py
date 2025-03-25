@@ -2,9 +2,9 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/4-MRO+HMMs_trimal_automated1_final/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/4-MRO+HMMs_trimal_gt-0.8_final/')
 files = [x for x in os.listdir() if x.endswith('.aln')]
-out = 'trimal_at1_len.tsv'
+out = 'trimal_gt-0.8_len.tsv'
 
 # #number of sequences
 # print(len(alignment))
