@@ -3,11 +3,8 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/EAPs/hmmsearch/rnd2/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/LOPIT-DC/EAPs/trees/ver10/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
-# infile = SeqIO.parse('three.fa', 'fasta')
-# out_fasta = open('three_deduplicated.fa', 'w')
-# out_names = open('three_dupl-names.txt', 'w')
 
 for infile in files:
 	print(infile)

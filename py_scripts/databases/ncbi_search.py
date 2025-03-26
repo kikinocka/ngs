@@ -9,7 +9,7 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/trees/metazoa_myxozoa/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/LOPIT-DC/EAPs/trees/ver10/')
 acc = open('refs.acc')
 
 ids = []
@@ -21,7 +21,7 @@ with open('refs.txt', 'w') as out, open('refs.errors', 'w') as errors:
 		#get lineage based on accessions
 		try:
 			print(prot_id)
-			prot = Entrez.efetch(db='nucleotide', id=prot_id, rettype='gb', retmode='text')
+			prot = Entrez.efetch(db='protein', id=prot_id, rettype='gb', retmode='text')
 			prot_record = SeqIO.read(prot, 'genbank')
 			description = prot_record.description
 			tax = prot_record.annotations['taxonomy']
