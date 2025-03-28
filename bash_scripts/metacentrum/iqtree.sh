@@ -34,4 +34,4 @@ iqtree -m MFP --mset C20,C40,C60,LG4M,LG4X,LG+F+G,LG+C20+G,LG+C40+G,LG+C60+G,LG+
 
 #copy files back
 rm $aln $constr
-cp * $datadir'tree_MFP'
+cp * $datadir'tree_MFP/model_testing/'
