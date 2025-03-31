@@ -2,7 +2,7 @@
 import os
 import heapq
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver4/asr/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver4/tree_MFP/asr/')
 states = 'CHC_opisthokonta.man_trim.CD.aln.state'
 ASR1 = 'CHC_opisthokonta_ASR1.fa'
 ASR2 = 'CHC_opisthokonta_ASR2.fa'

@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/trafficking/clathrin/ver4//'
+data_dir='/storage/brno12-cerit/home/kika/trafficking/clathrin/ver4/'
 
 #copy files to scratch
 cp $data_dir'CHC_opisthokonta.man_trim.CD.aln' $SCRATCHDIR
