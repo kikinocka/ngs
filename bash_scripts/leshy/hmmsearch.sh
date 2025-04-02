@@ -35,7 +35,7 @@ for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-MRO_hmm/again/*.h
 		echo $db
 		mkdir /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmmsearch_eval-1e-05/$folder
 		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmmsearch_eval-1e-05/$folder
-		output=`echo $db | cut -d / -f 9`
+		output=`echo $db | cut -d / -f 10`
 		output=${output%.faa}
 		# echo $output
 		output=$output'.'${folder}.hmmsearch.tsv
