@@ -2,11 +2,11 @@
 import os
 import heapq
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver4/tree_MFP/asr/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver5/asr/')
 states = 'CHC_opisthokonta.man_trim.CD.aln.state'
 ASR1 = 'CHC_opisthokonta_ASR1.fa'
 ASR2 = 'CHC_opisthokonta_ASR2.fa'
-node = '49'
+node = '46'
 primary = ''
 secondary = ''
 position = ''
