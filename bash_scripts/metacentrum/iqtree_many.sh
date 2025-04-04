@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N IQT-many
-#PBS -l select=1:ncpus=15:mem=5gb:scratch_local=10gb
+#PBS -l select=1:ncpus=15:mem=20gb:scratch_local=10gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -14,6 +14,7 @@ data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/tbKIN/kin2/ver11'
 
 #copy files to scratch
 cp $data_dir'/'*trimal_gt-0.8.aln $SCRATCHDIR
+cp $data_dir'/'guide* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -33,7 +34,7 @@ for f in *.aln ; do
 
 	# iqtree -m LG+C20+G -nt AUTO -ntmax $PBS_NUM_PPN -bb 1000 -nm 10000 -quiet -safe -s ${f} -pre ${f%.aln}
 
-	iqtree -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s ${f} --prefix $guide
+	# iqtree -m LG+G4 -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s ${f} --prefix $guide
 	iqtree -m LG+C60+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees --tree-freq $guide_tree -keep-ident
 done
 
