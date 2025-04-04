@@ -2,7 +2,7 @@
 
 # cd '/mnt/mokosz/home/kika/workdir/'
 threads=15
-eval=1e-10
+eval=1e-05
 
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
@@ -33,8 +33,8 @@ for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_mafft
 	echo $folder
 	for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 		echo $db
-		mkdir /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_hmmsearch/$folder
-		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_hmmsearch/$folder
+		mkdir /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_hmmsearch_eval-1e-05/$folder
+		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_hmmsearch_eval-1e-05/$folder
 		output=`echo $db | cut -d / -f 8`
 		output=${output%.faa}
 		# echo $output
