@@ -2,7 +2,7 @@
 
 # cd '/mnt/mokosz/home/kika/workdir/'
 threads=15
-eval=1e-05
+eval=1e-10
 
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
@@ -26,15 +26,15 @@ eval=1e-05
 # mv *tsv $workdir
 
 #several profiles and several databases
-for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-MRO_hmm/again/*.hmm ; do
+for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_mafft+hmm/*.hmm ; do
 	echo $profile
-	folder=`echo $profile | cut -d / -f 10`
-	folder=${folder%.hmm}
+	folder=`echo $profile | cut -d / -f 9`
+	folder=${folder%.mro+hmm.hmm}
 	echo $folder
 	for db in /mnt/mokosz/home/kika/allDB/renamed/*.faa ; do
 		echo $db
-		mkdir /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmmsearch_eval-1e-05/$folder
-		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-hmmsearch_eval-1e-05/$folder
+		mkdir /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_hmmsearch/$folder
+		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_hmmsearch/$folder
 		output=`echo $db | cut -d / -f 8`
 		output=${output%.faa}
 		# echo $output
@@ -43,7 +43,7 @@ for profile in /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-MRO_hmm/again/*.h
 		# output=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
 		# output=$orgn'_'${profile%.hmm}.hmmsearch.tsv
 		hmmsearch --tblout $output --cpu $threads -E $eval $profile $db
-		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/2-MRO_hmm/again/
+		cd /mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_mafft+hmm/
 		# sleep 5
 		echo
 	done
