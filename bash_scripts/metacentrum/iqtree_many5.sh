@@ -13,16 +13,8 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/iqtree/'
 
 #copy files to scratch
-cp $data_dir'NuoE.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'NuoF.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Osm1.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'OsmC.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'IPP.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 cp $data_dir'Pam16.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Pam18.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'PFK.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'PPDK.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'Prx.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'RBR.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
@@ -31,7 +23,7 @@ cd $SCRATCHDIR
 for f in *.aln ; do
 	echo ${f}
 	bb=1000
-	nm=10000
+	nm=20000
 	iqtree2 -m LG+C20+G4 -T 15 -B $bb --nmax $nm --quiet --safe -s ${f} --boot-trees
 done
 
