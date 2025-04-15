@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_fasttree/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/3-MRO+HMMhits_fasttree_eval-1e-05/')
 # inacc = open('CAD2219389.trimal_gt-0.8.marked.treefile')
 # infasta = SeqIO.parse('CAD2219389.fa', 'fasta')
 inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
