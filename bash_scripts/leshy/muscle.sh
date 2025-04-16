@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/4-MRO+HMMs_fasta_final_eval-1e-05/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/2again/'
 
 for fasta in *.fa; do
 	echo $fasta
