@@ -14,7 +14,7 @@ data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/iqtree/'
 
 #copy files to scratch
 cp $data_dir'IPP.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Pam16.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Pam18.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
