@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree-2.2.0
 
-data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
+data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/iqtree/'
 
 #copy files to scratch
 cp $data_dir'cI-24.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
