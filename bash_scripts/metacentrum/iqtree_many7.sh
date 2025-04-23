@@ -13,13 +13,8 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/iqtree/'
 
 #copy files to scratch
-cp $data_dir'q2001654.og_hmm.final.trimal_gt-0.8.aln'* $SCRATCHDIR
-cp $data_dir'q2001661.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001806.og_hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'q2001815.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001818.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001833.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'q2001929.og_hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'cI-24.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'cI-51.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
 
 
 #compute on scratch
