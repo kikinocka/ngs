@@ -6,7 +6,7 @@
 #PBS -l walltime=900:00:00
 
 
-data_dir='/home/users/kika/workdir/'
+cd '/home/users/kika/workdir/'
 
 for f in *.aln ; do
 	echo ${f}
