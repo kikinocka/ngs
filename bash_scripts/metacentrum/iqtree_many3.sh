@@ -16,7 +16,6 @@ data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/iqtree/'
 cp $data_dir'Cpn60.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 cp $data_dir'NifU.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 cp $data_dir'Fra.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
-cp $data_dir'Arh1.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 cp $data_dir'Fdx.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
 
 
