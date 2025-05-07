@@ -6,7 +6,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver4/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/ARFs/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 # files = [x for x in os.listdir() if x.startswith('CAD2219389')]
 
