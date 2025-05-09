@@ -18,7 +18,7 @@ cp $datadir'idh.trimal_automated1.aln' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='CHC_opisthokonta.man_trim.CD.aln'
+aln='idh.trimal_automated1.aln'
 guide='guide_CHC_opist'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
