@@ -19,7 +19,7 @@ cp $datadir'idh.trimal_automated1.aln' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='idh.trimal_automated1.aln'
-guide='guide_CHC_opist'
+guide='guide_idh'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000
