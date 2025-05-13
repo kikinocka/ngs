@@ -14,7 +14,7 @@ import os
 # 		 	result.write('{}\t{}\n'.format(value, key))
 
 
-os.chdir('/Users/kika/ownCloud/metamonada/ancestral_OGs/')
+os.chdir('/Users/kika/ownCloud/metamonada/MRO_proteins/')
 infile = open('orig.txt')
 
 Morigins = {}
