@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 aln='CLC_opisthokonta.man_trim.aln'
 tree='CLC_opisthokonta.man_trim.rooted.treefile'
 
-iqtree -m LG+C40+G+F+R5 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -te $tree -asr
+iqtree -m LG4M+F+R4 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -te $tree -asr
 
 
 #copy files back
