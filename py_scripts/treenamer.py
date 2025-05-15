@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/CLC/ver2/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/CLC/ver2/3-tree/')
 trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n

@@ -10,21 +10,21 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/trafficking/clathrin/ver5/'
+data_dir='/storage/brno12-cerit/home/kika/trafficking/clathrin/CLC/ver2/'
 
 #copy files to scratch
-cp $data_dir'CHC_opisthokonta.man_trim.CD.aln' $SCRATCHDIR
-cp $data_dir'asr/CHC_opisthokonta.man_trim.CD.rooted.treefile' $SCRATCHDIR
+cp $data_dir'CLC_opisthokonta.man_trim.aln' $SCRATCHDIR
+cp $data_dir'ASR/CLC_opisthokonta.man_trim.rooted.treefile' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-aln='CHC_opisthokonta.man_trim.CD.aln'
-tree='CHC_opisthokonta.man_trim.CD.rooted.treefile'
+aln='CLC_opisthokonta.man_trim.aln'
+tree='CLC_opisthokonta.man_trim.rooted.treefile'
 
 iqtree -m LG+C40+G+F+R5 -nt AUTO -ntmax $PBS_NUM_PPN -quiet -s $aln -te $tree -asr
 
 
 #copy files back
 rm *.aln *rooted.treefile
-cp * $data_dir
+cp * $data_dir'ASR'
