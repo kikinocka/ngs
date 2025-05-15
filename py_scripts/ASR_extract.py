@@ -2,11 +2,11 @@
 import os
 import heapq
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/ver5/asr/')
-states = 'CHC_opisthokonta.man_trim.CD.aln.state'
-ASR1 = 'CHC_opisthokonta_ASR1.fa'
-ASR2 = 'CHC_opisthokonta_ASR2.fa'
-node = '46'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/ASR_opisthokonta/CLC/ver2/4-asr/')
+states = 'CLC_opisthokonta.man_trim.aln.state'
+ASR1 = 'CLC_opisthokonta_ASR1.fa'
+ASR2 = 'CLC_opisthokonta_ASR2.fa'
+node = '48'
 primary = ''
 secondary = ''
 position = ''
@@ -34,5 +34,5 @@ with open(states, 'r') as infile, open(ASR1, 'w') as out1, open(ASR2, 'w') as ou
 		else:
 			pass
 
-	out1.write('>CHC_opisthokonta1__Node{}\n{}\n'.format(node, primary))
-	out2.write('>CHC_opisthokonta2__Node{}\n{}\n'.format(node, secondary))
+	out1.write('>CLC_opisthokonta1__Node{}\n{}\n'.format(node, primary))
+	out2.write('>CLC_opisthokonta2__Node{}\n{}\n'.format(node, secondary))
