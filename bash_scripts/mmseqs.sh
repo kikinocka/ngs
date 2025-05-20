@@ -1,14 +1,14 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/membrane-trafficking/sec13-MS/sec16_eukprot/'
+cd '/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver2/'
 
-fasta='eukprot_sec16.hmm_hits.fa'
-clustered='eukprot_sec16.hmm_hits.clstr'
+fasta='references.fa'
+clustered='references_clustered.fa'
 seqid=0.99
 coverage=0.5
 mode=0
 
-mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid -c $coverage --cov-mode $mode
+mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid -c $coverage #--cov-mode $mode
 
 
 # --min-seq-id
