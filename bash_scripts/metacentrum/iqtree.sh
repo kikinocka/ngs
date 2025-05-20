@@ -10,15 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/diplonema/IDH/'
+datadir='/storage/brno12-cerit/home/kika/diplonema/IDH/ver2/'
 
 #copy files to scratch
-cp $datadir'idh.trimal_automated1.aln' $SCRATCHDIR
+cp $datadir'idh.trimal_at1.aln' $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='idh.trimal_automated1.aln'
+aln='idh.trimal_at1.aln'
 guide='guide_idh'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
