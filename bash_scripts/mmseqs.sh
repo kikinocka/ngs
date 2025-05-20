@@ -3,12 +3,12 @@
 cd '/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver2/'
 
 fasta='references.fa'
-clustered='references_clustered.fa'
+clustered='references_clstr_2'
 seqid=0.99
 coverage=0.5
 mode=0
 
-mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid -c $coverage #--cov-mode $mode
+mmseqs easy-cluster $fasta $clustered tmp --min-seq-id $seqid -c $coverage --cov-mode $mode
 
 
 # --min-seq-id

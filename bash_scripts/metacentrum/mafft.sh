@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/diplonema/IDH'
+data_dir='/storage/brno12-cerit/home/kika/diplonema/IDH/ver2'
 
 #copy files to scratch
 cp $data_dir'/'*'.fa' $SCRATCHDIR
