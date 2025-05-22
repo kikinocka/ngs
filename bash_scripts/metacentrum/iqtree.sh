@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/diplonema/IDH/ver2/'
+datadir='/storage/brno12-cerit/home/kika/diplonema/IDH/ver3/'
 
 #copy files to scratch
 cp $datadir'idh.trimal_at1.aln' $SCRATCHDIR
@@ -27,7 +27,7 @@ nm=5000
 
 
 iqtree -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
-iqtree -m LG+C20+G4 -T $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
+iqtree -m LG+C60+G4 -T $PBS_NUM_PPN -B $bb --nmax $nm --alrt $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 # -g $constr 
 
 # iqtree -m MFP --mset C20,C40,C60,LG4M,LG4X,LG+F+G,LG+C20+G,LG+C40+G,LG+C60+G,LG+PMSF+G \
