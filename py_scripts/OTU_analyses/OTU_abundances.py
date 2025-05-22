@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/site_specific/')
+os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/site-specific/')
 # out_perc = open('Rhizaria.tsv', 'w')
 
 # #several OTU tables
@@ -30,7 +30,7 @@ total = df.groupby(['rank2']).sum().filter(regex='\d+_.*', axis=1)
 # total = df.groupby(['rank4']).sum().filter(regex='\d+_.*', axis=1)
 
 #change to percentages
-total = (100 * total / total.sum()).round(2)
+total = (100 * total / total.sum()).round(5)
 
 # #oil_sands
 # total = total[['P1-Mar02 (201-202_S88)', 'P1-Mar02 (203-204_S89)', 'P3-Mar02 (43-44_S82)', 'P3-Mar02 (45-46_S83)', 'P3-Mar02 (49-50_S85)']]
@@ -61,6 +61,7 @@ transformed = transformed[['No_hit', 'Eukaryota_X',
 	'Amoebozoa', 'Obazoa', 'CRuMs', 
 	'Metamonada', 'Discoba', 
 	'Malawimonadidae', 'Ancyromonadida']]
+# transformed.to_csv('otu_table.957m_percentages.csv', index=False)
 
 # colors = ['#000000', '#A7A7A7', 
 # 	'#E6AABB', '#CAB2D6', '#FB9A99', '#B2DF8A', 

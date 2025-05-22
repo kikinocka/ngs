@@ -51,7 +51,8 @@ aln='arfs_reduced.trimal_gt-0.8.aln'
 # done
 # cat $rax_tree $iqt_tree $pref.constr*.treefile $ufb_trees > $pref.trees
 iqtree2 -m LG+C20+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --trees $pref.trees --test-weight --test-au --test 10000 -n 0
-
+#command from Courtney
+#iqtree -quiet -s FDP.mafft_aligned.bmge_trimmed.fasta -pre TopML_01_02_BBS.trees2test.au.zb10000 -m LG+C50+F+R7 -nt 8 -n 0 -zb 10000 -au -z TopML_01_02_BBS.trees2test
 
 #copy files back
 # rm $aln $rax_tree $iqt_tree $ufb_trees arfs_reduced.constr*tre
