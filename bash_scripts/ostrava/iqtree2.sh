@@ -9,7 +9,7 @@
 cd '/home/users/kika/gp63/'
 
 aln='gp63.trimal_at1.aln'
-guide='guide_gp63'
+guide='guide_gp63.trimal_at1'
 guide_tree=$guide'.treefile'
 bb=1000
 nm=5000
