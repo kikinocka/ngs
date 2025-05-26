@@ -9,14 +9,14 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/angomonas/LOPIT-DC/EAPs/trees/ver12/')
-acc = open('refs.acc')
+os.chdir('/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/')
+acc = open('idh2.acc')
 
 ids = []
 for line in acc:
 	ids.append(line.strip())
 
-with open('refs.txt', 'w') as out, open('refs.errors', 'w') as errors:
+with open('idh2.txt', 'w') as out, open('idh2.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:

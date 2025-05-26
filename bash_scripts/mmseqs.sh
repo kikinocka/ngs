@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver2/'
+cd '/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/'
 
-fasta='references.fa'
-clustered='references_clstr_2'
+fasta='refs.fa'
+clustered='refs_clstr_2'
 seqid=0.99
 coverage=0.5
 mode=0
