@@ -5,7 +5,7 @@ os.chdir('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/')
 trees = [x for x in os.listdir() if x.endswith('.aln_renamed.tre')]
 
 # names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
-names = open('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/OGs.seq_dict.tsv')
+names = open('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/OGs.seq_dict.upd.tsv')
 
 name_dict = {}
 for name in names:
