@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/1-blast/'
+cd '/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/'
 
 # db='/opt/databases/eukprot/current/blast/eukprot'
 # db='/opt/databases/nr_auto/current/nr'
@@ -22,10 +22,12 @@ for query in *.fa; do
 		-out $out \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
 		-num_threads $cpu \
+		-max_target_seqs $max_seqs \
+		-max_hsps $max_hsps \
 		-evalue $eval
 	echo ***BLAST done***
 done
-# -max_target_seqs $max_seqs \
-# -max_hsps $max_hsps
+# 
+# 
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
