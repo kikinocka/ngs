@@ -17,11 +17,12 @@ for name in names:
 
 for tree in trees:
 	print(tree)
-	for tree_line in open(tree):
-		orgn_dirty = tree_line.strip().split(',')
-		for orgn in orgn_dirty:
-			orgn_clean = orgn.split(':')[0].replace('(', '').split('__eval')[0]
-			if orgn_clean in name_dict.keys():
-				# print(orgn_clean, name_dict[orgn_clean])
-				tree_line = tree_line.replace(orgn_clean, name_dict[orgn_clean])
-	print(tree_line)
+	name = tree.split('.tre')[0]
+	with open('{}_renamed.tre'.format(name), 'w') as result:
+		for tree_line in open(tree):
+			orgn_dirty = tree_line.strip().split(',')
+			for orgn in orgn_dirty:
+				orgn_clean = orgn.split(':')[0].replace('(', '').split('__eval')[0]
+				if orgn_clean in name_dict.keys():
+					tree_line = tree_line.replace(orgn_clean, name_dict[orgn_clean])
+		result.write(tree_line)
