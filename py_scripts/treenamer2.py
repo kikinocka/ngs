@@ -18,6 +18,7 @@ for name in names:
 for tree in trees:
 	print(tree)
 	for tree_line in open(tree):
-		orgn = tree_line.split(',')
-		print(orgn)
+		orgn_dirty = tree_line.strip().split(',')
+		for orgn in orgn_dirty.items():
+			print(orgn.split(':')[0].replace('(', '').split('__eval')[0])
 				
