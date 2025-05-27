@@ -24,4 +24,4 @@ for tree in trees:
 			if orgn_clean in name_dict.keys():
 				# print(orgn_clean, name_dict[orgn_clean])
 				tree_line = tree_line.replace(orgn_clean, name_dict[orgn_clean])
-				print(tree_line)
+	print(tree_line)
