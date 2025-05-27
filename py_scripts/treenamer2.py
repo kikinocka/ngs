@@ -13,7 +13,11 @@ for name in names:
 	new = split_line[0]
 	# new = split_line[0] + ' ' + split_line[1]
 	name_dict[split_line[1]] = new
-print(name_dict)
+# print(name_dict)
 
 for tree in trees:
 	print(tree)
+	for tree_line in open(tree):
+		orgn = tree_line.split(',')
+		print(orgn)
+				
