@@ -22,5 +22,6 @@ for tree in trees:
 		for orgn in orgn_dirty:
 			orgn_clean = orgn.split(':')[0].replace('(', '').split('__eval')[0]
 			if orgn_clean in name_dict.keys():
-				print(orgn_clean, name_dict[orgn_clean])
-				
+				# print(orgn_clean, name_dict[orgn_clean])
+				tree_line = tree_line.replace(orgn_clean, name_dict[orgn_clean])
+				print(tree_line)
