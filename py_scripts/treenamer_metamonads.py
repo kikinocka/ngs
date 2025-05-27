@@ -2,10 +2,10 @@
 import os
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/')
-trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
+trees = [x for x in os.listdir() if x.endswith('.aln_renamed.tre')]
 
-#file in format Acc. number \t name of organism \n
-names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
+# names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
+names = open('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/OGs.seq_dict.tsv')
 
 name_dict = {}
 for name in names:
@@ -18,7 +18,8 @@ for name in names:
 for tree in trees:
 	print(tree)
 	name = tree.split('.tre')[0]
-	with open('{}_renamed.tre'.format(name), 'w') as result:
+	# with open('{}_renamed.tre'.format(name), 'w') as result:
+	with open('{}2.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			orgn_dirty = tree_line.strip().split(',')
 			for orgn in orgn_dirty:
