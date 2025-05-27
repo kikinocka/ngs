@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/')
+os.chdir('/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/')
 trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.tsv')
+names = open('/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/idh.acc_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	new = split_line[0]
+	new = split_line[1]
 	# new = split_line[0] + ' ' + split_line[1]
-	name_dict[split_line[1]] = new
+	name_dict[split_line[0]] = new
 # print(name_dict)
 
 # for tree in trees:
