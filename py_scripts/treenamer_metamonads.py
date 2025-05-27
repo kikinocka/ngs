@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/test/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/')
 trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
