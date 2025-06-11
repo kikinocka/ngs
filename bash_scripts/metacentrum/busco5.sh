@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fa; do
+for fasta in *.faa; do
 	echo $fasta
 	mode='genome'
 	
