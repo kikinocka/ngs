@@ -28,7 +28,7 @@ cd $SCRATCHDIR
 
 for fasta in *.faa; do
 	echo $fasta
-	mode='genome'
+	mode='proteins'
 	
 	lineage='eukaryota_odb10'
 	base=${fasta%.fa}_$lineage
