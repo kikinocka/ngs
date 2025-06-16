@@ -18,8 +18,8 @@ evalue=1e-05
 max_seqs=1
 max_hsps=1
 
-for file in *.blast_hits.fa; do 
-	for query in $file; do
+for file in CAD2214941-CAD2214943-CAD2221469.blast_hits.fa ; do 
+	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
 		out=${query%.fa}'.Adea_'$evalue'.'$program'.tsv'
