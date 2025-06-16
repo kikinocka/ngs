@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/workdir/')
-files = [x for x in os.listdir() if x.endswith('.acc')]
+files = [x for x in os.listdir() if x.endswith('CAD2217104.blast_hits.acc')]
 database = '/mnt/mokosz/home/kika/allDB/all.faa'
 
 for accessions in files: 
@@ -21,7 +21,7 @@ for accessions in files:
 			# print(seq)
 			if seq.name in retrieve:
 				# print(seq.name)
-				out.write('>{}\n{}\n'.format(seq.description, seq.seq.reverse_complement()))
+				out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 				# pass
 			else:
 				# print(seq.name)
