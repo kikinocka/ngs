@@ -14,11 +14,11 @@ db='/home/users/kika/references/Angomonas_deanei.faa'
 # db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
-evalue=1e-03
+evalue=1e-02
 max_seqs=1
 max_hsps=1
 
-for file in CAD2217104.hmm_hits.rnd2.fa ; do 
+for file in CAD2217104.hmm_hits.rnd3.fa ; do 
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
