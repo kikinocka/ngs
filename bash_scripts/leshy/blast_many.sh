@@ -44,7 +44,7 @@ for db in *faa ; do
 	$program -task $task \
 		-query $query \
 		-db $db \
-		-out ${db%.faa}.${query%.fasta}.fwd_blast.tsv \
+		-out ${db%.faa}.CAD2217104.fwd_blast.tsv \
 		-num_threads $cpu \
 		-evalue $eval \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
