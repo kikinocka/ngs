@@ -18,7 +18,7 @@ evalue=1e-05
 max_seqs=1
 max_hsps=1
 
-for query in CAD2217104.hmm_hits.fa; do
+for query in CAD2217104.blast_hits.fa; do
 	echo $query
 	# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
 	out=${query%.fa}'.Adea_'$evalue'.'$program'.tsv'
