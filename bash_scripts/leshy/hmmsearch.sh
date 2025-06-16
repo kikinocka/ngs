@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/workdir/'
 threads=15
-eval=1e-05
+eval=1e-10
 
 #several profiles and one database
 db='/mnt/mokosz/home/kika/allDB/all.faa'
