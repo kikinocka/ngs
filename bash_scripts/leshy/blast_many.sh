@@ -3,7 +3,7 @@
 cd '/mnt/mokosz/home/kika/allDB/renamed/'
 
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
-query='/mnt/mokosz/home/kika/workdir/CAD2217104.fasta'
+query='/mnt/mokosz/home/kika/workdir/CAD2222413.fasta'
 program=blastp
 task=blastp
 # outfmt=5
@@ -44,7 +44,7 @@ for db in *faa ; do
 	$program -task $task \
 		-query $query \
 		-db $db \
-		-out ${db%.faa}.CAD2217104.fwd_blast.tsv \
+		-out ${db%.faa}.CAD2222413.fwd_blast.tsv \
 		-num_threads $cpu \
 		-evalue $eval \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
