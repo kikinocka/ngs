@@ -4,7 +4,7 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd '/home/users/kika/angomonas_EAPs/'
+cd '/home/users/kika/angomonas_EAPs/new/'
 
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
