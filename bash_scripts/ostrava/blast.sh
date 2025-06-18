@@ -18,7 +18,7 @@ evalue=1e-02
 max_seqs=1
 max_hsps=1
 
-for file in CAD2217104.hmm_hits.rnd3.fa ; do 
+for file in *.fa ; do 
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
