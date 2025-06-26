@@ -3,7 +3,7 @@
 cd '/mnt/mokosz/home/kika/workdir/'
 
 db='/mnt/mokosz/home/kika/allDB/all.faa'
-query='/mnt/mokosz/home/kika/workdir/Adea_EAP_corrected.fasta'
+query='/mnt/mokosz/home/kika/workdir/CAD2221027.2.fasta'
 program=blastp
 task=blastp
 # outfmt=5
@@ -16,7 +16,7 @@ cpu=8
 $program -task $task \
 	-query $query \
 	-db $db \
-	-out all_EAP.fwd_blast.tsv \
+	-out CAD2221027.2.fwd_blast.tsv \
 	-num_threads $cpu \
 	-evalue $eval \
 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
