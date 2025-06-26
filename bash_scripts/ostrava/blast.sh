@@ -10,7 +10,7 @@ eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 
 # query='kap3_hits.fa'
-db='/home/users/kika/references/Angomonas_deanei.faa'
+db='/home/users/kika/references/Angomonas_deanei_EAPs.faa'
 # db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
