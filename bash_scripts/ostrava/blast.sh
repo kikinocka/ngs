@@ -4,7 +4,7 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd '/home/users/kika/angomonas_EAPs/hmm/rnd3/'
+cd '/home/users/kika/angomonas_EAPs/hmm/rnd1/'
 
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
@@ -18,7 +18,7 @@ evalue=1e-04
 max_seqs=1
 max_hsps=1
 
-for file in *.fa ; do 
+for file in CAD2221027.2_all.hmm_hits.fa ; do 
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
