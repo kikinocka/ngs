@@ -2,10 +2,10 @@
 import os
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/5-final_alphaprot_trees/')
-trees = [x for x in os.listdir() if x.endswith('Cpn60.final_renamed.tre')]
+trees = [x for x in os.listdir() if x.endswith('Cpn60.mro+hmm.final.trimal_gt-0.8.aln.treefile')]
 
-# names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
-names = open('/mnt/mokosz/home/kika/allDB/bacteria/bct.seq_dict.upd.tsv')
+names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
+# names = open('/mnt/mokosz/home/kika/allDB/bacteria/bct.seq_dict.upd.tsv')
 
 name_dict = {}
 for name in names:
@@ -18,7 +18,7 @@ for name in names:
 for tree in trees:
 	print(tree)
 	name = tree.split('.')[0]
-	with open('{}.final_renamed2.tre'.format(name), 'w') as result:
+	with open('{}.final_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			orgn_dirty = tree_line.strip().split(',')
 			for orgn in orgn_dirty:
