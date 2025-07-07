@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/5-final_trees/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/5-final_alphaprot_trees/')
 trees = [x for x in os.listdir() if x.endswith('Cpn60.mro+hmm.final.trimal_gt-0.8.aln.treefile')]
 
 names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
