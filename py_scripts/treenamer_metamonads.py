@@ -19,8 +19,7 @@ for name in names:
 for tree in trees:
 	print(tree)
 	name = tree.split('.')[0]
-	# with open('{}_renamed.tre'.format(name), 'w') as result:
-	with open('{}.tre'.format(name), 'w') as result:
+	with open('{}.final_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			orgn_dirty = tree_line.strip().split(',')
 			for orgn in orgn_dirty:
