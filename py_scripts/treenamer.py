@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/mnt/mokosz/home/kika/workdir/')
+os.chdir('/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/')
 trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
+names = open('/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/idh.acc_names.txt')
 
 name_dict = {}
 for name in names:
 	split_line = name.strip().split('\t')
-	new = split_line[0]
+	new = split_line[1]
 	# new = split_line[0] + ' ' + split_line[1]
-	name_dict[split_line[1]] = new
+	name_dict[split_line[0]] = new
 # print(name_dict)
 
 # for tree in trees:
@@ -29,9 +29,9 @@ for name in names:
 for tree in trees:
 	print(tree)
 	# name = tree.split('.treefile')[0]
-	name = tree.split('.')[0]
+	name = tree.split('.tre')[0]
 	# name = tree.split('.tre')[0] + tree.split('.tre')[1]
-	with open('{}.final_renamed.tre'.format(name), 'w') as result:
+	with open('{}_renamed.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			for key in name_dict:
 				tree_line = tree_line.replace(key, name_dict[key])
