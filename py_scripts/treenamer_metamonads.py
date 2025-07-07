@@ -2,7 +2,7 @@
 import os
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/5-final_alphaprot_trees/')
-trees = [x for x in os.listdir() if x.endswith('Cpn60.final_renamed.treefile')]
+trees = [x for x in os.listdir() if x.endswith('Cpn60.final_renamed.tre')]
 
 # names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
 names = open('/mnt/mokosz/home/kika/allDB/bacteria/bct.seq_dict.upd.tsv')
