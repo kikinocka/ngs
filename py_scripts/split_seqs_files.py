@@ -3,8 +3,9 @@ import os
 from Bio import SeqIO
 
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/His_degradation/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/queries/patchy_jotnarlogs/discoba/')
 
-for seq in SeqIO.parse('Tcru_His_deg.fa', 'fasta'):
-	with open('{}.faa'.format(seq.name.split('-')[0]), 'w') as result:
+for seq in SeqIO.parse('queries.fa', 'fasta'):
+	with open('{}_query.faa'.format(seq.name), 'w') as result:
+		# print(str(result))
 		result.write('>{}\n{}\n'.format(seq.description, seq.seq))
