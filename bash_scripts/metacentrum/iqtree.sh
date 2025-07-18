@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,24 +10,24 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/diplonema/IDH/ver4/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/'
 
 #copy files to scratch
-cp $datadir'idh.trimal_at1.aln' $SCRATCHDIR
-cp $datadir'guide'* $SCRATCHDIR
+cp $datadir'gp63.trimal_gt-0.8.aln' $SCRATCHDIR
+# cp $datadir'guide'* $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='idh.trimal_at1.aln'
-guide='guide_idh'
+aln='gp63.trimal_gt-0.8.aln'
+guide='guide_gp63'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000
 nm=5000
 
 
-# iqtree -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+iqtree -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 iqtree -m LG+C60+G4 -T $PBS_NUM_PPN -B $bb --nmax $nm --alrt $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 # -g $constr 
 
