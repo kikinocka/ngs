@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/ver3'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/ver3/'
 
 #copy files to scratch
 cp $datadir'gp63.trimal_at1.aln' $SCRATCHDIR
