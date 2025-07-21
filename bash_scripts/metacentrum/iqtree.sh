@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/ver3'
 
 #copy files to scratch
-cp $datadir'gp63.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'gp63.trimal_at1.aln' $SCRATCHDIR
 # cp $datadir'guide'* $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='gp63.trimal_gt-0.8.aln'
+aln='gp63.trimal_at1.aln'
 guide='guide_gp63'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
