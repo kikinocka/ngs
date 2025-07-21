@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/blasto_reads/')
-files = [x for x in os.listdir() if x.endswith('fa')]
+os.chdir('/Users/kika/data/kinetoplastids/')
+files = [x for x in os.listdir() if x.endswith('TriTrypDB-68_PhertigiMCOEPA1965C119_Genome.fasta')]
 dbtype = 'nucl'
 
 for file in files: 
