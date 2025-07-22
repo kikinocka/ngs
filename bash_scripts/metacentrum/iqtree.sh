@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -14,7 +14,7 @@ datadir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/ver3/'
 
 #copy files to scratch
 cp $datadir'gp63.trimal_at1.aln' $SCRATCHDIR
-# cp $datadir'guide'* $SCRATCHDIR
+cp $datadir'guide'* $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
@@ -27,7 +27,7 @@ bb=1000
 nm=5000
 
 
-iqtree -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+# iqtree -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 iqtree -m LG+C60+G4 -T $PBS_NUM_PPN -B $bb --nmax $nm --alrt $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 # -g $constr 
 
