@@ -15,7 +15,7 @@ os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/supergroups/')
 # # print(df)
 
 #one OTU table
-df = pd.read_csv('Archaeplastida.tsv', sep='\t')
+df = pd.read_csv('Obazoa.tsv', sep='\t')
 
 df[['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6']] = df.taxonomy.str.split('|', 5, expand=True)
 # print(df['rank3'])
