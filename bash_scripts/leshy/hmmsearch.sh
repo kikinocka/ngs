@@ -15,11 +15,11 @@ eval=1e-10
 
 #one profile and several databases
 workdir='/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/'
-profile=$workdir'NuoF.hmm'
+profile=$workdir'NuoE.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
-	out=$orgn'.NuoF.hmmsearch.tsv'
+	out=$orgn'.NuoE.hmmsearch.tsv'
 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 done
 
