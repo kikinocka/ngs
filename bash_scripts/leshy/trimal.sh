@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/4-MRO+HMMs_muscle_final_eval-1e-05/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/'
 
 for f in *.muscle.aln ; do
 	echo $f
