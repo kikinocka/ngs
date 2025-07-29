@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/'
+cd '/mnt/mokosz/home/kika/allDB/renamed/'
 threads=15
 eval=1e-10
 
