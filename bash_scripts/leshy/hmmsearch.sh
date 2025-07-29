@@ -1,27 +1,27 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/'
 threads=15
 eval=1e-10
 
-#several profiles and one database
-db='/mnt/mokosz/home/kika/allDB/all.faa'
-orgn='all'
+# #several profiles and one database
+# db='/mnt/mokosz/home/kika/allDB/all.faa'
+# orgn='all'
 
-for profile in *.hmm ; do
-	out=$orgn'_'${profile%.hmm}.hmmsearch.tsv
-	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
-done
-
-# #one profile and several databases
-# workdir='/mnt/mokosz/home/kika/workdir/'
-# profile=$workdir'archaea_eRF1.hmm'
-
-# for db in *.faa ; do
-# 	orgn=${db%.faa}
-# 	out=$orgn'.eRF1_hmmsearch.tsv'
+# for profile in *.hmm ; do
+# 	out=$orgn'_'${profile%.hmm}.hmmsearch.tsv
 # 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 # done
+
+#one profile and several databases
+workdir='/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/'
+profile=$workdir'NuoE.hmm'
+
+for db in *.faa ; do
+	orgn=${db%.faa}
+	out=$orgn'.NuoE.hmmsearch.tsv'
+	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+done
 
 # mv *tsv $workdir
 
