@@ -2,9 +2,9 @@
 import os
 from Bio import AlignIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/4-MRO+HMMs_muscle_final_eval-1e-05/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/')
 files = [x for x in os.listdir() if x.endswith('.aln')]
-out = 'eval-1e-05_len.tsv'
+out = 'NuoE-F_len.tsv'
 
 # #number of sequences
 # print(len(alignment))
