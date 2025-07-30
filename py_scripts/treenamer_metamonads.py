@@ -5,8 +5,8 @@ os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/')
 trees = [x for x in os.listdir() if x.endswith('.treefile')]
 
 # names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
-names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
-# names = open('/mnt/mokosz/home/kika/allDB/bacteria/bct.seq_dict.upd.tsv')
+# names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
+names = open('/mnt/mokosz/home/kika/allDB/bacteria/bct.seq_dict.upd.tsv')
 
 name_dict = {}
 for name in names:
