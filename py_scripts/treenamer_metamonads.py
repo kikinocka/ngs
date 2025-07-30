@@ -2,10 +2,10 @@
 import os
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/')
-trees = [x for x in os.listdir() if x.endswith('.tre')]
+trees = [x for x in os.listdir() if x.endswith('2.tre')]
 
-# names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
-names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
+names = open('/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/all.seq_dict_renamed.tsv')
+# names = open('/mnt/mokosz/home/kika/allDB/all.seq_dict.upd.tsv')
 # names = open('/mnt/mokosz/home/kika/allDB/bacteria/bct.seq_dict.upd.tsv')
 
 name_dict = {}
@@ -19,7 +19,7 @@ for name in names:
 for tree in trees:
 	print(tree)
 	name = tree.split('.')[0]
-	with open('{}.final_renamed2.tre'.format(name), 'w') as result:
+	with open('{}.final_renamed3.tre'.format(name), 'w') as result:
 		for tree_line in open(tree):
 			orgn_dirty = tree_line.strip().split(',')
 			for orgn in orgn_dirty:
