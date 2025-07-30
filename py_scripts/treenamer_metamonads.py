@@ -23,7 +23,7 @@ for tree in trees:
 		for tree_line in open(tree):
 			orgn_dirty = tree_line.strip().split(',')
 			for orgn in orgn_dirty:
-				orgn_clean = orgn.split(':')[0].replace('(', '').split('__eval')[0]
+				orgn_clean = orgn.split(':')[0].replace('(', '').split('_eval')[0]
 				if orgn_clean in name_dict.keys():
 					tree_line = tree_line.replace(orgn_clean, name_dict[orgn_clean])
 		result.write(tree_line)
