@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 for fasta in *.fa; do
 	echo $fasta
