@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 threads=10
 
