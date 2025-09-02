@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/allDB/renamed/'
+cd '/mnt/mokosz/home/kika/workdir/'
 threads=15
-eval=1e-10
+eval=1e-05
 
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
@@ -14,12 +14,12 @@ eval=1e-10
 # done
 
 #one profile and several databases
-workdir='/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/'
-profile=$workdir'NuoE.hmm'
+workdir='/mnt/mokosz/home/kika/workdir/'
+profile=$workdir'CLC.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
-	out=$orgn'.NuoE.hmmsearch.tsv'
+	out='CLC__'$orgn'.hmmsearch.tsv'
 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 done
 
