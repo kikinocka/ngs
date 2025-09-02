@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/workdir/'
 threads=15
-eval=1e-05
+# eval=1e-05
 
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
@@ -20,7 +20,7 @@ profile=$workdir'CLC.hmm'
 for db in *.faa ; do
 	orgn=${db%.faa}
 	out='CLC__'$orgn'.hmmsearch.tsv'
-	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+	hmmsearch --tblout $out --cpu $threads $profile $db
 done
 
 # mv *tsv $workdir
