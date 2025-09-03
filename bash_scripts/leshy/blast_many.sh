@@ -2,12 +2,12 @@
 
 cd '/mnt/mokosz/home/kika/workdir/'
 
-db='/mnt/mokosz/home/kika/allDB/all.faa'
-query='/mnt/mokosz/home/kika/workdir/CAD2221027.2.fasta'
+db='Homo_sapiens.faa'
+query='hmm_hits.fa'
 program=blastp
 task=blastp
 # outfmt=5
-eval=1e-05
+eval=1e-03
 max_seqs=1000
 max_hsps=1
 cpu=8
@@ -16,7 +16,7 @@ cpu=8
 $program -task $task \
 	-query $query \
 	-db $db \
-	-out CAD2221027.2.fwd_blast.tsv \
+	-out hmm_hits.rev_blast.tsv \
 	-num_threads $cpu \
 	-evalue $eval \
 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
