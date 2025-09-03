@@ -19,8 +19,8 @@ $program -task $task \
 	-out hmm_hits.rev_blast.tsv \
 	-num_threads $cpu \
 	-evalue $eval \
-	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
-	-max_target_seqs $max_seqs \
+	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
+	# -max_target_seqs $max_seqs \
 	# -max_hsps $max_hsps
 
 
