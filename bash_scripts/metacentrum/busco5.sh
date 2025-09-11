@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fsa_nt; do
+for fasta in *.fna; do
 	echo $fasta
 	# mode='proteins'
 	mode='genome'
