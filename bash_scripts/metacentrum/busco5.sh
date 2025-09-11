@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/Egr_2024'
 
 #copy files to scratch
-cp $assembly_dir'/'*.fa $SCRATCHDIR
+cp $assembly_dir'/'*.fsa_nt $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,9 +26,11 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fa; do
+for fasta in *.fsa_nt; do
 	echo $fasta
-	mode='proteins'
+	# mode='proteins'
+	# mode='genome'
+	mode='transcriptome'
 	
 	lineage='eukaryota_odb10'
 	base=${fasta%.fa}_$lineage
@@ -45,5 +47,5 @@ done
 
 
 #copy files back
-rm *.fa
+rm *.fsa_nt
 cp -r * $assembly_dir
