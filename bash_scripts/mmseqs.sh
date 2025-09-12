@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cd '/Users/kika/ownCloud/diplonema/TCA_cycle/IDH_tree/ver4/'
+cd '/Users/kika/Downloads/'
 
-fasta='refs.fa'
-clustered='refs_clstr_2'
-seqid=0.99
+fasta='Egr_Petr.fa'
+clustered='Egr_Petr_clstr'
+seqid=0.95
 coverage=0.5
 mode=0
 
