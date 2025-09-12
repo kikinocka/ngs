@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/Egr_2024'
 
 #copy files to scratch
-cp $assembly_dir'/BUSCO_summaries'* $SCRATCHDIR
+cp -r $assembly_dir'/BUSCO_summaries'* $SCRATCHDIR
 
 
 #compute on scratch
