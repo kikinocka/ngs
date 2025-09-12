@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/Egr_2024'
 
 #copy files to scratch
-cp -r $assembly_dir'/BUSCO_summaries'* $SCRATCHDIR
+cp $assembly_dir'/Egr_Petr.fa' $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,27 +26,26 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-# for fasta in *.fsa_nt; do
-# 	echo $fasta
-# 	# mode='proteins'
-# 	# mode='genome'
-# 	mode='transcriptome'
+for fasta in *.fa; do
+	echo $fasta
+	mode='proteins'
+	# mode='genome'
+	# mode='transcriptome'
 	
-# 	lineage='eukaryota_odb10'
-# 	base=${fasta%.fa}_$lineage
-# 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
-# 	# cp $base'/short_summary.'$base'.txt' BUSCO_summaries
+	lineage='eukaryota_odb10'
+	base=${fasta%.fa}_$lineage
+	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
+	# cp $base'/short_summary.'$base'.txt' BUSCO_summaries
 
-# 	lineage='euglenozoa_odb10'
-# 	base=${fasta%.fa}_$lineage
-# 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
-# 	# cp $base'/short_summary.'$base'.txt' BUSCO_summaries
-# done
+	lineage='euglenozoa_odb10'
+	base=${fasta%.fa}_$lineage
+	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
+	# cp $base'/short_summary.'$base'.txt' BUSCO_summaries
+done
 
-generate_plot.py -wd BUSCO_summaries_eug
-generate_plot.py -wd BUSCO_summaries_euk
+# generate_plot.py -wd BUSCO_summaries
 
 
 #copy files back
-# rm *.fsa_nt
+rm *.fa
 cp -r * $assembly_dir
