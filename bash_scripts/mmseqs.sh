@@ -2,8 +2,8 @@
 
 cd '/Users/kika/Downloads/'
 
-fasta='Egr_Petr.fa'
-clustered='Egr_Petr_clstr'
+fasta='HBDM01.transdecoder.faa'
+clustered='HBDM01.transdecoder_clstr'
 seqid=0.95
 coverage=0.5
 mode=0

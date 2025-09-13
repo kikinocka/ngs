@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/Egr_2024'
 
 #copy files to scratch
-cp $assembly_dir'/Egr_Petr.fa' $SCRATCHDIR
+cp $assembly_dir'/HBDM01.transdecoder.'* $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fa; do
+for fasta in *.fa*; do
 	echo $fasta
 	mode='proteins'
 	# mode='genome'
@@ -47,5 +47,5 @@ done
 
 
 #copy files back
-rm *.fa
+rm *.fa*
 cp -r * $assembly_dir
