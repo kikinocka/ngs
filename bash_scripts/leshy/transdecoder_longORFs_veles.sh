@@ -1,7 +1,7 @@
 #!/bin/bash
 
-workdir='/mnt/mokosz/home/kika/eukDB/'
-fasta='Microheliella_maris.fna'
+workdir='/mnt/mokosz/home/kika/egracilis/HBDM/'
+fasta='HBDM01.1.fsa_nt'
 
 cd $workdir
 TransDecoder.LongOrfs -t $fasta
