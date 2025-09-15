@@ -9,25 +9,25 @@
 cat $PBS_NODEFILE
 
 #add module
-module add interproscan-5.55-88.0
+module add interproscan
 
-datadir='/storage/brno3-cerit/home/kika/blasto_comparative/proteins_blasto'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/lmaj_virulence/'
 
 #copy files to scratch
-cp $datadir'/'*final.faa $SCRATCHDIR
+cp $datadir'lmaj_DGE_all.fa' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for fasta in *.faa; do
+for fasta in *.fa; do
 	echo $fasta
 	out=${fasta%.faa}.interpro
-	interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $fasta -b $out -appl Pfam -goterms --pathways -iprlookup
+	interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $fasta -b $out -goterms --pathways -iprlookup
 	#-f TSV,GFF3
 	#-appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther 
 done
 
 #copy files back
-rm *.faa
+rm *.fa
 cp -r * $datadir
