@@ -15,7 +15,7 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/Egr_2024'
+assembly_dir='/storage/brno12-cerit/home/kika/Egr_2025'
 
 #copy files to scratch
 cp $assembly_dir'/HBDM01.transdecoder_clstr99.rep_seq.fasta' $SCRATCHDIR
