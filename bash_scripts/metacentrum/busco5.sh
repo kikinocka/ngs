@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/Egr_2024'
 
 #copy files to scratch
-cp $assembly_dir'/HBDM01.transdecoder_clstr.rep_seq.fasta' $SCRATCHDIR
+cp $assembly_dir'/HBDM01.transdecoder_clstr99.rep_seq.fasta' $SCRATCHDIR
 
 
 #compute on scratch
@@ -48,4 +48,4 @@ done
 
 #copy files back
 rm *.fasta
-cp -r * $assembly_dir
+cp -r * $assembly_dir'/busco/'

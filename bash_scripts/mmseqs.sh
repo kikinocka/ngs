@@ -4,7 +4,7 @@ cd '/Users/kika/Downloads/'
 
 fasta='HBDM01.transdecoder.faa'
 clustered='HBDM01.transdecoder_clstr'
-seqid=0.95
+seqid=0.99
 coverage=0.5
 mode=0
 
