@@ -8,30 +8,30 @@
 cat $PBS_NODEFILE
 
 tRNAscan='/storage/brno12-cerit/home/kika/miniconda3/bin/tRNAscan-SE'
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/endosymbionts_tRNAs/'
+data_dir='/storage/brno12-cerit/home/kika/tRNA-aaRS/'
 
 #copy files to scratch
-cp $data_dir'/'*.fa $SCRATCHDIR
+cp $data_dir'/'*_genome.fna $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fa ; do
+for genome in *.fna ; do
 	echo $genome
 
-	table=${genome%.fa}.tRNAscan_table.tsv
-	seq=${genome%.fa}.tRNAscan.fa
-	structures=${genome%.fa}.tRNAscan_structures.txt
+	table=${genome%.fna}.tRNAscan_table.tsv
+	seq=${genome%.fna}.tRNAscan.fa
+	structures=${genome%.fna}.tRNAscan_structures.txt
 
-	# #eukaryotic tRNAs
-	# $tRNAscan --thread $PBS_NUM_PPN -E -o $table -a $seq -f $structures ${genome}
+	#eukaryotic tRNAs
+	$tRNAscan --thread $PBS_NUM_PPN -E -o $table -a $seq -f $structures $genome
 
 	# #bacterial tRNAs
-	$tRNAscan --thread $PBS_NUM_PPN -B -o $table -a $seq -f $structures ${genome}
+	# $tRNAscan --thread $PBS_NUM_PPN -B -o $table -a $seq -f $structures $genome
 done
 
 
 #copy files back
-rm *.fa
+rm *.fna
 cp * $data_dir
