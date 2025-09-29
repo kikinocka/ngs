@@ -24,7 +24,6 @@ cd $SCRATCHDIR
 db='nr'
 program=blastp
 task=blastp
-# task=megablast
 evalue=1e-10
 max_seqs=1
 max_hsps=1
