@@ -14,13 +14,13 @@ import os
 # 		 	result.write('{}\t{}\n'.format(value, key))
 
 
-os.chdir('/Users/kika/ownCloud/metamonada/MRO_proteins/')
+os.chdir('/Users/kika/ownCloud/metamonada/alphaprot_contribution/MRO_proteins/')
 infile = open('orig.txt')
 
 Morigins = {}
 Eorigins = {}
 Noorigin = {}
-with open('all.tsv', 'w') as result:
+with open('oxymonadida.tsv', 'w') as result:
 	for line in infile:
 		if line.strip() == '-':
 			if line.strip() not in Noorigin:

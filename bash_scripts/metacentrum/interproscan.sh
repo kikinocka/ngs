@@ -9,7 +9,8 @@
 cat $PBS_NODEFILE
 
 #add module
-module add interproscan
+# module add interproscan
+mamba activate interproscan-5.75-106.0
 
 datadir='/storage/brno12-cerit/home/kika/kinetoplastids/lmaj_virulence/'
 
