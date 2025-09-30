@@ -7,7 +7,7 @@ query='hmm_hits.fa'
 program=blastp
 task=blastp
 # outfmt=5
-eval=1e-02
+# eval=1e-05
 max_seqs=1000
 max_hsps=1
 cpu=8
@@ -18,8 +18,8 @@ $program -task $task \
 	-db $db \
 	-out hmm_hits.rev_blast.tsv \
 	-num_threads $cpu \
-	-evalue $eval \
 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
+	# -evalue $eval \
 	# -max_target_seqs $max_seqs \
 	# -max_hsps $max_hsps
 
