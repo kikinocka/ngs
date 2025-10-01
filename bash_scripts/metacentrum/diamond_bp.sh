@@ -8,30 +8,30 @@
 cat $PBS_NODEFILE
 
 #add module
-module add diamond-0.8.29
+module add diamond
 
 db='/storage/brno3-cerit/home/kika/dmnd/refseq.dmnd'
-data_dir='/storage/brno3-cerit/home/kika/diplonema/oxphos'
+data_dir='/storage/brno12-cerit/home/kika/Egr_2025/'
 taxify='/storage/brno2/home/kika/scripts/py_scripts/taxify_DMND_nr_gz.py'
 
 
 #copy files to scratch
-cp $data_dir'/'*.fa $SCRATCHDIR
+cp $data_dir'HBDM01.transdecoder_clstr99.rep_seq.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-eval=1e-3
+eval=1e-10
 max_seqs=1
 
-for query in *.fa ; do
+for query in *.fasta ; do
 	echo $query
 	out=${query%.fa}.dmnd.out
 	diamond blastp \
 		-q $query \
 		-d $db \
 		-o $out \
-		--outfmt 6 qseqid bitscore sseqid qcovhsp pident qlen length \
+		--outfmt 6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send \
 		--threads $PBS_NUM_PPN \
 		--evalue $eval \
 		--max-target-seqs $max_seqs \
@@ -42,5 +42,5 @@ done
 
 
 #copy files back
-rm *.fa
+rm *.fasta
 mv * $data_dir
