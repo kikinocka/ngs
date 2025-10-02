@@ -19,9 +19,9 @@ $program -task $task \
 	-out fwd_hits.rev_blast.tsv \
 	-num_threads $cpu \
 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
-	# -evalue $eval \
 	-max_target_seqs $max_seqs \
 	-max_hsps $max_hsps
+	# -evalue $eval \
 
 
 # #many queries, one database
