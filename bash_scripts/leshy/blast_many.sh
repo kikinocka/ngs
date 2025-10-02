@@ -1,14 +1,14 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
 
-db='Homo_sapiens.faa'
-query='hmm_hits.fa'
+db='Dysnectes_brevis.faa'
+query='fwd_hits.fa'
 program=blastp
 task=blastp
 # outfmt=5
 # eval=1e-05
-max_seqs=1000
+max_seqs=1
 max_hsps=1
 cpu=8
 
@@ -16,12 +16,12 @@ cpu=8
 $program -task $task \
 	-query $query \
 	-db $db \
-	-out hmm_hits.rev_blast.tsv \
+	-out fwd_hits.rev_blast.tsv \
 	-num_threads $cpu \
 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
 	# -evalue $eval \
-	# -max_target_seqs $max_seqs \
-	# -max_hsps $max_hsps
+	-max_target_seqs $max_seqs \
+	-max_hsps $max_hsps
 
 
 # #many queries, one database
