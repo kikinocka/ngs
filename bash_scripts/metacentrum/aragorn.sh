@@ -8,16 +8,16 @@
 cat $PBS_NODEFILE
 
 aragorn='/storage/brno12-cerit/home/kika/miniconda3/bin/aragorn'
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/endosymbionts_tRNAs'
+data_dir='/storage/brno12-cerit/home/kika/tRNA-aaRS/'
 
 #copy files to scratch
-cp $data_dir'/'*.fa $SCRATCHDIR
+cp $data_dir'Dhan_genome.fna' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for genome in *.fa ; do
+for genome in *.fna ; do
 	echo $genome
 	
 	#no secondary structures
@@ -31,5 +31,5 @@ done
 
 
 #copy files back
-rm *genome.fa
+rm *.fna
 cp * $data_dir
