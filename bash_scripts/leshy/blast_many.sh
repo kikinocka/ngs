@@ -46,8 +46,8 @@ for db in *faa ; do
 		-db $db \
 		-out ${db%.faa}.dbrev_CLC.fwd_blast.tsv \
 		-num_threads $cpu \
-		-evalue $eval \
-		-outfmt 6
+		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send'
+		#-evalue $eval \
 done
 
 
