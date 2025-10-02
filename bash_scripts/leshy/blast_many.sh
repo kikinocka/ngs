@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
-# db='Homo_sapiens.faa'
-query='Dbrev.fa'
+db='Homo_sapiens.faa'
+query='hmm_hits.fa'
 program=blastp
 task=blastp
 # outfmt=5
@@ -12,16 +12,16 @@ max_seqs=1000
 max_hsps=1
 cpu=8
 
-# #one query, one database
-# $program -task $task \
-# 	-query $query \
-# 	-db $db \
-# 	-out hmm_hits.rev_blast.tsv \
-# 	-num_threads $cpu \
-# 	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
-# 	# -evalue $eval \
-# 	# -max_target_seqs $max_seqs \
-# 	# -max_hsps $max_hsps
+#one query, one database
+$program -task $task \
+	-query $query \
+	-db $db \
+	-out hmm_hits.rev_blast.tsv \
+	-num_threads $cpu \
+	-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' \
+	# -evalue $eval \
+	# -max_target_seqs $max_seqs \
+	# -max_hsps $max_hsps
 
 
 # #many queries, one database
@@ -38,17 +38,17 @@ cpu=8
 # 		# -max_hsps $max_hsps
 # done
 
-#one query, many databases
-for db in *faa ; do
-	echo $db
-	$program -task $task \
-		-query $query \
-		-db $db \
-		-out ${db%.faa}.dbrev_CLC.fwd_blast.tsv \
-		-num_threads $cpu \
-		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send'
-		#-evalue $eval \
-done
+# #one query, many databases
+# for db in *faa ; do
+# 	echo $db
+# 	$program -task $task \
+# 		-query $query \
+# 		-db $db \
+# 		-out ${db%.faa}.CAD2221027.fwd_blast.tsv \
+# 		-num_threads $cpu \
+# 		-evalue $eval \
+# 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
+# done
 
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
