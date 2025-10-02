@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N diamond-bp
 #PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -17,7 +17,7 @@ taxify='/storage/brno2/home/kika/scripts/py_scripts/taxify_DMND_nr_gz.py'
 
 #copy files to scratch
 cp $data_dir'HBDM01.transdecoder_clstr99.rep_seq.fasta' $SCRATCHDIR
-cp $db_dir'nr' $SCRATCHDIR
+cp $db_dir'nr'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
