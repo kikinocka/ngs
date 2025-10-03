@@ -18,8 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/dicty_LOPIT/amoebozoa/'
 
 #copy files to scratch
-cp $assembly_dir'Ceratiomyxa_porioides.faa' $SCRATCHDIR
-cp $assembly_dir'Stygamoeba_regulata.faa' $SCRATCHDIR
+cp $assembly_dir'CporoMBa'* $SCRATCHDIR
 
 
 #compute on scratch
