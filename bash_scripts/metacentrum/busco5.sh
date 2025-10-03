@@ -15,10 +15,10 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/Egr_2025'
+assembly_dir='/storage/brno12-cerit/home/kika/dicty_LOPIT/amoebozoa'
 
 #copy files to scratch
-cp $assembly_dir'/HBDM01.transdecoder_clstr99.rep_seq.fasta' $SCRATCHDIR
+cp $assembly_dir'/'*faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fasta; do
+for fasta in *.faa; do
 	echo $fasta
 	mode='proteins'
 	# mode='genome'
@@ -37,10 +37,10 @@ for fasta in *.fasta; do
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
 
-	lineage='euglenozoa_odb10'
-	base=${fasta%.fa}_$lineage
-	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
-	# cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
+	# lineage='euglenozoa_odb10'
+	# base=${fasta%.fa}_$lineage
+	# busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
+	# # cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
 done
 
 # generate_plot.py -wd BUSCO_summaries
