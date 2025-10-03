@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/Downloads/forn-bask/')
-files = [x for x in os.listdir() if x.endswith('PCE.faa')]
+os.chdir('/Users/kika/Downloads/')
+files = [x for x in os.listdir() if x.endswith('.faa')]
 
 for infile in files:
 	print(infile)

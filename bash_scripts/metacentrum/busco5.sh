@@ -15,10 +15,11 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/dicty_LOPIT/amoebozoa'
+assembly_dir='/storage/brno12-cerit/home/kika/dicty_LOPIT/amoebozoa/'
 
 #copy files to scratch
-cp $assembly_dir'/'*faa $SCRATCHDIR
+cp $assembly_dir'Ceratiomyxa_porioides.faa' $SCRATCHDIR
+cp $assembly_dir'Stygamoeba_regulata.faa' $SCRATCHDIR
 
 
 #compute on scratch
@@ -47,5 +48,5 @@ done
 
 
 #copy files back
-rm *.fasta
-cp -r * $assembly_dir'/busco/'
+rm *.faa
+cp -r * $assembly_dir
