@@ -9,14 +9,14 @@ from Bio import SeqIO
 Entrez.email = 'kika.zahonova@gmail.com'
 Entrez.api_key = 'f1bd64d3d0c99b6455dd3ba822a2e6459a08'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/fornicates_basks/')
-acc = open('rev_hits.acc')
+os.chdir('/mnt/mokosz/home/kika/egracilis/HBDM/')
+acc = open('hits.acc')
 
 ids = []
 for line in acc:
 	ids.append(line.strip())
 
-with open('rev_hits.txt', 'w') as out, open('rev_hits.errors', 'w') as errors:
+with open('hits.tsv', 'w') as out, open('hits.errors', 'w') as errors:
 	for prot_id in ids:
 		#get lineage based on accessions
 		try:
