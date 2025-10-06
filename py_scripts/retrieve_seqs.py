@@ -4,8 +4,8 @@ from Bio import SeqIO
 
 os.chdir('/mnt/mokosz/home/kika/workdir/forn-bask/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-database = 'all.fasta'
-# database = 'Skoliomonas_spGEMRC.faa'
+# database = 'all.fasta'
+database = 'Skoliomonas_spGEMRC.faa'
 # database = 'Skoliomonas_spRCL.faa'
 
 for accessions in files: 
