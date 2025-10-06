@@ -45,7 +45,7 @@ for db in *faa ; do
 		-query $query \
 		-db $db \
 		-out ${db%.faa}.gint_CLC.fwd_blast.tsv \
-		-num_threads $cpu \		
+		-num_threads $cpu \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
 done
 #-evalue $eval \
