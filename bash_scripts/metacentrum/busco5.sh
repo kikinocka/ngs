@@ -15,10 +15,10 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/dicty_LOPIT/amoebozoa/'
+assembly_dir='/storage/brno12-cerit/home/kika/Egr_2025/'
 
 #copy files to scratch
-cp $assembly_dir'CporoMBa'* $SCRATCHDIR
+cp $assembly_dir'egracilis_mito_plast_nucl.merge.v2.faa' $SCRATCHDIR
 
 
 #compute on scratch
