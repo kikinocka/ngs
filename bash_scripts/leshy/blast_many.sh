@@ -48,7 +48,7 @@ for db in *faa ; do
 		-num_threads $cpu \
 		-outfmt '6 qseqid qlen sseqid slen length evalue pident bitscore mismatch gaps qstart qend sstart send' 
 done
--evalue $eval \
+#-evalue $eval \
 
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
