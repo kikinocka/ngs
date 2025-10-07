@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
 threads=15
 eval=1e-05
 
@@ -14,13 +14,13 @@ eval=1e-05
 # done
 
 #one profile and several databases
-workdir='/mnt/mokosz/home/kika/workdir/'
+workdir='/mnt/mokosz/home/kika/workdir/forn-bask/'
 profile=$workdir'CLC.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
 	out='CLC__'$orgn'.hmmsearch.tsv'
-	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+	hmmsearch --tblout $out --cpu $threads -max -E $eval $profile $db
 done
 
 # mv *tsv $workdir
