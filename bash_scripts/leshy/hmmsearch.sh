@@ -20,7 +20,7 @@ profile=$workdir'CLC.hmm'
 for db in *.faa ; do
 	orgn=${db%.faa}
 	out='CLC__'$orgn'.hmmsearch.tsv'
-	hmmsearch --tblout $out --cpu $threads -max -E $eval $profile $db
+	hmmsearch --tblout $out --cpu $threads --max -E $eval $profile $db
 done
 
 # mv *tsv $workdir
