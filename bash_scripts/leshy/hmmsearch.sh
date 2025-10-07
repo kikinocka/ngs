@@ -15,7 +15,7 @@ eval=1e-05
 
 #one profile and several databases
 workdir='/mnt/mokosz/home/kika/workdir/forn-bask/'
-profile=$workdir'CLC.hmm'
+profile=$workdir'forn_CLC.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
