@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
+cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
 
 threads=10
 
