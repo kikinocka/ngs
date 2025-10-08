@@ -26,7 +26,7 @@ profile='noGiar_CLC.hmm'
 for db in Giardia*.faa ; do
 	orgn=${db%.faa}
 	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+	hmmsearch --tblout $out --cpu $threads $profile $db
 done
 # --max	Turn all heuristic filters off (less speed, more power) 
 
