@@ -4,11 +4,11 @@ cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
 threads=15
 eval=1e-05
 
-# #one profile and one database
-# db='Spironucleus_salmonicda.faa'
-# profile='noSsal_CLC.hmm'
-# out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-# hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+#one profile and one database
+db='Aduncisulcus_paluster.faa'
+profile='noApal_CLC.hmm'
+out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
+hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 
 
 # #several profiles and one database
@@ -20,15 +20,16 @@ eval=1e-05
 # 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 # done
 
-#one profile and several databases
-profile='noGiar_CLC.hmm'
 
-for db in Giardia*.faa ; do
-	orgn=${db%.faa}
-	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-	hmmsearch --tblout $out --cpu $threads $profile $db
-done
-# --max	Turn all heuristic filters off (less speed, more power) 
+# #one profile and several databases
+# profile='noGiar_CLC.hmm'
+
+# for db in Giardia*.faa ; do
+# 	orgn=${db%.faa}
+# 	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
+# 	hmmsearch --tblout $out --cpu $threads $profile $db
+# done
+# # --max	Turn all heuristic filters off (less speed, more power) 
 
 
 # #several profiles and several databases
