@@ -8,7 +8,7 @@ eval=1e-05
 db='Aduncisulcus_paluster.faa'
 profile='noApal_CLC.hmm'
 out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+hmmsearch --tblout $out --cpu $threads $profile $db
 
 
 # #several profiles and one database
@@ -27,7 +27,7 @@ hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 # for db in Giardia*.faa ; do
 # 	orgn=${db%.faa}
 # 	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-# 	hmmsearch --tblout $out --cpu $threads $profile $db
+# 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 # done
 # # --max	Turn all heuristic filters off (less speed, more power) 
 
