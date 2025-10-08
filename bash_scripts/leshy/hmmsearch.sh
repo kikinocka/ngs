@@ -8,7 +8,7 @@ eval=1e-05
 db='Trepomonas_spPC1.faa'
 profile='noTPC1_CLC.hmm'
 out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-hmmsearch --tblout $out --cpu $threads $profile $db
+hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 
 
 # #several profiles and one database
