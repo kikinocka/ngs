@@ -4,6 +4,13 @@ cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
 threads=15
 eval=1e-05
 
+#one profile and one database
+db='Aduncisulcus_paluster.faa'
+profile='noApal_CLC.hmm'
+out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
+hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+
+
 # #several profiles and one database
 # db='/mnt/mokosz/home/kika/allDB/all.faa'
 # orgn='all'
@@ -13,16 +20,16 @@ eval=1e-05
 # 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 # done
 
-#one profile and several databases
-workdir='/mnt/mokosz/home/kika/workdir/forn-bask/'
-profile=$workdir'forn_CLC.hmm'
+# #one profile and several databases
+# workdir='/mnt/mokosz/home/kika/workdir/forn-bask/'
+# profile=$workdir'forn_CLC.hmm'
 
-for db in *.faa ; do
-	orgn=${db%.faa}
-	out='CLC__'$orgn'.hmmsearch.tsv'
-	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
-done
-# --max	Turn all heuristic filters off (less speed, more power) 
+# for db in *.faa ; do
+# 	orgn=${db%.faa}
+# 	out='CLC__'$orgn'.hmmsearch.tsv'
+# 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+# done
+# # --max	Turn all heuristic filters off (less speed, more power) 
 
 # mv *tsv $workdir
 
