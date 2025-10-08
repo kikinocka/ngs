@@ -5,8 +5,8 @@ threads=15
 eval=1e-05
 
 #one profile and one database
-db='Giardia_muris.faa'
-profile='noGiar_CLC.hmm'
+db='Retortamonas_caviae.faa'
+profile='noReto_CLC.hmm'
 out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
 hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 
