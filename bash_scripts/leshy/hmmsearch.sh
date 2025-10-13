@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/'
 threads=15
 eval=1e-10
 
@@ -22,9 +22,8 @@ eval=1e-10
 
 
 #one profile and several databases
-profile='/mnt/mokosz/home/kika/metamonads/MRO_proteins/Homp38.hmm'
+profile='Homp38.hmm'
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/'
 for db in *.faa ; do
 	orgn=${db%.faa}
 	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
