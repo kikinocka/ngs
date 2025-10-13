@@ -1,14 +1,14 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/'
 threads=15
-eval=1e-05
+eval=1e-10
 
-#one profile and one database
-db='Trepomonas_spPC1.faa'
-profile='noTPC1_CLC.hmm'
-out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+# #one profile and one database
+# db='Trepomonas_spPC1.faa'
+# profile='noTPC1_CLC.hmm'
+# out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
+# hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 
 
 # #several profiles and one database
@@ -21,15 +21,15 @@ hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
 # done
 
 
-# #one profile and several databases
-# profile='noGiar_CLC.hmm'
+#one profile and several databases
+profile='Homp38.hmm'
 
-# for db in Giardia*.faa ; do
-# 	orgn=${db%.faa}
-# 	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
-# 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
-# done
-# # --max	Turn all heuristic filters off (less speed, more power) 
+for db in Giardia*.faa ; do
+	orgn=${db%.faa}
+	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
+	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
+done
+# --max	Turn all heuristic filters off (less speed, more power) 
 
 
 # #several profiles and several databases
