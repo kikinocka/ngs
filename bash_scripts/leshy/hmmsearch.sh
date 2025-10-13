@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/'
+# cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/'
 threads=15
 eval=1e-10
 
@@ -22,9 +22,10 @@ eval=1e-10
 
 
 #one profile and several databases
-profile='Homp38.hmm'
+profile='/mnt/mokosz/home/kika/metamonads/MRO_proteins/Homp38.hmm'
 
-for db in Giardia*.faa ; do
+cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/'
+for db in *.faa ; do
 	orgn=${db%.faa}
 	out=${db%.faa}'.'${profile%.hmm}.hmmsearch.tsv
 	hmmsearch --tblout $out --cpu $threads -E $eval $profile $db
