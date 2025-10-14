@@ -22,7 +22,7 @@ eval=1e-10
 
 
 #one profile and several databases
-profile='CT.hmm'
+profile='Hmp35.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
