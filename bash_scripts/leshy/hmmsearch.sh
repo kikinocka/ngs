@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/allDB/renamed/'
 threads=15
-eval=1e-10
+eval=1e-05
 
 # #one profile and one database
 # db='Trepomonas_spPC1.faa'
