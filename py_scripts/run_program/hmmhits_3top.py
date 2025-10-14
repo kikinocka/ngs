@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/new/')
+os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/')
 files = [x for x in os.listdir() if x.endswith('hmm_hits.fa')]
 
 for file in files:
