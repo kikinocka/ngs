@@ -2,11 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/mnt/mokosz/home/kika/workdir/forn-bask/')
+os.chdir('/Users/kika/ownCloud/Lmaj_virulence/')
 files = [x for x in os.listdir() if x.endswith('.acc')]
-# database = 'all.fasta'
-# database = 'Skoliomonas_spGEMRC.faa'
-database = 'Skoliomonas_spRCL.faa'
+database = 'lmaj_DGE_all.fa'
 
 for accessions in files: 
 	print(accessions)
