@@ -7,8 +7,8 @@ hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 os.chdir('/Users/kika/ownCloud/euglenozoa_mito/ERMES/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/EGALL_6frames.fasta'
-orgn = 'egra_GEFR+GDJR'
+db = '/Users/kika/data/kinetoplastids/TriTrypDB-56_TbruceiTREU927_AnnotatedProteins.fasta'
+orgn = 'tbru'
 evalue = 1e-05
 
 for file in files:
