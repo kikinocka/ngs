@@ -3,7 +3,7 @@ import os
 from Bio import AlignIO
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/')
-files = [x for x in os.listdir() if x.endswith('trimal_at1.aln')]
+files = [x for x in os.listdir() if x.endswith('trimal_gt-0.8.aln')]
 out = 'additions_len.tsv'
 
 # #number of sequences
