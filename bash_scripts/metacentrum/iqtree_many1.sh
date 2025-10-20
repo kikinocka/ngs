@@ -13,7 +13,7 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/'
 
 #copy files to scratch
-cp $data_dir'NuoE.mro+hmm.final.trimal_at1.aln' $SCRATCHDIR
+cp $data_dir'CT.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch

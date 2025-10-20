@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N IQT-many2
+#PBS -N IQT-many3
 #PBS -l select=1:ncpus=15:mem=25gb:scratch_local=10gb
 #PBS -l walltime=336:00:00
 #PBS -m ae
@@ -13,7 +13,7 @@ module load iqtree-2.2.0
 data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins/'
 
 #copy files to scratch
-cp $data_dir'Homp38.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Tv132350.mro+hmm.final.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
