@@ -4,8 +4,8 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/ownCloud/metamonada/alphaprot_contribution/MRO_proteins/')
-files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/Downloads/')
+files = [x for x in os.listdir() if x.endswith('Chrsim136_1_FilteredModels1_proteins_2025-02-25.fasta')]
 
 for infile in files:
 	print(infile)

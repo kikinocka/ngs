@@ -5,43 +5,44 @@
 #PBS -l nodes=1:ppn=80
 #PBS -l walltime=600:00:00
 
-cd '/mnt/data/kika/blastocrithidia/b_nonstop/'
+cd '/home/users/kika/strigomonadinae/'
 
-ref='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/p57_polished.fa'
-p1_1='genome_reads/p57_trimmed_1.fq.gz'
-p1_2='genome_reads/p57_trimmed_2.fq.gz'
-base_name='bowtie2/bnon_bw2'
-samfile=$base_name'.sam'
-mapped=$base_name'_mapped.fq.gz'
-unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
-unmapped_paired=$base_name'_unmapped_paired.fq.gz'
-report=$base_name'.report.txt'
-bamfile=$base_name'_unsorted.bam'
-sorted=$base_name'_sorted.bam'
+# ref='/mnt/data/kika/blastocrithidia/genomes/final_assemblies/p57_polished.fa'
+# p1_1='genome_reads/p57_trimmed_1.fq.gz'
+# p1_2='genome_reads/p57_trimmed_2.fq.gz'
+# base_name='bowtie2/bnon_bw2'
+# samfile=$base_name'.sam'
+# mapped=$base_name'_mapped.fq.gz'
+# unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
+# unmapped_paired=$base_name'_unmapped_paired.fq.gz'
+# report=$base_name'.report.txt'
+# bamfile=$base_name'_unsorted.bam'
+# sorted=$base_name'_sorted.bam'
 
 
 eval "$(/home/users/kika/miniconda3/bin/conda shell.bash hook)"
 conda activate bowtie2
 
-bowtie2-build $ref $base_name
+# bowtie2-build $ref $base_name
 
-#paired-end reads
-bowtie2 --very-sensitive -p 50 \
-	-x $base_name \
-	-1 $p1_1 \
-	-2 $p1_2 \
-	--un-gz $unmapped_unpaired \
-	--un-conc-gz $unmapped_paired \
-	--al-conc-gz $mapped \
-	-S $samfile 2> $report
-	# -U $r1,$r2 \
-	#--no-unal \ #writes only mapped reads to sam file
+# #paired-end reads
+# bowtie2 --very-sensitive -p 50 \
+# 	-x $base_name \
+# 	-1 $p1_1 \
+# 	-2 $p1_2 \
+# 	--un-gz $unmapped_unpaired \
+# 	--un-conc-gz $unmapped_paired \
+# 	--al-conc-gz $mapped \
+# 	-S $samfile 2> $report
+# 	# -U $r1,$r2 \
+# 	#--no-unal \ #writes only mapped reads to sam file
 
 
-# samtools view -bS -F 4 $samfile > $bamfile -@ 50 #writes only mapped reads to bamfile
-samtools view -bS -@ 50 $samfile > $bamfile
-samtools sort -o $sorted -@ 50 $bamfile 
-samtools index -b $sorted
+# # samtools view -bS -F 4 $samfile > $bamfile -@ 50 #writes only mapped reads to bamfile
+# samtools view -bS -@ 50 $samfile > $bamfile
+# samtools sort -o $sorted -@ 50 $bamfile 
+# samtools index -b $sorted
+samtools index -b mu19.sorted.bam
 
 conda deactivate
 
