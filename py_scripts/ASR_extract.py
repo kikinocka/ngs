@@ -2,13 +2,13 @@
 import os
 import heapq
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/SNAREs_ASR/')
-states = 'AllSNAREs.phy.state'
-ASR1 = 'Gos28-membrin_ASR1.fa'
-ASR2 = 'Gos28-membrin_ASR2.fa'
-probabilities1 = 'Gos28-membrin_ASR1_prob.tsv'
-probabilities2 = 'Gos28-membrin_ASR2_prob.tsv'
-node = '227'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/ARFs_ASR/Carpedi_Arf6_removed/ASR-IQ/')
+states = 'combinedArfsRoot__Carpedi_Arf6_removed.phy.state'
+ASR1 = 'Arl1-5_ASR1.fa'
+ASR2 = 'Arl1-5_ASR2.fa'
+probabilities1 = 'Arl1-5_ASR1_prob.tsv'
+probabilities2 = 'Arl1-5_ASR2_prob.tsv'
+node = '160'
 primary = ''
 secondary = ''
 prob1 = []
