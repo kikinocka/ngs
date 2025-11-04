@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/MRO_proteins/metamonads_assemblies/'
+cd '/mnt/mokosz/home/kika/allDB/renamed/'
 threads=15
 eval=1e-10
 
@@ -22,7 +22,7 @@ eval=1e-10
 
 
 #one profile and several databases
-profile='Gi7188.hmm'
+profile='Gi13922.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
