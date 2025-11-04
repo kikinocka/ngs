@@ -3,8 +3,8 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/metamonada/alphaprot_contribution/MRO_proteins/hmm/')
-files = [x for x in os.listdir() if x.endswith('CT.fa')]
+os.chdir('/Users/kika/ownCloud/metamonada/alphaprot_contribution/MRO_proteins/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for infile in files:
 	print(infile)
