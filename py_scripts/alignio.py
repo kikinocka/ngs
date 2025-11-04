@@ -4,7 +4,7 @@ from Bio import AlignIO
 
 os.chdir('/mnt/mokosz/home/kika/metamonads/MRO_proteins/')
 files = [x for x in os.listdir() if x.endswith('.aln')]
-out = 'additions_len.tsv'
+out = 'Gi_additions_len.tsv'
 
 # #number of sequences
 # print(len(alignment))
