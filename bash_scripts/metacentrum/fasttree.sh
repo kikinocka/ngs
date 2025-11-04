@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module load fasttree
 
 
-data_dir='/storage/brno12-cerit/home/kika/metamonads/MRO_proteins'
+data_dir='/storage/brno12-cerit/home/kika/metamonads'
 
 #copy files to scratch
 cp $data_dir'/'*.aln $SCRATCHDIR
