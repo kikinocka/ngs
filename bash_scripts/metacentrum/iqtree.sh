@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='meta:/storage/brno12-cerit/home/kika/membrane-trafficking/clathrin/tree//'
+datadir='meta:/storage/brno12-cerit/home/kika/membrane-trafficking/clathrin/tree/'
 
 #copy files to scratch
 cp $datadir'CHC.trimal_gt-0.8.aln' $SCRATCHDIR
