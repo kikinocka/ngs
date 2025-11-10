@@ -2,16 +2,16 @@
 import os
 
 os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/')
-table = open('otu_table.V9DS_updated.no_chimera.tsv')
+table = open('otu_table.V9DS.no_chimera.tsv')
 result = open('otu_table.V9DS_updated.no_chimera.2samples.tsv', 'w')
 error = open('otu_table.V9DS_updated.no_chimera.1sample.tsv', 'w')
 
 
 for line in table:
 	count = list()
-	for value in line.split('\t')[2:18]:
+	for value in line.split('\t')[2:19]:
 		if value == str(0):
-			pass
+			print(line)
 		else:
 			count.append(value)
 	if len(count) > 1:
