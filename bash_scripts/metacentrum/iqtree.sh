@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=30gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -24,7 +24,7 @@ guide='guide_CHC'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000
-nm=5000
+nm=10000
 
 
 # iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
