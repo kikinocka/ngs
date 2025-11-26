@@ -15,10 +15,10 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/Egr_2025/'
+assembly_dir='/storage/brno12-cerit/home/kika/vickermania/'
 
 #copy files to scratch
-cp $assembly_dir'egracilis_mito_plast_nucl.merge.v2.faa' $SCRATCHDIR
+cp $assembly_dir'Vspa.fna' $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,16 +26,16 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.faa; do
+for fasta in *.fna; do
 	echo $fasta
-	mode='proteins'
-	# mode='genome'
+	# mode='proteins'
+	mode='genome'
 	# mode='transcriptome'
 	
-	# lineage='eukaryota_odb10'
-	# base=${fasta%.fa}_$lineage
-	# busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
-	# # cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
+	lineage='eukaryota_odb10'
+	base=${fasta%.fa}_$lineage
+	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
+	# cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
 
 	lineage='euglenozoa_odb10'
 	base=${fasta%.fa}_$lineage
@@ -47,5 +47,5 @@ done
 
 
 #copy files back
-rm *.faa
+rm *.fna
 cp -r * $assembly_dir
