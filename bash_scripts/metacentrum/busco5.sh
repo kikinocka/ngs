@@ -28,8 +28,8 @@ cd $SCRATCHDIR
 
 for fasta in *.faa; do
 	echo $fasta
-	# mode='proteins'
-	mode='genome'
+	mode='proteins'
+	# mode='genome'
 	# mode='transcriptome'
 	
 	lineage='eukaryota_odb10'
