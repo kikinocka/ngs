@@ -18,7 +18,7 @@ conda activate busco
 assembly_dir='/storage/brno12-cerit/home/kika/vickermania/'
 
 #copy files to scratch
-cp $assembly_dir'Vspa.fna' $SCRATCHDIR
+cp $assembly_dir'Vspa.faa' $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 
 # mkdir BUSCO_summaries
 
-for fasta in *.fna; do
+for fasta in *.faa; do
 	echo $fasta
 	# mode='proteins'
 	mode='genome'
@@ -47,5 +47,5 @@ done
 
 
 #copy files back
-rm *.fna
+rm *.faa
 cp -r * $assembly_dir
