@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/data/eggnog/')
-file = open('eggnog_ogs_dupl.txt')
+os.chdir('/Users/kika/ownCloud/euglenozoa_mito/mitoribosome/')
+file = open('in.acc')
 
 unique = set()
 for line in file:
@@ -11,6 +11,6 @@ for line in file:
 	else:
 		pass
 
-with open('eggnog_ogs.txt', 'w') as out:
+with open('in.txt', 'w') as out:
 	for item in unique:
 		out.write(item)
