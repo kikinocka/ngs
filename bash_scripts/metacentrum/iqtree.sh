@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/clathrin/tree/'
+datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/clathrin/tree/ver2'
 
 #copy files to scratch
 cp $datadir'CHC.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $datadir'guide'* $SCRATCHDIR
+# cp $datadir'guide'* $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
@@ -27,7 +27,7 @@ bb=1000
 nm=10000
 
 
-# iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 iqtree3-mpi -m LG+C60+G4 -T $PBS_NUM_PPN -B $bb --nmax $nm --alrt $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 # -g $constr 
 
