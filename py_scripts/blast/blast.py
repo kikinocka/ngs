@@ -22,10 +22,10 @@ threads = 6
 print('running BLAST')
 #query - database
 subprocess.call('{} -task {} -query {} -db {} -out {} -outfmt {} -num_threads {} \
-	'.format(
-		cmd, task, query, db, out, outfmt, threads), shell=True)
-# -evalue {} -word_size {} -max_target_seqs {}
-# evalue, word_size, hits
+	-max_target_seqs {}'.format(
+		cmd, task, query, db, out, outfmt, threads, hits), shell=True)
+# -evalue {} -word_size {} 
+# evalue, word_size
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
