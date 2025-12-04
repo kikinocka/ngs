@@ -17,9 +17,9 @@ from Bio import SeqIO
 # 		else:
 # 			print(qseqid, sseqid)
 
-os.chdir('/Users/kika/ownCloud/blastocrithidia/proteomics/')
-blast = open('p57_peptides.best_blast_genome.tsv')
-genome = SeqIO.parse('/Users/kika/ownCloud/blastocrithidia/genome_assembly/p57_polished.fa', 'fasta')
+os.chdir('/Users/kika/Downloads/')
+blast = open('Tbruc_cannonical.pep.best_blast.tsv')
+genome = SeqIO.parse('TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
 
 contig_dir = {}
 for line in blast:
@@ -40,7 +40,7 @@ for line in blast:
 				if aln_len == 1:
 					contig_dir[peptide] = (contig, start, end, frame)
 
-with open('p57_peptides-genome_seqs.fa', 'w') as out:
+with open('peptides-CDS_seqs.fa', 'w') as out:
 	for seq in genome:
 		for key, value in contig_dir.items():
 			if value[0] in seq.name:
