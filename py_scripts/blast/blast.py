@@ -4,8 +4,8 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/mnt/mokosz/home/kika/workdir/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta '
-db = '/mnt/mokosz/home/kika/workdir/Tbruc_cannonical.fa'
+query = '/mnt/mokosz/home/kika/workdir/peptidesATTtoM_unique.with_M.fasta'
+db = '/mnt/mokosz/home/kika/workdir/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta'
 # db = '/Users/kika/data/fungi/GCF_000146045.2_R64_protein.faa'
 # db = '/Users/kika/data/amoebozoa/AmoebaDB-68_DdiscoideumAX4_AnnotatedProteins.fasta'
 # db = '/Users/kika/data/Naegleria_gruberi/Ngru_proteins.faa'
