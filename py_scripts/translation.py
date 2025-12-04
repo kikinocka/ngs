@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/data/fungi/')
-infile = SeqIO.parse('Phycomyces.GCF_001638985.1_Phybl2_genomic.fna', 'fasta')
-output = open('Phycomyces.GCF_001638985.1_Phybl2_genomic_translated.fa', 'w')
-error = open('Phycomyces.GCF_001638985.1_Phybl2_genomic_transcriptome.errors.fa', 'w')
+os.chdir('/storage/brno12-cerit/home/kika/ile_to_met/')
+infile = SeqIO.parse('TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
+output = open('Tbruc_ATAtoI.fa', 'w')
+error = open('Tbruc_ATAtoI.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -52,12 +52,12 @@ for sequence in infile:
     if ambiguous == True:
         error.write('>{}\n{}\n'.format(name, seq))
     else:    
-        output.write('>{}_1 {}\n{}\n'.format(name, desc, translation(seq)))
-        output.write('>{}_2 {}\n{}\n'.format(name, desc, translation(seq[1:])))
-        output.write('>{}_3 {}\n{}\n'.format(name, desc, translation(seq[2:])))
-        output.write('>{}_4 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement())))
-        output.write('>{}_5 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement()[1:])))
-        output.write('>{}_6 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement()[2:])))
+        output.write('>{} {}\n{}\n'.format(name, desc, translation(seq)))
+        # output.write('>{}_2 {}\n{}\n'.format(name, desc, translation(seq[1:])))
+        # output.write('>{}_3 {}\n{}\n'.format(name, desc, translation(seq[2:])))
+        # output.write('>{}_4 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement())))
+        # output.write('>{}_5 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement()[1:])))
+        # output.write('>{}_6 {}\n{}\n'.format(name, desc, translation(seq.reverse_complement()[2:])))
     if i%100 == 0:
         print(i)
 output.close()
