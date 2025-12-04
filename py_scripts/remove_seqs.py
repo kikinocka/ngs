@@ -18,27 +18,38 @@ from Bio import SeqIO
 # 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 
 
-os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/metamonada/')
-infasta = SeqIO.parse('metamonads_eukref-otus.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/tRNA-aaRS/ATA_to_Met/reference_proteomes/')
+inpep = SeqIO.parse('peptidesATTtoM_unique.fasta', 'fasta')
+outpep = 'peptidesATTtoM_unique.with_M.fasta'
 
-c = 0
-with open('metamonads_eukref-otus.unambiguous.fa', 'w') as out:
-	for seq in infasta:
-		if ('N' in seq.seq.upper()) or \
-		('U' in seq.seq.upper()) or \
-		('W' in seq.seq.upper()) or \
-		('S' in seq.seq.upper()) or \
-		('M' in seq.seq.upper()) or \
-		('K' in seq.seq.upper()) or \
-		('R' in seq.seq.upper()) or \
-		('Y' in seq.seq.upper()) or \
-		('B' in seq.seq.upper()) or \
-		('D' in seq.seq.upper()) or \
-		('H' in seq.seq.upper()) or \
-		('V' in seq.seq.upper()):
-			c +=1
-			print(seq.name)
+with open(outpep, 'w') as out:
+	for seq in inpep:
+		if 'M' not in str(seq.seq):
+			pass
 		else:
 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
 
-print('ambiguous sequences: {}'.format(c))
+# os.chdir('/Users/kika/ownCloud/SL_Euglenozoa/V9/metamonada/')
+# infasta = SeqIO.parse('metamonads_eukref-otus.fa', 'fasta')
+
+# c = 0
+# with open('metamonads_eukref-otus.unambiguous.fa', 'w') as out:
+# 	for seq in infasta:
+# 		if ('N' in seq.seq.upper()) or \
+# 		('U' in seq.seq.upper()) or \
+# 		('W' in seq.seq.upper()) or \
+# 		('S' in seq.seq.upper()) or \
+# 		('M' in seq.seq.upper()) or \
+# 		('K' in seq.seq.upper()) or \
+# 		('R' in seq.seq.upper()) or \
+# 		('Y' in seq.seq.upper()) or \
+# 		('B' in seq.seq.upper()) or \
+# 		('D' in seq.seq.upper()) or \
+# 		('H' in seq.seq.upper()) or \
+# 		('V' in seq.seq.upper()):
+# 			c +=1
+# 			print(seq.name)
+# 		else:
+# 			out.write('>{}\n{}\n'.format(seq.description, seq.seq))
+
+# print('ambiguous sequences: {}'.format(c))
