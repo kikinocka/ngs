@@ -18,7 +18,7 @@ from Bio import SeqIO
 # 			print(qseqid, sseqid)
 
 os.chdir('/Users/kika/Downloads/')
-blast = open('Tbruc_cannonical.pep.best_blast.tsv')
+blast = open('Tbruc_CDS.pep.best_blast.tsv')
 genome = SeqIO.parse('TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
 
 contig_dir = {}
@@ -27,25 +27,26 @@ for line in blast:
 		pass
 	else:
 		peptide = line.strip().split('\t')[0]
-		contig = line.strip().split('\t')[2]
-		if contig == '***no hit found***':
+		if line.strip().split('\t')[2] == '***no hit found***':
 			pass
 		else:
-			frame = int(line.strip().split('\t')[7])
-			mismatch = int(line.strip().split('\t')[10])
-			start = int(line.strip().split('\t')[14])
-			end = int(line.strip().split('\t')[15])
-			aln_len = int(float(line.strip().split('\t')[16]))
-			if mismatch == 0:
-				if aln_len == 1:
-					contig_dir[peptide] = (contig, start, end, frame)
+			contig = line.strip().split('\t')[3]
+			frame = int(line.strip().split('\t')[6])
+			mismatch = int(line.strip().split('\t')[11])
+			start = int(line.strip().split('\t')[15])
+			end = int(line.strip().split('\t')[16])
+			aln_len = int(float(line.strip().split('\t')[17]))
+			# if mismatch == 0:
+			# 	if aln_len == 1:
+			# 		contig_dir[peptide] = (contig, start, end, frame)
+			contig_dir[peptide] = (contig, start, end, frame)
 
 with open('peptides-CDS_seqs.fa', 'w') as out:
 	for seq in genome:
 		for key, value in contig_dir.items():
 			if value[0] in seq.name:
 				# print(key, value)
-				header = value[0] + '__' + key
+				header = value[0] + ':' + str(value[1]) + '-' + str(value[2]) + '__' + key
 				if value[3] in (1,2,3):
 					sequence = seq.seq[value[1]-1:value[2]]
 					out.write('>{}\n{}\n'.format(header, sequence))
