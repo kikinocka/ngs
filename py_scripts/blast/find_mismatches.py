@@ -3,10 +3,10 @@ import os
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 
-os.chdir('/Users/kika/Downloads/')
-blast_records = NCBIXML.parse(open('Tbruc_CDS.pep.blast.xml'))
-genome = SeqIO.parse('TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
-output = 'Tbruc_mismatches_full.tsv'
+os.chdir('/Users/kika/ownCloud/tRNA-aaRS/ATA_to_Met/Trypanosoma_brucei/')
+blast_records = NCBIXML.parse(open('Tbruc_CDS.peptides_WT.blast.xml'))
+genome = SeqIO.parse('/Users/kika/Downloads/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
+output = 'Tbruc_WT_mismatches_full.tsv'
 
 contig_dir = {}
 for record in blast_records:
@@ -35,6 +35,7 @@ for record in blast_records:
 	except:
 		pass
 # print(contig_dir)
+print('Reading blast output done!')
 
 # contig_dir[query name] = [subject name, frame, subject start, subject end, [+ position, change], [+ position, change], ...]
 # sequence_18491 ['Tb927.1.1120:mRNA', 1, 1018, 1107, [1, 'I->M'], ...]
@@ -58,3 +59,5 @@ with open(output, 'w') as result:
 						end = start + 2
 						condon = seq.seq[start-1:end].reverse_complement()
 						result.write('{}\t{}\t{}-{}\t{}\t{}\n'.format(key, value[0], end, start, v[1], condon))
+
+print('Processing results done!')
