@@ -4,7 +4,7 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/mnt/mokosz/home/kika/workdir/peptidesATCtoM_unique.fasta'
+query = '/mnt/mokosz/home/kika/workdir/peptidesCAAtoM_unique.fasta'
 db = '/mnt/mokosz/home/kika/workdir/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta'
 # db = '/Users/kika/data/fungi/GCF_000146045.2_R64_protein.faa'
 # db = '/Users/kika/data/amoebozoa/AmoebaDB-68_DdiscoideumAX4_AnnotatedProteins.fasta'
@@ -12,7 +12,7 @@ db = '/mnt/mokosz/home/kika/workdir/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fa
 # db = '/Users/kika/data/kinetoplastids/ver68/TriTrypDB-68_TbruceiTREU927_AnnotatedProteins.fasta'
 # db = '/Users/kika/ownCloud/Euglena_gracilis/RNA-Seq/GEFR01.1.fsa_nt'
 # db = '/Users/kika/ownCloud/blastocrithidia/predicted_proteins/blastdb/bnon_proteins_annotated.fa'
-out = '/mnt/mokosz/home/kika/workdir/Tbruc_CDS.peptides_ATC.blast.xml'
+out = '/mnt/mokosz/home/kika/workdir/Tbruc_CDS.peptides_CAA.blast.xml'
 evalue = 1e-20
 outfmt = 5
 hits = 1
