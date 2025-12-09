@@ -4,9 +4,9 @@ from Bio.Blast import NCBIXML
 
 cmd = 'tblastn'
 task = 'tblastn'
-query = '/mnt/mokosz/home/kika/workdir/peptidesWT_unique.fasta'
+query = '/mnt/mokosz/home/kika/workdir/peptidesATAtoM_unique.fasta'
 db = '/mnt/mokosz/home/kika/workdir/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta'
-out = '/mnt/mokosz/home/kika/workdir/Tbruc_CDS.peptides_WT.blast.xml'
+out = '/mnt/mokosz/home/kika/workdir/Tbruc_CDS.peptides_ATA.blast.xml'
 evalue = 1e-20
 outfmt = 5
 hits = 1
