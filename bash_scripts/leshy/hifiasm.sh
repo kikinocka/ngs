@@ -2,9 +2,10 @@
 
 cd '/mnt/mokosz/home/kika/egracilis/PacBio/'
 
-hiafiasm='/mnt/mokosz/home/kika/tools/hifiasm/hifiasm'
 reads='hifi_reads/EG_hifi.fastq.gz'
+name='EG_hifi.asm'
 
-$hiafiasm -o EG_hifi.asm -t 30 $reads
+hiafiasm -o $name -t 30 $reads 2> $name.log
+awk '/^S/{print ">"$2;print $3}' $name.bp.p_ctg.gfa > $name.p_ctg.fa
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py hiafiasm done
