@@ -6,18 +6,20 @@ from Bio.Blast import NCBIXML
 os.chdir('/Users/kika/ownCloud/tRNA-aaRS/ATA_to_Met/Trypanosoma_brucei/')
 blast_records = NCBIXML.parse(open('Tbruc_CDS.peptides_WT.blast.xml'))
 genome = SeqIO.parse('/Users/kika/Downloads/TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
-output = 'Tbruc_WT_mismatches_full.tsv'
+output = 'Tbruc_WT_Q_full.tsv'
 
 contig_dir = {}
 for record in blast_records:
 	try:
 		# print(record.query)
 		best_hit = record.alignments[0].hsps[0]
-		if '+' in best_hit.match:
+		# if '+' in best_hit.match:
+		if 'Q' in best_hit.match:
 			# print(best_hit.query)
 			# print(best_hit.match)
 			# print(best_hit.sbjct)
-			plus_positions = [ind for ind, ch in enumerate(best_hit.match) if ch == '+']
+			# plus_positions = [ind for ind, ch in enumerate(best_hit.match) if ch == '+']
+			plus_positions = [ind for ind, ch in enumerate(best_hit.match) if ch == 'Q']
 			contig_dir[record.query] = [record.alignments[0].hit_id, best_hit.frame[1], 
 										best_hit.sbjct_start, best_hit.sbjct_end]
 
