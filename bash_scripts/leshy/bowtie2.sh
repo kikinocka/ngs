@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/egracilis/EG_AK_bw2/'
+cd '/mnt/mokosz/home/kika/egracilis/PacBio/bw2_mapping/'
 assembly_dir='/mnt/mokosz/home/kika/egracilis/PacBio/'
 read_dir='/mnt/mokosz/home/kika/egracilis/PacBio/hifi_reads/'
 
