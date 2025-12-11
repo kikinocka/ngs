@@ -1,12 +1,12 @@
 #!/bin/sh
 
-cd '/mnt/mokosz/home/kika/egracilis/PacBio/hifiasm_primary/'
+cd '/mnt/mokosz/home/kika/egracilis/PacBio/'
 
 hifiasm='/mnt/mokosz/home/kika/tools/hifiasm/hifiasm'
-reads='/mnt/mokosz/home/kika/egracilis/PacBio/hifi_reads/EG_hifi.fastq.gz'
+reads='hifi_reads/EG_hifi.fastq.gz'
 name='EG_hifi.asm'
 
-$hifiasm -o $name --primary -t 20 $reads 2> $name.log
+$hifiasm -o $name -t 20 $reads 2> $name.log
 awk '/^S/{print ">"$2;print $3}' $name.bp.p_ctg.gfa > $name.p_ctg.fa
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py hifiasm done
