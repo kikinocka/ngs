@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH="/mnt/mokosz/home/kika/tools/HiFiAdapterFilt:/mnt/mokosz/home/kika/tools/HiFiAdapterFilt/DB:$PATH"
+
 cd '/mnt/mokosz/home/kika/egracilis/PacBio/hifi_reads/'
 
 hififilt='hifiadapterfilt.sh'
