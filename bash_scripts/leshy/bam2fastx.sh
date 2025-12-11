@@ -13,4 +13,4 @@ out_prefix='EG_hifi'
 #generates <out_prefix>.fastq.gz
 $bam2fastq --num-threads 20 -o $out_prefix $bamfile
 
-python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py bam2fasta done
+python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py bam2fasta/q done
