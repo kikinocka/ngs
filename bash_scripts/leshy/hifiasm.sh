@@ -3,7 +3,7 @@
 cd '/mnt/mokosz/home/kika/egracilis/PacBio/'
 
 hifiasm='/mnt/mokosz/home/kika/tools/hifiasm/hifiasm'
-reads='hifi_reads/EG_hifi.fastq.gz'
+reads='hifi_reads/m21121_251126_103750.hifi_reads.filt.fastq.gz'
 name='EG_hifi.asm'
 
 $hifiasm -o $name -t 20 $reads 2> $name.log
