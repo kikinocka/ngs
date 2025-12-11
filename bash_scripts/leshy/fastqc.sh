@@ -1,6 +1,6 @@
 #!/bin/sh
 
-read_dir='/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/reads/'
+read_dir='/mnt/mokosz/home/kika/egracilis/PacBio/hifi_reads/'
 out_dir=$read_dir'fastqc/'
 
 cd $read_dir
