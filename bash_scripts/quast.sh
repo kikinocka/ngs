@@ -2,8 +2,8 @@
 
 quast='/Users/kika/miniconda3/bin/quast.py'
 
-cd '/Users/kika/ownCloud/blastocrithidia/genome_assembly/'
-assembly='p57_polished.fa'
-output='quast/p57_polished2/'
+cd '/Users/kika/ownCloud/Euglena_gracilis/genome/hifi/'
+assembly='EG_hifi.asm_default.p_ctg.fa'
+output='quast/default/'
 
 python $quast --eukaryote -o $output -t 6 $assembly
