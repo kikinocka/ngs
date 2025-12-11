@@ -2,7 +2,7 @@
 
 cd '/mnt/mokosz/home/kika/egracilis/PacBio/hifi_reads/'
 
-hififilt='/mnt/mokosz/home/kika/tools/HiFiAdapterFilt/hifiadapterfilt.sh'
+hififilt='hifiadapterfilt.sh'
 name='m21121_251126_103750'
 
 $hififilt -p $name -t 10 2> $name.hififilt.log
