@@ -6,7 +6,7 @@ mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 #align de-novo
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/tree/ver3/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/tbKINs/kinesins/tbKIN2_tree/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 # files = [x for x in os.listdir() if x.startswith('CAD2221027.2')]
 
