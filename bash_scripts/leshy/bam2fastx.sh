@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/egracilis/PacBio/hifi_reads/'
+cd '/mnt/mokosz/home/kika/egracilis/PacBio/'
 
-bamfile='m21121_251126_103750.hifi_reads.bam'
+bamfile='euglena_m21121_251212_153655.hifi_reads.bc2002.bam'
 out_prefix='EG_hifi'
 
 # #generates <out_prefix>.fasta.gz
