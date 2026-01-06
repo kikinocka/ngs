@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/allDB/renamed/'
+cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
 threads=15
 eval=1e-05
 
@@ -22,7 +22,7 @@ eval=1e-05
 
 
 #one profile and several databases
-profile='Gi7035.hmm'
+profile='metamonds_CLC.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
