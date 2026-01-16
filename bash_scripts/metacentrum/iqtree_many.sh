@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many
 #PBS -l select=1:ncpus=15:mem=20gb:scratch_local=10gb
-#PBS -l walltime=48:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/ver2'
 
 #copy files to scratch
 cp $data_dir'/'* $SCRATCHDIR
