@@ -27,7 +27,7 @@ genome='PaPyr_JAPMOS01.fna'
 fw='SRR33713718_trimmed_1.fq.gz'
 rv='SRR33713718_trimmed_2.fq.gz'
 sg='SRR651041_trimmed.fq.gz,SRR651098_trimmed.fq.gz'
-index='braa_cor2_ht2'
+index='PaPyr_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
@@ -51,5 +51,5 @@ samtools sort -o $sorted -@ $PBS_NUM_PPN $bam
 samtools index $sorted
 
 #copy files back
-rm $genome $fw $rv $sg
+rm $genome *.fq.gz
 cp -r * $outdir
