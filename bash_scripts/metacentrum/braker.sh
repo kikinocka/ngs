@@ -40,7 +40,7 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
 	--threads $PBS_NUM_PPN \
-	--gff3 
+	--gff3 --keep-tmp
 
 # --bam=rnaseq.bam
 # --rnaseq_sets_ids=SRR1111,SRR1115
