@@ -7,20 +7,27 @@
 
 cat $PBS_NODEFILE
 
+module load augustus
+
+#setting augustus config file environment variable
+mkdir $SCRATCHDIR/augustus_configs
+cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
+export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
+
+
 genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
 rna_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
-
 #copy files to scratch
-cp $genome_dir'PaPyr_JAPMOS01.fa' $SCRATCHDIR
+cp $genome_dir'PaPyr_JAPMOS01.fna' $SCRATCHDIR
 cp $rna_dir'/'* $SCRATCHDIR
 cp $prot_dir'metamonads.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome=PaPyr_JAPMOS01.fa
+genome=PaPyr_JAPMOS01.fna
 rna_ids=SRR651098,SRR651041,SRR33713718_1,SRR33713718_2
 # bam=
 prot=metamonads.faa
