@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N FastQC
-#PBS -l select=1:ncpus=1:mem=10gb:scratch_local=10gb
+#PBS -l select=1:ncpus=10:mem=10gb:scratch_local=10gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -22,7 +22,7 @@ cd $SCRATCHDIR
 
 for file in *.gz; do
 	echo $file
-	fastqc -o $SCRATCHDIR $file
+	fastqc -t $PBS_NUM_PPN -o $SCRATCHDIR $file
 done
 
 #copy files back
