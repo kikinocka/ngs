@@ -8,24 +8,25 @@
 cat $PBS_NODEFILE
 
 #add module
-module add hisat2-2.0.5
-module add samtools-1.3.1
+module load hisat2
+module load samtools
 
-genome_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-reads='/storage/brno3-cerit/home/kika/blasto_comparative/sp_HR-05/transcriptome_reads/'
-outdir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/braa/final_corrected2/'
+genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
+read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads'
+outdir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/'
 
 #copy files to scratch
-cp $genome_dir'Braa_genome_final_corrected2_masked.fa' $SCRATCHDIR
-cp $reads'braa_trimmed_1.fq.gz' $reads'braa_trimmed_2.fq.gz' $SCRATCHDIR
+cp $genome_dir'PaPyr_JAPMOS01.fna' $SCRATCHDIR
+cp $read_dir'/'*trimmed*.fq.gz $SCRATCHDIR
 # cp $outdir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Braa_genome_final_corrected2_masked.fa'
-fw='braa_trimmed_1.fq.gz'
-rv='braa_trimmed_2.fq.gz'
+genome='PaPyr_JAPMOS01.fna'
+fw='SRR33713718_trimmed_1.fq.gz'
+rv='SRR33713718_trimmed_2.fq.gz'
+sg='SRR651041_trimmed.fq.gz,SRR651098_trimmed.fq.gz'
 index='braa_cor2_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
@@ -40,6 +41,7 @@ hisat2 -p $PBS_NUM_PPN -x $index \
 	--dta --secondary \
 	-1 $fw \
 	-2 $rv \
+	-U $sg \
 	--un-gz $unmapped_unpaired \
 	--un-conc-gz $unmapped_paired \
 	-S $sam 2> $report
@@ -49,5 +51,5 @@ samtools sort -o $sorted -@ $PBS_NUM_PPN $bam
 samtools index $sorted
 
 #copy files back
-rm $genome $fw $rv
+rm $genome $fw $rv $sg
 cp -r * $outdir

@@ -49,7 +49,7 @@ adapt='adapters.fa'
 #454 reads
 for file in *fastq.gz; do
 	bbduk.sh in=$file out=${file%.fastq.gz}_trimmed.fq.gz ref=$adapt \
-	k=23 ktrim=r mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> ${file%.fastq.gz}_bbduk_report.txt
+	ktrim=r k=23 mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> ${file%.fastq.gz}_bbduk_report.txt
 done
 
 #copy files back
