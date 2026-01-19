@@ -41,4 +41,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 
 #copy files back
 rm $genome *.fastq $prot
-cp * $datadir
+cp * $genome_dir'braker'
