@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 #add modules
 module load fastqc
 
-read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads'
+read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads/'
 
 
 #copy data to scratch
-cp $read_dir'/'* $SCRATCHDIR
+cp $read_dir'SRR651098_trimmed.fq.gz' $SCRATCHDIR
 
 
 #compute on scratch
