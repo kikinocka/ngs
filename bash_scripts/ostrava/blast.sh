@@ -18,7 +18,7 @@ evalue=1e-10
 max_seqs=1
 max_hsps=1
 
-for file in *.faa ; do 
+for file in *.fa ; do 
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
