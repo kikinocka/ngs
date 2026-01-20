@@ -4,25 +4,25 @@
 #PBS -l nodes=1:ppn=10
 #PBS -l walltime=900:00:00
 
-cd '/home/users/kika/angomonas_EAPs/hmm/rnd1/'
+cd '/home/users/kika/vickermania/'
 
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 
-# query='kap3_hits.fa'
-db='/home/users/kika/references/Angomonas_deanei_EAPs.faa'
+query='Ving_proteomics.fa'
+db='Vspa.faa'
 # db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
-evalue=1e-04
+evalue=1e-10
 max_seqs=1
 max_hsps=1
 
-for file in CAD2221027.2_all.hmm_hits.fa ; do 
+for file in *.faa ; do 
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
-		out=${query%.fa}'.Adea_'$evalue'.'$program'.tsv'
+		out=${query%.fa}'.Vspa_'$evalue'.'$program'.tsv'
 		# out=${db%.fa}'.ref_'$evalue'.tsv'
 		$program -task $task \
 			-query $query \
