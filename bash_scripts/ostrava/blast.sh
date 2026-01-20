@@ -9,8 +9,8 @@ cd '/home/users/kika/vickermania/'
 eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
 conda activate /home/users/bio/anaconda3/
 
-query='Ving_proteomics.fa'
-db='Vspa.faa'
+query='Vspa.fwd_hits.fa'
+db='Vickermania_ingenoplastis_proteins_1.fasta'
 # db='/mnt/data/blastdbs/nr'
 program=blastp
 task=blastp
@@ -22,7 +22,7 @@ for file in *.fa ; do
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
-		out=${query%.fa}'.Vspa_'$evalue'.'$program'.tsv'
+		out=${query%.fa}'.Ving_'$evalue'.'$program'.tsv'
 		# out=${db%.fa}'.ref_'$evalue'.tsv'
 		$program -task $task \
 			-query $query \
