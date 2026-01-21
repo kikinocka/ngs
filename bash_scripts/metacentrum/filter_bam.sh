@@ -11,17 +11,18 @@ cat $PBS_NODEFILE
 module add python36-modules-gcc
 
 
-data='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/illumina/'
-script='/storage/brno12-cerit/home/kika/scripts/py_scripts/filter_bam.py'
+data_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/illumina/'
+script_dir='/storage/brno12-cerit/home/kika/scripts/py_scripts/'
 
 #copy files to scratch
-cp $data'PaPyr_ht2_sorted.bam' $SCRATCHDIR
-cp $script $SCRATCHDIR
+cp $data_dir'PaPyr_ht2_sorted.bam' $SCRATCHDIR
+cp $script_dir'filter_bam.py' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
+script='filter_bam.py'
 bam='PaPyr_ht2_sorted.bam'
 
 python3 $script $bam
@@ -29,4 +30,4 @@ python3 $script $bam
 
 #copy files back
 rm $bam
-cp -r * $data
+cp -r * $data_dir
