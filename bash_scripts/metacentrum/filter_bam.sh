@@ -15,7 +15,7 @@ data_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/illumina/'
 script_dir='/storage/brno12-cerit/home/kika/scripts/py_scripts/'
 
 #copy files to scratch
-cp $data_dir'PaPyr_ht2_sorted.bam' $SCRATCHDIR
+cp $data_dir'PaPyr_ht2_sorted.bam'* $SCRATCHDIR
 cp $script_dir'filter_bam.py' $SCRATCHDIR
 
 
@@ -29,5 +29,5 @@ python3 $script $bam
 
 
 #copy files back
-rm $bam
+rm $bam $script
 cp -r * $data_dir
