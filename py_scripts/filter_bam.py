@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+#courtesy of github.com/morpholino
+
 import math
 import pysam
 import re
@@ -53,7 +56,7 @@ def ct(sequence, wordsize):
 
 
 # Thresholds (can later be made argparse arguments if desired)
-READ_LENGTH_THRESHOLD = 100.0  # 75 in the first round
+READ_LENGTH_THRESHOLD = 75.0  # 75 in the first round
 COV_THRESHOLD = 80.0
 
 # BAM flag filters to exclude:

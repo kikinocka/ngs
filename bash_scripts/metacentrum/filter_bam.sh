@@ -8,6 +8,7 @@
 cat $PBS_NODEFILE
 
 #add module
+module load samtools
 module add python36-modules-gcc
 
 
@@ -26,8 +27,8 @@ script='filter_bam.py'
 bam='PaPyr_ht2_sorted.bam'
 
 python3 $script $bam
-
+samtools index *.pass.bam
 
 #copy files back
-rm $bam $script
+rm $bam $bam'.bai' $script
 cp -r * $data_dir
