@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N filter_bam
 #PBS -l select=1:ncpus=1:mem=20gb:scratch_local=10gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
