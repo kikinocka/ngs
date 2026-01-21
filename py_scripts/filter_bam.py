@@ -1,4 +1,4 @@
-#!/tscc/projects/ps-allenlab/projdata/common/programs/miniconda3/envs/ont-polishing/bin/python
+#!/usr/bin/python3
 import math
 import pysam
 import re
