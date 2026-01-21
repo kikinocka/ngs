@@ -7,11 +7,6 @@
 
 cat $PBS_NODEFILE
 
-#add module
-module load samtools
-module add python36-modules-gcc
-
-
 data_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/illumina/'
 script_dir='/storage/brno12-cerit/home/kika/scripts/py_scripts/'
 
@@ -26,8 +21,13 @@ cd $SCRATCHDIR
 script='filter_bam.py'
 bam='PaPyr_ht2_sorted.bam'
 
+module add python36-modules-gcc
 python3 $script $bam
+module unload python
+
+module load samtools
 samtools index *.pass.bam
+module unload samtools
 
 #copy files back
 rm $bam $bam'.bai' $script
