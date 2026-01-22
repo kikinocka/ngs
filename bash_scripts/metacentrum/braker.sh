@@ -35,7 +35,7 @@ name='paratrimastix_pyriformis'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
-	--bam=rnaseq.bam \
+	--bam=$bam \
 	--prot_seq=$prot \
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
