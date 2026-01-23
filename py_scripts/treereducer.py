@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/tbKINs/kinesins/tbKIN2_tree/')
-inacc = open('kinesins.trimal_gt-0.8.aln.treefile')
-infasta = SeqIO.parse('kinesins.fa', 'fasta')
+os.chdir('/Users/kika/ownCloud/quinones/trees/UbiG/')
+inacc = open('ubiG.trimal_gt-0.8.aln.treefile')
+infasta = SeqIO.parse('ubiG.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
 # inaln_files = [x for x in os.listdir() if x.endswith('.aln')]
 # infasta_files = [x for x in os.listdir() if x.endswith('.fa')]
@@ -16,7 +16,7 @@ for line in inacc:
 		omitted.append(line.split('[')[0].replace('\'', '').replace('\t', '').replace('eval_', 'eval-'))
 
 c = 0
-with open('kinesins_reduced.fa', 'w') as result:
+with open('ubiG_reduced.fa', 'w') as result:
 	for seq in infasta:
 		if seq.description in omitted:
 			c += 1
