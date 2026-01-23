@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N braker
-#PBS -l select=1:ncpus=20:mem=70gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=90gb:scratch_local=50gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
