@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-data_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/illumina/'
+data_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all/'
 script_dir='/storage/brno12-cerit/home/kika/scripts/py_scripts/'
 
 #copy files to scratch
