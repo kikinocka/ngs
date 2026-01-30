@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add quast
 
-datadir='/storage/brno12-cerit/home/kika/p57/genome/'
+datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 # outdir=$datadir'3-quast/'
 
 #copy files to scratch
-cp $datadir'p57_polished.no_mtDNA.fa' $SCRATCHDIR
+cp $datadir'contigs_fixlabel.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-assemblies='p57_polished.no_mtDNA.fa'
+assemblies='contigs_fixlabel.fasta'
 min_contig=500
 
 quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
@@ -39,4 +39,4 @@ quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
 rm $assemblies
 # rm *.fa
 # cp -r * $outdir
-cp -r * $datadir'quast_no_mtDNA'
+cp -r * $datadir
