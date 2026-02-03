@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N IQT
-#PBS -l select=1:ncpus=20:mem=30gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/quinones/ver4/'
+datadir='/storage/brno12-cerit/home/kika/quinones/ver5/'
 
 #copy files to scratch
 cp $datadir'ubiG.trimal_gt-0.8.aln' $SCRATCHDIR
