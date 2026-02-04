@@ -10,10 +10,13 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/'
 
 #copy files to scratch
-cp $data_dir'/'*trimal* $SCRATCHDIR
+cp $data_dir'medium.trimal_gt-0.7.aln' $SCRATCHDIR
+cp $data_dir'prop-sol.trimal_gt-0.7.aln' $SCRATCHDIR
+cp $data_dir'small.trimal_gt-0.7.aln' $SCRATCHDIR
+
 
 #compute on scratch
 cd $SCRATCHDIR
