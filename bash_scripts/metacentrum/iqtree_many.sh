@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=96:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -13,7 +13,6 @@ module load iqtree
 data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/'
 
 #copy files to scratch
-cp $data_dir'prop-sol.trimal_gt-0.7.aln' $SCRATCHDIR
 cp $data_dir'small.trimal_gt-0.7.aln' $SCRATCHDIR
 
 
