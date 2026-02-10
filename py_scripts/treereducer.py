@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/quinones/trees/UbiG/ver8/')
+os.chdir('/Users/kika/ownCloud/quinones/trees/UbiG/ver9/')
 inacc = open('ubiG.trimal_gt-0.8.aln.treefile')
 infasta = SeqIO.parse('ubiG.fa', 'fasta')
 # inacc_files = [x for x in os.listdir() if x.endswith('.treefile')]
