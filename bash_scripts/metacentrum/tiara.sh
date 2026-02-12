@@ -7,8 +7,13 @@
 
 cat $PBS_NODEFILE
 
-module add mambaforge
-conda activate tiara_env
+# #Tiara installation
+# module add mambaforge
+# mamba create --prefix /storage/brno12-cerit/home/kika/tiara_env python=3.8 -y
+# mamba activate /storage/brno12-cerit/home/kika/tiara_env
+# mamba install -c conda-forge tiara
+# tiara-test
+# mamba deactivate
 
 datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 
@@ -17,10 +22,12 @@ cp $datadir'contigs_fixlabel.fasta' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
+module add mambaforge
+mamba create -p $SCRATCHDIR/tiara --clone /storage/brno12-cerit/home/kika/tiara_env
+mamba activate $SCRATCHDIR/tiara
 
 metagenome='contigs_fixlabel.fasta'
 out='tiara.out'
-
 
 tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
 # -m MIN_LEN, --min_len MIN_LEN
@@ -45,7 +52,7 @@ tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
 #                       Whether to write probabilities of individual classes for each sequence to the output.
 # -v, --verbose         Whether to display some additional messages and progress bar during classification.
 # --gzip, --gz          Whether to gzip results or not.
-conda deactivate
+mamba deactivate
 
 #copy files back
 rm $metagenome
