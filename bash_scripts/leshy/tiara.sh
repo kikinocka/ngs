@@ -1,12 +1,11 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/'
-metagenome='P1-7_scaffolds.fasta'
+cd '/mnt/mokosz/home/kika/cz-at_fire/'
+metagenome='contigs_fixlabel.fasta'
 out='tiara.out'
-length=3000
-cpu=10
+cpu=20
 
-tiara -i $metagenome -o $out -t $cpu -m $length --tf all --pr
+tiara -i $metagenome -o $out -t $cpu --tf all --pr
 # -m MIN_LEN, --min_len MIN_LEN
 #                       Minimum length of a sequence. Sequences shorter than min_len are discarded. 
 #                               Default: 3000.
