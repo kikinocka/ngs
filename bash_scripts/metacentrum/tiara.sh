@@ -1,12 +1,13 @@
 #!/bin/bash
 #PBS -N tiara
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
 cat $PBS_NODEFILE
 
+module add mambaforge
 conda activate tiara_env
 
 datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
@@ -19,6 +20,7 @@ cd $SCRATCHDIR
 
 metagenome='contigs_fixlabel.fasta'
 out='tiara.out'
+
 
 tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
 # -m MIN_LEN, --min_len MIN_LEN
