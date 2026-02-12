@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N tiara
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=50gb
 #PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
@@ -19,6 +19,9 @@ datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 
 #copy files to scratch
 cp $datadir'contigs_fixlabel.fasta' $SCRATCHDIR
+echo '------------------'
+echo 'copying files done'
+echo '------------------'
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -26,9 +29,16 @@ module add mambaforge
 mamba create -p $SCRATCHDIR/tiara --clone /storage/brno12-cerit/home/kika/tiara_env
 mamba activate $SCRATCHDIR/tiara
 
+echo '------------------------------'
+echo 'mamba env copied and activated'
+echo '------------------------------'
+
 metagenome='contigs_fixlabel.fasta'
 out='tiara.out'
 
+echo '--------------'
+echo 'starting Tiara'
+echo '--------------'
 tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
 # -m MIN_LEN, --min_len MIN_LEN
 #                       Minimum length of a sequence. Sequences shorter than min_len are discarded. 
