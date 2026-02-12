@@ -26,15 +26,15 @@ echo '------------------'
 #compute on scratch
 cd $SCRATCHDIR
 module add mambaforge
-mamba create -p $SCRATCHDIR/tiara --clone /storage/brno12-cerit/home/kika/tiara_env
-mamba activate $SCRATCHDIR/tiara
+mamba create -p $SCRATCHDIR/tiara_env --clone /storage/brno12-cerit/home/kika/tiara_env
+mamba activate $SCRATCHDIR/tiara_env
 
 echo '------------------------------'
 echo 'mamba env copied and activated'
 echo '------------------------------'
 
 metagenome='contigs_fixlabel.fasta'
-out='tiara.out'
+out='tiara_out.tsv'
 
 echo '--------------'
 echo 'starting Tiara'
@@ -65,6 +65,6 @@ tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
 mamba deactivate
 
 #copy files back
-rm $metagenome
+rm -r $metagenome tiara_env
 cp -r * $datadir
 

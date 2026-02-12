@@ -5,7 +5,7 @@ metagenome='contigs_fixlabel.fasta'
 out='tiara.out'
 cpu=20
 
-tiara -i $metagenome -o $out -t $cpu --tf all --pr
+python /mnt/mokosz/home/kika/.local/bin/tiara -i $metagenome -o $out -t $cpu --tf all --pr
 # -m MIN_LEN, --min_len MIN_LEN
 #                       Minimum length of a sequence. Sequences shorter than min_len are discarded. 
 #                               Default: 3000.
