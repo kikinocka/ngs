@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N whokaryote
-#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=80gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=100gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
