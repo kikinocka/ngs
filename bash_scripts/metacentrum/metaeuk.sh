@@ -7,13 +7,13 @@
 
 cat $PBS_NODEFILE
 
-data_dir='/storage/brno3-cerit/home/kika/oil_sands/metagenomes/P1B_1-05C_L001-ds.ec8b691bd68b44deb59919ca3da275ba/'
+data_dir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
 database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC_profiles'
 # database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC'
 
 #copy files to scratch
-cp $data_dir'4-tiara/eukarya_P1B_scaffolds.fasta' $SCRATCHDIR
+cp $data_dir'tiara/eukarya_contigs_fixlabel.fasta' $SCRATCHDIR
 
 
 #compute on scratch
