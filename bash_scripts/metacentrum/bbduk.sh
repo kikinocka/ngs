@@ -9,12 +9,10 @@ cat $PBS_NODEFILE
 
 module load bbmap
 
-
-read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads/'
+read_dir='/storage/brno12-cerit/home/kika/pkld'
 
 #copy data to scratch
-cp $read_dir'SRR651041.fastq.gz' $SCRATCHDIR
-cp $read_dir'SRR651098.fastq.gz' $SCRATCHDIR
+cp $read_dir'/'* $SCRATCHDIR
 cp '/cvmfs/software.metacentrum.cz/spack18/software/linux-debian11-x86_64_v2/gcc-10.2.1/bbmap-39.01-d3jpcp7p3t2k2qcc2bdkaze4h5njwe5s/bin/resources/adapters.fa' $SCRATCHDIR
 
 
@@ -22,21 +20,21 @@ cp '/cvmfs/software.metacentrum.cz/spack18/software/linux-debian11-x86_64_v2/gcc
 cd $SCRATCHDIR
 
 adapt='adapters.fa'
-# name='SRR33713718'
-# fw='SRR33713718_1.fastq.gz'
-# rv='SRR33713718_2.fastq.gz'
-# trimmed_fw=$name'_trimmed_1.fq.gz'
-# trimmed_rv=$name'_trimmed_2.fq.gz'
-# # single='all_RNA.fq.gz'
-# # trimmed='all_RNA_trimmed.fq.gz'
-# report=$name'_bbduk_report.txt'
 
-# #illumina pair-end reads
-# bbduk.sh overwrite=true \
-# 	in1=$fw in2=$rv \
-# 	out1=$trimmed_fw out2=$trimmed_rv \
-# 	ref=$adapt \
-# 	qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
+#illumina pair-end reads
+for file in *_R1.fastq.gz ; do 
+	name=${file%_*.fastq.gz}
+	fw=$name'_R1.fastq.gz'
+	rv=$name'_R2.fastq.gz'
+	trimmed_fw=$name'_trimmed_1.fq.gz'
+	trimmed_rv=$name'_trimmed_2.fq.gz'
+	report=$name'_bbduk_report.txt'
+
+	bbduk.sh overwrite=true \
+		in1=$fw in2=$rv \
+		out1=$trimmed_fw out2=$trimmed_rv \
+		ref=$adapt \
+		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 
 # #illumina single reads
 # bbduk.sh overwrite=true \
@@ -46,11 +44,11 @@ adapt='adapters.fa'
 # 	ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN qtrim=rl trimq=20 2> $report
 # 	# qtrim=rl trimq=20 ktrim=r t=$PBS_NUM_PPN 2> $report
 
-#454 reads
-for file in *fastq.gz; do
-	bbduk.sh in=$file out=${file%.fastq.gz}_trimmed.fq.gz ref=$adapt \
-	ktrim=r k=23 mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> ${file%.fastq.gz}_bbduk_report.txt
-done
+# #454 reads
+# for file in *fastq.gz; do
+# 	bbduk.sh in=$file out=${file%.fastq.gz}_trimmed.fq.gz ref=$adapt \
+# 	ktrim=r k=23 mink=11 edist=1 qtrim=rl trimq=20 t=$PBS_NUM_PPN 2> ${file%.fastq.gz}_bbduk_report.txt
+# done
 
 #copy files back
 # rm $fw $rv $adapt
