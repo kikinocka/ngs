@@ -18,9 +18,10 @@ datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 
 #copy files to scratch
 cp $datadir'contigs_fixlabel.fasta' $SCRATCHDIR
-echo '------------------'
-echo 'copying files done'
-echo '------------------'
+
+echo '-----------------------------'
+echo 'copying files to scratch done'
+echo '-----------------------------'
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -56,3 +57,6 @@ mamba deactivate
 rm -r $metagenome whokaryote_env
 cp -r * $datadir
 
+echo '-----------------------'
+echo 'copying files back done'
+echo '-----------------------'
