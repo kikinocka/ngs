@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add modules
 module load fastqc
 
-read_dir='/storage/brno12-cerit/home/kika/ind_reads'
+read_dir='/storage/brno12-cerit/home/kika/pkld/second'
 
 
 #copy data to scratch
