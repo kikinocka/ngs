@@ -3,7 +3,7 @@ import os
 
 trimal = '/Users/kika/miniconda3/bin/trimal'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/blastocystis/')
+os.chdir('/Users/kika/ownCloud/quinones/trees/UbiG/ver7/')
 files = [x for x in os.listdir() if x.endswith('.mafft.aln')]
 # files = [x for x in os.listdir() if x.endswith('.einsi.aln')]
 
@@ -13,7 +13,7 @@ for file in files:
 	file_name = file.split('.')[0]
 	aut = 'automated1'
 	gappyout = 'gappyout'
-	gt = 0.7 #fraction of sequences with a gap allowed
+	gt = 0.8 #fraction of sequences with a gap allowed
 	cons = 50 #minimum percentage of positions in the original alignment to conserve
 	st = 0.001 #minimum average similarity allowed
 
