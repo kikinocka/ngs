@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module load bbmap
 
-read_dir='/storage/brno12-cerit/home/kika/pkld'
+read_dir='/storage/brno12-cerit/home/kika/pkld/second'
 
 #copy data to scratch
 cp $read_dir'/'*.fastq.gz $SCRATCHDIR
