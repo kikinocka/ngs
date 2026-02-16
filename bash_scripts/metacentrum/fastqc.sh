@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 #add modules
 module load fastqc
 
-read_dir='/storage/brno12-cerit/home/kika/pkld/second'
+read_dir='/storage/brno12-cerit/home/kika/pkld'
 
 
 #copy data to scratch
-cp $read_dir'/'*fastq.gz $SCRATCHDIR
+cp $read_dir'/'*fq.gz $SCRATCHDIR
 
 
 #compute on scratch
