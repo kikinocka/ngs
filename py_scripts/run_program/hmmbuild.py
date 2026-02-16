@@ -4,7 +4,7 @@ import subprocess
 
 hmmbuild = '/Users/kika/miniconda3/bin/hmmbuild'
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/fornicates_basks/8-metamonad_HMM/')
+os.chdir('/Users/kika/ownCloud/euglenozoa_mito/MICOS//')
 files = [x for x in os.listdir() if x.endswith('.aln')]
 # files = [x for x in os.listdir() if x.startswith('hyp')]
 threads = 7
