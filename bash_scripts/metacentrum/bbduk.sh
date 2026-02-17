@@ -9,10 +9,10 @@ cat $PBS_NODEFILE
 
 module load bbmap
 
-read_dir='/storage/brno12-cerit/home/kika/pkld/second'
+read_dir='/storage/brno12-cerit/home/kika/pkld/'
 
 #copy data to scratch
-cp $read_dir'/'*.fastq.gz $SCRATCHDIR
+cp $read_dir'raw_reads/'*.fastq.gz $SCRATCHDIR
 cp '/cvmfs/software.metacentrum.cz/spack18/software/linux-debian11-x86_64_v2/gcc-10.2.1/bbmap-39.01-d3jpcp7p3t2k2qcc2bdkaze4h5njwe5s/bin/resources/adapters.fa' $SCRATCHDIR
 
 
@@ -34,7 +34,7 @@ for file in *_R1.fastq.gz ; do
 		in1=$fw in2=$rv \
 		out1=$trimmed_fw out2=$trimmed_rv \
 		ref=$adapt \
-		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
+		minlength=75 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 done
 
 # #illumina single reads
@@ -55,4 +55,4 @@ done
 # rm $fw $rv $adapt
 # rm $single $adapt
 rm *fastq.gz $adapt
-cp -r * $read_dir
+cp -r * $read_dir'trimmed_75'
