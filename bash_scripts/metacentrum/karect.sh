@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N karect
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=100gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=100gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -27,7 +27,7 @@ for file in *_1.fq ; do
       rev=$name'_2.fq'
       report=$name'_karect_report.txt'
       echo $name
-      
+
       $karect -correct -threads=$PBS_NUM_PPN -matchtype=hamming -celltype=diploid \
             -inputfile=$fwd -inputfile=$rev 2> $report
 done
