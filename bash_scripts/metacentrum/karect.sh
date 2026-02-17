@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N FastQC
+#PBS -N karect
 #PBS -l select=1:ncpus=20:mem=50gb:scratch_local=100gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
