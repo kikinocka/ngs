@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/quinones/ver10/'
+datadir='/storage/brno12-cerit/home/kika/quinones/ver11/'
 
 #copy files to scratch
 cp $datadir'ubiG.trimal_gt-0.8.aln' $SCRATCHDIR
