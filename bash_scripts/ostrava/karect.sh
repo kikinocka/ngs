@@ -40,4 +40,4 @@ $karect -correct -threads=10 -matchtype=hamming -celltype=diploid -inputfile=$fw
 #       -evalfile=/mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr_eval.txt \ 
 #       2> /mnt/data/kika/blastocrithidia/b_triatomae/reads/karect_eval/Btr.karect_eval.txt
 
-python3 /home/kika/scripts/scripts/py_scripts/slackbot.py OSU: karect done
+python3 /home/kika/scripts/py_scripts/slackbot.py OSU: karect done
