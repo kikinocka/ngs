@@ -16,26 +16,28 @@ export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
 genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
-rna_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/illumina/'
+rna_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
 cp $genome_dir'PaPyr_JAPMOS01.fna' $SCRATCHDIR
+cp $genome_dir'papyr_hints_2026.gff3' $SCRATCHDIR
 cp $rna_dir'PaPyr_ht2_sorted.pass.bam' $SCRATCHDIR
-cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
+cp $prot_dir'metamonads.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
 genome=PaPyr_JAPMOS01.fna
-# rna_ids=SRR651098,SRR651041,SRR33713718
-bam=PaPyr_ht2_sorted.pass.bam
-prot=Eukaryota_odb12.fa
+hints='papyr_hints_2026.gff3'
+bam='PaPyr_ht2_sorted.pass.bam'
+prot='metamonads.faa'
 name='paratrimastix_pyriformis'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
 	--bam=$bam \
+	--hints=$hints \
 	--prot_seq=$prot \
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
@@ -48,6 +50,6 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 
 
 #copy files back
-rm $genome $prot $bam
+rm $genome $prot $hints $bam
 rm -r augustus_configs
-cp -r * $genome_dir'braker/bam-ill-filt_eukaryotes/'
+cp -r * $genome_dir'braker/bam-all-filt_metamonads_hints/'
