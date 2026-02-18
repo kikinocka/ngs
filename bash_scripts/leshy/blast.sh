@@ -1,14 +1,14 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/metamonads/ancestral_OGs/final_trees/'
+cd '/mnt/mokosz/home/kika/workdir/'
 
 # db='/opt/databases/eukprot/current/blast/eukprot'
-# db='/opt/databases/nr_auto/current/nr'
-db='/mnt/mokosz/home/kika/allDB/all.faa'
+db='/mnt/mokosz/home/kika/nr_auto/2025-10-04/nr'
+# db='/mnt/mokosz/home/kika/allDB/all.faa'
 program=blastp
 task=blastp
 outfmt=5
-eval=1e-05
+eval=1e-10
 max_seqs=1
 max_hsps=1
 cpu=8
@@ -27,7 +27,6 @@ for query in *.fa; do
 		-evalue $eval
 	echo ***BLAST done***
 done
-# 
-# 
+
 
 python3 /mnt/mokosz/home/kika/scripts/py_scripts/slackbot.py BLAST done
