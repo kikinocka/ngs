@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N metaeuk
-#PBS -l select=1:ncpus=20:mem=500gb:scratch_local=1gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=50gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -9,21 +9,22 @@ cat $PBS_NODEFILE
 
 data_dir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
-database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC_profiles'
+db_dir='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/'
 # database='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/MMETSP_uniclust50_MERC'
 
 #copy files to scratch
 cp $data_dir'tiara/eukarya_contigs_fixlabel.fasta' $SCRATCHDIR
-
+cp $db_dir'MMETSP_uniclust50_MERC_profiles' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-contigs='eukarya_P1B_scaffolds.fasta'
-out='euk_P1B_metaeuk'
+database='MMETSP_uniclust50_MERC_profiles'
+contigs='eukarya_contigs_fixlabel.fasta'
+out='eukarya_metaeuk'
 
 $metaeuk easy-predict $contigs $database $out $SCRATCHDIR
 
 #copy files back
-rm $contigs
-cp -r * $data_dir'5-metaeuk/'
+rm $contigs $database
+cp -r * $data_dir'metaeuk/'
