@@ -23,7 +23,7 @@ database='MMETSP_uniclust50_MERC_profiles'
 contigs='eukarya_contigs_fixlabel.fasta'
 out='eukarya_metaeuk'
 
-$metaeuk easy-predict $contigs $database $out $SCRATCHDIR
+$metaeuk easy-predict $contigs $database $out $SCRATCHDIR --threads $PBS_NUM_PPN
 
 #copy files back
 rm $contigs $database
