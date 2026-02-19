@@ -9,7 +9,7 @@
 
 karect='/home/kika/tools/karect/karect'
 
-cd '/home/kika/pkld/trimmed_all/'
+cd '/home/kika/pkld/trimmed_75/'
 
 for file in *_1.fq ; do 
       name=${file%_*.fq}
