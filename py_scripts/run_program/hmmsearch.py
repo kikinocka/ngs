@@ -7,8 +7,8 @@ hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 os.chdir('/Users/kika/ownCloud/euglenozoa_mito/MICOS/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Users/kika/ownCloud/diplonema/seq_data/dpapillatum/Gertraud/dpap_genome_translated.fa'
-orgn = 'dpap_genome'
+db = '/Users/kika/ownCloud/rhabdomonas_costata/RhabdomonasCostata_predprots.fas'
+orgn = 'rcos'
 evalue = 1e-05
 
 for file in files:
