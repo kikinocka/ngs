@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N blast-many
 #PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=48:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -26,12 +26,12 @@ program=blastp
 task=blastp
 # task=megablast
 evalue=1e-10
-max_seqs=1
+max_seqs=3
 max_hsps=1
 
 for query in *.fa ; do
 	echo $query
-	out=${query%.fasta}'.ncbi-nr_'$evalue'.tsv'
+	out=${query%.fa}'.ncbi-nr_'$evalue'.tsv'
 	$program -task $task \
 		-query $query \
 		-db $db \
