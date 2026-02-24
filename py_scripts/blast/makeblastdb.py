@@ -2,8 +2,8 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/data/kinetoplastids/')
-files = [x for x in os.listdir() if x.endswith('TriTrypDB-68_PhertigiMCOEPA1965C119_Genome.fasta')]
+os.chdir('/Users/kika/ownCloud/kinetoplastids/trypanosoma_carassii/')
+files = [x for x in os.listdir() if x.endswith('Tcarassii.scaffold.fasta')]
 dbtype = 'nucl'
 
 for file in files: 
