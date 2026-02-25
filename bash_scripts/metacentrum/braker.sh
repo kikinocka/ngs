@@ -22,14 +22,14 @@ prot_dir='/storage/brno12-cerit/home/kika/databases/'
 #copy files to scratch
 cp $genome_dir'flye_assembly.pilon.remove_contaminants.260210.fasta' $SCRATCHDIR
 cp $rna_dir'PaPyr_ht2_sorted.pass.bam' $SCRATCHDIR
-cp $prot_dir'metamonads.faa' $SCRATCHDIR
+cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
 genome='flye_assembly.pilon.remove_contaminants.260210.fasta'
 bam='PaPyr_ht2_sorted.pass.bam'
-prot='metamonads.faa'
+prot='Eukaryota_odb12.fa'
 name='paratrimastix_pyriformis'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
