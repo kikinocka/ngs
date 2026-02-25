@@ -25,7 +25,7 @@ sorted=$base_name'_sorted.bam'
 bowtie2-build $ref $base_name
 
 #paired-end reads
-bowtie2 --very-sensitive -p 50 \
+bowtie2 --end-to-end --very-sensitive --no-discordant --X 800 -p 50 \
 	-x $base_name \
 	-1 $p1_1 \
 	-2 $p1_2 \
@@ -36,8 +36,8 @@ bowtie2 --very-sensitive -p 50 \
 	# -U $r1,$r2 \
 	#--no-unal \ #writes only mapped reads to sam file
 
-samtools view -bS -F 4 -@ 50 $samfile > $bamfile #writes only mapped reads to bamfile
-# samtools view -bS -@ 50 $samfile > $bamfile
+# samtools view -bS -F 4 -@ 50 $samfile > $bamfile #writes only mapped reads to bamfile
+samtools view -bS -@ 50 $samfile > $bamfile
 samtools sort -o $sorted -@ 50 $bamfile 
 samtools index -b $sorted
 
