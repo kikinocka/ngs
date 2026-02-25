@@ -20,7 +20,7 @@ db_dir='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/'
 
 #copy files to scratch
 cp $data_dir'whokaryote_out/eukaryotes.fasta' $SCRATCHDIR
-cp $db_dir'MMETSP_uniclust50_MERC_profiles' $SCRATCHDIR
+cp $db_dir'MMETSP_uniclust50_MERC_profiles'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
