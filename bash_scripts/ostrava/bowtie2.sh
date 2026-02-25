@@ -4,7 +4,7 @@
 #SBATCH --error=bowtie2.%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=50
-#SBATCH --time=10:00:00
+#SBATCH --time=02:00:00
 #SBATCH --export=ALL
 
 cd '/home/kika/pkld/'
@@ -25,7 +25,7 @@ sorted=$base_name'_sorted.bam'
 bowtie2-build $ref $base_name
 
 #paired-end reads
-bowtie2 --end-to-end --very-sensitive --no-discordant -X 800 -p 50 \
+bowtie2 --end-to-end --very-sensitive --no-discordant -p 50 \
 	-x $base_name \
 	-1 $p1_1 \
 	-2 $p1_2 \

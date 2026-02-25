@@ -2,11 +2,11 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'tblastn'
-task = 'tblastn'
-query = '/Users/kika/ownCloud/kinetoplastids/base_J/synteny/GT_synteny.fa'
-db = '/Users/kika/ownCloud/kinetoplastids/trypanosoma_carassii/Tcarassii.scaffold.fasta'
-out = '/Users/kika/ownCloud/kinetoplastids/base_J/synteny/Tcar.GT_synteny.blast.xml'
+cmd = 'blastp'
+task = 'blastp'
+query = '/Users/kika/ownCloud/Lguy_proteomics/peptides.fa'
+db = '/Users/kika/ownCloud/Lguy_proteomics/GCA_003664525.1_ASM366452v1_proteins.fasta'
+out = '/Users/kika/ownCloud/Lguy_proteomics/peptides_vs_proteins.blast.xml'
 evalue = 1e-10
 outfmt = 5
 hits = 1
@@ -17,10 +17,10 @@ threads = 6
 print('running BLAST')
 #query - database
 subprocess.call('{} -task {} -query {} -db {} -out {} -outfmt {} -num_threads {} \
-	-max_target_seqs {} -max_hsps {}'.format(
-		cmd, task, query, db, out, outfmt, threads, hits, hsps), shell=True)
-# -evalue {} -word_size {} 
-# evalue, word_size
+	'.format(
+		cmd, task, query, db, out, outfmt, threads), shell=True)
+# -evalue {} -word_size {} -max_target_seqs {} -max_hsps {}
+# evalue, word_size, hits, hsps
 
 # #query - subject
 # subprocess.call('{} -query {} -subject {} -out {} -evalue {} -outfmt {} -word_size {}'.format(
@@ -31,8 +31,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/kinetoplastids/base_J/synteny/Tcar.GT_synteny.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/kinetoplastids/base_J/synteny/Tcar.GT_synteny.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/Lguy_proteomics/peptides_vs_proteins.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/Lguy_proteomics/peptides_vs_proteins.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
