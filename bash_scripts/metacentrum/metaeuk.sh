@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 data_dir='/storage/brno12-cerit/home/kika/cz-au_fire/'
 metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
-db_dir='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC_OLD/'
+db_dir='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/'
 
 #copy files to scratch
 cp $data_dir'whokaryote_out/eukaryotes.fasta' $SCRATCHDIR
@@ -22,7 +22,7 @@ database='MMETSP_uniclust50_MERC_profiles'
 contigs='eukaryotes.fasta'
 out='eukarya_metaeuk'
 
-$metaeuk easy-predict $contigs $database $out $SCRATCHDIR --threads $PBS_NUM_PPN
+$metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out $SCRATCHDIR
 
 #copy files back
 rm $contigs $database
