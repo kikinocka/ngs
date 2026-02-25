@@ -7,8 +7,15 @@
 
 cat $PBS_NODEFILE
 
+# #Metaeuk installation
+# module add mambaforge
+# mamba create --prefix /storage/brno12-cerit/home/kika/metaeuk_env -y
+# mamba activate /storage/brno12-cerit/home/kika/metaeuk_env
+# mamba install -c conda-forge -c bioconda metaeuk
+# mamba deactivate
+
 data_dir='/storage/brno12-cerit/home/kika/cz-au_fire/'
-metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
+# metaeuk='/storage/brno3-cerit/home/kika/miniconda3/bin/metaeuk'
 db_dir='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/'
 
 #copy files to scratch
@@ -17,13 +24,17 @@ cp $db_dir'MMETSP_uniclust50_MERC_profiles' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
+module add mambaforge
+mamba create -p $SCRATCHDIR/metaeuk_env --clone /storage/brno12-cerit/home/kika/metaeuk_env
+mamba activate $SCRATCHDIR/metaeuk_env
 
 database='MMETSP_uniclust50_MERC_profiles'
 contigs='eukaryotes.fasta'
 out='eukarya_metaeuk'
 
-$metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out $SCRATCHDIR
+metaeuk easy-predict --threads $PBS_NUM_PPN $contigs $database $out $SCRATCHDIR
+mamba deactivate
 
 #copy files back
-rm $contigs $database
+rm -r $contigs $database metaeuk_env
 cp -r * $data_dir'metaeuk/'
