@@ -10,9 +10,9 @@
 cd '/home/kika/pkld/'
 
 ref='references/Ldon_GCF_000227135.1.fna'
-p1_1='trimmed_all/karect_DD8_trimmed_1.fq.gz'
-p1_2='trimmed_all/karect_DD8_trimmed_2.fq.gz'
-base_name='DD8_bw2'
+p1_1='trimmed_all/karect_Ag83_trimmed_1.fq.gz'
+p1_2='trimmed_all/karect_Ag83_trimmed_2.fq.gz'
+base_name='Ag83_bw2'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
