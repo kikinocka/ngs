@@ -10,9 +10,9 @@
 cd '/home/kika/pkld/'
 
 ref='references/Ldon_GCF_000227135.1.fna'
-p1_1='trimmed_all/karect_PKD1-SC-SP_trimmed_1.fq.gz'
-p1_2='trimmed_all/karect_PKD1-SC-SP_trimmed_2.fq.gz'
-base_name='PKD1-SC-SP_bw2'
+p1_1='trimmed_all/karect_PKDL_trimmed_1.fq.gz'
+p1_2='trimmed_all/karect_PKDL_trimmed_2.fq.gz'
+base_name='PKDL_bw2'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
