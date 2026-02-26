@@ -10,9 +10,9 @@
 cd '/home/kika/pkld/'
 
 ref='references/Lmaj_GCF_000002725.2.fna'
-p1_1='trimmed_all/karect_L-Major-ATCC_trimmed_1.fq.gz'
-p1_2='trimmed_all/karect_L-Major-ATCC_trimmed_2.fq.gz'
-base_name='LmajATCC_bw2'
+p1_1='trimmed_all/karect_L-Major-Wild-Type-sample7_trimmed_1.fq.gz'
+p1_2='trimmed_all/karect_L-Major-Wild-Type-sample7_trimmed_2.fq.gz'
+base_name='LmajWT_bw2'
 samfile=$base_name'.sam'
 mapped=$base_name'_mapped.fq.gz'
 unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
