@@ -23,7 +23,7 @@ singularity run -B $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/TE-Tools/TE-too
 	-name $name $genome
 #Run RepeatModeler
 singularity run -B $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/TE-Tools/TE-tools-1.4.sif RepeatModeler \
-	-database $name -threads $PBS_NUM_PPN -LTRStruct
+	-database $name -pa $PBS_NUM_PPN -LTRStruct
 #How many consensus sequences have been predicted?
 grep -c '>' $name'-families.fa'
 #How is the distribution of repeats by types?
