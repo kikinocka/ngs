@@ -25,7 +25,7 @@ sg1='SRR651041_trimmed.fq.gz'
 sg2='SRR651098_trimmed.fq.gz'
 max_intron=10000
 
-singularity exec -B $SCRATCHDIR /storage/brno12-cerit/home/kika/tools/eukan.sif transcriptome_assembly.sh \
+singularity run -B $SCRATCHDIR /storage/brno12-cerit/home/kika/tools/eukan.sif transcriptome_assembly.sh \
 	-l $fwd -r $rev -s $sg1,$sg2 \
 	-g $genome_dir \
 	-M $max_intron \
