@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module load kraken2
 module add krona-2.8
 
-kraken2DB='/storage/brno12-cerit/home/kika/databases/kraken2DB-eukprot'
+kraken2DB='/storage/projects-du-praha/Bio_databases/kraken2/kraken2_nt_20240530'
 datadir='/storage/brno12-cerit/home/kika/pkld/'
 
 #copy files to scratch
@@ -51,4 +51,4 @@ ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
 #copy files back
 rm $fwd $rev
 # rm $assembly
-cp -R * $datadir'kraken2/eukprot/'
+cp -R * $datadir'kraken2/'
