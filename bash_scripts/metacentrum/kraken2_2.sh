@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N kraken2
+#PBS -N kraken2_2
 #PBS -l select=1:ncpus=20:mem=900gb:scratch_local=10gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
@@ -33,7 +33,7 @@ kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
   --classified-out $classified \
   --unclassified-out $unclassified \
   --report $report \
-  --paired --gzip-compressed $fwd $rev > $out
+  --paired $fwd $rev > $out
 
 ImportTaxonomy.pl -m $PBS_NUM_PPN -t 5 $report -o $krona
 
