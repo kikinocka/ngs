@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N RepeatModeler
-#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=20gb
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=20gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -10,13 +10,13 @@ cat $PBS_NODEFILE
 genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
 
 #copy files to scratch
-cp $genome_dir'flye_assembly.pilon.remove_contaminants.260210.fasta' $SCRATCHDIR
+cp $genome_dir'PaPyr_JAPMOS01.fna' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='flye_assembly.pilon.remove_contaminants.260210.fasta'
-name=${genome%.pilon.remove_contaminants.260210.fasta}
+genome='PaPyr_JAPMOS01.fna'
+name=${genome%.fna}
 
 #Generate the RepeatModeler sequence database
 singularity run -B $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/TE-Tools/TE-tools-1.4.sif BuildDatabase \
@@ -39,4 +39,4 @@ perl -ne 'BEGIN{ $l=0; %rep_cnt=(); %rep_siz=(); } chomp($_); $l++; if ($l > 3) 
 
 #copy files back
 rm $genome
-cp -r * $genome_dir'repeatmodeler/'
+cp -r * $genome_dir'repeatmodeler_JAPM/'
