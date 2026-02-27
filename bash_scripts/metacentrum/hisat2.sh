@@ -13,17 +13,17 @@ module load samtools
 
 genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
 read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads'
-outdir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all_flye/'
+outdir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all_flye_masked/'
 
 #copy files to scratch
-cp $genome_dir'flye_assembly.pilon.remove_contaminants.260210.fasta' $SCRATCHDIR
+cp $genome_dir'flye_assembly.pilon.remove_contaminants.260210.fasta.masked' $SCRATCHDIR
 cp $read_dir'/'*trimmed* $SCRATCHDIR
 # cp $outdir'/'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='flye_assembly.pilon.remove_contaminants.260210.fasta'
+genome='flye_assembly.pilon.remove_contaminants.260210.fasta.masked'
 fw='SRR33713718_trimmed_1.fq.gz'
 rv='SRR33713718_trimmed_2.fq.gz'
 sg='SRR651041_trimmed.fq.gz,SRR651098_trimmed.fq.gz'
