@@ -30,6 +30,7 @@ singularity exec /storage/brno12-cerit/home/kika/tools/eukan.sif /bin/bash /opt/
 	-g $genome \
 	-M $max_intron \
 	-A -T -P \
+	-S FR \
 	-n $PBS_NUM_PPN
 #-s $sg1,$sg2 
 
