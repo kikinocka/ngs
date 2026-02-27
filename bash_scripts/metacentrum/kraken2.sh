@@ -1,8 +1,7 @@
 #!/bin/bash
-#PBS -N kraken
-#PBS -l select=1:ncpus=20:mem=900gb:scratch_local=10gb
+#PBS -N kraken2
+#PBS -l select=1:ncpus=20:mem=900gb:scratch_local=10gb,cluster=turin
 #PBS -l walltime=02:00:00
-#PBS -l cluster=turin
 #PBS -m ae
 #PBS -j oe
 
