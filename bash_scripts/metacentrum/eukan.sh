@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N eukan
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=20gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -27,7 +27,7 @@ max_intron=10000
 
 singularity exec /storage/brno12-cerit/home/kika/tools/eukan.sif /bin/bash /opt/eukan/transcriptome_assembly.sh \
 	-l $fwd -r $rev -s $sg1,$sg2 \
-	-g $genome_dir \
+	-g $genome \
 	-M $max_intron \
 	-A -T -P \
 	-n $PBS_NUM_PPN
