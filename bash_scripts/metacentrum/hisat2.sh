@@ -11,7 +11,7 @@ cat $PBS_NODEFILE
 module load hisat2
 module load samtools
 
-genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
+genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/repeatmodeler_flye/'
 read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads'
 outdir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all_flye_masked/'
 
