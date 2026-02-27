@@ -2,7 +2,6 @@
 #PBS -N kraken2
 #PBS -l select=1:ncpus=20:mem=900gb:scratch_local=10gb
 #PBS -l walltime=02:00:00
-#PBS -l cluster_turin=true
 #PBS -m ae
 #PBS -j oe
 
