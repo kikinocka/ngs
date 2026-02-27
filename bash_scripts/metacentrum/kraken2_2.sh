@@ -22,11 +22,11 @@ cd $SCRATCHDIR
 
 fwd='triat_trimmed_1.fq'
 rev='triat_trimmed_2.fq'
-classified='Ag83.classified#.fq'
-unclassified='Ag83.unclassified#.fq'
-out='Ag83.kraken.out'
-report='Ag83.kraken.report'
-krona='Ag83.krona.html'
+classified='triat.classified#.fq'
+unclassified='triat.unclassified#.fq'
+out='triat.kraken.out'
+report='triat.kraken.report'
+krona='triat.krona.html'
 
 #on reads
 kraken2 --db $kraken2DB --threads $PBS_NUM_PPN \
