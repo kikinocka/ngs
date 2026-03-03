@@ -4,12 +4,12 @@
 #SBATCH --error=bwa.%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=50
-#SBATCH --time=10:00:00
+#SBATCH --time=02:00:00
 #SBATCH --export=ALL
 
 cd '/home/kika/pkld/bwa/'
 
-ref='Ldon_GCF_000227135.1.fna'
+ref='/home/kika/pkld/spades/scaffolds.fasta'
 p1_1='/home/kika/pkld/trimmed_all/karect_BHU814_trimmed_1.fq.gz'
 p1_2='/home/kika/pkld/trimmed_all/karect_BHU814_trimmed_2.fq.gz'
 base_name='BHU814_bwa'
@@ -20,7 +20,7 @@ sorted=$base_name'_sorted.bam'
 statsfile=$base_name'.stats.txt'
 
 
-# bwa index $ref
+bwa index $ref
 
 bwa mem -t 50 $ref $p1_1 $p1_2 > $samfile 2> $report
 
