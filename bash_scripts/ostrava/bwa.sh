@@ -10,14 +10,14 @@
 cd '/home/kika/pkld/bwa/'
 
 ref='Ldon_GCF_000227135.1.fna'
-p1_1='trimmed_all/karect_BHU814_trimmed_1.fq.gz'
-p1_2='trimmed_all/karect_BHU814_trimmed_2.fq.gz'
+p1_1='/home/kika/pkld/trimmed_all/karect_BHU814_trimmed_1.fq.gz'
+p1_2='/home/kika/pkld/trimmed_all/karect_BHU814_trimmed_2.fq.gz'
 base_name='BHU814_bwa'
 samfile=$base_name'.sam'
 report=$base_name'.report.txt'
 bamfile=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
-statsfile=$base_name'_stats.txt'
+statsfile=$base_name'.stats.txt'
 
 
 # bwa index $ref
