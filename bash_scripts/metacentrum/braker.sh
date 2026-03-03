@@ -22,14 +22,14 @@ prot_dir='/storage/brno12-cerit/home/kika/databases/'
 #copy files to scratch
 cp $genome_dir'PaPyr_JAPMOS01.masked.fna' $SCRATCHDIR
 cp $rna_dir'PaPyr_ht2_sorted.pass.bam' $SCRATCHDIR
-cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
+cp $prot_dir'metamonads.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
 genome='PaPyr_JAPMOS01.masked.fna'
 bam='PaPyr_ht2_sorted.pass.bam'
-prot='Eukaryota_odb12.fa'
+prot='metamonads.faa'
 name='paratrimastix_pyriformis'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
@@ -49,4 +49,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 #copy files back
 rm $genome $prot $bam
 rm -r augustus_configs
-cp -r * '/storage/brno12-cerit/home/kika/paratrimastix/braker/PaPyr_masked/'
+cp -r * '/storage/brno12-cerit/home/kika/paratrimastix/braker/PaPyr_masked/bam-all_metamonads/'
