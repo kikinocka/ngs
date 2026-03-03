@@ -15,19 +15,19 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
-genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/repeatmodeler/PaPyr/'
-rna_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all/'
+genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/repeatmodeler/flye/'
+rna_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all_flye_masked/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'PaPyr_JAPMOS01.masked.fna' $SCRATCHDIR
+cp $genome_dir'flye_assembly.masked.fna' $SCRATCHDIR
 cp $rna_dir'PaPyr_ht2_sorted.pass.bam' $SCRATCHDIR
 cp $prot_dir'metamonads.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='PaPyr_JAPMOS01.masked.fna'
+genome='flye_assembly.masked.fna'
 bam='PaPyr_ht2_sorted.pass.bam'
 prot='metamonads.faa'
 name='paratrimastix_pyriformis'
@@ -49,4 +49,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 #copy files back
 rm $genome $prot $bam
 rm -r augustus_configs
-cp -r * '/storage/brno12-cerit/home/kika/paratrimastix/braker/PaPyr_masked/bam-all_metamonads/'
+cp -r * '/storage/brno12-cerit/home/kika/paratrimastix/braker/flye_masked/'
