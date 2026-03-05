@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N eukan
-#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=20:mem=300gb:scratch_local=50gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -25,13 +25,13 @@ rev='SRR33713718_trimmed_2.fq.gz'
 # sg2='SRR651098_trimmed.fq.gz'
 max_intron=10000
 
-singularity exec /storage/brno12-cerit/home/kika/tools/eukan.sif /bin/bash /opt/eukan/transcriptome_assembly.sh \
-	-l $fwd -r $rev \
-	-g $genome \
-	-M $max_intron \
-	-A -T -P \
-	-S FR \
-	-n $PBS_NUM_PPN
+singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan.sif /bin/bash /opt/eukan/transcriptome_assembly.sh \
+    -l $fwd -r $rev \
+    -g $genome \
+    -M $max_intron \
+    -A -T -P \
+    -S FR \
+    -n $PBS_NUM_PPN
 #-s $sg1,$sg2 
 
 #copy files back
