@@ -14,7 +14,7 @@ read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
 
 
 #copy data to scratch
-cp $read_dir'/'*.gz $SCRATCHDIR
+cp $read_dir'/Tboi_trimmed50_'*.gz $SCRATCHDIR
 
 
 #compute on scratch
