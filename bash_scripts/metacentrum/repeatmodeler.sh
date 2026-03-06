@@ -7,15 +7,15 @@
 
 cat $PBS_NODEFILE
 
-genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
+genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
 
 #copy files to scratch
-cp $genome_dir'PaPyr_JAPMOS01.fna' $SCRATCHDIR
+cp $genome_dir'Tboi_GCA_030849725.fna' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='PaPyr_JAPMOS01.fna'
+genome='Tboi_GCA_030849725.fna'
 name=${genome%.fna}
 
 #Generate the RepeatModeler sequence database
@@ -39,4 +39,4 @@ perl -ne 'BEGIN{ $l=0; %rep_cnt=(); %rep_siz=(); } chomp($_); $l++; if ($l > 3) 
 
 #copy files back
 rm $genome
-cp -r * $genome_dir'repeatmodeler_JAPM/'
+cp -r * $genome_dir'repeatmodeler/'
