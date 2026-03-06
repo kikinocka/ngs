@@ -26,17 +26,17 @@ for file in *_R1.fastq.gz ; do
 	name=${file%_*.fastq.gz}
 	fw=$name'_R1.fastq.gz'
 	rv=$name'_R2.fastq.gz'
-	trimmed_fw=$name'_trimmed_1.fq.gz'
-	trimmed_rv=$name'_trimmed_2.fq.gz'
-	report=$name'.bbduk_report.txt'
+	trimmed_fw=$name'_trimmed50_1.fq.gz'
+	trimmed_rv=$name'_trimmed50_2.fq.gz'
+	report=$name'.bbduk50_report.txt'
 
 	bbduk.sh overwrite=true \
 		in1=$fw in2=$rv \
 		out1=$trimmed_fw out2=$trimmed_rv \
 		ref=$adapt \
-		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
+		minlength=50 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 done
-# minlength=75 
+# 
 
 # #illumina single reads
 # bbduk.sh overwrite=true \
