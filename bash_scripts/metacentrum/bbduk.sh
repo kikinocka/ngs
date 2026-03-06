@@ -9,10 +9,10 @@ cat $PBS_NODEFILE
 
 module load bbmap
 
-read_dir='/storage/brno12-cerit/home/kika/pkld/'
+read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
 
 #copy data to scratch
-cp $read_dir'raw_reads/'*.fastq.gz $SCRATCHDIR
+cp $read_dir'/'*.fastq.gz $SCRATCHDIR
 cp '/cvmfs/software.metacentrum.cz/spack18/software/linux-debian11-x86_64_v2/gcc-10.2.1/bbmap-39.01-d3jpcp7p3t2k2qcc2bdkaze4h5njwe5s/bin/resources/adapters.fa' $SCRATCHDIR
 
 
@@ -28,14 +28,15 @@ for file in *_R1.fastq.gz ; do
 	rv=$name'_R2.fastq.gz'
 	trimmed_fw=$name'_trimmed_1.fq.gz'
 	trimmed_rv=$name'_trimmed_2.fq.gz'
-	report=$name'_bbduk_report.txt'
+	report=$name'.bbduk_report.txt'
 
 	bbduk.sh overwrite=true \
 		in1=$fw in2=$rv \
 		out1=$trimmed_fw out2=$trimmed_rv \
 		ref=$adapt \
-		minlength=75 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
+		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 done
+# minlength=75 
 
 # #illumina single reads
 # bbduk.sh overwrite=true \
