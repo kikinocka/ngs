@@ -36,4 +36,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan.sif /bin/bash /op
 
 #copy files back
 rm $genome $fwd $rev $sg1 $sg2
-cp -r * $genome_dir'transcriptome'
+cp -r * $genome_dir'transcriptome_flye'
