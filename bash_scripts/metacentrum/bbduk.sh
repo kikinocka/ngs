@@ -56,4 +56,4 @@ done
 # rm $fw $rv $adapt
 # rm $single $adapt
 rm *fastq.gz $adapt
-cp -r * $read_dir'trimmed_75'
+cp -r * $read_dir

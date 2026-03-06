@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 #add modules
 module load fastqc
 
-read_dir='/storage/brno12-cerit/home/kika/pkld/trimmed_75'
+read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
 
 
 #copy data to scratch
-cp $read_dir'/'*fq.gz $SCRATCHDIR
+cp $read_dir'/'*.gz $SCRATCHDIR
 
 
 #compute on scratch
