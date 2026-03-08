@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N metaeuk
 #PBS -l select=1:ncpus=50:mem=500gb:scratch_local=300gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
