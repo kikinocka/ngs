@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N eukan
-#PBS -l select=1:ncpus=20:mem=300gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=1000gb:scratch_local=50gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
