@@ -21,14 +21,14 @@ prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
 cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
-cp $map_dir'Tboi_ht2_sorted.bam' $SCRATCHDIR
+cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
 cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
 genome='Tboi_masked.fna'
-bam='Tboi_ht2_sorted.bam'
+bam='Tboi_ht2_sorted.pass.bam'
 prot='kinetoplastids.faa'
 name='trypanosoma_boissoni'
 
