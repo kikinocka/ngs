@@ -15,22 +15,22 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
-genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/repeatmodeler/flye/'
-rna_dir='/storage/brno12-cerit/home/kika/paratrimastix/hisat2/all_flye_masked/'
+genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
+map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'flye_assembly.masked.fna' $SCRATCHDIR
-cp $rna_dir'PaPyr_ht2_sorted.pass.bam' $SCRATCHDIR
-cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
+cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
+cp $map_dir'Tboi_ht2_sorted.bam' $SCRATCHDIR
+cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='flye_assembly.masked.fna'
-bam='PaPyr_ht2_sorted.pass.bam'
-prot='Eukaryota_odb12.fa'
-name='paratrimastix_pyriformis'
+genome='Tboi_masked.fna'
+bam='Tboi_ht2_sorted.bam'
+prot='kinetoplastids.faa'
+name='trypanosoma_boissoni'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
@@ -49,4 +49,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 #copy files back
 rm $genome $prot $bam
 rm -r augustus_configs
-cp -r * '/storage/brno12-cerit/home/kika/paratrimastix/braker/flye_masked/bam-all_eukaryotes/'
+cp -r * $genome_dir'braker/'
