@@ -23,7 +23,7 @@ cp $transc_dir'flye_assembly.sqlite' $SCRATCHDIR
 #run on scratch
 cd $SCRATCHDIR
 
-# #1) Prepare RNA-seq data to produce input files for the main pipeline.
+# #1) Prepare RNA-seq data to produce input files for the main pipeline. mem=1000GB
 # genome='flye_assembly.pilon.remove_contaminants.260210.fasta'
 # fwd='SRR33713718_trimmed_1.fq.gz'
 # rev='SRR33713718_trimmed_2.fq.gz'
