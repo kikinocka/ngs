@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N eukan
-#PBS -l select=1:ncpus=20:mem=200gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -15,7 +15,7 @@ transc_dir='/storage/brno12-cerit/home/kika/paratrimastix/transcriptome_flye/'
 #copy files to scratch
 cp $genome_dir'flye_assembly.pilon.remove_contaminants.260210.fasta' $SCRATCHDIR
 # cp $read_dir'/SRR33713718'*fq.gz $SCRATCHDIR
-cp $prot_dir'metamonads.faa' $SCRATCHDIR
+cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
 cp $transc_dir'nr_transcripts.'* $SCRATCHDIR
 cp $transc_dir'hints_rnaseq.gff' $SCRATCHDIR
 cp $transc_dir'flye_assembly.sqlite' $SCRATCHDIR
@@ -42,13 +42,16 @@ cd $SCRATCHDIR
 
 #2) Main Eukan pipeline.
 genome='flye_assembly.pilon.remove_contaminants.260210.fasta'
-proteins='metamonads.faa'
+proteins='Eukaryota_odb12.fa'
 transc_fasta='nr_transcripts.fasta'
 transc_gff='nr_transcripts.gff3'
 hints='hints_rnaseq.gff'
 pasa='flye_assembly.sqlite'
 
-singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan.sif eukan \
+singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan-1.0.0zs.sif \
+	cp -r /opt/Augustus/config $SCRATCHDIR/augustus_config
+singularity exec --env AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_config \
+	/cvmfs/singularity.metacentrum.cz/Eukan/eukan-1.0.0zs.sif eukan \
 	-g $genome \
 	-p $proteins \
 	-tf $transc_fasta \
@@ -60,5 +63,7 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan.sif eukan \
 
 #copy files back
 # rm $genome $fwd $rev $sg1 $sg2
-rm $genome $proteins $transc_fasta $transc_gff $hints $pasa
-cp -r * $genome_dir'eukan'
+mv augustus_config/species/flye_assembly.* .
+rm -r augustus_config
+rm $genome $proteins $transc_fasta $transc_gff $hints $pasa 
+cp -r * $genome_dir'eukan/eukaryotes/' && clean_scratch
