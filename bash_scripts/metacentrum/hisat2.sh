@@ -13,7 +13,7 @@ module load samtools
 
 genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
 read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
-outdir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni//hisat2/'
+outdir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni//hisat2_2/'
 
 #copy files to scratch
 cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
