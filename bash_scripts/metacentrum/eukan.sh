@@ -50,7 +50,7 @@ pasa='flye_assembly.sqlite'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan-1.0.0zs.sif \
 	cp -r /opt/Augustus/config $SCRATCHDIR/augustus_config
-singularity exec --env AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_config \
+singularity exec -H /storage/brno12-cerit/home/kika --env AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_config \
 	/cvmfs/singularity.metacentrum.cz/Eukan/eukan-1.0.0zs.sif eukan \
 	-g $genome \
 	-p $proteins \
