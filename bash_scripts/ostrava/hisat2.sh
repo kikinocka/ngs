@@ -12,19 +12,19 @@ cd '/home/kika/tboissoni/'
 genome='Tboi_masked.fna'
 fw='Tboi_trimmed50_1.fq.gz'
 rv='Tboi_trimmed50_2.fq.gz'
-index='tboi_ht2'
-unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
-unmapped_paired=$index'_unmapped_paired.fq.gz'
-sam=$index'.sam'
-report=$index'_report.txt'
-bam=$index'_unsorted.bam'
-sorted=$index'_sorted.bam'
+base_name='tboi_ht2'
+unmapped_unpaired=$base_name'_unmapped_unpaired.fq.gz'
+unmapped_paired=$base_name'_unmapped_paired.fq.gz'
+sam=$base_name'.sam'
+report=$base_name'_report.txt'
+bam=$base_name'_unsorted.bam'
+sorted=$base_name'_sorted.bam'
 
-hisat2-build -p 50 $genome $index
+hisat2-build -p 50 $genome $base_name
 hisat2 -p 50 \
 	--very-sensitive \
 	--dta --secondary \
-	-x $index \
+	-x $base_name \
 	-1 $fw \
 	-2 $rv \
 	--un-gz $unmapped_unpaired \
@@ -36,4 +36,4 @@ hisat2 -p 50 \
 # samtools view -bS -F 4 $sam > $bam -@ 20 #writes only mapped reads to bamfile
 samtools view -bS -@ 50 $sam > $bam
 samtools sort -o $sorted -@ 50 $bam 
-samtools index $sorted
+samtools base_name $sorted
