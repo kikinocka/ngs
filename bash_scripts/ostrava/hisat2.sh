@@ -20,22 +20,20 @@ report=$base_name'_report.txt'
 bam=$base_name'_unsorted.bam'
 sorted=$base_name'_sorted.bam'
 
-# hisat2-build -p 50 $genome $base_name
-# hisat2 -p 50 \
-# 	--very-sensitive \
-# 	--dta --secondary \
-# 	-x $base_name \
-# 	-1 $fw \
-# 	-2 $rv \
-# 	--un-gz $unmapped_unpaired \
-# 	--un-conc-gz $unmapped_paired \
-# 	-S $sam 2> $report
-# #--dta 			reports alignments tailored for transcript assemblers
-# #--secondary	reports secondary alignments
+hisat2-build -p 50 $genome $base_name
+hisat2 -p 50 \
+	--very-sensitive \
+	--dta --secondary \
+	-x $base_name \
+	-1 $fw \
+	-2 $rv \
+	--un-gz $unmapped_unpaired \
+	--un-conc-gz $unmapped_paired \
+	-S $sam 2> $report
+#--dta 			reports alignments tailored for transcript assemblers
+#--secondary	reports secondary alignments
 
-# # samtools view -bS -F 4 $sam > $bam -@ 20 #writes only mapped reads to bamfile
-# samtools view -bS -@ 50 $sam > $bam
-# samtools sort -o $sorted -@ 50 $bam 
-# samtools index $sorted
-
-samtools tview --reference $genome $sorted
+# samtools view -bS -F 4 $sam > $bam -@ 20 #writes only mapped reads to bamfile
+samtools view -bS -@ 50 $sam > $bam
+samtools sort -o $sorted -@ 50 $bam 
+samtools index $sorted
