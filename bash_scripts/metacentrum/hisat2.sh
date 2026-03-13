@@ -18,7 +18,7 @@ outdir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni//hisat2/'
 #copy files to scratch
 cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
 # cp $read_dir'/'*trimmed50* $SCRATCHDIR
-cp $outdir'Tboi_ht2_sorted.bam' $SCRATCHDIR
+cp $outdir'Tboi_ht2_sorted.bam'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
