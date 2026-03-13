@@ -34,6 +34,7 @@ index='Tboi_ht2'
 # report=$index'_report.txt'
 # bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
+view_report=$index'.view.txt '
 
 # hisat2-build -p $PBS_NUM_PPN $genome $index
 # hisat2 -p $PBS_NUM_PPN -x $index \
@@ -50,7 +51,7 @@ sorted=$index'_sorted.bam'
 # samtools sort -o $sorted -@ $PBS_NUM_PPN $bam 
 # samtools index $sorted
 
-samtools tview --reference $genome $sorted
+samtools tview --reference $genome $sorted > $view_report
 
 #copy files back
 # rm $genome *.fq.gz
