@@ -4,13 +4,13 @@ from Bio import SeqIO
 from collections import OrderedDict
 from collections import defaultdict
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/ver1/')
-files = [x for x in os.listdir() if x.endswith('.aln')]
+os.chdir('/Users/kika/ownCloud/kinetoplastids/base_J/trees/JBP2_origin/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for infile in files:
 	print(infile)
-	with open('{}_deduplicated.aln'.format(infile.split('.aln')[0]), 'w') as out_fasta, \
-		 open('{}_dupl-names.txt'.format(infile.split('.aln')[0]), 'w') as out_names:
+	with open('{}_deduplicated.fa'.format(infile.split('.fa')[0]), 'w') as out_fasta, \
+		 open('{}_dupl-names.txt'.format(infile.split('.fa')[0]), 'w') as out_names:
 		multiplications = defaultdict(list)
 		seq_dict = OrderedDict()
 		for sequence in SeqIO.parse(infile, 'fasta'):

@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N metaeuk
 #PBS -l select=1:ncpus=50:mem=500gb:scratch_local=300gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -20,7 +20,7 @@ db_dir='/storage/brno3-cerit/home/kika/databases/MMETSP_uniclust50_MERC/'
 
 #copy files to scratch
 cp $data_dir'whokaryote_out/eukaryotes.fasta' $SCRATCHDIR
-cp $db_dir'MMETSP_uniclust50_MERC_profiles'* $SCRATCHDIR
+cp $db_dir'MMETSP_uniclust50_MERC'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -28,7 +28,7 @@ module add mambaforge
 mamba create -p $SCRATCHDIR/metaeuk_env --clone /storage/brno12-cerit/home/kika/metaeuk_env
 mamba activate $SCRATCHDIR/metaeuk_env
 
-database='MMETSP_uniclust50_MERC_profiles'
+database='MMETSP_uniclust50_MERC'
 contigs='eukaryotes.fasta'
 out='eukarya_metaeuk'
 
