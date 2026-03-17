@@ -4,7 +4,7 @@
 #SBATCH --error=hisat2.%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=50
-#SBATCH --time=02:00:00
+#SBATCH --time=100:00:00
 #SBATCH --export=ALL
 
 cd '/home/kika/tboissoni/'
