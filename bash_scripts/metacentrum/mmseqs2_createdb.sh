@@ -23,7 +23,7 @@ mapping='eukprot_v3.taxidmapping'
 ncbi='ncbi_taxdump'
 database='eukprot_v3_DB'
 
-$mmseqs createdb $fasta $database --threads $PBS_NUM_PPN
+$mmseqs createdb $fasta $database
 $mmseqs createtaxdb $database tmp --ncbi-tax-dump $ncbi --tax-mapping-file $mapping --threads $PBS_NUM_PPN
 
 #copy files back
