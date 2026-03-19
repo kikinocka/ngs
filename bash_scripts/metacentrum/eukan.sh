@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 genome_dir='/storage/brno12-cerit/home/kika/paratrimastix/'
 # read_dir='/storage/brno12-cerit/home/kika/paratrimastix/RNA_reads'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
-transc_dir='/storage/brno12-cerit/home/kika/paratrimastix/transcriptome_flye/'
+transc_dir='/storage/brno12-cerit/home/kika/paratrimastix/eukan/transcriptome_flye/'
 
 #copy files to scratch
 cp $genome_dir'flye_assembly.pilon.remove_contaminants.260210.fasta' $SCRATCHDIR
