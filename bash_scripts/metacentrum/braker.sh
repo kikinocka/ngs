@@ -16,27 +16,26 @@ export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
 genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
-# map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
+map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
 # rna_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
 cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
-# cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
-# cp $rna_dir'Tboi_trimmed50'* $SCRATCHDIR
-cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
+cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
+cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
 genome='Tboi_masked.fna'
-# bam='Tboi_ht2_sorted.pass.bam'
-# reads='Tboi_trimmed50_1,Tboi_trimmed50_2'
-prot='Eukaryota_odb12.fa'
+bam='Tboi_ht2_sorted.pass.bam'
+prot='kinetoplastids.faa'
 name='trypanosoma_boissoni'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
+	--bam=$bam \
 	--prot_seq=$prot \
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
@@ -49,6 +48,6 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 
 
 #copy files back
-rm $genome $prot #$bam *fq.gz
+rm $genome $prot $bam #*fq.gz
 rm -r augustus_configs
-cp -r * $genome_dir'braker/'
+cp -r * $genome_dir'braker/braker_kinetoplastids_RNA/'
