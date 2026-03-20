@@ -23,14 +23,14 @@ prot_dir='/storage/brno12-cerit/home/kika/databases/'
 #copy files to scratch
 cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
 cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
-cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
+cp $prot_dir'Eukaryota_odb12.fa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
 genome='Tboi_masked.fna'
 bam='Tboi_ht2_sorted.pass.bam'
-prot='kinetoplastids.faa'
+prot='Eukaryota_odb12.fa'
 name='trypanosoma_boissoni'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
@@ -50,4 +50,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 #copy files back
 rm $genome $prot $bam #*fq.gz
 rm -r augustus_configs
-cp -r * $genome_dir'braker/braker_kinetoplastids_RNA/'
+cp -r * $genome_dir'braker/eukaryotes_RNA/'
