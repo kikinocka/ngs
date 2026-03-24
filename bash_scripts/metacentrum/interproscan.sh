@@ -9,26 +9,26 @@
 cat $PBS_NODEFILE
 
 #add module
-# module add interproscan
-mamba activate interproscan-5.75-106.0
+module add interproscan
+# mamba activate interproscan-5.75-106.0
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/lmaj_virulence/'
+datadir='/storage/brno12-cerit/home/kika/cz-au_fire/3-metaeuk/'
+outdir='/storage/brno12-cerit/home/kika/cz-au_fire/5-interproscan/'
 
 #copy files to scratch
-cp $datadir'lmaj_DGE_all.fa' $SCRATCHDIR
+cp $datadir'eukarya_metaeuk.fas' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-for fasta in *.fa; do
+for fasta in *.fas; do
 	echo $fasta
-	out=${fasta%.faa}.interpro
+	out=${fasta%.fas}.interpro
 	interproscan.sh -dp -f TSV,GFF3 -T $SCRATCHDIR -cpu $PBS_NUM_PPN -i $fasta -b $out -goterms --pathways -iprlookup
-	#-f TSV,GFF3
 	#-appl PRINTS,Pfam,Hamap,ProSitePatterns,ProSiteProfiles,Panther 
 done
 
 #copy files back
 rm *.fa
-cp -r * $datadir
+cp -r * $datadir && clean_scratch
