@@ -7,7 +7,7 @@
 
 cat $PBS_NODEFILE
 
-data_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
+data_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/unmasked/'
 script_dir='/storage/brno12-cerit/home/kika/scripts/py_scripts/'
 
 #copy files to scratch
