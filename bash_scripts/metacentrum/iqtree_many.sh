@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/haptista-telonemids'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/chlorophytes_glaucophytes'
 
 #copy files to scratch
 cp $data_dir'/'*trimal*aln $SCRATCHDIR
