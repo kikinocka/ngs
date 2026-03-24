@@ -53,4 +53,4 @@ samtools index $sorted
 #copy files back
 rm $genome *.fq.gz
 # rm $genome $sorted
-cp -r * $outdir
+cp -r * $outdir && clean_scratch

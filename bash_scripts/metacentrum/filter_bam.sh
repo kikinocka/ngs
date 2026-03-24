@@ -31,4 +31,4 @@ module unload samtools
 
 #copy files back
 rm $bam $bam'.bai' $script
-cp -r * $data_dir
+cp -r * $data_dir && clean_scratch
