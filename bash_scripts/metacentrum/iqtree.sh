@@ -20,7 +20,7 @@ cp $datadir'RABs.trimal_gt-0.8.aln' $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 aln='RABs.trimal_gt-0.8.aln'
-guide='guide_ubiG'
+guide='guide_RABs'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000

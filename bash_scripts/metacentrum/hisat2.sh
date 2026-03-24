@@ -8,22 +8,22 @@
 cat $PBS_NODEFILE
 
 #add module
-# module load hisat2
+module load hisat2
 module load samtools
 
 genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
 read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
-outdir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni//hisat2/'
+outdir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni//hisat2/unmasked/'
 
 #copy files to scratch
-cp $genome_dir'Tboi_masked.fna' $SCRATCHDIR
+cp $genome_dir'Tboi_GCA_030849725.fna' $SCRATCHDIR
 cp $read_dir'/'*trimmed50* $SCRATCHDIR
 # cp $outdir'Tboi_ht2_sorted.bam'* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Tboi_masked.fna'
+genome='Tboi_GCA_030849725.fna'
 fw='Tboi_trimmed50_1.fq.gz'
 rv='Tboi_trimmed50_1.fq.gz'
 # sg='SRR651041_trimmed.fq.gz,SRR651098_trimmed.fq.gz'
@@ -34,7 +34,6 @@ sam=$index'.sam'
 report=$index'_report.txt'
 bam=$index'_unsorted.bam'
 sorted=$index'_sorted.bam'
-# view_report=$index'.view.txt'
 
 hisat2-build -p $PBS_NUM_PPN $genome $index
 hisat2 -p $PBS_NUM_PPN -x $index \
@@ -50,8 +49,6 @@ hisat2 -p $PBS_NUM_PPN -x $index \
 samtools view -bS $sam > $bam -@ $PBS_NUM_PPN
 samtools sort -o $sorted -@ $PBS_NUM_PPN $bam 
 samtools index $sorted
-
-# samtools tview --reference $genome $sorted > $view_report
 
 #copy files back
 rm $genome *.fq.gz
