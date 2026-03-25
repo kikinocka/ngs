@@ -31,7 +31,8 @@ rev='Tboi_trimmed50_2.fq.gz'
 # sg2='SRR651098_trimmed.fq.gz'
 max_intron=0
 
-singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan.sif /bin/bash /opt/eukan/transcriptome_assembly.sh \
+singularity exec /cvmfs/singularity.metacentrum.cz/Eukan/eukan-1.0.0zs.sif \
+	/bin/bash /opt/eukan/transcriptome_assembly.sh \
     -l $fwd -r $rev \
     -g $genome \
     -M $max_intron \
