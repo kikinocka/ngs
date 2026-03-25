@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N IQT-many
+#PBS -N IQT-many2
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
@@ -13,9 +13,8 @@ module load iqtree
 data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/chlorophytes_glaucophytes/'
 
 #copy files to scratch
-cp $data_dir'medium.trimal_gt-0.7.aln' $SCRATCHDIR
-cp $data_dir'small.trimal_gt-0.7.aln' $SCRATCHDIR
-cp $data_dir'prop-sol.trimal_gt-0.7.aln' $SCRATCHDIR
+cp $data_dir'large-beta.trimal_gt-0.7.aln' $SCRATCHDIR
+cp $data_dir'guide_large-beta.'* $SCRATCHDIR
 
 
 #compute on scratch
@@ -31,7 +30,7 @@ for aln in *.aln ; do
 	# iqtree -m TEST -nt AUTO -ntmax $PBS_NUM_PPN -bb $bb -nm $nm -quiet -s ${aln}
 	# iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${aln}
 
-	iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+	# iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 	iqtree3-mpi -m LG+C60+G -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 done
 
