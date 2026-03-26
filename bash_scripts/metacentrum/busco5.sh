@@ -15,7 +15,7 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/paratrimastix'
+assembly_dir='/storage/brno12-cerit/home/kika/fish_tryps'
 
 #copy files to scratch
 cp $assembly_dir'/'*.faa $SCRATCHDIR
@@ -37,9 +37,9 @@ for fasta in *.faa; do
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
 
-	# lineage='euglenozoa_odb10'
-	# base=${fasta%.fa}_$lineage
-	# busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
+	lineage='euglenozoa_odb10'
+	base=${fasta%.fa}_$lineage
+	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
 	# # cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
 done
 
