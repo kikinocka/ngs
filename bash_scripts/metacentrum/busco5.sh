@@ -48,5 +48,5 @@ mamba deactivate
 
 
 #copy files back
-rm *.fa
+rm *.faa
 cp -r * $assembly_dir && clean_scratch
