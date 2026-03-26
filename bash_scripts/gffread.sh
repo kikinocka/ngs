@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #extract proteins
-genome='/Users/kika/Downloads/eg/Euglena.chr.fa'
-gff='/Users/kika/Downloads/eg/Euglena.gene.change.chr.gff'
-proteins='/Users/kika/Downloads/eg/Euglena.prot.fa'
+genome='/Users/kika/ownCloud/paratrimastix/new_assembly/flye_assembly.pilon.remove_contaminants.260210.fasta'
+gff='/Users/kika/ownCloud/paratrimastix/annotation/eukan/eukan_eukaryotes_final.gff3'
+proteins='/Users/kika/ownCloud/paratrimastix/annotation/eukan/eukan_euk.prot.fa'
 
 gffread $gff -g $genome -y $proteins 
  
