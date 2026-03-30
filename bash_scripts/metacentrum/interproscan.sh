@@ -2,7 +2,7 @@
 #PBS -N InterProScan
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -16,7 +16,7 @@ datadir='/storage/brno12-cerit/home/kika/cz-au_fire/3-metaeuk/'
 outdir='/storage/brno12-cerit/home/kika/cz-au_fire/5-interproscan/'
 
 #copy files to scratch
-cp $datadir'eukarya_metaeuk.fas' $SCRATCHDIR
+cp $datadir'eukarya_metaeuk_'*.fas $SCRATCHDIR
 
 
 #compute on scratch
@@ -30,5 +30,5 @@ for fasta in *.fas; do
 done
 
 #copy files back
-rm *.fa
+rm *.fas
 cp -r * $datadir && clean_scratch
