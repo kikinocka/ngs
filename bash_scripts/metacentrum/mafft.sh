@@ -10,14 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/tbKIN/kin2/ver13'
+data_dir='/storage/brno12-cerit/home/kika/euglenozoa_mito/'
 
 #copy files to scratch
-cp $data_dir'/'*'.fa' $SCRATCHDIR
-# cp $data_dir'apicomplexa.mafft.aln' $SCRATCHDIR
-# cp $data_dir'V9.fa' $SCRATCHDIR
-# cp $data_dir'mesozoa_outgroup_V9_above99.table' $SCRATCHDIR
-# cp $data_dir'mesozoa_outgroup_V9_above99.in' $SCRATCHDIR
+cp $data_dir'Pam17-PF08566.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
@@ -65,7 +61,7 @@ done
 # echo 'Alignments merged'
 
 #copy files back
-# rm *.fa
+rm *.fa
 # rm $existing $add
 # rm $aln1 $aln2
 cp *mafft* $data_dir

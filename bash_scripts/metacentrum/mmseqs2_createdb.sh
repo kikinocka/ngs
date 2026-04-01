@@ -9,22 +9,23 @@ cat $PBS_NODEFILE
 
 mmseqs='/storage/brno3-cerit/home/kika/miniconda3/bin/mmseqs'
 data_dir='/storage/brno3-cerit/home/kika/databases/'
-ncbi=$data_dir'ncbi-taxdump'
 
 #copy files to scratch
-cp $data_dir'eukprot_v2_proteins_renamed.taxids.faa' $SCRATCHDIR
-cp $data_dir'eukprot.taxidmapping' $SCRATCHDIR
+cp $data_dir'eukprot_v3.faa' $SCRATCHDIR
+cp $data_dir'eukprot_v3.taxidmapping' $SCRATCHDIR
+cp -r $data_dir'ncbi_taxdump' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fasta='eukprot_v2_proteins_renamed.taxids.faa'
-database='eukprotDB'
-taxidmapping='eukprot.taxidmapping'
+fasta='eukprot_v3.faa'
+mapping='eukprot_v3.taxidmapping'
+ncbi='ncbi_taxdump'
+database='eukprot_v3_DB'
 
 $mmseqs createdb $fasta $database
-$mmseqs createtaxdb $database tmp --ncbi-tax-dump $ncbi --tax-mapping-file $taxidmapping --threads $PBS_NUM_PPN
+$mmseqs createtaxdb $database tmp --ncbi-tax-dump $ncbi --tax-mapping-file $mapping --threads $PBS_NUM_PPN
 
 #copy files back
-rm -r $fasta $taxidmapping tmp
-cp -r * $data_dir'eukprotDB'
+rm -r $fasta $mapping $ncbi tmp
+cp -r * $data_dir'eukprot_v3_DB'

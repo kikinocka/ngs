@@ -9,16 +9,16 @@
 cat $PBS_NODEFILE
 
 #add module
-module add conda-modules-py37
+module add mambaforge
 conda activate busco
 
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/vickermania/'
+assembly_dir='/storage/brno12-cerit/home/kika/fish_tryps'
 
 #copy files to scratch
-cp $assembly_dir'Vspa.faa' $SCRATCHDIR
+cp $assembly_dir'/'*.faa $SCRATCHDIR
 
 
 #compute on scratch
@@ -40,12 +40,13 @@ for fasta in *.faa; do
 	lineage='euglenozoa_odb10'
 	base=${fasta%.fa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c $PBS_NUM_PPN
-	# cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
+	# # cp $base'/short_summary.specific.'$base'.txt' BUSCO_summaries
 done
 
 # generate_plot.py -wd BUSCO_summaries
+mamba deactivate
 
 
 #copy files back
 rm *.faa
-cp -r * $assembly_dir
+cp -r * $assembly_dir && clean_scratch
