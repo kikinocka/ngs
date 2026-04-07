@@ -7,16 +7,16 @@
 
 cat $PBS_NODEFILE
 
-genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
+genome_dir='/storage/brno12-cerit/home/kika/blastocystis/'
 
 #copy files to scratch
-cp $genome_dir'Tboi_GCA_030849725.fna' $SCRATCHDIR
+cp $genome_dir'GCA_000963415.1_ASM96341v1_genomic.fna' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='Tboi_GCA_030849725.fna'
-name=${genome%.fna}
+genome='GCA_000963415.1_ASM96341v1_genomic.fna'
+name=${genome%_ASM96341v1_genomic.fna}
 
 #Generate the RepeatModeler sequence database
 singularity run -B $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/TE-Tools/TE-tools-1.4.sif BuildDatabase \
