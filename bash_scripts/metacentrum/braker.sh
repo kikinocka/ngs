@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N braker
-#PBS -l select=1:ncpus=20:mem=120gb:scratch_local=50gb
-#PBS -l walltime=96:00:00
+#PBS -l select=1:ncpus=20:mem=50gb:scratch_local=50gb
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -15,20 +15,20 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
-genome_dir='/storage/brno12-cerit/home/kika/blastocystis/'
+genome_dir='/storage/brno12-cerit/home/kika/blastocystis/ASM357512v1/'
 # map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
 # rna_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'GCA_000963415.1_ASM96341v1_genomic.fna' $SCRATCHDIR
+cp $genome_dir'GCA_003575125.1_ASM357512v1_genomic.fna' $SCRATCHDIR
 # cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
 cp $prot_dir'Stramenopiles.fa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='GCA_000963415.1_ASM96341v1_genomic.fna'
+genome='GCA_003575125.1_ASM357512v1_genomic.fna'
 # bam='Tboi_ht2_sorted.pass.bam'
 prot='Stramenopiles.fa'
 name='blastocystis_ST6'
