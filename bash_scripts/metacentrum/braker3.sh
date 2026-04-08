@@ -33,7 +33,7 @@ genome='GCA_029240975.1_ASM2924097v1_genomic.fna'
 prot='Stramenopiles.fa'
 name='blastocystis_CHMP2T16'
 
-singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
+singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
 	--prot_seq=$prot \
 	--species=$name \
