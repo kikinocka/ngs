@@ -49,4 +49,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 #copy files back
 rm $genome $prot #$bam *fq.gz
 rm -r augustus_configs
-cp -r * $genome_dir'braker/' && clean_scratch
+cp -r * $genome_dir'braker/'
