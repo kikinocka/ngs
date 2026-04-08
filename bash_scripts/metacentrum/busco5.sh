@@ -15,7 +15,7 @@ conda activate busco
 # #available datasets
 # busco --list-datasets
 
-assembly_dir='/storage/brno12-cerit/home/kika/blastocystis/braker/'
+assembly_dir='/storage/brno12-cerit/home/kika/blastocystis/ASM2740638v1/braker/'
 
 #copy files to scratch
 cp $assembly_dir'braker.aa' $SCRATCHDIR
