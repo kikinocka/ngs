@@ -39,6 +39,7 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
 	--threads $PBS_NUM_PPN \
+	--min_contig 3000 \
 	--gff3
 
 # --bam=rnaseq.bam
