@@ -15,20 +15,20 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
-genome_dir='/storage/brno12-cerit/home/kika/blastocystis/ASM2924096v1/'
+genome_dir='/storage/brno12-cerit/home/kika/blastocystis/ASM357512v1/'
 # map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
 # rna_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'GCA_029240965.1_ASM2924096v1_genomic.fna' $SCRATCHDIR
+cp $genome_dir'GCA_003575125.1_ASM357512v1_genomic.fna' $SCRATCHDIR
 # cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
 cp $prot_dir'Stramenopiles.fa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='GCA_029240965.1_ASM2924096v1_genomic.fna'
+genome='GCA_003575125.1_ASM357512v1_genomic.fna'
 # bam='Tboi_ht2_sorted.pass.bam'
 prot='Stramenopiles.fa'
 name='blastocystis_CHMP2T19'
@@ -39,6 +39,7 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
 	--threads $PBS_NUM_PPN \
+	--min_contig=3000 \
 	--gff3
 
 # --bam=rnaseq.bam
@@ -49,4 +50,4 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 #copy files back
 rm $genome $prot #$bam *fq.gz
 rm -r augustus_configs
-cp -r * $genome_dir'braker/' && clean_scratch
+cp -r * $genome_dir'braker/'
