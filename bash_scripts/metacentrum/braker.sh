@@ -31,7 +31,7 @@ cd $SCRATCHDIR
 genome='GCA_937863765.1_ERR1995252_bin.1_CONCOCT_v1.1_MAG_genomic.fna'
 # bam='Tboi_ht2_sorted.pass.bam'
 prot='Stramenopiles.fa'
-name='blastocystis_bin.1'
+name='blastocystis_ERR1995252'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
