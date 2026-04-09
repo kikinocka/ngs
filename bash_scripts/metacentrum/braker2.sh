@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N braker2
-#PBS -l select=1:ncpus=20:mem=30gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
 #PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
@@ -15,23 +15,23 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
-genome_dir='/storage/brno12-cerit/home/kika/blastocystis/ASM96339v1/'
+genome_dir='/storage/brno12-cerit/home/kika/blastocystis/ERR12764778_concoct_85/'
 # map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
 # rna_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'GCA_000963395.1_ASM96339v1_genomic.fna' $SCRATCHDIR
+cp $genome_dir'GCA_982266135.1_ERR12764778_concoct_85_genomic.fna' $SCRATCHDIR
 # cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
 cp $prot_dir'Stramenopiles.fa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='GCA_000963395.1_ASM96339v1_genomic.fna'
+genome='GCA_982266135.1_ERR12764778_concoct_85_genomic.fna'
 # bam='Tboi_ht2_sorted.pass.bam'
 prot='Stramenopiles.fa'
-name='blastocystis_BT1'
+name='blastocystis_concoct85'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
