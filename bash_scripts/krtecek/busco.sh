@@ -1,5 +1,5 @@
 conda activate busco
-
+source activate busco
 cd '/home/users/kika/blastocystis/'
 mkdir BUSCO_summaries
 
