@@ -2,6 +2,7 @@
 cd '/home/users/kika/eukfinder/'
 
 # conda create -n eukfinder -c bioconda eukfinder
+conda init
 conda activate eukfinder
 
 #path to databases
