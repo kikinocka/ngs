@@ -1,6 +1,6 @@
 #!/bin/bash
-conda activate BUSCO
-# source activate busco
+# conda activate BUSCO
+source activate BUSCO
 
 cd '/home/users/kika/blastocystis/'
 mkdir BUSCO_summaries
