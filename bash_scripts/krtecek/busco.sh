@@ -1,3 +1,4 @@
+#!/bin/bash
 conda activate busco
 source activate busco
 
