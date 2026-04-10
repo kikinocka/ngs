@@ -43,6 +43,7 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 
 # --home $SCRATCHDIR - after "exec" when Augustus tries to write to /opt/... and fails
 # --min_contig=3000 - when fails in /opt/ETP/bin/gmes/gmes_petap.pl step
+
 # --bam=rnaseq.bam
 # --rnaseq_sets_ids=SRR1111,SRR1115
 # --rnaseq_sets_dir=/path/to/rna_dir1
