@@ -1,9 +1,9 @@
 #!/bin/bash
+
+# #activate in terminal, then run script, then deactivate
+# conda activate eukfinder
+
 cd '/home/users/kika/eukfinder/'
-
-# conda create -n eukfinder -c bioconda eukfinder
-
-source activate eukfinder
 
 #path to databases
 databases='/home2/BW2026/Eukfinder/eukfinder_databases/'
@@ -19,4 +19,4 @@ eukfinder long_seqs -l $longreads -o $prefix -n 20 -z 2 -t True -p $plastdb -m $
 	-e 0.001 --pid 60 --cov 20 --cdb $centrifuge --mhlen 50
 #-t True - only the first time (or after a long time) because it downloads databases; then False
 
-conda deactivate
+# conda deactivate
