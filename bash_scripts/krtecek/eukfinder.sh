@@ -1,15 +1,16 @@
 #!/bin/bash
 cd '/home/users/kika/eukfinder/'
 
+# conda create -n eukfinder -c bioconda eukfinder
 conda activate eukfinder
 
-# path to databases
+#path to databases
 databases='/home2/BW2026/Eukfinder/eukfinder_databases/'
 plastdb=$databases'PlastDB.fasta'
 plastmap=$databases'PlastDB_map.txt'
 centrifuge=$databases'Centrifuge_Sept2020'
 
-# path to longreads
+#path to longreads
 longreads='unfiltered_spades_BL_01.fasta'
 prefix='BL_01'
 
