@@ -1,5 +1,5 @@
 #!/bin/sh
-#PBS -N InterProScan
+#PBS -N InterProScan_6
 #PBS -q default
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=50gb
 #PBS -l walltime=336:00:00
@@ -16,12 +16,7 @@ datadir='/storage/brno12-cerit/home/kika/cz-au_fire/3-metaeuk/'
 outdir='/storage/brno12-cerit/home/kika/cz-au_fire/5-interproscan/'
 
 #copy files to scratch
-cp $datadir'eukarya_metaeuk_34'*.fas $SCRATCHDIR
-cp $datadir'eukarya_metaeuk_35'*.fas $SCRATCHDIR
-cp $datadir'eukarya_metaeuk_36'*.fas $SCRATCHDIR
-cp $datadir'eukarya_metaeuk_37'*.fas $SCRATCHDIR
-cp $datadir'eukarya_metaeuk_38'*.fas $SCRATCHDIR
-cp $datadir'eukarya_metaeuk_39'*.fas $SCRATCHDIR
+cp $datadir'eukarya_metaeuk_6'*.fas $SCRATCHDIR
 
 
 #compute on scratch
