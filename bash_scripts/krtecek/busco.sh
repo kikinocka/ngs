@@ -1,5 +1,4 @@
 #!/bin/bash
-# conda activate BUSCO
 source activate BUSCO
 
 cd '/home/users/kika/blastocystis/'
@@ -22,6 +21,6 @@ for fasta in *.faa; do
 	cp $base'/short_summary.'*'.json' BUSCO_summaries
 done
 
-# busco --plot BUSCO_summaries --plot_percentages
+busco --plot BUSCO_summaries --plot_percentages
 
 conda deactivate
