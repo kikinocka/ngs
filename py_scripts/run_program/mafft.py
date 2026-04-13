@@ -5,24 +5,24 @@ import subprocess
 mafft = '/Users/kika/miniconda3/bin/mafft'
 maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
-# #align de-novo
-# os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/')
-# # files = [x for x in os.listdir() if x.endswith('.fa')]
+#align de-novo
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/apicomplexa/')
+files = [x for x in os.listdir() if x.endswith('.fa')]
 # files = [x for x in os.listdir() if x.startswith('Sec23.fa')]
 
-# for file in files:
-# 	print(file)
-# 	#L-INS-i (proteins with one alignable domain)
-# 	out = '{}.mafft.aln'.format(file.split('.fa')[0])
-# 	log = '{}.mafft.log'.format(file.split('.fa')[0])
-# 	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-# 		mafft, file, out, log), shell=True)
+for file in files:
+	print(file)
+	#L-INS-i (proteins with one alignable domain)
+	out = '{}.mafft.aln'.format(file.split('.fa')[0])
+	log = '{}.mafft.log'.format(file.split('.fa')[0])
+	subprocess.call('{} --thread 7 --localpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+		mafft, file, out, log), shell=True)
 
-# 	# #E-INS-i (proteins with several functional domains)
-# 	# out = '{}.einsi.aln'.format(file.split('.fa')[0])
-# 	# log = '{}.einsi.log'.format(file.split('.fa')[0])
-# 	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
-# 	# 	mafft, file, out, log), shell=True)
+	# #E-INS-i (proteins with several functional domains)
+	# out = '{}.einsi.aln'.format(file.split('.fa')[0])
+	# log = '{}.einsi.log'.format(file.split('.fa')[0])
+	# subprocess.call('{} --thread 7 --genafpair --maxiterate 1000 --inputorder {} > {} 2> {}'.format(
+	# 	mafft, file, out, log), shell=True)
 
 # 	# #tRNAs
 # 	# out = '{}.mafft.aln'.format(file.split('.fa')[0])
@@ -33,15 +33,15 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 # 	# subprocess.call('{} --auto --inputorder {} > {} 2> {}'.format(mafft, file, out, log), shell=True)
 
 
-#add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/')
-existing = 'RABs_all.mafft.aln'
-add = 'ddi.fa'
-out = 'RABs.mafft.aln'
-log = 'RABs.mafft.log'
-subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
-# subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
-# 	shell=True)
+# #add to aligned sequences
+# os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/')
+# existing = 'RABs_all.mafft.aln'
+# add = 'ddi.fa'
+# out = 'RABs.mafft.aln'
+# log = 'RABs.mafft.log'
+# subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
+# # subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
+# # 	shell=True)
 	
 
 # #merge alignments

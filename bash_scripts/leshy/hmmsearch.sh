@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd '/mnt/mokosz/home/kika/workdir/forn-bask/'
+cd '/mnt/mokosz/home/kika/workdir/'
 threads=15
 eval=1e-05
 
@@ -22,7 +22,7 @@ eval=1e-05
 
 
 #one profile and several databases
-profile='metamonds_CLC.hmm'
+profile='CLC.hmm'
 
 for db in *.faa ; do
 	orgn=${db%.faa}
