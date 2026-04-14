@@ -4,11 +4,11 @@ import subprocess
 
 hmmsearch = '/Users/kika/miniconda3/bin/hmmsearch'
 
-os.chdir('/Users/kika/ownCloud/euglenozoa_mito/import/')
+os.chdir('/Users/kika/ownCloud/kinetoplastids/base_J/JBP2_origin/SNF2/')
 files = [x for x in os.listdir() if x.endswith('.hmm')]
 
-db = '/Users/kika/data/opisthokonta/GCF_000001405.39_GRCh38.p13_protein.faa'
-orgn = 'hsap'
+db = '/Users/kika/data/kinetoplastids/v68/TriTrypDB-68_TbruceiTREU927_AnnotatedProteins.fasta'
+orgn = 'tbru'
 evalue = 1e-05
 
 for file in files:
