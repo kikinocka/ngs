@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/ver2/'
 
 #copy files to scratch
 cp $datadir'snf2.trimal_gt-0.8.aln' $SCRATCHDIR
