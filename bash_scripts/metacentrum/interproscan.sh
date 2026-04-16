@@ -36,4 +36,4 @@ done
 
 #copy files back
 rm *.fas
-cp -r * $datadir && clean_scratch
+cp -r * $outdir && clean_scratch
