@@ -1,28 +1,29 @@
 #!/bin/bash
-#PBS -d .
-#PBS -N blast
-#PBS -l nodes=1:ppn=10
-#PBS -l walltime=900:00:00
+#SBATCH --job-name=blast
+#SBATCH --output=blast.%j.out
+#SBATCH --error=blast.%j.err
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --time=20:00:00
+#SBATCH --export=ALL
 
-cd '/home/users/kika/vickermania/'
 
-eval "$(/home/users/bio/anaconda3/bin/conda shell.bash hook)"
-conda activate /home/users/bio/anaconda3/
+cd '/home/kika/omod/'
 
-query='Vspa.fwd_hits.fa'
-db='Vickermania_ingenoplastis_proteins_1.fasta'
+query='GCA_023091115.2_OSU_Omodryi_genomic.fna'
+db='Omod_genome_final_masked.fa'
 # db='/mnt/data/blastdbs/nr'
-program=blastp
-task=blastp
-evalue=1e-10
+program=blastn
+task=blastn
+evalue=1e-05
 max_seqs=1
 max_hsps=1
 
-for file in *.fa ; do 
+for file in *.fna ; do 
 	for query in $file ; do
 		echo $query
 		# out=${query%.fa}'.nr_'$evalue'.'$program'.tsv'
-		out=${query%.fa}'.Ving_'$evalue'.'$program'.tsv'
+		out=${query%_OSU_Omodryi_genomic.fna}'.'$program'_'$evalue'.tsv'
 		# out=${db%.fa}'.ref_'$evalue'.tsv'
 		$program -task $task \
 			-query $query \
@@ -36,8 +37,3 @@ for file in *.fa ; do
 		echo ***BLAST done***
 	done
 done
-
-conda deactivate
-
-
-python3 /home/users/kika/scripts/py_scripts/slackbot.py OSU: BLAST done
