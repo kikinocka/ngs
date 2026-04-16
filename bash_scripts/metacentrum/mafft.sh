@@ -64,4 +64,4 @@ done
 rm *.fa
 # rm $existing $add
 # rm $aln1 $aln2
-cp *mafft* $data_dir
+cp *mafft* $data_dir && clean_scratch
