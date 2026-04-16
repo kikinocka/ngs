@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/ver2/'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/ver3/'
 
 #copy files to scratch
 cp $data_dir'snf2.fa' $SCRATCHDIR
