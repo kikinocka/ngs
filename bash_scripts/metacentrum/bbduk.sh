@@ -38,15 +38,15 @@ for file in *_1.fastq.gz ; do
 		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
 
 
-	trimmed50_fw=$name'_trimmed50_1.fq.gz'
-	trimmed50_rv=$name'_trimmed50_2.fq.gz'
-	report50=$name'.bbduk50_report.txt'
+	# trimmed50_fw=$name'_trimmed50_1.fq.gz'
+	# trimmed50_rv=$name'_trimmed50_2.fq.gz'
+	# report50=$name'.bbduk50_report.txt'
 
-	bbduk.sh overwrite=true \
-		in1=$fw in2=$rv \
-		out1=$trimmed50_fw out2=$trimmed50_rv \
-		ref=$adapt \
-		minlength=50 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report50
+	# bbduk.sh overwrite=true \
+	# 	in1=$fw in2=$rv \
+	# 	out1=$trimmed50_fw out2=$trimmed50_rv \
+	# 	ref=$adapt \
+	# 	minlength=50 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report50
 done
 # 
 
