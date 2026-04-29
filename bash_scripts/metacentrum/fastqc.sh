@@ -14,7 +14,7 @@ read_dir='/storage/brno12-cerit/home/kika/trimastix/reads'
 
 
 #copy data to scratch
-cp $read_dir'/'*.gz $SCRATCHDIR
+cp $read_dir'/'*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
