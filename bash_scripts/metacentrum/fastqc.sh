@@ -10,11 +10,11 @@ cat $PBS_NODEFILE
 #add modules
 module load fastqc
 
-read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
+read_dir='/storage/brno12-cerit/home/kika/trimastix/reads'
 
 
 #copy data to scratch
-cp $read_dir'/Tboi_trimmed50_'*.gz $SCRATCHDIR
+cp $read_dir'/'*.gz $SCRATCHDIR
 
 
 #compute on scratch
@@ -27,4 +27,4 @@ done
 
 #copy files back
 rm *gz
-cp -r * $read_dir'/fastqc/'
+cp -r * $read_dir'/fastqc/' && clean_scratch

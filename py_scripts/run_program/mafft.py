@@ -34,11 +34,11 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/')
-existing = 'rabs_all.mafft.aln'
-add = 'rabs.fa'
-out = 'rabs.mafft.aln'
-log = 'rabs.mafft.log'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/')
+existing = 'rabs_refs.mafft.aln'
+add = 'RABs/rabs.fa'
+out = 'RABs/rabs.mafft.aln'
+log = 'RABs/rabs.mafft.log'
 subprocess.call('{} --add {} --thread 7 --inputorder {} > {} 2> {}'.format(mafft, add, existing, out, log), shell=True)
 # subprocess.call('{} --addfragments {} --thread 7 --inputorder --keeplength {} > {} 2> {}'.format(mafft, add, existing, out, log), 
 # 	shell=True)

@@ -3,7 +3,7 @@ import os
 from Bio import SeqIO
 from collections import defaultdict, OrderedDict
 
-os.chdir('/Users/kika/ownCloud/kinetoplastids/base_J/trees/JBP2_origin/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 
 for infile in files:
