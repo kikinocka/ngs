@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/ver3/'
+datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/'
 
 #copy files to scratch
-cp $datadir'snf2.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $datadir'rabs.trimal_gt-0.8.aln' $SCRATCHDIR
 # cp $datadir'guide'* $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='snf2.trimal_gt-0.8.aln'
-guide='guide_snf2'
+aln='rabs.trimal_gt-0.8.aln'
+guide='guide_rabs'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000
