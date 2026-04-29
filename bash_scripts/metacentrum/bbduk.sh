@@ -29,7 +29,7 @@ for file in *_1.fastq.gz ; do
 
 	trimmed_fw=$name'_trimmed_1.fq.gz'
 	trimmed_rv=$name'_trimmed_2.fq.gz'
-	report=$name'.bbduk50_report.txt'
+	report=$name'.bbduk_report.txt'
 
 	bbduk.sh overwrite=true \
 		in1=$fw in2=$rv \
