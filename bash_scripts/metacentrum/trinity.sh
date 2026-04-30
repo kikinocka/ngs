@@ -11,14 +11,14 @@ cat $PBS_NODEFILE
 workdir='/storage/brno12-cerit/home/kika/trimastix/'
 
 #copy files to scratch
-cp $workdir'reads/SRR4017103_trimmed50_'*.fq.gz $SCRATCHDIR
+cp $workdir'reads/SRR4017103_trimmed_'*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-fw='SRR4017103_trimmed50_1.fq.gz'
-rv='SRR4017103_trimmed50_2.fq.gz'
+fw='SRR4017103_trimmed_1.fq.gz'
+rv='SRR4017103_trimmed_2.fq.gz'
 out='Tmar_trinity'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Trinity/trinityrnaseq.v2.15.2.simg Trinity \
