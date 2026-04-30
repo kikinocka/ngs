@@ -9,6 +9,7 @@ cat $PBS_NODEFILE
 
 #add module
 module load trinity
+module load samtools
 
 
 workdir='/storage/brno12-cerit/home/kika/trimastix/'
