@@ -7,10 +7,6 @@
 
 cat $PBS_NODEFILE
 
-#add module
-module load trinity
-module load samtools
-
 
 workdir='/storage/brno12-cerit/home/kika/trimastix/'
 
@@ -25,7 +21,8 @@ fw='SRR4017103_trimmed50_1.fq.gz'
 rv='SRR4017103_trimmed50_2.fq.gz'
 out='Tmar_trinity'
 
-Trinity --seqType fq --left $fw --right $rv --output $out --max_memory 100G --CPU $PBS_NUM_PPN
+singularity exec /cvmfs/singularity.metacentrum.cz/Trinity/trinityrnaseq.v2.15.2.simg Trinity \
+	--seqType fq --left $fw --right $rv --output $out --max_memory 100G --CPU $PBS_NUM_PPN
 
 
 #copy files back
