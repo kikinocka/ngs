@@ -6,7 +6,6 @@
 #SBATCH --cpus-per-task=5
 #SBATCH --time=02:00:00
 #SBATCH --export=ALL
-export OMP_NUM_THREADS=$CPU_count
 
 # #activate in terminal, then run script, then deactivate
 # conda activate BUSCO
@@ -22,12 +21,12 @@ for fasta in *.fasta; do
 	
 	lineage='eukaryota_odb12'
 	base=${fasta%.fasta}_$lineage
-	busco -i $fasta -l $lineage -o $base -m $mode -c $CPU_count
+	busco -i $fasta -l $lineage -o $base -m $mode -c 5
 	cp $base'/short_summary.'*'.json' BUSCO_summaries
 
 	# lineage='stramenopiles_odb12'
 	# base=${fasta%.fasta}_$lineage
-	# busco -i $fasta -l $lineage -o $base -m $mode -c $CPU_count
+	# busco -i $fasta -l $lineage -o $base -m $mode -c 5
 	# cp $base'/short_summary.'*'.json' BUSCO_summaries
 done
 
