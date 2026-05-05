@@ -15,9 +15,9 @@ mkdir BUSCO_summaries
 
 for fasta in *.faa; do
 	echo $fasta
-	# mode='proteins'
+	mode='proteins'
 	# mode='genome'
-	mode='transcriptome'
+	# mode='transcriptome'
 	
 	lineage='eukaryota_odb12'
 	base=${fasta%.faa}_$lineage
