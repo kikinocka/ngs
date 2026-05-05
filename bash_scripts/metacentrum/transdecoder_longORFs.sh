@@ -20,7 +20,7 @@ cp $data_dir'Tmar50_trinity.fasta' $SCRATCHDIR
 cd $SCRATCHDIR
 
 transcriptome='Tmar50_trinity.fasta'
-basename=${transcriptome%.fasta}
+basename=${transcriptome%.fasta}.transdecoder_dir
 
 TransDecoder.LongOrfs -t $transcriptome -O $basename
 #--genetic_code Euplotid

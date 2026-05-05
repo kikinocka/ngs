@@ -13,19 +13,19 @@
 cd '/home/users/kika/trimastix/'
 mkdir BUSCO_summaries
 
-for fasta in *.fasta; do
+for fasta in *.faa; do
 	echo $fasta
 	# mode='proteins'
 	# mode='genome'
 	mode='transcriptome'
 	
 	lineage='eukaryota_odb12'
-	base=${fasta%.fasta}_$lineage
+	base=${fasta%.faa}_$lineage
 	busco -i $fasta -l $lineage -o $base -m $mode -c 5
 	cp $base'/short_summary.'*'.json' BUSCO_summaries
 
 	# lineage='stramenopiles_odb12'
-	# base=${fasta%.fasta}_$lineage
+	# base=${fasta%.faa}_$lineage
 	# busco -i $fasta -l $lineage -o $base -m $mode -c 5
 	# cp $base'/short_summary.'*'.json' BUSCO_summaries
 done
