@@ -8,21 +8,23 @@
 cat $PBS_NODEFILE
 
 #add module
-source /cvmfs/software.metacentrum.cz/modulefiles/5.1.0/loadmodules
 module load transdecoder
 
-data_dir='/storage/brno3-cerit/home/kika/UGA_decoding/nyctotherus/trinity/'
+data_dir='/storage/brno12-cerit/home/kika/trimastix/Tmar50_trinity/'
 
 #copy files to scratch
-cp $data_dir'Trinity.fasta' $SCRATCHDIR
+cp $data_dir'Tmar50_trinity.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-transcriptome='Trinity.fasta'
-TransDecoder.LongOrfs -t $transcriptome #--genetic_code Euplotid
+transcriptome='Tmar50_trinity.fasta'
+basename=${transcriptome%.fasta}
+
+TransDecoder.LongOrfs -t $transcriptome -O $basename
+#--genetic_code Euplotid
 
 #copy files back
 rm $transcriptome
-cp -r * $data_dir
+cp -r * $data_dir && clean_scratch
