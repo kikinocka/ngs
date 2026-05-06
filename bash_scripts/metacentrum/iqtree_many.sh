@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/ver4'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/wd_prot/'
 
 #copy files to scratch
 cp $data_dir'/'*trimal*.aln $SCRATCHDIR
