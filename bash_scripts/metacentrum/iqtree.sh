@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=336:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -28,12 +28,12 @@ nm=5000
 
 
 # iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
-iqtree3-mpi -m LG+C60+G4 -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
+iqtree3-mpi -m LG+C60+G -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 # -g $constr 
 
 # iqtree -m MFP --mset C20,C40,C60,LG4M,LG4X,LG+F+G,LG+C20+G,LG+C40+G,LG+C60+G,LG+PMSF+G \
 # 	-T AUTO --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln
 
 #copy files back
-rm $aln #$constr
+rm $aln guide* #$constr
 cp * $datadir && clean_scratch
