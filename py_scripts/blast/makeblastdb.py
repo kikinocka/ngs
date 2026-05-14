@@ -2,9 +2,9 @@
 import os
 import subprocess
 
-os.chdir('/Users/kika/ownCloud/Lguy_proteomics/')
-files = [x for x in os.listdir() if x.endswith('GCA_003664525.1_ASM366452v1_proteins.fasta')]
-dbtype = 'prot'
+os.chdir('/Users/kika/data/BaSk/')
+files = [x for x in os.listdir() if x.endswith('.fna')]
+dbtype = 'nucl'
 
 for file in files: 
 	print(file)

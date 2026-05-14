@@ -32,11 +32,11 @@ report=$base'report_bbmap.txt'
 # #separate read files
 # bbmap.sh ref=$assembly in=$fw in2=$rv out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
-one read file
+#one read file
 bbmap.sh ref=$assembly in=*fq.gz out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
 
 #copy files back
 # rm $assembly $fw $rv
 rm $assembly *fq.gz
-cp -r * $datadir
+cp -r * $datadir && clean_scratch

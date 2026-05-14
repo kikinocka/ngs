@@ -2,12 +2,12 @@
 import subprocess
 from Bio.Blast import NCBIXML
 
-cmd = 'blastp'
-task = 'blastp'
-query = '/Users/kika/ownCloud/Lguy_proteomics/peptides.fa'
-db = '/Users/kika/ownCloud/Lguy_proteomics/GCA_003664525.1_ASM366452v1_proteins.fasta'
-out = '/Users/kika/ownCloud/Lguy_proteomics/peptides_vs_proteins.blast.xml'
-evalue = 1e-10
+cmd = 'tblastn'
+task = 'tblastn'
+query = '/Users/kika/ownCloud/membrane-trafficking/clathrin/fornicates_basks/1-euk_HMM/CLC.fa'
+db = '/Users/kika/data/BaSk/blastdbs/Barthelona_sp_PCE.GCA_040285745.1_ASM4028574v1_genomic.fna'
+out = '/Users/kika/ownCloud/membrane-trafficking/clathrin/fornicates_basks/9-BaSks_genomes/BspPCE_euk.blast.xml'
+evalue = 1e-05
 outfmt = 5
 hits = 1
 hsps = 1
@@ -31,8 +31,8 @@ print('writing BLAST results to tables')
 
 result_handle = open(out)
 blast_records = NCBIXML.parse(result_handle)
-output = open('/Users/kika/ownCloud/Lguy_proteomics/peptides_vs_proteins.blast.tsv', 'w')
-out_best = open('/Users/kika/ownCloud/Lguy_proteomics/peptides_vs_proteins.best_blast.tsv', 'w')
+output = open('/Users/kika/ownCloud/membrane-trafficking/clathrin/fornicates_basks/9-BaSks_genomes/BspPCE_euk.blast.tsv', 'w')
+out_best = open('/Users/kika/ownCloud/membrane-trafficking/clathrin/fornicates_basks/9-BaSks_genomes/BspPCE_euk.best_blast.tsv', 'w')
 
 output.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format('qseqid', 'qlen', 'qframe', 'sseqid', 
 	'sseqdef', 'slen', 'sframe', 'alen', 'evalue', 'pident', 'bitscore', 'mismatch', 'gaps', 'qstart', 'qend', 'sstart', 'send', 
