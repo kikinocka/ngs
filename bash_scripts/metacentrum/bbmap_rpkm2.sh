@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N bbmap_rpkm2
-#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=50gb
+#PBS -l select=1:ncpus=20:mem=150gb:scratch_local=80gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
