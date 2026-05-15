@@ -22,7 +22,9 @@ cd $SCRATCHDIR
 assembly='TriTrypDB-68_AdeanaiCavalhoATCCPRA-265_AnnotatedCDSs.fasta'
 # fw='p57_trimmed_1.fq.gz'
 # rv='p57_trimmed_2.fq.gz'
-# all='el_reads_new.fa'
+all='adean.fastq.gz'
+
+cat *.fastq.gz > $all
 
 base=adean.
 sam=$base'sam'
@@ -33,7 +35,7 @@ report=$base'report_bbmap.txt'
 # bbmap.sh ref=$assembly in=$fw in2=$rv out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
 #one read file
-bbmap.sh ref=$assembly in=*fastq.gz out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+bbmap.sh ref=$assembly in=$all out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
 
 #copy files back
