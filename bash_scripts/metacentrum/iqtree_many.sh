@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=96:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,19 +10,18 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/spp/'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/spp/more/'
 
 #copy files to scratch
-cp $data_dir'Acas.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Agod.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Aign.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Aker.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Atwi.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Bnat.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Cbur.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Ccor.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Ccri.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Cele.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Atha.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Bsal.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Ddis.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Egra.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Hsap.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Nfow.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Ppap.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Scer.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Tbru.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
