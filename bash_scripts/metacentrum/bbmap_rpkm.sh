@@ -14,7 +14,7 @@ datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/tbru
 
 #copy files to scratch
 cp $datadir'TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta' $SCRATCHDIR
-cp $datadir'PCF/'*_trimmed.fq.gz $SCRATCHDIR
+cp $datadir'cBF/'*_trimmed.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
@@ -26,7 +26,7 @@ all='tbruc.fq.gz'
 
 cat *.fq.gz > $all
 
-base=tbPCF.
+base=tbcBF.
 sam=$base'sam'
 rpkm=$base'rpkm_bbmap.tsv'
 report=$base'report_bbmap.txt'
