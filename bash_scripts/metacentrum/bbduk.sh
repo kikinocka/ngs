@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module load bbmap
 
-read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/tbruc/cBF'
+read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/tbruc/slBF'
 
 #copy data to scratch
 cp $read_dir'/'*.fastq.gz $SCRATCHDIR
