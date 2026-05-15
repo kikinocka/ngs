@@ -52,7 +52,7 @@ adapt='adapters.fa'
 
 #illumina single reads
 for file in *.fastq.gz ; do 
-	name=${file%_*.fastq.gz}
+	name=${file%*.fastq.gz}
 	trimmed=$name'_trimmed.fq.gz'
 	report=$name'.bbduk_report.txt'
 

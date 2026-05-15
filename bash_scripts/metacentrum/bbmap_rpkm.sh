@@ -14,7 +14,7 @@ datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/adea
 
 #copy files to scratch
 cp $datadir'TriTrypDB-68_AdeanaiCavalhoATCCPRA-265_AnnotatedCDSs.fasta' $SCRATCHDIR
-cp $datadir'wt/'*fastq.gz $SCRATCHDIR
+cp $datadir'wt/'*_trimmed.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
@@ -22,9 +22,9 @@ cd $SCRATCHDIR
 assembly='TriTrypDB-68_AdeanaiCavalhoATCCPRA-265_AnnotatedCDSs.fasta'
 # fw='p57_trimmed_1.fq.gz'
 # rv='p57_trimmed_2.fq.gz'
-all='adean.fastq.gz'
+all='adean.fq.gz'
 
-cat *.fastq.gz > $all
+cat *.fq.gz > $all
 
 base=adean.
 sam=$base'sam'
@@ -40,5 +40,5 @@ bbmap.sh ref=$assembly in=$all out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $repo
 
 #copy files back
 # rm $assembly $fw $rv
-rm $assembly *fastq.gz
+rm $assembly *fq.gz
 cp -r * $datadir && clean_scratch
