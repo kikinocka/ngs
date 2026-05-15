@@ -33,7 +33,7 @@ report=$base'report_bbmap.txt'
 # bbmap.sh ref=$assembly in=$fw in2=$rv out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
 #one read file
-bbmap.sh ref=$assembly in=*fq.gz out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+bbmap.sh ref=$assembly in=*fastq.gz out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
 
 #copy files back
