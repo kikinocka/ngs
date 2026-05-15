@@ -10,23 +10,23 @@ cat $PBS_NODEFILE
 #add module
 module load bbmap
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/adean/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/tbruc/'
 
 #copy files to scratch
-cp $datadir'TriTrypDB-68_AdeanaiCavalhoATCCPRA-265_AnnotatedCDSs.fasta' $SCRATCHDIR
-cp $datadir'wt/'*_trimmed.fq.gz $SCRATCHDIR
+cp $datadir'TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta' $SCRATCHDIR
+cp $datadir'PCF/'*_trimmed.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-assembly='TriTrypDB-68_AdeanaiCavalhoATCCPRA-265_AnnotatedCDSs.fasta'
+assembly='TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta'
 # fw='p57_trimmed_1.fq.gz'
 # rv='p57_trimmed_2.fq.gz'
-all='adean.fq.gz'
+all='tbruc.fq.gz'
 
 cat *.fq.gz > $all
 
-base=adean.
+base=tbPCF.
 sam=$base'sam'
 rpkm=$base'rpkm_bbmap.tsv'
 report=$base'report_bbmap.txt'
