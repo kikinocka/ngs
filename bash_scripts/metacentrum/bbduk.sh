@@ -9,7 +9,7 @@ cat $PBS_NODEFILE
 
 module load bbmap
 
-read_dir='/storage/brno12-cerit/home/kika/trimastix/reads'
+read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/adean/wt'
 
 #copy data to scratch
 cp $read_dir'/'*.fastq.gz $SCRATCHDIR
@@ -21,42 +21,47 @@ cd $SCRATCHDIR
 
 adapt='adapters.fa'
 
-#illumina pair-end reads
-for file in *_1.fastq.gz ; do 
-	name=${file%_*.fastq.gz}
-	fw=$name'_1.fastq.gz'
-	rv=$name'_2.fastq.gz'
+# #illumina pair-end reads
+# for file in *_1.fastq.gz ; do 
+# 	name=${file%_*.fastq.gz}
+# 	fw=$name'_1.fastq.gz'
+# 	rv=$name'_2.fastq.gz'
 
-	trimmed_fw=$name'_trimmed_1.fq.gz'
-	trimmed_rv=$name'_trimmed_2.fq.gz'
+# 	trimmed_fw=$name'_trimmed_1.fq.gz'
+# 	trimmed_rv=$name'_trimmed_2.fq.gz'
+# 	report=$name'.bbduk_report.txt'
+
+# 	bbduk.sh overwrite=true \
+# 		in1=$fw in2=$rv \
+# 		out1=$trimmed_fw out2=$trimmed_rv \
+# 		ref=$adapt \
+# 		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
+
+
+# 	# trimmed50_fw=$name'_trimmed50_1.fq.gz'
+# 	# trimmed50_rv=$name'_trimmed50_2.fq.gz'
+# 	# report50=$name'.bbduk50_report.txt'
+
+# 	# bbduk.sh overwrite=true \
+# 	# 	in1=$fw in2=$rv \
+# 	# 	out1=$trimmed50_fw out2=$trimmed50_rv \
+# 	# 	ref=$adapt \
+# 	# 	minlength=50 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report50
+# done
+
+
+#illumina single reads
+for file in *.fastq.gz ; do 
+	name=${file%_*.fastq.gz}
+	trimmed=$name'_trimmed.fq.gz'
 	report=$name'.bbduk_report.txt'
 
 	bbduk.sh overwrite=true \
-		in1=$fw in2=$rv \
-		out1=$trimmed_fw out2=$trimmed_rv \
+		in=$file \
+		out=$trimmed \
 		ref=$adapt \
 		qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report
-
-
-	# trimmed50_fw=$name'_trimmed50_1.fq.gz'
-	# trimmed50_rv=$name'_trimmed50_2.fq.gz'
-	# report50=$name'.bbduk50_report.txt'
-
-	# bbduk.sh overwrite=true \
-	# 	in1=$fw in2=$rv \
-	# 	out1=$trimmed50_fw out2=$trimmed50_rv \
-	# 	ref=$adapt \
-	# 	minlength=50 qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN 2> $report50
 done
-# 
-
-# #illumina single reads
-# bbduk.sh overwrite=true \
-# 	in=$single \
-# 	out=$trimmed \
-# 	ref=$adapt \
-# 	ktrim=r k=22 mink=11 hdist=2 tpe tbo t=$PBS_NUM_PPN qtrim=rl trimq=20 2> $report
-# 	# qtrim=rl trimq=20 ktrim=r t=$PBS_NUM_PPN 2> $report
 
 # #454 reads
 # for file in *fastq.gz; do
@@ -65,7 +70,5 @@ done
 # done
 
 #copy files back
-# rm $fw $rv $adapt
-# rm $single $adapt
 rm *fastq.gz $adapt
 cp -r * $read_dir && clean_scratch
