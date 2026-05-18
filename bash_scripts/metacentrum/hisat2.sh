@@ -11,23 +11,22 @@ cat $PBS_NODEFILE
 module load hisat2
 module load samtools
 
-genome_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/'
-read_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads'
-outdir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni//hisat2/unmasked/'
+genome_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
+read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/reads'
+outdir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/hisat2/'
 
 #copy files to scratch
-cp $genome_dir'Tboi_GCA_030849725.fna' $SCRATCHDIR
-cp $read_dir'/'*trimmed50* $SCRATCHDIR
-# cp $outdir'Tboi_ht2_sorted.bam'* $SCRATCHDIR
+cp $genome_dir'GCA_001766655.1_ASM176665v1_genomic.fna' $SCRATCHDIR
+cp $read_dir'/'*trimmed* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='Tboi_GCA_030849725.fna'
-fw='Tboi_trimmed50_1.fq.gz'
-rv='Tboi_trimmed50_1.fq.gz'
+genome='GCA_001766655.1_ASM176665v1_genomic.fna'
+fw='ERR1655128_trimmed_1.fq.gz,ERR1655129_trimmed_1.fq.gz'
+rv='ERR1655128_trimmed_2.fq.gz,ERR1655129_trimmed_2.fq.gz'
 # sg='SRR651041_trimmed.fq.gz,SRR651098_trimmed.fq.gz'
-index='Tboi_ht2'
+index='Pfra_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
