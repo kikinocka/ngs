@@ -25,7 +25,7 @@ rv='pfran_trimmed_2.fq.gz'
 # all='tbruc.fq.gz'
 
 cat *_trimmed_1.fq.gz > $fw
-cat *_trimmed_2.fq.gz > $rw
+cat *_trimmed_2.fq.gz > $rv
 # cat *.fq.gz > $all
 
 base=phytoEM1.
