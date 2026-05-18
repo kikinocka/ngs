@@ -1,6 +1,6 @@
 #!/bin/sh
 #PBS -N bbmap_rpkm
-#PBS -l select=1:ncpus=20:mem=150gb:scratch_local=80gb
+#PBS -l select=1:ncpus=20:mem=100gb:scratch_local=80gb
 #PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
@@ -10,32 +10,34 @@ cat $PBS_NODEFILE
 #add module
 module load bbmap
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/tbruc/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/phyto/'
 
 #copy files to scratch
-cp $datadir'TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta' $SCRATCHDIR
-cp $datadir'cBF/'*_trimmed.fq.gz $SCRATCHDIR
+cp $datadir'PhytoEM1.GCA_000582765.1.fna' $SCRATCHDIR
+cp $datadir'reads/'*_trimmed*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-assembly='TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta'
-# fw='p57_trimmed_1.fq.gz'
-# rv='p57_trimmed_2.fq.gz'
-all='tbruc.fq.gz'
+assembly='PhytoEM1.GCA_000582765.1.fna'
+fw='pfran_trimmed_1.fq.gz'
+rv='pfran_trimmed_2.fq.gz'
+# all='tbruc.fq.gz'
 
-cat *.fq.gz > $all
+cat *_trimmed_1.fq.gz > $fw
+cat *_trimmed_2.fq.gz > $rw
+# cat *.fq.gz > $all
 
-base=tbcBF.
+base=phytoEM1.
 sam=$base'sam'
 rpkm=$base'rpkm_bbmap.tsv'
 report=$base'report_bbmap.txt'
 
-# #separate read files
-# bbmap.sh ref=$assembly in=$fw in2=$rv out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+#separate read files
+bbmap.sh ref=$assembly in=$fw in2=$rv out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
-#one read file
-bbmap.sh ref=$assembly in=$all out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
+# #one read file
+# bbmap.sh ref=$assembly in=$all out=$sam rpkm=$rpkm threads=$PBS_NUM_PPN 2> $report
 
 
 #copy files back
