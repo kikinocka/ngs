@@ -8,27 +8,30 @@
 cat $PBS_NODEFILE
 
 #add modules
-module add cufflinks-2.2.1
+module add cufflinks
+module add gffread
 
-gffread='/storage/brno3-cerit/home/kika/miniconda3/pkgs/gffread-0.12.7-h9a82719_0/bin/gffread'
-bam_dir='/storage/brno3-cerit/home/kika/blasto_comparative/hisat2/oobo'
-out_dir='/storage/brno3-cerit/home/kika/blasto_comparative/cufflinks/oobo/'
-gen_dir='/storage/brno3-cerit/home/kika/blasto_comparative/final_genomes/'
-annotscript='/storage/brno2/home/kika/scripts/others/getAnnoFasta.pl'
+gen_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
+bam_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/hisat2/'
+out_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/cufflinks/'
+annotscript='/storage/brno12-cerit/home/kika/scripts/others/getAnnoFasta.pl'
 
 #copy files to scratch
-cp $bam_dir'/'*_sorted.bam $SCRATCHDIR
-cp $gen_dir'Oobo_genome_final_masked.fa' $SCRATCHDIR
+cp $gen_dir'GCA_001766655.1_ASM176665v1_genomic.fna' $SCRATCHDIR
+cp $bam_dir'Pfra_ht2_sorted.bam' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-species='Oobo'
-cufflinks -p $PBS_NUM_PPN -o . *_sorted.bam
-$gffread transcripts.gtf -o $species'_cufflinks.gff'
-perl $annotscript --seqfile=$species'_genome_final_masked.fa' --protein=off --codingseq=on $species'_cufflinks.gff'
+genome='GCA_001766655.1_ASM176665v1_genomic.fna'
+bamfile='Pfra_ht2_sorted.bam'
+
+species='Pfra'
+cufflinks -p $PBS_NUM_PPN -o . $bamfile
+gffread transcripts.gtf -o $species'_cufflinks.gff'
+perl $annotscript --seqfile=$genome --protein=off --codingseq=on $species'_cufflinks.gff'
 awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $1}}' $species'_cufflinks.mrna' > $species'_cufflinks.fa'
 
 #copy files back
-rm *_sorted.bam $genome
-cp -r * $out_dir
+rm $genome $bamfile
+cp -r * $out_dir && clean_scratch
