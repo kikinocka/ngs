@@ -32,7 +32,7 @@ cd $SCRATCHDIR
 genome='GCA_001766655.1_upd.fna'
 # bam='Pfra_ht2_sorted.bam'
 # reads='ERR1655128,ERR1655129'
-# prot='kinetoplastids.faa'
+prot='kinetoplastids.faa'
 name='Phytomonas_francai'
 
 singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
