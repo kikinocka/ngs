@@ -33,7 +33,7 @@ bam='Pfra_ht2_sorted.bam'
 prot='kinetoplastids.faa'
 name='Phytomonas_francai'
 
-singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
+singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
 	--bam=$bam \
 	--prot_seq=$prot \
