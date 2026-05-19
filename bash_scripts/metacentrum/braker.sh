@@ -15,26 +15,27 @@ cp -r $AUGUSTUS_CONFIG_PATH/* $SCRATCHDIR/augustus_configs/
 export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
-genome_dir='/storage/brno12-cerit/home/kika/blastocystis/ERR1995252_bin.1_CONCOCT_v1.1_MAG/'
-# map_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/hisat2/'
+genome_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
+map_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/hisat2/'
 # rna_dir='/storage/brno12-cerit/home/kika/trypanosoma_boissoni/RNA_reads/'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'GCA_937863765.1_ERR1995252_bin.1_CONCOCT_v1.1_MAG_genomic.fna' $SCRATCHDIR
-# cp $map_dir'Tboi_ht2_sorted.pass.bam' $SCRATCHDIR
-cp $prot_dir'Stramenopiles.fa' $SCRATCHDIR
+cp $genome_dir'GCA_001766655.1_ASM176665v1_genomic.fna' $SCRATCHDIR
+cp $map_dir'Pfra_ht2_sorted.bam' $SCRATCHDIR
+cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='GCA_937863765.1_ERR1995252_bin.1_CONCOCT_v1.1_MAG_genomic.fna'
-# bam='Tboi_ht2_sorted.pass.bam'
-prot='Stramenopiles.fa'
-name='blastocystis_ERR1995252'
+genome='GCA_001766655.1_ASM176665v1_genomic.fna'
+bam='Pfra_ht2_sorted.bam'
+prot='kinetoplastids.faa'
+name='Phytomonas_francai'
 
 singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
+	--bam=$bam \
 	--prot_seq=$prot \
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
@@ -50,6 +51,6 @@ singularity exec /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif br
 
 
 #copy files back
-rm $genome $prot #$bam *fq.gz
+rm $genome $prot $bam
 rm -r augustus_configs
 cp -r * $genome_dir'braker/'
