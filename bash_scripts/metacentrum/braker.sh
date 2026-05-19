@@ -21,14 +21,14 @@ map_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfra
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
-cp $genome_dir'GCA_001766655.1_ASM176665v1_genomic.fna' $SCRATCHDIR
+cp $genome_dir'GCA_001766655.1_upd.fna' $SCRATCHDIR
 cp $map_dir'Pfra_ht2_sorted.bam' $SCRATCHDIR
 cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
 #run on scratch
 cd $SCRATCHDIR
 
-genome='GCA_001766655.1_ASM176665v1_genomic.fna'
+genome='GCA_001766655.1_upd.fna'
 bam='Pfra_ht2_sorted.bam'
 prot='kinetoplastids.faa'
 name='Phytomonas_francai'
