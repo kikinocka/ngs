@@ -17,13 +17,13 @@ export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 genome_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
 # map_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/hisat2/'
-rna_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/reads'
+# rna_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/reads'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
 cp $genome_dir'GCA_001766655.1_upd.fna' $SCRATCHDIR
 # cp $map_dir'Pfra_ht2_sorted.bam' $SCRATCHDIR
-cp $map_dir'/'*.fastqc.gz $SCRATCHDIR
+# cp $map_dir'/'*.fastqc.gz $SCRATCHDIR
 cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
 #run on scratch
@@ -31,14 +31,12 @@ cd $SCRATCHDIR
 
 genome='GCA_001766655.1_upd.fna'
 # bam='Pfra_ht2_sorted.bam'
-reads='ERR1655128,ERR1655129'
-prot='kinetoplastids.faa'
+# reads='ERR1655128,ERR1655129'
+# prot='kinetoplastids.faa'
 name='Phytomonas_francai'
 
 singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
-	--rnaseq_sets_ids=$reads \
-	--rnaseq_sets_dir=$SCRATCHDIR \
 	--prot_seq=$prot \
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
@@ -54,6 +52,6 @@ singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/bra
 
 
 #copy files back
-rm $genome $prot $reads
+rm $genome $prot
 rm -r augustus_configs
 cp -r * $genome_dir'braker/'
