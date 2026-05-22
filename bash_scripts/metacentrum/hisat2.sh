@@ -11,22 +11,22 @@ cat $PBS_NODEFILE
 module load hisat2
 module load samtools
 
-genome_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
-read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/reads'
-outdir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/hisat2/'
+genome_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/'
+read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/reads'
+outdir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/hisat2/'
 
 #copy files to scratch
-cp $genome_dir'GCA_001766655.1_ASM176665v1_genomic.fna' $SCRATCHDIR
-cp $read_dir'/'*trimmed* $SCRATCHDIR
+cp $genome_dir'GCA_010157825.1_ASM1015782v1_genomic.fna' $SCRATCHDIR
+cp $read_dir'/'*fq.gz* $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='GCA_001766655.1_ASM176665v1_genomic.fna'
-fw='ERR1655128_trimmed_1.fq.gz,ERR1655129_trimmed_1.fq.gz'
-rv='ERR1655128_trimmed_2.fq.gz,ERR1655129_trimmed_2.fq.gz'
+genome='GCA_010157825.1_ASM1015782v1_genomic.fna'
+fw='SRR31549352_trimmed_1.fq.gz'
+rv='SRR31549352_trimmed_2.fq.gz'
 # sg='SRR651041_trimmed.fq.gz,SRR651098_trimmed.fq.gz'
-index='Pfra_ht2'
+index='Ving_ht2'
 unmapped_unpaired=$index'_unmapped_unpaired.fq.gz'
 unmapped_paired=$index'_unmapped_paired.fq.gz'
 sam=$index'.sam'
