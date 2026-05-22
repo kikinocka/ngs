@@ -26,7 +26,7 @@ cd $SCRATCHDIR
 genome='GCA_010157825.1_ASM1015782v1_genomic.fna'
 bamfile='Ving_ht2_sorted.bam'
 
-species='Pfra'
+species='Ving'
 cufflinks -p $PBS_NUM_PPN -o . $bamfile
 gffread transcripts.gtf -o $species'_cufflinks.gff'
 perl $annotscript --seqfile=$genome --protein=off --codingseq=on $species'_cufflinks.gff'
