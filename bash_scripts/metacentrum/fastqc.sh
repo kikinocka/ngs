@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add modules
 module load fastqc
 
-read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/reads'
+read_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/reads'
 
 
 #copy data to scratch
