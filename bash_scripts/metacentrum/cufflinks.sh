@@ -11,20 +11,20 @@ cat $PBS_NODEFILE
 module add cufflinks
 module add gffread
 
-gen_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
-bam_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/hisat2/'
-out_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/cufflinks/'
+gen_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/'
+bam_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/hisat2/'
+out_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/cufflinks/'
 annotscript='/storage/brno12-cerit/home/kika/scripts/others/getAnnoFasta.pl'
 
 #copy files to scratch
-cp $gen_dir'GCA_001766655.1_ASM176665v1_genomic.fna' $SCRATCHDIR
-cp $bam_dir'Pfra_ht2_sorted.bam' $SCRATCHDIR
+cp $gen_dir'GCA_010157825.1_ASM1015782v1_genomic.fna' $SCRATCHDIR
+cp $bam_dir'Ving_ht2_sorted.bam' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
 
-genome='GCA_001766655.1_ASM176665v1_genomic.fna'
-bamfile='Pfra_ht2_sorted.bam'
+genome='GCA_010157825.1_ASM1015782v1_genomic.fna'
+bamfile='Ving_ht2_sorted.bam'
 
 species='Pfra'
 cufflinks -p $PBS_NUM_PPN -o . $bamfile
