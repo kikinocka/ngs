@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/rhodophytes'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/clathrin/eukaryotes'
 
 #copy files to scratch
 cp $data_dir'/'*.fa $SCRATCHDIR
@@ -29,4 +29,4 @@ done
 
 #copy files back
 rm *fa
-cp * $data_dir
+cp * $data_dir && clean_scratch
