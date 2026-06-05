@@ -15,11 +15,11 @@ cat $PBS_NODEFILE
 # tiara-test
 # mamba deactivate
 
-datadir='/storage/brno12-cerit/home/kika/blastocystis'
+datadir='/storage/brno12-cerit/home/kika/blastocystis/'
 tiarahome='/storage/brno12-cerit/home/kika/tiara_env'
 
 #copy files to scratch
-cp $datadir'/'*.fna $SCRATCHDIR
+cp $datadir'assemblies/'*.fna $SCRATCHDIR
 echo '------------------'
 echo 'copying files done'
 echo '------------------'
@@ -78,4 +78,4 @@ mamba deactivate
 
 #copy files back
 rm -r *.fna tiara_env
-cp -r * $datadir'/tiara' && clean_scratch
+cp -r * $datadir'tiara/' && clean_scratch
