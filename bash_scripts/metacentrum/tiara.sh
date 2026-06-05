@@ -44,7 +44,7 @@ for file in *fna ; do
 	out=${file%.fna}.tiara_mito.tsv
 	mkdir $name
 	cd $name
-	tiara -i $file -o $out -t $PBS_NUM_PPN --tf mit --pr
+	tiara -i ../$file -o $out -t $PBS_NUM_PPN --tf mit --pr
 	cd ..
 
 	echo '----------'
@@ -77,5 +77,5 @@ done
 mamba deactivate
 
 #copy files back
-# rm -r *.fna tiara_env
+rm -r *.fna tiara_env
 cp -r * $datadir'tiara/'
