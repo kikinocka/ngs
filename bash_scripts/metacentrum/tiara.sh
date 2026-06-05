@@ -77,5 +77,5 @@ done
 mamba deactivate
 
 #copy files back
-rm -r *.fna tiara_env
+# rm -r *.fna tiara_env
 cp -r * $datadir'tiara/'
