@@ -78,4 +78,4 @@ mamba deactivate
 
 #copy files back
 rm -r *.fna tiara_env
-cp -r * $datadir'tiara/' && clean_scratch
+cp -r * $datadir'tiara/'
