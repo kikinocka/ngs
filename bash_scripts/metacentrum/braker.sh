@@ -16,13 +16,13 @@ export AUGUSTUS_CONFIG_PATH=$SCRATCHDIR/augustus_configs
 
 
 genome_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/'
-map_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/hisat2/'
+# map_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/hisat2/'
 # rna_dir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/reads'
 prot_dir='/storage/brno12-cerit/home/kika/databases/'
 
 #copy files to scratch
 cp $genome_dir'GCA_010157825.1_upd.fna' $SCRATCHDIR
-cp $map_dir'Ving_ht2_sorted.bam' $SCRATCHDIR
+# cp $map_dir'Ving_ht2_sorted.bam' $SCRATCHDIR
 # cp $map_dir'/'*.fastqc.gz $SCRATCHDIR
 cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 
@@ -30,14 +30,13 @@ cp $prot_dir'kinetoplastids.faa' $SCRATCHDIR
 cd $SCRATCHDIR
 
 genome='GCA_010157825.1_upd.fna'
-bam='Ving_ht2_sorted.bam'
+# bam='Ving_ht2_sorted.bam'
 # reads='ERR1655128,ERR1655129'
 prot='kinetoplastids.faa'
 name='Vickermania_ingenoplastis'
 
 singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/braker3-v.3.0.8.sif braker.pl \
 	--genome=$genome \
-	--bam=$bam \
 	--prot_seq=$prot \
 	--species=$name \
 	--workingdir=$SCRATCHDIR \
@@ -53,6 +52,6 @@ singularity exec --home $SCRATCHDIR /cvmfs/singularity.metacentrum.cz/Braker/bra
 
 
 #copy files back
-rm $genome $prot $bam
+rm $genome $prot
 rm -r augustus_configs
 cp -r * $genome_dir'braker/'
