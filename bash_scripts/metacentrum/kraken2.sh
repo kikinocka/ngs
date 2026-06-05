@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 module load kraken2
 module add krona-2.8
 
-kraken2DB='/storage/projects-du-praha/Bio_databases/kraken2/kraken2_nt_20240530'
+kraken2DB='/storage/projects-du-praha/Bio_databases/kraken2/k2_core_nt_20251015'
 datadir='/storage/brno12-cerit/home/kika/pkld/'
 
 #copy files to scratch

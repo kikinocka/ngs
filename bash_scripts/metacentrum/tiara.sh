@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N tiara
 #PBS -l select=1:ncpus=20:mem=100gb:scratch_local=50gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=168:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -15,10 +15,11 @@ cat $PBS_NODEFILE
 # tiara-test
 # mamba deactivate
 
-datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
+datadir='/storage/brno12-cerit/home/kika/blastocystis'
+tiarahome='/storage/brno12-cerit/home/kika/tiara_env'
 
 #copy files to scratch
-cp $datadir'contigs_fixlabel.fasta' $SCRATCHDIR
+cp $datadir'/'*.fna $SCRATCHDIR
 echo '------------------'
 echo 'copying files done'
 echo '------------------'
@@ -26,20 +27,30 @@ echo '------------------'
 #compute on scratch
 cd $SCRATCHDIR
 module add mambaforge
-mamba create -p $SCRATCHDIR/tiara_env --clone /storage/brno12-cerit/home/kika/tiara_env
+mamba create -p $SCRATCHDIR/tiara_env --clone $tiarahome
 mamba activate $SCRATCHDIR/tiara_env
 
 echo '------------------------------'
 echo 'mamba env copied and activated'
 echo '------------------------------'
 
-metagenome='contigs_fixlabel.fasta'
-out='tiara_out.tsv'
+for file in *fna ; do
+	echo '--------------'
+	echo 'starting Tiara'
+	echo '--------------'
+	echo $file
 
-echo '--------------'
-echo 'starting Tiara'
-echo '--------------'
-tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
+	name=${file%.fna}
+	out=${file%.fna}.tiara_mito.tsv
+	mkdir $name
+	cd $name
+	tiara -i $file -o $out -t $PBS_NUM_PPN --tf mit --pr
+	cd ..
+
+	echo '----------'
+	echo 'Tiara done'
+	echo '----------'
+done
 # -m MIN_LEN, --min_len MIN_LEN
 #                       Minimum length of a sequence. Sequences shorter than min_len are discarded. 
 #                               Default: 3000.
@@ -62,9 +73,9 @@ tiara -i $metagenome -o $out -t $PBS_NUM_PPN --tf all --pr
 #                       Whether to write probabilities of individual classes for each sequence to the output.
 # -v, --verbose         Whether to display some additional messages and progress bar during classification.
 # --gzip, --gz          Whether to gzip results or not.
+
 mamba deactivate
 
 #copy files back
-rm -r $metagenome tiara_env
-cp -r * $datadir
-
+rm -r *.fna tiara_env
+cp -r * $datadir'/tiara' && clean_scratch
