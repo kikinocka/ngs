@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N tiara
 #PBS -l select=1:ncpus=20:mem=100gb:scratch_local=50gb
-#PBS -l walltime=168:00:00
+#PBS -l walltime=02:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -78,4 +78,4 @@ mamba deactivate
 
 #copy files back
 rm -r *.fna tiara_env
-cp -r * $datadir'tiara/'
+cp -r * $datadir'tiara/' && clean_scratch

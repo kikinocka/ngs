@@ -10,7 +10,7 @@ cat $PBS_NODEFILE
 #add module
 module load bbmap
 
-datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/pfran/'
+datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/'
 
 #copy files to scratch
 cp $datadir'braker/braker.codingseq' $SCRATCHDIR
@@ -20,15 +20,15 @@ cp $datadir'reads/'*_trimmed*.fq.gz $SCRATCHDIR
 #compute on scratch
 cd $SCRATCHDIR
 assembly='braker.codingseq'
-fw='pfran_trimmed_1.fq.gz'
-rv='pfran_trimmed_2.fq.gz'
+fw='SRR31549352_trimmed_1.fq.gz'
+rv='SRR31549352_trimmed_2.fq.gz'
 # all='tbruc.fq.gz'
 
-cat *_trimmed_1.fq.gz > $fw
-cat *_trimmed_2.fq.gz > $rv
+# cat *_trimmed_1.fq.gz > $fw
+# cat *_trimmed_2.fq.gz > $rv
 # cat *.fq.gz > $all
 
-base=pfran.
+base=vinge.
 sam=$base'sam'
 rpkm=$base'rpkm_bbmap.tsv'
 report=$base'report_bbmap.txt'
