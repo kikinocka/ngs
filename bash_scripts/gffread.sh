@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #extract proteins
-genome='/Users/kika/ownCloud/paratrimastix/new_assembly/flye_assembly.pilon.remove_contaminants.260210.fasta'
-gff='/Users/kika/ownCloud/paratrimastix/annotation/eukan/eukan_eukaryotes_final.gff3'
-proteins='/Users/kika/ownCloud/paratrimastix/annotation/eukan/eukan_euk.prot.fa'
+genome='/Users/kika/data/kinetoplastids/Vickermania_ingenoplastis_final_polished.fa'
+gff='/Users/kika/data/kinetoplastids/Vickermania_ingenoplastis_final_polished.gff3'
+proteins='/Users/kika/data/kinetoplastids/Vickermania_ingenoplastis_CDS.fasta'
 
-gffread $gff -g $genome -y $proteins 
+gffread $gff -g $genome -x $proteins 
  
  # -w    write a fasta file with spliced exons for each transcript
  # -x    write a fasta file with spliced CDS for each GFF transcript

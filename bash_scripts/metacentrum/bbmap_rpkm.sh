@@ -13,13 +13,13 @@ module load bbmap
 datadir='/storage/brno12-cerit/home/kika/kinetoplastids/AOX/transcriptomics/vinge/'
 
 #copy files to scratch
-cp $datadir'braker/braker.codingseq' $SCRATCHDIR
+cp $datadir'Vickermania_ingenoplastis_CDS.fasta' $SCRATCHDIR
 cp $datadir'reads/'*_trimmed*.fq.gz $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
-assembly='braker.codingseq'
+assembly='Vickermania_ingenoplastis_CDS.fasta'
 fw='SRR31549352_trimmed_1.fq.gz'
 rv='SRR31549352_trimmed_2.fq.gz'
 # all='tbruc.fq.gz'
