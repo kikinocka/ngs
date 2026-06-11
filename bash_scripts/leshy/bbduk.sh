@@ -3,7 +3,7 @@
 bbduk='/mnt/mokosz/home/kika/tools/bbmap/bbduk.sh'
 adapt='/mnt/mokosz/home/kika/tools/bbmap/resources/adapters.fa'
 
-cd '/mnt/mokosz/home/kika/mastigamoeba_abducta_CHOM1/reads/'
+cd '/mnt/mokosz/home/kika/egracilis/chinese/RNA_reads/'
 
 for file in *_1.fastq.gz ; do 
 	name=${file%_*.fastq.gz}
