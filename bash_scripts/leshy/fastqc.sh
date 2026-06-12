@@ -6,7 +6,7 @@ out_dir=$read_dir'fastqc/'
 cd $read_dir
 
 for reads in *.fq.gz ; do
-	echo 'running FastQC on ' $reads
+	echo 'running FastQC on' $reads
 	fastqc -t 10 -o $out_dir $reads
 done
 
