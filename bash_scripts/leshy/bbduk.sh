@@ -18,8 +18,7 @@ for file in *_1.fastq.gz ; do
 		in1=$fw in2=$rv \
 		out1=$trimmed_fw out2=$trimmed_rv \
 		ref=$adapt \
-		usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=10 2> $report
-
+		minlength=50 ftl=10 usejni=t qtrim=rl trimq=20 ktrim=r k=22 mink=11 hdist=2 tpe tbo t=10 2> $report
 	echo $name 'trimmed'
 
 done
