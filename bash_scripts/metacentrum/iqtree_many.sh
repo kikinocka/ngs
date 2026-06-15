@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT-many
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=10gb
-#PBS -l walltime=04:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,10 +10,15 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/ver2'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/ver2/'
 
 #copy files to scratch
-cp $data_dir'/'* $SCRATCHDIR
+cp $data_dir'Pinf.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Ppyr.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Scer.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Tfoe.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Tthe.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'Tvag.trimal_gt-0.8.aln' $SCRATCHDIR
 
 
 #compute on scratch
