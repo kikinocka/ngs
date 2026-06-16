@@ -10,15 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/ver2/'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/ver3'
 
 #copy files to scratch
-cp $data_dir'Pinf.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Ppyr.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Scer.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Tfoe.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Tthe.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $data_dir'Tvag.trimal_gt-0.8.aln' $SCRATCHDIR
+cp $data_dir'/'* $SCRATCHDIR
 
 
 #compute on scratch

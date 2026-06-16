@@ -34,7 +34,7 @@ maketable = '/Users/kika/miniconda3/bin/makemergetable.rb'
 
 
 #add to aligned sequences
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/ver2/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/dicty_JPP/trees/RABs/ver3/Tvag_exocytic/')
 files = [x for x in os.listdir() if x.endswith('.fa')]
 existing = 'rabs_refs.mafft.aln'
 
