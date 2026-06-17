@@ -10,14 +10,14 @@
 # #activate in terminal, then run script, then deactivate
 # conda activate BUSCO
 
-cd '/home/users/kika/trimastix/'
+cd '/home/users/kika/workdir/'
 mkdir BUSCO_summaries
 
-for fasta in *.faa; do
+for fasta in *.fna; do
 	echo $fasta
-	mode='proteins'
+	# mode='proteins'
 	# mode='genome'
-	# mode='transcriptome'
+	mode='transcriptome'
 	
 	lineage='eukaryota_odb12'
 	base=${fasta%.faa}_$lineage
