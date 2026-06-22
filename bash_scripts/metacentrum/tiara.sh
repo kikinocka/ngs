@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N tiara
 #PBS -l select=1:ncpus=20:mem=100gb:scratch_local=50gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=04:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -19,7 +19,7 @@ datadir='/storage/brno12-cerit/home/kika/blastocystis/'
 tiarahome='/storage/brno12-cerit/home/kika/tiara_env'
 
 #copy files to scratch
-cp $datadir'assemblies/'*.fna $SCRATCHDIR
+cp $datadir'assemblies/unfiltered'* $SCRATCHDIR
 echo '------------------'
 echo 'copying files done'
 echo '------------------'
@@ -34,14 +34,14 @@ echo '------------------------------'
 echo 'mamba env copied and activated'
 echo '------------------------------'
 
-for file in *fna ; do
+for file in *fasta ; do
 	echo '--------------'
 	echo 'starting Tiara'
 	echo '--------------'
 	echo $file
 
-	name=${file%.fna}
-	out=${file%.fna}.tiara_mito.tsv
+	name=${file%.fasta}
+	out=$name.tiara_mito.tsv
 	mkdir $name
 	cd $name
 	tiara -i ../$file -o $out -t $PBS_NUM_PPN --tf mit --pr
@@ -77,5 +77,5 @@ done
 mamba deactivate
 
 #copy files back
-rm -r *.fna tiara_env
+rm -r *.fasta tiara_env
 cp -r * $datadir'tiara/' && clean_scratch
