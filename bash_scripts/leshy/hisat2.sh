@@ -4,10 +4,10 @@ cd '/mnt/mokosz/home/kika/egracilis/chinese/'
 
 genome='GCA_039621445.1_ASM3962144v1_genomic.fna'
 
-fw1='RNA_reads/SRR17465011_trimmed_1.fq.gz'
+# fw1='RNA_reads/SRR17465011_trimmed_1.fq.gz'
 fw2='RNA_reads/SRR17465012_trimmed_1.fq.gz'
 
-rv1='RNA_reads/SRR17465011_trimmed_2.fq.gz'
+# rv1='RNA_reads/SRR17465011_trimmed_2.fq.gz'
 rv2='RNA_reads/SRR17465012_trimmed_2.fq.gz'
 
 index='EG_control_ht2'
@@ -20,8 +20,8 @@ sorted=$index'.sorted.bam'
 
 hisat2-build -p 20 $genome $index
 hisat2 -p 15 -x $index \
-	-1 $fw1,$fw2 \
-	-2 $rv1,$rv2 \
+	-1 $fw2 \
+	-2 $rv2 \
  	--un-gz $unmapped_unpaired --un-conc-gz $unmapped_paired -S $sam 2> $report
 
 samtools view -bS $sam > $bam -@ 20
