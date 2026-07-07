@@ -2,7 +2,7 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/eukaryotes/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/clathrin/parabsalia_Unjal/')
 aln = SeqIO.parse('CHC.mafft.aln', 'fasta')
 out = 'CHC.residues.tsv'
 
@@ -18,9 +18,9 @@ with open(out, 'w') as result:
 	result.write('sequence\tK1326\tK1415\n')
 	# result.write('sequence\tW108/105\tW130/127\tW141/138\n')
 	for seq in aln:
-		pos_1 = seq.seq[5405]
-		pos_2 = seq.seq[5589]
-		# pos_3 = seq.seq[944]
+		pos_1 = seq.seq[1378]
+		pos_2 = seq.seq[1467]
+		# pos_3 = seq.seq[252]
 		result.write('{}\t{}\t{}\n'.format(seq.name, pos_1, pos_2))
 		# result.write('{}\t{}\t{}\t{}\n'.format(seq.name, pos_1, pos_2, pos_3))
 
