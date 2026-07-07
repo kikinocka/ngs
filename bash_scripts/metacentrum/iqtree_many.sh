@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/ver3'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/haptophytes'
 
 #copy files to scratch
-cp $data_dir'/'* $SCRATCHDIR
+cp $data_dir'/'*trimal* $SCRATCHDIR
 
 
 #compute on scratch
@@ -30,7 +30,7 @@ for aln in *.aln ; do
 	# iqtree -m GTR+G -nt AUTO -ntmax $PBS_NUM_PPN -b $bb -quiet -s ${aln}
 
 	iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
-	iqtree3-mpi -m LG+C20+G -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
+	iqtree3-mpi -m LG+C60+G -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 done
 
 #copy files back
