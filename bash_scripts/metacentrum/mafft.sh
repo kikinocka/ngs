@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/baseJ/snf2/ver5/'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/'
 
 #copy files to scratch
-cp $data_dir'snf2.fa' $SCRATCHDIR
+cp $data_dir'prop-sol.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
