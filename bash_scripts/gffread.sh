@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #extract proteins
-genome='/Users/kika/ownCloud/kinetoplastids/GP63/chr10/Ld10__Ld10_v01s1.fa'
-gff='/Users/kika/ownCloud/kinetoplastids/GP63/chr10/LD10__gp63.gff3'
-proteins='/Users/kika/ownCloud/kinetoplastids/GP63/chr10/LD10__proteins.fa'
+genome='/Users/kika/mapping/euglena/chinese/GCA_039621445.1_ASM3962144v1_genomic.fna'
+gff='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.gff3'
+proteins='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.faa'
 
 gffread $gff -g $genome -y $proteins 
  

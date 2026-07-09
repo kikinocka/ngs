@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N IQT
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=336:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,24 +10,23 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/dicty_JPP/RABs/'
+datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/haptophytes/'
 
 #copy files to scratch
-cp $datadir'rabs.trimal_gt-0.8.aln' $SCRATCHDIR
-cp $datadir'guide'* $SCRATCHDIR
+cp $datadir'prop-sol.trimal_gt-0.7.aln' $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='rabs.trimal_gt-0.8.aln'
-guide='guide_rabs'
+aln='prop-sol.trimal_gt-0.7.aln'
+guide='guide_prop-sol'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000
 nm=5000
 
 
-# iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
+iqtree3-mpi -m LG+G -T AUTO --threads-max $PBS_NUM_PPN --quiet --safe -s $aln --prefix $guide
 iqtree3-mpi -m LG+C60+G -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --safe -s $aln --tree-freq $guide_tree --boot-trees
 # -g $constr 
 
@@ -35,5 +34,5 @@ iqtree3-mpi -m LG+C60+G -T $PBS_NUM_PPN -B $bb --alrt $bb --nmax $nm --quiet --s
 # 	-T AUTO --threads-max $PBS_NUM_PPN -B $bb --nmax $nm --quiet --safe -s $aln
 
 #copy files back
-rm $aln guide* #$constr
+rm $aln #$constr
 cp * $datadir && clean_scratch
