@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/stramenopiles/ver2/'
 
 #copy files to scratch
-cp $data_dir'prop-sol.fa' $SCRATCHDIR
+cp $data_dir'medium.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR

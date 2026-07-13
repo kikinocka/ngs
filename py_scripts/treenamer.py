@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/rhodophytes/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/haptophyta/ver1/')
 # trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
 trees = [x for x in os.listdir() if x.startswith('large-beta.trimal_gt-0.7.aln.treefile')]
 
