@@ -10,16 +10,16 @@ cat $PBS_NODEFILE
 #add module
 module load iqtree
 
-datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/haptophytes/'
+datadir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/stramenopiles/ver2/'
 
 #copy files to scratch
-cp $datadir'prop-sol.trimal_gt-0.7.aln' $SCRATCHDIR
+cp $datadir'medium.trimal_gt-0.7.aln' $SCRATCHDIR
 # cp $datadir'spp_constr.tre' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
-aln='prop-sol.trimal_gt-0.7.aln'
-guide='guide_prop-sol'
+aln='medium.trimal_gt-0.7.aln'
+guide='guide_medium'
 guide_tree=$guide'.treefile'
 # constr='spp_constr.tre'
 bb=1000
