@@ -27,11 +27,11 @@ cd $SCRATCHDIR
 
 mkdir BUSCO_summaries
 
-lineage='eukaryota_odb10'
-transcriptome=’Tmar50_trinity.fasta’
-base_tr=${transcriptome%.fasta}_$lineage
-proteins=’longest_orfs.pep’
-base_pr=${longest%.pep}_$lineage
+lineage=eukaryota_odb10
+transcriptome=Tmar50_trinity.fasta
+base_tr=Tmar50_trinity_eukaryota_odb10
+proteins=longest_orfs.pep
+base_pr=longest_orfs_eukaryota_odb10
 
 busco -i $transcriptome -l $lineage -o $base_tr -m transcriptome -c $PBS_NUM_PPN
 cp $base_tr'/short_summary.'*'.txt' BUSCO_summaries
