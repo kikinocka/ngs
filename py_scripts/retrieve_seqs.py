@@ -2,9 +2,9 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/stramenopiles-haptophytes/ver2/prop-sol/')
-files = [x for x in os.listdir() if x.endswith('in.acc')]
-database = 'prop-sol.fa'
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/WD_prot/')
+files = [x for x in os.listdir() if x.endswith('.acc')]
+database = '/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/stramenopiles/ver1/prop-sol/prop-sol.fa'
 
 for accessions in files: 
 	print(accessions)

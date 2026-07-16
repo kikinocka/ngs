@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N mafft
 #PBS -l select=1:ncpus=20:mem=20gb:scratch_local=1gb
-#PBS -l walltime=02:00:00
+#PBS -l walltime=24:00:00
 #PBS -m ae
 #PBS -j oe
 
@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/stramenopiles/ver2/'
+data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/wd_prot/ver2/'
 
 #copy files to scratch
-cp $data_dir'medium.fa' $SCRATCHDIR
+cp $data_dir'wd40.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
