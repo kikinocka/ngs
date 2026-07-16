@@ -10,17 +10,17 @@ cat $PBS_NODEFILE
 #add module
 module add quast
 
-datadir='/storage/brno12-cerit/home/kika/cz-au_fire/'
+datadir='/storage/brno12-cerit/home/kika/trimastix/Tmar50_trinity/'
 # outdir=$datadir'3-quast/'
 
 #copy files to scratch
-cp $datadir'contigs_fixlabel.fasta' $SCRATCHDIR
+cp $datadir'Tmar50_trinity.fasta' $SCRATCHDIR
 
 
 #compute on scratch
 cd $SCRATCHDIR
 
-assemblies='contigs_fixlabel.fasta'
+assemblies='Tmar50_trinity.fasta'
 min_contig=500
 
 quast.py -o $SCRATCHDIR -t $PBS_NUM_PPN --min-contig $min_contig $assemblies
