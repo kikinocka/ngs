@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 import os
 
-os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/haptophyta/ver1/')
+os.chdir('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/stramenopiles/')
 # trees = [x for x in os.listdir() if x.endswith('.aln.treefile')]
-trees = [x for x in os.listdir() if x.startswith('large-beta.trimal_gt-0.7.aln.treefile')]
+trees = [x for x in os.listdir() if x.startswith('small.trimal_gt-0.7.aln.treefile')]
 
 #file in format Acc. number \t name of organism \n
-names = open('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/large-beta_names.txt')
+names = open('/Users/kika/ownCloud/membrane-trafficking/TSET_haptophytes/small_names.txt')
 
 name_dict = {}
 for name in names:
