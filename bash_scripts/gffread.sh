@@ -3,9 +3,13 @@
 #extract proteins
 genome='/Users/kika/mapping/euglena/chinese/GCA_039621445.1_ASM3962144v1_genomic.fna'
 gff='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.gff3'
-proteins='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.faa'
+exons='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.exons.fna'
+cds='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.cds.fna'
+proteins='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.prot.faa'
 
-gffread $gff -g $genome -y $proteins 
+gffread $gff -g $genome -w $exons 
+gffread $gff -g $genome -x $cds
+gffread $gff -g $genome -y $proteins
  
  # -w    write a fasta file with spliced exons for each transcript
  # -x    write a fasta file with spliced CDS for each GFF transcript
