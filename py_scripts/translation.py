@@ -2,10 +2,10 @@
 import os
 from Bio import SeqIO
 
-os.chdir('/Users/kika/Downloads/')
-infile = SeqIO.parse('TriTrypDB-68_TbruceiTREU927_AnnotatedCDSs.fasta', 'fasta')
-output = open('Tbruc_CAAtoM.fa', 'w')
-error = open('Tbruc_CAAtoM.errors.fa', 'w')
+os.chdir('/Users/kika/data/kinetoplastids/')
+infile = SeqIO.parse('Phytomonas_serpens.GCA_000331125_genomic.fna', 'fasta')
+output = open('Phytomonas_serpens.GCA_000331125_genomic.translated.fa', 'w')
+error = open('Phytomonas_serpens.GCA_000331125_genomic.errors.fa', 'w')
 
 gencode = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',

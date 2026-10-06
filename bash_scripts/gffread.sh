@@ -1,14 +1,14 @@
 #!/bin/sh
 
 #extract proteins
-genome='/Users/kika/mapping/euglena/chinese/GCA_039621445.1_ASM3962144v1_genomic.fna'
-gff='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.gff3'
-exons='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.exons.fna'
-cds='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.cds.fna'
-proteins='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.prot.faa'
+genome='/Users/kika/data/kinetoplastids/Vickermania_final_polished_1.fa'
+gff='/Users/kika/data/kinetoplastids/Vickermania_scaffold.out_1.gff3'
+# exons='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.exons.fna'
+# cds='/Users/kika/ownCloud/Euglena_gracilis/pellicle/lucia/titins/titins_chinese.cds.fna'
+proteins='/Users/kika/data/kinetoplastids/Vickermania_proteins_1.faa'
 
-gffread $gff -g $genome -w $exons 
-gffread $gff -g $genome -x $cds
+# gffread $gff -g $genome -w $exons 
+# gffread $gff -g $genome -x $cds
 gffread $gff -g $genome -y $proteins
  
  # -w    write a fasta file with spliced exons for each transcript
