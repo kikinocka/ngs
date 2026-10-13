@@ -10,10 +10,10 @@ cat $PBS_NODEFILE
 #add module
 module load mafft
 
-data_dir='/storage/brno12-cerit/home/kika/membrane-trafficking/tset_haptophytes/wd_prot/ver2/'
+data_dir='/storage/brno12-cerit/home/kika/kinetoplastids/gp63/ver5/'
 
 #copy files to scratch
-cp $data_dir'wd40.fa' $SCRATCHDIR
+cp $data_dir'gp63.fa' $SCRATCHDIR
 
 #compute on scratch
 cd $SCRATCHDIR
